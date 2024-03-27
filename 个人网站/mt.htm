@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MT</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="et.css"/>
+</head>
+<body>
+
+<div class="header">
+    <h1>MT</h1>
+</div>
+<div class="menu">
+    <a href="#" title="返回最上面"><i class="fa fa-arrow-circle-up"></i></a>
+    <a href="index.htm" title="主页"><i class="fa fa-home"></i></a>
+    <a onclick="openNav()" title="目录"><i class="fa fa-bars"></i></a>
+    <div id="mySidenav" class="sidenav tab">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="et-gy.htm">ET</a>
+        <a href="ct.htm">CT</a>
+        <a href="mt.htm">MT</a>
+        <a href="at.htm">AT</a>
+        <a href="index.htm">首页</a>
+    </div>
+    <a onclick="goBack()" title="返回上一页"><i class="fa fa-chevron-circle-left"></i></a>
+    <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+        }
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }//菜单
+        
+        function goBack() {
+          window.history.back();
+        }//返回上一页
+    </script>
+</div>
+<div class="text1">
+
+
+</div>
+<div class="footer">
+    <p>网页到底了！<a href="index.htm">回到首页</a></p>
+</div>
+ 
+</body>
+</html>
