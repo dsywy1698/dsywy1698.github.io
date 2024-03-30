@@ -227,14 +227,6 @@ padding:10px;
 border-radius:20px;
 margin-top:10px;
 }
-.xinwen-text{
-background-color:#1a0033;
-height:300px;
-overflow:auto;
-padding:10px;
-color:#fff;
-margin-top:5px;
-}
 .xinwen h2,.xinwen h1{
 margin:5px 0;
 }
@@ -244,6 +236,37 @@ background-color:#fff;
 }
 .xinwen a{
 color:yellow;
+}
+
+.tab{
+overflow:hidden;
+border:1px solid #ccc;
+background-color:#f1f1f1;
+}
+.tab button{
+background-color:inherit;
+float:left;
+border:none;
+outline:none;
+cursor:pointer;
+padding:10px;
+/*transition:0.3s;*/
+font-size: 17px;
+width:50%;
+}
+.tab button:hover{
+background-color:#ddd;
+}
+.tab button.active{
+background-color:#ccc;
+}
+.tabcontent{
+display:none;
+height:400px;
+overflow:auto;
+background-color:#000066;
+color:#ffffff;
+padding:10px;
 }
 /*新闻-结束*/
 
@@ -648,7 +671,11 @@ border-radius:10px;
     </div>
     <div class="xinwen">
         <h1>最新资讯！</h1>
-        <div class="xinwen-text">
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'one')" id="defaultOpen">班级大事</button>
+            <button class="tablinks" onclick="openCity(event, 'two')">最近更新</button>
+        </div>
+        <div id="one" class="tabcontent">
             <h2>欢迎来到我的网页！</h2>
             <p>该网页是使用<a href="https://github.com">github</a>发布的。接下来，六（1）的事件将在整个互联网公布！！！</p>
             <hr/>
@@ -659,7 +686,6 @@ border-radius:10px;
             <h2>3月27日</h2>
             <p>老母猪生日party&nbsp;<a href="pupil.htm#lyx">一探究竟</a></p>
             <p>此处保存了80%的学生丑照。</p>
-            <hr/>
             <h2>3月22日</h2>
             <p>叶宸铭在回家路上突然说：“完了！零食演唱会的贴纸没撕！”（叶宸铭在放学前将写有“零食演唱会”的便利贴贴在课桌侧面）</p>
             <p>发现ET在“东升小学”站乘76路公交车回家。</p>
@@ -667,6 +693,26 @@ border-radius:10px;
             <h2>更早</h2>
             <p>蔡宇城午托时写小黄文。</p>
         </div>
+        <div id="two" class="tabcontent">
+            <h2>最近更新</h2>
+            <p>2024年3月30日&nbsp;&nbsp;<a href="file.htm#zc">早操</a></p>
+        </div>
+        <script>
+            function openCity(evt, cityName) {
+              var i, tabcontent, tablinks;
+              tabcontent = document.getElementsByClassName("tabcontent");
+              for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+              }
+              tablinks = document.getElementsByClassName("tablinks");
+              for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+              }
+              document.getElementById(cityName).style.display = "block";
+              evt.currentTarget.className += " active";
+            }
+            document.getElementById("defaultOpen").click();
+        </script>
     </div>
     <h1 class="title1">ET</h1>
     <div class="col">
