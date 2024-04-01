@@ -14,6 +14,7 @@ overflow-x:hidden;
 }
 *{
 font-family:sans-serif;
+box-sizing:border-box;
 }
 
 /*标题-开始*/
@@ -343,6 +344,32 @@ padding:10px;
 border-radius:10px;
 color:#330080;
 }
+
+.xcz-draw{
+float:left;
+padding:5px;
+background-color:#ffe6cc;
+}
+.xcz-draw>h2{
+display:block;
+text-align:center;
+margin:10px;
+}
+.xcz-drawimg{
+width:50%;
+border:1px solid #000;
+background-color:#ffcc99;
+float:left;
+}
+.xcz-imgtitle{
+text-align:center;
+}
+.xcz-drawp{
+margin:5px;
+height:70px;
+overflow:auto;
+display:block;
+}
 /*正文-结束*/
 
 /*表格-开始*/
@@ -470,7 +497,7 @@ padding:0 5px;
 </div>
 <div class="menu">
     <a href="#" title="返回最上面"><i class="fa fa-arrow-circle-up"></i></a>
-    <a href="index.html" title="主页"><i class="fa fa-home"></i></a>
+    <a href="index.htm" title="主页"><i class="fa fa-home"></i></a>
     <a onclick="openNav()" title="目录"><i class="fa fa-bars"></i></a>
     <div id="mySidenav" class="sidenav tab">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -699,6 +726,10 @@ padding:0 5px;
     <div class="watch">
         <p>叶宸铭正走在回家的路上，突然发现前面有一只大狗，于是顿时谨慎起来，蹑手蹑脚地走着，生怕惊动那条狗。但最后还是惊动了，只听狗“汪！汪！”地叫着（我甚至没看到那条狗是否追来），叶宸铭拉着我就往回跑。跑了一会儿，后面终于没东西了，但叶宸铭还是很怕，甚至想往另一条路绕。</p>
     </div>
+    <h2>恐龙</h2>
+    <p>叶宸铭非常喜欢恐龙，经常会画一堆出来，比如：</p>
+    <img src="img/ycm-kl1.jpg" alt="恐龙" width="50%" style="float:left"/>
+    <img src="img/ycm-kl2.jpg" alt="恐龙" width="50%" style="float:left"/>
     <h2>经典</h2>
     <p>叶宸铭自然闹过很多笑话，其中最特别的几个都在下面了。</p>
     <h3>吵架</h3>
@@ -1446,6 +1477,32 @@ padding:0 5px;
     <p>谢承志很讨厌别人用红笔写他的名字。他认为，这样子很不吉利，且有诅咒的意思。</p>
     <h2>小说</h2>
     <p>谢承志真的特别喜欢看那本《林长治讲故事》，几乎每天都会拿出来和叶宸铭分享。当然，他回家后还很喜欢看小说（是他自己讲的），要么是“七猫免费小说”，要么是“番茄免费小说”。</p>
+    <h2>画画</h2>
+    <p>谢承志画了许多人像，但是巨丑，不信你看：</p>
+    <div class="xcz-draw">
+        <h2>谢承志名画大赏</h2>
+        <div class="xcz-drawimg">
+            <p class="xcz-imgtitle">《大嘴巴》</p>
+            <img src="img/xcz-draw1.jpg" alt="谢承志名画"/>
+            <p class="xcz-drawp">这是谁呀！！！</p>
+        </div>
+        <div class="xcz-drawimg">
+            <p class="xcz-imgtitle">《殴容》</p>
+            <img src="img/xcz-draw2.jpg" alt="谢承志名画"/>
+            <p class="xcz-drawp">运用了夸张的修辞手法，生动、形象地写出了AT的自傲，将AT上课时的场景淋漓尽致地展现了出来。</p>
+        </div>
+        <div class="xcz-drawimg">
+            <p class="xcz-imgtitle">《满脸都是牙齿》</p>
+            <img src="img/xcz-draw3.jpg" alt="谢承志名画"/>
+            <p class="xcz-drawp">牙齿比眼睛还大……</p>
+        </div>
+        <div class="xcz-drawimg">
+            <p class="xcz-imgtitle">《大头儿子》</p>
+            <img src="img/xcz-drawycm1.jpg" alt="谢承志名画"/>
+            <p class="xcz-drawp">句型鼻梁是什么意思？</p>
+        </div>
+    </div>
+    <p>你就说抽象不？</p>
     <div class="paper">
         <h2>谢承志档案</h2>
         <p>姓名：&nbsp;谢承志<br/>
@@ -1513,6 +1570,7 @@ padding:0 5px;
         </video>
         <p>自始至终，她们都在刷题……</p>
         <p>到了万达后，我们来到了“融福记”这家……饭馆！（真没想到），并进入了包间。那三人也不刷题了，而是掏出手机（张纤雅除外）打游戏（蛋仔派对），林泽晨、陈昊圻、郭予凡则在打游戏（游戏名不知）。后来，大家开始互相拍照。</p>
+        <p>还有一件事，就是老母猪吃蜜雪冰城的圣代（冰淇淋），竟然喜欢吃化了的。</p>
         <video width="50%" style="float:left;" controls>
             <source src="img/party/party-dinner.mp4" type="video/mp4"/>
             视频没了！
@@ -1541,7 +1599,10 @@ padding:0 5px;
         <video width="100%" controls>
             <source src="img/party/birthday.mp4" type="video/mp4"/>
             视频没了！
-        </video>
+        </video><!--
+        <h3>林泽晨的噩梦</h3>
+        <p>另一件事就是林泽晨被整。由于他借了一个充电宝
+        -->
         <p>吃完饭，大家竟然来到了外面拼积木！不过拼了一会儿也不拼了。</p>
         <video width="100%" controls>
             <source src="img/party/party-go.mp4" type="video/mp4"/>
@@ -1603,10 +1664,11 @@ padding:0 5px;
     </div>
     <hr id="cyc"/>
     <h1>蔡宇城</h1>
-    <h2>小黄文</h2>
+    <h2>色情</h2>
     <p>蔡宇城本来不会出现在这里面的，但是他凭“实力”成功挤了进来，原因就是他写小黄文。午托时，蔡宇城拿衣服裹住自己，说要看“小黄文”——当然他说的没错。蔡宇城的小黄文是用自己的手表写的，而且他还很喜欢写。里面有色情的内容（蔡宇城对外宣布这是“18禁”的内容），他甚至还把这些文章的标题改为“谢卉的文件袋”“谢卉的文件袋2”“mt的文件袋”“语文复习资料”等等，并且为了防止偷看，他甚至设置了人脸解锁。</p>
     <p>他还说，自己共写了三篇，一篇“男女”（也就是一男一女的故事）以及两篇“男男”，并说里面有<span id="se" onclick="document.getElementById('se').innerHTML='“阴茎”“阴毛”“精液”“睾丸”“龟头”'"><span style="background-color:yellow;color:red">少儿不宜，谨慎点击（点击可显示）</span></span>等敏感词汇，所以不让人看，也不让人打扰，因为他说“一打扰就会立”。</p>
-    <p>自此，蔡宇城就开启了他的“色情生涯”。比如他会问你有没有“peter”（中文自己搜），或者跟李诗彤说晚上要搜索阴茎的画法以及搜索阴茎的生理结构，然后还要截图。</p>
+    <p>蔡宇城不知道从哪里得知了一些色情新闻，如“一男子认为自己无性，于是将阴茎当场煮来吃”“有人对一男子说他的阴茎很短，于是那人直播时当场脱裤子展示”之类的。</p>
+    <p>自此，蔡宇城就开启了他的“色情生涯”。有段时间，他甚至会去手表中的《现代汉语词典》和《新牛津英汉双解大词典》中搜索色情词汇并截图。一次午托，他试着用小度翻译了一下“eat your penis”，结果还真行，翻译后是<span id="se2" onclick="document.getElementById('se2').innerHTML='“吃掉你的阴茎”'"><span style="background-color:yellow;color:red">点击可显示</span></span>。就这样，他开始疯狂翻译，比如<span id="se3" onclick="document.getElementById('se3').innerHTML='“打断你的阴茎”“玩你的阴茎”“帅哥吃他的阴茎”“女人吃他的阴茎”“你的阴茎比我短”'"><span style="background-color:yellow;color:red">点击可显示</span></span>等等。后来，他还用英语写起了小黄文。那天下午，他还和陈宇恒大谈“阴茎”。</p>
     
     <!--
     <hr id="zqk"/>
