@@ -1,0 +1,333 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>六年一班</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<style>
+body{
+margin:0;
+padding:0;
+overflow-x:hidden;
+}
+*{
+font-family:sans-serif;
+box-sizing:border-box;
+}
+
+/*标题-开始*/
+.header{
+background-color:#f2f2f2;
+padding:10px;
+}
+.header>h1{
+margin:0;
+font-size:70px;
+padding:0;
+}
+/*标题-结束*/
+
+/*导航栏-开始*/
+.menu{
+width:100%;
+background-color:#333333;
+font-size:25px;
+padding:5px 0;
+position:-webkit-sticky;
+position:sticky;
+top:0;
+z-index:2;
+}
+.menu>a{
+color:white;
+diaplay:block;
+padding:5px 15px;
+}
+.menu>a:hover{
+color:white;
+padding:5px 15px;
+diaplay:block;
+background-color:#666666;
+}
+
+#menu{
+display:none;
+margin-top:5px;
+height:auto;
+max-height:300px;
+overflow:auto;
+}
+#menu>hr{
+margin:0;
+}
+
+.zd{
+background-color:#eee;
+color:#444;
+padding:10px;
+width:100%;
+border:none;
+text-align:left;
+outline:none;
+font-size:15px;
+}
+.zd:hover{
+background-color:#ccc; 
+}
+.panel{
+display:none;
+background-color:white;
+overflow:hidden;
+}
+.panel>a{
+text-decoration:none;
+color:#000000;
+font-size:0.7em;
+width:100%;
+display:block;
+}
+.panel>a:hover{
+background-color:#e6e6e6;
+}
+
+.sidenav{
+height:100%;
+width:0;
+position:fixed;
+z-index:1;
+top:0;
+left:0;
+background-color:#111;
+overflow-x:hidden;
+transition:0.5s;
+padding-top:60px;
+}
+.sidenav a{
+padding:8px 8px 8px 32px;
+text-decoration:none;
+font-size:20px;
+color:#818181;
+display:block;
+transition:0.5s;
+}
+.sidenav a:hover{
+color:#f1f1f1;
+}
+.sidenav .closebtn {
+position:absolute;
+top:0;
+right:25px;
+font-size:36px;
+margin-left:50px;
+}
+
+/*导航栏-结束*/
+
+/*正文-开始*/
+.text1{
+background-color:#e6ffe6;
+padding:10px;
+margin-top:5px;
+}
+.display,.text1::after,.text2::after{
+content:"";
+clear:both;
+display:table;
+}
+.text2{
+background-color:#0000e6;
+padding:10px;
+margin-top:5px;
+color:white;
+}
+.text2 hr{
+color:white;
+}
+.title{
+font-size:40px;
+margin:5px 0;
+}
+.watch{
+padding:5px;
+border-left:7px solid blue;
+background-color:white;
+overflow:auto;
+}
+.paper{
+background-color:#f2f2f2;
+border:0.5px solid #999999;
+padding:5px;
+margin:5px 0;
+}
+.paper h2,.paper h1{
+margin:5px 0;
+}
+.button{
+width:30%;
+margin-bottom:10px;
+background-color:#00b300;
+border:0;
+font-size:18px;
+padding:5px;
+border-radius:5px;
+}
+.button:hover{
+background-color:#009900;
+}
+img,.max-width{
+max-width:100%;
+}
+img{
+object-fit: contain;
+}
+.float-l{
+float:left;
+}
+.float-r{
+float:right;
+}
+.watch-box{
+border:3px solid #4d4dff;
+border-radius:20px;
+padding:20px;
+background-color:#ccccff;
+}
+.watch-box-text{
+overflow: scroll;
+background-color:white;
+padding:0px 20px;
+height:400px;
+}
+
+
+/*正文-结束*/
+
+/*表格-开始*/
+table,th,td{
+border:1px solid black;
+border-collapse:collapse;
+text-align:center;
+font-size:20px;
+padding:2px 0;
+}
+table{
+margin:auto;
+width:90%;
+}
+#a{
+color:white;
+background-color:#cc0052;
+}
+#b{
+background-color:#ffe6e6;
+}
+#c{
+background-color:#e6ffff;
+}
+table a{
+display:block;
+text-decoration:none;
+color:#000000;
+}
+/*表格-结束*/
+
+/*页脚-开始*/
+.footer{
+background-color:black;
+text-align:center;
+margin:5px 0;
+padding:15px 0;
+}
+.footer a,.footer p{
+color:white;
+padding:0 5px;
+}
+/*页脚-结束*/
+
+@media screen and (min-width: 1400px) {
+ 
+ *{
+ font-size:20px;
+ }
+ h1{
+ font-size:35px;
+ }
+ 
+ /*标题-开始*/
+ .header{
+ padding:20px;
+ }
+ .header>h1{
+ font-size:90px;
+ }
+ /*标题-结束*/
+ 
+ /*正文-开始*/
+ /*正文-结束*/
+ 
+}
+
+@media screen and (max-width: 480px) {
+
+ /*正文-开始*/
+
+ /*正文-结束*/
+
+}
+
+@media screen and (max-width: 600px) {
+
+ 
+ .button{
+ width:auto;
+ padding:5px 20px;
+ }
+ 
+}
+
+@media screen and (max-width: 800px) {
+
+ /*标题-开始*/
+ .header{
+ padding:10px;
+ }
+ .header>h1{
+ font-size:60px;
+ }
+ /*标题-结束*/
+ 
+ 
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>关于</h1>
+</div>
+<div class="menu">
+    <a href="index.html" title="主页"><i class="fa fa-home"></i></a>
+</div>
+<div class="text1">
+    <h2>声明</h2>
+    <p>该网站仅给部分人看，当然，你如果不认识也看得到，因为我并没有设置任何密码验证环节。</p>
+    <h2>关于“bug”</h2>
+    <p>网站可能有一些问题，请在线下找我说明！！！</p>
+    <h2>真实性</h2>
+    <p>该网站的内容100%真实（除非我事先声明：这是谣言）</p>
+    <h2>没更新？</h2>
+    <p>如果没有更新，可能是以下情况：</p>
+ <ul>
+  <li>网站未添加新内容</li>
+  <li>请刷新你的浏览器，若还是没有，请关闭浏览器并重试。</li>
+ </ul>
+</div>
+<div class="footer">
+    <p>网页到底了！</p>
+</div>
+ 
+</body>
+</html>
