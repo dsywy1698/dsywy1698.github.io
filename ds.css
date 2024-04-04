@@ -26,9 +26,6 @@ font-size:30px;
 text-align:center;
 margin-bottom:5px;
 }
-.max-width{
-max-width:100%;
-}
 .alert{
 border:1px solid red;
 border-radius:15px;
@@ -41,7 +38,7 @@ margin:5px 0;
 canvas,audio{
 max-width:100%;
 }
-img,video{
+img,video,.max-width,iframe{
 max-width:100%;
 object-fit: contain;
 }
