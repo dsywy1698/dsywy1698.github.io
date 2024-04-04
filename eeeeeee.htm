@@ -1,17 +1,12 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-<title>六年一班</title>
+<title>惊喜！</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <link rel="stylesheet" href="ds.css"/>
 <style>
-body{
-overflow-x:hidden;
-}
-
 /*标题-开始*/
 .header{
 background-color:#f2f2f2;
@@ -126,7 +121,7 @@ background-color:#e6ffe6;
 padding:10px;
 margin-top:5px;
 }
-.display,.text1::after,.text2::after{
+.text1::after{
 content:"";
 clear:both;
 display:table;
@@ -139,6 +134,11 @@ color:white;
 }
 .text2 hr{
 color:white;
+}
+.text2::after{
+content:"";
+clear:both;
+display:table;
 }
 .title{
 font-size:40px;
@@ -156,12 +156,7 @@ border-radius:5px;
 .button:hover{
 background-color:#009900;
 }
-.float-l{
-float:left;
-}
-.float-r{
-float:right;
-}
+
 .watch-box{
 border:3px solid #4d4dff;
 border-radius:20px;
@@ -173,6 +168,12 @@ overflow: scroll;
 background-color:white;
 padding:0px 20px;
 height:400px;
+}
+
+table a{
+display:block;
+text-decoration:none;
+color:#000000;
 }
 /*正文-结束*/
 
@@ -223,11 +224,6 @@ padding:0 5px;
 @media screen and (max-width: 600px) {
 
  
- .button{
- width:auto;
- padding:5px 20px;
- }
- 
 }
 
 @media screen and (max-width: 800px) {
@@ -249,24 +245,31 @@ padding:0 5px;
 <body>
 
 <div class="header">
-    <h1>关于</h1>
+    <h1>惊喜</h1>
 </div>
 <div class="menu">
     <a href="index.html" title="主页"><i class="fa fa-home"></i></a>
+    <a onclick="goBack()" title="返回上一页"><i class="fa fa-chevron-circle-left"></i></a>
+    <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+        }
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }//菜单
+        
+        function goBack() {
+          window.history.back();
+        }//返回上一页
+    </script>
 </div>
 <div class="text1">
-    <h2>声明</h2>
-    <p>该网站仅给部分人看，当然，你如果不认识也看得到，因为我并没有设置任何密码验证环节。</p>
-    <h2>关于“bug”</h2>
-    <p>网站可能有一些问题，请在线下找我说明！！！</p>
-    <h2>真实性</h2>
-    <p>该网站的内容100%真实（除非我事先声明：这是谣言）</p>
-    <h2>没更新？</h2>
-    <p>如果没有更新，可能是以下情况：</p>
- <ul>
-  <li>网站未添加新内容</li>
-  <li>请刷新你的浏览器，若还是没有，请关闭浏览器并重试。</li>
- </ul>
+    <p>你进入了一个隐藏的网页！</p>
+    <p>如果在线下将启动码交给我，即可直接召唤《ET日常4》！</p>
+    <p>（不过，可能召唤不了《CT日常1》）</p>
+    <p>启动码是：</p>
+    <h1 style="text-align:center;background-color:#fff;padding:5px;" class="title">1027</h1>
+    <p>你如果成功召唤，就会出现一个《ET日常4》编写进度的网页；如果不召唤，可能就看不到了……</p>
 </div>
 <div class="footer">
     <p>网页到底了！</p>
