@@ -5,9 +5,19 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-<link rel="icon" href="ico/61.ico"/>
-<link rel="stylesheet" href="ds.css"/>
 <style>
+body{
+margin:0;
+padding:0;
+}
+*{
+font-family:Arial, Helvetica, sans-serif;
+box-sizing:border-box;
+}
+img,video,audio,iframe{
+max-width:100%;
+}
+
 /*模块-开始*/
 .col{
 display:flex;
@@ -194,6 +204,19 @@ input{
 outline: none;
 }
 /*正文-结束*/
+
+/*警告框-开始*/
+.alert{
+border:1px solid red;
+border-radius:10px;
+background-color:#ffb3b3;
+padding:10px;
+color:#1a0500;
+}
+.alert>h1{
+margin:7px 0;
+}
+/*警告框-结束*/
 
 /*新闻-开始*/
 .xinwen{
@@ -452,104 +475,7 @@ border-radius:10px;
     <h1>六年一班</h1>
 </div>
 <div class="menu">
-    <a title="搜索网页" id="myBtn"><i class="fa fa-search"></i></a>
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-            <span class="close">&times;</span><h4 style="margin:2px;">搜索</h4>
-            <div id="search-form">
-                <input type="text" id="search-input" placeholder="搜索关键词或网页" title="搜索" style="flex-grow:4">
-                <button onclick="search()" id="search-submit" style="flex-grow:1">搜索</button>
-            </div>
-            <p style="margin:5px 0;padding:0;font-size:20px;">推荐结果</p>
-                <div id="search-div">
-                    <table id="search-table">
-                        <tr><td><a href="et-gy.htm">ET简介</a></td></tr>
-                        <tr><td><a href="et-zb.htm">ET装备</a></td></tr>
-                        <tr><td><a href="et-jd.htm">ET经典</a></td></tr>
-                        <tr><td><a href="et-rc.htm">ET日常</a></td></tr>
-                        <tr><td><a href="etrc.htm">《ET日常》</a></td></tr>
-                        <tr><td><a href="pupil.htm#wxl">王湘琳</a></td></tr>
-                        <tr><td><a href="pupil.htm#rj">王湘琳日记</a></td></tr>
-                        <tr><td><a href="pupil.htm#wxl">顾兮</a></td></tr>
-                        <tr><td><a href="pupil.htm#lgy">1698</a></td></tr>
-                        <tr><td><a href="pupil.htm#lgy">乌龟</a></td></tr>
-                        <tr><td><a href="pupil.htm#lgy">42</a></td></tr>
-                        <tr><td><a href="pupil.htm#lgy">刘圭宥</a></td></tr>
-                        <tr><td><a href="et-gy.htm">谢卉</a></td></tr>
-                        <tr><td><a href="pupil.htm#qmx">瞿明爔</a></td></tr>
-                        <tr><td><a href="pupil.htm#qmx">男神</a></td></tr>
-                        <tr><td><a href="pupil.htm#qmx">标杆</a></td></tr>
-                        <tr><td><a href="pupil.htm#ycm">叶宸铭</a></td></tr>
-                        <tr><td><a href="pupil.htm#ycm">叶沉迷</a></td></tr>
-                        <tr><td><a href="pupil.htm#cyh">陈宇恒</a></td></tr>
-                        <tr><td><a href="ct.htm">CT</a></td></tr>
-                        <tr><td><a href="ct.htm">杨老登</a></td></tr>
-                        <tr><td><a href="mt.htm">MT</a></td></tr>
-                        <tr><td><a href="at.htm">AT</a></td></tr>
-                        <tr><td><a href="my.htm">名言</a></td></tr>
-                        <tr><td><a href="wh.htm">外号</a></td></tr>
-                        <tr><td><a href="zw.htm">作文</a></td></tr>
-                        <tr><td><a href="pupil.htm#lgy">1698朋友圈</a></td></tr>
-                        <tr><td><a href="file.htm">墨鱼丸</a></td></tr>
-                        <tr><td><a href="file.htm">美味小视频</a></td></tr>
-                        <tr><td><a href="my.htm#et">ET名言</a></td></tr>
-                        <tr><td><a href="my.htm#ct">CT名言</a></td></tr>
-                        <tr><td><a href="zw.htm#ycm">蚂蚁历险记</a></td></tr>
-                        <tr><td><a href="file.htm">班级大事</a></td></tr>
-                        <tr><td><a href="pupil.htm#xcz">谢承志</a></td></tr>
-                        <tr><td><a href="pupil.htm#xcz">谢瑞</a></td></tr>
-                        <tr><td><a href="pupil.htm#wym">吴一鸣</a></td></tr>
-                        <tr><td><a href="pupil.htm#wym">777</a></td></tr>
-                        <tr><td><a href="pupil.htm#lst">李诗彤</a></td></tr>
-                        <tr><td><a href="pupil.htm#lyx">林煜昕</a></td></tr>
-                        <tr><td><a href="pupil.htm#lyx">老母猪</a></td></tr>
-                        <tr><td><a href="pupil.htm#lyx">Old Woman Pig</a></td></tr>
-                        <tr><td><a href="phone.htm">电话</a></td></tr>
-                        <tr><td><a href="phone.htm">通讯录</a></td></tr>
-                        <tr><td><a href="pupil.htm#-cyh">陈彦豪</a></td></tr>
-                        <tr><td><a href="pupil.htm#cyc">蔡宇城</a></td></tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <script>
-            var modal = document.getElementById("myModal");
-            var btn = document.getElementById("myBtn");
-            var span = document.getElementsByClassName("close")[0];
-            // 当用户点击按钮时，打开模态
-            btn.onclick = function() {
-              modal.style.display = "block";
-            }
-            // 当用户点击 <span> (x) 时，关闭模态
-            span.onclick = function() {
-              modal.style.display = "none";
-            }
-            // 当用户点击模态之外的任何地方时，关闭它
-            window.onclick = function(event) {
-              if (event.target == modal) {
-              modal.style.display = "none";
-              }
-            }
-            /*以上是模态框Javascript；以下是搜索栏Javascript*/
-            function search() {
-              var input, filter, table, tr, td, i, txtValue;
-              input = document.getElementById("search-input");
-              filter = input.value.toUpperCase();
-              table = document.getElementById("search-table");
-              tr = table.getElementsByTagName("tr");
-              for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[0];
-                if (td) {
-                  txtValue = td.textContent || td.innerText;
-                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                  } else {
-                    tr[i].style.display = "none";
-                  }
-                }       
-              }
-            }
-    </script>
+    
 
     <a href="#" title="返回最上面"><i class="fa fa-arrow-circle-up"></i></a>
     <a onclick="openNav()" title="其他"><i class="fa fa-ellipsis-h"></i></a>
@@ -908,6 +834,7 @@ border-radius:10px;
     <div style="text-align:center;">
         <iframe src="ds.htm" width="600" height="500"></iframe>
     </div>
+    <p><strong>对东升小学官网代码的评价：</strong>非常烂。不该缩进时疯狂缩进，该缩进时根本不缩进。还有，上面只复制了部分代码，如果复制全部的话就会显示“无权限”。而且在电脑上看时，右上角会多出一个灰点。<!--（具体看下面一个视频）--></p>
 </div>
 <div class="footer">
     <a href="#">网页到底了！</a>
