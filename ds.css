@@ -4,6 +4,7 @@ padding:0;
 }
 *{
 box-sizing:border-box;
+overflow-x:hidden;
 }
 
 .clear::after{
@@ -62,4 +63,13 @@ background-color:#ffe6e6;
 }
 #c{
 background-color:#e6ffff;
+}
+
+
+@media screen and (max-width: 600px) {
+
+ img,video,iframe{
+ width:100%;
+ }
+ 
 }
