@@ -6,6 +6,9 @@ overflow-x:hidden;
 *{
 box-sizing:border-box;
 }
+img,video,iframe,canvas{
+max-height:90vh !important;
+}
 
 .clear::after{
 content:"";
