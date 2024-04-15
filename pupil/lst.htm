@@ -14,43 +14,14 @@ box-sizing:border-box;
 body{
 margin:0;
 }
-#loading{
-width:100%;
-height:100%;
-text-align:center;
-font-size:20px;
-padding:20px;
-background-color:#e6e6e6;
-}
-.i{
-font-size:150px;
-padding:10px;
-color:green;
-}
-button{
-font-size:30px;
-width:50%;
-border-radius:10000px;
-border:none;
-background-color:blue;
-color:#fff;
-}
+
 
 @media screen and (max-width: 600px) {
 
 }
 </style>
 </head>
-<body onload="document.getElementById('loading').style.display='none';document.getElementById('img').style.display='block';">
-<div id="loading" style="display:block">
-<i class="fa fa fa-cog fa-spin i"></i>
-<h1>加载中。。。</h1>
-<p>该网页加载速度跟乌龟一样慢（至少3分钟），请耐心等候。</p>
-<p>注：目前只支持移动端！</p>
-<p>这里是李诗彤的网页！</p>
-<button onclick="document.location='../index.html'">返回</button>
-</div>
-<img src="lst.png" alt="李诗彤" width="100%" id="img" style="display:none"/>
-
+<body>
+<img src="lst.svg" width="100%" alt="加载失败！！！"/>
 </body>
 </html>
