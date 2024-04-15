@@ -14,14 +14,26 @@ box-sizing:border-box;
 body{
 margin:0;
 }
-
+.min{
+display:block;
+}
+.max{
+display:none;
+}
 
 @media screen and (max-width: 600px) {
+.min{
+display:none;
+}
+.max{
+display:block;
+}
 
 }
 </style>
 </head>
 <body>
-<img src="lst.svg" width="100%" alt="加载失败！！！"/>
+<img src="lst-max600.svg" width="100%" alt="加载失败！！！" class="max"/>
+<img src="lst-min600.svg" width="100%" alt="加载失败！！！" class="min"/>
 </body>
 </html>
