@@ -49,6 +49,34 @@ overflow:hidden;
 color:#e6ccff;
 background-color:#5900b3;
 }
+
+.flip-card-inner{
+position:relative;
+width:100%;
+height:100%;
+transform-style:preserve-3d;
+}
+.flip-card:hover .flip-card-inner{
+transform: rotateY(180deg);
+}
+.flip-card-front,.flip-card-back{
+position:absolute;
+width:100%;
+height:100%;
+webkit-backface-visibility:hidden;
+backface-visibility:hidden;
+}
+.flip-card-back{
+transform:rotateY(180deg);
+overflow:auto;
+}
+.flip-card-back::-webkit-scrollbar{
+display:none;
+}
+.flip-card-back{
+-ms-overflow-style:none;
+scrollbar-width:none;
+}
 /*模块-结束*/
 
 /*标题-开始*/
@@ -164,100 +192,6 @@ padding:10px;
 }
 /*新闻-结束*/
 
-/*模态框-开始*/
-.modal {
-display:none;
-position:fixed;
-z-index:1;
-padding-top:100px;
-left:0;
-top:0;
-width:100%;
-height:100%;
-overflow:auto;
-background-color:rgba(0,0,0,0.4); /* Black w/ opacity */
-}/* 模态（背景）*/
-.modal-content{
-position:relative;/*相对定位*/
-background-color:#e6e6e6;
-margin:auto;
-padding:5px;
-border:1px solid #888;
-width:80%;
-box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
--webkit-animation-name:animatetop;
--webkit-animation-duration:0.4s;
-animation-name:animatetop;
-animation-duration:0.4s
-}/* 模态内容 */
-@-webkit-keyframes animatetop{
-  from{top:-300px; opacity:0;} 
-  to{top:0; opacity:1;}
-}
-@keyframes animatetop{
-  from{top:-300px; opacity:0;}
-  to{top:0; opacity:1;}
-}/* 添加动画 */
-.close {
-color:#000000;
-float:right;
-font-size:28px;
-font-weight:bold;
-text-decoration:none;
-cursor:pointer;
-}/* 关闭按钮 */
- /*搜索栏-开始*/
- #search-input{
- padding:2px;
- background-color:white;
- border:0;
- font-size:20px;
- margin-left:-2px;
- }
- #search-submit{
- padding:0px;
- background-color:#00cc00;
- border:0;
- font-size:20px;
- color:white;
- }
- #search-submit:hover{
- background-color:#00e600;
- }
- #search-form{
- display: flex;
- justify-content: space-around;
- }
- #search-table{
- width:100%;
- font-size:16px;
- margin-top:5px;
- }
- #search-div{
- height:250px;
- overflow:auto;
- }
- #search-table td{
- text-align:left;
- padding:10px;
- background-color:#e6f7ff;
- border-collapse:collapse;
- border:1px solid black;
- }
- #search-table td:hover{
- background-color:#cceeff;
- }
- #search-table tr{
- border-bottom:1px solid #ddd;
- }
- #search-table a{
- display:block;
- text-decoration: none;
- color:#000000;
- }
- /*搜索栏-结束*/
-/*模态框-结束*/
-
 /*页脚-开始*/
 .footer{
 background-color:black;
@@ -273,18 +207,27 @@ padding:0 5px;
 
 @media screen and (max-width: 600px) {
 
- /*标题-开始*/
  .header{
  padding:40px;
  }
  .header>h1{
  font-size:70px;
  }
- /*标题-结束*/
  
- /*模块-开始*/
+ .modal-content{
+ width:90%;
+ }
+ 
+}
+
+@media screen and (max-width: 800px) {
+
+ .header{
+ padding:40px;
+ }
+ 
  .box,.box2{
- height:90px;
+ height:160px;
  margin:5px;
  }
  .div1,.div2{
@@ -294,64 +237,33 @@ padding:0 5px;
  justify-content:;
  display:block;
  }
- /*模块-结束*/
- 
- /*模态框-开始*/
- .modal-content{
- width:90%;
- }
- /*模态框-结束*/
- 
-}
-
-@media screen and (max-width: 800px) {
-
- /*标题-开始*/
- .header{
- padding:40px;
- }
- /*标题-结束*/
- 
- /*模块-开始*/
- .box,.box2{
- height:150px;
- }
- /*模块-结束*/
  
 }
 
 @media screen and (max-width: 480px) {
 
- /*标题-开始*/
  .header{
  padding:30px;
  }
- /*标题-结束*/
  
- /*模态框-开始*/
  .modal-content{
  width:95%;
  }
- /*模态框-结束*/
  
 }
 
 @media screen and (max-width: 360px) {
 
- /*标题-开始*/
  .header{
  padding:30px 0;
  }
  .header>h1{
  font-size:65px;
  }
- /*标题-结束*/
  
- /*模块-开始*/
  .box,.box2{
- height:150px;
+ height:170px;
  }
- /*模块-结束*/
  
 }
 
@@ -465,27 +377,19 @@ border-radius:10px;
             <button class="tablinks" onclick="openCity(event, 'two')">最近更新</button>
         </div>
         <div id="one" class="tabcontent">
-            <h2>4月6日</h2>
-            <p>家长群把ET推上风口浪尖了！（期待处理结果）</p>
-            <h2>4月3日</h2>
+            <h2>更早</h2>
+            <p>家长群把ET推上风口浪尖了！</p>
             <p>地震！</p>
-            <hr/>
-            <h2>3月28日</h2>
-            <p>早&nbsp;操&nbsp;复&nbsp;活&nbsp;&nbsp;&nbsp;<a href="file.htm#zc">一探究竟</a></p>
+            <p>早&nbsp;操&nbsp;复&nbsp;活&nbsp;&nbsp;&nbsp;</p>
             <p>下午忽然跑出个活动，还以为是什么呢，竟然是跑操！接下来，甚至还出现了“科目三”之类的音乐……（无语）</p>
-            <hr/>
-            <h2>3月27日</h2>
-            <p>老母猪生日party&nbsp;<a href="pupil.htm#lyx">一探究竟</a></p>
-            <p>此处保存了80%的学生丑照。</p>
-            <h2>3月22日</h2>
+            <p>老母猪生日party</p>
             <p>叶宸铭在回家路上突然说：“完了！零食演唱会的贴纸没撕！”（叶宸铭在放学前将写有“零食演唱会”的便利贴贴在课桌侧面）</p>
             <p>发现ET在“东升小学”站乘76路公交车回家。</p>
-            <hr/>
-            <h2>更早</h2>
             <p>蔡宇城午托时写小黄文。</p>
         </div>
         <div id="two" class="tabcontent">
             <h2>最近更新</h2>
+            <p>2024年4月14日&nbsp;&nbsp;<a href="zw.htm">叶宸铭作文《跳蚤市场活动》</a>&nbsp;<a href="et4.htm">《ET日常4》进度</a>&nbsp;<a href="photo.htm">丑照廊</a></p>
             <p>2024年4月1日&nbsp;&nbsp;<a href="et-gy.htm">ET珍贵影像</a>&nbsp;<a href="my.htm#mt">MT名言</a>&nbsp;<a href="et-zb.htm">ET便当</a>&nbsp;<a href="zw.htm">作文</a></p>
             <p>2024年3月30日&nbsp;&nbsp;<a href="file.htm#zc">早操</a></p>
         </div>
@@ -541,9 +445,9 @@ border-radius:10px;
             </a>
         </div>
         <div>
-            <a class="box" style="color:#666666;background-color:#f2f2f2;">
+            <a class="box" href="et4.htm">
                 <h1>《ET日常4》进度</h1>
-                <p>（暂未开放）</p>
+                <p>ET把同学们追到烟台山了...</p>
             </a>
         </div>
     </div>
@@ -668,7 +572,13 @@ border-radius:10px;
                 <p>学生个人信息！</p>
             </a>
         </div>
-</div>
+        <div>
+            <a class="box2" href="photo.htm">
+                <h1>丑照</h1>
+                <p>“快点删掉！！！”</p>
+            </a>
+        </div>
+    </div>
     <h1>班级大事</h1>
     <div class="col">
         <div>
@@ -733,10 +643,21 @@ border-radius:10px;
             </a>
         </div>
         <div>
-            <a class="box" style="color:#666666;background-color:#f2f2f2;">
-                <h1>学生专属网站</h1>
-                <p>（暂未开放）</p>
-            </a>
+            <div class="box flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h1>学生专属网站</h1>
+                        <p>将鼠标移动到此处或点击可选择你要看的网页</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>选择</h1>
+                        <ul>
+                            <li><a href="pupil/lst.htm">李诗彤</a></li>
+                            <!--<li></li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="col">
@@ -753,12 +674,6 @@ border-radius:10px;
             </a>
         </div>
     </div>
-    <h1 class="title1">整活</h1>
-    <p>1.关于我复制东升小学官网的代码这件事：</p>
-    <div style="text-align:center;">
-        <iframe src="ds.htm" width="600" height="500"></iframe>
-    </div>
-    <p><strong>对东升小学官网代码的评价：</strong>非常烂。不该缩进时疯狂缩进，该缩进时根本不缩进。还有，上面只复制了部分代码，如果复制全部的话就会显示“无权限”。而且在电脑上看时，右上角会多出一个灰点。<!--（具体看下面一个视频）--></p>
 </div>
 <div class="footer">
     <a href="#">网页到底了！</a>
