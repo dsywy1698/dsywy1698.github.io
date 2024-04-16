@@ -205,6 +205,30 @@ padding:0 5px;
 }
 /*页脚-结束*/
 
+/*加载提示*/
+.loading{
+background-color:#e6e6e6;
+padding:50px;
+width:100vw;
+height:100vh;
+text-align:center;
+font-size:2.3vw;
+z-index: 1;
+}
+.loading_i{
+color:green;
+font-size:30vh;
+}
+.loading button{
+font-size:2.3vw;
+border:0;
+border-radius:10000px;
+background-color:blue;
+color:#fff;
+padding:5px;
+width:50%;
+}
+
 @media screen and (max-width: 600px) {
 
  .header{
@@ -217,6 +241,9 @@ padding:0 5px;
  .modal-content{
  width:90%;
  }
+ .loading_i{
+ font-size:20vh;
+ }
  
 }
 
@@ -225,6 +252,10 @@ padding:0 5px;
  .header{
  padding:40px;
  }
+ .loading,.loading button{
+ font-size:5vw;
+ }
+
  
  .box,.box2{
  height:160px;
@@ -277,14 +308,21 @@ border-radius:10px;
 
 </style>
 </head>
-<body>
+<body onload="loading()">
+
+<div class="loading" id="loading">
+    <i class="fa fa-cog fa-spin loading_i"></i>
+    <h1>网页加载中</h1>
+    <p>该网页加载速度极慢，请耐心等候。。。</p>
+    <button onclick="loading()">直接跳过</button>
+</div>
+
+<div id="div">
 
 <div class="header">
     <h1>六年一班</h1>
 </div>
 <div class="menu">
-    
-
     <a href="#" title="返回最上面"><i class="fa fa-arrow-circle-up"></i></a>
     <a onclick="openNav()" title="其他"><i class="fa fa-ellipsis-h"></i></a>
     <div id="mySidenav" class="sidenav">
@@ -359,6 +397,11 @@ border-radius:10px;
         }
         function closeNav() {
           document.getElementById("mySidenav").style.width = "0";
+        }
+        
+        function loading() {
+          document.getElementById("loading").style.display = "none";
+          document.getElementById("div").style.display = "block";
         }
       
     </script>
@@ -677,6 +720,8 @@ border-radius:10px;
 </div>
 <div class="footer">
     <a href="#">网页到底了！</a>
+</div>
+
 </div>
 
 </body>
