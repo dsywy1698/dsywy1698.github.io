@@ -156,9 +156,6 @@ margin:5px 0;
 color:#fff;
 background-color:#fff;
 }
-.xinwen a{
-color:yellow;
-}
 
 .tab{
 overflow:hidden;
@@ -166,13 +163,12 @@ border:1px solid #ccc;
 background-color:#f1f1f1;
 }
 .tab button{
-background-color:inherit;
+background-color:#ccc;
 float:left;
 border:none;
 outline:none;
 cursor:pointer;
 padding:10px;
-/*transition:0.3s;*/
 font-size: 17px;
 width:50%;
 }
@@ -180,15 +176,36 @@ width:50%;
 background-color:#ddd;
 }
 .tab button.active{
-background-color:#ccc;
+background-color:#e6e6e6;
 }
 .tabcontent{
 display:none;
 height:400px;
 overflow:auto;
-background-color:#000066;
-color:#ffffff;
+background-color:#f2f2f2;
+color:#000;
 padding:10px;
+}
+.numb{
+padding:2px;
+font-size:18px;
+border-radius:4px;
+margin-right:10px;
+display:inline-block;
+width:25px;
+text-align:center;
+}
+.n1{
+background-color:#ffcc00;
+}
+.n2{
+background-color:#ccc;
+}
+.n3{
+background-color:#cc6600;
+}
+.nx{
+color:#595959;
 }
 /*新闻-结束*/
 
@@ -205,7 +222,7 @@ padding:0 5px;
 }
 /*页脚-结束*/
 
-/*加载提示*/
+/*加载提示-开始*/
 .loading{
 background-color:#e6e6e6;
 padding:50px;
@@ -228,6 +245,7 @@ color:#fff;
 padding:5px;
 width:50%;
 }
+/*加载提示-结束*/
 
 @media screen and (max-width: 600px) {
 
@@ -421,19 +439,15 @@ border-radius:10px;
     <div class="xinwen">
         <h1>最新资讯！</h1>
         <div class="tab">
-            <button class="tablinks" onclick="openCity(event, 'one')" id="defaultOpen">班级大事</button>
+            <button class="tablinks" onclick="openCity(event, 'one')" id="defaultOpen">热度榜</button>
             <button class="tablinks" onclick="openCity(event, 'two')">最近更新</button>
         </div>
         <div id="one" class="tabcontent">
-            <h2>更早</h2>
-            <p>家长群把ET推上风口浪尖了！</p>
-            <p>地震！</p>
-            <p>早&nbsp;操&nbsp;复&nbsp;活&nbsp;&nbsp;&nbsp;</p>
-            <p>下午忽然跑出个活动，还以为是什么呢，竟然是跑操！接下来，甚至还出现了“科目三”之类的音乐……（无语）</p>
-            <p>老母猪生日party</p>
-            <p>叶宸铭在回家路上突然说：“完了！零食演唱会的贴纸没撕！”（叶宸铭在放学前将写有“零食演唱会”的便利贴贴在课桌侧面）</p>
-            <p>发现ET在“东升小学”站乘76路公交车回家。</p>
-            <p>蔡宇城午托时写小黄文。</p>
+            <p><span class="numb n1">1</span>雷阵雨风波<i class="fas fa-fire-alt"></i></p>
+            <p><span class="numb n2">2</span>毕业照教师阵容出场！</p>
+            <p><span class="numb n3">3</span>叶宸铭把校长请来拍毕业照</p>
+            <p><span class="numb nx">4</span>班班有歌声唱《少年有志》</p>
+            <p><span class="numb nx">5</span>叶宸铭喊“报告”</p>
         </div>
         <div id="two" class="tabcontent">
             <h2>最近更新</h2>
@@ -710,7 +724,7 @@ border-radius:10px;
     </div>
     <div class="col">
         <div>
-            <a class="box" style="color:#666666;background-color:#f2f2f2;">
+            <a class="box" href="by.htm">
                 <h1>毕业</h1>
                 <p>（暂未开放）</p>
             </a>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<title></title>
+<meta charset="utf-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/TypewriterJS/1.0.0/typewriter.min.js"></script>
+<style>
+body{
+  margin:0;
+  box-sizing:border-box;
+  background-color:#e6ffff;
+}
+
+header{
+  background-color:#cff;
+}
+header a{
+  text-decoration:none;
+  color:#000;
+  display:inline-block;
+  padding:7px;
+}
+
+.title{
+
+}
+@media screen and (max-width: 600px) {
+
+}
+</style>
+</head>
+<body>
+
+<header class="navber">
+    <a href="#home">Home</a>
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+</header>
+
+<article>
+    <h1 class="title">六年一班</h1>
+    <div id="asklz"></div>
+</article>
+
+<footer>
+
+</footer>
+
+<script>
+// 以下代码应用于导航栏
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-50px";
+  }
+}
+
+//以下应用于打字效果
+  		var app = document.getElementById('asklz');
+		var typewriter = new Typewriter(asklz, {
+   			 loop: true
+		});
+		typewriter.typeString('欢迎来到这个网页')
+  		 	.pauseFor(2500)
+  	 		.deleteAll()
+  	 		.typeString('该说些什么呢？')
+ 	  		.pauseFor(2500)
+			.typeString('让我好好想想..')
+			.deleteAll()
+			.typeString('有了！')
+			.pauseFor(2500)
+			.deleteAll()
+			.typeString('其实，我挺帅的')
+			.pauseFor(2500)
+  			.deleteChars(3)
+  	 		.typeString('很谦虚!')
+  	 		.start();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>六年一班</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/ds.css"/>
+<link rel="icon" href="ico/61.ico"/>
+<style>
+/*标题-开始*/
+.header{
+background-color:#f2f2f2;
+padding:10px;
+}
+.header>h1{
+margin:0;
+font-size:70px;
+padding:0;
+}
+/*标题-结束*/
+
+/*正文-开始*/
+.text1{
+background-color:#e6ffe6;
+padding:10px;
+margin-top:5px;
+}
+.text1::after{
+content:"";
+clear:both;
+display:table;
+}
+.text2{
+background-color:#0000e6;
+padding:10px;
+margin-top:5px;
+color:white;
+}
+.text2 hr{
+color:white;
+}
+.text2::after{
+content:"";
+clear:both;
+display:table;
+}
+.title{
+font-size:40px;
+margin:5px 0;
+}
+.button{
+width:30%;
+margin-bottom:10px;
+background-color:#00b300;
+border:0;
+font-size:18px;
+padding:5px;
+border-radius:5px;
+}
+.button:hover{
+background-color:#009900;
+}
+
+.watch-box{
+border:3px solid #4d4dff;
+border-radius:20px;
+padding:20px;
+background-color:#ccccff;
+}
+.watch-box-text{
+overflow:auto;
+background-color:white;
+padding:0px 20px;
+height:400px;
+}
+
+table a{
+display:block;
+text-decoration:none;
+color:#000000;
+}
+/*正文-结束*/
+
+/*页脚-开始*/
+.footer{
+background-color:black;
+text-align:center;
+margin:5px 0;
+padding:15px 0;
+}
+.footer a,.footer p{
+color:white;
+padding:0 5px;
+}
+/*页脚-结束*/
+
+@media screen and (min-width: 1400px) {
+ 
+ *{
+ font-size:20px;
+ }
+ h1{
+ font-size:35px;
+ }
+ 
+ /*标题-开始*/
+ .header{
+ padding:20px;
+ }
+ .header>h1{
+ font-size:90px;
+ }
+ /*标题-结束*/
+ 
+ /*正文-开始*/
+ /*正文-结束*/
+ 
+}
+
+@media screen and (max-width: 480px) {
+
+ /*正文-开始*/
+
+ /*正文-结束*/
+
+}
+
+@media screen and (max-width: 600px) {
+
+ 
+}
+
+@media screen and (max-width: 800px) {
+
+ /*标题-开始*/
+ .header{
+ padding:10px;
+ }
+ .header>h1{
+ font-size:60px;
+ }
+ /*标题-结束*/
+ 
+ 
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>毕业专区</h1>
+</div>
+<div class="menu">
+    <a href="#" title="返回最上面"><i class="fa fa-arrow-circle-up"></i></a>
+    <a href="index.html" title="主页"><i class="fa fa-home"></i></a>
+    <a onclick="openNav()" title="目录"><i class="fa fa-bars"></i></a>
+    <div id="mySidenav" class="sidenav tab">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a>无</a>
+    </div>
+    <a onclick="goBack()" title="返回上一页"><i class="fa fa-chevron-circle-left"></i></a>
+    <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+        }
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }//菜单
+        
+        function goBack() {
+          window.history.back();
+        }//返回上一页
+    </script>
+</div>
+<div class="text1">
+    <p style="color:red">注意：该网页样式正在设计中，目前样式为默认模板。</p>
+    <h1>同学录</h1>
+    <p>可以找我写！但要遵守以下规则：</p>
+    <ul>
+        <li>禁用涂改带</li>
+        <li>禁止产生污渍、折痕</li>
+        <li>写不出来就空着，不能写“无”、“保密”、“去问×××”、“不知道”或者“忘了”</li>
+        <li>禁止乱写（参见下面错误示例）</li>
+        <li>用黑笔</li>
+        <li>生日要写年份</li>
+    </ul>
+    <h2 style="color:red">错误示例</h2>
+    <div class="watch-box-text" style="width:50%;margin:5px;float:left">
+        <p>姓名：×××<br/>性别：×<br/>生日：××.××<br/>星座：××座<br/>电话：忘了<br/>微信：忘了<br/>QQ：去问别人<br/>电子邮箱：无<br/>喜欢的电影：不知道<br/>喜欢的食物：都喜欢<br/>喜欢的书籍：没有<br/>喜欢的颜色：保密</p>
+    </div>
+    <div class="watch-box-text" style="width:50%;margin:5px;float:left">
+        <p>毕业赠言：</p>
+        <h1>祝你活着！</h1>
+        <h4>祝你早生贵子、长命百岁、六六大顺</h4>
+    </div>
+</div>
+<div class="footer">
+    <p>网页到底了！</p>
+</div>
+ 
+</body>
+</html>
