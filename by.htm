@@ -16,10 +16,12 @@ h1{
   font-size:40px;
   margin:5px;
 }
-.i{
-  font-size:50px;
-  padding-right:10px;
-  color:#fff;
+.example::-webkit-scrollbar,.box::-webkit-scrollbar{
+  display:none;
+}
+.example,.box{
+  -ms-overflow-style:none;
+  scrollbar-width:none;
 }
 
 header{
@@ -82,13 +84,13 @@ article{
   color:#290066;
 }
 #asklz{
- font-size:20px; 
- background-color:#fff;
- width:40vw;
- margin:auto;
- padding:5px;
- border:1px solid #cc0000;
- border-radius:10000px;
+  font-size:20px; 
+  background-color:#fff;
+  width:40vw;
+  margin:auto;
+  padding:5px;
+  border:1px solid #cc0000;
+  border-radius:10000px;
 }
 #time{
   background-color:#fff;
@@ -97,7 +99,26 @@ article{
   border:2px solid #d1b3ff;
   border-radius:15px;
   text-align:center;
+  color:#000;
 }
+
+.box{
+  display:block;
+  width:33%;
+  text-decoration:none;
+  background-color:#00c;
+  color:#fffff5;
+  float:left;
+  padding:10px;
+  border-radius:15px;
+  height:200px;
+  overflow:auto;
+}
+.box_time{
+
+}
+
+
 @media screen and (max-width: 600px) {
   
   
@@ -135,23 +156,24 @@ article{
   color:#290066;
 }
 #asklz{
- font-size:19px; 
- background-color:#fff;
- width:70vw;
- margin:auto;
- padding:5px;
- border:1px solid #cc0000;
- border-radius:10000px;
+  font-size:19px; 
+  background-color:#fff;
+  width:70vw;
+  margin:auto;
+  padding:5px;
+  border:1px solid #cc0000;
+  border-radius:10000px;
 }
 #time{
-  background-color:#fff;
   font-size:25px;
   padding:15px;
   border:2px solid #d1b3ff;
   border-radius:15px;
-  text-align:center;
-  color:#000;
 }
+/*
+.box{
+  width:;
+}*/
 
 
 }
@@ -160,7 +182,7 @@ article{
 <body>
 
 <header id="navbar">
-    <a href="#home">Home</a>
+    <a onclick="goTop()" id="goTop">Home</a>
     <a href="#news">News</a>
     <a href="#contact">Contact</a>
 </header>
@@ -173,13 +195,20 @@ article{
     <div class="by">
         <h2>距离毕业还有：</h2>
         <div id="time">
-            <p id="by_time"></p>
+            <span class="sp1">天</span> 
+            <span class="sp2">时</span> 
+            <span class="sp3">分</span> 
+            <span class="sp4">秒</span>
         </div>
         <button class="by-btn" onclick="alert('已确认！')">确认</button>
     </div>
-    <h1></h1>
+    
     
     <h1>班级百科</h1>
+    <a class="box" href="#">
+    <h1>weeeee</h1>
+    </a>
+    
     
 </article>
 
@@ -188,22 +217,33 @@ article{
 </footer>
 
 <script>
+//以下应用于返回上方
+mybutton = document.getElementById("goTop");
+function goTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
 //以下应用于倒计时
-var countDownDate = new Date("July 1, 2024 00:00:00").getTime();
-var x = setInterval(function() {
-  var now = new Date().getTime();
-  var distance = countDownDate - now;
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  document.getElementById("by_time").innerHTML = days + "天 " + hours + "时 "
-  + minutes + "分 " + seconds + "秒 ";
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("by_time").innerHTML = "EXPIRED";
-  }
-}, 1000);
+var day=document.querySelector(".sp1");
+var hour=document.querySelector(".sp2");
+var minute=document.querySelector(".sp3");
+var second=document.querySelector(".sp4");
+var time=+new Date( "2024-7-1 00:00:00" );
+countDown();setInterval(countDown,1000);
+function countDown(){
+var now_time=+new Date();
+var times=(now_time-time)/1000;
+var d=parseInt(times/-60/60/24);
+var h=parseInt(times/-60/60%24);
+var m=parseInt(times/-60%60);
+var s=parseInt(times/-1%60);
+day.innerHTML=d+"天";
+hour.innerHTML=h+"时";
+minute.innerHTML=m+"分";
+second.innerHTML=s+"秒"; 
+}
+
 //以下应用于打字效果
 var app = document.getElementById('asklz');
 var typewriter = new Typewriter(asklz, {loop: true
@@ -225,7 +265,6 @@ typewriter.typeString('欢迎来到这个网页')
 .deleteChars(3)
 .typeString('Bye...')
 .start();
-  
 </script>
 
 </body>
