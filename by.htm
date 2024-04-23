@@ -14,12 +14,12 @@ body{
 }
 h1{
   font-size:40px;
-  margin:5px;
+  margin:5px 0;
 }
-.example::-webkit-scrollbar,.box::-webkit-scrollbar{
+.example::-webkit-scrollbar,.box>a::-webkit-scrollbar{
   display:none;
 }
-.example,.box{
+.example,.box>a{
   -ms-overflow-style:none;
   scrollbar-width:none;
 }
@@ -32,10 +32,10 @@ header{
 }
 header a{
   text-decoration:none;
-  color:#000;
+  color:#36c;
   display:inline-block;
   padding:10px;
-  font-size:1.05em;
+  font-size:20px;
 }
 header a:hover{
   background-color:#6cf;
@@ -53,7 +53,7 @@ article{
   height:80vh;
   color:#000;
 }
-.title{
+.login_title{
   font-size:12vw;
   margin:0;
   padding:40px;
@@ -101,24 +101,58 @@ article{
   text-align:center;
   color:#000;
 }
+.title{
+  font-size:55px;
+  margin:15px 3px;
+}
 
 .box{
-  display:block;
-  width:33%;
-  text-decoration:none;
-  background-color:#00c;
-  color:#fffff5;
+  width:33.33%;
   float:left;
-  padding:10px;
-  border-radius:15px;
-  height:200px;
+}
+.box>a{
+  padding:15px;
+  border-radius:10px;
+  box-shadow: 0 10px 10px 0 rgba(0,0,0,0.24), 0 10px 10px 0 rgba(0,0,0,0.19);
+  margin:5px;
+  height:170px;
+  display:block;
+  text-decoration:none;
+  color:#fff;
   overflow:auto;
 }
-.box_time{
-
+.box_pink>div>a{
+  background-color:#c09;
+}
+.box_pink>div>a:hover{
+  background-color:#b30086;
+}
+.col{
+  clear:both;
+  display:table;
+  content:"";
+}
+.col_title{
+  background-color:#c0c;
+  padding:5px;
+  border-radius:10000px;
+  margin-bottom:10px;
+}
+.col_title>h1{
+  text-align:center;
 }
 
 
+
+@media screen and (max-width: 800px) {
+
+
+.box{
+  width:50%;
+}
+
+
+}
 @media screen and (max-width: 600px) {
   
   
@@ -129,7 +163,7 @@ article{
   padding-top:80px;
   height:80vh;
 }
-.title{
+.login_title{
   font-size:21vw;
   padding:20px;
 }
@@ -170,10 +204,12 @@ article{
   border:2px solid #d1b3ff;
   border-radius:15px;
 }
-/*
 .box{
-  width:;
-}*/
+  width:100%;
+}
+.col_title>h1>span{
+  display:none;
+}
 
 
 }
@@ -182,32 +218,60 @@ article{
 <body>
 
 <header id="navbar">
-    <a onclick="goTop()" id="goTop">Home</a>
-    <a href="#news">News</a>
-    <a href="#contact">Contact</a>
+    <div style="width:50px;padding:4.55px;display:flex;float:left" onclick="goTop()" id="goTop"><img src="ico/61.svg" width="35" height="35"/></div>
+    <a href="#news"><i class="fa fa-navicon"></i></a>
 </header>
 
-<article style="padding-bottom:2000px;">
+<article>
     <div class="login">
-        <h1 class="title">六年一班</h1>
+        <h1 class="login_title">六年一班</h1>
         <div id="asklz"></div>
     </div>
     <div class="by">
         <h2>距离毕业还有：</h2>
         <div id="time">
-            <span class="sp1">天</span> 
-            <span class="sp2">时</span> 
-            <span class="sp3">分</span> 
-            <span class="sp4">秒</span>
+            <span class="a1">天</span> 
+            <span class="a2">时</span> 
+            <span class="a3">分</span> 
+            <span class="a4">秒</span>
         </div>
         <button class="by-btn" onclick="alert('已确认！')">确认</button>
     </div>
     
+    <h1 class="title">班级大事</h1>
+    <h1 class="title">倒计时</h1>
+    <h1 class="title">班级百科</h1>
+    <div class="col box_pink">
+        <div class="col_title">
+            <h1><span>————</span>ET<span>————</span></h1>
+        </div>
+        <div class="box">
+            <a href="et-gy.htm">
+                <h1>ET简介</h1>
+                <p>回顾一下ET的“风光”</p>
+            </a>
+        </div>
+        <div class="box">
+            <a href="et-gy.htm">
+                <h1>ET简介</h1>
+                <p>回顾一下ET的“风光”</p>
+            </a>
+        </div>
+        <div class="box">
+            <a href="et-gy.htm">
+                <h1>ET简介</h1>
+                <p>回顾一下ET的“风光”</p>
+            </a>
+        </div>
+        <div class="box">
+            <a href="et-gy.htm">
+                <h1>ET简介</h1>
+                <p>回顾一下ET的“风光”</p>
+            </a>
+        </div>
+    </div>
     
-    <h1>班级百科</h1>
-    <a class="box" href="#">
-    <h1>weeeee</h1>
-    </a>
+
     
     
 </article>
@@ -225,23 +289,24 @@ function goTop() {
 }
 
 //以下应用于倒计时
-var day=document.querySelector(".sp1");
-var hour=document.querySelector(".sp2");
-var minute=document.querySelector(".sp3");
-var second=document.querySelector(".sp4");
-var time=+new Date( "2024-7-1 00:00:00" );
-countDown();setInterval(countDown,1000);
-function countDown(){
-var now_time=+new Date();
-var times=(now_time-time)/1000;
-var d=parseInt(times/-60/60/24);
-var h=parseInt(times/-60/60%24);
-var m=parseInt(times/-60%60);
-var s=parseInt(times/-1%60);
-day.innerHTML=d+"天";
-hour.innerHTML=h+"时";
-minute.innerHTML=m+"分";
-second.innerHTML=s+"秒"; 
+var day1=document.querySelector(".a1");
+var hour1=document.querySelector(".a2");
+var minute1=document.querySelector(".a3");
+var second1=document.querySelector(".a4");
+var time1=+new Date( "2024-7-1 00:00:00" );
+countDown1();
+setInterval(countDown1,1000);
+function countDown1(){
+var now_time1=+new Date();
+var times1=(now_time1-time1)/1000;
+var d1=parseInt(times1/-60/60/24);
+var h1=parseInt(times1/-60/60%24);
+var m1=parseInt(times1/-60%60);
+var s1=parseInt(times1/-1%60);
+day1.innerHTML=d1+"天";
+hour1.innerHTML=h1+"时";
+minute1.innerHTML=m1+"分";
+second1.innerHTML=s1+"秒"; 
 }
 
 //以下应用于打字效果
