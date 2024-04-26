@@ -91,7 +91,7 @@ header button:hover{
 /*正文*/
 article{
   padding:20px;
-  background:linear-gradient(#e6ffff 0vh, #e6ffff 95vh, #06f 130vh);
+  background:linear-gradient(#e6ffff 0vh, #e6ffff 95vh, #06f 150vh);
   color:#fff;
 }
 hr{
@@ -281,6 +281,11 @@ hr{
   width:300px;
   margin:auto;
 }
+.tab_content{
+  background-color:#93f;
+  padding:15px;
+  border-radius:20px;
+}
 .tab_l{
   display:none;
   height:500px;
@@ -316,10 +321,17 @@ hr{
   background-color:#cc6600;
 }
 
+/*页脚*/
+footer{
+  background:linear-gradient(#06f 0px,#009 60px);
+  padding:30px;
+  padding-top:200px;
+  color:#66f;
+}
 @media screen and (max-width: 800px) {
 
 .login_title{
-  font-size:100px
+  font-size:100px;
 }
 .box{
   width:50%;
@@ -408,6 +420,7 @@ header,article,footer{
   text-align:center;
 }
 }
+
 </style>
 </head>
 <body onload="loading()">
@@ -447,10 +460,11 @@ header,article,footer{
             <span class="a3">分</span> 
             <span class="a4">秒</span>
         </div>
-        <button class="by-btn" onclick="alert('已确认！')">确认</button>
+        <button class="by-btn" onclick="openAlert()"><p id="alert" style="margin:0;">确认</p></button>
     </div>
     
     <h1 class="title">班级大事</h1>
+    <div class="tab_content">
     <div class="tab">
         <button class="tablinks button_l" onclick="openCity(event, 'one')" id="defaultOpen">热度榜</button>
         <button class="tablinks button_r" onclick="openCity(event, 'two')">公告</button>
@@ -464,10 +478,9 @@ header,article,footer{
     </div>
     <div id="two" class="tab_r content">
         任务结束！！！
-    </div>
+    </div></div>
     <div class="clear"></div>
     
-    <h1 class="title">倒计时</h1>
     <h1 class="title">班级百科</h1>
     <div class="col box_pink">
         <div class="col_title col_pink">
@@ -511,56 +524,50 @@ header,article,footer{
         <hr/>
         <div class="box">
             <a href="pupil.htm#qmx">
-                <h1>ET</h1>
-                <p>这周末刚好有个周末。</p>
+                <h1>瞿明爔</h1>
+                <p>六（1）班的男神</p>
             </a>
         </div>
         <div class="box">
-            <a href="pupil.htm#qmx">
-                <h1>ET</h1>
-                <p>这周末刚好有个周末。</p>
+            <a href="pupil.htm#cyh">
+                <h1>陈宇恒</h1>
+                <p>宇貆，你个变态~</p>
             </a>
         </div>
         <div class="box">
-            <a href="pupil.htm#qmx">
-                <h1>ET</h1>
-                <p>这周末刚好有个周末。</p>
+            <a href="pupil.htm#ycm">
+                <h1>叶宸铭</h1>
+                <p>滚，操你妈！</p>
             </a>
         </div>
         <div class="box">
-            <a href="pupil.htm#qmx">
-                <h1>ET</h1>
-                <p>这周末刚好有个周末。</p>
+            <a href="pupil.htm#wxl">
+                <h1>王湘琳</h1>
+                <p>余佳皓：永不磨灭的记忆</p>
             </a>
         </div>
         <div class="box">
-            <a href="pupil.htm#qmx">
-                <h1>ET</h1>
-                <p>这周末刚好有个周末。</p>
+            <a href="pupil.htm#wym">
+                <h1>吴一鸣</h1>
+                <p>又高又帅的男孩</p>
             </a>
         </div>
         <div class="box">
-            <a href="pupil.htm#qmx">
-                <h1>ET</h1>
-                <p>这周末刚好有个周末。</p>
+            <a href="pupil.htm#xcz">
+                <h1>谢承志</h1>
+                <p>你tm有毛病啊！</p>
             </a>
         </div>
         <div class="box">
-            <a href="pupil.htm#qmx">
-                <h1>ET</h1>
-                <p>这周末刚好有个周末。</p>
+            <a href="pupil.htm#lyx">
+                <h1>林煜昕</h1>
+                <p>我写的字跟母猪一样</p>
             </a>
         </div>
         <div class="box">
-            <a href="pupil.htm#qmx">
-                <h1>ET</h1>
-                <p>这周末刚好有个周末。</p>
-            </a>
-        </div>
-        <div class="box">
-            <a href="pupil.htm#qmx">
-                <h1>ET</h1>
-                <p>这周末刚好有个周末。</p>
+            <a href="pupil.htm#lst">
+                <h1>李诗彤</h1>
+                <p>最特别的组长</p>
             </a>
         </div>
     </div>
@@ -569,27 +576,38 @@ header,article,footer{
             <h1><span>————</span>资料袋<span>————</span></h1>
         </div>
         <div class="box">
-            <a href="et-gy.htm">
-                <h1>ET</h1>
-                <p>这周末刚好有个周末。</p>
+            <a href="zw.htm">
+                <h1>作文</h1>
+                <p>这里有叶宸铭的《蚂蚁历险记》！</p>
             </a>
         </div>
         <div class="box">
-            <a href="et-gy.htm">
-                <h1>CT</h1>
-                <p>笑笑地整你~</p>
+            <a href="wh.htm">
+                <h1>名言</h1>
+                <p>ETvsCT，谁的名言多？</p>
             </a>
         </div>
         <div class="box">
-            <a href="et-gy.htm">
-                <h1>MT</h1>
-                <p>科纸拿一张，折八格。</p>
+            <a href="phone.htm">
+                <h1>通讯录</h1>
+                <p>悄悄告诉你，ET的电话号码是13665016841！</p>
+            </a>
+        </div>
+    </div>
+    <div class="col box_green">
+        <div class="col_title col_green">
+            <h1><span>————</span>其他<span>————</span></h1>
+        </div>
+        <div class="box">
+            <a href="pupil/lst.htm">
+                <h1>李诗彤网页</h1>
+                <p>至于为什么长这样，自己去问她哈</p>
             </a>
         </div>
         <div class="box">
-            <a href="et-gy.htm">
-                <h1>AT简介</h1>
-                <p>-好，全部起立。<br/>-坐下的人可以把作业（zuo&#772;&nbsp;ye&#772;）拿出来做</p>
+            <a href="https://wgw.weixiao100.com.cn/custom/gw/78218603-X/content?menuid=8616&templateType=6">
+                <h1>东升小学官网</h1>
+                <p>里面有很多ET照片</p>
             </a>
         </div>
     </div>
@@ -599,10 +617,31 @@ header,article,footer{
 </article>
 
 <footer>
-
+    <p>*该网站仅针对<strong>福州市东升小学2018级1班学生</strong>，如果不是的话——离开吧！</p>
+    <h2>声明（如果满足上面的条件）</h2>
+    <ol>
+        <li>网站可能有bug</li>
+        <li>网站加载速度极慢，图片加载失败属正常现象</li>
+        <li>网站在工作日的中午不更新；更新时间可能很慢</li>
+    </ol>
+    <h1 style="text-align:center;">——end——</h1>
 </footer>
 
 <script>
+
+function openAlert() {
+  var txt;
+  var person = prompt("已确认！\n写点什么…", "某某某到此一游");
+  if (person == null || person == "") {
+    txt = "怎么不写？你完了！";
+  } else {
+    txt = "已提交！<br/>你的内容：<br/>“" + person+"”";
+  }
+  document.getElementById("alert").innerHTML = txt;
+ // document.cookie=txt;
+}
+
+
 //以下应用于返回上方
 mybutton = document.getElementById("goTop");
 function goTop() {
