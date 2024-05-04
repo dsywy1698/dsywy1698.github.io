@@ -452,7 +452,6 @@ header,article,footer{
   text-align:center;
 }
 }
-
 </style>
 </head>
 <body onload="loading()">
@@ -461,7 +460,7 @@ header,article,footer{
     <noscript>
         <div class="alert">
             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            <p><strong>警告：</strong>你似乎关闭了浏览器的js功能，可能会影响网页的呈现。</p>
+            <p><strong>警告：</strong>你似乎关闭了浏览器的js权限，请打开此权限以跳过此加载页面。</p>
         </div>
     </noscript>
     <h1>网页加载中</h1>
@@ -469,9 +468,7 @@ header,article,footer{
     <p><strong>注意：</strong>该网站仅针对福州市东升小2018级1班学生！</p>
     <button onclick="loading()">直接跳过</button>
 </div>
-
 <div class="small">浏览器窗口过小，不支持显示</div>
-
 
 <div id="div" style="display:none">
 
@@ -484,9 +481,7 @@ header,article,footer{
         </div>
     </div>
 </header>
-
 <article>
-    
     <div class="login">
         <h1 class="login_title">六年一班</h1>
         <div id="asklz"></div>
@@ -501,7 +496,6 @@ header,article,footer{
         </div>
         <button class="by-btn" onclick="openAlert()"><p id="alert" style="margin:0;">确认</p></button>
     </div>
-    
     <h1 class="title">班级大事</h1>
     <div class="tab_content">
     <div class="tab">
@@ -516,19 +510,18 @@ header,article,footer{
         <p><span class="numb">5</span>陈忠宇迟迟未给印度飞饼</p>
     </div>
     <div id="two" class="tab_r content">
-        无公告。。。
+        <p>目前即将删除网站上的所有jpg图像，原因：加载速度过慢。</p>
     </div></div>
     <div class="clear"></div>
-    
     <h1 class="title">班级百科</h1>
     <div class="col box_pink">
         <div class="col_title col_pink">
             <h1><span>————</span>“T”系列<span>————</span></h1>
         </div>
         <div class="box">
-            <a href="et.htm">
+            <a style="background-color:#ff4d94">
                 <h1>ET</h1>
-                <p>这周末刚好有个周末。</p>
+                <p>--ET系列网页重做，暂未开放--</p>
             </a>
         </div>
         <div class="box">
@@ -662,9 +655,6 @@ header,article,footer{
             </a>
         </div>
     </div>
-
-    
-    
 </article>
 
 <footer>
@@ -679,7 +669,7 @@ header,article,footer{
 </footer>
 
 <script>
-
+//以下应用于“确认”按钮
 function openAlert() {
   var txt;
   var person = prompt("已确认！\n写点什么…", "某某某到此一游");
@@ -689,7 +679,6 @@ function openAlert() {
     txt = "已提交！<br/>你的内容：<br/>“" + person+"”";
   }
   document.getElementById("alert").innerHTML = txt;
- // document.cookie=txt;
 }
 
 
