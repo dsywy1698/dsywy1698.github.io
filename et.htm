@@ -1,0 +1,187 @@
+<html>
+<head>
+<title>六年一班</title>
+<meta charset="utf-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<script>
+function loading() {
+var loading=document.getElementById("loading");
+var word=document.getElementById("div");
+loading.style.display="none";
+word.style.display="block";
+color.style.background_color="block";
+}
+</script>
+<style>
+*{
+  box-sizing:border-box;
+}
+body{
+  margin:0;
+  font-family:sans-serif;
+}
+hr{
+  animation-name:main;
+  animation-duration:2s;
+  margin:20px 5px;
+}
+nav{
+  background-color:#cff;
+  position: fixed;
+  width: 100%;
+  z-index:1;
+}
+nav button{
+  text-decoration:none;
+  color:#36c;
+  display:inline-block;
+  padding:10px;
+  font-size:20px;
+  border:none;
+  background-color:transparent;
+}
+nav button:hover{
+  background-color:#6cf;
+}
+
+main{
+  background-color:#06f;
+  padding:10px;
+  animation-name:main;
+  animation-duration:2s;
+  padding-top:4em;
+  animation-fill-mode:forwards;
+  color:#fff;
+}
+@keyframes main{
+  0%{
+    background-color:#e6ffff;
+    color:#000000;
+  }
+  30%{
+    background-color:#e6ffff;
+    color:#000000;
+  }
+  100%{
+    background-color:#06f;/*也可以是#03c*/
+    color:#ffffff;
+  }
+}
+header{
+  margin-bottom:150px;
+}
+header>h1{
+  padding:30px;
+  font-size:120px;
+  margin:0;
+  text-align:center;
+}
+header>div{
+  background-color:#0f9;
+  color:#030;
+  display:table;
+  content:"";
+  clear:both;
+  padding:20px;
+  border:3px solid #090;
+  border-radius:10px;
+  margin:20px;
+}
+header>div>p>i{
+  border:2px solid blue;
+  padding:7px;
+  border-radius:5px;
+}
+
+/*加载提示*/
+.loading{
+  background-color:#e6ffff;
+  padding:100px 50px;
+  width:100vw;
+  height:100vh;
+  text-align:center;
+  font-size:20px;
+  z-index:1;
+  color:#009;
+}
+.loading>h1{
+  font-size:60px;
+}
+.loading button{
+  font-size:23px;
+  border:0;
+  border-radius:10000px;
+  background-color:blue;
+  color:#fff;
+  padding:5px;
+  width:50%;
+}
+
+
+/*小于300px显示*/
+.small{
+  display:none;
+}
+
+@media screen and (max-width: 600px) {
+
+}
+
+@media screen and (max-width: 300px) {
+header,main,nav,footer{
+  display:none;
+}
+.small{
+  display:block;
+  font-size:30px;
+  color:red;
+  padding:5px;
+  text-align:center;
+}
+}
+</style>
+</head>
+<body onload="loading()">
+
+<div class="loading" id="loading">
+    <noscript>
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <p><strong>警告：</strong>你似乎关闭了浏览器的js权限，请打开此权限以跳过此加载页面。</p>
+        </div>
+    </noscript>
+    <h1>网页加载中...</h1>
+    <p>该网页加载速度极慢（图片、视频甚至根本无法加载），请耐心等候。。。</p>
+    <button onclick="loading()">直接跳过</button>
+</div>
+<div class="small">浏览器窗口过小，不支持显示</div>
+
+<div id="div" style="display:none">
+
+<nav>
+    <button onclick="document.location='index.html'" title="返回首页"><i class="fa fa-home"></i></button>
+    <button onclick="document.location='index.html'" title="返回首页"><i class="fa fa-home"></i></button>
+    <button onclick="document.location='index.html'" title="返回首页"><i class="fa fa-home"></i></button>
+</nav>
+<main>
+    <header>
+        <h1>E&nbsp;T</h1>
+        <div>
+            <p><i class="fa fa-quote-left fa-2x fa-pull-left"></i>中共党员，现为福州市东升小学英语教师。热爱教育事业。遵守教育法律法规和教师职业道德，履行教师职责。贯彻党的教育方针，遵循教育规律，潜心教书育人。对学生严慈相济，做学生良师益友。</p>
+            <h3 style="display:inline;margin:0;">教育格言：</h3>
+            <p style="display:inline">用爱唤醒学生的心灵。</p>
+            <p style="float:right;margin-top:30px;margin-bottom:0;">——东升小学官网</p>
+        </div>
+    </header>
+    <hr/>
+    <p>关于ET的身份，想必大家都知道——这里就不另外阐述。</p>
+</main>
+<footer>
+
+</footer>
+
+</div>
+
+</body>
+</html>
