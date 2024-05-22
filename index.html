@@ -484,6 +484,10 @@ header,article,footer{
 </header>
 <article>
     <div class="login">
+        <div class="alert">
+            <h1>通知</h1>
+            <p>由于最近在写《ET日常4》，暂时无法更新网站。</p>
+        </div>
         <h1 class="login_title">六年一班</h1>
         <div id="asklz"></div>
     </div>
@@ -504,11 +508,11 @@ header,article,footer{
         <button class="tablinks button_r" onclick="openCity(event, 'two')">公告</button>
     </div>
     <div id="one" class="tab_l content">
-        <p><span class="numb n1">1</span>六年级搞笑作文</p>
-        <p><span class="numb n2">2</span>陈旻希带手机并推卸责任</p>
-        <p><span class="numb n3">3</span>周澍离家出走事件</p>
-        <p><span class="numb">4</span>郑权楷传纸条被CT发现</p>
-        <p><span class="numb">5</span>抽测倒计时</p>
+        <p><span class="numb n1">1</span></p>
+        <p><span class="numb n2">2</span></p>
+        <p><span class="numb n3">3</span></p>
+        <p><span class="numb">4</span></p>
+        <p><span class="numb">5</span></p>
     </div>
     <div id="two" class="tab_r content">
         <p>目前即将删除网站上的所有jpg图像，原因：加载速度过慢。</p>
@@ -638,8 +642,8 @@ header,article,footer{
                 <h1>通讯录</h1>
                 <p>悄悄告诉你，ET的电话号码是13665016841！</p>
             </a>
-        </div>
-    </div>-->
+        </div>-->
+    </div>
     <div class="col box_yellow">
         <div class="col_title col_yellow">
             <h1><span>————</span>其他<span>————</span></h1>
@@ -678,7 +682,7 @@ function openAlert() {
   if (person == null || person == "") {
     txt = "怎么不写？你完了！";
   } else {
-    txt = "已提交！<br/>你的内容：<br/>“" + person+"”";
+    txt = "已提交！";
   }
   document.getElementById("alert").innerHTML = txt;
 }
