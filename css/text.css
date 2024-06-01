@@ -1,0 +1,126 @@
+*{
+  box-sizing:border-box;
+}
+body{
+  margin:0;
+  font-family:sans-serif;
+}
+hr{
+  animation-name:main;
+  animation-duration:2s;
+  margin:20px 5px;
+}
+nav{
+  background-color:#cff;
+  position: fixed;
+  width: 100%;
+  z-index:1;
+}
+nav button{
+  text-decoration:none;
+  color:#36c;
+  display:inline-block;
+  padding:10px;
+  font-size:20px;
+  border:none;
+  background-color:transparent;
+}
+nav button:hover{
+  background-color:#6cf;
+}
+
+main{
+  background-color:#06f;
+  padding:10px;
+  animation-name:main;
+  animation-duration:2s;
+  padding-top:4em;
+  animation-fill-mode:forwards;
+  color:#fff;
+}
+@keyframes main{
+  0%{
+    background-color:#e6ffff;
+    color:#000000;
+  }
+  30%{
+    background-color:#e6ffff;
+    color:#000000;
+  }
+  100%{
+    background-color:#06f;/*也可以是#03c*/
+    color:#ffffff;
+  }
+}
+header{
+  margin-bottom:150px;
+}
+header>h1{
+  padding:30px;
+  font-size:120px;
+  margin:0;
+  text-align:center;
+}
+header>div{
+  background-color:#0f9;
+  color:#030;
+  display:table;
+  content:"";
+  clear:both;
+  padding:20px;
+  border:3px solid #090;
+  border-radius:10px;
+  margin:20px;
+}
+header>div>p>i{
+  border:2px solid blue;
+  padding:7px;
+  border-radius:5px;
+}
+
+/*加载提示*/
+.loading{
+  background-color:#e6ffff;
+  padding:100px 50px;
+  width:100vw;
+  height:100vh;
+  text-align:center;
+  font-size:20px;
+  z-index:1;
+  color:#009;
+}
+.loading>h1{
+  font-size:60px;
+}
+.loading button{
+  font-size:23px;
+  border:0;
+  border-radius:10000px;
+  background-color:blue;
+  color:#fff;
+  padding:5px;
+  width:50%;
+}
+
+
+/*小于300px显示*/
+.small{
+  display:none;
+}
+
+@media screen and (max-width: 600px) {
+
+}
+
+@media screen and (max-width: 300px) {
+header,main,nav,footer{
+  display:none;
+}
+.small{
+  display:block;
+  font-size:30px;
+  color:red;
+  padding:5px;
+  text-align:center;
+}
+}
