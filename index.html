@@ -388,7 +388,7 @@ article{
 }
 .by{
   width:85%;
-  padding:20px;
+  padding:20px 15px;
   border-radius:10px;
 }
 .by>h2{
@@ -687,12 +687,10 @@ header,article,footer{
 </article>
 
 <footer>
-    <p>*该网站仅针对<strong>福州市东升小学2018级1班学生</strong>，如果不是的话——离开吧！</p>
-    <h2>声明（如果满足上面的条件）</h2>
+    <p>*该网站仅针对<strong>福州市东升小学2018级1班学生</strong>。</p>
+    <h2>声明</h2>
     <ol>
-        <li>网站可能有bug</li>
-        <li>网站加载速度极慢，图片加载失败属正常现象</li>
-        <li>网站在工作日的中午不更新；更新时间可能很慢</li>
+        <li>在点击毕业倒计时下面的“确认”按钮后提交的文字不会被任何人看到，包括自己。</li>
     </ol>
     <h1 style="text-align:center;">——end——</h1>
 </footer>
@@ -743,8 +741,8 @@ second1.innerHTML=s1+"秒";
 var app = document.getElementById('asklz');
 var typewriter = new Typewriter(asklz, {loop: true
 });
-typewriter.typeString('欢迎来到这个网页')
-.pauseFor(3000)
+typewriter.typeString('毕业快乐！')
+.pauseFor(3000)/*
 .deleteAll()
 .typeString('该说些什么呢？')
 .pauseFor(2500)
@@ -755,7 +753,7 @@ typewriter.typeString('欢迎来到这个网页')
 .pauseFor(2000)
 .deleteAll()
 .typeString('继续往下看吧')
-.pauseFor(10000)
+.pauseFor(10000)*/
 .start();
 
 //以下应用于班级大事
