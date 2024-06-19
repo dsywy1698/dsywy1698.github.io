@@ -85,6 +85,10 @@ header>div>p>i{
   border-radius:5px;
 }
 
+footer{
+
+}
+
 /*加载提示*/
 .loading{
   background-color:#e6ffff;
@@ -164,6 +168,13 @@ img,video,.max-width,iframe{
 .img_box>p{
   color:#666;
   margin:10px 0;
+}
+
+ol>p,ul>p{
+  font-size:15px;
+  margin:5px;
+  margin-left:25px;
+  color:#999;
 }
 
 
