@@ -11,6 +11,12 @@ hr{
   animation-duration:2s;
   margin:20px 5px;
 }
+a{
+  color:#ff6;
+}
+a:hover{
+  color:#ff0;
+}
 nav{
   background-color:#cff;
   position: fixed;
@@ -147,6 +153,17 @@ canvas,audio{
 img,video,.max-width,iframe{
   max-width:100%;
   object-fit: contain;
+}
+
+.img_box{
+  background-color:#99f;
+  padding:10px;
+  margin:10px 0;
+  border:4px solid #33f;
+}
+.img_box>p{
+  color:#666;
+  margin:10px 0;
 }
 
 
