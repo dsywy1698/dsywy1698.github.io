@@ -17,6 +17,13 @@ a{
 a:hover{
   color:#ff0;
 }
+.example::-webkit-scrollbar{
+  display:none;
+}
+.example{
+  -ms-overflow-style:none;/* IE and Edge */
+  scrollbar-width:none;/* Firefox */
+}
 nav{
   background-color:#cff;
   position: fixed;
@@ -165,8 +172,11 @@ max-height:90vh !important;
   border-radius:20px;
 }
 .watch>p{
-  text-indent: 2em;
+  text-indent:2em;
   margin:7px 0;
+}
+.watch i{
+  display:inline;
 }
 .alert{
   border:1px solid red;
@@ -208,7 +218,7 @@ ol>p,ul>p{
 
 }
 
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 300px) {
 header,main,nav,footer{
   display:none;
 }
