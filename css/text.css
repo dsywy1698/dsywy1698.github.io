@@ -225,6 +225,10 @@ ol>p,ul>p{
   margin-left:25px;
   color:#999;
 }
+.size-small{
+  color:#ccf;
+  font-size:15px;
+}
 
 
 @media screen and (max-width: 600px) {
