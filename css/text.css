@@ -224,11 +224,6 @@ img,video,.max-width,iframe{
   color:#c3f;
   font-size:30px;
 }
-.img_right{
-  float:right;
-  width:300px;
-  padding:10px;
-}
 ol>p,ul>p{
   font-size:15px;
   margin:5px;
@@ -240,12 +235,18 @@ ol>p,ul>p{
   font-size:15px;
 }
 
+main>img{
+  float:right;
+  max-width:30%;
+  padding:10px;
+}
+
 
 @media screen and (max-width: 600px) {
 
-.img_right{
-  width:100%;
+main>img{
   float:center;
+  max-width:100%;
 }
 
 }
