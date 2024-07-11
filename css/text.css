@@ -73,8 +73,6 @@ nav button:hover{
 .menu:hover+.dropdown-content,.dropdown-content:hover{
   display:block;
 }
-
-
 main{
   background-color:#06f;
   padding:10px;
@@ -123,9 +121,11 @@ header>div>p>i{
   padding:7px;
   border-radius:5px;
 }
-
 footer{
-
+  background:linear-gradient(#06f 0px,#03c 80px);
+  padding:30px;
+  padding-top:100px;
+  color:#66f;
 }
 
 /*加载提示*/

@@ -7,12 +7,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <link rel="stylesheet" href="css/text.css"/>
 <link rel="icon" href="ico/61.ico"/>
-<script>
-function loading() {
-document.getElementById("loading").style.display = "none";
-document.getElementById("div").style.display = "block";
-}
-</script>
+<script src="js/all.js"></script>
 <style>
 .title{
   text-align:center;
@@ -76,6 +71,7 @@ main>div>p{
 <div id="div" style="display:none">
 
 <nav>
+    <button onclick="goTop()" id="goTop"><i class="fa fa-arrow-circle-up"></i></button>
     <button onclick="document.location='index.html'" title="返回首页"><i class="fa fa-home"></i></button>
     <button class="menu"><i class="fa fa-navicon"></i></button>
     <div class="dropdown-content">
@@ -208,7 +204,10 @@ main>div>p{
         <p>游戏不玩，你们都太吵了。</p>
     </div>
 </main>
-
+<footer>
+    <p>网页到底了！</p>
+    <p>注意：该网站仅为2018届1班提供，无不良向导。内容如有侵权将删除。</p>
+</footer>
 </div>
 
 </body>
