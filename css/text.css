@@ -1,12 +1,11 @@
 *{
   box-sizing:border-box;
 }
-/*
-*::after{
+clear::after,.img_box::after{
   display:table;
   content:"";
   clear:both;
-}*/
+}
 body{
   margin:0;
   padding:0;
