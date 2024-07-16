@@ -419,30 +419,6 @@ header,article,footer{
         <h1 class="login_title">六年一班</h1>
         <div id="asklz"></div>
     </div>
-    <!--临时添加：ET4下载链接-->
-    <div id="et4">
-        <style>
-        #et4{
-          background-color:#90c;
-          padding:20px;
-          margin:30px;
-          color:#fff;
-          border-radius:20px;
-        }
-        #et4 a{
-          color:#000;
-          text-decoration:none;
-          text-align:center;
-          display:block;
-          background-color:#fcf;
-          border-radius:1698px;
-          font-size:20px;
-          padding:10px;
-        }
-        </style>
-        <h1>ET日常4</h1>
-        <a href="download/ET4.docx" download>下载！</a>
-    </div>
     <div class="by">
         <h2>我们毕业已经：</h2>
         <div id="time">
@@ -453,7 +429,6 @@ header,article,footer{
         </div>
         <button class="by-btn" onclick="openAlert()"><p id="alert" style="margin:0;">确认</p></button>
     </div>
-    <h1 class="title">班级百科</h1>
     <div class="col box_pink">
         <div class="col_title col_pink">
             <h1><span>————</span>“T”系列<span>————</span></h1>
@@ -525,47 +500,12 @@ header,article,footer{
             </a>
         </div>
         <div class="box">
-            <a href="pupil.htm#wym">
-                <h1>吴一鸣</h1>
-                <p>又高又帅的男孩</p>
-            </a>
-        </div>
-        <div class="box">
-            <a href="pupil.htm#xcz">
-                <h1>谢承志</h1>
-                <p>你tm有毛病啊！</p>
-            </a>
-        </div>
-        <div class="box">
-            <a href="pupil.htm#lyx">
-                <h1>林煜昕</h1>
-                <p>我写的字跟母猪一样</p>
-            </a>
-        </div>
-        <div class="box">
             <a href="pupil.htm#lst">
                 <h1>李诗彤</h1>
                 <p>最特别的组长</p>
             </a>
         </div>
-        <div class="box">
-            <a href="pupil.htm#zlj">
-                <h1>郑隆俊</h1>
-                <p>日本畸形胎</p>
-            </a>
-        </div>
-        <div class="box">
-            <a href="pupil.htm#xyh">
-                <h1>许逸晗</h1>
-                <p>ET的好帮手</p>
-            </a>
-        </div>
-        <div class="box">
-            <a href="pupil.htm#czy">
-                <h1>陈忠宇</h1>
-                <p>变幻莫测的笔盒</p>
-            </a>
-        </div>
+        
     </div>
     <div class="col box_green">
         <div class="col_title col_green">
@@ -671,19 +611,23 @@ second1.innerHTML=s1+"秒";
 var app = document.getElementById('asklz');
 var typewriter = new Typewriter(asklz, {loop: true
 });
-typewriter.typeString('毕业快乐！')
-.pauseFor(3000)/*
+typewriter.typeString('你连比亚迪都买不起。')
+.pauseFor(3000)
 .deleteAll()
-.typeString('该说些什么呢？')
+.typeString('我觉得劳斯莱斯不如迈巴赫。')
 .pauseFor(2500)
 .deleteAll()
-.typeString('算了')
-.pauseFor(2000)
-.typeString('，不说了')
+.typeString('装什么啊！')
+.pauseFor(2500)
+.deleteAll()
+.typeString('弃——因为你，才让我背对命运，不——害——怕……')
 .pauseFor(2000)
 .deleteAll()
-.typeString('继续往下看吧')
-.pauseFor(10000)*/
+.typeString('在那山的那边海的那边有一群蓝精灵……')
+.pauseFor(2000)
+.deleteAll()
+.typeString('今晚我家只有我一个人')
+.pauseFor(10000)
 .start();
 
 //以下应用于班级大事
