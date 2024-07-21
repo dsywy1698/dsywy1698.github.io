@@ -11,6 +11,9 @@ body{
   padding:0;
   font-family:sans-serif;
 }
+html{
+  scroll-behavior:smooth;
+}
 hr{
   animation-name:main;
   animation-duration:2s;
