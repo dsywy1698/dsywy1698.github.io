@@ -1,21 +1,24 @@
 <svg width="700" height="480" xmlns="http://www.w3.org/2000/svg">
  <g id="Layer_1">
   <title>Layer 1</title>
-  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="30" id="svg_1" y="80" x="70" stroke-width="0" stroke="#000" fill="#000000">王湘琳</text>
-  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="30" id="svg_2" y="360" x="550" stroke-width="0" stroke="#000" fill="#000000">陈诺</text>
-  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="30" id="svg_3" y="418" x="70" stroke-width="0" stroke="#000" fill="#000000">瞿眀爔</text>
-  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="30" id="svg_6" y="180" x="540" stroke-width="0" stroke="#000" fill="#000000">李诗彤</text>
-  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="30" id="svg_7" y="312" x="70" stroke-width="0" stroke="#000" fill="#000000">陈旻希</text>
-  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="30" id="svg_9" y="270" x="540" stroke-width="0" stroke="#000" fill="#000000">童钰轩</text>
-  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="30" id="svg_10" y="80" x="540" stroke-width="0" stroke="#000" fill="#000000">余佳皓</text>
-  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="30" id="svg_11" y="200" x="70" stroke-width="0" stroke="#000" fill="#000000">刘圭宥</text>
-  <path transform="rotate(89.71 346.584 72.6078)" stroke="#000" id="svg_12" d="m334.63229,-56.83898l11.55391,-47.14586l12.35023,47.54659l-9.75456,-8.19027l-1.05345,313.82891l-3.75892,-0.31408l0.39021,-313.3643l-9.72742,7.639z" stroke-width="0" fill="#ffaaaa"/>
-  <path transform="rotate(89.71 346.585 72.6077)" stroke="#000" id="svg_13" d="m334.63229,-56.83898l11.55391,-47.14586l12.35023,47.54659l-9.75456,-8.19027l-1.05345,313.82891l-3.75892,-0.31407l0.39021,-313.3643l-9.72742,7.639z" stroke-width="0" fill="#ffaaaa"/>
-  <path transform="rotate(89.71 346.584 72.6078)" stroke="#000" id="svg_14" d="m334.63229,-56.83898l11.55391,-47.14586l12.35023,47.54659l-9.75456,-8.19027l-1.05345,313.82891l-3.75892,-0.31407l0.39021,-313.3643l-9.72742,7.639z" stroke-width="0" fill="#ffaaaa"/>
-  <path transform="rotate(80.9728 350.433 377.824)" stroke="#000" id="svg_15" d="m338.48125,243.52252l11.55391,-48.91416l12.35023,49.32992l-9.75456,-8.49746l-1.05345,325.59971l-3.75892,-0.32585l0.39021,-325.11767l-9.72742,7.92552z" stroke-width="0" fill="#ffaaaa"/>
-  <path transform="rotate(111.479 351.697 271.996)" stroke="#000" id="svg_16" d="m339.74472,131.42794l11.55391,-51.19619l12.35023,51.63135l-9.75456,-8.8939l-1.05345,340.79017l-3.75892,-0.34105l0.39021,-340.28565l-9.72742,8.29527z" stroke-width="0" fill="#ffaaaa"/>
-  <path transform="rotate(86.9179 350.876 182.093)" stroke="#000" id="svg_18" d="m338.92409,52.6467l11.55391,-47.14586l12.35023,47.54659l-9.75456,-8.19027l-1.05345,313.82891l-3.75892,-0.31407l0.39021,-313.3643l-9.72742,7.639z" stroke-width="0" fill="#ffaaaa"/>
-  <path stroke="#000" id="svg_19" d="m106.20981,219.28425l8.40167,-9.34459l8.98073,9.42402l-7.09323,-1.62336l-0.76604,62.20275l-2.73338,-0.06225l0.28375,-62.11066l-7.0735,1.5141z" stroke-width="0" fill="#ffaaaa"/>
-  <path transform="rotate(99.6583 350.349 226.642)" stroke="#000" id="svg_20" d="m338.39663,95.42774l11.55391,-47.78953l12.35023,48.19573l-9.75456,-8.30209l-1.05345,318.11355l-3.75892,-0.31836l0.39021,-317.6426l-9.72742,7.74329z" stroke-width="0" fill="#ffaaaa"/>
+  <text fill="#000000" stroke="#000" stroke-width="0" x="70" y="80" id="svg_1" font-size="30" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">王湘琳</text>
+  <text style="cursor: move;" fill="#000000" stroke="#000" stroke-width="0" x="550" y="340" id="svg_2" font-size="30" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">陈诺</text>
+  <text fill="#000000" stroke="#000" stroke-width="0" x="70" y="418" id="svg_3" font-size="30" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">瞿眀爔</text>
+  <text fill="#000000" stroke="#000" stroke-width="0" x="540" y="180" id="svg_6" font-size="30" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">李诗彤</text>
+  <text fill="#000000" stroke="#000" stroke-width="0" x="70" y="312" id="svg_7" font-size="30" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">陈旻希</text>
+  <text fill="#000000" stroke="#000" stroke-width="0" x="540" y="270" id="svg_9" font-size="30" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">童钰轩</text>
+  <text fill="#000000" stroke="#000" stroke-width="0" x="540" y="80" id="svg_10" font-size="30" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">余佳皓</text>
+  <text fill="#000000" stroke="#000" stroke-width="0" x="70" y="200" id="svg_11" font-size="30" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">刘圭宥</text>
+  <path fill="#ffaaaa" stroke-width="0" d="m334.63229,-56.83898l11.55391,-47.14586l12.35023,47.54659l-9.75456,-8.19027l-1.05345,313.82891l-3.75892,-0.31408l0.39021,-313.3643l-9.72742,7.639l0,0.00001z" id="svg_12" stroke="#000" transform="rotate(89.71 346.584 72.6078)"/>
+  <path fill="#ffaaaa" stroke-width="0" d="m334.63229,-56.83898l11.55391,-47.14586l12.35023,47.54659l-9.75456,-8.19027l-1.05345,313.82891l-3.75892,-0.31407l0.39021,-313.3643l-9.72742,7.639z" id="svg_13" stroke="#000" transform="rotate(89.71 346.585 72.6077)"/>
+  <path fill="#ffaaaa" stroke-width="0" d="m334.63229,-56.83898l11.55391,-47.14586l12.35023,47.54659l-9.75456,-8.19027l-1.05345,313.82891l-3.75892,-0.31407l0.39021,-313.3643l-9.72742,7.639z" id="svg_14" stroke="#000" transform="rotate(89.71 346.584 72.6078)"/>
+  <path transform="rotate(77.7882 353.777 373.101)" stroke="#000" fill="#ffaaaa" stroke-width="0" d="m341.82467,236.29142l11.55391,-49.82743l12.35023,50.25095l-9.75456,-8.65611l-1.05345,331.67892l-3.75892,-0.33193l0.39021,-331.18788l-9.72742,8.0735l0,-0.00001z" id="svg_15"/>
+  <path transform="rotate(108.825 354.697 264.996)" fill="#ffaaaa" stroke-width="0" d="m342.74472,124.42794l11.55391,-51.19619l12.35023,51.63135l-9.75456,-8.8939l-1.05345,340.79017l-3.75892,-0.34105l0.39021,-340.28565l-9.72742,8.29527z" id="svg_16" stroke="#000"/>
+  <path fill="#ffaaaa" stroke-width="0" d="m338.92409,52.6467l11.55391,-47.14586l12.35023,47.54659l-9.75456,-8.19027l-1.05345,313.82891l-3.75892,-0.31407l0.39021,-313.3643l-9.72742,7.639z" id="svg_18" stroke="#000" transform="rotate(86.9179 350.876 182.093)"/>
+  <path fill="#ffaaaa" stroke-width="0" d="m106.20981,219.28425l8.40167,-9.34459l8.98073,9.42402l-7.09323,-1.62336l-0.76604,62.20275l-2.73338,-0.06225l0.28375,-62.11066l-7.0735,1.5141l0,-0.00001z" id="svg_19" stroke="#000"/>
+  <path fill="#ffaaaa" stroke-width="0" d="m338.39663,95.42774l11.55391,-47.78953l12.35023,48.19573l-9.75456,-8.30209l-1.05345,318.11355l-3.75892,-0.31836l0.39021,-317.6426l-9.72742,7.74329l0,0.00001z" id="svg_20" stroke="#000" transform="rotate(99.6583 350.349 226.642)"/>
+  <text fill="#000000" stroke="#000" stroke-width="0" x="540" y="430" id="svg_4" font-size="30" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">陈忠宇</text>
+  <path stroke="#000" fill="#ffaaaa" stroke-width="0" d="m572.20981,356.21404l12.26842,-6.27438l13.11398,6.32771l-10.35779,-1.09l-1.1186,41.7657l-3.99138,-0.0418l0.41434,-41.70387l-10.32897,1.01663l0,-0.00001z" id="svg_5"/>
  </g>
+
 </svg>
