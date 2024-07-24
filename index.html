@@ -787,22 +787,6 @@ typewriter.typeString('你连比亚迪都买不起。')
 .typeString('今晚我家只有我一个人')
 .pauseFor(10000)
 .start();
-
-//以下应用于班级大事
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("content");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-   evt.currentTarget.className += " active";
-}
-document.getElementById("defaultOpen").click();
 </script>
 
 </div>
