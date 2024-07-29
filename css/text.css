@@ -1,18 +1,13 @@
 *{
   box-sizing:border-box;
 }
-clear::after,.img_box::after{
-  display:table;
-  content:"";
-  clear:both;
+html{
+  scroll-behavior:smooth;
 }
 body{
   margin:0;
   padding:0;
   font-family:sans-serif;
-}
-html{
-  scroll-behavior:smooth;
 }
 hr{
   animation-name:main;
@@ -25,6 +20,12 @@ a{
 a:hover{
   color:#ff0;
 }
+
+clear::after,.img_box::after{
+  display:table;
+  content:"";
+  clear:both;
+}
 .example::-webkit-scrollbar{
   display:none;
 }
@@ -32,6 +33,7 @@ a:hover{
   -ms-overflow-style:none;/* IE and Edge */
   scrollbar-width:none;/* Firefox */
 }
+
 nav{
   background-color:#cff;
   position: fixed;
@@ -75,6 +77,7 @@ nav button:hover{
 .menu:hover+.dropdown-content,.dropdown-content:hover{
   display:block;
 }
+
 main{
   background-color:#06f;
   padding:10px;
@@ -98,6 +101,7 @@ main{
     color:#ffffff;
   }
 }
+
 header{
   margin-bottom:150px;
 }
@@ -123,6 +127,7 @@ header>div>p>i{
   padding:7px;
   border-radius:5px;
 }
+
 footer{
   background:linear-gradient(#06f 0px,#03c 80px);
   padding:30px;
