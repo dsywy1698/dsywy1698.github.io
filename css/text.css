@@ -268,5 +268,7 @@ header,main,nav,footer{
   color:red;
   padding:5px;
   text-align:center;
+  background-color:#e6ffff;
+  height:100vh;
 }
 }
