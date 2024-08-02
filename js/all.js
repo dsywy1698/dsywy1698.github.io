@@ -1,9 +1,6 @@
 function loading() {
-var loading=document.getElementById("loading");
-var word=document.getElementById("div");
-loading.style.display="none";
-word.style.display="block";
-color.style.background_color="block";
+document.getElementById("loading").style.display="none";
+document.getElementById("div").style.display="block";
 }
 
 mybutton = document.getElementById("goTop");
