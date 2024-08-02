@@ -1,7 +1,8 @@
+<!doctype html>
 <html>
 <head>
 <title>六年一班</title>
-<meta charset="utf-8"> 
+<meta charset="utf-8"/> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <link rel="stylesheet" href="css/text.css"/>
@@ -28,7 +29,6 @@
 </style>
 </head>
 <body onload="loading()">
-
 <div class="loading" id="loading">
     <noscript>
         <div class="alert">
@@ -40,9 +40,7 @@
     <button onclick="loading()">直接跳过</button>
 </div>
 <div class="small">浏览器窗口过小，不支持显示</div>
-
 <div id="div" style="display:none">
-
 <nav>
     <button onclick="goTop()" id="goTop"><i class="fa fa-arrow-circle-up"></i></button>
     <button onclick="document.location='index.html'" title="返回首页"><i class="fa fa-home"></i></button>
@@ -134,20 +132,15 @@
                   var canvas = document.getElementById('rjb-1');
                   if(!canvas.getContext) return;
                   var ctx = canvas.getContext("2d");
-
                   ctx.fillStyle="#bf8040";
                   ctx.fillRect(0, 0, 400, 600);//日记本
-
                   ctx.fillStyle="#734d26";
                   ctx.fillRect(0, 0, 20, 600);//左侧封皮
-
                   ctx.fillStyle="#e6ccb3";
                   ctx.fillRect(290, 95, 110, 67);//原来的“英语”
-
                   ctx.font="30px 楷体"
                   ctx.fillStyle="black";
                   ctx.fillText("英语", 305, 135);
-		
                 }
                 draw();
         </script>
@@ -158,25 +151,19 @@
                   var canvas = document.getElementById('rjb-2');
                   if(!canvas.getContext) return;
                   var ctx = canvas.getContext("2d");
-
                   ctx.fillStyle="#bf8040";
                   ctx.fillRect(0, 0, 400, 600);//日记本
-
                   ctx.fillStyle="#734d26";
                   ctx.fillRect(0, 0, 20, 600);//左侧封皮
-
                   ctx.fillStyle="#e6ccb3";
                   ctx.fillRect(290, 95, 110, 67);//原来的“英语”
-
                   ctx.fillStyle="white";
                   ctx.fillRect(300, 100, 90, 70);//被涂掉的“英语”
-
                   ctx.fillStyle="white";
                   ctx.fillRect(285, 200, 25, 230);
                   ctx.fillRect(253, 200, 25, 200);
                   ctx.fillRect(221, 200, 25, 150);//三行涂改带
                   ctx.fillRect(325, 210, 70, 60);
-
                 }
                 draw();
         </script>
@@ -189,30 +176,23 @@
                   var canvas = document.getElementById('rjb-3');
                   if(!canvas.getContext) return;
                   var ctx = canvas.getContext("2d");
-
                   ctx.fillStyle="#bf8040";
                   ctx.fillRect(0, 0, 400, 600);//日记本
-
                   ctx.fillStyle="#734d26";
                   ctx.fillRect(0, 0, 20, 600);//左侧封皮
-
                   ctx.fillStyle="#e6ccb3";
                   ctx.fillRect(290, 95, 110, 67);//原来的“英语”
-
                   ctx.fillStyle="white";
                   ctx.fillRect(300, 100, 90, 70);//被涂掉的“英语”
-
                   ctx.font="30px sans-serif"
                   ctx.fillStyle="black";
                   ctx.fillText("日记", 305, 125);
                   ctx.fillText("本", 325, 165);//“日记本”
-		
                   ctx.fillStyle="white";
                   ctx.fillRect(285, 200, 25, 230);
                   ctx.fillRect(253, 200, 25, 200);
                   ctx.fillRect(221, 200, 25, 150);//三行涂改带
                   ctx.fillRect(325, 210, 70, 60);
-
                   ctx.font="20px sans-serif"
                   ctx.fillStyle="black";
                   var t="我们每个人都有七情六欲";
@@ -245,27 +225,22 @@
 		              ctx.fillText(tttt[0], 327, 230);
 		              ctx.fillText(tttt[1], 350, 230);
 		              ctx.fillText(tttt[2], 340, 260);
-		
                   ctx.beginPath();
                   ctx.moveTo(229,305);
                   ctx.lineTo(229,312);
                   ctx.closePath();
                   ctx.stroke();//眼睛1
-		
                   ctx.beginPath();
                   ctx.moveTo(237,305);
                   ctx.lineTo(237,312);
                   ctx.closePath();
                   ctx.stroke();//眼睛2
-		
                   ctx.beginPath();
                   ctx.moveTo(227, 315);
                   ctx.arcTo(232.5, 325, 240, 315, 5);
                   ctx.lineTo(240, 315)
                   ctx.stroke();//嘴
-
                   ctx.fillText("顾兮", 40, 570);
-		
                 }
                 draw();
         </script>
@@ -377,8 +352,7 @@
     <div class="watch example" style="height:500px;overflow:auto;" id="love">
         <script>
              var text="";
-             var i,j;
-             for (i=1;i<521;i++){
+             for (var i=1;i<521;i++){
                text+="<p>"+i+".余佳皓"+"</p>";
              }
              document.getElementById("love").innerHTML=text;
@@ -1205,8 +1179,6 @@
     <p>网页到底了！</p>
     <p>注意：该网站仅为2018届1班提供，无不良向导。内容如有侵权将删除。</p>
 </footer>
-
 </div>
-
 </body>
 </html>
