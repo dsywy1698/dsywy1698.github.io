@@ -30,8 +30,32 @@ clear::after,.img_box::after{
   display:none;
 }
 .example{
-  -ms-overflow-style:none;/* IE and Edge */
-  scrollbar-width:none;/* Firefox */
+  -ms-overflow-style:none;
+  scrollbar-width:none;
+}
+::-moz-selection{
+  color:#e6f0ff;
+  background:#80b3ff;
+}
+::selection{
+  color:#e6f0ff;
+  background:#80b3ff;
+}
+::-webkit-scrollbar{
+  width:8px;
+  background:#cff;
+}
+::-webkit-scrollbar-track{
+  background:#66a3ff;
+  margin-top:42.5px;
+}
+::-webkit-scrollbar-thumb{
+  background:#33f;
+  border-radius:5px;
+  height:150px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background:#00c; 
 }
 
 nav{
@@ -161,9 +185,7 @@ footer{
 
 
 /*小于300px显示*/
-.small{
-  display:none;
-}
+.small{display:none;}
 
 img,video,iframe,canvas{
 max-height:90vh !important;
@@ -241,23 +263,18 @@ ol>p,ul>p{
   color:#ccf;
   font-size:15px;
 }
-
 main>img{
   float:right;
   max-width:30%;
   padding:10px;
 }
 
-
 @media screen and (max-width: 600px) {
-
 main>img{
   float:center;
   max-width:100%;
 }
-
 }
-
 @media screen and (max-width: 300px) {
 header,main,nav,footer{
   display:none;
