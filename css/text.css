@@ -185,7 +185,9 @@ footer{
 
 
 /*小于300px显示*/
-.small{display:none;}
+.small{
+  display:none;
+}
 
 img,video,iframe,canvas{
 max-height:90vh !important;
@@ -263,18 +265,23 @@ ol>p,ul>p{
   color:#ccf;
   font-size:15px;
 }
+
 main>img{
   float:right;
   max-width:30%;
   padding:10px;
 }
 
+
 @media screen and (max-width: 600px) {
+
 main>img{
   float:center;
   max-width:100%;
 }
+
 }
+
 @media screen and (max-width: 300px) {
 header,main,nav,footer{
   display:none;
