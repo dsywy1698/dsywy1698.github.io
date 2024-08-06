@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -19,6 +20,7 @@ document.getElementById("div").style.display = "block";
 }
 body{
   margin:0;
+  padding:0;
   font-family:sans-serif;
 }
 h1{
@@ -38,6 +40,34 @@ h1{
 .example,.box>a{
   -ms-overflow-style:none;
   scrollbar-width:none;
+}
+
+/*文本选择*/
+::-moz-selection{
+  color:#e6f0ff;
+  background:#80b3ff;
+}
+::selection{
+  color:#e6f0ff;
+  background:#80b3ff;
+}
+
+/*滚动条*/
+::-webkit-scrollbar{
+  width:8px;
+  background:#cff;
+}
+::-webkit-scrollbar-track{
+  background:#66a3ff;
+  margin-top:44px;
+}
+::-webkit-scrollbar-thumb{
+  background:#33f;
+  border-radius:5px;
+  height:150px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background:#00c; 
 }
 
 /*小于300px显示*/
@@ -97,6 +127,7 @@ article{
 }
 hr{
   color:#fff;
+  border:1px solid #fff;
 }
 
 /*“六年一班”*/
@@ -189,27 +220,19 @@ hr{
 .col_title>h1{
   text-align:center;
 }
-.col_pink{
-  background-color:#c0c;
-}
-.col_blue{
-  background-color:#00f;
-}
-.col_green{
-  background-color:#0f0;
-  color:#030;
-}
-.col_yellow{
-  background-color:#fc0;
-  color:#663d00;
-}
+.col_pink{background-color:#c0c;}
+.col_blue{background-color:#00f;}
+.col_green{background-color:#0f0;color:#030;}
+.col_yellow{background-color:#fc0;color:#663d00;}
 
 /*座位表*/
+.classroom{
+  background-color:#6f6;
+}
 .classroom>div{
   display:flex;
   width:100%;
   padding:5px;
-  background-color:#6f6;
 }
 .classroom>div a{
   text-decoration:none;
@@ -230,6 +253,8 @@ hr{
   text-align:center;
   border:1px solid #060;
   color:#000;
+  transition:0.3s;
+  -webkit-transition:0.3s;
 }
 .classroom>div a[href]:hover{
   background-color:#9f6;
@@ -409,6 +434,7 @@ article{
 .classroom>div a,.classroom>div a[href]{
   font-size:10px;
   padding:1px;
+  border:0.1px solid #090;
 }
 .a{
   margin:0.7px 0 0.7px 0.7px;
@@ -569,6 +595,7 @@ header,article,footer{
                 <p>最特别的组长</p>
             </a>
         </div>
+        <hr/>
         <h2>所有</h2>
         <div class="classroom">
         <div>
@@ -616,7 +643,7 @@ header,article,footer{
             <a href="pupil.htm#zsy" class="b">曾诗芸</a>
             <a class="a">陈鑫怡</a>
             <a href="pupil.htm#cyc" class="b">蔡宇城</a>
-            <a href="pupil.htm#hyrc" class="a">何亦<span id="siziren"></span></a>
+            <a href="pupil.htm#hyrc" class="a" title="何亦锐辰">何亦<span id="siziren"></span></a>
             <a class="b">刘睿萱</a>
             <a href="pupil.htm#jyy" class="a">江玥瑶</a>
             <a href="pupil.htm#zcx" class="b">张辰熙</a>
