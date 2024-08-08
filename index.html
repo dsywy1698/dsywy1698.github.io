@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -15,66 +14,23 @@ document.getElementById("div").style.display = "block";
 }
 </script>
 <style>
-*{
-  box-sizing:border-box;
-}
-body{
-  margin:0;
-  padding:0;
-  font-family:sans-serif;
-}
-h1{
-  font-size:40px;
-  margin:5px 0;
-}
-.clear{
-  display:table;
-  content:"";
-  clear:both;
-}
-
+*{box-sizing:border-box;}
+body{margin:0;padding:0;font-family:sans-serif;background-color:#cff;}
+h1{font-size:40px;margin:5px 0;}
+.clear{display:table;content:"";clear:both;}
 /*隐藏滚动条*/
-.example::-webkit-scrollbar,.box>a::-webkit-scrollbar{
-  display:none;
-}
-.example,.box>a{
-  -ms-overflow-style:none;
-  scrollbar-width:none;
-}
-
+.example::-webkit-scrollbar,.box>a::-webkit-scrollbar{display:none!important;}
+.example,.box>a{-ms-overflow-style:none!important;scrollbar-width:none!important;}
 /*文本选择*/
-::-moz-selection{
-  color:#e6f0ff;
-  background:#80b3ff;
-}
-::selection{
-  color:#e6f0ff;
-  background:#80b3ff;
-}
-
+::-moz-selection{color:#e6f0ff;background:#80b3ff;}
+::selection{color:#e6f0ff;background:#80b3ff;}
 /*滚动条*/
-::-webkit-scrollbar{
-  width:8px;
-  background:#cff;
-}
-::-webkit-scrollbar-track{
-  background:#66a3ff;
-  margin-top:44px;
-}
-::-webkit-scrollbar-thumb{
-  background:#33f;
-  border-radius:5px;
-  height:150px;
-}
-::-webkit-scrollbar-thumb:hover{
-  background:#00c; 
-}
-
+::-webkit-scrollbar{width:10px;background:#cff;}
+::-webkit-scrollbar-track{background:#66a3ff;margin-top:44px;}
+::-webkit-scrollbar-thumb{background:#33f;border-radius:5px;height:150px;}
+::-webkit-scrollbar-thumb:hover{background:#00c; }
 /*小于300px显示*/
-.small{
-  display:none;
-}
-
+.small{display:none;}
 /*导航栏*/
 header{
   background-color:#cff;
@@ -91,12 +47,8 @@ header button{
   border:none;
   background-color:transparent;
 }
-header button:hover{
-  background-color:#6cf;
-}
-.dropdown{
-  display:inline-block;
-}
+header button:hover{background-color:#6cf;}
+.dropdown{display:inline-block;}
 .dropdown-content{
   display:none;
   position:absolute;
@@ -112,24 +64,11 @@ header button:hover{
   text-decoration:none;
   display:block;
 }
-.dropdown-content a:hover{
-  background-color:#009;
-}
-.dropdown:hover .dropdown-content{
-  display:block;
-}
-
+.dropdown-content a:hover{background-color:#009;}
+.dropdown:hover .dropdown-content{display:block;}
 /*正文*/
-article{
-  padding:20px;
-  background:linear-gradient(#e6ffff 0vh, #e6ffff 95vh, #06f 150vh);
-  color:#fff;
-}
-hr{
-  color:#fff;
-  border:1px solid #fff;
-}
-
+article{padding:20px;background:linear-gradient(#e6ffff 0vh, #e6ffff 95vh, #06f 150vh);color:#fff;}
+hr{color:#fff;border:1px solid #fff;}
 /*“六年一班”*/
 .login{
   text-align:center;
@@ -143,7 +82,6 @@ hr{
   padding:40px;
   color:#006;
 }
-
 /*毕业倒计时*/
 .by{
   width:85%;
@@ -152,11 +90,7 @@ hr{
   padding:20px;
   border-radius:20px;
 }
-.by>h2{
-  margin:0 0 10px 0;
-  color:#fff;
-}
-
+.by>h2{margin:0 0 10px 0;color:#fff;}
 /*打字效果&倒计时css样式*/
 #asklz{
   font-size:20px; 
@@ -176,16 +110,9 @@ hr{
   text-align:center;
   color:#000;
 }
-
 /*模块*/
-.title{
-  font-size:55px;
-  margin:15px 3px;
-}
-.box{
-  width:33.33%;
-  float:left;
-}
+.title{font-size:55px;margin:15px 3px;}
+.box{width:33.33%;float:left;}
 .box>a{
   padding:18px;
   border-radius:10px;
@@ -217,18 +144,13 @@ hr{
   margin-top:40px;
   margin-bottom:12px;
 }
-.col_title>h1{
-  text-align:center;
-}
+.col_title>h1{text-align:center;}
 .col_pink{background-color:#c0c;}
 .col_blue{background-color:#00f;}
 .col_green{background-color:#0f0;color:#030;}
 .col_yellow{background-color:#fc0;color:#663d00;}
-
 /*座位表*/
-.classroom{
-  background-color:#6f6;
-}
+.classroom{background-color:#6f6;}
 .classroom>div{
   display:flex;
   width:100%;
@@ -260,16 +182,9 @@ hr{
   background-color:#9f6;
   color:#260;
 }
-.a{
-  margin:5px 0 5px 5px;
-}
-.b{
-  margin:5px 15px 5px 0;
-}
-#siziren::before{
-  content:"锐辰";
-}
-
+.a{margin:5px 0 5px 5px;}
+.b{margin:5px 15px 5px 0;}
+#siziren::before{content:"锐辰";}
 /*加载提示*/
 .loading{
   background-color:#e6ffff;
@@ -280,10 +195,9 @@ hr{
   font-size:20px;
   z-index:1;
   color:#009;
+  overflow:hidden;
 }
-.loading>h1{
-  font-size:60px;
-}
+.loading>h1{font-size:50px;}
 .loading button{
   font-size:23px;
   border:0;
@@ -293,7 +207,36 @@ hr{
   padding:5px;
   width:50%;
 }
-
+.loading>div{
+  border-width:27px;
+  width:160px;
+  height:160px;
+  border-color:#00f #36f #36f #36f;
+  border-style:solid;
+  border-radius:200px;
+  animation:loading 2s linear infinite;
+  -webkit-animation:loading 2s linear infinite;
+  margin:0 auto 30px auto;
+}
+@keyframes loading{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+#div{
+  position:relative;
+  -webkit-animation-name:animatebottom;
+  -webkit-animation-duration:1s;
+  animation-name:animatebottom;
+  animation-duration:0.7s;
+}
+@-webkit-keyframes animatebottom{
+  from{bottom:-50px;opacity:0;} 
+  to{bottom:0px;opacity:1;}
+}
+@keyframes animatebottom{ 
+  from{bottom:-50px;opacity:0;} 
+  to{bottom:0;opacity:1;}
+}
 /*页脚*/
 footer{
   background:linear-gradient(#06f 0px,#009 60px);
@@ -301,7 +244,6 @@ footer{
   padding-top:200px;
   color:#66f;
 }
-
 /*警告框*/
 .alert{
   padding:10px;
@@ -319,154 +261,90 @@ footer{
   cursor:pointer;
   transition:0.3s;
 }
+.closebtn:hover{color:#fcc;}
 
-.closebtn:hover{
-  color:#fcc;
+@media screen and (max-width:880px){#siziren::before{content:"...";}}
+@media screen and (max-width:800px){
+  .login_title{font-size:100px;}
+  .box{width:50%;}
+  .classroom>div a,.classroom>div a[href]{font-size:16px;}
+  .a{margin:4px 0 4px 4px;}
+  .b{margin:4px 10px 4px 0;}
 }
-
-@media screen and (max-width: 880px) {
-#siziren::before{
-  content:"...";
+@media screen and (max-width:600px){
+  article{padding:10px;}
+  .login{padding-top:80px;}
+  .login_title{
+    font-size:80px;
+    padding:20px;
+  }
+  .by{
+    width:90%;
+    border-radius:25px;
+  }
+  #asklz{
+    font-size:19px; 
+    background-color:#fff;
+    width:70vw;
+    margin:auto;
+    padding:5px;
+    border:1px solid #cc0000;
+    border-radius:10000px;
+  }
+  #time{
+    font-size:25px;
+    padding:15px;
+    border:2px solid #d1b3ff;
+    border-radius:15px;
+  }
+  .box{width:100%;}
+  .col_title>h1>span{display:none;}
+  .button_l,.button_r{width:120px;}
+  .tab{
+    overflow:hidden;
+    width:240px;
+    margin:auto;
+  }
+  .classroom>div a,.classroom>div a[href]{
+    font-size:15px;
+    padding:2px;
+  }
+  .a{margin:2px 0 2px 2px;}
+  .b{margin:2px 6px 2px 0;}
 }
-
+@media screen and (max-width:500px){
+  .classroom>div a,.classroom>div a[href]{font-size:12px;padding:1px;}
+  .a{margin:2px 0 2px 1px;}
+  .b{margin:2px 6px 2px 0;}
 }
-@media screen and (max-width: 800px) {
-
-.login_title{
-  font-size:100px;
+@media screen and (max-width:400px){
+  #time{padding:auto 5px;}
+  .by{padding:15px;}
+  .classroom>div a,.classroom>div a[href]{
+    font-size:10px;
+    padding:1px;
+    border:0.1px solid #090;
+  }
+  .a{margin:0.7px 0 0.7px 0.7px;}
+  .b{margin:0.7px 3px 0.7px 0;}
 }
-.box{
-  width:50%;
-}
-
-.classroom>div a,.classroom>div a[href]{
-  font-size:16px;
-}
-.a{
-  margin:4px 0 4px 4px;
-}
-.b{
-  margin:4px 10px 4px 0;
-}
-
-}
-
-@media screen and (max-width: 600px) {
-  
-  
-article{
-  padding:10px;
-}
-.login{
-  padding-top:80px;
-}
-.login_title{
-  font-size:80px;
-  padding:20px;
-}
-.by{
-  width:90%;
-  border-radius:25px;
-}
-#asklz{
-  font-size:19px; 
-  background-color:#fff;
-  width:70vw;
-  margin:auto;
-  padding:5px;
-  border:1px solid #cc0000;
-  border-radius:10000px;
-}
-#time{
-  font-size:25px;
-  padding:15px;
-  border:2px solid #d1b3ff;
-  border-radius:15px;
-}
-.box{
-  width:100%;
-}
-.col_title>h1>span{
-  display:none;
-}
-
-.button_l,.button_r{
-  width:120px;
-}
-.tab{
-  overflow:hidden;
-  width:240px;
-  margin:auto;
-}
-.classroom>div a,.classroom>div a[href]{
-  font-size:15px;
-  padding:2px;
-}
-.a{
-  margin:2px 0 2px 2px;
-}
-.b{
-  margin:2px 6px 2px 0;
-}
-
-}
-
-@media screen and (max-width: 500px) {
-.classroom>div a,.classroom>div a[href]{
-  font-size:12px;
-  padding:1px;
-}
-.a{
-  margin:2px 0 2px 1px;
-}
-.b{
-  margin:2px 6px 2px 0;
-}
-}
-
-@media screen and (max-width: 400px) {
-#time{
-  padding:auto 5px;
-}
-.by{
-  padding:15px;
-}
-.classroom>div a,.classroom>div a[href]{
-  font-size:10px;
-  padding:1px;
-  border:0.1px solid #090;
-}
-.a{
-  margin:0.7px 0 0.7px 0.7px;
-}
-.b{
-  margin:0.7px 3px 0.7px 0;
-}
-}
-
-@media screen and (max-width: 300px) {
-header,article,footer{
-  display:none;
-}
-.small{
-  display:block;
-  color:red;
-  padding:20px 5px;
-  text-align:center;
-  background-color:#e6ffff;
-  height:100vh;
-}
-.small p{
-  font-size:27px;
-}
-.small i{
-  font-size:70vw;
-}
+@media screen and (max-width:300px){
+  header,article,footer{display:none;}
+  .small{
+    display:block;
+    color:red;
+    padding:20px 5px;
+    text-align:center;
+    background-color:#e6ffff;
+    height:100vh;
+  }
+  .loading{display:none;}
+  .small p{font-size:27px;}
+  .small i{font-size:70vw;}
 }
 </style>
 </head>
 <body onload="loading()">
-
 <div class="loading" id="loading">
     <noscript>
         <div class="alert">
@@ -474,20 +352,18 @@ header,article,footer{
             <p><strong>警告：</strong>你似乎关闭了浏览器的js权限，请打开此权限以跳过此加载页面。</p>
         </div>
     </noscript>
+    <div></div>
     <h1>网页加载中</h1>
     <p>该网页加载速度极慢（图片、视频甚至根本无法加载），请耐心等候。。。</p>
     <p><strong>注意：</strong>该网站仅针对福州市东升小2018级1班学生！</p>
     <button onclick="loading()">直接跳过</button>
 </div>
-
 <div class="small">
     <i class="fa fa-exclamation-circle"></i>
     <p>浏览器窗口过小，不支持显示……</p>
     <span>请试着放大窗口或更换设备后再试。</span>
 </div>
-
 <div id="div" style="display:none">
-
 <header id="navbar">
     <div style="width:50px;padding:4.55px;display:flex;float:left" onclick="goTop()" id="goTop"><img src="ico/61.svg" width="35" height="35"/></div>
     <div class="dropdown">
@@ -505,7 +381,6 @@ header,article,footer{
 </header>
 <article>
     <div class="login">
-        
         <h1 class="login_title">六年一班</h1>
         <div id="asklz"></div>
     </div>
@@ -717,7 +592,6 @@ header,article,footer{
         </div>
     </div>
 </article>
-
 <footer>
     <h2>声明</h2>
     <ol>
@@ -728,16 +602,14 @@ header,article,footer{
     </ol>
     <h1 style="text-align:center;">——end——</h1>
 </footer>
-
 <script>
-//以下应用于返回上方
+//返回上方
 mybutton = document.getElementById("goTop");
 function goTop() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
-
-//以下应用于倒计时
+//倒计时
 var day1=document.querySelector(".a1");
 var hour1=document.querySelector(".a2");
 var minute1=document.querySelector(".a3");
@@ -757,8 +629,7 @@ hour1.innerHTML=h1+"时";
 minute1.innerHTML=m1+"分";
 second1.innerHTML=s1+"秒"; 
 }
-
-//以下应用于打字效果
+//打字效果
 var app = document.getElementById('asklz');
 var typewriter = new Typewriter(asklz, {loop: true
 });
@@ -769,20 +640,9 @@ typewriter.typeString('欢迎来到这个网站。。。')
 .pauseFor(2500)
 .deleteAll()
 .typeString('（广告位招租）。。。')
-.pauseFor(2500)/*
-.deleteAll()
-.typeString('')
-.pauseFor(2000)
-.deleteAll()
-.typeString('')
-.pauseFor(2000)
-.deleteAll()
-.typeString('')
-.pauseFor(10000)*/
+.pauseFor(2500)
 .start();
 </script>
-
 </div>
-
 </body>
 </html>
