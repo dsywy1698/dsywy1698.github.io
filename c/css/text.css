@@ -28,7 +28,9 @@ nav button{
   border:none;
   background-color:transparent;
 }
-nav button:hover{background-color:#6cf;}
+nav button:hover{
+  background-color:#6cf;
+}
 .dropdown-content{
   display:none;
   position:absolute;
@@ -53,15 +55,12 @@ main{
   animation-name:main;
   animation-duration:2s;
   padding-top:4em;
-  animation-fill-mode:forwards;
-  color:#fff;
+  background-color:#06f;
+  color:#ffffff;
 }
-@keyframes main{
-  0%  {background-color:#e6ffff;color:#000000;}
-  30% {background-color:#e6ffff;color:#000000;}
-  100%{background-color:#06f;/*#03c*/color:#ffffff;}
+header{
+  margin-bottom:120px;
 }
-header{margin-bottom:150px;}
 header>h1{
   padding:30px;
   font-size:7.5rem;
@@ -85,9 +84,9 @@ header>div>p>i{
   border-radius:5px;
 }
 footer{
-  background:linear-gradient(#06f 0px,#03c 80px);
+  background:#03c;
   padding:30px;
-  padding-top:100px;
+  padding-top:80px;
   color:#66f;
 }
 .loading{
@@ -134,7 +133,10 @@ img,video,iframe,canvas{max-height:90vh !important;}
   background-color:#09f;
   border-radius:20px;
 }
-.watch>p{text-indent:2em;margin:7px 0;}
+.watch>p{
+  text-indent:2em;
+  margin:7px 0;
+}
 .watch i{display:inline;}
 .alert{
   border:1px solid red;
