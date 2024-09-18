@@ -35,7 +35,7 @@ article{display:table;content:"";clear:both;width:100%;margin:0;}
 .small{display:none;}
 /*导航栏*/
 header{
-  background-color:#cff;
+  background-color:#ccffffee;
   position: fixed;
   width: 100%;
   z-index:1;
@@ -90,10 +90,19 @@ hr{color:#fff;border:1px solid #fff;border-radius:100px;}
   width:500px;
   margin:auto;
   padding:5px;
-  border:1px solid #cc0000;
   border-radius:10000px;
 }
 /*模块*/
+#news{
+  background:#9966ff;
+  color:#fff;
+}
+#news>div{
+  padding:8px;
+  background:#b9f;
+  margin:4px;
+  border-radius:5px;
+}
 #teacher{
   background:#fff5cc;
   color:#00000088;
@@ -117,6 +126,20 @@ hr{color:#fff;border:1px solid #fff;border-radius:100px;}
 }
 #teacher>div>a:hover{
   background-color:#fff0b3;
+}
+#teacher>div>a>div{
+  background-color:#fff5cc;
+  padding:10px;
+  width:200px;
+  margin:auto;
+  text-align:center;
+  border-radius:20px;
+}
+#teacher>div>a[href="#"]{
+  background-color:#fff7e6;
+  height:auto;
+  color:#c60;
+  border:0;
 }
 #pupil{
   background:#99e699;
@@ -415,14 +438,31 @@ footer{
     </div>
 </header>
 <article id="login">
-        <h1 class="login_title">初一9班</h1>
-        <div id="asklz"></div>
+    <h1 class="login_title">初一9班</h1>
+    <div id="asklz"></div>
+</article>
+<article id="news">
+    <h1 style="text-align:center;">最新资讯</h1>
+    <div>无。。。</div>
+    <div>无。。。</div>
+    <div>无。。。</div>
+    <div>无。。。</div>
 </article>
 <article id="teacher">
     <h1 style="text-align:center;">老师</h1>
-    <div><a href="t-dl.htm"><h1>地理</h1><p>“重男轻女”的老师</p></a></div>
-    <div><a href="t-sw.htm"><h1>生物</h1><p>四一男，说出5条生物的特征。</p></a></div>
-    <div><a href="t-yy.htm"><h1>英语</h1><p>丑话说在前头。</p></a></div>
+    <div><a href="t-dl.htm"><h1>地理</h1><p>“重男轻女”的老师</p><div>拖堂率：无数据</div></a></div>
+    <div><a href="t-sw.htm"><h1>生物</h1><p>四一男，说出5条生物的特征。</p><div>拖堂率：无数据</div></a></div>
+    <div><a href="t-yy.htm"><h1>英语</h1><p>丑话说在前头。</p><div>拖堂率：无数据</div></a></div>
+    <p style="clear:both;color:#804000;padding-left:20px;">以下老师介绍未开放。</p>
+    <div><a href="#"><h1>数学</h1><p></p><div>拖堂率：无数据</div></a></div>
+    <div><a href="#"><h1>语文</h1><p></p><div>拖堂率：无数据</div></a></div>
+    <div><a href="#"><h1>历史</h1><p></p><div>拖堂率：无数据</div></a></div>
+    <div><a href="#"><h1>政治</h1><p></p><div>拖堂率：无数据</div></a></div>
+    <div><a href="#"><h1>美术</h1><p></p><div>拖堂率：无数据</div></a></div>
+    <div><a href="#"><h1>音乐</h1><p></p><div>拖堂率：无数据</div></a></div>
+    <div><a href="#"><h1>劳技</h1><p></p><div>拖堂率：无数据</div></a></div>
+    <div><a href="#"><h1>体育</h1><p></p><div>拖堂率：无数据</div></a></div>
+    <!--<div>放学准时率：无数据</div>-->
 </article>
 <article id="pupil">
     <h1 style="text-align:center;">学生</h1>
