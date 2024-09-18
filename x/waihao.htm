@@ -22,7 +22,9 @@ main>div>div{
   display:flex;
   width:100%;
 }
-.name{flex-basis:200px;}
+.name{
+  flex-basis:200px;
+}
 main p{
   margin:5px;
   text-align:center;
@@ -31,73 +33,236 @@ main p{
   width:100%;
   font-size:18px;
 }
-#qmx{background-color:#03c;}
-#qmx p{background-color:#b3c6ff;color:#000d33;}
-#lyx{background-color:#c6f;}
-#lyx p{background-color:#ecf;color:#406;}
-#wym{background-color:#009;}
-#wym p{background-color:#99f;color:#003;}
-#zwc{background-color:#f93;}
-#zwc p{background-color:#fc9;color:#630;}
-#zxy{background-color:#f6f;}
-#zxy p{background-color:#fcf;color:#303;}
-#lgy{background-color:#c30;}
-#lgy p{background-color:#ffd9cc;color:#4d1300;}
-#ycm{background-color:#999;}
-#ycm p{background-color:#ccc;color:#333;}
-#dyz{background-color:#60c;}
-#dyz p{background-color:#c9f;color:#306;}
-#c-yu-h{background-color:#963;}
-#c-yu-h p{background-color:#ecd9c6;color:#261a0d;}
-#lcj{background-color:#ff8000;}
-#lcj p{background-color:#fc9;color:#331a00;}
-#xcz{background-color:#339;}
-#xcz p{background-color:#c6c6ec;color:#0d0d26;}
-#cr{background-color:#c30;}
-#cr p{background-color:#ffd9cc;color:#330d00;}
-#wxl{background-color:#f0f;}
-#wxl p{background-color:#fcf;color:#303;}
-#jyy{background-color:#f39;}
-#jyy p{background-color:#ffcce6;color:#306;}
-#lst{background-color:#c0f;}
-#lst p{background-color:#f5ccff;color:#520066;}
-#cmx{background-color:#903;}
-#cmx p{background-color:#fcd;color:#301;}
-#ghx{background-color:#05f;}
-#ghx p{background-color:#cdf;color:#013;}
-#czy{background-color:#fc6;}
-#czy p{background-color:#fec;color:#320;}
-#chq{background-color:#09c;}
-#chq p{background-color:#ccf2ff;color:#002633;}
-#cyc{background-color:#6c0;}
-#cyc p{background-color:#e6ffcc;color:#1a3300;}
-#gyf{background-color:#3cc;}
-#gyf p{background-color:#d6f5f5;color:#145252;}
-#hyrc{background-color:#369;}
-#hyrc p{background-color:#d9e6f2;color:#0d1a26;}
-#zlj{background-color:#669;}
-#zlj p{background-color:#d1d1e0;color:#14141f;}
-#l-ze-c{background-color:#6ff;}
-#l-ze-c p{background-color:#cff;color:#033;}
-#zsy{background-color:#939;}
-#zsy p{background-color:#f9ecf9;color:#130613;}
-#l-zi-c{background-color:#f50;}
-#l-zi-c p{background-color:#fdc;color:#310;}
-#gjj{background-color:#960;}
-#gjj p{background-color:#fec;color:#320;}
-#clh{background-color:#bf4040;}
-#clh p{background-color:#f2d9d9;color:#260d0d;}
-#et{background-color:#73f;}
-#et p{background-color:#dcf;color:#103;}
-#ct{background-color:#393;}
-#ct p{background-color:#d9f2d9;color:#0d260d;}
-#at{background-color:#f69;}
-#at p{background-color:#fcd;color:#602;}
-#mt{background-color:#c00;}
-#mt p{background-color:#f99;color:#300;}
-</style>
+
+#qmx{
+  background-color:#03c;
+}
+#qmx p{
+  background-color:#b3c6ff;
+  color:#000d33;
+}
+#lyx{
+  background-color:#c6f;
+}
+#lyx p{
+  background-color:#ecf;
+  color:#406;
+}
+#wym{
+  background-color:#009;
+}
+#wym p{
+  background-color:#99f;
+  color:#003;
+}
+#zwc{
+  background-color:#f93;
+}
+#zwc p{
+  background-color:#fc9;
+  color:#630;
+}
+#zxy{
+  background-color:#f6f;
+}
+#zxy p{
+  background-color:#fcf;
+  color:#303;
+}
+#lgy{
+  background-color:#c30;
+}
+#lgy p{
+  background-color:#ffd9cc;
+  color:#4d1300;
+}
+#ycm{
+  background-color:#999;
+}
+#ycm p{
+  background-color:#ccc;
+  color:#333;
+}
+#dyz{
+  background-color:#60c;
+}
+#dyz p{
+  background-color:#c9f;
+  color:#306;
+}
+#c-yu-h{
+  background-color:#963;
+}
+#c-yu-h p{
+  background-color:#ecd9c6;
+  color:#261a0d;
+}
+#lcj{
+  background-color:#ff8000;
+}
+#lcj p{
+  background-color:#fc9;
+  color:#331a00;
+}
+#xcz{
+  background-color:#339;
+}
+#xcz p{
+  background-color:#c6c6ec;
+  color:#0d0d26;
+}
+#cr{
+  background-color:#c30;
+}
+#cr p{
+  background-color:#ffd9cc;
+  color:#330d00;
+}
+#wxl{
+  background-color:#f0f;
+}
+#wxl p{
+  background-color:#fcf;
+  color:#303;
+}
+#jyy{
+  background-color:#f39;
+}
+#jyy p{
+  background-color:#ffcce6;
+  color:#306;
+}
+#lst{
+  background-color:#c0f;
+}
+#lst p{
+  background-color:#f5ccff;
+  color:#520066;
+}
+#cmx{
+  background-color:#903;
+}
+#cmx p{
+  background-color:#fcd;
+  color:#301;
+}
+#ghx{
+  background-color:#05f;
+}
+#ghx p{
+  background-color:#cdf;
+  color:#013;
+}
+#czy{
+  background-color:#fc6;
+}
+#czy p{
+  background-color:#fec;
+  color:#320;
+}
+#chq{
+  background-color:#09c;
+}
+#chq p{
+  background-color:#ccf2ff;
+  color:#002633;
+}
+#cyc{
+  background-color:#6c0;
+}
+#cyc p{
+  background-color:#e6ffcc;
+  color:#1a3300;
+}
+#gyf{
+  background-color:#3cc;
+}
+#gyf p{
+  background-color:#d6f5f5;
+  color:#145252;
+}
+#hyrc{
+  background-color:#369;
+}
+#hyrc p{
+  background-color:#d9e6f2;
+  color:#0d1a26;
+}
+#zlj{
+  background-color:#669;
+}
+#zlj p{
+  background-color:#d1d1e0;
+  color:#14141f;
+}
+#l-ze-c{
+  background-color:#6ff;
+}
+#l-ze-c p{
+  background-color:#cff;
+  color:#033;
+}
+#zsy{
+  background-color:#939;
+}
+#zsy p{
+  background-color:#f9ecf9;
+  color:#130613;
+}
+#l-zi-c{
+  background-color:#f50;
+}
+#l-zi-c p{
+  background-color:#fdc;
+  color:#310;
+}
+#gjj{
+  background-color:#960;
+}
+#gjj p{
+  background-color:#fec;
+  color:#320;
+}
+#clh{
+  background-color:#bf4040;
+}
+#clh p{
+  background-color:#f2d9d9;
+  color:#260d0d;
+}
+
+
+#et{
+  background-color:#73f;
+}
+#et p{
+  background-color:#dcf;
+  color:#103;
+}
+#ct{
+  background-color:#393;
+}
+#ct p{
+  background-color:#d9f2d9;
+  color:#0d260d;
+}
+#at{
+  background-color:#f69;
+}
+#at p{
+  background-color:#fcd;
+  color:#602;
+}
+#mt{
+  background-color:#c00;
+}
+#mt p{
+  background-color:#f99;
+  color:#300;
+}</style>
 </head>
 <body onload="loading()">
+
 <div class="loading" id="loading">
     <noscript>
         <div class="alert">
@@ -109,12 +274,15 @@ main p{
     <button onclick="loading()">直接跳过</button>
 </div>
 <div class="small">浏览器窗口过小，不支持显示</div>
+
 <div id="div" style="display:none">
+
 <nav>
     <button onclick="goTop()" id="goTop"><i class="fa fa-arrow-circle-up"></i></button>
     <button onclick="document.location='index.html'" title="返回首页"><i class="fa fa-home"></i></button>
     <button class="menu"><i class="fa fa-navicon"></i></button>
-    <div class="dropdown-content"> 
+    <div class="dropdown-content">
+        
     </div>
 </nav>
 <main>
@@ -227,7 +395,7 @@ main p{
         <div id="lgy">
             <div>
                 <p class="name">1698</p>
-                <p class="text">五年级时，刘圭宥发了一条朋友圈，出现了“就让这1698天的喜欢全部化为灰烬吧，就让这42天的想哭全部给我哭出来吧。”而得名，“42”同理，详见<a href="zw.htm">作文</a></p>
+                <p class="text">五年级时，刘圭宥发了一条朋友圈，出现了“就让这1698天的喜欢全部化为灰烬吧，就让这42天的想哭全部给我哭出来吧。”而得名，“42”同理。</p>
             </div>	
             <div>
                 <p class="name">42</p>
@@ -595,5 +763,6 @@ main p{
     <p>注意：该网站仅为2018届1班提供，无不良向导。内容如有侵权将删除。</p>
 </footer>
 </div>
+
 </body>
 </html>
