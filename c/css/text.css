@@ -1,6 +1,8 @@
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;font-size:100%;}
 body{margin:0;padding:0;font-family:sans-serif;background-color:#cff;}
+#ps{background-color:#06f;}
+#ts{background-color:#fff5cc;}
 hr{color:#fff;border:1px solid #fff;border-radius:100px;margin:20px 5px;}
 a{color:#ff6;}
 a:hover{color:#ff0;}
@@ -10,28 +12,25 @@ clear::after,.img_box::after{display:table;content:"";clear:both;}
 .example{-ms-overflow-style:none;scrollbar-width:none;}
 ::-moz-selection{color:#e6f0ff;background:#80b3ffaa;}
 ::selection{color:#e6f0ff;background:#80b3ffaa;}
-::-webkit-scrollbar{width:10px;background:#cff;}
-::-webkit-scrollbar-track{background:#66a3ff;margin-top:42.5px;}
-::-webkit-scrollbar-thumb{background:#33f;border-radius:5px;height:150px;}
-::-webkit-scrollbar-thumb:hover{background:#00c; }
 nav{
-  background-color:#cff;
   position: fixed;
   width: 100%;
   z-index:1;
 }
+#ps nav{background-color:#cff;}
+#ts nav{background-color:#ffeb99;}
 nav button{
   text-decoration:none;
-  color:#36c;
   display:inline-block;
   padding:10px;
   font-size:1.25rem;
   border:none;
   background-color:transparent;
 }
-nav button:hover{
-  background-color:#6cf;
-}
+#ps nav button{color:#36c;}
+#ts nav button{color:#c60;}
+#ps nav button:hover{background-color:#6cf;}
+#ts nav button:hover{background-color:#ffe066;}
 .dropdown-content{
   display:none;
   position:absolute;
@@ -41,6 +40,8 @@ nav button:hover{
   overflow:auto;
   left:0;
 }
+#ps .dropdown-content{background-color:#006;}
+#ts .dropdown-content{background-color:#c40;}
 .dropdown-content a{
   color:#fff;
   padding:12px 16px;
@@ -48,20 +49,17 @@ nav button:hover{
   display:block;
 }
 .dropdown-content h2{color:#fff;margin:10px;}
-.dropdown-content a:hover{background-color:#009;}
 .menu:hover+.dropdown-content,.dropdown-content:hover{display:block;}
 main{
-  background-color:#06f;
   padding:10px;
   animation-name:main;
   animation-duration:2s;
   padding-top:4em;
   background-color:#06f;
-  color:#ffffff;
 }
-header{
-  margin-bottom:120px;
-}
+#ps main{background-color:#06f;color:#ffffff;}
+#ts main{background-color:#fff5cc;color:#331a00;}
+header{margin-bottom:120px;}
 header>h1{
   padding:30px;
   font-size:7.5rem;
@@ -91,25 +89,25 @@ footer{
   color:#fff;
 }
 .loading{
-  background-color:#e6ffff;
   padding:100px 50px;
   width:100vw;
   height:100vh;
   text-align:center;
   font-size:1.25rem;
   z-index:1;
-  color:#009;
 }
+#ps .loading{background-color:#e6ffff;color:#009;}
+#ts .loading{background-color:#ffecb3;color:#c90;}
 .loading>h1{font-size:3.75rem;}
 .loading button{
   font-size:1.4375rem;
   border:0;
   border-radius:10000px;
-  background-color:blue;
-  color:#fff;
   padding:5px;
   width:50%;
 }
+#ps .loading button{background-color:blue;color:#fff;}
+#ts .loading button{background-color:#f90;color:#fff;}
 #div{
   position:relative;
   -webkit-animation-name:animatebottom;
