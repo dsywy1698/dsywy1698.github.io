@@ -6,17 +6,14 @@ body{margin:0;padding:0;font-family:sans-serif;background-color:#cff;}
 hr{color:#fff;border:1px solid #fff;border-radius:100px;margin:20px 5px;}
 a{color:#ff6;}
 a:hover{color:#ff0;}
-time{color:#ffc;}
+#ps time{color:#ffc;}
+#ts time{color:#804200;}
 clear::after,.img_box::after{display:table;content:"";clear:both;}
 .example::-webkit-scrollbar{display:none;}
 .example{-ms-overflow-style:none;scrollbar-width:none;}
 ::-moz-selection{color:#e6f0ff;background:#80b3ffaa;}
 ::selection{color:#e6f0ff;background:#80b3ffaa;}
-nav{
-  position: fixed;
-  width: 100%;
-  z-index:1;
-}
+nav{position: fixed;width: 100%;z-index:1;}
 #ps nav{background-color:#cff;}
 #ts nav{background-color:#ffeb99;}
 nav button{
