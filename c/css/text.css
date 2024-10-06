@@ -8,7 +8,7 @@ a{color:#ff6;}
 a:hover{color:#ff0;}
 #ps time{color:#ffc;}
 #ts time{color:#804200;}
-clear::after,.img_box::after{display:table;content:"";clear:both;}
+.clear::after,.img_box::after{display:table;content:"";clear:both;}
 .example::-webkit-scrollbar{display:none;}
 .example{-ms-overflow-style:none;scrollbar-width:none;}
 ::-moz-selection{color:#e6f0ff;background:#80b3ffaa;}
