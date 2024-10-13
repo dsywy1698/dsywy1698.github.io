@@ -11,9 +11,11 @@ a:hover{color:#ff0;}
 .clear::after,.img_box::after{display:table;content:"";clear:both;}
 .example::-webkit-scrollbar{display:none;}
 .example{-ms-overflow-style:none;scrollbar-width:none;}
-::-moz-selection{color:#e6f0ff;background:#80b3ffaa;}
-::selection{color:#e6f0ff;background:#80b3ffaa;}
-nav{position: fixed;width: 100%;z-index:1;}
+#ps *::-moz-selection{color:#e6f0ff;background:#80b3ff88;}
+#ps *::selection{color:#e6f0ff;background:#80b3ff88;}
+#ts *::-moz-selection{color:#fff5e688;background:#ff990088;}
+#ts *::selection{color:#fff5e688;background:#ff990088;}
+nav{position:fixed;width:100%;z-index:1;}
 #ps nav{background-color:#cff;}
 #ts nav{background-color:#ffeb99;}
 nav button{
