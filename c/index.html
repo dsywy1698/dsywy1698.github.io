@@ -20,8 +20,8 @@ h1{font-size:2.5rem;margin:5px 0;}
 .clear{display:table;content:"";clear:both;}
 article{display:table;content:"";clear:both;width:100%;margin:0;}
 /*隐藏滚动条*/
-.example::-webkit-scrollbar,.box>a::-webkit-scrollbar{display:none!important;}
-.example,article *{-ms-overflow-style:none!important;scrollbar-width:none!important;}
+article *::-webkit-scrollbar,.dropdown-content::-webkit-scrollbar{display:none!important;}
+article *,.dropdown-content{-ms-overflow-style:none!important;scrollbar-width:none!important;}
 /*文本选择*/
 ::-moz-selection{color:#e6f0ff;background:#80b3ff88;}
 ::selection{color:#e6f0ff;background:#80b3ff88;}
@@ -395,6 +395,8 @@ footer{
             <a href="rz.htm">班级日志（班级每日时间一览表）</a>
             <a href="g.htm">热梗</a>
             <a href="middle.htm">四十中简介</a>
+            <a href="lunch.htm">午餐</a>
+            <a href="text.htm">文件</a>
             <a href="https://wgw.weixiao100.com.cn/custom/wgw/index?schoolCode=92500135036">四十中官网</a>
             <a href="../x/index.html">小学部<small style="background:red;padding:3px;border-radius:7px;color:#ccc;margin-left:5px">仅供东升小学2018级1班查看！</small></a>
         </div>
@@ -414,7 +416,7 @@ footer{
 </article>
 <article id="teacher">
     <h1 style="text-align:center;">老师</h1>
-    <p style="background:#fff9e6;margin:5px;padding:10px;border-radius:5px;"><em><strong>注：</strong>1.点击方框可跳转至对应老师介绍（未开放除外），部分框可上下滑动以查看更多信息。<br/>2.拖堂率、放学准时率从2024年9月23日开始统计，分数中分子为非准时次数，分母为统计次数。<br/>3.下课（放学）若被非该堂课科任老师留下，则统计一次并记为拖堂。（科任老师拖堂只记1次）。例如：语文老师准时放学后英语老师进入教室通知事情，则英语老师记一次，语文老师不计。但若只留小部分学生不计。<br/>4.班主任上课一律统计为英语，包括班会等课程。<br/>5.调课不算占课，但调课不还算作占课。</em></p>
+    <p style="background:#fff9e6;margin:5px;padding:10px;border-radius:5px;height:200px;overflow-y:auto;"><em><strong>注：</strong>1.点击方框可跳转至对应老师介绍（未开放除外），部分框可上下滑动以查看更多信息。<br/>2.拖堂率、放学准时率从2024年9月23日开始统计，分数中分子为非准时次数，分母为统计次数；打人中的“<i class="fa fa-check"></i>”代表该老师会用工具打手，“<i class="fa fa-close"></i>”则反之。<br/>3.下课（放学）若被非该堂课科任老师留下，则统计一次并记为拖堂。（科任老师拖堂只记1次）。例如：语文老师准时放学后英语老师进入教室通知事情，则英语老师记一次，语文老师不计。但若只留小部分学生不计。<br/>4.无论任何老师进来上任何课上课一律统计为该老师的课，如：班会、周一体育午托等课程。<br/>5.调课不算占课，但调课不还算作占课。<br/>6.两个政治老师均统计为政治。<br/>若无老师上课（如仔细、体锻），则该节课不统计。</em></p>
     <p style="clear:both;color:#804000;padding-left:20px;">放学延迟率：85.7%(12/14)</p>
     <div><a href="t-dl.htm"><h1>地理</h1><p>“重男轻女”的老师</p><div>拖堂率：66.7(4/6)</div><div>打人：<i class="fa fa-check"></i></div></a></div>
     <div><a href="t-sw.htm"><h1>生物</h1><p>四一男，说出5条生物的特征。</p><div>拖堂率：28.6%(2/7)</div><div>打人：<i class="fa fa-check"></i></div></a></div>
@@ -522,15 +524,19 @@ footer{
     <a href="https://wgw.weixiao100.com.cn/custom/wgw/index?schoolCode=92500135036"><p>四十中</p></a>
     <a href="g.htm"><p>热梗</p></a>
     <a href="middle.htm"><p>学校</p></a>
+    <a href="lunch.htm"><p>午餐</p></a><!--
+    <a href="text.htm"><p>文件</p></a>
+    <a href="test.htm"><p>测试</p></a>-->
 </article>
 <footer>
+    <p>如要报告该网站的错误或提供信息，请通过微信，微信号需从线下获取。<br/>首页的文本框支持自定义你的文字，线下申请，名额限5位。</p>
     <h2>声明</h2>
     <ol>
         <li>该网站仅针对<strong>福州第四十中学2024级9班学生</strong>，且内容完全真实。</li>
         <li>大部分图像源自网络，如有侵权将删除。</li>
         <li>文本可能出现错别字。</li>
     </ol>
-    <h1 style="text-align:center;">——end——</h1>
+    <h2 style="text-align:center;">——网页到底了！——</h2>
 </footer>
 <script>
 //返回上方

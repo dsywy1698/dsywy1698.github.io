@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+<title>初一（9）班-午餐</title>
+<meta charset="utf-8"/> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/text.css"/>
+<link rel="icon" href="ico/61.ico"/>
+<script src="js/all.js"></script>
+<style>
+.title{
+  text-align:center;
+  font-size:80px;
+  margin:90px;
+}
+main>div{
+  border-radius:15px;
+  padding:5px;
+  background-color:#f60;
+  margin-bottom:5px;
+}
+main>div>div{
+  display:flex;
+  width:100%;
+}
+main p{
+  margin:5px;
+  padding:5px;
+  border-radius:10px;
+  width:100%;
+  font-size:18px;
+  background-color:#fc9;
+  color:#000;
+}
+time{
+  margin:5px;
+  text-align:center;
+  padding:5px;
+  border-radius:10px;
+  width:100%;
+  font-size:18px;
+  background-color:#fc9;
+  color:#000!important;
+  flex-basis:120px;
+}
+b{
+  color:#009;
+  margin-right:20px;
+}
+.lh{
+  background:#ffe6cc;
+  color:#331a00;
+  padding:10px;
+  border-radius:10px;
+  display:block;
+}
+.lh>b{color:#fa0;}
+.lh .fa-arrow-circle-up{color:blue;margin-right:10px;}
+.lh .fa-arrow-circle-down{color:red;margin-right:10px;}
+.morning{
+  display:block;
+  background:#0c0;
+  color:#fff;
+  padding:10px;
+  border-radius:100vw;
+}
+</style>
+</head>
+<body onload="loading()" id="ps">
+<div class="loading" id="loading">
+    <noscript>
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <p><strong>警告：</strong>你似乎关闭了浏览器的js权限，请打开此权限以跳过此加载页面。</p>
+        </div>
+    </noscript>
+    <h1>网页加载中</h1>
+    <button onclick="loading()">直接跳过</button>
+</div>
+<div class="small">浏览器窗口过小，不支持显示</div>
+<div id="div" style="display:none">
+<nav>
+    <button onclick="goTop()" id="goTop"><i class="fa fa-arrow-circle-up"></i></button>
+    <button onclick="document.location='index.html'" title="返回首页"><i class="fa fa-home"></i></button>
+    <button class="menu"><i class="fa fa-navicon"></i></button>
+    <div class="dropdown-content">
+        <a href="#d2409">2024年9月</a>
+        <a href="#d2410">2024年10月</a>
+    </div>
+</nav>
+<main>
+    <h1 class="title">午餐</h1>
+    <hr/>
+    <p style="background:initial;color:#fff;margin:initial;font-size:1rem">这里记录了学校午餐的菜品。<br/></p>
+        <h1 id="d2409">2024年9月</h1>
+        <div>
+            <div><time>9月2日</time><p><span style="color:#555">米饭</span>、蒜香金针菇、青瓜炒肉片、炒包菜、金牌卤鸡腿、高汤鱼丸</p></div>                 <div><time>9月5日</time><p><span style="color:#555">米饭</span>、糖醋盐酥鸡、酱香鸭、耗油冬瓜、炒油麦菜、海带排骨汤</p></div>
+            <div><time>9月9日</time><p><span style="color:#555">米饭</span>、蜜汁翅根、爆炒五花肉、海鲜菇炒蛋、清炒卷心菜、鱼丸汤</p></div>
+            <div><time>9月12日</time><p><span style="color:#555">米饭</span>、闽南姜母鸭、滑炒鸡胸肉、孜然面筋、葱油萝卜丝、酸菜鱼滑汤</p></div>
+            <div><time>9月15日</time><p><span style="color:#555">米饭</span>、虾米炒胡瓜、黑椒腿肉、葱香猪排、拌空心菜、冬瓜肉丝汤</p></div>
+            <div><time>9月26日</time><p><span style="color:#555">米饭</span>、卤蛋、水煮肉片、肉末茄子、炒白菜、海带排骨汤</p></div>
+            <div><time>9月29日</time><p><span style="color:#555">米饭</span>、黑椒肉柳、蒜香金针菇、活虾堡、耗油冬瓜、鱼丸汤</p></div>
+        </div>
+        <h1 id="d2410">2024年10月</h1>
+        <div>
+            <div><time>10月8日</time><p><span style="color:#555">米饭</span>、蜜汁翅根、鱼香肉丝、海鲜菇炒蛋、清炒豆芽、萝卜排骨汤</p></div>
+            <div><time>10月11日</time><p><span style="color:#555">米饭</span>、荔枝肉、毛氏红烧肉、酸辣土豆丝、卤汁海带、酸菜肉丝汤</p></div>
+            <div><time>10月12日</time><p><span style="color:#555">米饭</span>、？？肉片、腐竹炒木耳、青蒜炒萝卜片、卤味鸡腿、金针菇？？汤</p></div>
+            <div><time>10月14日</time><p><span style="color:#555">米饭</span>、黑椒腿肉、葱油大排、姜汁大白菜、爆炒杏鲍菇、紫菜蛋羹汤</p></div>
+            <div><time>10月15日</time><p><span style="color:#555">米饭</span>、香芋肉丸、芙蓉蒸蛋、凝香仔骨、酸辣土豆丝、萝卜排骨汤</p></div>
+            <div><time>10月16日</time><p><span style="color:#555">米饭</span>、美味酱鸭、黑椒鸡块、云南瓜炒肉、炒包菜、西红柿豆腐蛋羹汤</p></div>
+            <div><time>10月17日</time><p><span style="color:#555">米饭</span>、青瓜炒鱿鱼、番茄焖土豆丁、笋丝炒肉丝、炒上海青、酸菜鱼滑汤</p></div>
+            <div><time>10月18日</time><p><span style="color:#555">米饭</span>、毛氏红烧肉、青蒜萝卜片、炒白菜、<span style="color:red">么么脆鸡排</span>、冬瓜肉丝汤</p></div>
+            <div><time>10月21日</time><p><span style="color:#555">米饭</span>、黑椒肉柳、卤鸡腿、麻婆豆腐、炒包菜、紫菜蛋汤</p></div>
+            <div><time>10月22日</time><p><span style="color:#555">米饭/紫薯卷</span>、米兰虾饼、土豆丝炒肉丝、西红柿炒蛋、红烧冬瓜、鱼丸汤</p></div>
+            <div><time>10月23日</time><p><span style="color:#555">米饭</span>、红烧鸡块、糖醋盐酥鸡、卤海带结、炒白菜、西红柿蛋汤</p></div>
+            <div><time>10月24日</time><p><span style="color:#555">米饭</span>、蜜汁翅根、毛氏红烧肉、酸菜炒笋丝、炒上海青、海带排骨汤</p></div>
+            <div><time>10月25日</time><p><span style="color:#555">米饭</span>、耗油肉片、洋葱圈玉米芙蓉蛋、红烧土豆丁、酸菜鱼滑汤</p></div>
+        </div>
+</main>
+<footer>
+    <p>网页到底了！</p>
+    <p>注意：该网站仅为2024届9班提供，无不良向导。内容如有侵权将删除。</p>
+</footer>
+</div>
+</body>
+</html>
