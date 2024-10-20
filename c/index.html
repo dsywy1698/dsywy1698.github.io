@@ -28,12 +28,7 @@ article *,.dropdown-content{-ms-overflow-style:none!important;scrollbar-width:no
 /*小于300px显示*/
 .small{display:none;}
 /*导航栏*/
-header{
-  background-color:#ccffffee;
-  position: fixed;
-  width: 100%;
-  z-index:1;
-}
+header{background-color:#ccffffee;position:fixed;width:100%;z-index:1;}
 header button{
   text-decoration:none;
   color:#36c;
@@ -65,45 +60,15 @@ header button:hover{background-color:#6cf;}
 /*正文*/
 article a{text-decoration:none;}
 hr{color:#fff;border:1px solid #fff;border-radius:100px;}
-#login{
-  text-align:center;
-  padding-top:90px;
-  height:60vh;
-  color:#000;
-}
-.login_title{
-  font-size:8.125rem;
-  margin:0;
-  padding:40px;
-  color:#f5ffff;
-}
+#login{text-align:center;padding-top:90px;height:60vh;color:#000;}
+.login_title{font-size:8.125rem;margin:0;padding:40px;color:#f5ffff;}
 /*打字效果&倒计时css样式*/
-#asklz{
-  font-size:1.25rem; 
-  background-color:#fff;
-  width:500px;
-  margin:auto;
-  padding:5px;
-  border-radius:10000px;
-}
+#asklz{font-size:1.25rem; background-color:#fff;width:500px;margin:auto;padding:5px;border-radius:10000px;}
 /*模块*/
 #news{background:#9966ff;color:#fff;}
-#news>div{
-  padding:8px;
-  background:#b9f;
-  margin:4px;
-  border-radius:5px;
-}
-#teacher{
-  background:#fff5cc;
-  color:#00000088;
-  padding-top:15px;
-}
-#teacher>div{
-  width:33.3333333333%;
-  float:left;
-  padding:5px;
-}
+#news>div{padding:8px;background:#b9f;margin:4px;border-radius:5px;}
+#teacher{background:#fff5cc;color:#00000088;padding-top:15px;}
+#teacher>div{width:33.3333333333%;float:left;padding:5px;}
 #teacher>div>a{
   background-color:#fffae6;
   padding:10px;
@@ -163,11 +128,21 @@ hr{color:#fff;border:1px solid #fff;border-radius:100px;}
   height:150px;
   overflow:auto;
 }
-#pupil>.pupil>a:hover{
-  background:#0bb;
-  transition:0.2s;
-  box-shadow:0 0 5px #0bb;
+#pupil>.pupil>a:hover{background:#0bb;transition:0.2s;box-shadow:0 0 5px #0bb;}
+#rz{background:#cf3;color:#394d00;padding:5px;}
+#rz>h1{text-align:center;}
+#rz>a{
+  display:block;
+  color:#ecffb3;
+  background:#99cc0088;
+  font-size:1.5rem;
+  border-radius:100vw;
+  padding:10px;
+  margin:5px;
+  text-align:center;
 }
+#rz>a[href]{background:#99cc00;transition:0.3s;}
+#rz>a[href]:hover{background:#739900;}
 #qt>h1{background:#030;margin:5px;}
 #qt{background:#ebebe0;}
 #qt>a{
@@ -181,13 +156,16 @@ hr{color:#fff;border:1px solid #fff;border-radius:100px;}
   transition:0.3s;
 }
 #qt>a:hover{background:#cdcdb1;}
+#text{background:#fec;color:#630;padding:5px;}
+#text>h1{text-align:center;}
+#text>div{background:#fc6;padding:10px;border-radius:20px;}
+#text>div>h2{margin:5px 0 15px 10px;}
+#text>div>a{display:block;color:#fec;background:
+#c60;padding:10px;font-size:1.125rem;border-radius:100vw;text-align:center;transition:0.3s;margin:5px 0;}
+#text>div>a:hover{background:#ff8000;}
 /*座位表*/
 .classroom{background-color:#b3e0ff;margin:10px;}
-.classroom>div{
-  display:flex;
-  width:100%;
-  padding:5px;
-}
+.classroom>div{display:flex;width:100%;padding:5px;}
 .classroom>p{margin:10px;color:#06f;}
 .classroom>div a{
   text-decoration:none;
@@ -218,82 +196,18 @@ hr{color:#fff;border:1px solid #fff;border-radius:100px;}
 .a{margin:5px 0 5px 5px;}
 .b{margin:5px 15px 5px 0;}
 /*加载提示*/
-.loading{
-  background-color:#e6ffff;
-  padding:100px 50px;
-  width:100vw;
-  height:100vh;
-  text-align:center;
-  font-size:1.25rem;
-  z-index:1;
-  color:#009;
-  overflow:hidden;
-}
+.loading{background-color:#e6ffff;padding:100px 50px;width:100vw;height:100vh;text-align:center;font-size:1.25rem;z-index:1;color:#009;overflow:hidden;}
 .loading>h1{font-size:3.125rem;}
-.loading button{
-  font-size:1.4375rem;
-  border:0;
-  border-radius:10000px;
-  background-color:blue;
-  color:#fff;
-  padding:5px;
-  width:50%;
-}
-.loading>div{
-  border-width:27px;
-  width:160px;
-  height:160px;
-  border-color:#00f #36f #36f #36f;
-  border-style:solid;
-  border-radius:200px;
-  animation:loading 2s linear infinite;
-  -webkit-animation:loading 2s linear infinite;
-  margin:0 auto 30px auto;
-}
-@keyframes loading{
-  0%{transform:rotate(0deg);}
-  100%{transform:rotate(360deg);}
-}
-#div{
-  position:relative;
-  -webkit-animation-name:animatebottom;
-  -webkit-animation-duration:1s;
-  animation-name:animatebottom;
-  animation-duration:0.7s;
-}
-@-webkit-keyframes animatebottom{
-  from{bottom:-50px;opacity:0;} 
-  to{bottom:0px;opacity:1;}
-}
-@keyframes animatebottom{ 
-  from{bottom:-50px;opacity:0;} 
-  to{bottom:0;opacity:1;}
-}
+.loading button{font-size:1.4375rem;border:0;border-radius:10000px;background-color:blue;color:#fff;padding:5px;width:50%;}
+.loading>div{border-width:27px;width:160px;height:160px;border-color:#00f #36f #36f #36f;border-style:solid;border-radius:200px;animation:loading 2s linear infinite;-webkit-animation:loading 2s linear infinite;margin:0 auto 30px auto;}
+@keyframes loading{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+#div{position:relative;-webkit-animation-name:animatebottom;-webkit-animation-duration:1s;animation-name:animatebottom;animation-duration:0.7s;}
+@-webkit-keyframes animatebottom{from{bottom:-50px;opacity:0;} to{bottom:0px;opacity:1;}}
+@keyframes animatebottom{ from{bottom:-50px;opacity:0;} to{bottom:0;opacity:1;}}
 /*页脚*/
-footer{
-  background:#000;
-  padding:30px;
-  color:#fff;
-}
+footer{background:#000;padding:30px;color:#fff;}
 /*警告框*/
-.alert{
-  padding:10px;
-  background-color:#ff4d4d;
-  color:white;
-  border-radius:10px;
-}
-.closebtn{
-  margin-left:15px;
-  color:#fff;
-  font-weight:bold;
-  float:right;
-  font-size:1.375rem;
-  line-height:20px;
-  cursor:pointer;
-  transition:0.3s;
-}
-.closebtn:hover{color:#fcc;}
-
+.alert{padding:10px;background-color:#ff4d4d;color:white;border-radius:10px;}
 @media screen and (max-width:800px){
   .login_title{font-size:6.25rem;}
   .classroom>div a,.classroom>div a[href]{font-size:1rem;}
@@ -305,27 +219,10 @@ footer{
   #login{padding-top:80px;}
   .login_title{font-size:5rem;padding:20px;}
   .by{width:90%;border-radius:25px;}
-  #asklz{
-    font-size:1.1875rem; 
-    background-color:#fff;
-    width:70vw;
-    margin:auto;
-    padding:5px;
-    border:1px solid #cc0000;
-    border-radius:10000px;
-  }
-  #time{
-    font-size:1.5625rem;
-    padding:15px;
-    border:2px solid #d1b3ff;
-    border-radius:15px;
-  }
+  #asklz{font-size:1.1875rem; background-color:#fff;width:70vw;margin:auto;padding:5px;border-radius:100vw;}
+  #time{font-size:1.5625rem;padding:15px;border:2px solid #d1b3ff;border-radius:15px;}
   .button_l,.button_r{width:120px;}
-  .tab{
-    overflow:hidden;
-    width:240px;
-    margin:auto;
-  }
+  .tab{overflow:hidden;width:240px;margin:auto;}
   .classroom{margin:5px;}
   .classroom>p{font-size:0.8rem;}
   .classroom>div a,.classroom>div a[href]{font-size:0.9375rem;padding:2px;}
@@ -340,24 +237,13 @@ footer{
 }
 @media screen and (max-width:400px){
   #time{padding:auto 5px;}
-  .classroom>div a,.classroom>div a[href]{
-    font-size:0.625rem;
-    padding:1px;
-    border-width:0.1px;
-  }
+  .classroom>div a,.classroom>div a[href]{font-size:0.625rem;padding:1px;border-width:0.1px;}
   .a{margin:0.7px 0 0.7px 0.7px;}
   .b{margin:0.7px 3px 0.7px 0;}
 }
 @media screen and (max-width:305px){
   header,article,footer{display:none;!important}
-  .small{
-    display:block;
-    color:red;
-    padding:20px 5px;
-    text-align:center;
-    background-color:#e6ffff;
-    height:100vh;
-  }
+  .small{display:block;color:red;padding:20px 5px;text-align:center;background-color:#e6ffff;height:100vh;}
   .loading{display:none;}
   .small p{font-size:1.6875rem;}
   .small i{font-size:70vw;}
@@ -366,12 +252,7 @@ footer{
 </head>
 <body onload="loading()">
 <div class="loading" id="loading">
-    <noscript>
-        <div class="alert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            <p><strong>警告：</strong>你似乎关闭了浏览器的js权限，请打开此权限以跳过此加载页面。</p>
-        </div>
-    </noscript>
+    <noscript><div class="alert"><p><strong>警告：</strong>你似乎关闭了浏览器的js权限，请打开此权限以跳过此加载页面。</p></div></noscript>
     <div></div>
     <h1>网页加载中</h1>
     <p>该网页加载速度极慢（图片、视频甚至根本无法加载），请耐心等候。。。</p>
@@ -392,19 +273,16 @@ footer{
             <a href="pupil.htm">学生</a>
             <a href="waihao.htm">外号</a>
             <a href="mingyan.htm">名言</a>
-            <a href="rz.htm">班级日志（班级每日时间一览表）</a>
+            <a href="rz.htm">班级事件表（七上）</a>
             <a href="g.htm">热梗</a>
             <a href="middle.htm">四十中简介</a>
             <a href="lunch.htm">午餐</a>
-            <a href="text.htm">文件</a>
             <a href="https://wgw.weixiao100.com.cn/custom/wgw/index?schoolCode=92500135036">四十中官网</a>
             <a href="../x/index.html">小学部<small style="background:red;padding:3px;border-radius:7px;color:#ccc;margin-left:5px">仅供东升小学2018级1班查看！</small></a>
         </div>
     </div>
 </header>
-<article id="login">
-    <h1 class="login_title">初一9班</h1>
-    <div id="asklz"></div>
+<article id="login"><h1 class="login_title">初一9班</h1><div id="asklz"></div>
 </article>
 <article id="news">
     <h1 style="text-align:center;">最新资讯</h1>
@@ -422,11 +300,11 @@ footer{
     <div><a href="t-sw.htm"><h1>生物</h1><p>四一男，说出5条生物的特征。</p><div>拖堂率：28.6%(2/7)</div><div>打人：<i class="fa fa-check"></i></div></a></div>
     <div><a href="t-yy.htm"><h1>英语</h1><p>丑话说在前头。</p><div>拖堂率：70.8%(34/48)</div><div>占课：4.5节</div><div>打人：<i class="fa fa-check"></i></div></a></div>
     <div><a href="t-sx.htm"><h1>数学</h1><p>《熊熊疑惑》《强强探知》</p><div>拖堂率：52.4%(11/21)</div><div>打人：<i class="fa fa-check"></i></div></a></div>
+    <div><a href="t-yy2.htm"><h1>语文</h1><p>防伪标志</p><div>拖堂率：31.6%(6/19)</div><div>打人：<i class="fa fa-close"></i></div></a></div>
+    <div><a href="t-ms.htm"><h1>美术</h1><p>“用你们的铅笔……”</p><div>拖堂率：0%(0/1)</div><div>打人：<i class="fa fa-close"></i></div></a></div>
     <p style="clear:both;color:#804000;padding-left:20px;">以下老师介绍未开放。</p>
-    <div><a href="#"><h1>语文</h1><p></p><div>拖堂率：31.6%(6/19)</div><div>打人：<i class="fa fa-close"></i></div></a></div><!--防伪标志，不用小蜜蜂-->
     <div><a href="#"><h1>历史</h1><p></p><div>拖堂率：0%(0/4)</div><div>打人：<i class="fa fa-close"></i></div></a></div>
     <div><a href="#"><h1>政治</h1><p></p><div>拖堂率：11.1%(1/9)</div><div>打人：<i class="fa fa-close"></i></div></a></div>
-    <div><a href="#"><h1>美术</h1><p></p><div>拖堂率：0%(0/1)</div><div>打人：<i class="fa fa-close"></i></div></a></div><!--“铅笔”、繁体字-->
     <div><a href="#"><h1>音乐</h1><p></p><div>拖堂率：50%(1/2)</div><div>打人：<i class="fa fa-close"></i></div></a></div>
     <div><a href="#"><h1>劳技</h1><p></p><div>拖堂率：0%(0/3)</div><div>打人：<i class="fa fa-close"></i></div></a></div>
     <div><a href="#"><h1>体育</h1><p></p><div>拖堂率：0%(0/9)</div><div>打人：<i class="fa fa-close"></i></div></a></div>
@@ -456,7 +334,7 @@ footer{
         </div>
         <div>
             <a class="a">崔宇辰</a>
-            <a class="b">陈子岩</a>
+            <a class="b" href="pupil.htm#czy">陈子岩</a>
             <a class="a" href="pupil.htm#zyc">朱奕辰</a>
             <a class="b">游武毅</a>
             <a class="a">郭沁诗</a>
@@ -468,8 +346,8 @@ footer{
             <a class="a" href="pupil.htm#hey">黄恩亚</a>
             <a class="b">江雨晴</a>
             <a class="a">李梦妍</a>
-            <a class="b">张梦琪</a>
-            <a class="a">蔡华楷</a>
+            <a class="b">蔡华楷</a>
+            <a class="a">张梦琪</a>
             <a class="b">林芷琪</a>
             <a class="a" href="pupil.htm#plh">蒲林豪</a>
             <a class="b">林钰颖</a>
@@ -517,17 +395,42 @@ footer{
         <p>注：该座位实时更新（可能有误），但不考虑换组因素。<br/>浅色表示暂无该人介绍；深色点击后可进入对应介绍区域。</p>
         </div>
 </article>
+<article id="rz">
+    <h1>班级事件表</h1>
+    <p>这里记录了班上学生的日常！<br/>点击下方选择相应时间。</p>
+    <a href="rz.htm">七上</a>
+    <a>七下</a>
+    <a>八上</a>
+    <a>八下</a>
+    <a>九上</a>
+    <a>九下</a>
+</article>
 <article id="qt">
     <a href="waihao.htm"><p>外号</p></a>
     <a href="mingyan.htm"><p>名言</p></a>
-    <a href="rz.htm"><p>日志<sup style="background:#ff8000;color:#fff;font-size:0.5em;padding:5px;border-radius:15px;margin-left:5px;">爆</sup></p></a>
     <a href="https://wgw.weixiao100.com.cn/custom/wgw/index?schoolCode=92500135036"><p>四十中</p></a>
     <a href="g.htm"><p>热梗</p></a>
     <a href="middle.htm"><p>学校</p></a>
     <a href="lunch.htm"><p>午餐</p></a><!--
-    <a href="text.htm"><p>文件</p></a>
     <a href="test.htm"><p>测试</p></a>-->
 </article>
+<article id="text">
+    <h1>文件</h1>
+    <div>
+        <h2>班务相关</h2>
+        <a href="text/l.pdf" download>量化细则（班规）</a>
+        <a href="text/k.pdf" download>作业登记表（课代表）</a>
+        <a href="text/x.pdf" download>作业登记表（学委）</a>
+    </div>
+</article>
+<!--
+<article id="class">
+    <h1>课程表</h1>
+    <table>
+        
+    </table>
+</article>
+-->
 <footer>
     <p>如要报告该网站的错误或提供信息，请通过微信，微信号需从线下获取。<br/>首页的文本框支持自定义你的文字，线下申请，名额限5位。</p>
     <h2>声明</h2>
