@@ -117,9 +117,8 @@ hr{color:#fff;border:1px solid #fff;border-radius:100px;}
 #teacher{background:#ffffff33;margin:10px 20px 10px 0;padding:5px;border-radius:0 20px 20px 0;}
 #teacher>a{background:#f69;text-decoration:none;color:#fff;display:block;margin:10px;border-radius:8px;padding:15px;}
 #teacher>a:hover{transition:0.3s;background:#f37;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);}
-#teacher>h1,#pupil>h1{background:#ffffff88;color:#000066;padding:10px;margin:10px;border-radius:100vw;text-align:center;display:block;}
+#teacher>h1,#pupil>h1,#qt>h1{background:#ffffff88;color:#000066;padding:10px;margin:10px;border-radius:100vw;text-align:center;display:block;}
 #pupil{margin:30px 20px 30px 20px;background:linear-gradient(#ffffff55 0%,#ffffff00 90%);padding:5px;border-radius:20px 20px 0 0;}
-#pupil>h1{}
 #pupil>a{display:block;text-decoration:none;background:linear-gradient(to right,#1a1aff 0%,#1a1aff 50%,#ffffff00 90%);color:#fff;border-radius:100vw 0 0 100vw;font-size:1.25rem;padding:8px;text-align:center;}
 .box{width:33.33%;float:left;}
 .box>a{
@@ -133,6 +132,14 @@ hr{color:#fff;border:1px solid #fff;border-radius:100px;}
   overflow:auto;background:#3333ffcc;
 }
 .box>a:hover{transition:0.3s;}
+#webpage{
+  background:#bbb;
+  border-radius:20px;
+  margin:10px;
+}
+#webpage>div{background:#ddd;padding:5px;}
+#webpage>div>span{float:right;color:#666;}
+#webpage>a{}
 /*座位表*/
 .classroom{background-color:#6f6;border-radius:5px;}
 .classroom>div{
@@ -166,8 +173,8 @@ hr{color:#fff;border:1px solid #fff;border-radius:100px;}
   background-color:#9f6;
   color:#260;
 }
-.a{margin:5px 0 5px 5px;}
-.b{margin:5px 15px 5px 0;}
+.a{margin:5px 0 5px 5px;border-radius:5px 0 0 5px;}
+.b{margin:5px 15px 5px 0;border-radius:0 5px 5px 0;}
 #siziren::before{content:"锐辰";}
 /*加载提示*/
 .loading{
@@ -285,13 +292,13 @@ footer{
     font-size:0.9375rem;
     padding:2px;
   }
-  .a{margin:2px 0 2px 2px;}
-  .b{margin:2px 6px 2px 0;}
+  .a{margin:1px 0 1px 1px;}
+  .b{margin:1px 4px 1px 0;}
 }
 @media screen and (max-width:500px){
   .classroom>div a,.classroom>div a[href]{font-size:0.75rem;padding:1px;}
-  .a{margin:2px 0 2px 1px;}
-  .b{margin:2px 6px 2px 0;}
+  .a{margin:0.7px 0 0.7px 0.7px;border-radius:2px 0 0 2px;}
+  .b{margin:0.7px 3px 0.7px 0;border-radius:0 2px 2px 0;}
 }
 @media screen and (max-width:400px){
   #time{padding:auto 5px;}
@@ -301,10 +308,10 @@ footer{
     padding:1px;
     border:0.1px solid #090;
   }
-  .a{margin:0.7px 0 0.7px 0.7px;}
-  .b{margin:0.7px 3px 0.7px 0;}
+  .a{margin:0.5px 0 0.5px 0.5px;}
+  .b{margin:0.5px 2px 0.5px 0;}
 }
-@media screen and (max-width:300px){
+@media screen and (max-width:350px){
   header,article,footer{display:none;}
   .small{
     display:block;
@@ -490,46 +497,30 @@ footer{
         </div>
         </div>
     </div>
-    <div class="col box_green">
-        <div class="col_title col_green">
-            <h1><span>————</span>资料袋<span>————</span></h1>
-        </div>
-        <div class="box">
-            <a href="waihao.htm">
+    <div id="qt">
+        <h1>其他</h1>
+        <div id="wm">
+            <a href="waihao.htm" id="w">
                 <h1>外号</h1>
                 <p>顾兮——爱惜！</p>
             </a>
-        </div>
-        <div class="box">
-            <a href="mingyan.htm">
+            <a href="mingyan.htm" id="m">
                 <h1>名言</h1>
                 <p>我觉得劳斯莱斯不如迈巴赫。</p>
             </a>
         </div>
-    </div>
-    <div class="col box_yellow">
-        <div class="col_title col_yellow">
-            <h1><span>————</span>其他<span>————</span></h1>
+        <div id="webpage">
+            <div><span></span><span></span><span>&times;</span></div>
+            <a href="pupil/lst.htm" target="_blank"><p>李诗彤网页</p></a>
+            <a href="https://guojijia.github.io" target="_blank"><p>郭吉家网页</p></a>
         </div>
-        <div class="box">
-            <a href="pupil/lst.htm" target="_blank">
-                <h1>李诗彤网页</h1>
-                <p>“林煜昕是我的仆人。”</p>
-            </a>
-        </div>
-        <div class="box">
+        <div>
             <a href="https://wgw.weixiao100.com.cn/custom/gw/78218603-X/content?menuid=8616&templateType=6" target="_blank">
                 <h1>东升小学官网</h1>
                 <p>里面有很多ET照片</p>
             </a>
         </div>
-        <div class="box">
-            <a href="https://guojijia.github.io" target="_blank">
-                <h1>郭吉家网页</h1>
-                <p>我帮他做的！</p>
-            </a>
-        </div>
-        <div class="box">
+        <div>
             <a href="https://pan.baidu.com/s/1Mv3vhvNZrv6GYVSv0eUlBg?from=init&pwd=6688#list/path=%2F" target="_blank">
                 <h1>微电影</h1>
                 <p>弃——因为你，才让我背对命运，不——害——怕……</p>
