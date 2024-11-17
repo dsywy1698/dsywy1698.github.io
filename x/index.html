@@ -19,218 +19,85 @@ html{scroll-behavior:smooth;font-size:100%;}
 body{margin:0;padding:0;font-family:sans-serif;background-color:#cff;}
 h1{font-size:2.5rem;margin:5px 0;}
 .clear{display:table;content:"";clear:both;}
-/*隐藏滚动条*/
-.example::-webkit-scrollbar,.box>a::-webkit-scrollbar{display:none!important;}
-.example,.box>a{-ms-overflow-style:none!important;scrollbar-width:none!important;}
-/*文本选择*/
-::-moz-selection{color:#e6f0ff;background:#80b3ff;}
-::selection{color:#e6f0ff;background:#80b3ff;}
-/*滚动条*/
-::-webkit-scrollbar{width:10px;background:#cff;}
-::-webkit-scrollbar-track{background:#66a3ff;margin-top:44px;}
-::-webkit-scrollbar-thumb{background:#33f;border-radius:5px;height:150px;}
-::-webkit-scrollbar-thumb:hover{background:#00c;}
-/*小于300px显示*/
-.small{display:none;}
-/*导航栏*/
-header{
-  background-color:#cff;
-  position: fixed;
-  width: 100%;
-  z-index:1;
-}
-header button{
-  text-decoration:none;
-  color:#36c;
-  display:inline-block;
-  padding:10px;
-  font-size:1.25rem;
-  border:none;
-  background-color:transparent;
-}
-header button:hover{background-color:#6cf;}
-.dropdown{display:inline-block;}
-.dropdown-content{
-  display:none;
-  position:absolute;
-  background-color:#006;
-  width:100%;
-  height:400px;
-  overflow:auto;
-  left:0;
-}
-.dropdown-content a{
-  color:#fff;
-  padding:12px 16px;
-  text-decoration:none;
-  display:block;
-}
-.dropdown-content a:hover{background-color:#009;}
-.dropdown:hover .dropdown-content{display:block;}
-/*正文*/
-article{padding:20px;background:linear-gradient(#e6ffff 0vh, #e6ffff 95vh, #06f 150vh);color:#fff;}
+main{background:linear-gradient(#e6ffff 0vh, #e6ffff 95vh, #06f 150vh);color:#fff;padding:0px 0px 10px 0px;}
 hr{color:#fff;border:1px solid #fff;border-radius:100px;}
-/*“六年一班”*/
-.login{
-  text-align:center;
-  padding-top:90px;
-  height:100vh;
-  color:#000;
-}
-.login_title{
-  font-size:8.125rem;
-  margin:0;
-  padding:40px;
-  color:#006;
-}
-/*毕业倒计时*/
-.by{
-  width:85%;
-  margin:auto;
-  background-color:#60f;
-  padding:20px;
-  border-radius:20px;
-}
-.by>h2{margin:0 0 10px 0;color:#fff;}
-/*打字效果&倒计时css样式*/
-#asklz{
-  font-size:1.25rem; 
-  background-color:#fff;
-  width:500px;
-  margin:auto;
-  padding:5px;
-  border:1px solid #cc0000;
-  border-radius:10000px;
-}
-#time{
-  background-color:#fff;
-  font-size:1.875rem;
-  padding:15px;
-  border:2px solid #d1b3ff;
-  border-radius:15px;
-  text-align:center;
-  color:#000;
-}
-/*模块*/
-.title{font-size:3.4375rem;margin:15px 3px;}
+.small{display:none;}
+.example::-webkit-scrollbar,.box>a::-webkit-scrollbar,html:-webkit-scrollbar{display:none!important;}
+.example,.box>a,html{-ms-overflow-style:none!important;scrollbar-width:none!important;}
+
+/*文本选择*/
+::-moz-selection{color:#e6f0ff;background:#80b3ff66;}
+::selection{color:#e6f0ff;background:#80b3ff66;}
+
+
+/*导航栏*/
+header{background-color:#ccffffaa;position: fixed;width: 100%;z-index:1;}
+header button{text-decoration:none;color:#36c;display:inline-block;padding:10px;font-size:1.25rem;border:none;background-color:transparent;}
+header button:hover{background-color:#6cf;}
+
+.dropdown{display:inline-block;}
+.dropdown-content{display:none;position:absolute;background-color:#000066bb;width:100%;height:400px;overflow:auto;left:0;border-radius:15px;}
+.dropdown-content a{color:#fff;padding:12px 16px;text-decoration:none;display:block;margin:3px;border-radius:100vw;transition:0.1s;}
+.dropdown-content a:hover{background-color:#000099aa;}
+.dropdown:hover .dropdown-content{display:block;}
+
+
+.login{text-align:center;padding-top:90px;height:100vh;color:#000;}
+.login_title{font-size:8.125rem;margin:0;padding:40px;color:#006;}
+
+.by{margin-right:30px;background:#60f;padding:20px 20px 20px 0;border-radius:0 20px 20px 0;}
+.by>h2{margin:0 0 10px 10px;color:#fff;text-align:center;}
+.by span{background:#369;padding:5px;border-radius:10px;}
+#asklz{font-size:1.25rem;background:#fff;width:500px;margin:auto;padding:5px;border:1px solid #cc0000;border-radius:100vw;}
+#time{background-color:#b3cce6;font-size:1.875rem;padding:10px;border-radius:0 15px 15px 0;text-align:center;}
+
+/*老师*/
+#teacher{background:#ffffff33;margin:10px 20px 10px 0;padding:5px;border-radius:0 20px 20px 0;}
+#teacher>a{background:#f69;text-decoration:none;color:#fff;display:block;margin:10px;border-radius:8px;padding:15px;height:160px;overflow:hidden;}
+#teacher>a:hover{transition:0.3s;background:#f37;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);}
+#teacher>h1,#pupil>h1,#qt>h1{background:#ffffff88;color:#000066;padding:10px;margin:10px;border-radius:100vw;text-align:center;display:block;}
+
+/*学生*/
+#pupil{margin:30px 20px 30px 20px;background:linear-gradient(#ffffff55 0%,#ffffff00 90%);padding:5px;border-radius:20px 20px 0 0;}
+#pupil>a{display:block;text-decoration:none;background:linear-gradient(to right,#1a1aff 0%,#1a1aff 50%,#ffffff00 90%);color:#fff;border-radius:100vw 0 0 100vw;font-size:1.25rem;padding:8px;text-align:center;}
 .box{width:33.33%;float:left;}
-.box>a{
-  padding:18px;
-  border-radius:10px;
-  box-shadow: 0 10px 10px 0 rgba(0,0,0,0.24), 0 10px 10px 0 rgba(0,0,0,0.19);
-  margin:5px;
-  height:170px;
-  display:block;
-  text-decoration:none;
-  color:#fff;
-  overflow:auto;
-}
-.box>a:hover{transition:0.3s;}
-.box_pink>div>a{background-color:#c09;}
-.box_pink>div>a:hover{background-color:#b30086;}
-.box_blue>div>a{background-color:#009;}
-.box_blue>div>a:hover{background-color:#006;}
-.box_green>div>a{background-color:#093;}
-.box_green>div>a:hover{background-color:#062;}
-.box_yellow>div>a{background-color:#c60;}
-.box_yellow>div>a:hover{background-color:#994d00;}
-.col{
-  clear:both;
-  display:table;
-  content:"";
-  width:100%;
-}
-.col_title{
-  padding:5px;
-  border-radius:10000px;
-  margin-top:40px;
-  margin-bottom:12px;
-}
-.col_title>h1{text-align:center;}
-.col_pink{background-color:#c0c;}
-.col_blue{background-color:#00f;}
-.col_green{background-color:#0f0;color:#030;}
-.col_yellow{background-color:#fc0;color:#663d00;}
+.box>a{padding:18px;border-radius:10px;margin:5px;height:170px;display:block;text-decoration:none;color:#fff;overflow:auto;background:#3333ffcc;transition:0.3s;}
+.box>a:hover{background:#3333ffff;}
+
 /*座位表*/
-.classroom{background-color:#6f6;}
-.classroom>div{
-  display:flex;
-  width:100%;
-  padding:5px;
-}
-.classroom>div a{
-  text-decoration:none;
-  font-size:1.25rem;
-  background-color:#b3ffb3;
-  padding:5px;
-  width:100%;
-  text-align:center;
-  border:1px solid #060;
-  color:#060;
-}
-.classroom>div a[href]{
-  text-decoration:none;
-  font-size:1.25rem;
-  background-color:#9f9;
-  padding:5px;
-  width:100%;
-  text-align:center;
-  border:1px solid #060;
-  color:#000;
-  transition:0.3s;
-  -webkit-transition:0.3s;
-}
-.classroom>div a[href]:hover{
-  background-color:#9f6;
-  color:#260;
-}
-.a{margin:5px 0 5px 5px;}
-.b{margin:5px 15px 5px 0;}
+.classroom{background:#6f6;border-radius:5px;}
+.classroom>div{display:flex;width:100%;padding:5px;}
+.classroom>div a{text-decoration:none;font-size:1.25rem;background:#b3ffb3;padding:5px;width:100%;text-align:center;border:1px solid #060;color:#060;}
+.classroom>div a[href]{text-decoration:none;font-size:1.25rem;background:#9f9;padding:5px;width:100%;text-align:center;border:1px solid #060;color:#000;transition:0.3s;-webkit-transition:0.3s;}
+.classroom>div a[href]:hover{background:#9f6;color:#260;}
+.a{margin:5px 0 5px 5px;border-radius:5px 0 0 5px;}
+.b{margin:5px 15px 5px 0;border-radius:0 5px 5px 0;}
 #siziren::before{content:"锐辰";}
+
+/*其他*/
+#wm{margin:30px 10px 0 10px;}
+#w{background:#c299ffdd;color:#306;border-radius:20px 20px 0 0;padding:10px;width:100%;text-decoration:none;height:150px;ovweflow:hidden;text-align:center;}
+#m{background:#ccff99dd;color:#4d6600;border-radius:0 0 20px 20px;padding:10px;width:100%;text-decoration:none;height:150px;ovweflow:hidden;text-align:center;}
+
+#webpage{background:#eee;border-radius:15px;margin:60px 10px;padding-bottom:5px;}
+#webpage>div{background:#ccc;padding:5px;width:100%;border-radius:15px 15px 0 0;}
+#webpage>div>span{float:right;color:#666;}
+#webpage>a{text-decoration:none;display:block;background:#d1d1e0;margin:10px;padding:10px;border-radius:10px;color:#669;}
+#webpage h3{margin:10px 0;}
+
+#gw{border-left:20px solid #00e6ac77;margin:15px 0;background:linear-gradient(to right,#33ffccdd 0%,#33ffcc88 50%,#33ffcc00 95%);text-decoration:none;color:#066;padding:10px;width:100%;height:160px;overflow:hidden;}
+#dy{border-left:20px solid #ff660077;margin:15px 0;background:linear-gradient(to right,#ff9933dd 0%,#ff993388 50%,#ff993300 95%);text-decoration:none;color:#600;padding:10px;width:100%;height:160px;overflow:hidden;}
+
 /*加载提示*/
-.loading{
-  background-color:#e6ffff;
-  padding:100px 50px;
-  width:100vw;
-  height:100vh;
-  text-align:center;
-  font-size:1.25rem;
-  z-index:1;
-  color:#009;
-  overflow:hidden;
-}
+.loading{background:#e6ffff;padding:100px 50px;width:100vw;height:100vh;text-align:center;font-size:1.25rem;z-index:1;color:#009;overflow:hidden;}
 .loading>h1{font-size:3.125rem;}
-.loading button{
-  font-size:1.4375rem;
-  border:0;
-  border-radius:10000px;
-  background-color:blue;
-  color:#fff;
-  padding:5px;
-  width:50%;
-}
-.loading>div{
-  border-width:27px;
-  width:160px;
-  height:160px;
-  border-color:#00f #36f #36f #36f;
-  border-style:solid;
-  border-radius:200px;
-  animation:loading 2s linear infinite;
-  -webkit-animation:loading 2s linear infinite;
-  margin:0 auto 30px auto;
-}
+.loading button{font-size:1.4375rem;border:0;border-radius:10000px;background:blue;color:#fff;padding:5px;width:50%;}
+.loading>div{border-width:27px;width:160px;height:160px;border-color:#00f #36f #36f #36f;border-style:solid;border-radius:200px;animation:loading 2s linear infinite;-webkit-animation:loading 2s linear infinite;margin:0 auto 30px auto;}
 @keyframes loading{
   0%{transform:rotate(0deg);}
   100%{transform:rotate(360deg);}
 }
-#div{
-  position:relative;
-  -webkit-animation-name:animatebottom;
-  -webkit-animation-duration:1s;
-  animation-name:animatebottom;
-  animation-duration:0.7s;
-}
+#div{position:relative;-webkit-animation-name:animatebottom;-webkit-animation-duration:1s;animation-name:animatebottom;animation-duration:0.7s;}
 @-webkit-keyframes animatebottom{
   from{bottom:-50px;opacity:0;} 
   to{bottom:0px;opacity:1;}
@@ -239,31 +106,9 @@ hr{color:#fff;border:1px solid #fff;border-radius:100px;}
   from{bottom:-50px;opacity:0;} 
   to{bottom:0;opacity:1;}
 }
+
 /*页脚*/
-footer{
-  background:linear-gradient(#06f 0px,#009 150px);
-  padding:30px;
-  padding-top:200px;
-  color:#66f;
-}
-/*警告框*/
-.alert{
-  padding:10px;
-  background-color:#ff4d4d;
-  color:white;
-  border-radius:10px;
-}
-.closebtn{
-  margin-left:15px;
-  color:#fff;
-  font-weight:bold;
-  float:right;
-  font-size:1.375rem;
-  line-height:20px;
-  cursor:pointer;
-  transition:0.3s;
-}
-.closebtn:hover{color:#fcc;}
+footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:200px;color:#66f;}
 
 @media screen and (max-width:880px){#siziren::before{content:"...";}}
 @media screen and (max-width:800px){
@@ -274,15 +119,10 @@ footer{
   .b{margin:4px 10px 4px 0;}
 }
 @media screen and (max-width:600px){
-  article{padding:10px;}
   .login{padding-top:80px;}
   .login_title{
     font-size:5rem;
     padding:20px;
-  }
-  .by{
-    width:90%;
-    border-radius:25px;
   }
   #asklz{
     font-size:1.1875rem; 
@@ -295,9 +135,6 @@ footer{
   }
   #time{
     font-size:1.5625rem;
-    padding:15px;
-    border:2px solid #d1b3ff;
-    border-radius:15px;
   }
   .box{width:100%;}
   .col_title>h1>span{display:none;}
@@ -311,53 +148,39 @@ footer{
     font-size:0.9375rem;
     padding:2px;
   }
-  .a{margin:2px 0 2px 2px;}
-  .b{margin:2px 6px 2px 0;}
+  .a{margin:1px 0 1px 1px;}
+  .b{margin:1px 4px 1px 0;}
+  #pupil{margin:30px 15px 30px 15px;}
 }
 @media screen and (max-width:500px){
   .classroom>div a,.classroom>div a[href]{font-size:0.75rem;padding:1px;}
-  .a{margin:2px 0 2px 1px;}
-  .b{margin:2px 6px 2px 0;}
+  .a{margin:0.7px 0 0.7px 0.7px;border-radius:2px 0 0 2px;}
+  .b{margin:0.7px 3px 0.7px 0;border-radius:0 2px 2px 0;}
 }
 @media screen and (max-width:400px){
   #time{padding:auto 5px;}
-  .by{padding:15px;}
-  .classroom>div a,.classroom>div a[href]{
-    font-size:0.625rem;
-    padding:1px;
-    border:0.1px solid #090;
-  }
-  .a{margin:0.7px 0 0.7px 0.7px;}
-  .b{margin:0.7px 3px 0.7px 0;}
+  .by{margin-right:15px;padding:20px 10px 20px 0;border-radius:0 17px 17px 0;}
+  .classroom>div a,.classroom>div a[href]{font-size:0.625rem;padding:1px;border:0.1px solid #090;}
+  .a{margin:0.5px 0 0.5px 0.5px;}
+  .b{margin:0.5px 2px 0.5px 0;}
+  #pupil{margin:30px 10px 30px 10px;}
 }
-@media screen and (max-width:300px){
-  header,article,footer{display:none;}
-  .small{
-    display:block;
-    color:red;
-    padding:20px 5px;
-    text-align:center;
-    background-color:#e6ffff;
-    height:100vh;
-  }
+@media screen and (max-width:350px){
+  header,main,footer{display:none;}
+  .small{display:block;color:red;padding:20px 5px;text-align:center;background-color:#e6ffff;height:100vh;}
   .loading{display:none;}
   .small p{font-size:1.6875rem;}
   .small i{font-size:70vw;}
 }
+@media screen and (max-width:100px){*{display:none;}}
 </style>
 </head>
 <body onload="loading()">
 <div class="loading" id="loading">
-    <noscript>
-        <div class="alert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            <p><strong>警告：</strong>你似乎关闭了浏览器的js权限，请打开此权限以跳过此加载页面。</p>
-        </div>
-    </noscript>
     <div></div>
     <h1>网页加载中</h1>
-    <p>该网页加载速度极慢（图片、视频甚至根本无法加载），请耐心等候。。。</p>
-    <p><strong>注意：</strong>该网站仅针对福州市东升小2018级1班学生！</p>
+    <p>该网页加载速度极慢（图片、视频甚至根本无法加载），请耐心等候……</p>
+    <p><strong>注意：</strong>该网站仅为福州市东升小2018级1班学生提供</p>
     <button onclick="loading()">直接跳过</button>
 </div>
 <div class="small">
@@ -381,13 +204,13 @@ footer{
         </div>
     </div>
 </header>
-<article>
+<main>
     <div class="login">
         <h1 class="login_title">六年一班</h1>
         <div id="asklz"></div>
     </div>
     <div class="by">
-        <h2>我们毕业已经：</h2>
+        <h2>我们毕业已经</h2>
         <div id="time">
             <span class="a1">天</span> 
             <span class="a2">时</span> 
@@ -395,51 +218,20 @@ footer{
             <span class="a4">秒</span>
         </div>
     </div>
-    <div class="col box_pink">
-        <div class="col_title col_pink">
-            <h1><span>————</span>“T”系列<span>————</span></h1>
-        </div>
-        <div class="box">
-            <a href="et.htm">
-                <h1>ET</h1>
-                <p>《真·用爱唤醒学生的心灵》</p>
-            </a>
-        </div>
-        <div class="box">
-            <a href="ct.htm">
-                <h1>CT</h1>
-                <p>笑笑地整你~</p>
-            </a>
-        </div>
-        <div class="box">
-            <a href="mt.htm">
-                <h1>MT</h1>
-                <p>科纸拿一张，折八格。</p>
-            </a>
-        </div>
-        <div class="box">
-            <a href="at.htm">
-                <h1>AT</h1>
-                <p>好，全部起立。<br/>坐下的人可以把作业（zuo&#772;&nbsp;ye&#772;）拿出来做</p>
-            </a>
-        </div>
+    <div id="teacher">
+        <h1>老师</h1>
+        <a href="et.htm"><h1>ET</h1><p>《真·用爱唤醒学生的心灵》</p></a>
+        <a href="ct.htm"><h1>CT</h1><p>笑笑地整你~</p></a>
+        <a href="mt.htm"><h1>MT</h1><p>科纸拿一张，折八格。</p></a>
+        <a href="at.htm"><h1>AT</h1><p>好，全部起立。<br/>坐下的人可以把作业（zuo&#772;&nbsp;ye&#772;）拿出来做。</p></a>
     </div>
-    <div class="col box_blue">
-        <div class="col_title col_blue">
-            <h1><span>————</span>学生<span>————</span></h1>
-        </div>
-        <div style="width:100%;margin-bottom:7px;font-size:1.1em" class="box">
-            <a href="pupil.htm" style="background-color:#3cf;color:#006;text-align:center;">
-                <h1>学生</h1>
-                <p>点击这里进入！</p>
-            </a>
-        </div>
-        <hr/>
-        <h2>推荐</h2>
+    <div id="pupil">
+        <h1>学生</h1>
+        <a href="pupil.htm">进入！</a>
         <div class="box">
             <a href="pupil.htm#qmx">
                 <h1>瞿明爔</h1>
-                <p>六（1）班的男神</p>
+                <p>男神！标杆！</p>
             </a>
         </div>
         <div class="box">
@@ -457,13 +249,13 @@ footer{
         <div class="box">
             <a href="pupil.htm#lgy">
                 <h1>刘圭宥</h1>
-                <p>今晚我家只有我一个人</p>
+                <p>今晚我家只有我一个人，我可以把所有都发泄出来了！</p>
             </a>
         </div>
         <div class="box">
             <a href="pupil.htm#wxl">
                 <h1>王湘琳</h1>
-                <p>余佳皓：永不磨灭的记忆</p>
+                <p>小余~&nbsp;小余~</p>
             </a>
         </div>
         <div class="box">
@@ -547,55 +339,40 @@ footer{
         </div>
         </div>
     </div>
-    <div class="col box_green">
-        <div class="col_title col_green">
-            <h1><span>————</span>资料袋<span>————</span></h1>
-        </div>
-        <div class="box">
-            <a href="waihao.htm">
+    <div id="qt">
+        <h1>其他</h1>
+        <div id="wm">
+            <a href="waihao.htm" id="w" class="clear">
                 <h1>外号</h1>
-                <p>顾兮——爱惜！</p>
+                <p>近义词：顾兮——爱惜！</p>
             </a>
-        </div>
-        <div class="box">
-            <a href="mingyan.htm">
+            <a href="mingyan.htm" id="m" class="clear">
                 <h1>名言</h1>
                 <p>我觉得劳斯莱斯不如迈巴赫。</p>
             </a>
         </div>
-    </div>
-    <div class="col box_yellow">
-        <div class="col_title col_yellow">
-            <h1><span>————</span>其他<span>————</span></h1>
-        </div>
-        <div class="box">
+        <div id="webpage">
+            <div class="clear"><span>&#8210;&nbsp;&nbsp;&#9721;&nbsp;&nbsp;&times;&nbsp;</span></div>
             <a href="pupil/lst.htm" target="_blank">
                 <h1>李诗彤网页</h1>
-                <p>“林煜昕是我的仆人。”</p>
+                <p>林煜昕是我的仆人。</p>
             </a>
-        </div>
-        <div class="box">
-            <a href="https://wgw.weixiao100.com.cn/custom/gw/78218603-X/content?menuid=8616&templateType=6" target="_blank">
-                <h1>东升小学官网</h1>
-                <p>里面有很多ET照片</p>
-            </a>
-        </div>
-        <div class="box">
             <a href="https://guojijia.github.io" target="_blank">
                 <h1>郭吉家网页</h1>
-                <p>我帮他做的！</p>
+                <p>“他是一种群居动物。”</p>
             </a>
         </div>
-        <div class="box">
-            <a href="https://pan.baidu.com/s/1Mv3vhvNZrv6GYVSv0eUlBg?from=init&pwd=6688#list/path=%2F" target="_blank">
-                <h1>微电影</h1>
-                <p>弃——因为你，才让我背对命运，不——害——怕……</p>
-            </a>
-        </div>
+        <a href="https://wgw.weixiao100.com.cn/custom/gw/78218603-X/content?menuid=8616&templateType=6" target="_blank" id="gw" class="clear">
+            <h1>东升小学官网</h1>
+            <p>刚毕业就敢背着我们升级！</p>
+        </a>
+        <a href="https://pan.baidu.com/s/1Mv3vhvNZrv6GYVSv0eUlBg?from=init&pwd=6688#list/path=%2F" target="_blank" id="dy" class="clear">
+            <h1>微电影</h1>
+            <p>弃——因为你，才让我背对命运，不——害——怕……</p>
+        </a>
     </div>
-</article>
+</main>
 <footer>
-    <h2>声明</h2>
     <ol>
         <li>该网站仅针对<strong>福州市东升小学2018级1班学生</strong>，且内容完全真实。</li>
         <li>该网站不支持旧版本浏览器（如IE），如无法显示，请更换浏览器。</li>
