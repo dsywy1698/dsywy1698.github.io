@@ -144,17 +144,7 @@ img,video,iframe,canvas{max-height:90vh !important;}
 }
 .alert>p,.alert>strong{margin:5px 0;}
 canvas,audio{max-width:100%;}
-img,video,.max-width,iframe{max-width:100%;object-fit: contain;}
-.img_box{
-  background-color:#99f;
-  padding:10px;
-  margin:10px 0;
-  border:4px solid #33f;
-}
-.img_box p{
-  color:#666;
-  margin:10px 0;
-}
+img,video,.max-width,iframe{max-width:100%;object-fit:contain;}
 .say{
   background-color:#6fc;
   color:#060;
@@ -177,11 +167,6 @@ ol>p,ul>p{
 .size-small{
   color:#ccf;
   font-size:0.9375rem;
-}
-main>img{
-  float:right;
-  max-width:30%;
-  padding:10px;
 }
 @media screen and (max-width: 600px) {main>img{float:center;max-width:100%;}}
 @media screen and (max-width: 300px) {
