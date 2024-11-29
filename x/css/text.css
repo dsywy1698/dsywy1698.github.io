@@ -9,10 +9,7 @@ clear::after,.img_box::after{display:table;content:"";clear:both;}
 .example{-ms-overflow-style:none;scrollbar-width:none;}
 ::-moz-selection{color:#e6f0ff;background:#80b3ff;}
 ::selection{color:#e6f0ff;background:#80b3ff;}
-::-webkit-scrollbar{width:10px;background:#cff;}
-::-webkit-scrollbar-track{background:#66a3ff;margin-top:42.5px;}
-::-webkit-scrollbar-thumb{background:#33f;border-radius:5px;height:150px;}
-::-webkit-scrollbar-thumb:hover{background:#00c; }
+::-webkit-scrollbar{display:none;}
 nav{
   background-color:#ccffffaa;
   position: fixed;
