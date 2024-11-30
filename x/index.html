@@ -29,18 +29,16 @@ hr{color:#fff;border:1px solid #fff;border-radius:100px;}
 ::-moz-selection{color:#e6f0ff;background:#80b3ff66;}
 ::selection{color:#e6f0ff;background:#80b3ff66;}
 
-
 /*导航栏*/
 header{background-color:#ccffffaa;position: fixed;width: 100%;z-index:1;}
 header button{text-decoration:none;color:#36c;display:inline-block;padding:10px;font-size:1.25rem;border:none;background-color:transparent;}
-header button:hover{background-color:#6cf;}
+header button:hover{background-color:#66ccff88;}
 
 .dropdown{display:inline-block;}
 .dropdown-content{display:none;position:absolute;background-color:#000066bb;width:100%;height:400px;overflow:auto;left:0;border-radius:15px;}
 .dropdown-content a{color:#fff;padding:12px 16px;text-decoration:none;display:block;margin:3px;border-radius:100vw;transition:0.1s;}
 .dropdown-content a:hover{background-color:#000099aa;}
 .dropdown:hover .dropdown-content{display:block;}
-
 
 .login{text-align:center;padding-top:90px;height:100vh;color:#000;}
 .login_title{font-size:8.125rem;margin:0;padding:40px;color:#006;}
@@ -65,11 +63,11 @@ header button:hover{background-color:#6cf;}
 .box>a:hover{background:#3333ffff;}
 
 /*座位表*/
-.classroom{background:#6f6;border-radius:5px;}
+.classroom{background:#66ffffcc;border-radius:5px;}
 .classroom>div{display:flex;width:100%;padding:5px;}
-.classroom>div a{text-decoration:none;font-size:1.25rem;background:#b3ffb3;padding:5px;width:100%;text-align:center;border:1px solid #060;color:#060;}
-.classroom>div a[href]{text-decoration:none;font-size:1.25rem;background:#9f9;padding:5px;width:100%;text-align:center;border:1px solid #060;color:#000;transition:0.3s;-webkit-transition:0.3s;}
-.classroom>div a[href]:hover{background:#9f6;color:#260;}
+.classroom>div a{text-decoration:none;font-size:1.25rem;background:#00ccff66;padding:5px;width:100%;text-align:center;border:1px solid #060;color:#033;}
+.classroom>div a[href]{text-decoration:none;font-size:1.25rem;background:#00ccffcc;padding:5px;width:100%;text-align:center;border:1px solid #060;transition:0.3s;-webkit-transition:0.3s;}
+.classroom>div a[href]:hover{background:#00ccff;color:#260;}
 .a{margin:5px 0 5px 5px;border-radius:5px 0 0 5px;}
 .b{margin:5px 15px 5px 0;border-radius:0 5px 5px 0;}
 #siziren::before{content:"锐辰";}
@@ -120,34 +118,14 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
 }
 @media screen and (max-width:600px){
   .login{padding-top:80px;}
-  .login_title{
-    font-size:5rem;
-    padding:20px;
-  }
-  #asklz{
-    font-size:1.1875rem; 
-    background-color:#fff;
-    width:70vw;
-    margin:auto;
-    padding:5px;
-    border:1px solid #cc0000;
-    border-radius:10000px;
-  }
-  #time{
-    font-size:1.5625rem;
-  }
+  .login_title{font-size:5rem;padding:20px;}
+  #asklz{font-size:1.1875rem; width:80vw;}
+  #time{font-size:1.5625rem;}
   .box{width:100%;}
   .col_title>h1>span{display:none;}
   .button_l,.button_r{width:120px;}
-  .tab{
-    overflow:hidden;
-    width:240px;
-    margin:auto;
-  }
-  .classroom>div a,.classroom>div a[href]{
-    font-size:0.9375rem;
-    padding:2px;
-  }
+  .tab{overflow:hidden;width:240px;margin:auto;}
+  .classroom>div a,.classroom>div a[href]{font-size:0.9375rem;padding:2px;}
   .a{margin:1px 0 1px 1px;}
   .b{margin:1px 4px 1px 0;}
   #pupil{margin:30px 15px 30px 15px;}
@@ -156,6 +134,7 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
   .classroom>div a,.classroom>div a[href]{font-size:0.75rem;padding:1px;}
   .a{margin:0.7px 0 0.7px 0.7px;border-radius:2px 0 0 2px;}
   .b{margin:0.7px 3px 0.7px 0;border-radius:0 2px 2px 0;}
+  #asklz{width:90vw;}
 }
 @media screen and (max-width:400px){
   #time{padding:auto 5px;}
@@ -384,10 +363,7 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
 <script>
 //返回上方
 mybutton = document.getElementById("goTop");
-function goTop() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
+function goTop() {document.body.scrollTop = 0;document.documentElement.scrollTop = 0;}
 //倒计时
 var day1=document.querySelector(".a1");
 var hour1=document.querySelector(".a2");
@@ -410,15 +386,11 @@ second1.innerHTML=s1+"秒";
 }
 //打字效果
 var app = document.getElementById('asklz');
-var typewriter = new Typewriter(asklz, {loop: true
-});
-typewriter.typeString('欢迎来到这个网站。。。')
+var typewriter = new Typewriter(asklz, {loop: true});
+typewriter.typeString('欢迎来到这个网站……')
 .pauseFor(3000)
 .deleteAll()
-.typeString('没啥话说。。。')
-.pauseFor(2500)
-.deleteAll()
-.typeString('（广告位招租）。。。')
+.typeString('没啥话说……')
 .pauseFor(2500)
 .start();
 </script>

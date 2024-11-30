@@ -25,7 +25,7 @@ nav button{
   border:none;
   background-color:transparent;
 }
-nav button:hover{background-color:#6cf;}
+nav button:hover{background-color:#66ccff88;}
 .dropdown-content{
   display:none;
   position:absolute;
@@ -147,15 +147,16 @@ img,video,iframe,canvas{max-height:90vh !important;}
 canvas,audio{max-width:100%;}
 img,video,.max-width,iframe{max-width:100%;object-fit: contain;}
 .img_box{
-  background-color:#99f;
   padding:10px;
   margin:10px 0;
-  border:4px solid #33f;
+  border-radius:15px;
+  background:linear-gradient(#0099cc 0%,#0099cc33 90%);
 }
 .img_box p{
-  color:#666;
+  color:#e6f9ff;
   margin:10px 0;
 }
+.img_box img{border-radius:10px;}
 .say{
   background-color:#6fc;
   color:#060;
