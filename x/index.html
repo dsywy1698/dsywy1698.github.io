@@ -45,7 +45,7 @@ header button:hover{background-color:#66ccff88;}
 
 .by{margin-right:30px;background:#60f;padding:20px 20px 20px 0;border-radius:0 20px 20px 0;}
 .by>h2{margin:0 0 10px 10px;color:#fff;text-align:center;}
-.by span{background:#369;padding:5px;border-radius:10px;}
+.by p{background:#369;padding:7px;border-radius:15px;display:inline;margin:10px;}
 #asklz{font-size:1.25rem;background:#fff;width:500px;margin:auto;padding:5px;border:1px solid #cc0000;border-radius:100vw;}
 #time{background-color:#b3cce6;font-size:1.875rem;padding:10px;border-radius:0 15px 15px 0;text-align:center;}
 
@@ -65,22 +65,25 @@ header button:hover{background-color:#66ccff88;}
 /*座位表*/
 .classroom{background:#66ffffcc;border-radius:5px;}
 .classroom>div{display:flex;width:100%;padding:5px;}
-.classroom>div a{text-decoration:none;font-size:1.25rem;background:#00ccff66;padding:5px;width:100%;text-align:center;border:1px solid #060;color:#033;}
-.classroom>div a[href]{text-decoration:none;font-size:1.25rem;background:#00ccffcc;padding:5px;width:100%;text-align:center;border:1px solid #060;transition:0.3s;-webkit-transition:0.3s;}
-.classroom>div a[href]:hover{background:#00ccff;color:#260;}
+.classroom>div a{text-decoration:none;font-size:1.25rem;background:#00ccff66;padding:5px;width:100%;text-align:center;border:1px solid #06c;color:#033;}
+.classroom>div a[href]{text-decoration:none;font-size:1.25rem;background:#00ccffcc;padding:5px;width:100%;text-align:center;border:1px solid #06c;transition:0.3s;-webkit-transition:0.3s;}
+.classroom>div a[href]:hover{background:#00ccff;color:#06c;}
 .a{margin:5px 0 5px 5px;border-radius:5px 0 0 5px;}
 .b{margin:5px 15px 5px 0;border-radius:0 5px 5px 0;}
 #siziren::before{content:"锐辰";}
 
 /*其他*/
 #wm{margin:30px 10px 0 10px;}
-#w{background:#c299ffdd;color:#306;border-radius:20px 20px 0 0;padding:10px;width:100%;text-decoration:none;height:150px;overflow:hidden;text-align:center;}
-#m{background:#ccff99dd;color:#4d6600;border-radius:0 0 20px 20px;padding:10px;width:100%;text-decoration:none;height:150px;overflow:hidden;text-align:center;}
+#w{background:#c299ffdd;color:#306;border-radius:20px 20px 0 0;padding:10px;width:100%;text-decoration:none;height:150px;overflow:hidden;text-align:center;transition:0.3s;}
+#m{background:#ccff99dd;color:#4d6600;border-radius:0 0 20px 20px;padding:10px;width:100%;text-decoration:none;height:150px;overflow:hidden;text-align:center;transition:0.3s;}
+#w:hover{background:#c299ffcc;}
+#m:hover{background:#ccff99cc;}
 
 #webpage{background:#eee;border-radius:15px;margin:60px 10px;padding-bottom:5px;}
 #webpage>div{background:#ccc;padding:5px;width:100%;border-radius:15px 15px 0 0;}
 #webpage>div>span{float:right;color:#666;}
-#webpage>a{text-decoration:none;display:block;background:#d1d1e0;margin:10px;padding:10px;border-radius:10px;color:#669;}
+#webpage>a{text-decoration:none;display:block;background:#d1d1e0;margin:10px;padding:10px;border-radius:10px;color:#669;transition:0.3s;}
+#webpage>a:hover{background:#c2c2d6;}
 #webpage h3{margin:10px 0;}
 
 #gw{border-left:20px solid #00e6ac77;margin:15px 0;background:linear-gradient(to right,#33ffccdd 0%,#33ffcc88 50%,#33ffcc00 95%);text-decoration:none;color:#066;padding:10px;width:100%;height:160px;overflow:hidden;}
@@ -120,7 +123,8 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
   .login{padding-top:80px;}
   .login_title{font-size:5rem;padding:20px;}
   #asklz{font-size:1.1875rem; width:80vw;}
-  #time{font-size:1.5625rem;}
+  #time{font-size:1.5625rem;padding:5px;}
+  .by p{display:block;margin:5px;border-radius:100vw;}
   .box{width:100%;}
   .col_title>h1>span{display:none;}
   .button_l,.button_r{width:120px;}
@@ -131,7 +135,7 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
   #pupil{margin:30px 15px 30px 15px;}
 }
 @media screen and (max-width:500px){
-  .classroom>div a,.classroom>div a[href]{font-size:0.75rem;padding:1px;}
+  .classroom>div a,.classroom>div a[href]{font-size:0.7rem;padding:1px;}
   .a{margin:0.7px 0 0.7px 0.7px;border-radius:2px 0 0 2px;}
   .b{margin:0.7px 3px 0.7px 0;border-radius:0 2px 2px 0;}
   #asklz{width:90vw;}
@@ -139,7 +143,7 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
 @media screen and (max-width:400px){
   #time{padding:auto 5px;}
   .by{margin-right:15px;padding:20px 10px 20px 0;border-radius:0 17px 17px 0;}
-  .classroom>div a,.classroom>div a[href]{font-size:0.625rem;padding:1px;border:0.1px solid #090;}
+  .classroom>div a,.classroom>div a[href]{font-size:0.625rem;padding:1px;}
   .a{margin:0.5px 0 0.5px 0.5px;}
   .b{margin:0.5px 2px 0.5px 0;}
   #pupil{margin:30px 10px 30px 10px;}
@@ -191,10 +195,10 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
     <div class="by">
         <h2>我们毕业已经</h2>
         <div id="time">
-            <span class="a1">天</span> 
-            <span class="a2">时</span> 
-            <span class="a3">分</span> 
-            <span class="a4">秒</span>
+            <p class="a1">天</p> 
+            <p class="a2">时</p> 
+            <p class="a3">分</p> 
+            <p class="a4">秒</p>
         </div>
     </div>
     <div id="teacher">
@@ -207,6 +211,14 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
     <div id="pupil">
         <h1>学生</h1>
         <a href="pupil.htm">进入！</a>
+        <div style="margin:10px;">
+        <a style="width:100%;border-radius:10px;background:url('https://oss.weixiao100.com.cn/fronts/material/wgw/resource/20230405/14akknsnhfn5qhrov34i37hi2ouy6buh.jpg?x-oss-process=image/resize,w_768') repeat;display:block;text-decoration:none;background-size:cover;height:400px;padding:20px;" href="pupil.htm#lgy">
+            <div style="background:#ffffff66;width:100%;color:#000066bb;border-radius:7px;padding:10px;height:360px;overflow:auto;" class="example">
+            <h1 style="text-align:center;margin:20px auto;">刘圭宥</h1>
+            <p>今晚我家只有我一个人，我可以把所有都发泄出来了！我已经放弃了，没有开玩笑，不要有谁再给我提“童钰轩”三个字昂，就让这1698天的喜欢全部都化为灰烬吧，就让这42天的想哭全部给我哭出来吧。谁要是再给我在那里狗叫一句啊，我特么直接一巴掌给你干过去！说实话，我是真的一年级开学第一天就喜欢上了ta，而且以前我妈不在家的时候把我扔到ta家，都是我自己提出来的，只为多看ta几眼。但现在呢，就算了吧，也不可能了。就让这泪水全部都流出来吧，撕心裂肺地哭出来吧。反正也只有我在家，也没人管。ta的生与死，喜怒哀乐，都与我无关了。也许像三叶和阳菜这样好的女生只有在二次元出现吧。像新兰这样的情侣，也只有在动漫里有吧，我也不想多说什么，只能说心碎了，碎了一地💔。但是也要乐观一点吧，至少在小学生活中，喜欢上了一个人的漂亮、学习好，但是不喜欢我的女孩子，ta说正在想要不要把我拉黑。我反正随便，你拉不拉黑我都愿意，你就算删了我都不会想再开始加，忘了你最好，反正没你我也能活，也有其他人会跟我聊天，不需要你来填满我的生活，谢谢你，能遇见你我真的很荣幸，但是现在，不……这么……想了……💔💔💔</p>
+            </div>
+        </a>
+        </div>
         <div class="box">
             <a href="pupil.htm#qmx">
                 <h1>瞿明爔</h1>
@@ -226,9 +238,9 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
             </a>
         </div>
         <div class="box">
-            <a href="pupil.htm#lgy">
-                <h1>刘圭宥</h1>
-                <p>今晚我家只有我一个人，我可以把所有都发泄出来了！</p>
+            <a href="pupil.htm#zlj">
+                <h1>郑隆俊</h1>
+                <p>身上的勾比卷子上的还多。</p>
             </a>
         </div>
         <div class="box">
