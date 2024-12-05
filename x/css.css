@@ -51,6 +51,7 @@ footer{background:linear-gradient(#06f 0px,#03c 80px);padding:30px;padding-top:1
 .small{display:none;}
 
 img,video,iframe,canvas{max-height:90vh !important;}
+img,video,svg{border-radius:15px;}
 .title_center{text-align:center;margin:7px;}
 .watch{padding:10px;border:4px solid #03c;background-color:#09f;border-radius:20px;}
 .watch>p{text-indent:2em;margin:7px 0;}
@@ -63,7 +64,6 @@ img,video,.max-width,iframe{max-width:100%;object-fit: contain;}
 .say>i{color:#c3f;font-size:1.875rem;}
 ol>p,ul>p{font-size:0.9375rem;margin:5px;margin-left:25px;color:#999;}
 .size-small{color:#ccf;font-size:0.9375rem;}
-main>img{float:right;max-width:30%;padding:10px;}
 
 @media screen and (max-width:600px){main>img{float:center;max-width:100%;}}
 @media screen and (max-width:300px){
