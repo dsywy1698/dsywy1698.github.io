@@ -38,6 +38,10 @@ footer{background:linear-gradient(#06f 0px,#03c 80px);padding:30px;padding-top:1
 .loading>h1{font-size:3.75rem;}
 .loading button{font-size:1.4375rem;border:0;border-radius:10000px;background-color:blue;color:#fff;padding:5px;width:50%;}
 .loading>div{border-width:27px;width:160px;height:160px;border-color:#00f #36f #36f #36f;border-style:solid;border-radius:200px;animation:loading 2s linear infinite;-webkit-animation:loading 2s linear infinite;margin:0 auto 30px auto;}
+@keyframes loading{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
 
 #div{position:relative;-webkit-animation-name:animatebottom;-webkit-animation-duration:1s;animation-name:animatebottom;animation-duration:0.7s;}
 @-webkit-keyframes animatebottom{
@@ -71,3 +75,4 @@ ol>p,ul>p{font-size:0.9375rem;margin:5px;margin-left:25px;color:#999;}
   .small{display:block;font-size:1.875rem;color:red;padding:5px;text-align:center;background-color:#e6ffff;height:100vh;}
   .loading{display:none;}
 }
+@media screen and (max-width:100px){*{display:none;}}
