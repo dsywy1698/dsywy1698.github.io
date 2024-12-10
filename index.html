@@ -3,196 +3,26 @@
 <head>
 <title>选择部门</title>
 <meta charset="utf-8"/> 
-<meta name=”robots” content=”noindex,nofollow”/>
+<meta name="robots" content="noindex,nofollow"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-<link rel="icon" href="#"/>
-<script>
-function loading(){
-document.getElementById("loading").style.display = "none";
-document.getElementById("div").style.display = "block";
-}
-/* 自动跳转网页
-function link(){
-
-}
-*/
-</script>
 <style>
 *{box-sizing:border-box;}
 html{font-size:100%;}
 body{margin:0;padding:0;font-family:sans-serif;background-color:#00c;color:#fff;}
 h1{font-size:2.5rem;margin:5px 0;}
-.clear{display:table;content:"";clear:both;}
-hr{color:#fff;background:#fff;border-radius:100px;border-color:#fff;}
-/*隐藏滚动条*/
-.example::-webkit-scrollbar,.box>a::-webkit-scrollbar{display:none!important;}
-.example,.box>a{-ms-overflow-style:none!important;scrollbar-width:none!important;}
-/*文本选择*/
-::-moz-selection{color:#e6f0ff;background:#80b3ff;}
-::selection{color:#e6f0ff;background:#80b3ff;}
-/*小于300px显示*/
-.small{display:none;}
-
-/*加载提示*/
-.loading{
-  background-color:#00f;
-  padding:100px 50px;
-  width:100vw;
-  height:100vh;
-  text-align:center;
-  font-size:1.25rem;
-  z-index:1;
-  color:#fff;
-  overflow:hidden;
-}
-.loading>h1{font-size:3.125rem;}
-.loading button{
-  font-size:1.4375rem;
-  border:0;
-  border-radius:10000px;
-  background-color:#aaf;
-  color:#fff;
-  padding:5px;
-  max-width:250px;
-  width:100%;
-  margin-top:20px;
-}
-.loading>div{
-  border-width:27px;
-  width:160px;
-  height:160px;
-  border-color:#fff #cce #cce #cce;
-  border-style:solid;
-  border-radius:200px;
-  animation:loading 2s linear infinite;
-  -webkit-animation:loading 2s linear infinite;
-  margin:0 auto 30px auto;
-}
-@keyframes loading{
-  0%{transform:rotate(0deg);}
-  100%{transform:rotate(360deg);}
-}
-#div{
-  position:relative;
-  -webkit-animation-name:animatebottom;
-  -webkit-animation-duration:1s;
-  animation-name:animatebottom;
-  animation-duration:0.7s;
-}
-@-webkit-keyframes animatebottom{
-  from{bottom:-50px;opacity:0;} 
-  to{bottom:0px;opacity:1;}
-}
-@keyframes animatebottom{ 
-  from{bottom:-50px;opacity:0;} 
-  to{bottom:0;opacity:1;}
-}
-
-/*正文*/
-header{padding:20px 0;text-align:center;}
-.box{
-  width:100%;
-  text-align:center;
-}
-.box>a{
-  display:block;
-  padding:10px;
-  margin:10px;
-  text-decoration:none;
-  border-radius:20px;
-}
-.box>a:hover{
-  box-shadow:0 0 20px #fff;
-  transition:0.3s;
-}
-#x{
-  background:#cff;
-  color:#009;
-}
-#x:hover{
-  transition:0.3s;
-  background:#9ff;
-}
-#c{
-  background:#fec;
-  color:#331a00;
-}
-#c:hover{
-  transition:0.3s;
-  background:#fd9;
-}
-#shuoming{
-  padding:0 10px;
-  font-size:0.9rem;
-}
-
-/*页脚*/
-footer{
-  background:linear-gradient(#06f 0px,#009 150px);
-  padding:30px;
-  padding-top:200px;
-  color:#66f;
-}
-/*警告框*/
-.alert{
-  padding:10px;
-  background-color:#ff4d4d;
-  color:white;
-  border-radius:10px;
-}
-.closebtn{
-  margin-left:15px;
-  color:#fff;
-  font-weight:bold;
-  float:right;
-  font-size:1.375rem;
-  line-height:20px;
-  cursor:pointer;
-  transition:0.3s;
-}
-.closebtn:hover{color:#fcc;}
-
-@media screen and (max-width:395px){.loading>h1>span{display:none;}}
-@media screen and (max-width:300px){
-  header,article,footer{display:none;}
-  .small{
-    display:block;
-    color:#f88;
-    padding:20px 5px;
-    text-align:center;
-    background-color:#00f;
-    height:100vh;
-  }
-  .loading{display:none;}
-  .small p{font-size:1.6875rem;}
-  .small i{font-size:70vw;}
-}
+.box{width:100%;text-align:center;}
+.box>a{display:block;padding:10px;margin:10px;text-decoration:none;border-radius:20px;}
+.box>a:hover{box-shadow:0 0 20px #fff;transition:0.3s;}
+#x{background:#cff;color:#009;}
+#x:hover{transition:0.3s;background:#9ff;}
+#c{background:#fec;color:#331a00;}
+#c:hover{transition:0.3s;background:#fd9;}
 </style>
 </head>
-<body onload="loading()">
-<div class="loading" id="loading">
-    <noscript>
-        <div class="alert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            <p><strong>警告：</strong>你似乎关闭了浏览器的js权限，请打开此权限以跳过此加载页面。</p>
-        </div>
-    </noscript>
-    <div></div>
-    <h1><span>网页</span>加载中...</h1>
-    <button onclick="loading()">跳过</button>
-</div>
-<div class="small">
-    <i class="fa fa-exclamation-circle"></i>
-    <p>浏览器窗口过小，不支持显示……</p>
-    <span>请试着放大窗口或更换设备后再试。</span>
-</div>
-<div id="div" style="display:none">
+<body>
     <main>
-        <header>
-            <h1>欢迎来到这个网站</h1>
-            <p>请在下方选择你将要进入的区块。</p>
-        </header>
+        <h1 style="text-align:center;font-size:2.7rem;margin:20px 0;">选择部门</h1>
         <div>
             <div class="box">
                 <a id="x" href="x/index.html">
@@ -201,28 +31,12 @@ footer{
                 </a>
             </div>
             <div class="box">
-                <a id="c" href="c/index.html">
-                    <h1>初中部</h1>
-                    <p><strong>注意：</strong>该网页仅对福州第四十中学2024届9班提供！</p>
+                <a id="c" >
+                    <h1>初中部（未开放）</h1>
+                    <p><strong>注意：</strong>该网页仅对福州第四十中学2024届9班提供！<br/>基于安全考虑，初中期间，该模块暂时封闭，预计毕业后开放。</p>
                 </a>
-            </div>
-            <div id="shuoming"><!--
-                <div style="padding:5px;color:#ccc;">
-                    <p style="margin:0;">下次打开网页时默认打开：</p>
-                    <input type="radio" name="1"/><label>小学部&nbsp;&nbsp;&nbsp;</label>
-                    <input type="radio" name="1"/><label>初中部</label>
-                </div>-->
-                <hr/>
-                <h2><i class="fa fa-question-circle-o"></i>&nbsp;网站说明</h2>
-                <ol>
-                    <li>该网站仅为<strong>福州市东升小学2018届1班、福州第四十中学2024届9班</strong>提供，其内容（除特别说明外）完全真实。</li>
-                    <li>网站内有部分错别字。</li>
-                    <li>部分图像源于网络，如有侵权将删除。</li>
-                    <li>该网站不支持旧版本浏览器（如IE），如无法显示，请更换浏览器。</li>
-                </ol>
             </div>
         </div>
     </main>
-</div>
 </body>
 </html>
