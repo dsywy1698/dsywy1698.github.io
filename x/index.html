@@ -14,9 +14,9 @@ function loading(){document.getElementById("loading").style.display="none";docum
 <style>
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;font-size:100%;}
-body{margin:0;padding:0;font-family:sans-serif;background-color:#cff;}
+body{margin:0;padding:0;font-family:sans-serif;background:#cff;}
 .clear{display:table;content:"";clear:both;}
-hr{color:#fff;border:1px solid #fff;border-radius:100px;}
+hr{color:#cff;border:1px solid #cff;border-radius:100px;}
 a{color:#ff6;}
 a:hover{color:#ff0;}
 .small{display:none;}
@@ -27,13 +27,13 @@ a:hover{color:#ff0;}
 ::-moz-selection{color:#e6f0ff;background:#80b3ff66;}
 ::selection{color:#e6f0ff;background:#80b3ff66;}
 /*导航栏*/
-nav{background-color:#ccffffaa;position: fixed;width: 100%;z-index:1;}
-nav button{text-decoration:none;color:#36c;display:inline-block;padding:10px;font-size:1.25rem;border:none;background-color:transparent;}
-nav button:hover{background-color:#66ccff88;}
-.dropdown-content{display:none;position:absolute;background-color:#000066bb;width:100%;height:400px;overflow:auto;left:0;border-radius: 15px;}
-.dropdown-content a{color:#fff;padding:12px 16px;text-decoration:none;margin:3px;display:block;transition:0.1s;border-radius: 100vw;}
+nav{background:#ccffffaa;position:fixed;width:100%;z-index:1;backdrop-filter:blur(3px);}
+nav button{text-decoration:none;color:#36c;display:inline-block;padding:10px;font-size:1.25rem;border:none;background:transparent;}
+nav button:hover{background:#66ccff88;}
+.dropdown-content{display:none;position:absolute;background:#000066bb;width:100%;height:400px;overflow:auto;left:0;border-radius:15px;}
+.dropdown-content a{color:#fff;padding:12px 16px;text-decoration:none;margin:3px;display:block;transition:0.1s;border-radius:100vw;}
 .dropdown-content h2{color:#fff;margin:10px;}
-.dropdown-content a:hover{background-color:#000099aa;}
+.dropdown-content a:hover{background:#000099aa;}
 .menu:hover+.dropdown-content,.dropdown-content:hover{display:block;}
 /*加载提示*/
 .loading{background:#e6ffff;padding:100px 50px;width:100vw;height:100vh;text-align:center;font-size:1.25rem;z-index:1;color:#009;overflow:hidden;}
@@ -47,7 +47,7 @@ nav button:hover{background-color:#66ccff88;}
 /*页眉*/
 header{margin-bottom:150px;}
 header>h1{padding:30px;font-size:7.5rem;margin:0;text-align:center;}
-header>div{background-color:#0f9;color:#030;display:table;content:"";clear:both;padding:20px;border:3px solid #090;border-radius:10px;margin:20px;}
+header>div{background:#0f9;color:#030;display:table;content:"";clear:both;padding:20px;border:3px solid #090;border-radius:10px;margin:20px;}
 header>div>p>i{border:2px solid blue;padding:7px;border-radius:5px;}
 /*页脚*/
 footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:200px;color:#66f;}
@@ -60,7 +60,7 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
 #Index .by>h2{margin:0 0 10px 10px;color:#fff;text-align:center;}
 #Index .by p{background:#369;padding:7px;border-radius:15px;display:inline;margin:10px;}
 #Index #asklz{font-size:1.25rem;background:#fff;width:500px;margin:auto;padding:5px;border:1px solid #cc0000;border-radius:100vw;}
-#Index #time{background-color:#b3cce6;font-size:1.875rem;padding:10px;border-radius:0 15px 15px 0;text-align:center;}
+#Index #time{background:#b3cce6;font-size:1.875rem;padding:10px;border-radius:0 15px 15px 0;text-align:center;}
 /*老师*/
 #Index #teacher{background:#ffffff33;margin:10px 20px 10px 0;padding:5px;border-radius:0 20px 20px 0;}
 #Index #teacher>a{background:#f69;text-decoration:none;color:#fff;display:block;margin:10px;border-radius:8px;padding:15px;height:160px;overflow:hidden;}
@@ -120,7 +120,7 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
   #Index #pupil{margin:30px 15px 30px 15px;}
 }
 @media screen and (max-width:500px){
-  #Index .classroom>div a,#Index .classroom>div a[href]{font-size:0.7rem;padding:1px;}
+  #Index .classroom>div a,#Index .classroom>div a[href]{font-size:0.7rem;padding:1px;border:0.3px solid #06c;}
   #Index .a{margin:0.7px 0 0.7px 0.7px;border-radius:2px 0 0 2px;}
   #Index .b{margin:0.7px 3px 0.7px 0;border-radius:0 2px 2px 0;}
   #Index #asklz{width:90vw;}
@@ -135,38 +135,36 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
 }
 
 
-main{background-color:#06f;padding:10px;animation-name:main;animation-duration:2s;padding-top:4em;animation-fill-mode:forwards;color:#fff;}
+main:not(#Index>main){background:#06f;padding:10px;animation-name:main;animation-duration:2s;padding-top:4em;animation-fill-mode:forwards;color:#fff;}
 @keyframes main{
-  0%  {background-color:#e6ffff;color:#000000;}
-  30% {background-color:#e6ffff;color:#000000;}
-  100%{background-color:#06f;/*#03c*/color:#ffffff;}
+  0%  {background:#e6ffff;color:#000000;}
+  30% {background:#e6ffff;color:#000000;}
+  100%{background:#06f;/*#03c*/color:#ffffff;}
 }
-img,video,iframe,canvas{max-height:90vh !important;}
-img,video,svg{border-radius:15px;}
+img,video,canvas,svg{max-height:90vh!important;border-radius:15px;}
+canvas,audio{max-width:100%;}
 .title_center{text-align:center;margin:7px;}
-.watch{padding:10px;border:4px solid #03c;background-color:#09f;border-radius:20px;}
+.watch{padding:10px;border:4px solid #03c;background:#09f;border-radius:20px;}
 .watch>p{text-indent:2em;margin:7px 0;}
 .watch i{display:inline;}
-canvas,audio{max-width:100%;}
-img,video,.max-width,iframe{max-width:100%;object-fit: contain;}
-.img_box{padding:10px;margin:10px 0;border-radius:15px;background:linear-gradient(#0099cc 0%,#0099cc33 90%);}
+img,video,.max-width,iframe{max-width:100%;object-fit:contain;}
+.img_box{padding:10px;margin:10px 0;border-radius:15px;background:linear-gradient(#0099cc 0%,#0099cc77 90%);}
 .img_box p{color:#e6f9ff;margin:10px 0;}
-.say{background-color:#6fc;color:#060;text-align:center;padding:10px;font-size:1.5625rem;margin:5px 0;border-radius:10px;}
+.say{background:#6fc;color:#060;text-align:center;padding:10px;font-size:1.5625rem;margin:5px 0;border-radius:10px;}
 .say>i{color:#c3f;font-size:1.875rem;}
-ol>p,ul>p{font-size:0.9375rem;margin:5px;margin-left:25px;color:#999;}
+ol>p,ul>p{font-size:0.9375rem;margin:5px;margin-left:25px;color:#9df;}
 .size-small{color:#ccf;font-size:0.9375rem;}
 @media screen and (max-width:350px){
   header,main,footer{display:none;}
-  .small{display:block;color:red;padding:20px 5px;text-align:center;background-color:#e6ffff;height:100vh;}
+  .small{display:block;color:red;padding:20px 5px;text-align:center;background:#e6ffff;height:100vh;}
   .loading{display:none;}
   .small p{font-size:1.6875rem;}
   .small i{font-size:70vw;}
 }
 @media screen and (max-width:100px){*{display:none;}}
 
-
-#Pupil .wxl{padding:7px;border-radius:30px;background-color:#a300cc;}
-#Pupil .wxl>p{display:block;padding:8px 16px;margin:5px;border-radius:20px;background-color:#db4dff;color:#fff;}
+#Pupil .wxl{padding:7px;border-radius:30px;background:#a300cc;}
+#Pupil .wxl>p{display:block;padding:8px 16px;margin:5px;border-radius:20px;background:#db4dff;color:#fff;}
 #Pupil .img_50>img{width:50%;float:left;}
 
 #Waihao .title{text-align:center;font-size:80px;margin:90px;}
@@ -174,100 +172,100 @@ ol>p,ul>p{font-size:0.9375rem;margin:5px;margin-left:25px;color:#999;}
 #Waihao main>div>div{display:flex;width:100%;}
 #Waihao .name{flex-basis:200px;}
 #Waihao main p{margin:5px;text-align:center;padding:5px;border-radius:25px;width:100%;font-size:18px;}
-#Waihao #a-qmx{background-color:#03c;}
-#Waihao #a-qmx p{background-color:#b3c6ff;color:#000d33;}
-#Waihao #a-lyx{background-color:#c6f;}
-#Waihao #a-lyx p{background-color:#ecf;color:#406;}
-#Waihao #a-wym{background-color:#009;}
-#Waihao #a-wym p{background-color:#99f;color:#003;}
-#Waihao #a-zwc{background-color:#f93;}
-#Waihao #a-zwc p{background-color:#fc9;color:#630;}
-#Waihao #a-zxy{background-color:#f6f;}
-#Waihao #a-zxy p{background-color:#fcf;color:#303;}
-#Waihao #a-lgy{background-color:#c30;}
-#Waihao #a-lgy p{background-color:#ffd9cc;color:#4d1300;}
-#Waihao #a-ycm{background-color:#999;}
-#Waihao #a-ycm p{background-color:#ccc;color:#333;}
-#Waihao #a-dyz{background-color:#60c;}
-#Waihao #a-dyz p{background-color:#c9f;color:#306;}
-#Waihao #a-c-yu-h{background-color:#963;}
-#Waihao #a-c-yu-h p{background-color:#ecd9c6;color:#261a0d;}
-#Waihao #a-lcj{background-color:#ff8000;}
-#Waihao #a-lcj p{background-color:#fc9;color:#331a00;}
-#Waihao #a-xcz{background-color:#339;}
-#Waihao #a-xcz p{background-color:#c6c6ec;color:#0d0d26;}
-#Waihao #a-cr{background-color:#c30;}
-#Waihao #a-cr p{background-color:#ffd9cc;color:#330d00;}
-#Waihao #a-wxl{background-color:#f0f;}
-#Waihao #a-wxl p{background-color:#fcf;color:#303;}
-#Waihao #a-jyy{background-color:#f39;}
-#Waihao #a-jyy p{background-color:#ffcce6;color:#306;}
-#Waihao #a-lst{background-color:#c0f;}
-#Waihao #a-lst p{background-color:#f5ccff;color:#520066;}
-#Waihao #a-cmx{background-color:#903;}
-#Waihao #a-cmx p{background-color:#fcd;color:#301;}
-#Waihao #a-ghx{background-color:#05f;}
-#Waihao #a-ghx p{background-color:#cdf;color:#013;}
-#Waihao #a-czy{background-color:#fc6;}
-#Waihao #a-czy p{background-color:#fec;color:#320;}
-#Waihao #a-chq{background-color:#09c;}
-#Waihao #a-chq p{background-color:#ccf2ff;color:#002633;}
-#Waihao #a-cyc{background-color:#6c0;}
-#Waihao #a-cyc p{background-color:#e6ffcc;color:#1a3300;}
-#Waihao #a-gyf{background-color:#3cc;}
-#Waihao #a-gyf p{background-color:#d6f5f5;color:#145252;}
-#Waihao #a-hyrc{background-color:#369;}
-#Waihao #a-hyrc p{background-color:#d9e6f2;color:#0d1a26;}
-#Waihao #a-zlj{background-color:#669;}
-#Waihao #a-zlj p{background-color:#d1d1e0;color:#14141f;}
-#Waihao #a-l-ze-c{background-color:#6ff;}
-#Waihao #a-l-ze-c p{background-color:#cff;color:#033;}
-#Waihao #a-zsy{background-color:#939;}
-#Waihao #a-zsy p{background-color:#f9ecf9;color:#130613;}
-#Waihao #a-l-zi-c{background-color:#f50;}
-#Waihao #a-l-zi-c p{background-color:#fdc;color:#310;}
-#Waihao #a-gjj{background-color:#960;}
-#Waihao #a-gjj p{background-color:#fec;color:#320;}
-#Waihao #a-clh{background-color:#bf4040;}
-#Waihao #a-clh p{background-color:#f2d9d9;color:#260d0d;}
-#Waihao #a-et{background-color:#73f;}
-#Waihao #a-et p{background-color:#dcf;color:#103;}
-#Waihao #a-ct{background-color:#393;}
-#Waihao #a-ct p{background-color:#d9f2d9;color:#0d260d;}
-#Waihao #a-at{background-color:#f69;}
-#Waihao #a-at p{background-color:#fcd;color:#602;}
-#Waihao #a-mt{background-color:#c00;}
-#Waihao #a-mt p{background-color:#f99;color:#300;}
+#Waihao #a-qmx{background:#03c;}
+#Waihao #a-qmx p{background:#b3c6ff;color:#000d33;}
+#Waihao #a-lyx{background:#c6f;}
+#Waihao #a-lyx p{background:#ecf;color:#406;}
+#Waihao #a-wym{background:#009;}
+#Waihao #a-wym p{background:#99f;color:#003;}
+#Waihao #a-zwc{background:#f93;}
+#Waihao #a-zwc p{background:#fc9;color:#630;}
+#Waihao #a-zxy{background:#f6f;}
+#Waihao #a-zxy p{background:#fcf;color:#303;}
+#Waihao #a-lgy{background:#c30;}
+#Waihao #a-lgy p{background:#ffd9cc;color:#4d1300;}
+#Waihao #a-ycm{background:#999;}
+#Waihao #a-ycm p{background:#ccc;color:#333;}
+#Waihao #a-dyz{background:#60c;}
+#Waihao #a-dyz p{background:#c9f;color:#306;}
+#Waihao #a-c-yu-h{background:#963;}
+#Waihao #a-c-yu-h p{background:#ecd9c6;color:#261a0d;}
+#Waihao #a-lcj{background:#ff8000;}
+#Waihao #a-lcj p{background:#fc9;color:#331a00;}
+#Waihao #a-xcz{background:#339;}
+#Waihao #a-xcz p{background:#c6c6ec;color:#0d0d26;}
+#Waihao #a-cr{background:#c30;}
+#Waihao #a-cr p{background:#ffd9cc;color:#330d00;}
+#Waihao #a-wxl{background:#f0f;}
+#Waihao #a-wxl p{background:#fcf;color:#303;}
+#Waihao #a-jyy{background:#f39;}
+#Waihao #a-jyy p{background:#ffcce6;color:#306;}
+#Waihao #a-lst{background:#c0f;}
+#Waihao #a-lst p{background:#f5ccff;color:#520066;}
+#Waihao #a-cmx{background:#903;}
+#Waihao #a-cmx p{background:#fcd;color:#301;}
+#Waihao #a-ghx{background:#05f;}
+#Waihao #a-ghx p{background:#cdf;color:#013;}
+#Waihao #a-czy{background:#fc6;}
+#Waihao #a-czy p{background:#fec;color:#320;}
+#Waihao #a-chq{background:#09c;}
+#Waihao #a-chq p{background:#ccf2ff;color:#002633;}
+#Waihao #a-cyc{background:#6c0;}
+#Waihao #a-cyc p{background:#e6ffcc;color:#1a3300;}
+#Waihao #a-gyf{background:#3cc;}
+#Waihao #a-gyf p{background:#d6f5f5;color:#145252;}
+#Waihao #a-hyrc{background:#369;}
+#Waihao #a-hyrc p{background:#d9e6f2;color:#0d1a26;}
+#Waihao #a-zlj{background:#669;}
+#Waihao #a-zlj p{background:#d1d1e0;color:#14141f;}
+#Waihao #a-l-ze-c{background:#6ff;}
+#Waihao #a-l-ze-c p{background:#cff;color:#033;}
+#Waihao #a-zsy{background:#939;}
+#Waihao #a-zsy p{background:#f9ecf9;color:#130613;}
+#Waihao #a-l-zi-c{background:#f50;}
+#Waihao #a-l-zi-c p{background:#fdc;color:#310;}
+#Waihao #a-gjj{background:#960;}
+#Waihao #a-gjj p{background:#fec;color:#320;}
+#Waihao #a-clh{background:#bf4040;}
+#Waihao #a-clh p{background:#f2d9d9;color:#260d0d;}
+#Waihao #a-et{background:#73f;}
+#Waihao #a-et p{background:#dcf;color:#103;}
+#Waihao #a-ct{background:#393;}
+#Waihao #a-ct p{background:#d9f2d9;color:#0d260d;}
+#Waihao #a-at{background:#f69;}
+#Waihao #a-at p{background:#fcd;color:#602;}
+#Waihao #a-mt{background:#c00;}
+#Waihao #a-mt p{background:#f99;color:#300;}
 
 #Mingyan .title{text-align:center;font-size:80px;margin:90px;}
 #Mingyan main>div{padding:7px;border-radius:30px;}
 #Mingyan main>div>p{display:block;padding:8px 16px;margin:5px;border-radius:20px;}
-#Mingyan #b-ct{background-color:#090;}
-#Mingyan #b-ct>p{background-color:#c6ecc6;color:#030;}
-#Mingyan #b-et{background-color:#60c;}
-#Mingyan #b-et>p{background-color:#e6ccff;color:#306;}
-#Mingyan #b-mt{background-color:#f00;}
-#Mingyan #b-mt>p{background-color:#fcc;color:#600;}
-#Mingyan #b-at{background-color:#f0f;}
-#Mingyan #b-at>p{background-color:#fcf;color:#606;}
-#Mingyan #b-lgy{background-color:#c30;}
-#Mingyan #b-lgy p{background-color:#ffd9cc;color:#4d1300;}
-#Mingyan #b-qmx{background-color:#03c;}
-#Mingyan #b-qmx p{background-color:#b3c6ff;color:#000d33;}
-#Mingyan #b-ycm{background-color:#999;}
-#Mingyan #b-ycm p{background-color:#ccc;color:#333;}
-#Mingyan #b-qzh{background-color:#f93;}
-#Mingyan #b-qzh p{background-color:#fc9;color:#630;}
-#Mingyan #b-wxl{background-color:#c6f;}
-#Mingyan #b-wxl p{background-color:#ecf;color:#406;}
-#Mingyan #b-xcz{background-color:#339;}
-#Mingyan #b-xcz p{background-color:#c6c6ec;color:#0d0d26;}
+#Mingyan #b-ct{background:#090;}
+#Mingyan #b-ct>p{background:#c6ecc6;color:#030;}
+#Mingyan #b-et{background:#60c;}
+#Mingyan #b-et>p{background:#e6ccff;color:#306;}
+#Mingyan #b-mt{background:#f00;}
+#Mingyan #b-mt>p{background:#fcc;color:#600;}
+#Mingyan #b-at{background:#f0f;}
+#Mingyan #b-at>p{background:#fcf;color:#606;}
+#Mingyan #b-lgy{background:#c30;}
+#Mingyan #b-lgy p{background:#ffd9cc;color:#4d1300;}
+#Mingyan #b-qmx{background:#03c;}
+#Mingyan #b-qmx p{background:#b3c6ff;color:#000d33;}
+#Mingyan #b-ycm{background:#999;}
+#Mingyan #b-ycm p{background:#ccc;color:#333;}
+#Mingyan #b-qzh{background:#f93;}
+#Mingyan #b-qzh p{background:#fc9;color:#630;}
+#Mingyan #b-wxl{background:#c6f;}
+#Mingyan #b-wxl p{background:#ecf;color:#406;}
+#Mingyan #b-xcz{background:#339;}
+#Mingyan #b-xcz p{background:#c6c6ec;color:#0d0d26;}
 
 #Et .dow{display:block;width:100%;text-align:center;border-radius:1698px;text-decoration:none;color:#fff;background-color:#3cc;padding:7px;font-size:25px;margin:5px;}
 
 #Ct #jiaobian{background-color:#fff;width:100%;height:400px;padding:30px;}
 #Ct #jiaobian>div{width:10px;height:300px;margin:auto;background-image:linear-gradient(to right,#fc6,#fb3,#fb3,#fc6);border-radius:2px;animation:jiaobian 1s;-webkit-animation:jiaobian 1s;animation-iteration-count:infinite;-webkit-animation-iteration-count:infinite;transform-origin:5px 5px;}
-@keyframes jiaobian{0%{transform:rotate(20deg);}50%{transform:rotate(-20deg);}100%{transform: rotate(20deg);}}
+@keyframes jiaobian{0%{transform:rotate(20deg);}50%{transform:rotate(-20deg);}100%{transform:rotate(20deg);}}
 
 </style>
 </head>
@@ -320,7 +318,7 @@ ol>p,ul>p{font-size:0.9375rem;margin:5px;margin-left:25px;color:#999;}
         <a onclick="openPage('Pupil', this)">进入！</a>
         <div style="margin:10px;">
         <a style="width:100%;border-radius:10px;background:url('https://oss.weixiao100.com.cn/fronts/material/wgw/resource/20230405/14akknsnhfn5qhrov34i37hi2ouy6buh.jpg?x-oss-process=image/resize,w_768') repeat;display:block;text-decoration:none;background-size:cover;height:400px;padding:20px;" onclick="openPage('Pupil', this)" href="#lgy">
-            <div style="background:#ffffff66;width:100%;color:#000066bb;border-radius:7px;padding:10px;height:360px;overflow:auto;" class="example">
+            <div style="background:#ffffff66;width:100%;color:#000066bb;border-radius:7px;padding:10px;height:360px;overflow:auto;backdrop-filter:blur(2px);" class="example">
             <h1 style="text-align:center;margin:20px auto;">刘圭宥</h1>
             <p>今晚我家只有我一个人，我可以把所有都发泄出来了！我已经放弃了，没有开玩笑，不要有谁再给我提“童钰轩”三个字昂，就让这1698天的喜欢全部都化为灰烬吧，就让这42天的想哭全部给我哭出来吧。谁要是再给我在那里狗叫一句啊，我特么直接一巴掌给你干过去！说实话，我是真的一年级开学第一天就喜欢上了ta，而且以前我妈不在家的时候把我扔到ta家，都是我自己提出来的，只为多看ta几眼。但现在呢，就算了吧，也不可能了。就让这泪水全部都流出来吧，撕心裂肺地哭出来吧。反正也只有我在家，也没人管。ta的生与死，喜怒哀乐，都与我无关了。也许像三叶和阳菜这样好的女生只有在二次元出现吧。像新兰这样的情侣，也只有在动漫里有吧，我也不想多说什么，只能说心碎了，碎了一地💔。但是也要乐观一点吧，至少在小学生活中，喜欢上了一个人的漂亮、学习好，但是不喜欢我的女孩子，ta说正在想要不要把我拉黑。我反正随便，你拉不拉黑我都愿意，你就算删了我都不会想再开始加，忘了你最好，反正没你我也能活，也有其他人会跟我聊天，不需要你来填满我的生活，谢谢你，能遇见你我真的很荣幸，但是现在，不……这么……想了……💔💔💔</p>
             </div>
@@ -457,8 +455,8 @@ minute1.innerHTML=m1+"分";
 second1.innerHTML=s1+"秒"; 
 }
 //打字效果
-var app = document.getElementById('asklz');
-var typewriter = new Typewriter(asklz, {loop: true});
+var app=document.getElementById('asklz');
+var typewriter=new Typewriter(asklz,{loop:true});
 typewriter.typeString('欢迎来到这个网站……')
 .pauseFor(3000)
 .deleteAll()
@@ -468,7 +466,6 @@ typewriter.typeString('欢迎来到这个网站……')
 </script>
 </div>
 
-<!--学生-->
 <div id="Pupil" class="tabcontent">
 <nav>
     <button onclick="goTop()" id="goTop"><i class="fa fa-arrow-circle-up"></i></button>
@@ -522,6 +519,7 @@ typewriter.typeString('欢迎来到这个网站……')
         <h2>附录</h2>
         <a href="#aiqing">爱情关系</a>
         <a href="#cz">初中</a>
+        <a href="#lx">龙翔</a>
         <a href="#xxxz">小学现状</a>
     </div>
 </nav>
@@ -1164,13 +1162,13 @@ typewriter.typeString('欢迎来到这个网站……')
     <p>叶宸铭的作文，篇篇是经典。</p>
     <h3>蚂蚁历险记</h3>
     <p>叶宸铭最经典的就是这篇了，经常被陈宇恒调侃。名言有：“算了算了，就来个蚂蚁生存吧。”</p>
-    <div style="background-color:#ccc;padding:10px;border-radius:5px;margin:5px;">
-        <p style="color:#000;">下文凡是展示作文，都会对错误的地方进行高亮显示。但是一些错别字无法呈现，所以不标注。</p>
-        <p style="color:red;margin:0;display:inline;">这是错别字</p>
-        <p style="color:green;margin:0;display:inline;">这是少字</p>
-        <p style="color:blue;margin:0;display:inline;">这是不合事理</p>
-        <p style="color:orange;margin:0;display:inline;">这是病句</p>
-        <p style="color:purple;margin:0;display:inline;">这是多字</p>
+    <div style="background-color:#9fc;padding:10px;border-radius:15px;margin:5px;">
+        <p style="color:#00331a;margin:5px 0;"><strong>注意：</strong>下文凡是展示作文，都会对错误的地方进行高亮显示。但是一些错别字无法呈现，所以不标注。</p>
+        <p style="color:red;margin:0;display:inline;">错别字</p>
+        <p style="color:green;margin:0;display:inline;">少字</p>
+        <p style="color:blue;margin:0;display:inline;">不合事理</p>
+        <p style="color:orange;margin:0;display:inline;">病句</p>
+        <p style="color:purple;margin:0;display:inline;">多字</p>
     </div>
     <div class="watch">
         <p>今天我在看着电视，电视里讲的是蚂蚁<span style="color:red">记</span>录片,这是我看了一下时间9点了，要睡觉了，我很快就睡觉，我睡醒了一看，我竟然变成了一只蚂蚁，来到了一栋楼一看，我是怎么了，我不是在睡觉吗，我想我是在做梦吗，我自言自语<span style="color:red">的</span>说，奇怪了，我做梦会梦家里有黄金、钻石、或擎天柱合金玩具和来到我的世界什么的，没想到变成一个蚂蚁可真是一个噩梦，算了算了，就来个蚂蚁生存吧这时我肚子叫了起来这又成了一个不好的声音，要知道肚子一叫，我就会想起我<span style="color:green">最吃</span>食品名单分别有，汉堡，炸鸡块，比萨，北京烤鸭，章鱼小丸子，鸡蛋汉堡，蜜汁手扒鸡薯条，等等我最爱吃的东西。可这没有这些人间美味，这是我看到了有一个人在吃着炸鸡，有一些炸鸡屑，我一看眼睛都要冒星星了冲了上去，大口大口<span style="color:red">的</span>吃了起来，把炸鸡屑吃了一个精光，这时，我看到了那人吃<span style="color:red">得</span>时候几滴可乐滴了下来，我又冲上前，喝完了可乐滴后，吃饱喝足后，有两<span style="color:red">个</span>蚂蚁<span style="color:green">走了过</span>说：“蚊王要占领，我们的家园，你快去和我抗击蚊军，我说：“好。”</p>
@@ -1608,7 +1606,155 @@ typewriter.typeString('欢迎来到这个网站……')
     <p>当然，四十中也会“督促”菜品质量，如填写问卷、家长陪餐等，不过味道和以前差不了多少。有一次，有人甚至在海带排骨汤里喝出了虫卵，那碗汤就被放在了水池旁边。</p>
     <p>其次便是跑操了。小学时还只在冬天偶尔有该项目，到了四十中就成了“经典项目”。</p>
     <p>至于军训，同学们也是疯狂吐槽。在龙翔的环境中，幸福庄园都变得和蔼可亲。</p>
-    <p class="size-small">初中的详细内容可在<a href="../c/middle.htm">初中部网页</a>查看，龙翔详细内容也可在<a href="../c/jx.htm">初中部网页</a>查看。</p>
+    <p>那，龙翔又是怎样的？</p>
+    <h1 id="lx">龙翔</h1>
+    <h2>澡堂</h2>
+    <p>龙翔只有公共浴室。每天晚上，要洗澡的人需带上工具（水桶、洗发水、沐浴露、浴巾、衣服等）并徒步挺长的一段距离。军训的前3天都在下雨，往往洗完澡后，穿着拖鞋走在泥泞、坑洼的路上，到宿舍时，脚已经白洗了。</p>
+    <p>男生澡堂入口有一个架子可供放衣服，且里面有几十个单间，但是只用了一条很薄的白色窗帘挡着，风一吹可能就飘起来了。而且白布下面有很大的空隙，隐私性超级低。单间和单间被铁板隔着，但铁板的一侧及下方均有空隙。</p>
+    <p>至于洗澡的体验感，那自然不必多说。里面可谓什么人都有，据说林泽晨、郭予凡同另外两个同班的在同一间里洗澡。</p>
+    <h2>宿舍</h2>
+    <h3>宿舍楼</h3>
+    <p>四十中学生住在下图的四栋楼中，其中：初一男生住振兴楼、女生住尚武楼；高一男生住崇军楼、女生住自强楼。</p>
+    <img src="img/building.svg"/>
+    <p>左边的楼有6层、右边5层。</p>
+    <h3>布局</h3>
+    <p>每层楼有两个楼梯口、两侧有两个厕所及若干水池，走廊有防盗网、顶上还有晾衣杆。宿舍内部左右各3个上下铺，共计12张床。每间宿舍有两扇窗以及风扇、空调、铁架子。</p>
+    <h3>卫生</h3>
+    <p>话说学生的传言中“床单上有尿渍”这一事实也不知是否属实。但到龙翔的第一天，辅导员教学生叠“三折被”时，有人说看到床单发霉。</p>
+    <p>值得一提的是，枕头的魔术贴真的恶心。</p>
+    <p>最后一天，大家要把三件套拆掉放回。当同学们走进机房时，看到了这样一幕：几个比人高的洗衣机矗立其中，前面是圆形玻璃，里面有很多三件套正在被清洗。洗衣机运行的声音很大，走近时还能感觉到热气。旁边时三件套堆成的小山，同学们就把自己的三件套扔到这里——可见其卫生状况。</p>
+    <p>总之，三件套虽没有想象中的脏，但也绝非干净。</p>
+    <p>床铺就几根铁架支撑，稍微动一动就吱吱作响。</p>
+    <p>至于“小动物”，目前是没有出现，但是辅导员曾经说：“不要再床上吃零食，不然会招惹小动物……”</p>
+    <h2>食堂</h2>
+    <p>龙翔的食堂很大，且打饭窗口很多。另外，有两个打汤窗口。</p>
+    <p>吃饭的流程主要有下面几步：</p>
+    <ol>
+        <li>齐步走</li>
+        <p>每次从训练的地方走向食堂，首先要站成四列并齐步走。但辅导员总会让大家走走停停，然后不断地对正、齐步走，令人心烦。</p>
+        <li>拿水果、洗手</li>
+        <p>饭前需要洗手。食堂入口有一排水池，同学们往往只是淋一两秒就走。在中午，洗手前还会拿水果。饭后水果包括橙子、橘子、苹果，但许多人不大爱吃，于是他们的水果就会出现在其他学生或辅导员手上。</p>
+        <li>打饭</li>
+        <p>洗完手就可以进入食堂内部排队。地上有1米线，学生排队时需按照地上的线保持距离。</p>
+        <li>吃饭</li>
+        <p>打完饭后，可以自愿打汤。第一天时，辅导员说一桌只能坐一个班的学生。这就导致前面的桌子往往被别班“霸占”，同学们只能到后面坐，而且找空桌也很不容易。</p>
+        <li>放盘子</li>
+        <p>吃完饭后，便可以从出口离开。学生要将剩饭剩菜倒在外面摆着的蓝色大塑料缸内。然后，学生需到水池简单冲洗盘子，主要得把食物残渣冲走，油脂则无所谓。原因是：如果有饭粒粘在盘子上，到洗碗机里洗时就可能卡住（牛逼）。洗完后，需将餐具放在蓝色框里。</p>
+        <li>集合</li>
+        <p>接下来，就要到各班约定的地点集合。在全班到齐之前，你需要上完厕所、装完水。等全班到齐后，就会开始接下来的活动。</p>
+    </ol>
+    <p>但饭菜的味道总是一言难尽。第一天午饭时，同学们都说米饭很黏，不好吃；第三天早饭时，同学们推测豆浆是用粉跑的，因为从汤桶最底下打的豆浆没有豆渣。</p>
+    <p>每次午餐和晚餐，米饭的旁边总会有一块不知用什么食材做的饼，往往很难吃。另外，这里的一些菜表面都裹了一层看似挺粘稠的汤汁。</p>
+    <p>第一天，辅导员说可以加菜，但像鸡腿这样一人只能有一个的菜不能加。</p>
+    <p>再就是早餐了。一个鸡蛋是标配，另外还有两道小菜，主食则是馒头、包子之类的，至少不是单调的“馒头配萝卜干”。所以，一些人说早餐是三餐内最好吃的了。</p>
+    <p>但另外两餐就不一样了。每次你去外面，就会看到部分装剩饭剩菜的桶已经满出来了，还堆出了一座小山。这种现象最早体现在第二天的晚餐中，一些人表示那顿饭是最难吃的。还有一些人说，当时去到饭，看到这一幕时，差点没吐出来。</p>
+    <h2>小卖部</h2>
+    <p>和其他地方一样，这里有小卖部，就在四栋宿舍楼旁。里面还有卖汉堡、自制饮料之类的，开放时几乎爆满。但这儿的物价是真的高，一瓶纯悦矿泉水能卖3块。</p>
+    <p>当然，这里最受欢迎的东西是泡面，在第一天时，同学们得知可以吃泡面，结果当天晚上泡面就被抢光。第二天晚上，是吃泡面的高峰，第三天就禁止吃泡面了。原因是，当时厕所的垃圾桶里出现了泡面的桶，且开水房里、蹲坑里都是泡面汤汁，非常恶心。</p>
+    <h2>操场</h2>
+    <p>这里已知的操场有两个，一个就是普通操场，开营仪式、闭营仪式都在这举行。但这个操场有个令人无语的地方，就是会掉色。闭营仪式前，同学们坐在操场上，一会儿就有人发现自己的鞋底变绿了，然后就说这里会掉色。</p>
+    <p>第二个操场美其名曰“大操场”，结果同学们去到这里时发现就是一块大的水泥地，旁边虽有跑道，但上面有各种车辆，妥妥的一个停车场。</p>
+    <h2>入口</h2>
+    <p>入口处是一条大路（这条路跨过一条小溪），从国道转弯，开过这条路就能进入龙翔了。这里的大门的设计灵感据说是隐形战斗机，进入后，有着各种大炮、坦克等装备，而且都是真的，上面印有“中国人民解放军海军（空军、陆军）赠”。</p>
+    <img src="https://tse2-mm.cn.bing.net/th/id/OIP-C.D-KAKKA3FuJx2JMt2l5eAwHaEJ?rs=1&pid=ImgDetMain"/>
+    <p>这里还有一个公交站，名为“龙翔站”，广告牌上还写着“期待您下次光临”。</p>
+    <h2>大厅</h2>
+    <p>龙翔有两个大厅，分别为“①号多功能大厅”与“②号多功能大厅”。其中，“②号多功能大厅”里摆放着射击的相关道具，“①号多功能大厅”则是同学们常去的地方，那里有大屏幕以及一些座椅，用来进行文艺汇演、朗诵比赛等。</p>
+    <p>这里还有许多展馆，都是“60个项目”中的一员，但大概率对于四十中只是个诱惑。</p>
+    <hr/>
+    <h2>教官</h2>
+    <p>话说在龙翔是没有教官的，只有“辅导员”，听上去好像亲切许多。但教官的本性是不会变的，还是该练练、该凶凶。这里的教官统一穿迷彩服，戴帽子。</p>
+    <p>同学们如果有什么事，也得叫“辅导员”，说“教官”大抵是没用的。但还是阻止不了同学们说辅导员为“教官”。</p>
+    <p>龙翔有专门为辅导员准备的喇叭，每天叫宿舍里的人起床、集合或者在大厅里“发号施令”都离不开它。其中有一个喇叭上面还贴了很多搞笑的贴纸。</p>
+    <p>有人发现，辅导员的手机壁纸是美女，于是就有人去作死问他，结果那人就被批评了，这时又有人发现当时辅导员在憋笑，而且据说有其他辅导员凑近去看他的手机。</p>
+    <p>辅导员的口音也很古怪。就说“一二一”，有一个辅导员是这么读的：“一儿一”。一次那个班的学生齐步走，就故意将“一二一”喊成“一儿一”。另一个辅导员则读成这样：“亚二一”。</p>
+    <p>这里的辅导员还非常喜欢喊“四十中”、“初中部”、“高中部”、“×班”等，反正对应的学生得答“到！”，例如以下情景：</p>
+    <div class="watch">
+        <p>辅导员：“四十中？”</p>
+        <p>学生：“到！”</p>
+        <p>辅导员：“四十中？”</p>
+        <p>学生：“到！”</p>
+        <p>辅导员：“高中部？”</p>
+        <p>学生：“到！”</p>
+        <p>辅导员：“高中部？”</p>
+        <p>学生：“到！”</p>
+        <p>辅导员：“高中部一、二、三楼，下楼集合！”</p>
+        <p>（一段时间后）</p>
+        <p>……</p>
+        <p>辅导员：“初中部？”</p>
+        <p>学生：“到！”</p>
+        <p>辅导员：“初中部？”</p>
+        <p>学生：“到！”</p>
+        <p>（一段时间后）</p>
+        <p>辅导员：“一、二、三楼，下楼集合！”</p>
+        <p>……</p>
+        <p>辅导员：“一班？”</p>
+        <p>学生：“到！”</p>
+        <p>辅导员：“二班？”</p>
+        <p>学生：“到！”</p>
+        <p>辅导员：“三班？”</p>
+        <p>学生：“到！”</p>
+        <p>……</p>
+        <p>辅导员：“感恩的心？”</p>
+        <p>学生：“到！”</p>
+        <p>辅导员：“队列？”</p>
+        <p>学生：“到！”</p>
+    </div>
+    <p>像这样的情景，每天要重复n遍，而在9班那三个人（陈睿卓、唐家祺、郑锦熠）的带领下，越来越多人开始喊“操！”，甚至推广到了别班。以至于到闭营仪式之前，同学们的应答听着就很像“操！”，但辅导员却以为就是“到！”。</p>
+    <p>至于辅导员的语录，也是数不胜数，如：</p>
+    <div class="say">
+        <i class="fa fa-quote-left"></i>&nbsp;吵什么呢！&nbsp;<i class="fa fa-quote-right"></i>
+    </div>
+    <div class="say">
+        <i class="fa fa-quote-left"></i>&nbsp;小碎步跺响！&nbsp;<i class="fa fa-quote-right"></i>
+    </div>
+    <div class="say">
+        <i class="fa fa-quote-left"></i>&nbsp;调整军姿！&nbsp;<i class="fa fa-quote-right"></i>
+    </div>
+    <div class="say">
+        <i class="fa fa-quote-left"></i>&nbsp;四十中，起——床——&nbsp;<i class="fa fa-quote-right"></i>
+    </div>
+    <p>在众多辅导员中，有几个“长（zha&#780;ng）”的角色，掌管其他辅导员。所以龙翔会出现“辅导员大骂辅导员”的“奇观”。</p>
+    <p>辅导员还喜欢用“钓鱼”战术控制学生。例如，辅导员多次说过：“如果今天练得好，明天就全都是玩；如果练得不好，就全都是训练。”“明天（下午）训练的时间取决于你们现在的态度。”之类的话。当然哪怕同学们练得再好，也鲜有玩的时间。另一种情况则是辅导员会“挑刺”，指出方阵中的部分学生那里不好，并让玩的时间泡汤。</p>
+    <p>另一种渠道就是压榨休息时间，看这样几句话：“这一遍练得好就休息，练不好就一直练。”“最后一遍练完就休息。”而当所谓的“这一遍”练完后，往往没有想象中的休息。要么就是再去练其他的项目，要么练第二遍、第三遍。举个例子，第四晚出来集合，本来说好宣誓完就回宿舍，结果宣誓了两遍后又冒出个唱国歌环节，本来说“唱得好就提前解散”，等到唱得好了，又开始练队列/感恩的心，回宿舍的最早时间也自然被推到九点半。</p>
+    <p>这里就不得不牵扯到两个基本事实。第一个：在到达龙翔的第一天，辅导员说这里有60个玩的项目，且需要门票才能玩。这里分为两个主要项目，一是训练、二是玩，两者互相穿插。如果练得好，玩的时间就多，练不好，就别提玩的事情。这样也间接加强了辅导员对学生的控制，加强了训练效果；同时也导致从学生的角度来看，五天基本全是训练。</p>
+    <p>第二个：辅导员说，只有在晚上8:00-9:00才能去小卖部，其余时间段去的话就会被驻守在那的辅导员抓住。然后看看龙翔4个晚上的安排：第一晚看电影，第二晚在大厅玩游戏/体验VR，第三晚训练，第四晚文艺晚会。没有一晚能在8点之前回到宿舍的。</p>
+    <h2>训练</h2>
+    <p>这次军训，以班为单位展开训练，所有行动必须和本班一起。</p>
+    <p>辅导员口口声声的“训练”当然是很无聊的。辅导员声称的训练项目包括：</p>
+    <ul>
+        <li>稍息立正、跨列立正</li>
+        <li>停止间转法</li>
+        <li>敬礼与礼毕</li>
+        <li>齐步走的行进与立定</li>
+    </ul>
+    <p>当然，还有站军姿、向前对正和原地踏步走。站军姿实际上是最频繁的项目，当以班为单位训练时，站军姿是不可避免的。</p>
+    <p>其实，这些项目与平时最大的不同就是声音。凡遇到要跺脚的时候都得跺响（齐步走除外），最好把地板给跺塌。辅导员曾让大家使劲跺，地板坏了他会赔。</p>
+    <p>还有需要声音的就是礼毕与齐步走。礼毕时，手要拍响；齐步走时，要有划过衣服的声音。</p>
+    <p>第三天，训练的项目出现了“分化”。为了圆满地举行闭营仪式，大家分成了四个方阵进行训练：</p>
+    <ul>
+        <li>队列</li>
+        <p>这是初中的两大方阵之一，也是9班所在的方阵。说白了，这个方阵的展示内容就是训练的内容，包括四个科目：稍息立正与跨列立正、停止间转法、敬礼与礼毕、齐步走的行进与立定。</p>
+        <li>感恩的心</li>
+        <p>这是初中部的另一方阵，表演内容为《感恩的心》手语操（手势舞）。</p>
+        <li>国家</li>
+        <p>这是高中部的方阵之一，和“感恩的心”一样，是展示手语操的。</p>
+        <li>炮排</li>
+        <p>这个方阵主要是在闭营仪式时放炮，增加氛围感，同时也是唯一一个有配备道具的方阵。</p>
+    </ul>
+    <p>一次排练，辅导员还让大家在齐步走时喊：</p>
+    <div class="say">
+        <i class="fa fa-quote-left"></i>&nbsp;魔力青春，升华自我！&nbsp;<i class="fa fa-quote-right"></i>
+    </div>
+    <h2>内务</h2>
+    <p>龙翔对内务要求严格。首先是床上：床单不能有褶皱、被子要叠成三折被；床铺朝门的方向为床尾，书包就放在床尾的地方（对此辅导员之间还有不同的要求，如“王文浩”要求书包放中间，另一个辅导员却让大家放靠墙的一侧），床头中间放被子、上面是枕头。</p>
+    <p>左侧的床底用来摆放水桶，右边的床底放行李，要求摆成一条线。门口摆放拖鞋或运动鞋，也是要一条线摆下去。</p>
+    <p>每次集合，内务得达到以上的标准，而且垃圾要倒掉，灯要关掉。</p>
+    <p>这里的辅导员会不定时去检查内务。一次同学们在大厅训练，一会儿辅导员让大家坐下休息，并说要给大家“惊喜”。接下来就是史诗级的一幕——只见宿舍的照片被投放到大屏幕上，引起一片惊呼，不少人说自己的宿舍肯定不合格。辅导员就询问宿舍长是谁，这个×××是谁的，并让相关人员站在台上，后来被罚的人就干脆直接站在方阵里。</p>
+    <h2>文明礼仪</h2>
+    <p>龙翔注重文明礼仪。在初到龙翔时，辅导员就要求：凡是齐步走时经过老师，就要有一个带头的学生喊“老师好！”，然后方阵中的学生跟着喊“老师好”；经过辅导员时规则是一样的，只不过喊的是“辅导员好”。</p>
+    <h2>拉练</h2>
+    <p>拉练其实就是走路、爬山，同学们也把它叫做“长征”。这次拉练，据辅导员说有4公里左右（来回8公里），而且同学们是出基地的，但至少比在龙翔“受罪”好很多。</p>
     <h1 id="xxxz">小学现状</h1>
     <p>最后说一下小学的现状。话说我们刚毕业，东升就开始升级，挖掘机都进去了，将来还会盖一栋楼，并用连廊与教学楼连接。而且在东升的对面，鞋厂直接被改成人行道和店铺，宽阔了不少，看上去风光无限，超市、饭店、托管纷纷入驻。</p>
     <p>据说，ET在我们上初中时被开除了，但CT仍然在正常教书。据说他一次教四年级学生时，还特地用了一节课在表扬人。</p>
