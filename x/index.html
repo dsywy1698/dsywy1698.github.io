@@ -43,7 +43,7 @@ nav button:hover{background:#66ccff88;}
 @keyframes loading{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
 #div>*{position:relative;-webkit-animation-name:animatebottom;-webkit-animation-duration:1s;animation-name:animatebottom;animation-duration:0.7s;}
 @-webkit-keyframes animatebottom{from{bottom:-50px;opacity:0;}to{bottom:0px;opacity:1;}}
-@keyframes animatebottom{ from{bottom:-50px;opacity:0;} to{bottom:0;opacity:1;}}
+@keyframes animatebottom{from{bottom:-50px;opacity:0;} to{bottom:0;opacity:1;}}
 /*页眉*/
 header{margin-bottom:150px;}
 header>h1{padding:30px;font-size:7.5rem;margin:0;text-align:center;}
@@ -136,19 +136,15 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
 
 
 main:not(#Index>main){background:#06f;padding:10px;animation-name:main;animation-duration:2s;padding-top:4em;animation-fill-mode:forwards;color:#fff;}
-@keyframes main{
-  0%  {background:#e6ffff;color:#000000;}
-  30% {background:#e6ffff;color:#000000;}
-  100%{background:#06f;/*#03c*/color:#ffffff;}
-}
-img,video,canvas,svg{max-height:90vh!important;border-radius:15px;}
-canvas,audio{max-width:100%;}
+@keyframes main{0%{background:#e6ffff;color:#000000;}30%{background:#e6ffff;color:#000000;}100%{background:#06f;/*#03c*/color:#ffffff;}}
+img,video,canvas,svg，canvas,audio{max-height:90vh!important;max-width:100%;}
+img{border-radius:15px;}
 .title_center{text-align:center;margin:7px;}
 .watch{padding:10px;border:4px solid #03c;background:#09f;border-radius:20px;}
 .watch>p{text-indent:2em;margin:7px 0;}
 .watch i{display:inline;}
 img,video,.max-width,iframe{max-width:100%;object-fit:contain;}
-.img_box{padding:10px;margin:10px 0;border-radius:15px;background:linear-gradient(#0099cc 0%,#0099cc77 90%);}
+.img_box{padding:10px;margin:10px 0;border-radius:15px;background:linear-gradient(#0099cc 0%,#0099cc77 90%);text-align:center;}
 .img_box p{color:#e6f9ff;margin:10px 0;}
 .say{background:#6fc;color:#060;text-align:center;padding:10px;font-size:1.5625rem;margin:5px 0;border-radius:10px;}
 .say>i{color:#c3f;font-size:1.875rem;}
@@ -266,15 +262,14 @@ ol>p,ul>p{font-size:0.9375rem;margin:5px;margin-left:25px;color:#9df;}
 #Ct #jiaobian{background-color:#fff;width:100%;height:400px;padding:30px;}
 #Ct #jiaobian>div{width:10px;height:300px;margin:auto;background-image:linear-gradient(to right,#fc6,#fb3,#fb3,#fc6);border-radius:2px;animation:jiaobian 1s;-webkit-animation:jiaobian 1s;animation-iteration-count:infinite;-webkit-animation-iteration-count:infinite;transform-origin:5px 5px;}
 @keyframes jiaobian{0%{transform:rotate(20deg);}50%{transform:rotate(-20deg);}100%{transform:rotate(20deg);}}
-
 </style>
 </head>
 <body onload="loading()">
 <div class="loading" id="loading">
     <div></div>
     <h1>网页加载中</h1>
-    <p>该网页加载速度极慢（图片、视频甚至根本无法加载），请耐心等候……</p>
-    <p><strong>注意：</strong>该网站仅为福州市东升小2018级1班学生提供</p>
+    <p>该网页加载速度极慢，请耐心等候……</p>
+    <p>该网站仅为<strong>福州市东升小学2018级1班</strong>学生提供</p>
     <button onclick="loading()">直接跳过</button>
 </div>
 <div class="small">
@@ -297,6 +292,7 @@ ol>p,ul>p{font-size:0.9375rem;margin:5px;margin-left:25px;color:#9df;}
             <a onclick="openPage('At', this)">AT</a>
             <a onclick="openPage('Waihao', this)">外号</a>
             <a onclick="openPage('Mingyan', this)">名言</a>
+            <a onclick="openPage('Ds', this)">大事</a>
         </div>
     </div>
 </nav>
@@ -511,16 +507,6 @@ typewriter.typeString('欢迎来到这个网站……')
         <a href="#wzc">王芷辰</a>
         <a href="#zjx">郑瑾烯</a>
         <a href="#clh">陈砾航</a>
-        <h2>班级大事</h2>
-        <a href="#moyuwan">墨鱼丸</a>
-        <a href="#wanda">万达</a>
-        <a href="#wucanban">午餐班</a>
-        <a href="#cesuo">厕所</a>
-        <h2>附录</h2>
-        <a href="#aiqing">爱情关系</a>
-        <a href="#cz">初中</a>
-        <a href="#lx">龙翔</a>
-        <a href="#xxxz">小学现状</a>
     </div>
 </nav>
 <main>
@@ -1534,9 +1520,46 @@ typewriter.typeString('欢迎来到这个网站……')
     <p>陈砾航与吴一鸣是同桌，所以总会发生一些“事件”，如跟吴一鸣上演霸总与娇妻等。</p><!--
     <hr/>
     <h1 id="crz">陈睿卓</h1>
-    <p>陈睿卓一直以来都很“strong”，不过在小学并不太显眼，主要在班上的后面部分有点热度。</p>
+    <p>陈睿卓一直以来都很“strong”，不过在小学并不太显眼，主要在班上的后半部分有点热度。</p>
     <p>但在初中就不一样了，他直接收获2个外号：装备哥、陈睿zhuo&#772;（语文老师叫错名字而得名）。</p>-->
-    <hr/><hr/>
+</main>
+<footer>
+    <p>网页到底了！</p>
+</footer>
+</div>
+
+<div id="Ds" class="tabcontent">
+<nav>
+    <button onclick="goTop()" id="goTop"><i class="fa fa-arrow-circle-up"></i></button>
+    <button onclick="openPage('Index', this)" title="返回首页"><i class="fa fa-home"></i></button>
+    <button class="menu"><i class="fa fa-navicon"></i></button>
+    <div class="dropdown-content">
+        <h2>班级大事</h2>
+        <a href="#moyuwan">墨鱼丸</a>
+        <a href="#wanda">万达</a>
+        <a href="#wucanban">午餐班</a>
+        <a href="#cesuo">厕所</a>
+        <h2>学校大事</h2>
+        <a href="#liuyi">六一</a>
+        <a href="#tiaozaoshichang">跳蚤市场</a>
+        <h2>附录</h2>
+        <a href="#aiqing">爱情关系</a>
+        <a href="#cz">初中</a>
+        <a href="#lx">龙翔</a>
+        <a href="#xxxz">小学现状</a>
+    </div>
+</nav>
+<main>
+    <header>
+        <h1>大事</h1>
+        <div>
+            <p><i class="fa fa-quote-left fa-2x fa-pull-left"></i>第一项科目：稍息立正、跨列立正。都有，稍息！立正！稍息！立正！跨列！立正！跨列！立正！第二项科目：停止间转法。都有，向——右——转！向——右——转！向——左——转！向——左——转！向——后——转！向——后——转！</p>
+            <p style="float:right;margin-top:30px;margin-bottom:0;">——福建龙翔国防教育基地</p>
+        </div>
+    </header>
+    <hr/>
+    <p>小学期间，发生了许多事情：不仅有全班性的，还有许多全校性的。</p>
+    <hr/>
     <h1 style="font-size:50px">班级大事</h1>
     <h1 id="moyuwan">墨鱼丸</h1>
     <img src="https://so1.360tres.com/t012680d34962993436.png"/>
@@ -1564,7 +1587,27 @@ typewriter.typeString('欢迎来到这个网站……')
     <p>至于午餐班的饭，味道也是呈下降趋势。刚开始时非常美味，到后来就变得“啥也不是”，同学们还将午餐班的肉称为“老鼠肉”。</p>
     <p>所以，同学们会在午餐班带东西下饭，最主要的就是魔芋爽。还有陈宇恒带的水果；郭予凡带的烧仙草、芒果；林柳妍、许逸晗带的果冻、薯片、饼干等；李诗彤带的魔芋爽、点的麦当劳；林泽晨带的华莱士蜜汁手扒鸡、自制牛肉……</p>
     <h2>看班</h2>
-    <p>每次一来午托，同学们就会关注今天是那个老师看班。不过六年级时，看班顺序是有规律的：MT——ET——何睿——郑岩鑫——郑彦捷——江滢——郑艺苗——陈冲——黄佳——MT——ET……</p>
+    <p>每次一来午托，同学们就会关注今天是那个老师看班，这点可以从讲台上点名的单子中看出。不过六年级时，看班顺序是有规律的，按照以下顺序循环：</p>
+    <ul>
+        <li>MT</li>
+        <p>MT看班时，吴一鸣、张炜承需搬一把躺椅（有时还会让拿罐装饮料），睡觉时MT就躺在椅子上。在睡觉前，他也可能会让六（1）的人把“大本”（练习）交到讲台上给她批改。</p>
+        <li>ET</li>
+        <p>ET是个经典看班人物，睡觉前，她就侧坐在讲台后面看手机；睡觉时则会巡视——当然这也是一个很搞笑的时期。</p>
+        <li>何睿</li>
+        <p>何睿的午托可谓“乱成一锅粥”。他是其他班的英语老师，导致他教的学生总会很“大胆”的跟他交流。午托开始后，同学们自然会讲话，而且就算他开口制止也没有用，甚至有人换位置去打“三国杀”。有些人表示总能听到他的叹气声。这样的结果便是把其他老师招来，让同学们遭受一顿批评。</p>
+        <li>郑岩鑫</li>
+        <p>郑岩鑫是体育老师。每次他看班，就会时不时点一些朴朴的零食，然后叫那两个“帮手”下去拿。拿上来后，一些人就会厚着脸皮向他“乞讨”。一次，他把可乐倒进自己的杯子里并加冰，很多人就说要喝一口，结果他就给吴一鸣到了一小杯，令人羡慕。</p>
+        <li>郑彦捷</li>
+        <p></p>
+        <li>江滢</li>
+        <p></p>
+        <li>郑艺苗</li>
+        <p></p>
+        <li>陈冲</li>
+        <p></p>
+        <li>黄佳</li>
+        <p></p>
+    </ul>
     <p>其中，郑岩鑫、郑彦捷、陈冲、MT、ET会让大家午休，不过ET的午休其实是吃瓜的好时机。</p>
     <hr/>
     <h1 id="cesuo">厕所</h1>
@@ -1574,6 +1617,58 @@ typewriter.typeString('欢迎来到这个网站……')
     <hr/>
     <h1>更多</h1>
     <p>班上经常会出现莫名其妙的动物（活的），除了常见的蜜蜂外，有一次还出现了蟑螂。六年级时，班上甚至出现了螃蟹，被同学们围观。</p>
+    <p>一次上体育课，体育老师让吴一鸣回班拿东西，结果吴一鸣就看见一个人在班上偷东西（也就是郭炫耀）。下课后，不少人都反映自己的东西少了。当时，此事在班上引起了巨大轰动。</p>
+    <hr/><hr/>
+    <h1 style="font-size:50px">学校大事</h1>
+    <h1 id="liuyi">六一</h1>
+    <p>六年级前，六一有一种“国庆”的感觉。学校的六一庆祝活动在六月一号前一天举行。活动的前一天，同学们需将凳子搬到操场，也就是次日的文艺汇演的座位。</p>
+    <p>而这场文艺汇演简直是折磨。活动时正值夏天，同学们坐在操场上，太阳就这样直射下来，令人酷暑难耐，这也是同学们口中“国庆节”的由来。但偏偏在演出前还要搞少先队的入队仪式，然后又是各种领导讲话，在这种情况下哀声、抱怨声比比皆是。</p>
+    <p>有一次汇演结束后，同学们回到教室，只见ET正拿着透明文件夹站在讲台上，让大家做好英语课前准备，并且在同学们都说没带书的情况下上起了英语课，还抽背课文。</p>
+    <p>下午的活动会好点，会有一大波零食等着同学们。但似乎每一次六一活动都是“吃零食+看电影”，有点无聊。于是在五年级时，实习老师让大家边吃零食边玩游戏。起初同学们还有很多反对的声音，但活动照旧，同学们开展了一场“踩气球”的游戏，气氛异常活跃。</p>
+    <p>六年级的活动似乎很特别。当时操场已经被围住了一半，且主席台还被拆了，所以大家就只能在班上看演出——这就比晒太阳好了不知多少，而且六年级是还有配空调，MT更是允许大家在过道上看（给同学们换位置提供了良好的机会）。每个班在电脑上看演出，而那些“演员”则要到录播室表演节目。当时，“班班有歌声”的一等奖需要全班表演，结果同学们就看到了令大家气愤的二班唱《青苹果乐园》。</p>
+    <p>至于这个“班班有歌声”，其实也是六一前的一项活动。同学们在音乐室表演歌曲，台下则站着一堆评委。</p>
+    <div class="img_box">
+        <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20240528/qzued4r33o87ty2unm8oydxwu6s2is2c.jpg?x-oss-process=image/resize,w_768"/>
+        <p>CT在评委席观看表演</p>
+    </div>
+    <p>这次主要来说说六年级。六（1）唱的是《<a href="https://www.kugou.com/mixsong/9aagyjdb.html">少年有志</a>》。当这首歌首次在六（1）播放时，引起了很大的轰动。很多人说它“难听”，还有的人说“要唱《大香蕉》”。在播放完毕后，还出现了一个插曲：画面中一个非常酷的小孩在做一个耍酷的动作，前面还摆着一堆乐器之类的东西。</p>
+    <p>到了排练时，MT还加了一些“料”，跳舞、出旗、授红领巾、跳绳、朗诵，一应俱全。而且这次，MT是打着“不花一分钱”的旗号参加本次比赛的，就连穿的衣服都是拍毕业照时的那套（借来的）。</p>
+    <div class="img_box">
+        <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20240528/m87qdxdbrllp63sl67xi5psbg34ymtlu.jpg?x-oss-process=image/resize,w_768"/>
+        <p>《少年有志》表演</p>
+        <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20240528/n9exyivzon6s3fi7plsfc1zktl65e4m5.jpg?x-oss-process=image/resize,w_768"/>
+        <p>跳舞</p>
+        <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20240528/36mt36uq6ggc48m2rc3uykbhlnv33b3h.jpg?x-oss-process=image/resize,w_768"/>
+        <p>跳绳</p>
+        <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20240528/fueai2a4rcqnrwh6rxs9j48i984hf58g.jpg?x-oss-process=image/resize,w_768"/>
+        <p>朗诵</p>
+    </div>
+    <p>与同学们针锋相对的是六（2）班。他们在陈冲的带领下，表演了《青苹果乐园》这首歌，结果就夺得了一等奖。一些人就开始评价：“这是《烂苹果乐园》！”“陈冲肯定是走了后门！”</p>
+    <p>不得不说，2班的衣服甚是“花里胡哨”。</p>
+    <div class="img_box">
+        <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20240528/qxbkdk1nz7svzz9i1yx2i15e6buhw5ox.jpg?x-oss-process=image/resize,w_768"/>
+        <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20240528/nfkvkrjs6avmd9c2vc5mes3gt997volk.jpg?x-oss-process=image/resize,w_768"/>
+        <p>六（2）《青苹果乐园》</p>
+    </div>
+    <hr/>
+    <h1 id="tiaozaoshichang">跳蚤市场</h1>
+    <p>东升小学曾多次举办“跳蚤市场”（校园集市）活动。顾名思义，就是让每个班设立一个摊位，并把同学们给的东西放在摊位上卖。</p>
+    <p>每次活动，学校都会分发一些“跳蚤币”。同时，学校还会开设一些“赚钱”的地方，只不过需要答一些题目。</p>
+    <div class="img_box">
+        <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20231231/oucumtlnb4o9guqyt2w9gtpl4mu7ph58.jpg?x-oss-process=image/resize,w_768"/>
+        <img src="https://oss.weixiao100.com.cn/fronts/material/wgw/resource/20230405/ov9raphakmk3tsbfkojtzzmtes4bd5oq.jpg?x-oss-process=image/resize,w_768"/>
+        <p>跳蚤币</p>
+    </div>
+    <p>有时，甚至还有表演可看。</p>
+    <div class="img_box">
+        <img src="https://oss.weixiao100.com.cn/fronts/material/wgw/resource/20230405/14akknsnhfn5qhrov34i37hi2ouy6buh.jpg?x-oss-process=image/resize,w_768"/>
+        <p>论刘圭宥装逼的100种方式</p>
+    </div>
+    <p>这时就又要扯到MT了。她想了一个“骚操作”，首先，在活动开始前，在本班摊位上摆五十几个小袋子，里面装有文具。拍完照并且活动开始后，赶紧让六（1）班的学生一人领一个袋子去，避免别人看到了想买。这样一来，既出片，又能让班上的同学拿到东西。</p>
+    <div class="img_box">
+        <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20231231/y2kcin299814ehe3m4e44ebqtgvz5hre.jpg?x-oss-process=image/resize,w_768"/>
+        <p>蔡宇城、陈忠宇、张炜承合照以及摊位上的袋子</p>
+    </div>
     <hr/><hr/>
     <h1 style="font-size:50px">附录</h1>
     <h1 id="aiqing">爱情关系</h1>
@@ -1742,6 +1837,35 @@ typewriter.typeString('欢迎来到这个网站……')
         <li>炮排</li>
         <p>这个方阵主要是在闭营仪式时放炮，增加氛围感，同时也是唯一一个有配备道具的方阵。</p>
     </ul>
+    <p>队列方阵的口号也是非常经典：</p>
+    <div class="watch">
+        <p>第一项科目：稍息立正、跨列立正。都有，稍息！</p>
+        <p>立正！</p>
+        <p>稍息！</p>
+        <p>立正！</p>
+        <p>跨列！</p>
+        <p>立正！</p>
+        <p>跨列！</p>
+        <p>立正！</p>
+        <p>第二项科目：停止间转法。都有，向——右——转！</p>
+        <p>向——右——转！</p>
+        <p>向——左——转！</p>
+        <p>向——左——转！</p>
+        <p>向——后——转！</p>
+        <p>向——后——转！</p>
+        <p>第三项科目：敬礼与礼毕。都有，半面向左——转！</p>
+        <p>敬礼！</p>
+        <p>礼毕！</p>
+        <p>敬礼！</p>
+        <p>礼毕！</p>
+        <p>半面向右——转！</p>
+        <p>第四项科目：齐步走的行进与立定。都有，向——后——转！</p>
+        <p>齐步——走！一二一，一二，立定！</p>
+        <p>向——后——转！</p>
+        <p>向前，对正！放！</p>
+        <p>齐步——走！一二一，一二，立定！</p>
+        <p>向前，对正！放！</p>
+    </div>
     <p>一次排练，辅导员还让大家在齐步走时喊：</p>
     <div class="say">
         <i class="fa fa-quote-left"></i>&nbsp;魔力青春，升华自我！&nbsp;<i class="fa fa-quote-right"></i>
@@ -1762,7 +1886,6 @@ typewriter.typeString('欢迎来到这个网站……')
 </main>
 <footer>
     <p>网页到底了！</p>
-    <p>注意：该网站仅为2018届1班提供，无不良向导。内容如有侵权将删除。</p>
 </footer>
 </div>
 
@@ -2002,7 +2125,6 @@ typewriter.typeString('欢迎来到这个网站……')
 </main>
 <footer>
     <p>网页到底了！</p>
-    <p>注意：该网站仅为2018届1班提供，无不良向导。内容如有侵权将删除。</p>
 </footer>
 </div>
 
@@ -2192,7 +2314,6 @@ typewriter.typeString('欢迎来到这个网站……')
 </main>
 <footer>
     <p>网页到底了！</p>
-    <p>注意：该网站仅为2018届1班提供，无不良向导。内容如有侵权将删除。</p>
 </footer>
 </div>
 
@@ -2873,7 +2994,6 @@ typewriter.typeString('欢迎来到这个网站……')
 </main>
 <footer>
     <p>网页到底了！</p>
-    <p>注意：该网站仅为2018届1班提供，无不良向导。内容如有侵权将删除。</p>
 </footer>
 </div>
 
@@ -3209,7 +3329,6 @@ typewriter.typeString('欢迎来到这个网站……')
 </main>
 <footer>
     <p>网页到底了！</p>
-    <p>注意：该网站仅为2018届1班提供，无不良向导。内容如有侵权将删除。</p>
 </footer>
 </div>
 
@@ -3276,7 +3395,6 @@ typewriter.typeString('欢迎来到这个网站……')
 </main>
 <footer>
     <p>网页到底了！</p>
-    <p>注意：该网站仅为2018届1班提供，无不良向导。内容如有侵权将删除。</p>
 </footer>
 </div>
 
@@ -3331,7 +3449,6 @@ typewriter.typeString('欢迎来到这个网站……')
 </main>
 <footer>
     <p>网页到底了！</p>
-    <p>注意：该网站仅为2018届1班提供，无不良向导。内容如有侵权将删除。</p>
 </footer>
 </div>
 
