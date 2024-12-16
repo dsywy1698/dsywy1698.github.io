@@ -82,6 +82,8 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
 #Index .b{margin:5px 15px 5px 0;border-radius:0 5px 5px 0;}
 #Index #siziren::before{content:"锐辰";}
 /*其他*/
+#Index #sj>a{background:#f06;color:#ffe6f0;text-align:center;border-radius:10px;padding:10px;display:block;margin:10px;}
+#Index #sj>a>div{text-align:left;background:#f69;color:#660029;border-radius:10px;padding:5px;}
 #Index #wm{margin:30px 10px 0 10px;}
 #Index #w{background:#c299ffdd;color:#306;border-radius:20px 20px 0 0;padding:10px;width:100%;text-decoration:none;height:150px;overflow:hidden;text-align:center;transition:0.3s;}
 #Index #m{background:#ccff99dd;color:#4d6600;border-radius:0 0 20px 20px;padding:10px;width:100%;text-decoration:none;height:150px;overflow:hidden;text-align:center;transition:0.3s;}
@@ -114,7 +116,7 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
   #Index .col_title>h1>span{display:none;}
   #Index .button_l,.button_r{width:120px;}
   #Index .tab{overflow:hidden;width:240px;margin:auto;}
-  #Index .classroom>div a,.classroom>div a[href]{font-size:0.9375rem;padding:2px;}
+  #Index .classroom>div a{font-size:0.9375rem!important;padding:2px!important;}
   #Index .a{margin:1px 0 1px 1px;}
   #Index .b{margin:1px 4px 1px 0;}
   #Index #pupil{margin:30px 15px 30px 15px;}
@@ -128,12 +130,11 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
 @media screen and (max-width:400px){
   #Index #time{padding:auto 5px;}
   #Index .by{margin-right:15px;padding:20px 10px 20px 0;border-radius:0 17px 17px 0;}
-  #Index .classroom>div a,#Index .classroom>div a[href]{font-size:0.625rem;padding:1px;}
+  #Index .classroom>div a{font-size:0.625rem!important;padding:1px!important;}
   #Index .a{margin:0.5px 0 0.5px 0.5px;}
   #Index .b{margin:0.5px 2px 0.5px 0;}
   #Index #pupil{margin:30px 10px 30px 10px;}
 }
-
 
 main:not(#Index>main){background:#06f;padding:10px;animation-name:main;animation-duration:2s;padding-top:4em;animation-fill-mode:forwards;color:#fff;}
 @keyframes main{0%{background:#e6ffff;color:#000000;}30%{background:#e6ffff;color:#000000;}100%{background:#06f;/*#03c*/color:#ffffff;}}
@@ -403,6 +404,9 @@ ol>p,ul>p{font-size:0.9375rem;margin:5px;margin-left:25px;color:#9df;}
     </div>
     <div id="qt">
         <h1>其他</h1>
+        <div id="sj">
+            <a onclick="openPage('Ds', this)"><h1>大事</h1><p>这里记载了六年以来的主要事件！</p><div><ul><li>学校大事</li><li>班级大事</li><li>附录</li></ul></div></a>
+        </div>
         <div id="wm">
             <a onclick="openPage('Waihao', this)" id="w" class="clear"><h1>外号</h1><p>近义词：顾兮——爱惜！</p></a>
             <a onclick="openPage('Mingyan', this)" id="m" class="clear"><h1>名言</h1><p>我觉得劳斯莱斯不如迈巴赫。</p></a>
@@ -1542,6 +1546,7 @@ typewriter.typeString('欢迎来到这个网站……')
         <h2>学校大事</h2>
         <a href="#liuyi">六一</a>
         <a href="#tiaozaoshichang">跳蚤市场</a>
+        <a href="#dz">地震</a>
         <h2>附录</h2>
         <a href="#aiqing">爱情关系</a>
         <a href="#cz">初中</a>
@@ -1652,7 +1657,7 @@ typewriter.typeString('欢迎来到这个网站……')
     </div>
     <hr/>
     <h1 id="tiaozaoshichang">跳蚤市场</h1>
-    <p>东升小学曾多次举办“跳蚤市场”（校园集市）活动。顾名思义，就是让每个班设立一个摊位，并把同学们给的东西放在摊位上卖。</p>
+    <p>东升小学曾多次举办“跳蚤市场”（校园集市）活动。顾名思义，就是让每个班设立一个摊位，并把同学们给的东西放在摊位上卖。其中最火爆的无非是卖金鱼（围得水泄不通）的和买棉花糖（队伍从综合楼排到办公楼）的。</p>
     <p>每次活动，学校都会分发一些“跳蚤币”。同时，学校还会开设一些“赚钱”的地方，只不过需要答一些题目。</p>
     <div class="img_box">
         <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20231231/oucumtlnb4o9guqyt2w9gtpl4mu7ph58.jpg?x-oss-process=image/resize,w_768"/>
@@ -1669,6 +1674,10 @@ typewriter.typeString('欢迎来到这个网站……')
         <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20231231/y2kcin299814ehe3m4e44ebqtgvz5hre.jpg?x-oss-process=image/resize,w_768"/>
         <p>蔡宇城、陈忠宇、张炜承合照以及摊位上的袋子</p>
     </div>
+    <hr/>
+    <h1 id="dz">地震</h1>
+    <p>六年级时，东升甚至经历过一次地震。当时台湾为地震中心，所以影响不大，只是有些振动的感觉。</p>
+    <p>当时正值ET让大家自习的那段时间。有人感觉到震动时，ET只是一脸懵逼。更要紧的是，学校的警报过了十几秒才响，结果同学们就开始了一场无意义的逃亡。准确地说，当时的气氛并不紧张，同学们有调侃此事的、有庆幸不要上课的、甚至有开玩笑的。就这样，同学们到操场后不久，领导就组织回到教室，这场闹剧就此结束。</p>
     <hr/><hr/>
     <h1 style="font-size:50px">附录</h1>
     <h1 id="aiqing">爱情关系</h1>
@@ -1826,10 +1835,22 @@ typewriter.typeString('欢迎来到这个网站……')
     <p>当然，还有站军姿、向前对正和原地踏步走。站军姿实际上是最频繁的项目，当以班为单位训练时，站军姿是不可避免的。</p>
     <p>其实，这些项目与平时最大的不同就是声音。凡遇到要跺脚的时候都得跺响（齐步走除外），最好把地板给跺塌。辅导员曾让大家使劲跺，地板坏了他会赔。</p>
     <p>还有需要声音的就是礼毕与齐步走。礼毕时，手要拍响；齐步走时，要有划过衣服的声音。</p>
+    <p>齐步走时，辅导员还有统一的口令。在辅导员喊“一二三四”时，学生也得接“一二三四”。如：</p>
+    <div class="watch">
+        <p>辅导员：一，二，三，四！</p>
+        <p>学生：一二三——四！</p>
+        <p>辅导员：一二三——四！</p>
+        <p>学生：一二三——四！</p>
+    </div>
+    <p>或：</p>
+    <div class="watch">
+        <p>辅导员：一二，三四！</p>
+        <p>学生：一二，三四！</p>
+    </div>
     <p>第三天，训练的项目出现了“分化”。为了圆满地举行闭营仪式，大家分成了四个方阵进行训练：</p>
     <ul>
         <li>队列</li>
-        <p>这是初中的两大方阵之一，也是9班所在的方阵。说白了，这个方阵的展示内容就是训练的内容，包括四个科目：稍息立正与跨列立正、停止间转法、敬礼与礼毕、齐步走的行进与立定。</p>
+        <p>这是初中的两大方阵之一。说白了，这个方阵的展示内容就是训练的内容，包括四个科目：稍息立正与跨列立正、停止间转法、敬礼与礼毕、齐步走的行进与立定。</p>
         <li>感恩的心</li>
         <p>这是初中部的另一方阵，表演内容为《感恩的心》手语操（手势舞）。</p>
         <li>国家</li>
@@ -1871,7 +1892,7 @@ typewriter.typeString('欢迎来到这个网站……')
         <i class="fa fa-quote-left"></i>&nbsp;魔力青春，升华自我！&nbsp;<i class="fa fa-quote-right"></i>
     </div>
     <h2>内务</h2>
-    <p>龙翔对内务要求严格。首先是床上：床单不能有褶皱、被子要叠成三折被；床铺朝门的方向为床尾，书包就放在床尾的地方（对此辅导员之间还有不同的要求，如“王文浩”要求书包放中间，另一个辅导员却让大家放靠墙的一侧），床头中间放被子、上面是枕头。</p>
+    <p>龙翔对内务要求严格。首先是床上：床单不能有褶皱、被子要叠成三折被；床铺朝门的方向为床尾，书包就放在床尾的地方（对此辅导员之间还有不同的要求，一个要求书包放中间，另一个却让大家放靠墙的一侧），床头中间放被子、上面是枕头。</p>
     <p>左侧的床底用来摆放水桶，右边的床底放行李，要求摆成一条线。门口摆放拖鞋或运动鞋，也是要一条线摆下去。</p>
     <p>每次集合，内务得达到以上的标准，而且垃圾要倒掉，灯要关掉。</p>
     <p>这里的辅导员会不定时去检查内务。一次同学们在大厅训练，一会儿辅导员让大家坐下休息，并说要给大家“惊喜”。接下来就是史诗级的一幕——只见宿舍的照片被投放到大屏幕上，引起一片惊呼，不少人说自己的宿舍肯定不合格。辅导员就询问宿舍长是谁，这个×××是谁的，并让相关人员站在台上，后来被罚的人就干脆直接站在方阵里。</p>
