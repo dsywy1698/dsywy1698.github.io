@@ -19,7 +19,7 @@ body{margin:0;padding:0;font-family:sans-serif;background:#cff;}
 hr{color:#cff;border:1px solid #cff;border-radius:100px;}
 a{color:#ff6;}
 a:hover{color:#ff0;}
-.small{display:none;}
+.small,.big{display:none;}
 .example::-webkit-scrollbar,.box>a::-webkit-scrollbar,html:-webkit-scrollbar,.dropdown-content::-webkit-scrollbar{display:none!important;}
 .example,.box>a,html,.dropdown-content{-ms-overflow-style:none!important;scrollbar-width:none!important;}
 .tabcontent{display:none;}
@@ -98,6 +98,13 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
 #Index #gw{border-left:20px solid #00e6ac77;margin:15px 0;background:linear-gradient(to right,#33ffccdd 0%,#33ffcc88 50%,#33ffcc00 95%);text-decoration:none;color:#066;padding:10px;width:100%;height:160px;overflow:hidden;}
 #Index #dy{border-left:20px solid #ff660077;margin:15px 0;background:linear-gradient(to right,#ff9933dd 0%,#ff993388 50%,#ff993300 95%);text-decoration:none;color:#600;padding:10px;width:100%;height:160px;overflow:hidden;}
 #Index #ss{border-left:20px solid #8800cc77;margin:15px 0;background:linear-gradient(to right,#d580ffdd 0%,#d580ff88 50%,#d580ff00 95%);text-decoration:none;color:#600;padding:10px;width:100%;height:160px;overflow:hidden;}
+@media screen and (min-width:2000px){
+  header,main,footer{display:none;}
+  .big{display:block;color:red;padding:20px 5px;text-align:center;background:#e6ffff;height:100vh;}
+  .loading{display:none;}
+  .big p{font-size:5rem;}
+  .big i{font-size:38vw;}
+}
 @media screen and (max-width:880px){#Index #siziren::before{content:"...";}}
 @media screen and (max-width:800px){
   #Index .login_title{font-size:6.25rem;}
@@ -278,6 +285,11 @@ ol>p,ul>p{font-size:0.9375rem;margin:5px;margin-left:25px;color:#9df;}
     <p>浏览器窗口过小，不支持显示……</p>
     <span>请试着放大窗口或更换设备后再试。</span>
 </div>
+<div class="big">
+    <i class="fa fa-exclamation-circle"></i>
+    <p>浏览器窗口过大，不支持显示……</p>
+    <p>请试着缩小窗口或更换设备后再试。</p>
+</div>
 <div id="div" style="display:none">
 
 <div class="tabcontent" id="Index" style="display:block">
@@ -403,12 +415,18 @@ ol>p,ul>p{font-size:0.9375rem;margin:5px;margin-left:25px;color:#9df;}
         </div>
     </div>
     <div id="qt">
-        <h1>其他</h1>
-        <div id="sj">
-            <a onclick="openPage('Ds', this)"><h1>大事</h1><p>这里记载了六年以来的主要事件！</p><div><ul><li>学校大事</li><li>班级大事</li><li>附录</li></ul></div></a>
-        </div>
-        <div id="wm">
+        <h1>其他</h1><style>
+#Index #wdm{margin:30px 10px 0 10px;}
+#Index #w{background:#c299ffdd;color:#306;border-radius:20px 20px 0 0;padding:10px;width:100%;text-decoration:none;height:150px;overflow:hidden;text-align:center;transition:0.3s;}
+#Index #d{background:#ff9911dd;color:#331a00;border-radius:0;padding:10px;width:100%;text-decoration:none;height:150px;overflow:hidden;text-align:center;transition:0.3s;}
+#Index #m{background:#ccff99dd;color:#4d6600;border-radius:0 0 20px 20px;padding:10px;width:100%;text-decoration:none;height:150px;overflow:hidden;text-align:center;transition:0.3s;}
+#Index #w:hover{background:#c299ffcc;}
+#Index #d:hover{background:#ff9911cc;}
+#Index #m:hover{background:#ccff99cc;}
+            </style>
+        <div id="wdm">
             <a onclick="openPage('Waihao', this)" id="w" class="clear"><h1>外号</h1><p>近义词：顾兮——爱惜！</p></a>
+            <a onclick="openPage('Ds', this)" id="d" class="clear"><h1>大事</h1><p>第一个科目，稍息立正、跨立立正。</p></a>
             <a onclick="openPage('Mingyan', this)" id="m" class="clear"><h1>名言</h1><p>我觉得劳斯莱斯不如迈巴赫。</p></a>
         </div>
         <div id="webpage">
@@ -1558,7 +1576,7 @@ typewriter.typeString('欢迎来到这个网站……')
     <header>
         <h1>大事</h1>
         <div>
-            <p><i class="fa fa-quote-left fa-2x fa-pull-left"></i>第一项科目：稍息立正、跨列立正。都有，稍息！立正！稍息！立正！跨列！立正！跨列！立正！第二项科目：停止间转法。都有，向——右——转！向——右——转！向——左——转！向——左——转！向——后——转！向——后——转！</p>
+            <p><i class="fa fa-quote-left fa-2x fa-pull-left"></i>第一项科目：稍息立正、跨立立正。都有，稍息！立正！稍息！立正！跨立！立正！跨立！立正！第二项科目：停止间转法。都有，向——右——转！向——右——转！向——左——转！向——左——转！向——后——转！向——后——转！</p>
             <p style="float:right;margin-top:30px;margin-bottom:0;">——福建龙翔国防教育基地</p>
         </div>
     </header>
@@ -1827,7 +1845,7 @@ typewriter.typeString('欢迎来到这个网站……')
     <p>这次军训，以班为单位展开训练，所有行动必须和本班一起。</p>
     <p>辅导员口口声声的“训练”当然是很无聊的。辅导员声称的训练项目包括：</p>
     <ul>
-        <li>稍息立正、跨列立正</li>
+        <li>稍息立正、跨立立正</li>
         <li>停止间转法</li>
         <li>敬礼与礼毕</li>
         <li>齐步走的行进与立定</li>
@@ -1850,7 +1868,7 @@ typewriter.typeString('欢迎来到这个网站……')
     <p>第三天，训练的项目出现了“分化”。为了圆满地举行闭营仪式，大家分成了四个方阵进行训练：</p>
     <ul>
         <li>队列</li>
-        <p>这是初中的两大方阵之一。说白了，这个方阵的展示内容就是训练的内容，包括四个科目：稍息立正与跨列立正、停止间转法、敬礼与礼毕、齐步走的行进与立定。</p>
+        <p>这是初中的两大方阵之一。说白了，这个方阵的展示内容就是训练的内容，包括四个科目：稍息立正与跨立立正、停止间转法、敬礼与礼毕、齐步走的行进与立定。</p>
         <li>感恩的心</li>
         <p>这是初中部的另一方阵，表演内容为《感恩的心》手语操（手势舞）。</p>
         <li>国家</li>
@@ -1860,13 +1878,13 @@ typewriter.typeString('欢迎来到这个网站……')
     </ul>
     <p>队列方阵的口号也是非常经典：</p>
     <div class="watch">
-        <p>第一项科目：稍息立正、跨列立正。都有，稍息！</p>
+        <p>第一项科目：稍息立正、跨立立正。都有，稍息！</p>
         <p>立正！</p>
         <p>稍息！</p>
         <p>立正！</p>
-        <p>跨列！</p>
+        <p>跨立！</p>
         <p>立正！</p>
-        <p>跨列！</p>
+        <p>跨立！</p>
         <p>立正！</p>
         <p>第二项科目：停止间转法。都有，向——右——转！</p>
         <p>向——右——转！</p>
@@ -1891,6 +1909,7 @@ typewriter.typeString('欢迎来到这个网站……')
     <div class="say">
         <i class="fa fa-quote-left"></i>&nbsp;魔力青春，升华自我！&nbsp;<i class="fa fa-quote-right"></i>
     </div>
+    <p>每次集合，都要求学生带上水杯（下雨时要带伞），训练时将水杯集中放到一处或放在每个人的右边。而且当辅导员让你“拿水杯”时，不管你有没有带水杯都得弯下腰，而且只有当辅导员说“起来”才能起来，就很莫名其妙。</p>
     <h2>内务</h2>
     <p>龙翔对内务要求严格。首先是床上：床单不能有褶皱、被子要叠成三折被；床铺朝门的方向为床尾，书包就放在床尾的地方（对此辅导员之间还有不同的要求，一个要求书包放中间，另一个却让大家放靠墙的一侧），床头中间放被子、上面是枕头。</p>
     <p>左侧的床底用来摆放水桶，右边的床底放行李，要求摆成一条线。门口摆放拖鞋或运动鞋，也是要一条线摆下去。</p>
