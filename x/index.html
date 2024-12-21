@@ -46,8 +46,8 @@ nav button:hover{background:#66ccff88;}
 @keyframes animatebottom{from{bottom:-50px;opacity:0;} to{bottom:0;opacity:1;}}
 /*页眉*/
 header{margin-bottom:150px;}
-header>h1{padding:30px;font-size:7.5rem;margin:0;text-align:center;}
-header>div{background:#0f9;color:#030;display:table;content:"";clear:both;padding:20px;border:3px solid #090;border-radius:10px;margin:20px;}
+header>h1{padding:30px 10px;font-size:7.5rem;margin:0;text-align:center;}
+header>div{background:linear-gradient(#0f9 0%,#00ff99bb 90%);;color:#030;display:table;content:"";clear:both;padding:20px;border:3px solid #090;border-radius:15px;margin:20px;}
 header>div>p>i{border:2px solid blue;padding:7px;border-radius:5px;}
 /*页脚*/
 footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:200px;color:#66f;}
@@ -68,7 +68,9 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
 #Index #teacher>h1,#Index #pupil>h1,#Index #qt>h1{background:#ffffff88;color:#000066;padding:10px;margin:10px;border-radius:100vw;text-align:center;display:block;}
 /*学生*/
 #Index #pupil{margin:30px 20px 30px 20px;background:linear-gradient(#ffffff55 0%,#ffffff00 90%);padding:5px;border-radius:20px 20px 0 0;}
-#Index #pupil>a{display:block;text-decoration:none;background:linear-gradient(to right,#1a1aff 0%,#1a1aff 50%,#ffffff00 90%);color:#fff;border-radius:100vw 0 0 100vw;font-size:1.25rem;padding:8px;text-align:center;}
+#Index #pupil>a{display:block;text-decoration:none;background:linear-gradient(to right,#1a1aff 0%,#1a1aff 50%,#1a1aff66 90%);color:#fff;border-radius:100vw;font-size:1.25rem;padding:8px 40px 8px 30px;margin:5px;transition:0.5s;}
+#Index #pupil>a>i{float:right;font-size:1.5rem;}
+#Index #pupil>a:hover{padding:8px 25px 8px 30px;}
 #Index .box{width:33.33%;float:left;}
 #Index .box>a{padding:18px;border-radius:10px;margin:5px;height:170px;display:block;text-decoration:none;color:#fff;overflow:auto;background:#3333ffcc;transition:0.3s;}
 #Index .box>a:hover{background:#3333ffff;}
@@ -98,7 +100,7 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
 #Index #gw{border-left:20px solid #00e6ac77;margin:15px 0;background:linear-gradient(to right,#33ffccdd 0%,#33ffcc88 50%,#33ffcc00 95%);text-decoration:none;color:#066;padding:10px;width:100%;height:160px;overflow:hidden;}
 #Index #dy{border-left:20px solid #ff660077;margin:15px 0;background:linear-gradient(to right,#ff9933dd 0%,#ff993388 50%,#ff993300 95%);text-decoration:none;color:#600;padding:10px;width:100%;height:160px;overflow:hidden;}
 #Index #ss{border-left:20px solid #8800cc77;margin:15px 0;background:linear-gradient(to right,#d580ffdd 0%,#d580ff88 50%,#d580ff00 95%);text-decoration:none;color:#600;padding:10px;width:100%;height:160px;overflow:hidden;}
-@media screen and (min-width:2000px){
+@media screen and (min-width:1600px){
   header,main,footer{display:none;}
   .big{display:block;color:red;padding:20px 5px;text-align:center;background:#e6ffff;height:100vh;}
   .loading{display:none;}
@@ -134,7 +136,7 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
   #Index .b{margin:0.7px 3px 0.7px 0;border-radius:0 2px 2px 0;}
   #Index #asklz{width:90vw;}
 }
-@media screen and (max-width:400px){
+@media screen and (max-width:470px){
   #Index #time{padding:auto 5px;}
   #Index .by{margin-right:15px;padding:20px 10px 20px 0;border-radius:0 17px 17px 0;}
   #Index .classroom>div a{font-size:0.625rem!important;padding:1px!important;}
@@ -157,7 +159,7 @@ img,video,.max-width,iframe{max-width:100%;object-fit:contain;}
 .say{background:#6fc;color:#060;text-align:center;padding:10px;font-size:1.5625rem;margin:5px 0;border-radius:10px;}
 .say>i{color:#c3f;font-size:1.875rem;}
 ol>p,ul>p{font-size:0.9375rem;margin:5px;margin-left:25px;color:#9df;}
-.size-small{color:#ccf;font-size:0.9375rem;}
+.size-small{color:#e6ccff;font-size:0.9375rem;}
 @media screen and (max-width:350px){
   header,main,footer{display:none;}
   .small{display:block;color:red;padding:20px 5px;text-align:center;background:#e6ffff;height:100vh;}
@@ -172,7 +174,7 @@ ol>p,ul>p{font-size:0.9375rem;margin:5px;margin-left:25px;color:#9df;}
 #Pupil .img_50>img{width:50%;float:left;}
 
 #Waihao .title{text-align:center;font-size:80px;margin:90px;}
-#Waihao main>div{border-radius:20px;padding:5px;}
+#Waihao main>div{border-radius:20px;padding:7px;}
 #Waihao main>div>div{display:flex;width:100%;}
 #Waihao .name{flex-basis:200px;}
 #Waihao main p{margin:5px;text-align:center;padding:5px;border-radius:25px;width:100%;font-size:18px;}
@@ -265,9 +267,9 @@ ol>p,ul>p{font-size:0.9375rem;margin:5px;margin-left:25px;color:#9df;}
 #Mingyan #b-xcz{background:#339;}
 #Mingyan #b-xcz p{background:#c6c6ec;color:#0d0d26;}
 
-#Et .dow{display:block;width:100%;text-align:center;border-radius:1698px;text-decoration:none;color:#fff;background-color:#3cc;padding:7px;font-size:25px;margin:5px;}
+#Et .dow{display:block;width:100%;text-align:center;border-radius:1698px;text-decoration:none;color:#fff;background:#3cc;padding:7px;font-size:25px;margin:5px;}
 
-#Ct #jiaobian{background-color:#fff;width:100%;height:400px;padding:30px;}
+#Ct #jiaobian{background:#fff;width:100%;height:400px;padding:30px;}
 #Ct #jiaobian>div{width:10px;height:300px;margin:auto;background-image:linear-gradient(to right,#fc6,#fb3,#fb3,#fc6);border-radius:2px;animation:jiaobian 1s;-webkit-animation:jiaobian 1s;animation-iteration-count:infinite;-webkit-animation-iteration-count:infinite;transform-origin:5px 5px;}
 @keyframes jiaobian{0%{transform:rotate(20deg);}50%{transform:rotate(-20deg);}100%{transform:rotate(20deg);}}
 </style>
@@ -324,7 +326,7 @@ ol>p,ul>p{font-size:0.9375rem;margin:5px;margin-left:25px;color:#9df;}
     </div>
     <div id="pupil">
         <h1>学生</h1>
-        <a onclick="openPage('Pupil', this)">进入！</a>
+        <a onclick="openPage('Pupil', this)">进入！<i class="fa fa-angle-double-right"></i></a>
         <div style="margin:10px;">
         <a style="width:100%;border-radius:10px;background:url('https://oss.weixiao100.com.cn/fronts/material/wgw/resource/20230405/14akknsnhfn5qhrov34i37hi2ouy6buh.jpg?x-oss-process=image/resize,w_768') repeat;display:block;text-decoration:none;background-size:cover;height:400px;padding:20px;" onclick="openPage('Pupil', this)" href="#lgy">
             <div style="background:#ffffff66;width:100%;color:#000066bb;border-radius:7px;padding:10px;height:360px;overflow:auto;backdrop-filter:blur(2px);" class="example">
@@ -548,7 +550,7 @@ typewriter.typeString('欢迎来到这个网站……')
     <p>五年级前，王湘琳仅在“特殊时期”登场，如被打红脖子等。
     <p>自六年级以来，她就逐渐变得“名声赫赫”——原因原来是……</p>
     <p>六年级上学期时，王湘琳有一本日记本，不过是拿英语笔记本改的！</p>
-    <div style="background-color:#c299ff;padding:10px;border-radius:10px;">
+    <div style="background:#c299ff;padding:10px;border-radius:10px;">
         <h2 style="text-align:center;">王湘琳日记本制作流程</h2>
         <canvas id="rjb-1" width="400" height="600"><p style="color:red">无法显示</p></canvas>
         <script>
@@ -736,24 +738,8 @@ typewriter.typeString('欢迎来到这个网站……')
     </ul>
     <p>所以王湘琳的日记呢？别怕，这不就来了？</p>
     <div class="watch">
-        <p>9.15<br/><br/>我失恋了，55555我好想哭，我好希望今天、明天他能去广场踢球<i class="fa fa-frown-o"></i><i class="fa fa-frown-o"></i>5555555我错了，你不要不理我呜呜呜……我以后都听你的话，你不要不理我好不好啊……呜呜呜呜呜我好心痛啊余jia&#772;ha&#768;o</p><p>余佳皓，你不要不理我好不好啊×10我想哭，我<span title="日记本中该字不清晰">闰闰</span>说让我和他分手啊×20。而我不想分啊×30，她说他不会做饭，没有<span title="腹肌">fj</span>，让我快分55555，她还说他是渣男，我不信她。哎，他今天对我好冷淡啊×5<i class="fa fa-frown-o"></i></p><p>啊啊，好开心，他和我道歉了啊×40，哈哈，那他今天可以出来跟我踢球。</p><p>无语了，一个人都没有，呜呜呜他啥时候到啊cos：希望他可以7：00动身。</p><p>呜呜呜×50，他好慢啊，他为什么要7：30动身啊，啊×60他就不能快点吗，呜呜呜想哭呜呜呜×70</p><p>呜呜呜，有人让我和他去找1698，哎，我想哭他就不能快点吗？这里只有我了他不能快点吗？还有十分钟我能坐的了吧……<i class="fa fa-frown-o"></i></p><p>无语了，我出来玩看到小绿茶了，呜呜呜无语死了，不能让我好好玩会儿吗？呜呜呜她一直想看啊×10，无语了<i class="fa fa-frown-o"></i></p><p>呜呜呜，我今天吃醋了，他不知道我tm想死的都有了，我tm都哭了，他也不知道，还和他们踢球，m的下次不带了，啥也不带，气死他，把他气死，然后给他买个棺材，把它装进去，再给他一巴掌，把他扇死。cso：他说过不再和小绿茶玩了，说到她m的她今天和他挨得好近，真的想过去给她一巴掌呜呜呜×100想哭……<i class="fa fa-frown-o"></i><i class="fa fa-frown-o"></i>×1万</p><p><br/></p><p>9.16</p><p><br/></p><p>家人们谁懂啊，m的我昨晚哭了一小时，哎我和他要分吗……呜呜呜昨天他让小绿茶出来玩，tm的让我哭了一小时，我要分吗？等待中……卧槽！<span style="color:red;background-color:white">不要</span><i class="fa fa-smile-o"></i>那我还分吗……哎我听着悲哀的歌，我又又又又又又又想哭了，Bye……<i class="fa fa-smile-o"></i></p>
-        <canvas id="kxbd"></canvas>
-        <script>
-                function draw2(){
-                  var canvas = document.getElementById('kxbd');
-                  if(!canvas.getContext) return;
-                  var ctx = canvas.getContext("2d");
-
-                  ctx.fillStyle="#ff1aff";
-                  ctx.fillRect(0, 0, 200, 100 );
-                  ctx.fillStyle="#00ffff";
-                  ctx.fillRect(20, 20, 160, 60 );
-                  ctx.font="30px sans-serif"
-                  ctx.fillStyle="black";
-                  ctx.fillText("哭笑不得", 40, 60);
-                }
-                draw2();
-        </script>
+        <p>9.15<br/><br/>我失恋了，55555我好想哭，我好希望今天、明天他能去广场踢球<i class="fa fa-frown-o"></i><i class="fa fa-frown-o"></i>5555555我错了，你不要不理我呜呜呜……我以后都听你的话，你不要不理我好不好啊……呜呜呜呜呜我好心痛啊余jia&#772;ha&#768;o</p><p>余佳皓，你不要不理我好不好啊×10我想哭，我<span title="日记本中该字不清晰">闰闰</span>说让我和他分手啊×20。而我不想分啊×30，她说他不会做饭，没有<span title="腹肌">fj</span>，让我快分55555，她还说他是渣男，我不信她。哎，他今天对我好冷淡啊×5<i class="fa fa-frown-o"></i></p><p>啊啊，好开心，他和我道歉了啊×40，哈哈，那他今天可以出来跟我踢球。</p><p>无语了，一个人都没有，呜呜呜他啥时候到啊cos：希望他可以7：00动身。</p><p>呜呜呜×50，他好慢啊，他为什么要7：30动身啊，啊×60他就不能快点吗，呜呜呜想哭呜呜呜×70</p><p>呜呜呜，有人让我和他去找1698，哎，我想哭他就不能快点吗？这里只有我了他不能快点吗？还有十分钟我能坐的了吧……<i class="fa fa-frown-o"></i></p><p>无语了，我出来玩看到小绿茶了，呜呜呜无语死了，不能让我好好玩会儿吗？呜呜呜她一直想看啊×10，无语了<i class="fa fa-frown-o"></i></p><p>呜呜呜，我今天吃醋了，他不知道我tm想死的都有了，我tm都哭了，他也不知道，还和他们踢球，m的下次不带了，啥也不带，气死他，把他气死，然后给他买个棺材，把它装进去，再给他一巴掌，把他扇死。cso：他说过不再和小绿茶玩了，说到她m的她今天和他挨得好近，真的想过去给她一巴掌呜呜呜×100想哭……<i class="fa fa-frown-o"></i><i class="fa fa-frown-o"></i>×1万</p><p><br/></p><p>9.16</p><p><br/></p><p>家人们谁懂啊，m的我昨晚哭了一小时，哎我和他要分吗……呜呜呜昨天他让小绿茶出来玩，tm的让我哭了一小时，我要分吗？等待中……卧槽！<span style="color:red;background:white">不要</span><i class="fa fa-smile-o"></i>那我还分吗……哎我听着悲哀的歌，我又又又又又又又想哭了，Bye……<i class="fa fa-smile-o"></i></p>
+        <div style="border:20px solid #ff1aff;color:#000;background:#0ff;padding:10px 20px;font-size:2rem;display:inline-block;margin:10px;">哭笑不得</div>
     </div>
     <p>后来，王湘琳就把日记交给余佳皓保管，至今下落不明。</p>
     <h2>对余佳皓的520种喜欢法</h2>
@@ -765,7 +751,7 @@ typewriter.typeString('欢迎来到这个网站……')
     </div>
     <h3>2.文字间流露的情感</h3>
     <p>例如一次午托，王湘琳在纸巾上写“我喜欢余佳皓”。还有一次，王湘琳让我写立体字：</p>
-    <div style="background-color:white;text-align:center;font-size:20px;color:#000;">
+    <div style="background:white;text-align:center;font-size:20px;color:#000;border-radius:10px;">
         <p>WXHYJH<br/>YJHSWLG<br/>WSYJHLP</p>
     </div>
     <p>是不是挺深奥？别急，让我们来翻译一下。其实，这三行字就是拼音简写。</p>
@@ -775,9 +761,7 @@ typewriter.typeString('欢迎来到这个网站……')
     <div class="watch example" style="height:500px;overflow:auto;" id="love">
         <script>
              var text="";
-             for (var i=1;i<521;i++){
-               text+="<p>"+i+".余佳皓"+"</p>";
-             }
+             for(var i=1;i<521;i++){text+="<p>"+i+".余佳皓"+"</p>";}
              document.getElementById("love").innerHTML=text;
         </script>
     </div>
@@ -918,7 +902,6 @@ typewriter.typeString('欢迎来到这个网站……')
     </div>
     <p>第二天，这条朋友圈就被郭吉家复印了多份，还分发给了瞿眀爔、林煜昕等人。当刘圭宥来的时候，同学们纷纷起哄，到座位上时，刘圭宥早就脸红了。从此，刘圭宥就有了俩新外号：1698和42。</p>
     <p>另外一件事情是，同学们看见朋友圈中“不要有谁再给我提‘童钰轩’三个字昂”，便把“童钰轩”涂掉，改为“TYX”。</p>
-    <p class="size-small">注：本网页不支持将“童钰轩”改为“TYX”！</p>
     <p>以至于期末考后，同学们纷纷将1698推向童钰轩，并齐声大喊“表白！表白！”结果就被别班老师训了。在第二个学期时，ET还让1698与童钰轩俩俩对话，同学们也起哄了不少时间。</p>
     <p>一次语文卷子上有一篇习作，让写童话故事，结果李诗彤就代入了“1698”、“42”两个词（如今这篇作文已失传），大概内容是：熊1、2、3、4、5、6、7在114514号房间内被蛇咬，熊42用手机给熊1698打电话，熊1698骑爱玛电动车赶来煮了蛇，说：“啥熊都有，啥蛇都打。”</p>
     <h2>打人</h2>
@@ -1170,7 +1153,7 @@ typewriter.typeString('欢迎来到这个网站……')
     <p>叶宸铭的作文，篇篇是经典。</p>
     <h3>蚂蚁历险记</h3>
     <p>叶宸铭最经典的就是这篇了，经常被陈宇恒调侃。名言有：“算了算了，就来个蚂蚁生存吧。”</p>
-    <div style="background-color:#9fc;padding:10px;border-radius:15px;margin:5px;">
+    <div style="background:#9fc;padding:10px;border-radius:15px;margin:5px;">
         <p style="color:#00331a;margin:5px 0;"><strong>注意：</strong>下文凡是展示作文，都会对错误的地方进行高亮显示。但是一些错别字无法呈现，所以不标注。</p>
         <p style="color:red;margin:0;display:inline;">错别字</p>
         <p style="color:green;margin:0;display:inline;">少字</p>
@@ -1259,12 +1242,12 @@ typewriter.typeString('欢迎来到这个网站……')
     <p class="size-small">在六下时，陈宇恒立志要“保护英语书”，结果还真成功了。但“前言”一页还是被陈宇恒贴上了从京元封签上剪下来的字，连起来读就是“亲爱的福建京元餐饮管理有限公司”。</p>
     <h2>考卷</h2>
     <p>陈宇恒考试几乎次次不及格，那些错的题几乎都是空着的。当然，也有例外。比如填空题，陈宇恒的答案是：</p>
-    <div style="background-color:white;padding:2px 10px;color:#000;">
+    <div style="background:white;padding:2px 10px;color:#000;border-radius:10px;">
         <p>长（&nbsp;<span style="color:blue">不知道</span>&nbsp;）cm</p>
         <p>有（&nbsp;<span style="color:blue">好几</span>&nbsp;）吨</p>
     </div>
     <p>解决问题：</p>
-    <div style="background-color:white;padding:2px 10px;color:#000;">
+    <div style="background:white;padding:2px 10px;color:#000;border-radius:10px;">
         <p>……，这个数可能是几？</p>
         <p style="color:blue">答：可能是1、2、3、4、5、6、7、8、9、10、11、12、13、14、15、16、17、18、19、20</p>
     </div>
@@ -1369,7 +1352,7 @@ typewriter.typeString('欢迎来到这个网站……')
     <h2>画画</h2>
     <p>谢承志也会画人，经常临摹腹肌的纹理图，并画过欧榕、叶宸铭等人的头部写真。</p>
     <p>他甚至写了个叶宸铭简历。</p>
-    <div style="background-color:#fff;padding:5px;color:#000">
+    <div style="background:#fff;padding:5px;color:#000;border-radius:10px;">
         <h2 style="margin:5px;text-align:center;">简历</h2>
         <p>姓名：叶宸铭<br/>性别：人妖<br/>班级：六年（1）班<br/>学历：小学没毕业<br/>长相：头发乌黑，肤色偏黑，高额头，浅眉毛，小眼睛，大鼻子，羊嘴唇，小耳朵身材瘦小，身高0.001毫米，一身排骨。<br/>经历：2012年从天而降，断了一身骨头，3岁，遇见屎递夫，爱上吃屎，6岁，得方天画鸡，杀义父，9岁，拜师孔子，变身金刚狼，拿爪子到处伤人，<br/>后续见《宸铭传》……</p>
     </div>
@@ -1561,6 +1544,7 @@ typewriter.typeString('欢迎来到这个网站……')
         <a href="#wanda">万达</a>
         <a href="#wucanban">午餐班</a>
         <a href="#cesuo">厕所</a>
+        <a href="#mx">默写</a>
         <h2>学校大事</h2>
         <a href="#liuyi">六一</a>
         <a href="#tiaozaoshichang">跳蚤市场</a>
@@ -1638,6 +1622,15 @@ typewriter.typeString('欢迎来到这个网站……')
     <p>每到下课，男厕所便会炸开锅。厕所里每天都会有屎出现，关键是它们的位置很独特。例如门上的屎、楼梯上的屎，就连墙上也不能避免；此外，厕所门也是个热点，门被卸下来都是家常便饭。而那些被卸下来的门，有的就扔在男厕所的地板上，上面通常会出现一坨答辩，有一扇门还被用来“搭帐篷”，顾名思义就是把门架在隔间的板上。</p>
     <p>像陈彦豪这类人，就会用水去泼别人，最后搞得一身湿。有一段时间，他还玩出了“爆炸”的玩法，就是用水龙头像瓶子里灌水，搞得沸沸扬扬。</p>
     <hr/>
+    <h1 id="mx">默写</h1>
+    <p>六年级后期，CT开始上语文书中的十首“古诗词诵读”。上完后，CT不仅让大家要被古诗（词）原文，还得背《课堂笔记》里的翻译。</p>
+    <p>同学们不以为然，可是有一天CT突然让大家拿出纸，默写《采薇》等几首诗的原文+翻译。同学们措手不及，导致一节课下来，过关的学生寥寥无几。CT还说之后还会测这几首诗，并笑笑地说：“不要想着提前写好，我会打乱了抽~”以为这样就能避免作弊现象。</p>
+    <p>于是同学们就有一个鬼点子，即打小抄。当时，这种现象普遍流行，像张纤雅这类的“好学生”都拥有一份小抄。有些学生懒得动手抄，就直接把课堂笔记里的“古诗词诵读”那两页撕成10份，每份对应一首诗词。</p>
+    <p>到了第二次默写，同学们纷纷拿出自制小抄，用手挡着抄了起来。CT也是得意过头了，压根没发现还有这种东西。不久，同学们陆续抄完交给CT检查，并纷纷得到了他的表扬与肯定。就这样，除了少数几个没小抄的学生写不出来外，其他的人都写得“密密麻麻，麻麻密密”。</p>
+    <p>但还是出现了问题。CT不仅要求默写原文+翻译，还要求按照格式默写。有些人没这么做就交给CT，然后就被撕掉了。</p>
+    <p>证明了这招有效后，越来越多的学生开始自制小抄，形成了班上一个别样的“产业链”，小测过关率节节攀升。</p>
+    <p>随之而来的是CT警惕的放松。他检查的方式就是瞄一眼第一页，仪式性的翻一页，又递给那个人，全程能控制在2-3秒。像李诗彤就曾“临场发挥”，结果也能过关。当然，CT对王湘琳一类的学生会检查得久一点。</p>
+    <hr/>
     <h1>更多</h1>
     <p>班上经常会出现莫名其妙的动物（活的），除了常见的蜜蜂外，有一次还出现了蟑螂。六年级时，班上甚至出现了螃蟹，被同学们围观。</p>
     <p>一次上体育课，体育老师让吴一鸣回班拿东西，结果吴一鸣就看见一个人在班上偷东西（也就是郭炫耀）。下课后，不少人都反映自己的东西少了。当时，此事在班上引起了巨大轰动。</p>
@@ -1699,7 +1692,7 @@ typewriter.typeString('欢迎来到这个网站……')
     <hr/><hr/>
     <h1 style="font-size:50px">附录</h1>
     <h1 id="aiqing">爱情关系</h1>
-    <div style="background-color:#aff;border-radius:20px;">
+    <div style="background:#aff;border-radius:20px;">
         <img src="img/xihuan.svg" style="width:100%;"/>
     </div>
     <hr/>
@@ -1729,6 +1722,7 @@ typewriter.typeString('欢迎来到这个网站……')
     <p>其次便是跑操了。小学时还只在冬天偶尔有该项目，到了四十中就成了“经典项目”。</p>
     <p>至于军训，同学们也是疯狂吐槽。在龙翔的环境中，幸福庄园都变得和蔼可亲。</p>
     <p>那，龙翔又是怎样的？</p>
+    <hr/>
     <h1 id="lx">龙翔</h1>
     <h2>澡堂</h2>
     <p>龙翔只有公共浴室。每天晚上，要洗澡的人需带上工具（水桶、洗发水、沐浴露、浴巾、衣服等）并徒步挺长的一段距离。军训的前3天都在下雨，往往洗完澡后，穿着拖鞋走在泥泞、坑洼的路上，到宿舍时，脚已经白洗了。</p>
@@ -1919,6 +1913,7 @@ typewriter.typeString('欢迎来到这个网站……')
     <p>龙翔注重文明礼仪。在初到龙翔时，辅导员就要求：凡是齐步走时经过老师，就要有一个带头的学生喊“老师好！”，然后方阵中的学生跟着喊“老师好”；经过辅导员时规则是一样的，只不过喊的是“辅导员好”。</p>
     <h2>拉练</h2>
     <p>拉练其实就是走路、爬山，同学们也把它叫做“长征”。这次拉练，据辅导员说有4公里左右（来回8公里），而且同学们是出基地的，但至少比在龙翔“受罪”好很多。</p>
+    <hr/>
     <h1 id="xxxz">小学现状</h1>
     <p>最后说一下小学的现状。话说我们刚毕业，东升就开始升级，挖掘机都进去了，将来还会盖一栋楼，并用连廊与教学楼连接。而且在东升的对面，鞋厂直接被改成人行道和店铺，宽阔了不少，看上去风光无限，超市、饭店、托管纷纷入驻。</p>
     <p>据说，ET在我们上初中时被开除了，但CT仍然在正常教书。据说他一次教四年级学生时，还特地用了一节课在表扬人。</p>
@@ -1970,7 +1965,9 @@ typewriter.typeString('欢迎来到这个网站……')
     </div>
 </nav>
 <main>
-    <h1 class="title">外号</h1>
+    <header>
+        <h1>外号</h1>
+    </header>
     <hr/>
     <h1>瞿眀爔</h1>
         <div id="a-qmx">
@@ -2187,7 +2184,9 @@ typewriter.typeString('欢迎来到这个网站……')
     </div>
 </nav>
 <main>
-    <h1 class="title">名言</h1>
+    <header>
+        <h1>名言</h1>
+    </header>
     <hr/>
     <h1>CT</h1>
     <p></p>
@@ -3412,7 +3411,7 @@ typewriter.typeString('欢迎来到这个网站……')
     <h1>“杨二代”</h1>
     <p>CT的偏题大家应该都知道吧，不过，MT也经常会这样，于是就被叫做“杨二代”。</p>
     <p>不过，二人的偏题是有区别的。CT是不知不觉就讲到别的地方去，MT则是在发生什么事情后搁下课程，去讲那些东西，期间没有过渡。（见下图）</p>
-    <div style="background-color:#fff;">
+    <div style="background:#fff;border-radius:10px;">
         <img src="img/pianti.svg" style="width:100%;"/>
     </div>
     <hr/>
@@ -3481,7 +3480,7 @@ typewriter.typeString('欢迎来到这个网站……')
     </ul>
     <p>同时说：“坐下的人可以把作业拿出来做。”</p>
     <p>不过，AT习惯把“作业”读成：</p>
-    <p style="background-color:#fff;font-size:70px;color:#000;padding:20px;text-align:center;margin:5px;"><ruby>作<rt>zuo&#772;</rt></ruby>&nbsp;<ruby>业<rt>ye&#772;</rt></ruby></p>
+    <p style="background:#ffffffdd;font-size:70px;color:#000;padding:20px;text-align:center;margin:5px;border-radius:10px;"><ruby>作<rt>zuo&#772;</rt></ruby>&nbsp;<ruby>业<rt>ye&#772;</rt></ruby></p>
     <p>当大部分人都坐下后，AT就会让班长记下站着的人的名字（记两遍），并分别交给CT和MT。（刚开始时，AT以为数学老师是班主任，语文老师是炜钦老师）有一次上课时，AT还询问林煜昕是否将上节课的名单交给二位老师。</p>
     <p>不过，同学们不大老实。每当AT走过自己时，背后的人可能会站出来，模仿AT的手势、步伐等。</p>
     <h2>站前面</h2>
@@ -3493,11 +3492,11 @@ typewriter.typeString('欢迎来到这个网站……')
 </div>
 
 <script>
-function openPage(pageName,elmnt) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {tabcontent[i].style.display = "none";}
-  document.getElementById(pageName).style.display = "block";
+function openPage(pageName,elmnt){
+  var i,tabcontent,tablinks;
+  tabcontent=document.getElementsByClassName("tabcontent");
+  for(i=0;i<tabcontent.length;i++){tabcontent[i].style.display="none";}
+  document.getElementById(pageName).style.display="block";
 }
 document.getElementById("defaultOpen").click();
 </script>
