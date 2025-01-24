@@ -20,8 +20,8 @@ h1{font-size:2.5rem;margin:5px 0;}
 .clear{display:table;content:"";clear:both;}
 article{display:table;content:"";clear:both;width:100%;margin:0;}
 /*隐藏滚动条*/
-article *::-webkit-scrollbar,.dropdown-content::-webkit-scrollbar{display:none!important;}
-article *,.dropdown-content{-ms-overflow-style:none!important;scrollbar-width:none!important;}
+article *::-webkit-scrollbar,.dropdown-content::-webkit-scrollbar,html::-webkit-scrollbar{display:none!important;}
+article *,.dropdown-content,html{-ms-overflow-style:none!important;scrollbar-width:none!important;}
 /*文本选择*/
 ::-moz-selection{color:#e6f0ff;background:#80b3ff88;}
 ::selection{color:#e6f0ff;background:#80b3ff88;}
@@ -52,8 +52,6 @@ hr{color:#fff;border:1px solid #fff;border-radius:100px;}
 /*打字效果&倒计时css样式*/
 #asklz{font-size:1.25rem; background-color:#fff;width:500px;margin:auto;padding:5px;border-radius:10000px;}
 /*模块*/
-#news{background:#9966ff;color:#fff;}
-#news>div{padding:8px;background:#b9f;margin:4px;border-radius:5px;}
 #teacher{background:#fff5cc;color:#00000088;padding-top:15px;}
 #teacher>div{width:33.3333333333%;float:left;padding:5px;}
 #teacher>div>a{
@@ -256,24 +254,13 @@ footer{background:#000;padding:30px;color:#fff;}
             <a href="waihao.htm">外号</a>
             <a href="mingyan.htm">名言</a>
             <a href="rz.htm">班级事件表（七上）</a>
-            <a href="g.htm">热梗</a>
             <a href="jx.htm">军训</a>
             <a href="middle.htm">四十中简介</a>
-            <a href="lunch.htm">午餐</a>
             <a href="https://wgw.weixiao100.com.cn/custom/wgw/index?schoolCode=92500135036">四十中官网</a>
         </div>
     </div>
 </header>
-<article id="login"><h1 class="login_title">初一9班</h1><div id="asklz"></div>
-</article>
-<article id="news">
-    <h1 style="text-align:center;">最新资讯</h1>
-    <p style="background:#f2ccff;margin:10px;padding:10px;border-radius:5px;color:#600080"><em>该模块调试中，其内容暂不更新。</em></p>
-    <div>-</div>
-    <div>-</div>
-    <div>-</div>
-    <div>-</div>
-</article>
+<article id="login"><h1 class="login_title">初一9班</h1><div id="asklz"></div></article>
 <article id="teacher">
     <h1 style="text-align:center;">老师</h1>
     <p style="padding:20px 10px;border-left:10px solid #fc0;margin:20px 10px;background:#fffae6;border-radius:0 10px 10px 0 ;"><b class="fa fa-angle-double-right" style="color:#c60;margin:0 25px 0 5px;font-size:1.25rem;"></b>话说每个老师都有其特点——小学如此，初中亦然。在9班，难免有一些“脱颖而出”的老师，倍受学生关注。同时，老师的一些习惯也在影响着学生的行为。<br/><span style="width:2em;display:inline-block"></span>你知道吗？学生的一些外号就是由老师口误说出来而得名的：现在，同学们叫“陈睿卓”，大都故意念成“陈睿zhuo&#772;”，就是因为一次语文老师念小测满分名单时不经意间说的；地理老师上课时不小心把“蒲林豪”叫成“蒋林豪”，又一个外号诞生了……<br/><span style="width:2em;display:inline-block"></span>老师的读音也很与众不同。你能试着念出下面几个词吗？“铅笔”、“水笔”、“偶次幂”、“xy的平方”、“乘积”。如果按照正常的读法就错了。实际上，前两个词的“笔”都读阴平，后面三个也是数学老师的经典。</p>
@@ -395,10 +382,7 @@ footer{background:#000;padding:30px;color:#fff;}
     <a href="waihao.htm"><p>外号</p></a>
     <a href="mingyan.htm"><p>名言</p></a>
     <a href="https://wgw.weixiao100.com.cn/custom/wgw/index?schoolCode=92500135036"><p>四十中</p></a>
-    <a href="g.htm"><p>热梗</p></a>
-    <a href="middle.htm"><p>学校</p></a>
-    <a href="lunch.htm"><p>午餐</p></a><!--
-    <a href="test.htm"><p>测试</p></a>-->
+    <a href="middle.htm"><p>介绍</p></a>
 </article>
 <article id="text">
     <h1>文件</h1>
