@@ -27,7 +27,7 @@ a:hover{color:#ff0;}
 ::selection{color:#e6f0ff;background:#80b3ff66;}
 /*导航栏*/
 nav{background:#ccffffaa;position:fixed;width:98.8vw;z-index:1;backdrop-filter:blur(3px);margin:0.6vw;border-radius:20px;}
-nav button{text-decoration:none;color:#36c;display:inline-block;padding:7px;margin:3px;font-size:1.25rem;border:none;background:transparent;border-radius:4px;transition:0.2s;}
+nav button{text-decoration:none;color:#36c;display:inline-block;padding:7px;margin:3px;font-size:1.25rem;border:none;background:transparent;border-radius:10px;transition:0.2s;}
 nav button:hover{background:#66ccff88;}
 .dropdown-content{display:none;width:100%;-webkit-animation-name:menu;-webkit-animation-duration:0.3s;animation-name:menu;animation-duration:0.3s;overflow:auto;left:0;border-top:1px solid #3cf;height:400px;}
 .dropdown-content a{color:#006;padding:12px 16px;text-decoration:none;margin:3px;display:block;transition:0.1s;border-radius:100vw;}
@@ -100,9 +100,10 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
 #Index #webpage>a{text-decoration:none;display:block;background:#d1d1e0;margin:10px;padding:10px;border-radius:10px;color:#669;transition:0.3s;}
 #Index #webpage>a:hover{background:#c2c2d6;}
 #Index #webpage h3{margin:10px 0;}
-#Index #gw{border-left:20px solid #00e6ac77;margin:15px 0;background:linear-gradient(to right,#33ffccdd 0%,#33ffcc88 50%,#33ffcc00 95%);text-decoration:none;color:#066;padding:10px;width:100%;height:160px;overflow:hidden;}
-#Index #dy{border-left:20px solid #ff660077;margin:15px 0;background:linear-gradient(to right,#ff9933dd 0%,#ff993388 50%,#ff993300 95%);text-decoration:none;color:#600;padding:10px;width:100%;height:160px;overflow:hidden;}
-#Index #ss{border-left:20px solid #8800cc77;margin:15px 0;background:linear-gradient(to right,#d580ffdd 0%,#d580ff88 50%,#d580ff00 95%);text-decoration:none;color:#600;padding:10px;width:100%;height:160px;overflow:hidden;}
+#Index #gw{border-left:20px solid #00e6ac77;margin:15px 0;background:linear-gradient(to right,#33ffccdd 0%,#33ffcc88 50%,#33ffcc00 95%);text-decoration:none;color:#066;padding:10px;width:100%;height:160px;overflow:hidden;transition:0.3s;}
+#Index #gw:hover{border-left:20px solid #00e6ac77;margin:15px 0;background:linear-gradient(to right,#33ffccdd 0%,#33ffcc88 60%,#33ffcc00 95%);text-decoration:none;color:#066;padding:10px;width:100%;height:160px;overflow:hidden;transition:0.3s;}
+#Index #dy{border-left:20px solid #ff660077;margin:15px 0;background:linear-gradient(to right,#ff9933dd 0%,#ff993388 50%,#ff993300 95%);text-decoration:none;color:#600;padding:10px;width:100%;height:160px;overflow:hidden;transition:0.3s;}
+#Index #ss{border-left:20px solid #8800cc77;margin:15px 0;background:linear-gradient(to right,#d580ffdd 0%,#d580ff88 50%,#d580ff00 95%);text-decoration:none;color:#600;padding:10px;width:100%;height:160px;overflow:hidden;transition:0.3s;}
 @media screen and (min-width:1600px){
   header,main,footer{display:none;}
   .big{display:block;color:red;padding:20px 5px;text-align:center;background:#e6ffff;height:100vh;}
@@ -279,7 +280,7 @@ ul>ul>p,ol>ol>p,ol>ul>p,ul>ol>p{color:#ffcce6;}
 
 #Et .dow{display:block;width:100%;text-align:center;border-radius:1698px;text-decoration:none;color:#fff;background:#3cc;padding:7px;font-size:25px;margin:5px;}
 
-#Ct #jiaobian{background:#fff;width:100%;height:400px;padding:30px;}
+#Ct #jiaobian{background:#fff;width:100%;height:400px;padding:30px;border-radius:10px;}
 #Ct #jiaobian>div{width:10px;height:300px;margin:auto;background-image:linear-gradient(to right,#fc6,#fb3,#fb3,#fc6);border-radius:2px;animation:jiaobian 1s;-webkit-animation:jiaobian 1s;animation-iteration-count:infinite;-webkit-animation-iteration-count:infinite;transform-origin:5px 5px;}
 @keyframes jiaobian{0%{transform:rotate(20deg);}50%{transform:rotate(-20deg);}100%{transform:rotate(20deg);}}
 </style>
@@ -2232,26 +2233,27 @@ typewriter.typeString('欢迎来到这个网站……')
         <hr/><hr/>
         <h1>谢卉</h1>
         <div id="a-et">
-            <div><p class="name">ET</p><p class="text">谢卉任教英语，“英语老师”英语是“English Teacher”，首字母缩写就是ET，CT、MT、AT同理</p></div>
+            <div><p class="name">ET</p><p class="text">谢卉任教英语，“英语老师”英语是“English Teacher”，首字母缩写就是ET，CT、MT、AT同理。</p></div>
             <div><p class="name">谢奔</p><p class="text">字形相似</p></div>
             <div><p class="name">泄愤</p><p class="text">谐音</p></div>
-            <div><p class="name">思想品德姐</p><p class="text">ET曾说“你们这是思想品德的问题”而得名</p></div>
+            <div><p class="name">思想品德姐</p><p class="text">ET曾说：“你们这是思想品德的问题！”</p></div>
         </div>
         <h1>杨文钦</h1>
         <div id="a-ct">
-            <div><p class="name">CT</p><p class="text">见“ET”</p></div>
+            <div><p class="name">CT</p><p class="text">“Chinese Teacher”的简称</p></div>
             <div><p class="name">杨老登</p><p class="text">CT常见外号</p></div>
             <div><p class="name">杨坤</p><p class="text">CT常见外号</p></div>
             <div><p class="name">杨鸡巴</p><p class="text"></p></div>
         </div>
         <h1>欧榕</h1>
         <div id="a-at">
-            <div><p class="name">AT</p><p class="text">见“ET”</p></div>
+            <div><p class="name">AT</p><p class="text">“Math Teacher”的简称</p></div>
             <div><p class="name">呕聋</p><p class="text">谐音，陈宇恒起名</p></div>
         </div>
         <h1>林炜钦</h1>
         <div id="a-mt">
-            <div><p class="name">MT</p><p class="text">见“ET”</p></div>
+            <div><p class="name">MT</p><p class="text">“Art Teacher”的简称</p></div>
+            <div><p class="name">杨二代</p><p class="text">MT有时会和CT一样偏题，于是被称“杨二代”。</p></div>
         </div>
 </main>
 <footer>
@@ -2402,7 +2404,6 @@ typewriter.typeString('欢迎来到这个网站……')
     <div id="b-at">
         <p>好，全部起立。</p>
         <p>坐下的人可以把作业（zuō yē）拿出来做。</p>
-        <p>游戏不玩，你们都太吵了。</p>
     </div>
     <hr/><hr/>
     <h1>刘圭宥</h1>
@@ -3681,9 +3682,8 @@ typewriter.typeString('欢迎来到这个网站……')
 
 <script>
 function openPage(pageName,elmnt){
-  var i,tabcontent,tablinks;
-  tabcontent=document.getElementsByClassName("tabcontent");
-  for(i=0;i<tabcontent.length;i++){tabcontent[i].style.display="none";}
+  var tabcontent=document.getElementsByClassName("tabcontent");
+  for(var i=0;i<tabcontent.length;i++){tabcontent[i].style.display="none";}
   document.getElementById(pageName).style.display="block";
 }
 document.getElementById("defaultOpen").click();
