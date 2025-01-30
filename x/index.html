@@ -26,21 +26,22 @@ a:hover{color:#ff0;}
 ::-moz-selection{color:#e6f0ff;background:#80b3ff66;}
 ::selection{color:#e6f0ff;background:#80b3ff66;}
 /*导航栏*/
-nav{background:#ccffffaa;position:fixed;width:100%;z-index:1;backdrop-filter:blur(3px);}
-nav button{text-decoration:none;color:#36c;display:inline-block;padding:10px;font-size:1.25rem;border:none;background:transparent;}
+nav{background:#ccffffaa;position:fixed;width:98.8vw;z-index:1;backdrop-filter:blur(3px);margin:0.6vw;border-radius:20px;}
+nav button{text-decoration:none;color:#36c;display:inline-block;padding:7px;margin:3px;font-size:1.25rem;border:none;background:transparent;border-radius:4px;transition:0.2s;}
 nav button:hover{background:#66ccff88;}
-.dropdown-content{display:none;position:absolute;background:#000066bb;width:100%;height:400px;overflow:auto;left:0;border-radius:15px;}
-.dropdown-content a{color:#fff;padding:12px 16px;text-decoration:none;margin:3px;display:block;transition:0.1s;border-radius:100vw;}
+.dropdown-content{display:none;width:100%;-webkit-animation-name:menu;-webkit-animation-duration:0.3s;animation-name:menu;animation-duration:0.3s;overflow:auto;left:0;border-top:1px solid #3cf;height:400px;}
+.dropdown-content a{color:#006;padding:12px 16px;text-decoration:none;margin:3px;display:block;transition:0.1s;border-radius:100vw;}
 .dropdown-content h2{color:#fff;margin:10px;}
-.dropdown-content a:hover{background:#000099aa;}
+.dropdown-content a:hover{background:#66ffffaa;}
 .menu:hover+.dropdown-content,.dropdown-content:hover{display:block;}
+@keyframes menu{from{height:100px;opacity:0.3;} to{height:400px;opacity:1;}}
 /*加载提示*/
 .loading{background:#e6ffff;padding:100px 50px;width:100vw;height:100vh;text-align:center;font-size:1.25rem;z-index:1;color:#009;overflow:hidden;}
 .loading>h1{font-size:3.125rem;}
 .loading button{font-size:1.4375rem;border:0;border-radius:10000px;background:blue;color:#fff;padding:5px;width:50%;}
 .loading>div{border-width:27px;width:160px;height:160px;border-color:#00f #36f #36f #36f;border-style:solid;border-radius:200px;animation:loading 2s linear infinite;-webkit-animation:loading 2s linear infinite;margin:0 auto 30px auto;}
 @keyframes loading{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
-#div>*{position:relative;-webkit-animation-name:animatebottom;-webkit-animation-duration:1s;animation-name:animatebottom;animation-duration:0.7s;}
+#div>*{position:relative;-webkit-animation-name:animatebottom;-webkit-animation-duration:0.7s;animation-name:animatebottom;animation-duration:0.7s;}
 @-webkit-keyframes animatebottom{from{bottom:-50px;opacity:0;}to{bottom:0px;opacity:1;}}
 @keyframes animatebottom{from{bottom:-50px;opacity:0;} to{bottom:0;opacity:1;}}
 /*页眉*/
@@ -116,6 +117,7 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
   #Index .classroom>div a,#Index .classroom>div a[href]{font-size:1rem;}
   #Index .a{margin:4px 0 4px 4px;}
   #Index .b{margin:4px 10px 4px 0;}
+  nav{width:98vw;margin:1vw;}
 }
 @media screen and (max-width:600px){
   #Index .login{padding-top:80px;}
@@ -428,7 +430,7 @@ ul>ul>p,ol>ol>p,ol>ul>p,ul>ol>p{color:#ffcce6;}
         <h1>其他</h1>
         <div id="wdm">
             <a onclick="openPage('Waihao', this)" id="w" class="clear"><h1>外号</h1><p>近义词：顾兮——爱惜！</p></a>
-            <a onclick="openPage('Ds', this)" id="d" class="clear"><h1>大事</h1><p>第一个科目，稍息立正、跨立立正。</p></a>
+            <a onclick="openPage('Ds', this)" id="d" class="clear"><h1>大事</h1><p>微胖才是YYDS~</p></a>
             <a onclick="openPage('Mingyan', this)" id="m" class="clear"><h1>名言</h1><p>我觉得劳斯莱斯不如迈巴赫。</p></a>
         </div>
         <div id="webpage">
@@ -492,7 +494,6 @@ typewriter.typeString('欢迎来到这个网站……')
     <button onclick="openPage('Index', this)" title="返回首页"><i class="fa fa-home"></i></button>
     <button class="menu"><i class="fa fa-navicon"></i></button>
     <div class="dropdown-content example">
-        <h2>学生档案</h2>
         <a href="#wxl">王湘琳</a>
         <a href="#qmx">瞿眀爔</a>
         <a href="#lgy">刘圭宥</a>
@@ -545,7 +546,6 @@ typewriter.typeString('欢迎来到这个网站……')
     <p>每个班都有各种各样的学生，他们各显神通，造就了这一个班级。六年一班的“典型”就是瞿眀爔、王湘琳、叶宸铭等人。</p>
     <p class="size-small">注：点击上方的“<i class="fa fa-navicon"></i>”按钮快速跳转至目标位置！</p>
     <hr/><hr/>
-    <h1 style="font-size:50px">学生档案</h1>
     <h1 id="wxl">王湘琳</h1>
     <p>五年级前，王湘琳仅在“特殊时期”登场，如被打红脖子等。
     <p>自六年级以来，她就逐渐变得“名声赫赫”——原因原来是……</p>
@@ -1576,16 +1576,23 @@ typewriter.typeString('欢迎来到这个网站……')
     <img src="https://so1.360tres.com/t012680d34962993436.png"/>
     <p>话说同学们对班上电脑的探索可谓是永无止境。自从一年级开学，老师向大家展示黑板里面藏起来的电脑时，命中注定就有更多电脑即将遭殃……</p>
     <p>要说同学们是什么时候第一次点墨鱼丸的话，我们不得而知。但根据现有材料，发现早在五年级，同学们就开始了。这之前其实也没少折腾电脑，时不时就有新闻资讯被点开，引起班上的一阵尖叫声。</p>
-    <p>墨鱼丸这个应用处在电脑右下角任务栏中，图标是一个暂停键外包一个矩形。不动时，它还会不时变换颜色以吸引大家注意。一旦点开，就会出现一个小窗口，黑色背景，中间有黄色章鱼，章鱼下方是一行小的白色字体：“加载中，请稍侯”。当加载完毕后，就会出现随机的视频，不过可能用到了大数据以推荐。</p>
+    <p>墨鱼丸这个应用处在电脑右下角任务栏中，图标是一个暂停键外包一个矩形。不动时，它还会不时变换颜色以吸引大家注意。一旦点开，就会出现一个小窗口，黑色背景，中间有黄色章鱼，章鱼下方是一行小的白色字体：“加载中，请稍侯”。当加载完毕后，就会出现随机的视频，还可能用到了大数据以推荐。</p>
     <p>同学们对墨鱼丸的“探索”分为了多个阶段，每个阶段的程度各不相同。</p>
     <h2>第一阶段</h2>
     <p>自从有人发现了墨鱼丸后，每节下课，讲台上便会聚集一堆吃瓜的人。他们之中大都是陈彦豪这类“好学生”。每当墨鱼丸被点开，视频还未出来时，同学们就会大呼小叫。这时一些人（如瞿眀爔）就会跑上去，拿着教鞭想方设法关闭它。</p>
-    <p>当视频加载出来后，尖叫声会达到顶峰，不过这时的视频内容还算正常，并未受到大数据的影响。</p>
+    <p>当视频加载出来后，尖叫声会达到顶峰。当然这时的视频内容还算正常，并未受到大数据的影响。</p>
     <h2>第二阶段</h2>
-    <p>这时，墨鱼丸就找到了同学们的胃口，于是开始推荐美女视频，例如美女在浴缸洗澡、美女跳舞等视频，每次都有极大的尖叫声。像陈彦豪就大呼“按掉啊……”等按掉后又去点，非常混乱。</p>
+    <p>这时，墨鱼丸似乎找到了同学们想看的东西，于是开始推荐美女视频，例如美女在浴缸洗澡、美女跳舞等视频，每次都有极大的尖叫声。像陈彦豪就会大惊小怪地喊：“按掉啊！……”然后疯狂地按关闭按钮。等按掉后又去点，非常混乱。</p>
     <h2>第三阶段</h2>
-    <p>转眼间，同学们就来到了六年级的新教室，不出意外，新的电脑也有“墨鱼丸”，而同学们一点开就是美女。这一次，同学们学聪明了，不是想着关掉窗口，而是看完一个后点下一个。这一次，帅哥也加入进来了，时常出现帅哥泡温泉的视频，同时“微胖才是YYDS”类型的视频也成为了经典，黑丝也经常出现。</p>
-    <p>这个阶段没持续多久，就被MT明令禁止了。</p>
+    <p>转眼间，同学们就来到了六年级的新教室，当然，新的电脑也有“墨鱼丸”。不过这次，电脑一下就猜到了大家的心思——同学们一点开就是美女。</p>
+    <p>这一次，同学们学聪明了，不是想着关掉窗口，而是看完一个后点下一个，这种“仪式”也变得有序。之前，讲台上一堆人往前挤；现在可能偶尔才会有一个人上去点下一个。</p>
+    <p>除了美女，帅哥也加入进来了，时常出现帅哥（肌肉男）泡温泉的视频。当然美女也是重头戏。比如有一个视频非常经典。他的开头是一行字幕+配音：</p>
+    <div class="say">
+        <i class="fa fa-quote-left"></i>&nbsp;微胖才是YYDS~&nbsp;<i class="fa fa-quote-right"></i>
+    </div>
+    <p>随后展示了一条裙子，还没反应过来，突然就专场了，裙子被一个微胖的女生穿着，引起班上的同学尖叫。关键是这一类视频出现了不下三次，慢慢的就被大家记住了。</p>
+    <p>另外，黑丝也经常出现。一些视频在那里介绍黑丝的穿法，还特意把“黑丝”写成“嗨丝”。</p>
+    <p>可惜的是，这个阶段没持续多久，就被MT明令禁止了。之后很少有墨鱼丸的亮相。有一次，CT不慎点开墨鱼丸，但并没有美女、帅哥。</p>
     <hr/>
     <h1 id="wanda">万达</h1>
     <p>同学们在周末或节假日时常去白湖亭万达（现已改名“集祥天地”）逛，尤为喜欢“KKV”那家店。</p>
@@ -1696,11 +1703,13 @@ typewriter.typeString('欢迎来到这个网站……')
     <hr/><hr/>
     <h1 style="font-size:50px">附录</h1>
     <h1 id="aiqing">爱情关系</h1>
+    <p>如下图（箭头左边的人喜欢箭头右边的人）：</p>
     <div style="background:#aff;border-radius:20px;text-align:center;">
         <img src="xihuan.svg"/>
     </div>
     <hr/>
     <h1 id="cz">初中</h1>
+    <p class="size-small">注：“初中”、“龙翔”模块内容均以福州第四十中学为例。</p>
     <p>李诗彤提供了一份初中分班的数据，具体如下（内容无改动）：</p>
     <div class="watch">
         <p>一班：</p>
@@ -1723,9 +1732,9 @@ typewriter.typeString('欢迎来到这个网站……')
     <p>这便是分到四十中的学生。另外，据可靠消息，李诗彤、许逸晗在附中；王湘琳在平潭一中（“平潭一中”对王湘琳来说是个敏感词汇）。</p>
     <p>来到四十中，首先就会发现：那里的饭菜跟京元一样难吃，是“华威菜多多”做的。有别于小学的地方是，这里的密封条上面有菜品名称，于是每到第三节下课，班门口的密封条就被一抢而空。</p>
     <p>当然，四十中也会“督促”菜品质量，如填写问卷、家长陪餐等，不过味道和以前差不了多少。有一次，有人甚至在海带排骨汤里喝出了虫卵，那碗汤就被放在了水池旁边。</p>
-    <p>其次便是跑操了。小学时还只在冬天偶尔有该项目，到了四十中就成了“经典项目”，除周一及周末培优外，每天跑一次。</p>
-    <p>至于那培优班，凡是大考前300名的都可以去。学校甚至还遵循“自愿原则”，让大家签回执。</p>
-    <p>至于军训，同学们也是疯狂吐槽。在龙翔的环境中，幸福庄园都变得和蔼可亲。</p>
+    <p>其次便是跑操了。小学时还只在冬天偶尔有该项目，到了四十中就成了“经典项目”，除周一、周末培优、恶劣天气、操场被占用及其他特殊情况外，每天跑一次，圈数一般为5~9圈（初中）。</p>
+    <p>凡是大考前300名的都可以去培优班。学校甚至还遵循“自愿原则”，让大家签回执。</p>
+    <p>军训也是同学们也是疯狂吐槽的内容之一。在龙翔的环境中，幸福庄园都变得和蔼可亲。</p>
     <p>那，龙翔又是怎样的？</p>
     <hr/>
     <h1 id="lx">龙翔</h1>
@@ -3602,9 +3611,9 @@ typewriter.typeString('欢迎来到这个网站……')
     <p>后来，每当有人带零食，旁边的人就会说“一人一包！”当然除了上面的三个人，再也没有人被MT罚过。</p>
     <hr/>
     <h1 id="mt-gd">更多</h1>
-    <p>MT习惯将“数学指导丛书”说成“大本”；</p>
-    <p>另外，“科纸折八格”也是一个经典。</p>
-    <p>和CT一样，MT也经常偏题，于是就被叫做“杨二代”。不过，二人的偏题是有区别的。CT是不知不觉就讲到别的地方去，一般都是关于爱国的；MT则是在发生什么事情后搁下课程，去讲那些东西，一般是讲上中学的政策。</p>
+    <p>MT习惯将“数学指导丛书”说成“大本”。</p>
+    <p>“科纸折八格”也是一个经典。做科作业几乎是每天的必备项目，有时一天能做2~3张。MT说，这是为了应付学校检查，不然也不要写那么多。</p>
+    <p>和CT一样，MT也经常偏题，于是就被叫做“杨二代”。不过，二人的偏题是有区别的。CT是不知不觉就讲到别的地方去，一般都是关于爱国的；MT则是在发生什么事情后搁下课程，去讲那些东西，一般是讲上中学的政策，什么老九所、摇号之类的。</p>
 </main>
 <footer>
     <p>网页到底了！</p>
