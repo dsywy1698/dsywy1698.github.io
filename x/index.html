@@ -22,11 +22,10 @@ a:hover{color:#ff0;}
 .example::-webkit-scrollbar,.box>a::-webkit-scrollbar,html:-webkit-scrollbar,.dropdown-content::-webkit-scrollbar{display:none!important;}
 .example,.box>a,html,.dropdown-content{-ms-overflow-style:none!important;scrollbar-width:none!important;}
 .tabcontent{display:none;}
-/*文本选择*/
+::-webkit-selection{color:#e6f0ff;background:#80b3ff66;}
 ::-moz-selection{color:#e6f0ff;background:#80b3ff66;}
 ::selection{color:#e6f0ff;background:#80b3ff66;}
-/*导航栏*/
-nav{background:#ccffffaa;position:fixed;width:98.8vw;z-index:1;backdrop-filter:blur(3px);margin:0.6vw;border-radius:20px;}
+nav{background:#ccffffaa;position:fixed;width:98.8vw;z-index:1;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);margin:0.6vw;border-radius:20px;}
 nav button{text-decoration:none;color:#36c;display:inline-block;padding:7px;margin:3px;font-size:1.25rem;border:none;background:transparent;border-radius:10px;transition:0.2s;}
 nav button:hover{background:#66ccff88;}
 .dropdown-content{display:none;width:100%;-webkit-animation-name:menu;-webkit-animation-duration:0.3s;animation-name:menu;animation-duration:0.3s;overflow:auto;left:0;border-top:1px solid #3cf;height:400px;}
@@ -35,7 +34,6 @@ nav button:hover{background:#66ccff88;}
 .dropdown-content a:hover{background:#66ffffaa;}
 .menu:hover+.dropdown-content,.dropdown-content:hover{display:block;}
 @keyframes menu{from{height:100px;opacity:0.3;} to{height:400px;opacity:1;}}
-/*加载提示*/
 .loading{background:#e6ffff;padding:100px 50px;width:100vw;height:100vh;text-align:center;font-size:1.25rem;z-index:1;color:#009;overflow:hidden;}
 .loading>h1{font-size:3.125rem;}
 .loading button{font-size:1.4375rem;border:0;border-radius:10000px;background:blue;color:#fff;padding:5px;width:50%;}
@@ -44,12 +42,10 @@ nav button:hover{background:#66ccff88;}
 #div>*{position:relative;-webkit-animation-name:animatebottom;-webkit-animation-duration:0.7s;animation-name:animatebottom;animation-duration:0.7s;}
 @-webkit-keyframes animatebottom{from{bottom:-50px;opacity:0;}to{bottom:0px;opacity:1;}}
 @keyframes animatebottom{from{bottom:-50px;opacity:0;} to{bottom:0;opacity:1;}}
-/*页眉*/
 header{margin-bottom:150px;}
 header>h1{padding:30px 10px;font-size:7.5rem;margin:0;text-align:center;}
 header>div{background:linear-gradient(#0f9 0%,#00ff99bb 90%);;color:#030;display:table;content:"";clear:both;padding:20px;border:3px solid #090;border-radius:15px;margin:20px;}
 header>div>p>i{border:2px solid blue;padding:7px;border-radius:5px;}
-/*页脚*/
 footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:200px;color:#66f;}
 
 #Index main{background:linear-gradient(#e6ffff 0vh, #e6ffff 95vh, #06f 150vh);color:#fff!important;padding:0px 0px 10px 0px;}
@@ -61,12 +57,10 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
 #Index .by p{background:#369;padding:7px;border-radius:15px;display:inline;margin:10px;}
 #Index #asklz{font-size:1.25rem;background:#fff;width:500px;margin:auto;padding:5px;border:1px solid #cc0000;border-radius:100vw;}
 #Index #time{background:#b3cce6;font-size:1.875rem;padding:10px;border-radius:0 15px 15px 0;text-align:center;}
-/*老师*/
 #Index #teacher{background:#ffffff33;margin:10px 20px 10px 0;padding:5px;border-radius:0 20px 20px 0;}
 #Index #teacher>a{background:#f69;text-decoration:none;color:#fff;display:block;margin:10px;border-radius:8px;padding:15px;height:160px;overflow:hidden;}
 #Index #teacher>a:hover{transition:0.3s;background:#f37;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);}
 #Index #teacher>h1,#Index #pupil>h1,#Index #qt>h1{background:#ffffff88;color:#000066;padding:10px;margin:10px;border-radius:100vw;text-align:center;display:block;}
-/*学生*/
 #Index #pupil{margin:30px 20px 30px 20px;background:linear-gradient(#ffffff55 0%,#ffffff00 90%);padding:5px;border-radius:20px 20px 0 0;}
 #Index #pupil>a{display:block;text-decoration:none;background:linear-gradient(to right,#1a1aff 0%,#1a1aff 50%,#1a1aff66 90%);color:#fff;border-radius:100vw;font-size:1.25rem;padding:8px 40px 8px 30px;margin:5px;transition:0.5s;}
 #Index #pupil>a>i{float:right;font-size:1.5rem;}
@@ -74,7 +68,6 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
 #Index .box{width:33.33%;float:left;}
 #Index .box>a{padding:18px;border-radius:10px;margin:5px;height:170px;display:block;text-decoration:none;color:#fff;overflow:auto;background:#3333ffcc;transition:0.3s;}
 #Index .box>a:hover{background:#3333ffff;}
-/*座位表*/
 #Index .classroom{background:#66ffffcc;border-radius:5px;}
 #Index .classroom>div{display:flex;width:100%;padding:5px;}
 #Index .classroom>div a{text-decoration:none;font-size:1.25rem;background:#00ccff66;padding:5px;width:100%;text-align:center;border:1px solid #06c;color:#033;}
@@ -83,16 +76,15 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
 #Index .a{margin:5px 0 5px 5px;border-radius:5px 0 0 5px;}
 #Index .b{margin:5px 15px 5px 0;border-radius:0 5px 5px 0;}
 #Index #siziren::before{content:"锐辰";}
-/*其他*/
 #Index #sj>a{background:#f06;color:#ffe6f0;text-align:center;border-radius:10px;padding:10px;display:block;margin:10px;}
 #Index #sj>a>div{text-align:left;background:#f69;color:#660029;border-radius:10px;padding:5px;}
 #Index #wm{margin:30px 10px 0 10px;}
 #Index #wdm{margin:30px 10px 0 10px;}
 #Index #w{background:#c299ffdd;color:#306;border-radius:20px 20px 0 0;padding:10px;width:100%;text-decoration:none;height:150px;overflow:hidden;text-align:center;transition:0.3s;}
-#Index #d{background:#ff9911dd;color:#331a00;border-radius:0;padding:10px;width:100%;text-decoration:none;height:150px;overflow:hidden;text-align:center;transition:0.3s;}
+#Index #d{background:#ffa733dd;color:#331a00;border-radius:0;padding:10px;width:100%;text-decoration:none;height:150px;overflow:hidden;text-align:center;transition:0.3s;}
 #Index #m{background:#ccff99dd;color:#4d6600;border-radius:0 0 20px 20px;padding:10px;width:100%;text-decoration:none;height:150px;overflow:hidden;text-align:center;transition:0.3s;}
 #Index #w:hover{background:#c299ffcc;}
-#Index #d:hover{background:#ff9911cc;}
+#Index #d:hover{background:#ffa733cc;}
 #Index #m:hover{background:#ccff99cc;}
 #Index #webpage{background:#eee;border-radius:15px;margin:60px 10px;padding-bottom:5px;}
 #Index #webpage>div{background:#ccc;padding:5px;width:100%;border-radius:15px 15px 0 0;}
@@ -340,7 +332,7 @@ ul>ul>p,ol>ol>p,ol>ul>p,ul>ol>p{color:#ffcce6;}
         <a onclick="openPage('Pupil', this)">进入！<i class="fa fa-angle-double-right"></i></a>
         <div style="margin:10px;">
         <a style="width:100%;border-radius:10px;background:url('https://oss.weixiao100.com.cn/fronts/material/wgw/resource/20230405/14akknsnhfn5qhrov34i37hi2ouy6buh.jpg?x-oss-process=image/resize,w_768') repeat;display:block;text-decoration:none;background-size:cover;height:400px;padding:20px;" onclick="openPage('Pupil', this)" href="#lgy">
-            <div style="background:#ffffff66;width:100%;color:#000066bb;border-radius:7px;padding:10px;height:360px;overflow:auto;backdrop-filter:blur(2px);" class="example">
+            <div style="background:#ffffff66;width:100%;color:#000066bb;border-radius:7px;padding:10px;height:360px;overflow:auto;backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);" class="example">
             <h1 style="text-align:center;margin:20px auto;">刘圭宥</h1>
             <p>今晚我家只有我一个人，我可以把所有都发泄出来了！我已经放弃了，没有开玩笑，不要有谁再给我提“童钰轩”三个字昂，就让这1698天的喜欢全部都化为灰烬吧，就让这42天的想哭全部给我哭出来吧。谁要是再给我在那里狗叫一句啊，我特么直接一巴掌给你干过去！说实话，我是真的一年级开学第一天就喜欢上了ta，而且以前我妈不在家的时候把我扔到ta家，都是我自己提出来的，只为多看ta几眼。但现在呢，就算了吧，也不可能了。就让这泪水全部都流出来吧，撕心裂肺地哭出来吧。反正也只有我在家，也没人管。ta的生与死，喜怒哀乐，都与我无关了。也许像三叶和阳菜这样好的女生只有在二次元出现吧。像新兰这样的情侣，也只有在动漫里有吧，我也不想多说什么，只能说心碎了，碎了一地💔。但是也要乐观一点吧，至少在小学生活中，喜欢上了一个人的漂亮、学习好，但是不喜欢我的女孩子，ta说正在想要不要把我拉黑。我反正随便，你拉不拉黑我都愿意，你就算删了我都不会想再开始加，忘了你最好，反正没你我也能活，也有其他人会跟我聊天，不需要你来填满我的生活，谢谢你，能遇见你我真的很荣幸，但是现在，不……这么……想了……💔💔💔</p>
             </div>
@@ -1228,7 +1220,7 @@ typewriter.typeString('欢迎来到这个网站……')
     <h1 id="cyh">陈宇恒</h1>
     <p>陈宇恒身为“转学生”，适应力却极强，没过多久就与班上“融为一体”。</p>
     <h2>外貌</h2>
-    <p>陈宇恒的体型属于班上少有的“肥胖”级别。叶宸铭甚至说：“他能煎出很多油。”（见右图）</p>
+    <p>陈宇恒的体型属于班上少有的“肥胖”级别。叶宸铭甚至说：“他能煎出很多油。”</p>
     <h2>与张纤雅</h2>
     <p>和李诗彤小组的情况一样，张纤雅也对陈宇恒百般折磨。如果陈宇恒有一些碍事的地方，就会被张纤雅打（哪怕是签过协议），陈宇恒就会发出“啊！”的叫声。像数学作业有错、坐在第四组时没让张纤雅进去，都会被打。</p>
     <h2>恶心</h2>
