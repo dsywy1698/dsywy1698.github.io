@@ -70,7 +70,6 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
 #Index .box>a:hover{background:#3333ffff;}
 #Index .classroom{background:#66ffffcc;border-radius:5px;}
 #Index .classroom>div{display:flex;width:100%;padding:5px;}
-#Index .classroom>div>div{width:100px;text-align:center;color:#0f3bbd;background:#9cf;margin:auto;}
 #Index .classroom>div a{text-decoration:none;font-size:1.25rem;background:#00ccff66;padding:5px;width:100%;text-align:center;border:1px solid #06c;color:#033;}
 #Index .classroom>div a[href]{text-decoration:none;font-size:1.25rem;background:#00ccffcc;padding:5px;width:100%;text-align:center;border:1px solid #06c;transition:0.3s;-webkit-transition:0.3s;}
 #Index .classroom>div a[href]:hover{background:#00ccff;color:#06c;}
@@ -150,7 +149,7 @@ img,video,canvas,svg，canvas,audio{max-height:90vh!important;max-width:100%;}
 img{border-radius:15px;}
 audio{width:98%;margin:auto 1%;}
 .title_center{text-align:center;margin:7px;}
-.watch{padding:10px;border:4px solid #03c;background:#09f;border-radius:20px;}
+.watch{padding:10px;border:4px solid #03c;background:#09f;border-radius:20px;margin:2.5px 0;}
 .watch>p{text-indent:2em;margin:7px 0;}
 .watch i{display:inline;}
 img,video,.max-width,iframe{max-width:100%;object-fit:contain;}
@@ -158,6 +157,7 @@ img,video,.max-width,iframe{max-width:100%;object-fit:contain;}
 .img_box p{color:#e6f9ff;margin:10px 0;}
 .say{background:#6fc;color:#060;text-align:center;padding:10px;font-size:1.5625rem;margin:5px 0;border-radius:10px;}
 .say>i{color:#c3f;font-size:1.875rem;}
+li{color:#ffe6cc;}
 ol>p,ul>p{font-size:0.9375rem;margin:5px;margin-left:25px;color:#9df;}
 ul>ul>p,ol>ol>p,ol>ul>p,ul>ol>p{color:#ffcce6;}
 .size-small{color:#e6ccff;font-size:0.9375rem;}
@@ -350,7 +350,6 @@ ul>ul>p,ol>ol>p,ol>ul>p,ul>ol>p{color:#ffcce6;}
         <hr/>
         <h2>所有</h2>
         <div class="classroom">
-        <div><div>讲台</div></div>
         <div>
             <a onclick="openPage('Pupil', this)" href="#czy" class="a">陈忠宇</a>
             <a onclick="openPage('Pupil', this)" href="#qzh" class="b">邱子韩</a>
@@ -450,10 +449,8 @@ ul>ul>p,ol>ol>p,ol>ul>p,ul>ol>p{color:#ffcce6;}
     <h1 style="text-align:center;">——end——</h1>
 </footer>
 <script>
-//返回上方
 mybutton = document.getElementById("goTop");
 function goTop() {document.body.scrollTop = 0;document.documentElement.scrollTop = 0;}
-//倒计时
 var day1=document.querySelector(".a1");
 var hour1=document.querySelector(".a2");
 var minute1=document.querySelector(".a3");
@@ -473,7 +470,6 @@ hour1.innerHTML=h1+"时";
 minute1.innerHTML=m1+"分";
 second1.innerHTML=s1+"秒"; 
 }
-//打字效果
 var app=document.getElementById('asklz');
 var typewriter=new Typewriter(asklz,{loop:true});
 typewriter.typeString('欢迎来到这个网站……')
@@ -3692,55 +3688,58 @@ typewriter.typeString('欢迎来到这个网站……')
     <p>后来，每当有人带零食，旁边的人就会说“一人一包！”当然除了上面的三个人，再也没有人被MT罚过。</p>
     <hr/>
     <h1 id="byh">毕业后</h1>
-    <p>2025年1月30日，一个新建的聊群（“2018届六年一班”）热闹起来，MT发了两条消息：</p>
-    <div class="watch">
-        <p>新年快乐 宝贝们</p>
-        <p>我活过来了</p>
-    </div>
-    <p>然后大家都发：“新年快乐林老师”。</p>
-    <p>然后：</p>
-    <p class="size-small">以下聊天记录省略了一些内容，且昵称为真名（MT外）。</p>
-    <div class="watch">
-        <p>MT：该去看看世界🫰🏻</p>
-        <p>王湘琳：林老师在群里吗？！</p>
-        <p>MT：林老师不得在群里？</p>
-        <p>王湘琳：！</p>
-        <p>王湘琳：林老师，新年快乐！</p>
-        <p>MT：秒懂事是不？@皓采<span style="color:blue">（王湘琳昵称）</span></p>
-        <p>王湘琳：@🍀乐（le）舒¹ 不能不懂事儿啊，听到林老师在我直接吓一跳</p>
-    </div>
-    <p>于是大家就都开始发表情包。</p>
-    <p>然后：</p>
-    <div class="watch">
-        <p>MT：现在我只想玩手机</p>
-        <p>MT：出了东升我们是朋友</p>
-        <p>MT：在东升请尊称林老师</p>
-    </div>
-    <p>接下来的一句话（&nbsp;&nbsp;&nbsp;&nbsp;）：</p>
-    <div class="say">
-        <i class="fa fa-quote-left"></i>&nbsp;现在是我的手机时间&nbsp;<i class="fa fa-quote-right"></i>
-    </div>
-    <p>然后：</p>
-    <div class="watch">
-        <p>MT：现在是我的手机时间</p>
-        <p>MT：咋啦 辛苦一年了 瓜娃子</p>
-        <p>李诗彤：老师有去哪里玩吗🌚</p>
-        <p>MT：沿海一条线</p>
-        <p>MT：准备出发了</p>
-        <p>MT：明天初三</p>
-        <p>MT：后天出发</p>
-        <p>李诗彤：太有生活了</p>
-        <p>王湘琳：去哪玩儿啊</p>
-        <p>MT：要去看看世界</p>
-        <p>郭吉家：那很好了，我初四还要回福州</p>
-        <p>李诗彤：我初四回老家</p>
-        <p>MT：都是有菜地可以偷的幸福宝宝</p>
-        <p>MT：偷菜～</p>
-        <p>MT：每天想吃什么 都去菜地里拔 多快乐</p>
-    </div>
-    <p>然后MT就很长一段时间没发消息，大家就开始猜测原因：</p>
-    <div class="say">
-        <i class="fa fa-quote-left"></i>&nbsp;手机时间&nbsp;<i class="fa fa-quote-right"></i>
+    <p>当然毕业后MT就变得亲切了许多。具体可以看下面：</p>
+    <div style="padding:15px;background:#6600ff55;border-radius:20px;">
+        <p>2025年1月30日，一个新建的聊群（“2018届六年一班”）热闹起来，MT发了两条消息：</p>
+        <div class="watch">
+            <p>新年快乐 宝贝们</p>
+            <p>我活过来了</p>
+        </div>
+        <p>然后大家都发：“新年快乐林老师”。</p>
+        <p>然后：</p>
+        <p class="size-small">以下聊天记录省略了一些内容，且昵称为真名（MT外）。</p>
+        <div class="watch">
+            <p>MT：该去看看世界🫰🏻</p>
+            <p>王湘琳：林老师在群里吗？！</p>
+            <p>MT：林老师不得在群里？</p>
+            <p>王湘琳：！</p>
+            <p>王湘琳：林老师，新年快乐！</p>
+            <p>MT：秒懂事是不？@皓采<span style="color:blue">（王湘琳昵称）</span></p>
+            <p>王湘琳：@🍀乐（le）舒¹ 不能不懂事儿啊，听到林老师在我直接吓一跳</p>
+        </div>
+        <p>于是大家就都开始发表情包。</p>
+        <p>然后：</p>
+        <div class="watch">
+            <p>MT：现在我只想玩手机</p>
+            <p>MT：出了东升我们是朋友</p>
+            <p>MT：在东升请尊称林老师</p>
+        </div>
+        <p>接下来的一句话（&nbsp;&nbsp;&nbsp;&nbsp;）：</p>
+        <div class="say">
+            <i class="fa fa-quote-left"></i>&nbsp;现在是我的手机时间&nbsp;<i class="fa fa-quote-right"></i>
+        </div>
+        <p>然后：</p>
+        <div class="watch">
+            <p>MT：现在是我的手机时间</p>
+            <p>MT：咋啦 辛苦一年了 瓜娃子</p>
+            <p>李诗彤：老师有去哪里玩吗🌚</p>
+            <p>MT：沿海一条线</p>
+            <p>MT：准备出发了</p>
+            <p>MT：明天初三</p>
+            <p>MT：后天出发</p>
+            <p>李诗彤：太有生活了</p>
+            <p>王湘琳：去哪玩儿啊</p>
+            <p>MT：要去看看世界</p>
+            <p>郭吉家：那很好了，我初四还要回福州</p>
+            <p>李诗彤：我初四回老家</p>
+            <p>MT：都是有菜地可以偷的幸福宝宝</p>
+            <p>MT：偷菜～</p>
+            <p>MT：每天想吃什么 都去菜地里拔 多快乐</p>
+        </div>
+        <p>然后MT就很长一段时间没发消息，大家就开始猜测原因：</p>
+        <div class="say">
+            <i class="fa fa-quote-left"></i>&nbsp;手机时间&nbsp;<i class="fa fa-quote-right"></i>
+        </div>
     </div>
     <hr/>
     <h1 id="mt-gd">更多</h1>
