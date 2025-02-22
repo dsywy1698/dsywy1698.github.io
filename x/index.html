@@ -3,7 +3,7 @@
 <head>
 <title>六年一班</title>
 <meta charset="utf-8"/> 
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <meta name="robots" content="noindex,nofollow"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/TypewriterJS/1.0.0/typewriter.min.js"></script>
@@ -57,7 +57,7 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
 #Index .by p{background:#369;padding:7px;border-radius:15px;display:inline;margin:10px;}
 #Index #asklz{font-size:1.25rem;background:#fff;width:500px;margin:auto;padding:5px;border:1px solid #cc0000;border-radius:100vw;}
 #Index #time{background:#b3cce6;font-size:1.875rem;padding:10px;border-radius:0 15px 15px 0;text-align:center;}
-#Index #teacher{background:#ffffff33;margin:10px 20px 10px 0;padding:5px;border-radius:0 20px 20px 0;}
+#Index #teacher{background:#ffffff33;margin:10px 0 10px 25px;padding:5px;border-radius:20px 0 0 20px;}
 #Index #teacher>a{background:#f69;text-decoration:none;color:#fff;display:block;margin:10px;border-radius:8px;padding:15px;height:160px;overflow:hidden;}
 #Index #teacher>a:hover{transition:0.3s;background:#f37;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);}
 #Index #teacher>h1,#Index #pupil>h1,#Index #qt>h1{background:#ffffff88;color:#000066;padding:10px;margin:10px;border-radius:100vw;text-align:center;display:block;}
@@ -92,10 +92,9 @@ footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:
 #Index #webpage>a{text-decoration:none;display:block;background:#d1d1e0;margin:10px;padding:10px;border-radius:10px;color:#669;transition:0.3s;}
 #Index #webpage>a:hover{background:#c2c2d6;}
 #Index #webpage h3{margin:10px 0;}
-#Index #gw{border-left:20px solid #00e6ac77;margin:15px 0;background:linear-gradient(to right,#33ffccdd 0%,#33ffcc88 50%,#33ffcc00 95%);text-decoration:none;color:#066;padding:10px;width:100%;height:160px;overflow:hidden;transition:0.3s;}
-#Index #gw:hover{border-left:20px solid #00e6ac77;margin:15px 0;background:linear-gradient(to right,#33ffccdd 0%,#33ffcc88 60%,#33ffcc00 95%);text-decoration:none;color:#066;padding:10px;width:100%;height:160px;overflow:hidden;transition:0.3s;}
-#Index #dy{border-left:20px solid #ff660077;margin:15px 0;background:linear-gradient(to right,#ff9933dd 0%,#ff993388 50%,#ff993300 95%);text-decoration:none;color:#600;padding:10px;width:100%;height:160px;overflow:hidden;transition:0.3s;}
-#Index #ss{border-left:20px solid #8800cc77;margin:15px 0;background:linear-gradient(to right,#d580ffdd 0%,#d580ff88 50%,#d580ff00 95%);text-decoration:none;color:#600;padding:10px;width:100%;height:160px;overflow:hidden;transition:0.3s;}
+#Index #gw{border-left:20px solid #00e6ac77;margin:15px 0;background:linear-gradient(to right,#33ffccdd 0%,#33ffcc88 50%,#33ffcc00 93%);text-decoration:none;color:#066;padding:10px;width:100%;height:160px;overflow:hidden;}
+#Index #dy{border-left:20px solid #ff660077;margin:15px 0;background:linear-gradient(to right,#ff9933dd 0%,#ff993388 50%,#ff993300 95%);text-decoration:none;color:#600;padding:10px;width:100%;height:160px;overflow:hidden;}
+#Index #ss{border-left:20px solid #8800cc77;margin:15px 0;background:linear-gradient(to right,#d580ffdd 0%,#d580ff88 50%,#d580ff00 95%);text-decoration:none;color:#600;padding:10px;width:100%;height:160px;overflow:hidden;}
 #Index footer>ol>li{color:#66f;}
 @media screen and (min-width:1600px){
   header,main,footer{display:none;}
@@ -302,8 +301,8 @@ ul>ul>p,ol>ol>p,ol>ul>p,ul>ol>p{color:#ffcce6;}
 <div id="div" style="display:none">
 
 <div class="tabcontent" id="Index" style="display:block">
-<nav id="navbar">
-    <div style="width:50px;padding:4.55px;display:flex;float:left" onclick="goTop()" id="goTop"><img src="61.svg" width="35" height="35"/></div>
+<nav>
+    <div style="width:50px;padding:4.55px;display:flex;float:left" onclick="goTop()"><img src="61.svg" width="35" height="35"/></div>
     <div class="dropdown">
         <button class="menu"><i class="fa fa-navicon"></i></button>
         <div class="dropdown-content">
@@ -450,8 +449,6 @@ ul>ul>p,ol>ol>p,ol>ul>p,ul>ol>p{color:#ffcce6;}
     <p>网页到底了！</p>
 </footer>
 <script>
-mybutton = document.getElementById("goTop");
-function goTop() {document.body.scrollTop = 0;document.documentElement.scrollTop = 0;}
 var day1=document.querySelector(".a1");
 var hour1=document.querySelector(".a2");
 var minute1=document.querySelector(".a3");
@@ -484,7 +481,8 @@ typewriter.typeString('欢迎来到这个网站……')
 
 <div id="Pupil" class="tabcontent">
 <nav>
-    <button onclick="goTop()" id="goTop"><i class="fa fa-arrow-circle-up"></i></button>
+    <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
+    <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
     <button onclick="openPage('Index', this)" title="返回首页"><i class="fa fa-home"></i></button>
     <button class="menu"><i class="fa fa-navicon"></i></button>
     <div class="dropdown-content example">
@@ -1582,7 +1580,8 @@ typewriter.typeString('欢迎来到这个网站……')
 
 <div id="Ds" class="tabcontent">
 <nav>
-    <button onclick="goTop()" id="goTop"><i class="fa fa-arrow-circle-up"></i></button>
+    <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
+    <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
     <button onclick="openPage('Index', this)" title="返回首页"><i class="fa fa-home"></i></button>
     <button class="menu"><i class="fa fa-navicon"></i></button>
     <div class="dropdown-content">
@@ -2089,7 +2088,8 @@ typewriter.typeString('欢迎来到这个网站……')
 
 <div id="Waihao" class="tabcontent">
 <nav>
-    <button onclick="goTop()" id="goTop"><i class="fa fa-arrow-circle-up"></i></button>
+    <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
+    <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
     <button onclick="openPage('Index', this)" title="返回首页"><i class="fa fa-home"></i></button>
     <button class="menu"><i class="fa fa-navicon"></i></button>
     <div class="dropdown-content">
@@ -2331,7 +2331,8 @@ typewriter.typeString('欢迎来到这个网站……')
 
 <div id="Mingyan" class="tabcontent">
 <nav>
-    <button onclick="goTop()" id="goTop"><i class="fa fa-arrow-circle-up"></i></button>
+    <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
+    <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
     <button onclick="openPage('Index', this)" title="返回首页"><i class="fa fa-home"></i></button>
     <button class="menu"><i class="fa fa-navicon"></i></button>
     <div class="dropdown-content">
@@ -2355,68 +2356,67 @@ typewriter.typeString('欢迎来到这个网站……')
     <h1>CT</h1>
     <p></p>
     <div id="b-ct">
-        <p>来，蹲出来～</p>
-        <p>下课跟我走哈～</p>
+        <p>来，蹲出来~</p>
+        <p>下课跟我走哈~</p>
         <p>不该错的错了要抄出来做！</p>
-        <p>要用递等式～</p>
+        <p>要用递等式~</p>
         <p>要不要上来介绍一下自己？</p>
-        <p>越优秀，越努力～</p>
-        <p>我教了三十几年书都有做批注～</p>
+        <p>越优秀，越努力~</p>
+        <p>我教了三十几年书都有做批注~</p>
         <p>密密麻麻，麻麻密密～</p>
-        <p>我明天会一个、一个地检查～</p>
-        <p>我会让你自己把笔折断～</p>
-        <p>我画画很烂的～</p>
-        <p>我会到午餐版给你唱赞美诗～</p>
-        <p>要用尺子～</p>
-        <p>快闪一下～</p>
+        <p>我明天会一个、一个地检查~</p>
+        <p>我会让你自己把笔折断~</p>
+        <p>我画画很烂的~</p>
+        <p>我会到午餐版给你唱赞美诗~</p>
+        <p>要用尺子~</p>
+        <p>快闪一下~</p>
         <p>鼓掌都不会鼓？</p>
         <p>谁又去动电脑了？</p>
-        <p>我一节课要把它干完～</p>
-        <p>我数数数不过十～</p>
-        <p>都没写我语文～</p>
+        <p>我一节课要把它干完~</p>
+        <p>我数数数不过十~</p>
+        <p>都没写我语文~</p>
         <p>好玩！好玩……</p>
-        <p>我最讨厌下课有人在讲台上跑～</p>
-        <p>我上次是站在这里讲的～</p>
+        <p>我最讨厌下课有人在讲台上跑~</p>
+        <p>我上次是站在这里讲的~</p>
         <p>……你个死人头！</p>
-        <p>诗彤！你让我失望了～</p>
+        <p>诗彤！你让我失望了~</p>
         <p>不想听可以睡觉。</p>
-        <p>这个是考点～</p>
-        <p>我从来都是说话算数的～</p>
+        <p>这个是考点~</p>
+        <p>我从来都是说话算数的~</p>
         <p>要不要陪我站？</p>
         <p>这篇课文从你们爷爷那一代起就开始读了。</p>
-        <p>我这个人很坏的～</p>
+        <p>我这个人很坏的~</p>
         <p>我请三个人来汇报！</p>
-        <p>你这个白痴病得不轻～</p>
-        <p>不听是你的损失～</p>
-        <p>不预习你跟不上节奏～</p>
-        <p>……开始发力了～</p>
-        <p>没有把握先用铅笔～</p>
+        <p>你这个白痴病得不轻~</p>
+        <p>不听是你的损失~</p>
+        <p>不预习你跟不上节奏~</p>
+        <p>……开始发力了~</p>
+        <p>没有把握先用铅笔~</p>
         <p>快一点不然等下讲不完。</p>
         <p>我跟后面不一样哈！</p>
-        <p>我手机里没有一个游戏～</p>
-        <p>我的笔没有瓦特(water)了～</p>
-        <p>把九三（五三）拿出来～</p>
-        <p>我一般不拖课～</p>
-        <p>这是我第一次拖课～</p>
-        <p>我每节课至少展示一个人～</p>
-        <p>我喜欢用蓝色的粉笔～</p>
+        <p>我手机里没有一个游戏~</p>
+        <p>我的笔没有瓦特(water)了~</p>
+        <p>把九三（五三）拿出来~</p>
+        <p>我一般不拖课~</p>
+        <p>这是我第一次拖课~</p>
+        <p>我每节课至少展示一个人~</p>
+        <p>我喜欢用蓝色的粉笔~</p>
         <p>我上课要用白色的、蓝色的、红色的、黄色的、绿色的……粉笔～</p>
         <p>猴子，吃药了没？</p>
-        <p>你们都是瞿明爔的书童～</p>
-        <p>陈诺能跟我产生共鸣～</p>
-        <p>我写的字没有人可以模仿～</p>
+        <p>你们都是瞿明爔的书童~</p>
+        <p>陈诺能跟我产生共鸣~</p>
+        <p>我写的字没有人可以模仿~</p>
         <p>嘴巴还在吃东西呀？</p>
-        <p>后面的答案是狗屎～</p>
-        <p>第二组的桌子每次都要我讲～</p>
-        <p>我对大家都是一视同仁的，而且会对班干部更加严格～</p>
-        <p>这个是害人健操，一直在眼睛上摸摸摸……继续用你们脏兮兮的手去摸你们那明亮的眼睛吧～</p>
-        <p>你满脸都是牙齿～</p>
-        <p>湘琳是我的好帮手～</p>
+        <p>后面的答案是狗屎~</p>
+        <p>第二组的桌子每次都要我讲~</p>
+        <p>我对大家都是一视同仁的，而且会对班干部更加严格~</p>
+        <p>这个是害人健操，一直在眼睛上摸摸摸……继续用你们脏兮兮的手去摸你们那明亮的眼睛吧~</p>
+        <p>你满脸都是牙齿~</p>
+        <p>湘琳是我的好帮手~</p>
         <p>停笔，等一下会有时间给你们抄。</p>
-        <p>我写的字要联系上下文才能看得懂～</p>
-        <p>你的书比你的脸还白～</p>
+        <p>我写的字要联系上下文才能看得懂~</p>
+        <p>你的书比你的脸还白~</p>
         <p>我很讨厌这个下课铃声。</p>
-        <p>我操！</p>
         <p>你们几个组长都给我去厕所反思。</p>
         <p>小声念~</p>
         <p>以后二类课文都是自学~</p>
@@ -2522,7 +2522,8 @@ typewriter.typeString('欢迎来到这个网站……')
 
 <div id="Et" class="tabcontent">
 <nav>
-    <button onclick="goTop()" id="goTop"><i class="fa fa-arrow-circle-up"></i></button>
+    <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
+    <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
     <button onclick="openPage('Index', this)" title="返回首页"><i class="fa fa-home"></i></button>
     <button class="menu"><i class="fa fa-navicon"></i></button>
     <div class="dropdown-content">
@@ -3242,7 +3243,8 @@ typewriter.typeString('欢迎来到这个网站……')
 
 <div id="Ct" class="tabcontent">
 <nav>
-    <button onclick="goTop()" id="goTop"><i class="fa fa-arrow-circle-up"></i></button>
+    <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
+    <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
     <button onclick="openPage('Index', this)" title="返回首页"><i class="fa fa-home"></i></button>
     <button class="menu"><i class="fa fa-navicon"></i></button>
     <div class="dropdown-content">
@@ -3633,7 +3635,8 @@ typewriter.typeString('欢迎来到这个网站……')
 
 <div id="Mt" class="tabcontent">
 <nav>
-    <button onclick="goTop()" id="goTop"><i class="fa fa-arrow-circle-up"></i></button>
+    <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
+    <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
     <button onclick="openPage('Index', this)" title="返回首页"><i class="fa fa-home"></i></button>
     <button class="menu"><i class="fa fa-navicon"></i></button>
     <div class="dropdown-content">
@@ -3756,7 +3759,8 @@ typewriter.typeString('欢迎来到这个网站……')
 
 <div id="At" class="tabcontent">
 <nav>
-    <button onclick="goTop()" id="goTop"><i class="fa fa-arrow-circle-up"></i></button>
+    <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
+    <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
     <button onclick="openPage('Index', this)" title="返回首页"><i class="fa fa-home"></i></button>
     <button class="menu"><i class="fa fa-navicon"></i></button>
     <div class="dropdown-content">
@@ -3820,6 +3824,8 @@ function openPage(pageName,elmnt){
   document.getElementById(pageName).style.display="block";
 }
 document.getElementById("defaultOpen").click();
+function goTop(){window.scrollTo(0,0);}
+function goBottom(){window.scrollTo(0,document.documentElement.scrollHeight);}
 </script>
 </div>
 </body>
