@@ -19,6 +19,13 @@ time{margin:5px 2px 5px 5px;text-align:center;padding:7.5px 5px;border-radius:10
 main>div>div p{margin:0;padding:2.5px 0;text-indent:2em;}
 em{background:#f9c;margin:3px 3px 3px 2em;padding:10px;border-radius:10px;display:block;text-indent:0;color:#603;}
 main h1{background:#f06!important;text-align:center;border-radius:100vw;margin:25px 15px 5px 15px;padding:10px;color:#fff;}
+.menu:hover+input+.dropdown-content,.dropdown-content:hover{display:block;}
+nav input{padding:7px;margin:5px;display:inline-block;width:150px;border-radius:100vw;border:0;background:#e6ffff;font-size:16px;float:right;}
+nav input:focus{outline:none;background:#cff;}
+::placeholder{color:#6cf;opacity:1;}
+:-ms-input-placeholder,::-ms-input-placeholder{color:#6cf;}
+.highlight{background-color:#d9b3ff;padding:0 5px;border-radius:15px;}
+.p-hidden{display:none;}
 </style>
 </head>
 <body id="ps">
@@ -28,6 +35,7 @@ main h1{background:#f06!important;text-align:center;border-radius:100vw;margin:2
     <button onclick="goTop()" id="goTop"><i class="fa fa-arrow-circle-up"></i></button>
     <button onclick="document.location='index.html'" title="返回首页"><i class="fa fa-home"></i></button>
     <button class="menu"><i class="fa fa-navicon"></i></button>
+    <input type="text" placeholder="搜索关键词…" oninput="performSearch()" id="search"/>
     <div class="dropdown-content">
         <h2>七上</h2>
         <a href="#d2409">2024年9月</a>
@@ -1180,6 +1188,7 @@ main h1{background:#f06!important;text-align:center;border-radius:100vw;margin:2
             <p>地理课时突然停电，来电时薛阅晨一个人上讲台拍照，刚拍完一张书就掉到地上。这时陆梓豪发出莫名其妙的声音，地理老师用手中的笔敲他的头：“小老鼠~从哪里来~”</p>
             <p>地理课，师：“生一个孩子补贴几十万。”唐家祺：“几十万？我生20个！”师：“你生的是人类吗？”</p>
             <p>抽背时，陆梓豪跑进教室：“（刘必艳）来了！”结果不一会儿，李映辰走了进来。</p>
+            <p>政治老师：“我知道，那个学委叫郑致豪。”</p>
         </div>
     </div>
     <div>
@@ -1228,6 +1237,7 @@ main h1{background:#f06!important;text-align:center;border-radius:100vw;margin:2
         <div>
             <p>体育课黄恩亚（热身）领跑半圈（后面跑不动了）。</p>
             <p>政治课谈到班上有自尊的人，唐家祺：“王淮穿着足力健照样跑（步）……”</p>
+            <p>洪鑫洋带读，把“乐府诗集”读成“乐岳诗府”。</p>
         </div>
     </div>
     <div>
@@ -1258,6 +1268,29 @@ main h1{background:#f06!important;text-align:center;border-radius:100vw;margin:2
         <div>
             <p>薛阅晨误关电闸，一些人以为停电。</p>
             <p>午托重测时有人在课件上弄出苹果。</p>
+            <p>生物课时郑致辰桌上的水杯打翻把书弄湿。</p>
+        </div>
+    </div>
+    <div>
+        <time>24</time>
+        <div>
+            <p>体育课自由活动，李映辰直接整个人趴在门口桌子上，随后又跪在桌子上，被送饭的大叔看见后批评。</p>
+            <p>中午“重温”音标视频。</p>
+            <p>廖成羲生物小测：（保存瓜果的方法）吃了。</p>
+            <p>郑致辰、崔宇臣用外套做男性生殖器官。</p>
+            <p>廖成羲椅子四个螺丝全掉，上半部分被放在教室后面的桌子上。</p>
+        </div>
+    </div>
+    <div>
+        <time>25</time>
+        <div>
+            <span class="morning">跑操：8圈</span>
+            <p>体育课时唐家祺把排球掂到树上。</p>
+            <p>林钰颖讲劳技PPT：①郑致辰提问难倒林钰颖，她便说：“你时间结束了，换诗语吧！”②PPT内容太多，她就说：“就这样，自己看吧。”③最后一页的出现：“汇报人：木木”</p>
+            <p>刘必艳让大家用英语翻译：“唐家祺（年龄）太小了，不能搭飞机。”学生笑。</p>
+            <p>洪鑫洋带读：“木兰诗，王维，起。”</p>
+            <p>午托重测时有人在课件上弄出苹果。</p>
+            <p>午托重测时有人在课件上弄出苹果。</p>
         </div>
     </div>
 </main>
@@ -1265,6 +1298,55 @@ main h1{background:#f06!important;text-align:center;border-radius:100vw;margin:2
     <p>网页到底了！</p>
     <p>注意：该网站仅为2024届9班提供，无不良向导。内容如有侵权将删除。</p>
 </footer>
+<script>
+let lastHighlight=null;
+function performSearch(){
+    const searchTerm=document.getElementById('search').value.trim().toLowerCase();
+    const allEntries=document.querySelectorAll('main>div');
+    const visibleMonths=new Set();
+    if(lastHighlight){
+        lastHighlight.forEach(element=>{
+            element.innerHTML=element.innerHTML.replace(/<span class="highlight">(.*?)<\/span>/gi,'$1');
+        });
+    }
+    lastHighlight=[];
+    allEntries.forEach(entry=>{
+        const paragraphs=entry.querySelectorAll('p');
+        let hasMatch=false;
+        paragraphs.forEach(p=>{
+            const originalText=p.textContent;
+            p.innerHTML=originalText;
+            if(searchTerm){
+                const regex=new RegExp(`(${escapeRegExp(searchTerm)})`,'gi');
+                const newHtml=originalText.replace(regex,'<span class="highlight">$1</span>');
+                p.innerHTML=newHtml;
+                if(regex.test(originalText)){
+                    hasMatch=true;
+                    lastHighlight.push(p);
+                }
+            }
+        });
+        entry.style.display=hasMatch?'':'none';
+        if(hasMatch){
+            let prevElement=entry.previousElementSibling;
+            while(prevElement&&prevElement.tagName!=='H1'){
+                prevElement=prevElement.previousElementSibling;
+            }
+            if(prevElement)visibleMonths.add(prevElement.id);
+        }
+    });
+    document.querySelectorAll('main h1').forEach(h1=>{
+        h1.style.display=visibleMonths.has(h1.id)||searchTerm===''?'':'none';
+    });
+    if(searchTerm===''){
+        allEntries.forEach(entry => entry.style.display='');
+        document.querySelectorAll('main h1').forEach(h1=>h1.style.display='');
+    }
+}
+function escapeRegExp(string){
+    return string.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+}
+</script>
 </div>
 </body>
 </html>
