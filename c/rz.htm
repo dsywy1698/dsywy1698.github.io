@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <link rel="icon" href="ico/79.ico"/>
-<script src="js/all.js"></script>
 <style>
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;font-size:100%;}
@@ -14,9 +13,9 @@ body{margin:0;padding:0;font-family:sans-serif;background-color:#cff;}
 hr{border:1px solid #09f;border-radius:100px;margin:20px 5px;}
 a{color:#c06;}
 a:hover{color:#ff0080;}
-.clear::after,.img_box::after{display:table;content:"";clear:both;}
-.example::-webkit-scrollbar,html::-webkit-scrollbar,.dropdown-content::-webkit-scrollbar{display:none;}
-.example,html,.dropdown-content{-ms-overflow-style:none;scrollbar-width:none;}
+.clear::after{display:table;content:"";clear:both;}
+html::-webkit-scrollbar,.dropdown-content::-webkit-scrollbar{display:none;}
+html,.dropdown-content{-ms-overflow-style:none;scrollbar-width:none;}
 *::-moz-selection{color:#e6f0ff;background:#80b3ff88;}
 *::selection{color:#e6f0ff;background:#80b3ff88;}
 nav{position:fixed;width:98vw;z-index:1;margin:1vw;border-radius:20px;padding-left:5px;backdrop-filter:blur(10px);background-color:#33ccffaa;}
@@ -32,24 +31,10 @@ footer{background:#00f;padding:30px;padding-top:80px;color:#3cf;}
 .loading>h1{font-size:3.75rem;}
 .loading button{font-size:1.4375rem;border:0;border-radius:10000px;padding:5px;width:50%;background-color:#00f;color:#fff;}
 #div{position:relative;-webkit-animation-name:animatebottom;-webkit-animation-duration:1s;animation-name:animatebottom;animation-duration:0.7s;}
-@-webkit-keyframes animatebottom{
-  from{bottom:-50px;opacity:0;} 
-  to{bottom:0px;opacity:1;}
-}
-@keyframes animatebottom{ 
-  from{bottom:-50px;opacity:0;} 
-  to{bottom:0;opacity:1;}
-}
+@-webkit-keyframes animatebottom{from{bottom:-50px;opacity:0;} to{bottom:0px;opacity:1;}}
+@keyframes animatebottom{ from{bottom:-50px;opacity:0;} to{bottom:0;opacity:1;}}
 .small{display:none;}
-img,video,iframe,canvas{max-height:90vh !important;}
-.title_center{text-align:center;margin:7px;}
-.watch{padding:10px;border-left:10px solid #00e673;background-color:#0c6;color:#fff;border-radius:2px 10px 10px 2px;}
-.watch>p{text-indent:2em;margin:7px 0;}
-.watch i{display:inline;}
-canvas,audio{max-width:100%;}
-img,video,.max-width,iframe{max-width:100%;object-fit:contain;}
-@media screen and (max-width: 600px) {main>img{float:center;max-width:100%;}}
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 340px) {
   header,main,nav,footer{display:none;}
   .small{display:block;font-size:1.875rem;color:red;padding:5px;text-align:center;background-color:#e6ffff;height:100vh;}
   .loading{display:none;}
@@ -62,7 +47,6 @@ main>div>p,main>div>div{margin:5px;padding:5px;border-radius:10px;width:100%;fon
 time{margin:5px 2px 5px 5px;text-align:center;padding:7.5px 5px;border-radius:10px;width:100%;font-size:1.125rem;background:#9df;color:#003;flex-basis:50px;}
 .morning{display:block;background:#93f;color:#fff;padding:5px 40px;border-radius:100vw;}
 main>div>div p{margin:0;padding:2.5px 0;text-indent:2em;}
-em{background:#f9c;margin:3px 3px 3px 2em;padding:10px;border-radius:10px;display:block;text-indent:0;color:#603;}
 main h1{background:#f06!important;text-align:center;border-radius:100vw;margin:25px 15px 5px 15px;padding:10px;color:#fff;}
 .menu:hover+input+.dropdown-content,.dropdown-content:hover{display:block;}
 nav input{padding:7px;margin:5px;display:inline-block;width:150px;border-radius:100vw;border:0;background:#e6ffff;font-size:16px;float:right;}
@@ -72,14 +56,15 @@ nav input:focus{outline:none;background:#cff;}
 .highlight{background-color:#d9b3ff;padding:0 5px;border-radius:15px;}
 .p-hidden{display:none;}
 main p{display: block;}
-main p.filtered,main ul.filtered{display:none!important;}
+.filtered{display:none!important;}
 </style>
 </head>
 <body>
 <div class="small">浏览器窗口过小，不支持显示</div>
 <div id="div">
 <nav>
-    <button onclick="goTop()" id="goTop"><i class="fa fa-arrow-circle-up"></i></button>
+    <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
+    <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
     <button onclick="document.location='index.html'" title="返回首页"><i class="fa fa-home"></i></button>
     <button class="menu"><i class="fa fa-navicon"></i></button>
     <input type="text" placeholder="查找关键词…" oninput="performSearch()" id="search"/>
@@ -1373,6 +1358,7 @@ main p.filtered,main ul.filtered{display:none!important;}
             <p>郑致辰：“你怎么知道自慰？”林芷琪：“我看过（小学的人）。”郑致辰：“哇！……（笑）”</p>
             <p>郑致辰、蔡华楷、郑炜每人吃了一块黄恩亚饭里的鸡块。</p>
             <p>生物课时黄恩亚展示自己鼓包的裤子（还转到后面去给人看）。</p>
+            <p>刘必艳让大家猜小测上的“CTMO”是什么意思，蔡华楷：“中国高铁吗？”</p>
         </div>
     </div>
     <h1 id="d2504">2025年4月</h1>
@@ -1406,44 +1392,73 @@ main p.filtered,main ul.filtered{display:none!important;}
             </ul>
         </div>
     </div>
+    <div>
+        <time>7</time>
+        <div>
+            <p>洪鑫洋带读：“暮宿黑河边（暮宿黄河边）……”“晚春，春夜洛城……”</p>
+            <p>生物课时蒲林豪写黄文被生物老师发现，黄文被拿去看。</p>
+            <p>语文课李梦妍补生物作业，叶弘毅：“唐家祺！”唐家祺看到李梦妍补作业，大声说：“哇你这个鸡鸡！”</p>
+            <p>体育课，自由活动：</p>
+            <ul>
+                <li>李映辰整个人躺门口桌上。突然方欣妍跑来：“送饭的来了！”大批写作业的人连忙安静地坐在台阶上等着看笑话。不一会儿，送饭大叔来了：“哎！趴那里干嘛！这么没有女孩的样子……这时放饭的！……晚上没睡觉吗？做小偷吗？……要睡到教室里面睡！……现在的小孩精神那么好……”大叔离开后，李映辰背靠饭箱，蜷缩在桌子空着的地方继续睡觉。</li>
+                <li>方欣妍对陈子岩说话，陈子岩突然把刚喝进去的水喷出来。</li>
+                <li>门口水池里的“草履虫培养液”被抽干，一大爷赤脚踩在水池里打扫淤泥，上课前多人围观。</li>
+                <ul>
+                    <li>洪鑫洋路过，大爷：“要喝饮料吗？”（“饮料”就是清理到车上的淤泥）</li>
+                    <li>自由活动时，大爷抽烟，旁边的蔡华楷：“大爷你一天要抽几包烟？”大爷回答：“不能对胖的人开玩笑。”过了一会儿，蔡华楷又问：“你为什么不穿袜子？”结果被教育：“我买不起袜子啊……我没书读，我才读两年半，三年，三年级都没读完……饭都吃不起……你们现在条件好，什么都有。你们要好好学习，不好好学习就像我一样干脏活……有的人键盘敲敲敲，有的人——这里没东西了，给我拿东西，帮别人收银……”</li>
+                </ul>
+            </ul>
+        </div>
+    </div>
 </main>
 <footer>
     <p>网页到底了！</p>
     <p>注意：该网站仅为2024届9班提供，无不良向导。内容如有侵权将删除。</p>
 </footer>
 <script>
-let lastHighlight = [];
-
 function performSearch() {
     const searchTerm = document.getElementById('search').value.trim().toLowerCase();
-    const allParagraphs = document.querySelectorAll('main p');
+    const allElements = document.querySelectorAll('main p, main li');
     const visibleMonths = new Set();
 
-    // 清除上次高亮和过滤状态
-    lastHighlight.forEach(p => {
-        p.innerHTML = p.dataset.original || p.innerHTML;
+    // 重置所有元素状态
+    document.querySelectorAll('.filtered').forEach(el => el.classList.remove('filtered'));
+    document.querySelectorAll('.highlight').forEach(hl => {
+        hl.outerHTML = hl.innerHTML; // 移除高亮
     });
-    allParagraphs.forEach(p => p.classList.remove('filtered'));
 
     if (searchTerm) {
         const regex = new RegExp(`(${escapeRegExp(searchTerm)})`, 'gi');
         
-        allParagraphs.forEach(p => {
-            const original = p.textContent;
-            p.dataset.original = original; // 保存原始文本
-            
-            // 高亮匹配内容
-            const highlighted = original.replace(regex, '<span class="highlight">$1</span>');
-            p.innerHTML = highlighted;
-            
-            // 检查是否包含搜索词
+        // 遍历所有段落和列表项
+        allElements.forEach(element => {
+            const original = element.textContent;
             const hasMatch = regex.test(original);
-            p.classList.toggle('filtered', !hasMatch);
             
             if (hasMatch) {
-                lastHighlight.push(p);
-                // 记录所属月份
-                const parentDiv = p.closest('main > div');
+                // 处理匹配元素
+                element.innerHTML = original.replace(regex, '<span class="highlight">$1</span>');
+                
+                // 显示关联元素
+                if (element.tagName === 'LI') {
+                    const ul = element.closest('ul');
+                    const parentDiv = ul.closest('main > div > div');
+                    
+                    // 显示整个列表
+                    ul.querySelectorAll('li').forEach(li => {
+                        li.classList.remove('filtered');
+                    });
+                    
+                    // 显示前一个p元素
+                    let prevP = ul.previousElementSibling;
+                    while (prevP && prevP.tagName !== 'P') {
+                        prevP = prevP.previousElementSibling;
+                    }
+                    if (prevP) prevP.classList.remove('filtered');
+                }
+                
+                // 标记可见月份
+                const parentDiv = element.closest('main > div');
                 if (parentDiv) {
                     let monthHeader = parentDiv.previousElementSibling;
                     while (monthHeader && monthHeader.tagName !== 'H1') {
@@ -1451,30 +1466,36 @@ function performSearch() {
                     }
                     if (monthHeader) visibleMonths.add(monthHeader.id);
                 }
+            } else {
+                // 非匹配元素添加过滤
+                element.classList.add('filtered');
             }
         });
+
     } else {
-        // 恢复所有内容
-        allParagraphs.forEach(p => {
-            p.innerHTML = p.dataset.original || p.innerHTML;
-        });
+        // 清空搜索时显示所有内容
+        allElements.forEach(el => el.classList.remove('filtered'));
     }
 
-    // 处理月份标题显示
-    document.querySelectorAll('main h1').forEach(h1 => {
-        h1.style.display = visibleMonths.has(h1.id) || !searchTerm ? '' : 'none';
+    // 处理容器可见性
+    document.querySelectorAll('main > div').forEach(div => {
+        const hasVisible = [...div.querySelectorAll('p, li')].some(el => 
+            !el.classList.contains('filtered')
+        );
+        div.style.display = hasVisible ? '' : 'none';
     });
 
-    // 处理空div容器
-    document.querySelectorAll('main > div').forEach(div => {
-        const hasVisible = [...div.querySelectorAll('p')].some(p => !p.classList.contains('filtered'));
-        div.style.display = hasVisible ? '' : 'none';
+    // 处理月份标题
+    document.querySelectorAll('main h1').forEach(h1 => {
+        h1.style.display = visibleMonths.has(h1.id) || !searchTerm ? '' : 'none';
     });
 }
 
 function escapeRegExp(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
+function goTop(){window.scrollTo(0,0);}
+function goBottom(){window.scrollTo(0,document.documentElement.scrollHeight);}
 </script>
 </div>
 </body>
