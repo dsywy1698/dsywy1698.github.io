@@ -1,0 +1,21 @@
+<svg width="100" height="120.00000000000003" xmlns="http://www.w3.org/2000/svg">
+ <g id="Layer_1">
+  <title>Layer 1</title>
+  <rect id="svg_2" height="40" width="100" y="0" x="0" fill="#ffd4aa"/>
+  <rect id="svg_4" height="40" width="50" y="40" x="50" fill="#d4ffaa"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="30" stroke-width="0" id="svg_8" y="30" x="35" fill="#000000">政</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="30" stroke-width="0" id="svg_10" y="70" x="60" fill="#000000">史</text>
+  <rect id="svg_13" height="15" width="20" y="40" x="30" stroke-width="0" fill="#ffd4aa"/>
+  <rect fill="#aad4ff" x="0" y="40" width="30" height="15" id="svg_1"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="10" stroke-width="0" id="svg_7" y="51" x="10.07946" fill="#000000">地</text>
+  <rect id="svg_14" height="65" width="52" y="55" x="0" fill="#d4aaff"/>
+  <text style="cursor: move;" xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="25" stroke-width="0" id="svg_15" y="80" x="13" fill="#000000">语</text>
+  <rect id="svg_16" height="40" width="52" y="80" x="48" fill="#ffffaa"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="25" stroke-width="0" id="svg_17" y="110" x="52" fill="#000000">生</text>
+  <rect id="svg_19" height="40" width="15" y="80" x="85" fill="#ffaaaa"/>
+  <text style="cursor: move;" xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="15" stroke-width="0" id="svg_20" y="105" x="85" fill="#000000">数</text>
+  <rect id="svg_3" height="35" width="48" y="85" x="0" stroke-width="0" fill="#ffaaaa"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="25" stroke-width="0" id="svg_5" y="110" x="12" fill="#000000">数</text>
+ </g>
+
+</svg>

@@ -1,0 +1,25 @@
+<svg width="99.99999999999999" height="120.00000000000001" xmlns="http://www.w3.org/2000/svg">
+ <g id="Layer_1">
+  <title>Layer 1</title>
+  <rect id="svg_2" height="40" width="100" y="0" x="0" fill="#ffd4aa"/>
+  <rect id="svg_3" height="40" width="50" y="40" x="0" fill="#ffffaa"/>
+  <rect id="svg_4" height="40" width="50" y="40" x="50" fill="#d4ffaa"/>
+  <rect id="svg_5" height="40" width="50" y="80" x="0" fill="#aad4ff"/>
+  <rect id="svg_6" height="40" width="50" y="80" x="50" fill="#d4aaff"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="30" stroke-width="0" id="svg_8" y="30" x="35" fill="#000000">政</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="20" stroke-width="0" id="svg_9" y="70" x="10" fill="#000000">生</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="25" stroke-width="0" id="svg_10" y="65" x="65" fill="#000000">史</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="20" stroke-width="0" id="svg_11" y="105" x="10" fill="#000000">地</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="20" stroke-width="0" id="svg_12" y="105" x="70" fill="#000000">语</text>
+  <rect id="svg_13" height="15" width="20" y="40" x="30" stroke-width="0" fill="#ffd4aa"/>
+  <rect id="svg_14" height="5" width="50" y="75" x="50" stroke-width="0" fill="#ffffaa"/>
+  <rect id="svg_15" height="5" width="10" y="70" x="49.72221" stroke-width="0" fill="#ffffaa"/>
+  <rect id="svg_16" height="5" width="5" y="66" x="49.55554" stroke-width="0" fill="#ffffaa"/>
+  <rect id="svg_17" height="13" width="15" y="80" x="35" stroke-width="0" fill="#ffaaaa"/>
+  <rect id="svg_18" height="12" width="13" y="93" x="50" stroke-width="0" fill="#ffaaaa"/>
+  <rect id="svg_19" height="15" width="17" y="105" x="33" stroke-width="0" fill="#ffaaaa"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="10" stroke-width="0" id="svg_20" y="90" x="37" fill="#000000">数</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="10" stroke-width="0" id="svg_21" y="102.66667" x="51" fill="#000000">数</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="10" stroke-width="0" id="svg_22" y="115" x="37" fill="#000000">数</text>
+ </g>
+</svg>
