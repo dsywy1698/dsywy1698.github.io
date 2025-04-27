@@ -12,7 +12,7 @@
 ::-webkit-scrollbar-thumb{background:#33f;border-radius:5px;height:150px;}
 ::-webkit-scrollbar-thumb:hover{background:#00c;}
 body{margin:0;font-size:100%;background:#03c;}
-button{font-size:16px;background:#c9f;color:#000;border:0;padding:6px 20px;margin:4px;border-radius:100vw;transition:0.3s;}
+button{font-size:20px;background:#c9f;color:#000;border:0;padding:6px 20px;margin:6px;border-radius:100vw;transition:0.3s;}
 button:hover{background:#b366ff;}
 #dragbar{position:absolute;cursor: col-resize;z-index:3;padding:5px;}
 #shield{display:none;top:0;left:0;width:100%;position:absolute;height:100%;z-index:4;}
@@ -11819,12 +11819,13 @@ function getSavedFile() {
 </script>
 </head>
 <body>
+<div>
 <div style="overflow:auto">
-   <h1 style="display:inline;color:#fff;font-size:30px;margin:3px 0 0 10px;">HTML编辑器</h1>
    <button onclick="submitTryit(1);ga('send', 'event', 'runCode', 'click');snhb.queue.push(function(){googletag.pubads().setTargeting('page_section',(function () {var folder = location.pathname;folder = folder.replace('/', ''); folder = folder.substr(0, folder.indexOf('/')); return folder + 'tryitUA'; })());snhb.startAuction(['try_it_leaderboard']);});">运行代码</button>
    <span style="padding:8px;display:block;float:right!important;color:#fff"></span>
    <span style="padding:8px 0;display:block;float:right!important;color:#fff">
    <span id="framesize"></span></span>
+</div>
 </div>
 <div id="shield"></div>
 <a href="javascript:void(0)" id="dragbar"></a>
@@ -11882,6 +11883,9 @@ function submitTryit(n) {
     ifrw.document.open();
     ifrw.document.write(text);  
     ifrw.document.close();
+    //2016 年 2 月 23 日：contentEditable 设置为 true，以修复 firefox 中的文本选择（bug）。
+    //（然后返回 false 以防止内容可编辑）
+    //（要重现错误：在结果窗口中选择带有和不带有下面的 contentEditable 语句的文本。） 
     if (ifrw.document.body && !ifrw.document.body.isContentEditable) {
       ifrw.document.body.contentEditable = true;
       ifrw.document.body.contentEditable = false;
