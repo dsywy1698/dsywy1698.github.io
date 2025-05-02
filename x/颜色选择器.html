@@ -1,9 +1,7 @@
-
-
-<!Doctype html>
+<!doctype html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>颜色选择器</title>
 <style>
@@ -13,48 +11,14 @@ body{margin:5px;}
 .w3-col.s1{width:8.33333%}.w3-col.s2{width:19.66666%}.w3-col.s3{width:24.99999%}.w3-col.s4{width:33.33333%}
 @media (min-width:601px){.w3-col.m12{width:99.99999%}}
 @media (min-width:993px){.w3-col.l2{width:19.66666%}.w3-col.l4{width:33.33333%}}
-#selectedcolor {
-    border-radius:10pa;
-    width:80%;
-    height:300px;
-    margin:auto;
-}
-#divpreview {
-    border:1px solid #e3e3e3;
-    width:80px;
-    height:20px;
-    margin:auto;
-    visibility:hidden;
-}
-.colorTable, #colorhexDIV, #colorrgbDIV, #colorhslDIV, #colornamDIV {
-    font-family:Consolas, 'Courier New', Courier, monospace;
-}
-#colorhexDIV, #colorrgbDIV, #colorhslDIV, #colornamDIV {
-    font-size:18px;
-}
-#wronginputDIV {
-    text-align:left;
-    position:absolute;
-    margin:4px 10px;
-    color:#a94442;
-    display:none;
-}
-.has-error input{
-    border:1px solid red;
-}
-#entercolorDIV input,#entercolorDIV button{
-    height:28px;
-}
-#entercolorDIV input{
-    width:80%;
-    border:1px solid #d3d3d3;
-    border-right:none;
-}
-.w3-table-all td {
-    padding:4px;
-}
+#selectedcolor {border-radius:10px;width:80%;height:300px;margin:auto;}
+#divpreview {border:0;width:80px;height:20px;margin:5px auto;border-radius:5px;visibility:hidden;}
+.colorTable, #colorhexDIV, #colorrgbDIV, #colorhslDIV, #colornamDIV {font-family:Consolas, 'Courier New', Courier, monospace;}
+#colorhexDIV, #colorrgbDIV, #colorhslDIV, #colornamDIV {font-size:22px;}
+#wronginputDIV {margin:5px;color:#a94442;display:none;}
+.w3-table-all td {padding:4px;border-radius:4px;}
 </style>
-<script>/* w3color.js ver.1.18 by www.w3ccoo.com (Do not remove this line)*/
+<script>
 (function () {
 function w3color(color, elmnt) {
   if (!(this instanceof w3color)) { return new w3color(color, elmnt); }
@@ -953,13 +917,11 @@ function submitOnEnter(e) {
         clickColor(0,-1,-1);
     }
 }
-//-->
 </script>
 </head>
 <body>
 <div>
   <div class="w3-col l4 m12" style="text-align:center;">
-    <h3>选择颜色</h3>
     <div style="margin:auto;width:236px;">
       <img style='margin-right:2px;' src='colormap.gif' usemap='#colormap' alt='colormap' />
       <map id='colormap' name='colormap' onmouseout='mouseOutMap()'>
@@ -1096,32 +1058,28 @@ var thistop = "-35";
 var thisleft = "135";
 </script>
       <div id='selectedhexagon'></div>
-    <div id='divpreview'>&nbsp;</div>
+      <div id='divpreview'>&nbsp;</div>
       <div id="entercolorDIV">
-        <input type="text" id="entercolor" placeholder="Color value" onkeydown="submitOnEnter(event)" onfocus="clearWrongInput();" style="z-index:0;background:#cff;border:0;height:30px;padding-left:20px;border-radius:100vw 0 0 100vw;display:inline-block;width:100px;margin-right:0;">
+        <input type="text" id="entercolor" placeholder="输入颜色" onkeydown="submitOnEnter(event)" onfocus="clearWrongInput();" style="z-index:0;background:#cff;border:0;height:30px;padding-left:20px;border-radius:100vw 0 0 100vw;display:inline-block;width:100px;margin-right:0;">
         <button class="btn btn-default" type="button" onclick="clickColor(0,-1,-1)" style="z-index:0;border:0;border-radius:0 100vw 100vw 0;background:#6cf;height:30px;display:inline-block;margin-left:0;padding-right:20px;">OK</button>
       </div>
       <div id="wronginputDIV">错误</div>
       <br>
       <div id="html5DIV">
-        <input type="color" id="html5colorpicker" onchange="clickColor(0, -1, -1, 5)" value="#FF0000" style="width:85%;">
+        <input type="color" id="html5colorpicker" onchange="clickColor(0, -1, -1, 5)" value="#ff0000" style="width:85%;">
       </div>
       <br>
       <br>        
     </div>
   </div>
-
   <div class="w3-col l4 m12" style="text-align:center;">
-    <div id="selectedcolor">
-    </div>
+    <div id="selectedcolor"></div>
     <div id="colornamDIV"></div>      
     <div><b><span id="colorhexDIV"></span></b></div>
     <div id="colorrgbDIV"></div>
     <div id="colorhslDIV"></div>    
   </div>
-
   <div class="w3-col l4 m12">
-<!--<div id="huetopcontainer"></div>-->
     <div id="lumtopcontainer"></div>    
   </div>
 </div>
@@ -1133,28 +1091,28 @@ var thisleft = "135";
 <h2>RGB</h2>
 <table class="w3-table w3-border" style="width:100%">
 <tr>
-<th>Red</th>
-<th>Green</th>
-<th>Blue</th>
+    <th>Red</th>
+    <th>Green</th>
+    <th>Blue</th>
 </tr>
 <tr>
-<td id="valRed"></td>
-<td id="valGreen"></td>
-<td id="valBlue"></td>
+    <td id="valRed"></td>
+    <td id="valGreen"></td>
+    <td id="valBlue"></td>
 </tr>
 <tr>
-<td id="red" style="height:50px;background-color:red"></td>
-<td id="green" style="background-color:green"></td>
-<td id="blue" style="background-color:blue"></td>
+    <td id="red" style="height:50px;background-color:red"></td>
+    <td id="green" style="background-color:green"></td>
+    <td id="blue" style="background-color:blue"></td>
 </tr>
 <tr>
-<td>
+    <td>
 <input oninput="changeRed(this.value)" onchange="changeRed(this.value)" type="range" id="slideRed" name="slideRed" min="0" max="255">
 </td>
-<td>
+    <td>
 <input oninput="changeGreen(this.value)" onchange="changeGreen(this.value)" type="range" id="slideGreen" name="slideGreen" min="0" max="255">
 </td>
-<td>
+    <td>
 <input oninput="changeBlue(this.value)" onchange="changeBlue(this.value)" type="range" id="slideBlue" name="slideBlue" min="0" max="255">
 </td>
 </tr>
