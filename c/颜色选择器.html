@@ -6,17 +6,16 @@
 <title>颜色选择器</title>
 <style>
 html{box-sizing:border-box;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;overflow-x:hidden}
-body{margin:5px;}
-.w3-col{float:left;width:100%}
-.w3-col.s1{width:8.33333%}.w3-col.s2{width:19.66666%}.w3-col.s3{width:24.99999%}.w3-col.s4{width:33.33333%}
-@media (min-width:601px){.w3-col.m12{width:99.99999%}}
-@media (min-width:993px){.w3-col.l2{width:19.66666%}.w3-col.l4{width:33.33333%}}
-#selectedcolor {border-radius:10px;width:80%;height:300px;margin:auto;}
+body{margin:0;padding:10px;}
+.w3-col{float:left;width:100%;}
+@media (min-width:670px){.w3-col.l4{width:50%}}
+#selectedcolor {border-radius:10px;width:263px;height:200px;margin:auto;padding:20px;}
 #divpreview {border:0;width:80px;height:20px;margin:5px auto;border-radius:5px;visibility:hidden;}
-.colorTable, #colorhexDIV, #colorrgbDIV, #colorhslDIV, #colornamDIV {font-family:Consolas, 'Courier New', Courier, monospace;}
-#colorhexDIV, #colorrgbDIV, #colorhslDIV, #colornamDIV {font-size:22px;}
+#colorhexDIV, #colorrgbDIV, #colorhslDIV, #colornamDIV {font-size:20px;}
 #wronginputDIV {margin:5px;color:#a94442;display:none;}
-.w3-table-all td {padding:4px;border-radius:4px;}
+table,tr{border-collapse:collapse;margin:2.5px auto;}
+th,td{padding:3px;border-top:1px solid #000;border-bottom:1px solid #000;}
+@media (max-width:340px){*{display:none}}
 </style>
 <script>
 (function () {
@@ -666,8 +665,8 @@ function w3SetColorsByAttribute() {
 }</script>
 <script>
 <!--
-var colorhex = "#FF0000";
-var color = "#FF0000";
+var colorhex = "#cff";
+var color = "#cff";
 var colorObj = w3color(color);
 function mouseOverColor(hex) {
     document.getElementById("divpreview").style.visibility = "visible";
@@ -823,18 +822,17 @@ function hslTable(x) {
   var s = hslObj.sat;
   var l = hslObj.lightness;
   var arr = [];
-  if (x == "hue") {header = "Hue"; lineno = 24;}
-  if (x == "sat") {header = "Saturation"; lineno = 20;}
-  if (x == "light") {header = "Lightness"; lineno = 20;}  
+  if (x == "hue") {lineno = 24;}
+  if (x == "sat") {lineno = 20;}
+  if (x == "light") {lineno = 20;}  
   for (i = 0; i <= lineno; i++) {
     if (x == "hue") {arr.push(w3color("hsl(" + (i * 15) + "," + s + "," + l + ")"));}
     if (x == "sat") {arr.push(w3color("hsl(" + h + "," + (i * 0.05) + "," + l + ")"));}
     if (x == "light") {arr.push(w3color("hsl(" + h + "," + s + "," + (i * 0.05) + ")"));}
   }
   if (x == "sat" || x == "light") {arr.reverse();}
-  a = "<h3>" + header + "</h3>";
-  a += "<div class='w3-responsive'>";
-  a += "<table class='w3-table-all colorTable' style='width:100%;white-space: nowrap;font-size:14px;'>";
+  a = "<div class='w3-responsive'>";
+  a += "<table style='width:100%;white-space: nowrap;font-size:14px;'>";
   a += "<tr>";
   a += "<td style='width:150px;'></td>";
   a += "<td style='text-align:right;text-transform:capitalize;'>" + x + "&nbsp;</td>";
@@ -873,7 +871,7 @@ function hslTable(x) {
     }
     if (comp) {match++;}
     if (match == 1) {
-      a += "<tr class='w3-green'>";
+      a += "<tr>";
       a += "<td style='background-color:" + hslObj.toHexString() + "'></td>";
       a += "<td style='text-align:right;'><b>" + HSL + "&nbsp;</b></td>";
       a += "<td><b>" + hslObj.toHexString() + "</b></td>";
@@ -904,13 +902,6 @@ function changeColor(value) {
   hslTable("sat");
   hslTable("light");
 }
-window.onload = function() {
-    var x = document.createElement("input");
-    x.setAttribute("type", "color");
-    if (x.type == "text") {
-        document.getElementById("html5DIV").style.visibility = "hidden";
-    }
-}
 function submitOnEnter(e) {
     keyboardKey = e.which || e.keyCode;
     if (keyboardKey == 13) {
@@ -920,10 +911,9 @@ function submitOnEnter(e) {
 </script>
 </head>
 <body>
-<div>
   <div class="w3-col l4 m12" style="text-align:center;">
     <div style="margin:auto;width:236px;">
-      <img style='margin-right:2px;' src='colormap.gif' usemap='#colormap' alt='colormap' />
+      <img style='margin-right:2px;' src='colormap.gif' usemap='#colormap'/>
       <map id='colormap' name='colormap' onmouseout='mouseOutMap()'>
       <area style='cursor:pointer' shape='poly' coords='63,0,72,4,72,15,63,19,54,15,54,4' onclick='clickColor("#003366",-200,54)' onmouseover='mouseOverColor("#003366")' alt='#003366' />
       <area style='cursor:pointer' shape='poly' coords='81,0,90,4,90,15,81,19,72,15,72,4' onclick='clickColor("#336699",-200,72)' onmouseover='mouseOverColor("#336699")' alt='#336699' />
@@ -1061,69 +1051,50 @@ var thisleft = "135";
       <div id='divpreview'>&nbsp;</div>
       <div id="entercolorDIV">
         <input type="text" id="entercolor" placeholder="输入颜色" onkeydown="submitOnEnter(event)" onfocus="clearWrongInput();" style="z-index:0;background:#cff;border:0;height:30px;padding-left:20px;border-radius:100vw 0 0 100vw;display:inline-block;width:100px;margin-right:0;">
-        <button class="btn btn-default" type="button" onclick="clickColor(0,-1,-1)" style="z-index:0;border:0;border-radius:0 100vw 100vw 0;background:#6cf;height:30px;display:inline-block;margin-left:0;padding-right:20px;">OK</button>
+        <button type="button" onclick="clickColor(0,-1,-1)" style="z-index:0;border:0;border-radius:0 100vw 100vw 0;background:#6cf;height:30px;display:inline-block;margin-left:0;padding-right:20px;">OK</button>
       </div>
       <div id="wronginputDIV">错误</div>
       <br>
       <div id="html5DIV">
-        <input type="color" id="html5colorpicker" onchange="clickColor(0, -1, -1, 5)" value="#ff0000" style="width:85%;">
-      </div>
-      <br>
-      <br>        
+        <input type="color" id="html5colorpicker" onchange="clickColor(0, -1, -1, 5)" style="width:85%;border:0;padding:0;">
+      </div>    
+      <br/>
+    </div>
+    <div id="selectedcolor">
+        <div style="background:#ffffff88;border-radius:10px;padding:5px;">
+            <div id="colornamDIV"></div>      
+            <div id="colorhexDIV"></div>
+            <div id="colorrgbDIV"></div>
+            <div id="colorhslDIV"></div>  
+        </div>
     </div>
   </div>
-  <div class="w3-col l4 m12" style="text-align:center;">
-    <div id="selectedcolor"></div>
-    <div id="colornamDIV"></div>      
-    <div><b><span id="colorhexDIV"></span></b></div>
-    <div id="colorrgbDIV"></div>
-    <div id="colorhslDIV"></div>    
-  </div>
-  <div class="w3-col l4 m12">
-    <div id="lumtopcontainer"></div>    
-  </div>
+  <div class="w3-col l4 m12"><div id="lumtopcontainer"></div>    </div>
 </div>
 <div id="huecontainer"></div>
-<div id="midcontentadcontainer" style="overflow:auto;text-align:center">
-</div>
+<div id="midcontentadcontainer" style="overflow:auto;text-align:center"></div>
 <div id="hslsatcontainer"></div>
 <div id="hsllumcontainer"></div>
-<h2>RGB</h2>
-<table class="w3-table w3-border" style="width:100%">
-<tr>
-    <th>Red</th>
-    <th>Green</th>
-    <th>Blue</th>
-</tr>
+<table style="width:100%">
 <tr>
     <td id="valRed"></td>
     <td id="valGreen"></td>
     <td id="valBlue"></td>
 </tr>
 <tr>
-    <td id="red" style="height:50px;background-color:red"></td>
+    <td id="red" style="height:30px;background-color:red"></td>
     <td id="green" style="background-color:green"></td>
     <td id="blue" style="background-color:blue"></td>
 </tr>
 <tr>
-    <td>
-<input oninput="changeRed(this.value)" onchange="changeRed(this.value)" type="range" id="slideRed" name="slideRed" min="0" max="255">
-</td>
-    <td>
-<input oninput="changeGreen(this.value)" onchange="changeGreen(this.value)" type="range" id="slideGreen" name="slideGreen" min="0" max="255">
-</td>
-    <td>
-<input oninput="changeBlue(this.value)" onchange="changeBlue(this.value)" type="range" id="slideBlue" name="slideBlue" min="0" max="255">
-</td>
+    <td><input oninput="changeRed(this.value)" onchange="changeRed(this.value)" type="range" id="slideRed" name="slideRed" min="0" max="255"></td>
+    <td><input oninput="changeGreen(this.value)" onchange="changeGreen(this.value)" type="range" id="slideGreen" name="slideGreen" min="0" max="255"></td>
+    <td><input oninput="changeBlue(this.value)" onchange="changeBlue(this.value)" type="range" id="slideBlue" name="slideBlue" min="0" max="255"></td>
 </tr>
 </table>
-<div id="change" style="height:50px"></div>
-<div id="fixed" style="height:50px"></div>
-<div class="w3-center" style="font-family:Consolas, 'Courier New', Courier, monospace">
-<span id="changetxt"></span><br>
-<span id="changetxthex"></span>
-</div>
-</div>
+<div id="change" style="height:30px"></div>
+<div id="fixed" style="height:30px"></div>
+<div style="text-align:center;"><span id="changetxt"></span><br><span id="changetxthex"></span></div>
 </div>
 </div>
 <script>
