@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>颜色选择器</title>
 <style>
-html{box-sizing:border-box;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;overflow-x:hidden}
-body{margin:0;padding:10px;}
+html{box-sizing:border-box;overflow-x:hidden;}
+::-webkit-scrollbar {width:0px;}
+body{margin:0;padding:0;background:#06f;}
+body>div{margin:10px auto;width:calc(100vw - 60px);background:#fff;padding:20px;display:table;content:"";clear:both;border-radius:20px;}
 .w3-col{float:left;width:100%;}
 @media (min-width:670px){.w3-col.l4{width:50%}}
 #selectedcolor {border-radius:10px;width:263px;height:200px;margin:auto;padding:20px;max-width:100%;}
@@ -792,6 +794,7 @@ function changeColor(value) {
 </script>
 </head>
 <body>
+<div>
   <div class="w3-col l4 m12" style="text-align:center;">
     <div style="margin:auto;width:236px;">
       <img style='margin-right:2px;' src='colormap.gif' usemap='#colormap'/>
@@ -949,6 +952,7 @@ function changeColor(value) {
     </div>
   </div>
   <div class="w3-col l4 m12"><div id="lumtopcontainer"></div></div>
+</div>
 </div>
 <script>
 clickColor(colorObj.toHexString());
