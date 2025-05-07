@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
 <head>
@@ -17,7 +16,6 @@ body>div{margin:10px auto;max-width:800px;width:calc(100vw - 60px);background:#f
 #selectedcolor {border-radius:10px;width:236px;height:200px;margin:auto;padding:20px;max-width:100%;}
 #divpreview {border:0;width:80px;height:20px;margin:5px auto;border-radius:5px;visibility:hidden;}
 #colorhexDIV, #colorrgbDIV, #colorhslDIV, #colornamDIV {font-size:20px;}
-#wronginputDIV {margin:5px;height:2px;width:100px;position:relative;left:35px;background:red;border-radius:100vw;display:none;}
 table{margin:2.5px auto;}
 tr{background:#ccf;margin:2.5px 0;}
 tr:nth-child(even){background:#9df;}
@@ -737,11 +735,11 @@ function clickColor(hex, seltop, selleft, html5) {
 }
 function wrongInput() {
     document.getElementById("entercolorDIV").className = "has-error";
-    document.getElementById("wronginputDIV").style.display = "block";
+    document.getElementById("entercolor").style.background = "#fcc";
 }
 function clearWrongInput() {
     document.getElementById("entercolorDIV").className = "";
-    document.getElementById("wronginputDIV").style.display = "none";
+    document.getElementById("entercolor").style.background = "#cff";
 }
 
 function hslLum_top() {
@@ -773,7 +771,7 @@ function hslLum_top() {
         a += "<tr style='height:5px;'></tr>";
         a += "<tr>";
         a += "<td style='background:#f9f;'><b>" + Math.round(l * 100) + "%&nbsp;</b></td>";
-        a += "<td style='background:" + w3color(hslObj).toHexString() + "'></td>";
+        a += "<td style='background:" + w3color(hslObj).toHexString() + "'><br><br></td>";
         a += "<td style='background:#f9f;'>&nbsp;<b>" + w3color(hslObj).toHexString() + "</b></td>";
         a += "</tr>";
         a += "<tr style='height:5px;'></tr>";
@@ -789,7 +787,6 @@ function hslLum_top() {
   a += "</table>";
   document.getElementById("lumtopcontainer").innerHTML = a;
 }
-
 function changeColor(value) {
   hslLum_top();  
   hslTable("hue");
@@ -938,10 +935,9 @@ function changeColor(value) {
       <div id='selectedhexagon'></div>
       <div id='divpreview'>&nbsp;</div>
       <div id="entercolorDIV">
-          <input type="text" id="entercolor" placeholder="颜色值" onkeydown="submitOnEnter(event)" onfocus="clearWrongInput();">
+          <input type="text" id="entercolor" placeholder="color..." onkeydown="submitOnEnter(event)" onfocus="clearWrongInput();">
           <button onclick="clickColor(0,-1,-1)">OK</button>
       </div>
-      <div id="wronginputDIV"></div>
       <br/>
     </div>
     <div id="selectedcolor">
@@ -954,7 +950,6 @@ function changeColor(value) {
     </div>
   </div>
   <div class="col"><div id="lumtopcontainer"></div></div>
-</div>
 </div>
 <script>
 clickColor(colorObj.toHexString());
