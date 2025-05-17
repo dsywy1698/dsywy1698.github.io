@@ -15,6 +15,8 @@
     html{scroll-behavior:smooth;font-size:100%;}
     body{margin:0;padding:0;font-family:"微软雅黑",sans-serif;background:#cff;}
     .clear{display:table;content:"";clear:both;}
+    p,il{line-height:1.5rem;letter-spacing:0.8px;}
+    h1,h2,h3,h4,h5,h6{color:#e9fbf7;}
     hr{color:#cff;border:1px solid #cff;border-radius:100px;}
     a{color:#ff6;}
     a:hover{color:#ff0;}
@@ -98,10 +100,9 @@
     #Index footer>ol>li{color:#66f;}
     @media screen and (min-width:1600px){
       header,main,footer{display:none;}
-      .big{display:block;color:red;padding:20px 5px;text-align:center;background:#e6ffff;height:100vh;}
+      .big{display:flex;justify-content:center;align-items:center;color:#06c;padding:20px 5px;text-align:center;background:#e6ffff;height:100vh;font-size:5rem;transition:0.5s;}
+      .big:hover{background:#cff;}
       .loading{display:none;}
-      .big p{font-size:5rem;}
-      .big i{font-size:38vw;}
     }
     @media screen and (min-width:900px){img{max-width:50vw!important;}}
     @media screen and (max-width:880px){#Index #siziren::before{content:"...";}}
@@ -150,7 +151,7 @@
     img{border-radius:15px;}
     audio{width:98%;margin:auto 1%;}
     .title_center{text-align:center;margin:7px;}
-    article{padding:10px;background:#09f;border-radius:20px;margin:2.5px 0;}
+    article{padding:10px;background:#09f;border-radius:20px;margin:2.5px 0;box-shadow:0 4px 8px 0 #3399ff33,0 6px 20px 0 #3399ff33;}
     article>p{text-indent:2em;margin:7px 0;}
     article i{display:inline;}
     img,video,.max-width,iframe{max-width:100%;object-fit:contain;}
@@ -164,10 +165,9 @@
     .size-small{color:#e6ccff;font-size:0.9375rem;}
     @media screen and (max-width:350px){
       header,main,footer{display:none;}
-      .small{display:block;color:red;padding:20px 5px;text-align:center;background:#e6ffff;height:100vh;}
+      .small{display:flex;justify-content:center;align-items:center;color:#06c;padding:20px 5px;text-align:center;background:#e6ffff;height:100vh;font-size:1.2rem;transition:0.5s;}
+      .small:hover{background:#cff;}
       .loading{display:none;}
-      .small p{font-size:1.6875rem;}
-      .small i{font-size:70vw;}
     }
     @media screen and (max-width:100px){*{display:none;}}
     
@@ -289,16 +289,8 @@
         <p>该网站仅为<strong>福州市东升小学2018级1班</strong>学生提供</p>
         <button onclick="loading()">直接跳过</button>
     </div>
-    <div class="small">
-        <i class="fa fa-exclamation-circle"></i>
-        <p>浏览器窗口过小，不支持显示……</p>
-        <span>请试着放大窗口或更换设备后再试。</span>
-    </div>
-    <div class="big">
-        <i class="fa fa-exclamation-circle"></i>
-        <p>浏览器窗口过大，不支持显示……</p>
-        <p>请试着缩小窗口或更换设备后再试。</p>
-    </div>
+    <div class="small"><p>请放大窗口</p></div>
+    <div class="big"><p>请缩小窗口</p></div>
     <div id="div" style="display:none">
     
     <div class="tabcontent" id="Index" style="display:block">
