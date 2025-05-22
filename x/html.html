@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -15,7 +16,6 @@ button{font-size:20px;background:#c9f;color:#000;border:0;padding:6px 20px;margi
 button:hover{background:#b366ff;}
 #dragbar{position:absolute;cursor: col-resize;z-index:3;padding:5px;}
 #shield{display:none;top:0;left:0;width:100%;position:absolute;height:100%;z-index:4;}
-#framesize span{font-family:Consolas,monospace;}
 #container{background-color:#03c;width:100%;overflow:hidden;;position:absolute;top:50px;bottom:0;height:auto;}
 #textareacontainer,#iframecontainer{float:left;height:100%;width:50%;}
 #textarea,#iframe{height:100%;width:100%;padding-bottom:10px;padding-top:1px;}
@@ -25,7 +25,7 @@ button:hover{background:#b366ff;}
 #textareaCode{background-color: #ffffff;font-family: consolas,"courier new",monospace;font-size:15px;height:100%;width:100%;padding:8px;resize: none;border:none;line-height:normal;}
 .CodeMirror.cm-s-default{line-height:normal;padding: 4px;height:100%;width:100%;}
 #iframeResult,#iframeSource{height:100%;width:100%;}
-.CodeMirror {font-family: Consolas,monospace;font-size:15px;height: 300px;color: black;border-radius:5px;}
+.CodeMirror {font-family:Consolas,"等线","微软雅黑",monospace,sans-serif;font-size:15px;height: 300px;color: black;border-radius:5px;}
 
 /* DEFAULT THEME */
 .cm-s-default .cm-header {color: blue;}
@@ -44,10 +44,8 @@ button:hover{background:#b366ff;}
 .cm-s-default .cm-def {color: black/*#00f*/;}
 .cm-s-default .cm-variable {color:black;}
 .cm-s-default .cm-m-css.cm-variable {color:mediumblue;}
-.cm-s-default .cm-punctuation {}
 .cm-s-default .cm-property {color:red;}
 .cm-s-default .cm-m-javascript.cm-property {color: black;}
-.cm-s-default .cm-operator {}
 .cm-s-default .cm-variable-2 {color:black/*#05a*/;}
 .cm-s-default .cm-variable-3 {color: #085;}
 .cm-s-default .cm-comment {color: green/*#a50*/;}
@@ -63,39 +61,6 @@ button:hover{background:#b366ff;}
 .cm-s-default .cm-attribute {color: red/*#00c*/;}
 .cm-s-default .cm-hr {color: #999;}
 .cm-s-default .cm-link {color: #00c;}
-/*NEW THEME*/
-body.newtheme .CodeMirror {
-  height: initial;
-}
-body.newtheme .cm-s-default .cm-keyword {color: #07a;}
-body.newtheme .cm-s-default .cm-atom {color: #07a;}
-body.newtheme .cm-s-default .cm-number {color: #07a;}
-body.newtheme .cm-s-default .cm-m-javascript.cm-number {color: #DD4A68;}
-body.newtheme .cm-s-default .cm-m-sql.cm-number {color: #DD4A68;}
-body.newtheme .cm-s-default .cm-def {color: #000;}
-body.newtheme .cm-s-default .cm-variable {color:#000;}
-body.newtheme .cm-s-default .cm-m-javascript.cm-variable {color: #DD4A68;}
-body.newtheme .cm-s-default .cm-m-css.cm-variable {color:#07a;}
-body.newtheme .cm-s-default .cm-punctuation {color: #999}
-body.newtheme .cm-s-default .cm-property {color:#DD4A68;}
-body.newtheme .cm-s-default .cm-m-javascript.cm-property {color: #DD4A68;}
-body.newtheme .cm-s-default .cm-operator {color:#9a6e3a;}
-body.newtheme .cm-s-default .cm-variable-2 {color:black/*#05a*/;}
-body.newtheme .cm-s-default .cm-variable-3 {color: #085;}
-body.newtheme .cm-s-default .cm-comment {color: slategray;}
-body.newtheme .cm-s-default .cm-string {color: #9a6e3a;}
-body.newtheme .cm-s-default .cm-m-javascript.cm-string {color: #690;}
-body.newtheme .cm-s-default .cm-m-sql.cm-string {color: #9a6e3a;}
-body.newtheme .cm-s-default .cm-string-2 {color: #f50;}
-body.newtheme .cm-s-default .cm-meta {color: #555;}
-body.newtheme .cm-s-default .cm-qualifier {color: #9a6e3a;}
-body.newtheme .cm-s-default .cm-builtin {color: #9a6e3a;}
-body.newtheme .cm-s-default .cm-tag {color: #905;}
-body.newtheme .cm-s-default .cm-bracket {color: #07a;}
-body.newtheme .cm-s-default .cm-attribute {color: #DD4A68;}
-body.newtheme .cm-s-default .cm-hr {color: #999;}
-body.newtheme .cm-s-default .cm-link {color: #00c;}
-body.newtheme .cm-s-default .cm-attribute+.cm-string {color: #07a;}
 /*DARK THEME*/
 body.darktheme .cm-s-default .cm-keyword {color: #88c999/*green*/;}
 body.darktheme .cm-s-default .cm-m-javascript.cm-keyword {color: #c5a5c5/*purple*/;}
@@ -184,10 +149,8 @@ body.darktheme .CodeMirror-focused .CodeMirror-selected { background: #0063e6;}
 <body>
 <div>
 <div style="overflow:auto">
-   <button onclick="submitTryit(1);ga('send', 'event', 'runCode', 'click');snhb.queue.push(function(){googletag.pubads().setTargeting('page_section',(function () {var folder = location.pathname;folder = folder.replace('/', ''); folder = folder.substr(0, folder.indexOf('/')); return folder + 'tryitUA'; })());snhb.startAuction(['try_it_leaderboard']);});">运行</button>
-   <span style="padding:8px;display:block;float:right!important;color:#fff"></span>
-   <span style="padding:8px 0;display:block;float:right!important;color:#fff">
-   <span id="framesize"></span></span>
+   <button onclick="submitTryit(1);ga('send', 'event', 'runCode', 'click');">run</button>
+   <span style="padding:8px;display:block;float:right!important;color:#fff;font-family:Consolas" id="framesize"></span>
 </div>
 </div>
 <div id="shield"></div>
