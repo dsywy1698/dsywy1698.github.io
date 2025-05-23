@@ -1,0 +1,376 @@
+
+    <div id="Waihao" class="tabcontent">
+    <nav>
+        <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
+        <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
+        <button onclick="openPage('Index', this)" title="返回首页"><i class="fa fa-home"></i></button>
+        <button class="menu"><i class="fa fa-navicon"></i></button>
+        <div class="dropdown-content">
+            <a href="#a-qmx">瞿眀爔</a>
+            <a href="#a-lyx">林煜昕</a>
+            <a href="#a-wym">吴一鸣</a>
+            <a href="#a-zwc">张炜承</a>
+            <a href="#a-zxy">张纤雅</a>
+            <a href="#a-lgy">刘圭宥</a>
+            <a href="#a-ycm">叶宸铭</a>
+            <a href="#a-dyz">董艳泽</a>
+            <a href="#a-c-yu-h">陈宇恒</a>
+            <a href="#a-lcj">吕楚鋆</a>
+            <a href="#a-xcz">谢承志</a>
+            <a href="#a-cr">陈锐</a>
+            <a href="#a-wxl">王湘琳</a>
+            <a href="#a-jyy">江玥瑶</a>
+            <a href="#a-lst">李诗彤</a>
+            <a href="#a-cmx">陈旻希</a>
+            <a href="#a-ghx">郭浩轩</a>
+            <a href="#a-czy">陈忠宇</a>
+            <a href="#a-chq">陈昊圻</a>
+            <a href="#a-cyc">蔡宇城</a>
+            <a href="#a-gyf">郭予凡</a>
+            <a href="#a-hyrc">何亦锐辰</a>
+            <a href="#a-zlj">郑隆俊</a>
+            <a href="#a-l-ze-c">林泽晨</a>
+            <a href="#a-zsy">曾诗芸</a>
+            <a href="#a-l-zi-c">刘子岑</a>
+            <a href="#a-gjj">郭吉家</a>
+            <a href="#a-clh">陈砾航</a>
+            <a href="#a-et">ET</a>
+            <a href="#a-ct">CT</a>
+            <a href="#a-mt">MT</a>
+            <a href="#a-at">AT</a>
+            <hr/>
+            <a onclick="openPage('Pupil', this)">学生</a>
+            <a onclick="openPage('Et', this)">ET</a>
+            <a onclick="openPage('Ct', this)">CT</a>
+            <a onclick="openPage('Mt', this)">MT</a>
+            <a onclick="openPage('At', this)">AT</a>
+            <a onclick="openPage('Mingyan', this)">名言</a>
+            <a onclick="openPage('Ds', this)">大事</a>
+        </div>
+    </nav>
+    <main>
+        <header>
+            <h1>外号</h1>
+        </header>
+        <hr/>
+        <h1>瞿眀爔</h1>
+            <div id="a-qmx">
+                <div><p class="name">男神</p><p class="text">CT对瞿眀爔成绩优秀的称呼，也是同学们称呼瞿眀爔最常用的外号</p></div>
+                <div><p class="name">标杆</p><p class="text">同上</p></div>
+                <div><p class="name">霍眀爔</p><p class="text">因“瞿”和“霍”相似而得名</p></div>
+                <div><p class="name">西瓜条</p><p class="text">因瞿眀爔有一件黑绿线条相间的衣服，颜色与西瓜相似，所以被称为“西瓜条”</p></div>
+                <div><p class="name">2&gt;3</p><p class="text">五年级出现，同学们就“瞿眀爔喜欢陈诺”这件事起的</p></div>
+                <div><p class="name">草履虫</p><p class="text">瞿眀爔自称</p></div>
+                <div><p class="name">不潮少年</p><p class="text">瞿眀爔的某件衣服上印着“不潮少年”四字</p></div>
+            </div>
+            <h1>林煜昕</h1>
+            <div id="a-lyx">
+                <div><p class="name">老母猪</p><p class="text">因林煜昕体型似猪而得名</p></div>	
+                <div><p class="name">Old Woman Pig</p><p class="text">“老母猪”（字面上）的英语</p></div>	
+                <div><p class="name">老母鸡</p><p class="text">“老母猪”的衍生外号</p></div>	
+                <div><p class="name">粉色眼镜</p><p class="text">林煜昕在以前因戴着粉色的眼镜而得名</p></div>	
+                <div><p class="name">林浴巾</p><p class="text">“林煜昕”的谐音</p></div>	
+                <div><p class="name">态度姐</p><p class="text">因林煜昕的性格而得名</p></div>
+                <div><p class="name">老班长</p><p class="text">因她是班长而得名。曾有这样一个梗：“老班长吃鱼骨头！”</p></div>
+                <div><p class="name">搬砖</p><p class="text">吴一鸣说的</p></div>
+            </div>
+            <h1>吴一鸣</h1>
+            <div id="a-wym">
+                <div><p class="name">Women's Day</p><p class="text">ET上课时教大家“Women's Day”（妇女节）这个单词，“Women”发音酷似“吴一鸣”而得名。在此之后，ET连续罚站三次，并让大家举起手，放学后拖堂到清校后。详见《ET日常1》</p></div>
+                <div><p class="name">777</p><p class="text">黄佳看班时派吴一鸣和张炜承扫地，因吴一鸣穿的衣服上有“777”字样而被称为“777”。张炜承因为是他的同桌，且穿蓝色衣服，而被称为“蓝777”</p></div>
+            </div>
+            <h1>张炜承</h1>
+            <div id="a-zwc">
+                <div><p class="name">蓝777</p><p class="text">见“777”</p></div>
+                <div><p class="name">张伟人</p><p class="text">CT课上经常说“伟人”</p></div>
+            </div>
+            <h1>张纤雅</h1>
+            <div id="a-zxy">
+                <div><p class="name">张纤维</p><p class="text">因体测时被体育老师念错而得名</p></div>	
+                <div><p class="name">张卷毛</p><p class="text">因张纤雅天生卷毛而得名</p></div>	
+                <div><p class="name">仙女</p><p class="text">CT上课时称她为“仙女”</p></div>
+            </div>
+            <h1>董艳泽</h1>
+            <div id="a-dyz">
+                <div><p class="name">董小姐</p><p class="text">CT对她的称呼</p></div>
+                <div><p class="name">蔡艳泽</p><p class="text">CT不慎说错她的名字而得名</p></div>
+                <div><p class="name">白眼怪</p><p class="text">董艳泽经常翻白眼而得名</p></div>
+            </div>
+            <h1>吕楚鋆</h1>
+            <div id="a-lcj">
+                <div><p class="name">吴楚銮</p><p class="text">一次午托点名，老师讲他错叫为“吕楚銮”，同学们又将他称为“吴楚銮”</p></div>	
+                <div><p class="name">西瓜</p><p class="text">CT因他的头像西瓜而给他起外号</p></div>
+            </div>
+            <h1>谢承志</h1>
+            <div id="a-xcz">
+                <div><p class="name">谢瑞</p><p class="text">叶宸铭起名</p></div>
+                <div><p class="name">谢橙汁</p><p class="text">“橙汁”与“橙汁”相近，谢承志自称</p></div>
+            </div>
+            <h1>陈锐</h1>
+            <div id="a-cr">
+                <div><p class="name">黑卤蛋</p><p class="text">陈锐因皮肤黝黑而得名</p></div>	
+                <div><p class="name">宝哥</p><p class="text">CT因陈锐父母开了“阿宝修车店”而得名</p></div>
+            </div>
+            <h1>江玥瑶</h1>
+            <div id="a-jyy">
+                <div><p class="name">姜太公</p><p class="text">因姓氏谐音而得名</p></div>	
+                <div><p class="name">瑶姐</p><p class="text">CT起的</p></div>
+                <div><p class="name">坑姐</p><p class="text">CT起的</p></div>
+            </div>
+            <h1>陈旻希</h1>
+            <div id="a-cmx">
+                <div><p class="name">iPad姐</p><p class="text">因陈旻希带平板被MT发现而得名</p></div>
+            </div>
+            <h1>郭浩轩</h1>
+            <div id="a-ghx">
+                <div><p class="name">郭杜鹃</p><p class="text"></p></div>
+                <div><p class="name">郑浩轩</p><p class="text">一次CT叫错名字而得名</p></div>
+            </div>
+            <h1>陈忠宇</h1>
+            <div id="a-czy">
+                <div><p class="name">排骨哥</p><p class="text">因陈忠宇的经典排骨而得名</p></div>
+            </div>
+            <h1>陈昊圻</h1>
+            <div id="a-chq">
+                <div><p class="name">好奇宝宝</p><p class="text">“好奇”与“昊圻”谐音</p></div>
+            </div>
+            <h1>蔡宇城</h1>
+            <div id="a-cyc">
+                <div><p class="name">蔡老头</p><p class="text">CT起的</p></div>
+            </div>
+            <h1>郭予凡</h1>
+            <div id="a-gyf">
+                <div><p class="name">郭鱼丸</p><p class="text">“鱼丸”谐音“予凡”，并且ET叫他时会读成“郭鱼凡”</p></div>
+            </div>
+            <h1>何亦锐辰</h1>
+            <div id="a-hyrc">
+                <div><p class="name">博士</p><p class="text">CT因他带着副眼镜而对他的称呼。此外，CT经常拿“吓到你没有”来整他</p></div>
+            </div>
+            <h1>郑隆俊（中岛隆骏）</h1>
+            <div id="a-zlj">
+                <div><p class="name">日本畸形胎</p><p class="text">同学们嘲笑郑隆俊（中岛隆骏）是日本人而起的外号</p></div>
+                <div><p class="name">潮流王八</p><p class="text">见“乌龟”</p></div>
+                <div><p class="name">耐克哥</p><p class="text">因郑隆俊整天都穿这一身耐克而得名</p></div>
+            </div>
+            <h1>林泽晨</h1>
+            <div id="a-l-ze-c">
+                <div><p class="name">清风</p><p class="text">林泽晨经典的微信昵称</p></div>
+                <div><p class="name">睡衣战神</p><p class="text"></p></div>
+            </div>
+            <h1>曾诗芸</h1>
+            <div id="a-zsy">
+                <div><p class="name">睡神</p><p class="text">因曾诗芸经常上课睡觉而得名</p></div>
+                <div><p class="name">睡美人</p><p class="text">同“睡神”</p></div>
+            </div>
+            <h1>刘子岑</h1>
+            <div id="a-l-zi-c">
+                <div><p class="name">刘子琴</p><p class="text">“岑”、“琴”字形相近</p></div>
+            </div>
+            <h1>郭吉家</h1>
+            <div id="a-gjj">
+                <div><p class="name">锅架</p><p class="text"></p></div>
+            </div>
+            <h1>陈砾航</h1>
+            <div id="a-clh">
+                <div><p class="name">校园歌手</p><p class="text"></p></div>
+                <div><p class="name">陈年老醋</p><p class="text"></p></div>
+            </div>
+            <hr/><hr/>
+            <h1>谢卉</h1>
+            <div id="a-et">
+                <div><p class="name">ET</p><p class="text">谢卉任教英语，“英语老师”英语是“English Teacher”，首字母缩写就是ET，CT、MT、AT同理。</p></div>
+                <div><p class="name">谢奔</p><p class="text">字形相似</p></div>
+                <div><p class="name">泄愤</p><p class="text">谐音</p></div>
+                <div><p class="name">思想品德姐</p><p class="text">ET曾说：“你们这是思想品德的问题！”</p></div>
+            </div>
+            <h1>杨文钦</h1>
+            <div id="a-ct">
+                <div><p class="name">CT</p><p class="text">“Chinese Teacher”的简称</p></div>
+                <div><p class="name">杨老登</p><p class="text">CT常见外号</p></div>
+                <div><p class="name">杨坤</p><p class="text">CT常见外号</p></div>
+                <div><p class="name">杨鸡巴</p><p class="text"></p></div>
+            </div>
+            <h1>欧榕</h1>
+            <div id="a-at">
+                <div><p class="name">AT</p><p class="text">“Math Teacher”的简称</p></div>
+                <div><p class="name">呕聋</p><p class="text">谐音，陈宇恒起名</p></div>
+            </div>
+            <h1>林炜钦</h1>
+            <div id="a-mt">
+                <div><p class="name">MT</p><p class="text">“Art Teacher”的简称</p></div>
+                <div><p class="name">杨二代</p><p class="text">MT有时会和CT一样偏题，于是被称“杨二代”。</p></div>
+            </div>
+    </main>
+    <footer>
+        <p>网页到底了！</p>
+    </footer>
+    </div>
+    
+    <div id="Mingyan" class="tabcontent">
+    <nav>
+        <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
+        <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
+        <button onclick="openPage('Index', this)" title="返回首页"><i class="fa fa-home"></i></button>
+        <button class="menu"><i class="fa fa-navicon"></i></button>
+        <div class="dropdown-content">
+            <a href="#b-et">ET</a>
+            <a href="#b-ct">CT</a>
+            <a href="#b-mt">MT</a>
+            <a href="#b-at">AT</a>
+            <a href="#b-lgy">刘圭宥</a>
+            <a href="#b-qmx">瞿眀爔</a>
+            <a href="#b-qzh">邱子韩</a>
+            <a href="#b-ycm">叶宸铭</a>
+            <a href="#b-wxl">王湘琳</a>
+            <a href="#b-xcz">谢承志</a>
+            <hr/>
+            <a onclick="openPage('Pupil', this)">学生</a>
+            <a onclick="openPage('Et', this)">ET</a>
+            <a onclick="openPage('Ct', this)">CT</a>
+            <a onclick="openPage('Mt', this)">MT</a>
+            <a onclick="openPage('At', this)">AT</a>
+            <a onclick="openPage('Waihao', this)">外号</a>
+            <a onclick="openPage('Ds', this)">大事</a>
+        </div>
+    </nav>
+    <main>
+        <header>
+            <h1>名言</h1>
+        </header>
+        <hr/>
+        <h1>CT</h1>
+        <p></p>
+        <div id="b-ct">
+            <p>来，蹲出来~</p>
+            <p>下课跟我走哈~</p>
+            <p>不该错的错了要抄出来做！</p>
+            <p>要用递等式~</p>
+            <p>要不要上来介绍一下自己？</p>
+            <p>越优秀，越努力~</p>
+            <p>我教了三十几年书都有做批注~</p>
+            <p>密密麻麻，麻麻密密～</p>
+            <p>我明天会一个、一个地检查~</p>
+            <p>我会让你自己把笔折断~</p>
+            <p>我画画很烂的~</p>
+            <p>我会到午餐版给你唱赞美诗~</p>
+            <p>要用尺子~</p>
+            <p>快闪一下~</p>
+            <p>鼓掌都不会鼓？</p>
+            <p>谁又去动电脑了？</p>
+            <p>我一节课要把它干完~</p>
+            <p>我数数数不过十~</p>
+            <p>都没写我语文~</p>
+            <p>好玩！好玩……</p>
+            <p>我最讨厌下课有人在讲台上跑~</p>
+            <p>我上次是站在这里讲的~</p>
+            <p>……你个死人头！</p>
+            <p>诗彤！你让我失望了~</p>
+            <p>不想听可以睡觉。</p>
+            <p>这个是考点~</p>
+            <p>我从来都是说话算数的~</p>
+            <p>要不要陪我站？</p>
+            <p>这篇课文从你们爷爷那一代起就开始读了。</p>
+            <p>我这个人很坏的~</p>
+            <p>我请三个人来汇报！</p>
+            <p>你这个白痴病得不轻~</p>
+            <p>不听是你的损失~</p>
+            <p>不预习你跟不上节奏~</p>
+            <p>……开始发力了~</p>
+            <p>没有把握先用铅笔~</p>
+            <p>快一点不然等下讲不完。</p>
+            <p>我跟后面不一样哈！</p>
+            <p>我手机里没有一个游戏~</p>
+            <p>我的笔没有瓦特(water)了~</p>
+            <p>把九三（五三）拿出来~</p>
+            <p>我一般不拖课~</p>
+            <p>这是我第一次拖课~</p>
+            <p>我每节课至少展示一个人~</p>
+            <p>我喜欢用蓝色的粉笔~</p>
+            <p>我上课要用白色的、蓝色的、红色的、黄色的、绿色的……粉笔～</p>
+            <p>猴子，吃药了没？</p>
+            <p>你们都是瞿明爔的书童~</p>
+            <p>陈诺能跟我产生共鸣~</p>
+            <p>我写的字没有人可以模仿~</p>
+            <p>嘴巴还在吃东西呀？</p>
+            <p>后面的答案是狗屎~</p>
+            <p>第二组的桌子每次都要我讲~</p>
+            <p>我对大家都是一视同仁的，而且会对班干部更加严格~</p>
+            <p>这个是害人健操，一直在眼睛上摸摸摸……继续用你们脏兮兮的手去摸你们那明亮的眼睛吧~</p>
+            <p>你满脸都是牙齿~</p>
+            <p>湘琳是我的好帮手~</p>
+            <p>停笔，等一下会有时间给你们抄。</p>
+            <p>我写的字要联系上下文才能看得懂~</p>
+            <p>你的书比你的脸还白~</p>
+            <p>我很讨厌这个下课铃声。</p>
+            <p>你们几个组长都给我去厕所反思。</p>
+            <p>小声念~</p>
+            <p>以后二类课文都是自学~</p>
+            <p>我不喜欢拖课~</p>
+            <p>……有的家长说一本好~有的家长说黄冈好~……</p>
+            <p>眼睛是有记忆力的~</p>
+            <p>得作文者得语文，得语文者得天下~</p>
+            <p>该站的人站起来~</p>
+            <p>哎呀！卧槽！</p>
+            <p>我写的字跟母猪一样~</p>
+            <p>是骡是马，拉出来遛一遛就知道了~</p>
+            <p>不作死就不会死~</p>
+            <p>教室里都是灰尘的味道~</p>
+            <p>我喜欢听风扇的声音~</p>
+            <p>你永久蹲出来~</p>
+            <p>我会把你摁在地上摩擦~</p>
+            <p>……喝酒班、抽烟班、打架班、纹身班……</p>
+        </div>
+        <h1>ET</h1>
+        <div id="b-et">
+            <p>你以为你很拽呀？我拽起来比你更拽！不信我现在就可以拽给你看！</p>
+            <p>不要给脸不要脸！</p>
+            <p>你们这是思想品德的问题！</p>
+            <p>我一怒之下把他的新启航扔到了楼下。</p>
+            <p>你，在干什么？站到后面去！</p>
+            <p>这周末刚好有个周末。</p>
+            <p>闭上你的狗嘴！</p>
+            <p>如果还在讲的话，我们就第四节、第五节课留下来。</p>
+            <p>我的鞭子可不长眼睛。</p>
+            <p>手背眼睛，怎么放？</p>
+            <p>你看，到现在，还有两位同学在小声地讲话。</p>
+            <p>要不要去隔壁找林老师？</p>
+            <p>来，全体起立！</p>
+            <p>一二三，三二一！</p>
+            <p>吃饱了是不是！</p>
+            <p>干什么！</p>
+            <p>你睡着了再过来跟我讲！</p>
+            <p>不会站就给我站着。</p>
+            <p>来你，带上英语书和作业纸，去五楼办公室把单词抄三遍。</p>
+            <p>……人！</p>
+            <p>哎呀我这一把年纪了还吃什么糖呢？</p>
+        </div>
+        <h1>MT</h1>
+        <div id="b-mt">
+            <p>来，科纸折八格。</p>
+            <p>来，14个组长……</p>
+            <p>好，来……</p>
+            <p>知识梳理，三遍。</p>
+            <p>好玩吗！</p>
+            <p>闹什么！</p>
+            <p>现在是我的手机时间</p>
+        </div>
+        <h1>AT</h1>
+        <div id="b-at">
+            <p>好，全部起立。</p>
+            <p>坐下的人可以把作业（zuō̄yē）拿出来做。</p>
+        </div>
+        <hr/><hr/>
+        <h1>瞿眀爔</h1>
+        <div id="b-qmx">
+            <p>最……的一集。</p>
+        </div>
+        <h1>邱子韩</h1>
+        <div id="b-qzh">
+            <p>我多么盼望啊！我现在已经12岁了。</p>
+            <p>我和我的爱母撒娇道：</p>
+        </div>
+        <h1>谢承志</h1>
+        <div id="b-xcz">
+            <p>你他妈有毛病啊！</p>
+            <p>死妈仔。</p>
+        </div>
