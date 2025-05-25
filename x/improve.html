@@ -195,65 +195,75 @@
         <p>网页仅为<strong>福州市东升小学2018级1班</strong>提供</p>
         <div id="progress-container" style="max-width:300px;height:30px;background:#6cf;border-radius:100vw;margin:5px auto;"><div id="progress-text" style="z-index:2;position:absolute;color:#cff;padding:2px 5px;">0%</div><div id="progress-bar" style="height:100%;width:0%;background:linear-gradient(90deg, #06f, #39f);transition:width 0.3s ease;border-radius:100vw;min-width:30px;"></div></div>
         <button onclick="loading()">跳过</button><div style="color:#fff;padding:5px;margin:30px auto;max-width:300px;"><p style="transition:opacity 0.2s;margin:0;padding:0;font-weight:200;" id="carouselText"></p></div>
-        <script>
-// 获取进度条元素
-        const progressBar = document.getElementById('progress-bar');
-        const progressText = document.getElementById('progress-text');
-        
-        // 获取所有需要加载的资源
-        const resources = document.querySelectorAll('img, script, link[rel="stylesheet"], iframe, video, audio');
-        
-        // 如果没有资源需要加载，直接显示100%
-        if (resources.length === 0) {
-            updateProgress(100);
-            return;
-        }
-        
-        // 初始化变量
-        let loadedCount = 0;
-        let totalWeight = resources.length;
-        
-        // 给DOMContentLoaded事件分配权重
-        totalWeight += 1;
-        let domContentLoadedFired = false;
-        
-        // 监听DOMContentLoaded事件
-        document.addEventListener('DOMContentLoaded', () => {
-            domContentLoadedFired = true;
-            updateProgress(++loadedCount / totalWeight * 100);
-        });
-        
-        // 检查已经缓存的资源
-        resources.forEach(resource => {
-            if (resource.complete || resource.readyState === 4) {
-                updateProgress(++loadedCount / totalWeight * 100);
-            } else {
-                resource.addEventListener('load', resourceLoaded);
-                resource.addEventListener('error', resourceLoaded); // 即使出错也计入
+        <script>// 替换上面的<script>部分
+const progressBar = document.getElementById('progress-bar');
+const progressText = document.getElementById('progress-text');
+let totalResources = 0;
+let loadedResources = 0;
+
+// 使用MutationObserver检测动态添加的资源
+const observer = new MutationObserver(mutations => {
+    mutations.forEach(mutation => {
+        mutation.addedNodes.forEach(node => {
+            if (node.nodeType === 1) { // 元素节点
+                const newResources = node.querySelectorAll('img, script, link[rel="stylesheet"], iframe, video, audio');
+                monitorResources(newResources);
+                
+                // 如果是资源元素本身
+                if (node.tagName === 'IMG' || node.tagName === 'SCRIPT' || 
+                    (node.tagName === 'LINK' && node.rel === 'stylesheet') || 
+                    node.tagName === 'IFRAME' || node.tagName === 'VIDEO' || 
+                    node.tagName === 'AUDIO') {
+                    monitorResources([node]);
+                }
             }
         });
-        
-        // 资源加载完成回调
-        function resourceLoaded() {
-            updateProgress(++loadedCount / totalWeight * 100);
+    });
+});
+
+observer.observe(document.body, {
+    childList: true,
+    subtree: true
+});
+
+// 初始资源监测
+const initialResources = document.querySelectorAll('img, script, link[rel="stylesheet"], iframe, video, audio');
+monitorResources(initialResources);
+
+function monitorResources(resources) {
+    resources.forEach(resource => {
+        totalResources++;
+        if (resource.complete || resource.readyState === 4) {
+            resourceLoaded();
+        } else {
+            resource.addEventListener('load', resourceLoaded);
+            resource.addEventListener('error', resourceLoaded);
         }
-        
-        // 最终检查
-        window.addEventListener('load', () => {
-            // 确保所有资源都被计入
-            while (loadedCount < totalWeight) {
-                updateProgress(++loadedCount / totalWeight * 100);
-            }
-            
-            // 确保显示100%
-            updateProgress(100);
-                    
-        // 更新进度条
-        function updateProgress(percent) {
-            percent = Math.min(100, Math.max(0, percent));
-            progressBar.style.width = percent + '%';
-            progressText.textContent = Math.round(percent) + '%';
-        }
+    });
+    
+    // 更新进度（可能有已经加载的资源）
+    updateProgress();
+}
+
+function resourceLoaded() {
+    loadedResources++;
+    updateProgress();
+}
+
+function updateProgress() {
+    const percent = totalResources > 0 
+        ? Math.min((loadedResources / totalResources) * 100, 100)
+        : 100; // 如果没有资源，直接显示100%
+    
+    progressBar.style.width = percent + '%';
+    progressText.textContent = Math.round(percent) + '%';
+}
+
+// 确保最终达到100%
+window.addEventListener('load', () => {
+    loadedResources = totalResources;
+    updateProgress();
+});
         
         
         const texts = [
