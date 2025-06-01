@@ -23,10 +23,9 @@
     .example::-webkit-scrollbar,.box>a::-webkit-scrollbar,html:-webkit-scrollbar,.dropdown-content::-webkit-scrollbar{display:none!important;}
     .example,.box>a,html,.dropdown-content{-ms-overflow-style:none!important;scrollbar-width:none!important;}
     .tabcontent{display:none;}
-    ::-webkit-selection{color:#e6f0ff;background:#80b3ff66;}
     ::-moz-selection{color:#e6f0ff;background:#80b3ff66;}
     ::selection{color:#e6f0ff;background:#80b3ff66;}
-    nav{background:#ccffffaa;position:fixed;width:98.8vw;z-index:1;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);margin:0.6vw;border-radius:20px;}
+    nav{background:#ccffffaa;position:fixed;width:98.8vw;z-index:1;backdrop-filter:blur(20px);box-shadow:0 4px 8px 0 #0066ff11,0 6px 20px 0 #0066ff11;margin:0.6vw;border-radius:20px;}
     nav button{text-decoration:none;color:#36c;display:inline-block;padding:7px;margin:3px;font-size:1.25rem;border:none;background:transparent;border-radius:10px;transition:0.2s;}
     nav button:hover{background:#66ccff88;}
     .dropdown-content{display:none;width:100%;-webkit-animation-name:menu;-webkit-animation-duration:0.3s;animation-name:menu;animation-duration:0.3s;overflow:auto;left:0;border-top:1px solid #3cf;height:400px;}
@@ -63,8 +62,8 @@
     img,video,.max-width,iframe{max-width:100%;object-fit:contain;}
     .img_box{padding:10px;margin:10px 0;border-radius:15px;background:linear-gradient(#0099cc 0%,#0099cc77 90%);text-align:center;}
     .img_box p{color:#e6f9ff;margin:10px 0;}
-    .say{background:#6fc;color:#060;text-align:center;padding:10px;font-size:1.5625rem;margin:5px 0;border-radius:10px;}
-    .say>i{color:#c3f;font-size:1.875rem;}
+    .say{background:#e6b3ff;color:#203;text-align:center;padding:10px;font-size:1.5625rem;margin:5px 0;border-radius:10px;box-shadow:0 4px 8px 0 #ff33cc55,0 6px 16px 0 #ff33cc44;}
+    .say>i{color:#f39;font-size:1.875rem;}
     li{color:#ffe6cc;}
     ol>p,ul>p{font-size:0.9375rem;margin:5px;margin-left:25px;color:#9df;}
     ul>ul>p,ol>ol>p,ol>ul>p,ul>ol>p{color:#ffcce6;}
@@ -171,7 +170,7 @@
     #Pupil .wxl{padding:7px;border-radius:30px;background:#a300cc;}
     #Pupil .wxl>p{display:block;padding:8px 16px;margin:5px;border-radius:20px;background:#db4dff;color:#fff;}
     #Pupil .img_50>img{width:50%;float:left;}
-    #Pupil #love{height:600px;overflow:auto;background:#9966ff;padding:10px;border-radius:20px;border:2px solid #73f;}
+    #Pupil #love{height:400px;overflow:auto;background:#9966ff;padding:10px;border-radius:20px;border:2px solid #73f;width:80vw;margin:auto;}
     #Pupil #love>p{margin:5px 0;}
     #Pupil .zw{background:#336699dd;padding:5px 15px 20px 15px;border-radius:20px;margin:10px 0;}
     #Pupil .zw>h2{text-align:center;}
@@ -202,7 +201,7 @@
             <button onclick="loading()">跳过</button>
         </div>
         <script>
-        const texts = ["今晚我家只有我一个人","顾兮——爱惜","微胖才是YYDS","你永久蹲出来","这周末刚好有个周末","知识梳理，3遍","×××和余佳皓在3楼拉大便","用爱唤醒学生的心灵","如果可以","好，全部起立","你连比亚迪都买不起","算了算了，就来个蚂蚁生存吧","身上的勾比卷子上的还多","Women's Day!","你去5楼把单词抄3遍","你，在干什么？站到后面去！","越优秀，越努力~","我现在已经12岁了"];
+        const texts = ["今晚我家只有我一个人","顾兮——爱惜","微胖才是YYDS","你永久蹲出来","这周末刚好有个周末","知识梳理，3遍","×××和余佳皓在3楼拉大便","用爱唤醒学生的心灵","如果可以","好，全部起立","你连比亚迪都买不起","算了算了，就来个蚂蚁生存吧","身上的勾比卷子上的还多","Women's Day","你去5楼把单词抄3遍","你，在干什么？站到后面去！","越优秀，越努力","我现在已经12岁了","请你们喝星巴克（蜜雪冰城）","女性乘务员","承诺是金","葵花宝典","把93拿出来做","我的红笔没有water了","我的鞭子不长眼镜"];
         let currentIndex = 0;
         const carouselText = document.getElementById('carouselText');
         carouselText.textContent = texts[currentIndex];
@@ -353,7 +352,7 @@
     </main>
     <footer>
         <ol>
-            <li>该网站仅针对<strong>福州市东升小学2018级1班学生</strong>，且内容完全真实。</li>
+            <li>该网站仅针对<strong>福州市东升小学2018级1班学生</strong>。</li>
             <li>该网站不支持在旧版本浏览器（如IE）、过大或过小窗口显示。</li>
             <li>部分图像源于网络，可能无法显示，如有侵权将删除。</li>
             <li>文本可能出现错别字。</li>
@@ -2781,7 +2780,7 @@
         ctx.fillText("用，查看升级详情：", 70, 300);
         ctx.fillStyle="blue";
         ctx.font="45px serif";
-        ctx.fillText("链接链接链接链接链接链接链接链接链接", 95,450);	
+        ctx.fillText("https:// ...... .com/ ...... .html", 95,450);	
         }
         draw();
         </script>
@@ -3328,7 +3327,7 @@
         </ol>
         <hr/>
         <h1 id="sj">手机</h1>
-        <p>CT支持国货，用的正是华为mate30。他给手机套的壳是红色的，底部有挂绳，方便从口袋拿取。</p>
+        <p>CT支持国货，用的手机是华为mate30。他给手机套的壳是红色的，底部有挂绳，方便从口袋拿取。</p>
         <p>据知情人透露，CT的锁屏壁纸是美女。CT竟然没给手机设置密码，上课时，CT一滑，直接打开。CT还说过：“我手机里没有一个游戏~”不知是真是假。</p>
         <p>而且CT在四年级时说“父母不要加自己的微信”，只能打电话。</p>
         <h2>铃声</h2>
@@ -3359,31 +3358,30 @@
         <p>然后，CT就只好点“OK”，页面就会跳转至以蓝色为背景的一个操控台。而CT又回去点小花朵里的展台，结果当然又是没接高拍仪……如此循环。直到一些“假惺惺”指点后，CT才明白要去“内置电脑”里点击“鸿合视频展台”。有一次，郑权楷见CT弄不来，便忍不住跑上讲台帮忙：“老师，不要浪费时间了，我来帮你弄吧！”</p>
         <p>有时，CT还会意外点到其他地方，比如把触屏给关闭。这还不算厉害的。有一次，CT直接点出了墨鱼丸，不一会儿就出现视频的声音。</p>
         <h2>倒计时</h2>
-        <p>当CT“给大家五分钟讨论”时，就有机会触发CT按倒计时这个操作。他会来到那个蓝色控制台，里面就有倒计时功能，调好时间后，就可以直接开始计时。</p>
+        <p>当CT“给大家五分钟讨论”时，就有机会触发CT按倒计时这个操作。他会点开那个蓝色控制台，里面有倒计时功能，调好时间后，就可以直接开始计时。</p>
         <p>不过，每当倒计时结束时，都会响起刺耳的女高音。</p> 
         <hr/>
         <h1 id="sk">上课</h1>
         <p>说实话，CT上课的质量着实不咋地，几乎是“水”过去的。每次上课都只讲一些小标题、修辞手法。</p>
         <p>而且，CT上课质量不是保持在一条线上，而是呈断崖式下降。刚开始教我们时起码还挺认真，到后面甚至懒得教。</p>
         <p>六年级前，CT也会有一些课件，不过通常只是选择其中的几页去讲；六年级后CT就用自己的书来讲了。</p>
-        
         <h2>课前</h2>
         <p>四、五年级时，同学们会在CT课前观察CT动向。每次语文课前，大批人马在栏杆旁蹲点，关注CT是否出办公室。一旦发现CT有走向班里的可能，就会开启高度预警。这时，班级里就会乱成一锅粥，同时引发更多学生出门观察。</p>
+        <p>大家会根据CT所到楼层实时通报，如：</p>
         <article>
-            <p>“一楼了！”同学们杀鸡似地喊着，教室里补东西的人也随之加快速度，没补的人赶忙掏出语文书，摆放在一侧，双手迅速放平。教室里的人手忙脚乱，说得夸张点就是“鬼哭狼嚎、哀鸿遍野”。不少人还起哄起来，发出刺耳的警报声：“呜——呜——呜——呜——呜——”</p>
-            <p>外面的一些人转移到了楼梯口继续观察，不少人哨兵似的来来回回、通风报信，你看：</p>
+            <p>“一楼了！”</p>
             <p>“二楼！”</p>
-            <p>每喊一声，就引起一阵混乱，电影都未必能拍出这种效果。做批注的三人还在坚持，不到最后一刻决不放弃。桌面上的语文书、笔盒、优化、五三、课堂笔记、答案、方格纸……横七竖八地躺着。教室里还响起了另一些声音：</p>
             <p>“CT五秒后到达战场！”</p>
             <p>“杨坤要来啦！”</p>
-            <p>一些放哨的人打起了退堂鼓，不过还有一些坐在教室里的人走出教室。CT仍在一步步靠近，每一步都是同学们的心悬起一点。</p>
-            <p>一步、两步……</p>
             <p>“三楼了！！！”</p>
-            <p>随着这一声喊，最后的逃亡开始了。放哨的人连滚带爬地冲进教室，冲到座位上，胡乱的拿出语文书。门口进出的人可不只是一两个了，可是一二十个！在门口的人成功逃脱的都在位子上喘着粗气，而另一类人可没那么好运了：有摔倒的，有磕到展台的，有把桌子撞歪的……所幸大家都成功地在CT到来前归位，走廊外又恢复了往日的喧嚣。</p>
-            <p>那些补作业、补批注的，也只好停下来，把语文书一合，笔盒一抬，书本一滑，笔盒一放，双手一搭，仿佛什么事都没发生。教室里充满了凝重的气氛，同学们都看着门口，不敢讲话，等待着那个恐怖身影的到来。</p>
-            <p>一秒、两秒……</p>
-            <p>身影出现了。起先出现的是肚子，像一个山丘；然后，肚子逐渐变大，脸也露出来了；随后，同学们终于看到了CT的全貌——同学们坐得更直了——尤其是瞿明爔，总是能装得很到位。</p>
-            <p>CT几乎是靠着柱子进来的。他一边手夹着满满当当的文件夹，一手托着手机，不知道的还以为是在臭美。不用猜，CT肯定是在刷视频，至于刷的是什么内容，班上没人知道。CT曾说自己刷的都是一些政治新闻、中国历史、人与自然之类的“益智”内容，不过谁也不知道CT说的是真是假。大多数人都认为：CT刷的是擦边美女。</p>
+        </article>
+        <p>班级的混乱程度也会随着CT的接近而加剧。同时会有人起哄，发出警报声：“呜——呜——呜——呜——呜——……”</p>
+        <p>放哨的人在CT上楼后会转移到楼梯口观察，并且在班级和楼梯间走动，以便通报。有一些人在CT到达2楼时停止放哨，回班准备。而剩下的一些人则会参与终极逃亡：他们会连滚带爬地冲进教室，冲到座位上，胡乱地拿出语文书。门口通常会出现拥挤，撞到东西在所难免。成功逃脱的人都在位子上喘着粗气，而一些人可能面临摔倒、磕到展台、把桌子撞歪等，被CT发现的概率直线上升。不过一般大家都能成功地在CT到来前归位，一些幸运儿除外。</p>
+        <p>但混乱不只体现在放哨的人，教室里的学生也会进入紧急状态。一些人会赶紧拿出书（优化）补预习（预做），动作慌乱，桌上的语文书、笔盒、优化、五三、课堂笔记、答案、方格纸杂乱无章，同时关注CT的位置。当CT快到时，那些补作业、批注的也只好停下来，把语文书一合，笔盒一抬，书本一滑，笔盒一放，双手一搭，仿佛什么事都没发生。教室里充满了凝重的气氛，同学们都看着门口，不敢讲话，等待着CT的到来。</p>
+        <p>CT进班的动作颇具特色：</p>
+        <article>
+            <p>起先出现的是肚子，像一个山丘；然后，肚子逐渐变大，脸也露出来了；随后，同学们终于看到了CT的全貌。</p>
+            <p>CT几乎是靠着柱子进来的。他一边手夹着满满当当的文件夹，一手托着手机刷视频。</p>
         </article>
         <p>还有一些人会帮忙准备东西，也就是假惺惺。</p>
         <p>就算CT到了三楼（五年级是4楼），还会有几个人抓住最后的时机观察——这些人有时还会被CT抓住。有时动静搞太大了，CT到班后就开始进行“审判”。</p>
@@ -3427,13 +3425,13 @@
         <h2>整人</h2>
         <p>CT说过：“宁可不上课也要整人~”CT对于自己整人的方式非常满意。从四年级初，CT就说过“自己和别的老师不一样”：别的老师动不动发怒，而CT则喜欢“小声地、笑笑地整人”，说是让你更加难堪。</p>
         <p>CT也说过“我从来不骂人”。可是从撕优化事件中可知，CT也有骂人的时候。</p>
-        <p>CT还喜欢“最后一节整人”，原因之一就是临近放学，可以让目标到门口找他。</p>
+        <p>CT还喜欢“最后一节整人”，原因之一就是临近放学，可以让目标到门口找他，使那人当着全校的面出丑；同时利用学生“想着快点放学”的心理，增强整人效果。</p>
         <h2>检查</h2>
         <p>CT也经常检查，像检查批注、检查预做情况都是家常便饭。CT会说：“把……翻开，我一个个检查。”此时，那些没做批注/没预做的人要么听天由命，要么就是赶在CT检查前补一点内容。</p>
         <p>这时，CT的“偏心”就体现出来，如果是坏学生未达到CT要求，CT就会小题大做，轻则讲他几句，重则蹲出来，并把书扔到地上；如果是好学生则根本不理睬。例如检查写信作文订正，张纤雅只摆了一本语文书在桌面上，CT走过时竟然啥反应都没有。</p>
         <h2>门口木桌</h2>
         <p>每次早读，门口木桌是CT必然出没的地方。CT进教室后，只是巡视一番，然后就会来到木桌旁坐下，开始刷视频或者改作业、写（自己）的优化、五三。所以，早读课基本上是在自习。</p>
-        <p>而且CT很注重门口木桌的整齐程度，还特地吩咐蔡宇城、陈彦豪二人每节下课去整理。</p>
+        <p>而且CT很注重门口木桌的整齐，还特地吩咐蔡宇城、陈彦豪二人每节下课去整理。</p>
         <h2>偏题</h2>
         <p>这个东西可有来头了。CT上课时，总是讲着讲着就讲到别的东西去，又从别的东西拓展到另外一个东西。这样拓展的时间长了，你就会发现CT讲的东西已经和课文半毛钱关系都没有了。而且这一点CT能够做到自然、循序渐进。CT有时候也会说“自己会讲一些课外的知识，小学用不上的话初中就能用上，初中用不上的话高中用得上……”这类语言。不过同学们给CT的这种行为起了另外一个更生动、形象的标题，叫做“偏题”。</p>
         <p>CT偏题的例子有很多，例如：</p>
@@ -3523,7 +3521,7 @@
         <p>由此可以联想到，CT叫错人名字时也说是故意的，还说等一下会解释原因。</p>
         <h2>改作业</h2>
         <p>CT改的作业很“独特”。CT的勾是一个经典，他的勾一般都是横着的一条，尾部有尖角、墨水等东西。有时候打勾打到右边一页了，看起来就像有两个勾。</p>
-        <p>六年级下学期，同学们开始流行不交优化、五三。这是他们就会自己模仿CT的样子打勾。CT说，自己都有在作业上做记号，于是大家模仿CT打勾时，会刻意在空白处用红笔画一下，并用手指划过它，把它晕染开来，这也是CT打勾的印记，不知是不是CT口称的“记号”（可能记号是骗人的）。</p>
+        <p>六年级下学期，同学们开始流行不交优化、五三。这时他们就会自己模仿CT的样子打勾。CT说，自己都有在作业上做记号，于是大家模仿CT打勾时，会刻意在空白处用红笔画一下，并用手指划过它，把它晕染开来，这也是CT打勾的印记，不知是不是CT口称的“记号”（可能记号是骗人的）。</p>
         <p>对于错题，CT则会打圈（CT从不打叉）。当订正时，需用红笔在错题旁写上“订正”二字，再写上正确答案。事实上，很少人会真正去订正。</p>
         <p>如果有“没做完也敢交上来”的部分，CT会打问号。CT表示，如果有三个问号，则那个人会非常危险。</p>
         <p>CT打问号还可能有其他原因，如没用递等式就会被打3个问号。</p>
