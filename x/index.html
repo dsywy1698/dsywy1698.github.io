@@ -15,7 +15,7 @@
     html{scroll-behavior:smooth;font-size:100%;}
     body{margin:0;padding:0;font-family:"微软雅黑",sans-serif;background:#e6ffff;}
     .clear{display:table;content:"";clear:both;}
-    p,il{line-height:1.5rem;letter-spacing:0.8px;}
+    p,li{line-height:1.5rem;letter-spacing:0.8px;}
     hr{color:#cff;border:1px solid #cff;border-radius:100px;}
     a{color:#ff6;}
     a:hover{color:#ff0;}
@@ -51,6 +51,26 @@
     header>div{background:linear-gradient(#0f9 0%,#00ff99bb 90%);color:#030;display:table;content:"";clear:both;padding:20px;border:3px solid #090;border-radius:25px;margin:20px;}
     header>div>p>i{border:2px solid blue;padding:7px;border-radius:5px;}
     footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:200px;color:#66f;}
+    main:not(#Index>main){background:#06f;padding:10px;animation-name:main;animation-duration:2s;padding-top:4em;animation-fill-mode:forwards;color:#fff;}
+    @keyframes main{0%{background:#e6ffff;color:#000000;}30%{background:#e6ffff;color:#000000;}100%{background:#06f;/*#03c*/color:#ffffff;}}
+    img,video,canvas,svg，canvas,audio{max-height:90vh!important;max-width:100%;}
+    img{border-radius:15px;}
+    audio{width:98%;margin:auto 1%;}
+    .title_center{text-align:center;margin:7px;}
+    article{padding:10px;background:#09f;border-radius:20px;margin:2.5px 0;box-shadow:0 4px 8px 0 #3399ff33,0 6px 20px 0 #3399ff33;}
+    article>p{text-indent:2em;margin:7px 0;}
+    article i{display:inline;}
+    img,video,.max-width,iframe{max-width:100%;object-fit:contain;}
+    .img_box{padding:10px;margin:10px 0;border-radius:15px;background:linear-gradient(#0099cc 0%,#0099cc77 90%);text-align:center;}
+    .img_box p{color:#e6f9ff;margin:10px 0;}
+    .say{background:#6fc;color:#060;text-align:center;padding:10px;font-size:1.5625rem;margin:5px 0;border-radius:10px;}
+    .say>i{color:#c3f;font-size:1.875rem;}
+    li{color:#ffe6cc;}
+    ol>p,ul>p{font-size:0.9375rem;margin:5px;margin-left:25px;color:#9df;}
+    ul>ul>p,ol>ol>p,ol>ul>p,ul>ol>p{color:#ffcce6;}
+    .size-small{color:#e6ccff;font-size:0.9375rem;}
+    #div>*{position:relative;}
+    @keyframes fade-in{from{opacity:0;bottom:-100px;}to{opacity:1;bottom:0;}}
     
     #Index main{background:linear-gradient(#e6ffff 0vh, #e6ffff 95vh, #06f 150vh);color:#fff!important;padding:0px 0px 10px 0px;}
     #Index h1{font-size:2.5rem;margin:5px 0;}
@@ -140,25 +160,6 @@
       #Index #pupil{margin:30px 10px 30px 10px;}
       #Index .classroom>div{padding:3px;}
     }
-    
-    main:not(#Index>main){background:#06f;padding:10px;animation-name:main;animation-duration:2s;padding-top:4em;animation-fill-mode:forwards;color:#fff;}
-    @keyframes main{0%{background:#e6ffff;color:#000000;}30%{background:#e6ffff;color:#000000;}100%{background:#06f;/*#03c*/color:#ffffff;}}
-    img,video,canvas,svg，canvas,audio{max-height:90vh!important;max-width:100%;}
-    img{border-radius:15px;}
-    audio{width:98%;margin:auto 1%;}
-    .title_center{text-align:center;margin:7px;}
-    article{padding:10px;background:#09f;border-radius:20px;margin:2.5px 0;box-shadow:0 4px 8px 0 #3399ff33,0 6px 20px 0 #3399ff33;}
-    article>p{text-indent:2em;margin:7px 0;}
-    article i{display:inline;}
-    img,video,.max-width,iframe{max-width:100%;object-fit:contain;}
-    .img_box{padding:10px;margin:10px 0;border-radius:15px;background:linear-gradient(#0099cc 0%,#0099cc77 90%);text-align:center;}
-    .img_box p{color:#e6f9ff;margin:10px 0;}
-    .say{background:#6fc;color:#060;text-align:center;padding:10px;font-size:1.5625rem;margin:5px 0;border-radius:10px;}
-    .say>i{color:#c3f;font-size:1.875rem;}
-    li{color:#ffe6cc;}
-    ol>p,ul>p{font-size:0.9375rem;margin:5px;margin-left:25px;color:#9df;}
-    ul>ul>p,ol>ol>p,ol>ul>p,ul>ol>p{color:#ffcce6;}
-    .size-small{color:#e6ccff;font-size:0.9375rem;}
     @media screen and (max-width:350px){
       header,main,footer{display:none;}
       .small{display:flex;justify-content:center;align-items:center;color:#06c;padding:20px 5px;text-align:center;background:#e6ffff;height:100vh;font-size:1.2rem;transition:0.5s;}
@@ -201,7 +202,7 @@
             <button onclick="loading()">跳过</button>
         </div>
         <script>
-        const texts = ["今晚我家只有我一个人","顾兮——爱惜","微胖才是YYDS","你永久蹲出来","这周末刚好有个周末","知识梳理，3遍","×××和余佳皓在3楼拉大便"];
+        const texts = ["今晚我家只有我一个人","顾兮——爱惜","微胖才是YYDS","你永久蹲出来","这周末刚好有个周末","知识梳理，3遍","×××和余佳皓在3楼拉大便","用爱唤醒学生的心灵","如果可以","好，全部起立","你连比亚迪都买不起","算了算了，就来个蚂蚁生存吧","身上的勾比卷子上的还多","Women's Day!","你去5楼把单词抄3遍","你，在干什么？站到后面去！","越优秀，越努力~","我现在已经12岁了"];
         let currentIndex = 0;
         const carouselText = document.getElementById('carouselText');
         carouselText.textContent = texts[currentIndex];
@@ -3926,6 +3927,7 @@ function openPage(pageName,elmnt){
   var tabcontent=document.getElementsByClassName("tabcontent");
   for(var i=0;i<tabcontent.length;i++){tabcontent[i].style.display="none";}
   document.getElementById(pageName).style.display="block";
+  document.getElementById(pageName).style.animation="fade-in 0.5s forwards";
 }
 document.getElementById("defaultOpen").click();
 function goTop(){window.scrollTo(0,0);}
