@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/TypewriterJS/1.0.0/typewriter.min.js"></script>
     <script>
-    function loading(){document.getElementById("loading").style.animationPlayState="running";}
+    function loading(){document.getElementById("loading").style.animation="out 0.7s 0.3s forwards";}
     </script>
     <style>
     *{box-sizing:border-box;}
@@ -35,7 +35,7 @@
     .dropdown-content a:hover{background:#66ffffaa;}
     .menu:hover+.dropdown-content,.dropdown-content:hover{display:block;}
     @keyframes menu{from{height:100px;opacity:0.3;}to{height:400px;opacity:1;}}
-    .loading{background:#e6ffff;width:100vw;height:100vh;text-align:center;font-size:1.25rem;z-index:2;color:#39f;overflow:hidden;display:flex;justify-content:center;align-items:center;animation-play-state:paused;animation:out 0.7s 0.3s forwards;position:fixed;top:0;left:0;}
+    .loading{background:#e6ffff;width:100vw;height:100vh;text-align:center;font-size:1.25rem;z-index:2;color:#39f;overflow:hidden;display:flex;justify-content:center;align-items:center;position:fixed;top:0;left:0;}
     .loading h1{font-size:3.125rem;}
     .loading button{font-size:1.4375rem;border:0;border-radius:1000vw;background:#9df;color:#fff;padding:5px;width:150px;}
     .loading>div>div{margin:20px auto;}
