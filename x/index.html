@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/TypewriterJS/1.0.0/typewriter.min.js"></script>
     <script>
-    function loading(){document.getElementById("loading").style.display="none";document.getElementById("div").style.display="block";}
+    function loading(){document.getElementById("loading").style.animationPlayState="running";}
     </script>
     <style>
     *{box-sizing:border-box;}
     html{scroll-behavior:smooth;font-size:100%;}
-    body{margin:0;padding:0;font-family:"微软雅黑",sans-serif;background:#cff;}
+    body{margin:0;padding:0;font-family:"微软雅黑",sans-serif;background:#e6ffff;}
     .clear{display:table;content:"";clear:both;}
     p,il{line-height:1.5rem;letter-spacing:0.8px;}
     hr{color:#cff;border:1px solid #cff;border-radius:100px;}
@@ -34,15 +34,18 @@
     .dropdown-content h2{color:#fff;margin:10px;}
     .dropdown-content a:hover{background:#66ffffaa;}
     .menu:hover+.dropdown-content,.dropdown-content:hover{display:block;}
-    @keyframes menu{from{height:100px;opacity:0.3;} to{height:400px;opacity:1;}}
-    .loading{background:#e6ffff;padding:100px 50px;width:100vw;height:100vh;text-align:center;font-size:1.25rem;z-index:1;color:#009;overflow:hidden;}
-    .loading>h1{font-size:3.125rem;}
-    .loading button{font-size:1.4375rem;border:0;border-radius:10000px;background:blue;color:#fff;padding:5px 70px;width:auto;}
-    .loading>div{border-width:27px;width:160px;height:160px;border-color:#00f #36f #36f #36f;border-style:solid;border-radius:200px;animation:loading 2s linear infinite;-webkit-animation:loading 2s linear infinite;margin:0 auto 30px auto;}
-    @keyframes loading{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
-    #div>*{position:relative;-webkit-animation-name:animatebottom;-webkit-animation-duration:0.7s;animation-name:animatebottom;animation-duration:0.7s;}
-    @-webkit-keyframes animatebottom{from{bottom:-50px;opacity:0;}to{bottom:0px;opacity:1;}}
-    @keyframes animatebottom{from{bottom:-50px;opacity:0;} to{bottom:0;opacity:1;}}
+    @keyframes menu{from{height:100px;opacity:0.3;}to{height:400px;opacity:1;}}
+    .loading{background:#e6ffff;width:100vw;height:100vh;text-align:center;font-size:1.25rem;z-index:2;color:#39f;overflow:hidden;display:flex;justify-content:center;align-items:center;animation-play-state:paused;animation:out 0.7s 0.3s forwards;position:fixed;top:0;left:0;}
+    .loading h1{font-size:3.125rem;}
+    .loading button{font-size:1.4375rem;border:0;border-radius:1000vw;background:#9df;color:#fff;padding:5px;width:150px;}
+    .loading>div>div{margin:20px auto;}
+    .flashing{position:relative;width:60px;height:20px;}
+    .flashing::before,.flashing::after,.flashing span{content:'';position:absolute;top:0;width:20px;height:20px;border-radius:50%;background-color:#4285f4;animation:dotFlashing 1s infinite alternate;}
+    .flashing::before{left:-10px;animation-delay:0s;}
+    .flashing span{left:20px;animation-delay:0.2s;}
+    .flashing::after{left:50px;animation-delay:0.4s;}
+    @keyframes out{0%{opacity:1;}99%{opacity:0;}100%{opacity:0;display:none;}}
+    @keyframes dotFlashing{0%{background-color:#4285f4;transform:scale(1);}50%,100%{background-color:rgba(66,133,244,0.2);transform:scale(0.8);}}
     header{margin-bottom:150px;}
     header>h1{padding:30px 10px;font-size:7.5rem;margin:0;text-align:center;}
     header>div{background:linear-gradient(#0f9 0%,#00ff99bb 90%);color:#030;display:table;content:"";clear:both;padding:20px;border:3px solid #090;border-radius:25px;margin:20px;}
@@ -192,29 +195,41 @@
 </head>
 <body onload="loading()">
     <div class="loading" id="loading">
-        <div></div>
-        <h1>网页加载中</h1>
-        <p>该网页加载速度较慢，请耐心等候……</p>
-        <p>该网站仅为<strong>福州市东升小学2018级1班</strong>学生提供</p>
-        <button onclick="loading()">直接跳过</button>
+        <div>
+            <div class="flashing"><span></span></div>
+            <div style="color:#03c;padding:5px;margin:30px auto;max-width:300px;"><p style="transition:opacity 0.2s;margin:0;padding:0;font-weight:200;" id="carouselText"></p></div>
+            <button onclick="loading()">跳过</button>
+        </div>
+        <script>
+        const texts = ["今晚我家只有我一个人","顾兮——爱惜","微胖才是YYDS","你永久蹲出来","这周末刚好有个周末","知识梳理，3遍","×××和余佳皓在3楼拉大便"];
+        let currentIndex = 0;
+        const carouselText = document.getElementById('carouselText');
+        carouselText.textContent = texts[currentIndex];
+        function rotateText() {
+            currentIndex = (currentIndex + 1) % texts.length;
+            carouselText.style.opacity = '0';
+            setTimeout(() => {
+                carouselText.textContent = texts[currentIndex];
+                carouselText.style.opacity = '1';
+            }, 200);}
+        setInterval(rotateText, 1000);
+        </script>
     </div>
     <div class="small"><p>请放大窗口</p></div>
     <div class="big"><p>请缩小窗口</p></div>
-    <div id="div" style="display:none">
+    <div id="div" style="display:block;">
     
     <div class="tabcontent" id="Index" style="display:block">
     <nav>
-        <div style="width:50px;padding:4.55px;display:flex;float:left" onclick="goTop()"><img src="61.svg" width="35" height="35"/></div>
-        <div class="dropdown">
-            <button class="menu"><i class="fa fa-navicon"></i></button>
-            <div class="dropdown-content">
-                <a onclick="openPage('Pupil', this)">学生</a>
-                <a onclick="openPage('Et', this)">ET</a>
-                <a onclick="openPage('Ct', this)">CT</a>
-                <a onclick="openPage('Mt', this)">MT</a>
-                <a onclick="openPage('At', this)">AT</a>
-                <a onclick="openPage('Ds', this)">大事</a>
-            </div>
+        <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
+        <button class="menu"><i class="fa fa-navicon"></i></button>
+        <div class="dropdown-content example">
+            <a onclick="openPage('Pupil', this)">学生</a>
+            <a onclick="openPage('Et', this)">ET</a>
+            <a onclick="openPage('Ct', this)">CT</a>
+            <a onclick="openPage('Mt', this)">MT</a>
+            <a onclick="openPage('At', this)">AT</a>
+            <a onclick="openPage('Ds', this)">大事</a>
         </div>
     </nav>
     <main>
