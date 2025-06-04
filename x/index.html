@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <meta name="robots" content="noindex,nofollow"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/TypewriterJS/1.0.0/typewriter.min.js"></script>
     <script>
     function loading(){document.getElementById("loading").style.animation="out 0.7s 0.3s forwards";}
     </script>
@@ -49,6 +48,13 @@
     header>h1{padding:30px 10px;font-size:7.5rem;margin:0;text-align:center;}
     header>div{background:linear-gradient(#0f9 0%,#00ff99bb 90%);color:#030;display:table;content:"";clear:both;padding:20px;border:3px solid #090;border-radius:25px;margin:20px;}
     header>div>p>i{border:2px solid blue;padding:7px;border-radius:5px;}
+    .header{background:linear-gradient(to bottom,#6600ffcc 0%,#6600ff88 100%);padding:15px;border-radius:25px;box-shadow:0 4px 8px 0 #cc99ff33,0 6px 20px 0 #cc99ff33;}
+    .header>h1{font-size:3rem;margin:10px 3px;}
+    .header>div{background:#ffffff22;padding:10px;border-radius:0 20px 20px 20px;}
+    .header>div>p{margin:5px;font-weight:100;}
+    .header-wh>strong{background:#ee00ee88;padding:7px;font-size:1.125rem;width:200px;border-radius:100vw;display:block;text-align:center;margin:2px;}
+    .header-my>p{background:#33cccc88;padding:5px;font-size:1.125rem;width:100%;border-radius:25px;display:block;margin:2px;padding-left:20px;}
+    .header>p{text-align:center;font-size:1.125rem;background:#ffffff22;width:100px;padding:5px;margin:5px auto 0 0;border-radius:20px 20px 0 0;}
     footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:200px;color:#66f;}
     main:not(#Index>main){background:#06f;padding:10px;animation-name:main;animation-duration:2s;padding-top:4em;animation-fill-mode:forwards;color:#fff;}
     @keyframes main{0%{background:#e6ffff;color:#000000;}30%{background:#e6ffff;color:#000000;}100%{background:#06f;/*#03c*/color:#ffffff;}}
@@ -78,7 +84,8 @@
     #Index .by{margin-right:30px;background:#6600ff99;padding:20px 20px 20px 0;border-radius:0 20px 20px 0;box-shadow:0 4px 8px 0 rgba(102,0,204,0.2),0 6px 20px 0 rgba(102,0,204,0.19);}
     #Index .by>h2{margin:0 0 10px 10px;color:#fff;text-align:center;}
     #Index .by p{background:#369;padding:7px 20px;border-radius:100vw;display:inline;margin:5px;}
-    #Index #asklz{font-size:1.25rem;background:#fff;width:500px;margin:auto;padding:5px;border:1px solid #cc0000;border-radius:100vw;}
+    #Index .login>div{font-size:1.25rem;background:#fff;width:500px;margin:auto;padding:0.3em;border:1px solid #cc0000;border-radius:100vw;height:1.9em;}
+    #Index #asklz{margin:0;padding:0;}
     #Index #time{background:#b3cce6;font-size:1.875rem;padding:15px 0;border-radius:0 15px 15px 0;text-align:center;}
     #Index #teacher{background:#ffffff33;margin:10px 0 10px 25px;padding:5px;border-radius:20px 0 0 20px;}
     #Index #teacher>a{background:#f69;text-decoration:none;color:#fff;display:block;margin:10px;border-radius:8px;padding:15px;height:160px;overflow:hidden;transition:0.3s;}
@@ -132,7 +139,7 @@
     @media screen and (max-width:600px){
       #Index .login{padding-top:80px;}
       #Index .login_title{font-size:5rem;padding:20px;}
-      #Index #asklz{font-size:1.1875rem; width:80vw;}
+      #Index .login>div{font-size:1.1875rem;width:80vw;}
       #Index #time{font-size:1.5625rem;padding:5px;}
       #Index .by p{display:block;margin:5px;border-radius:100vw;}
       #Index .box{width:100%;}
@@ -148,7 +155,7 @@
       #Index .classroom>div a,#Index .classroom>div a[href]{font-size:0.7rem;padding:1px;border:0.3px solid #06c;}
       #Index .a{margin:0.7px 0 0.7px 0.7px;border-radius:2px 0 0 2px;}
       #Index .b{margin:0.7px 3px 0.7px 0;border-radius:0 2px 2px 0;}
-      #Index #asklz{width:90vw;}
+      #Index .login>div{width:90vw;}
     }
     @media screen and (max-width:470px){
       #Index #time{padding:auto 5px;}
@@ -176,21 +183,99 @@
     #Pupil .zw>h2{text-align:center;}
     #Pupil .zw>p{text-indent:2em;margin:0;line-height:1.4em;}
     
-    .header{background:linear-gradient(to bottom,#6600ffcc 0%,#6600ff88 100%);padding:15px;border-radius:25px;box-shadow:0 4px 8px 0 #cc99ff33,0 6px 20px 0 #cc99ff33;}
-    .header>h1{font-size:3rem;margin:10px 3px;}
-    .header>div{background:#ffffff22;padding:10px;border-radius:0 20px 20px 20px;}
-    .header>div>p{margin:5px;font-weight:100;}
-    .header-wh>strong{background:#ee00ee88;padding:7px;font-size:1.125rem;width:200px;border-radius:100vw;display:block;text-align:center;margin:2px;}
-    .header-my>p{background:#33cccc88;padding:5px;font-size:1.125rem;width:100%;border-radius:25px;display:block;margin:2px;padding-left:20px;}
-    .header>p{text-align:center;font-size:1.125rem;background:#ffffff22;width:100px;padding:5px;margin:5px auto 0 0;border-radius:20px 20px 0 0;}
-    
-    #Mingyan #b-xcz p{background:#c6c6ec;color:#0d0d26;}
-    
     #Et .dow{display:block;width:100%;text-align:center;border-radius:1698px;text-decoration:none;color:#fff;background:#3cc;padding:7px;font-size:25px;margin:5px;}
-    
     #Ct #jiaobian{background:#fff;width:100%;height:400px;padding:30px;border-radius:10px;}
     #Ct #jiaobian>div{width:10px;height:300px;margin:auto;background-image:linear-gradient(to right,#fc6,#fb3,#fb3,#fc6);border-radius:2px;animation:jiaobian 1s;-webkit-animation:jiaobian 1s;animation-iteration-count:infinite;-webkit-animation-iteration-count:infinite;transform-origin:5px 5px;}
     @keyframes jiaobian{0%{transform:rotate(20deg);}50%{transform:rotate(-20deg);}100%{transform:rotate(20deg);}}
+    
+    /*深色模式
+    @media (prefers-color-scheme:dark){
+    body{background:#e6ffff;}
+    hr{color:#cff;border:1px solid #cff;}
+    a{color:#ff6;}
+    a:hover{color:#ff0;}
+    ::-moz-selection{color:#e6f0ff;background:#80b3ff66;}
+    ::selection{color:#e6f0ff;background:#80b3ff66;}
+    nav{background:#ccffffaa;box-shadow:0 4px 8px 0 #0066ff08,0 6px 20px 0 #0066ff07;}
+    nav button{color:#36c;}
+    nav button:hover{background:#66ccff88;}
+    .dropdown-content a{color:#006;}
+    .dropdown-content h2{color:#fff;}
+    .dropdown-content a:hover{background:#66ffffaa;}
+    .loading{background:#e6ffff;color:#39f;}
+    .loading button{background:#9df;color:#fff;}
+    .flashing::before,.flashing::after,.flashing span{background-color:#4285f4;}
+    @keyframes dotFlashing{0%{background-color:#4285f4;}50%,100%{background-color:rgba(66,133,244,0.2);}}
+    header>div{background:linear-gradient(#0f9 0%,#00ff99bb 90%);color:#030;border:3px solid #090;}
+    header>div>p>i{border:2px solid blue;}
+    .header{background:linear-gradient(to bottom,#6600ffcc 0%,#6600ff88 100%);box-shadow:0 4px 8px 0 #cc99ff33,0 6px 20px 0 #cc99ff33;}
+    .header>div{background:#ffffff22;}
+    .header-wh>strong{background:#ee00ee88;}
+    .header-my>p{background:#33cccc88;}
+    .header>p{background:#ffffff22;}
+    footer{background:linear-gradient(#06f 0px,#009 150px);color:#66f;}
+    main:not(#Index>main){background:#06f;color:#fff;}
+    @keyframes main{0%{background:#e6ffff;color:#000000;}30%{background:#e6ffff;color:#000000;}100%{background:#06f;color:#ffffff;}}
+    article{background:#09f;box-shadow:0 4px 8px 0 #3399ff33,0 6px 20px 0 #3399ff33;}
+    .img_box{background:linear-gradient(#0099cc 0%,#0099cc77 90%);}
+    .img_box p{color:#e6f9ff;}
+    .say{background:#e6b3ff;color:#203;box-shadow:0 4px 8px 0 #ff33cc33,0 6px 16px 0 #ff33cc22;}
+    .say>i{color:#f39;}
+    li{color:#ffe6cc;}
+    ol>p,ul>p{font-size:0.9375rem;color:#9df;}
+    ul>ul>p,ol>ol>p,ol>ul>p,ul>ol>p{color:#ffcce6;}
+    .size-small{color:#e6ccff;}
+    
+    #Index main{background:linear-gradient(#e6ffff 0vh, #e6ffff 95vh, #06f 150vh);color:#fff!important;padding:0px 0px 10px 0px;}
+    #Index .login{color:#000;}
+    #Index .login_title{color:#006;}
+    #Index .by{background:#6600ff99;box-shadow:0 4px 8px 0 rgba(102,0,204,0.2),0 6px 20px 0 rgba(102,0,204,0.19);}
+    #Index .by>h2{color:#fff;}
+    #Index .by p{background:#369;padding:7px 20px;border-radius:100vw;display:inline;margin:5px;}
+    #Index .login>div{font-size:1.25rem;background:#fff;width:500px;margin:auto;padding:0.3em;border:1px solid #cc0000;border-radius:100vw;height:1.9em;}
+    #Index #asklz{margin:0;padding:0;}
+    #Index #time{background:#b3cce6;font-size:1.875rem;padding:15px 0;border-radius:0 15px 15px 0;text-align:center;}
+    #Index #teacher{background:#ffffff33;margin:10px 0 10px 25px;padding:5px;border-radius:20px 0 0 20px;}
+    #Index #teacher>a{background:#f69;text-decoration:none;color:#fff;display:block;margin:10px;border-radius:8px;padding:15px;height:160px;overflow:hidden;transition:0.3s;}
+    #Index #teacher>a:hover{background:#f37;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);}
+    #Index #teacher>h1,#Index #pupil>h1,#Index #qt>h1{background:#ffffff88;color:#000066;padding:10px;margin:10px;border-radius:100vw;text-align:center;display:block;}
+    #Index #pupil{margin:30px 20px 30px 20px;background:linear-gradient(#ffffff55 0%,#ffffff00 90%);padding:5px;border-radius:20px 20px 0 0;}
+    #Index #pupil>a{display:block;text-decoration:none;background:linear-gradient(to right,#1a1aff 0%,#1a1aff 50%,#1a1aff66 90%);color:#fff;border-radius:100vw;font-size:1.25rem;padding:8px 40px 8px 30px;margin:5px;transition:0.5s;}
+    #Index #pupil>a>i{float:right;font-size:1.5rem;}
+    #Index #pupil>a:hover{padding:8px 25px 8px 30px;}
+    #Index .box{width:33.33%;float:left;}
+    #Index .box>a{padding:18px;border-radius:10px;margin:5px;height:170px;display:block;text-decoration:none;color:#fff;overflow:auto;background:#3333ffcc;transition:0.3s;box-shadow:0 4px 8px 0 rgba(51,51,255,0.2),0 6px 20px 0 rgba(51,51,255,0.19);}
+    #Index .box>a:hover{background:#3333ffff;}
+    #Index .classroom{background:#66ffffcc;border-radius:5px;box-shadow:0 4px 8px 0 rgba(0,204,204,0.2),0 6px 20px 0 rgba(0,204,204,0.19);}
+    #Index .classroom>div{display:flex;width:100%;padding:5px;}
+    #Index .classroom>div a{text-decoration:none;font-size:1.25rem;background:#00ccff66;padding:5px;width:100%;text-align:center;border:1px solid #06c;color:#033;}
+    #Index .classroom>div a[href]{text-decoration:none;font-size:1.25rem;background:#00ccffcc;padding:5px;width:100%;text-align:center;border:1px solid #06c;transition:0.3s;}
+    #Index .classroom>div a[href]:hover{background:#00ccff;color:#06c;}
+    #Index .a{margin:5px 0 5px 5px;border-radius:5px 0 0 5px;}
+    #Index .b{margin:5px 15px 5px 0;border-radius:0 5px 5px 0;}
+    #Index #siziren::before{content:"锐辰";}
+    #Index #sj>a{background:#f06;color:#ffe6f0;text-align:center;border-radius:10px;padding:10px;display:block;margin:10px;}
+    #Index #sj>a>div{text-align:left;background:#f69;color:#660029;border-radius:10px;padding:5px;}
+    #Index #ds{background:#aa5;color:#331a00;border-radius:30px;padding:10px;width:calc(100vw - 20px);text-decoration:none;height:150px;overflow:hidden;text-align:center;transition:0.3s;margin:30px 10px 0 10px;}
+    #Index #ds:hover{background:#884;}
+    #Index #webpage{background:#fcf;border-radius:15px;margin:60px 10px;padding-bottom:5px;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);}
+    #Index #webpage>div{background:#f9f;padding:5px;width:100%;border-radius:15px 15px 0 0;}
+    #Index #webpage>div>span{float:right;color:#909;}
+    #Index #webpage>a{text-decoration:none;display:block;background:#dfff80;margin:10px;padding:10px;border-radius:10px;color:#394d00;transition:0.3s;}
+    #Index #webpage>a:hover{background:#cf3;}
+    #Index #gw{border-left:20px solid #00e6ac77;background:linear-gradient(to right,#33ffccdd 0%,#33ffcc88 50%,#33ffcc00 93%);color:#066;}
+    #Index #dy{border-left:20px solid #ff660077;background:linear-gradient(to right,#ff9933dd 0%,#ff993388 50%,#ff993300 95%);color:#600;}
+    #Index #ss{border-left:20px solid #8800cc77;background:linear-gradient(to right,#d580ffdd 0%,#d580ff88 50%,#d580ff00 95%);color:#600;}
+    #Index footer>ol>li{color:#66f;}
+    #Pupil .wxl{background:#a300cc;}
+    #Pupil .wxl>p{background:#db4dff;color:#fff;}
+    #Pupil #love{background:#9966ff;border:2px solid #73f;}
+    #Pupil .zw{background:#336699dd;}
+    
+    #Et .dow{color:#fff;background:#3cc;}
+    #Ct #jiaobian{background:#fff;}
+    #Ct #jiaobian>div{background-image:linear-gradient(to right,#fc6,#fb3,#fb3,#fc6);}
+  }*/
     </style>
 </head>
 <body onload="loading()">
@@ -201,7 +286,7 @@
             <button onclick="loading()">跳过</button>
         </div>
         <script>
-        const texts = ["今晚我家只有我一个人","顾兮——爱惜","微胖才是YYDS","你永久蹲出来","这周末刚好有个周末","知识梳理，3遍","×××和余佳皓在3楼拉大便","用爱唤醒学生的心灵","如果可以","好，全部起立","你连比亚迪都买不起","算了算了，就来个蚂蚁生存吧","身上的勾比卷子上的还多","Women's Day","你去5楼把单词抄3遍","你，在干什么？站到后面去！","越优秀，越努力","我现在已经12岁了","请你们喝星巴克（蜜雪冰城）","女性乘务员","承诺是金","葵花宝典","把93拿出来做","我的红笔没有water了","我的鞭子不长眼镜"];
+        const texts = ["今晚我家只有我一个人","顾兮——爱惜","微胖才是YYDS","你永久蹲出来","这周末刚好有个周末","知识梳理，3遍","×××和余佳皓在3楼拉大便","用爱唤醒学生的心灵","如果可以","好，全部起立","你连比亚迪都买不起","算了算了，就来个蚂蚁生存吧","身上的勾比卷子上的还多","Women's Day","你去5楼把单词抄3遍","你，在干什么？站到后面去！","越优秀，越努力","我现在已经12岁了","请你们喝星巴克（蜜雪冰城）","女性乘务员","承诺是金","葵花宝典","把93拿出来做","我的红笔没有water了","我的鞭子不长眼镜","抄出来做","递等式","没有接高拍仪，请接上高拍仪再试","密密麻麻，麻麻密密","这篇课文从你们爷爷那一代起就开始读了","喝酒班、抽烟班、打架班、纹身班"];
         let currentIndex = 0;
         const carouselText = document.getElementById('carouselText');
         carouselText.textContent = texts[currentIndex];
@@ -233,7 +318,7 @@
         </div>
     </nav>
     <main>
-        <div class="login"><h1 class="login_title">六年一班</h1><div id="asklz"></div></div>
+        <div class="login"><h1 class="login_title">六年一班</h1><div><p id="asklz"></p></div></div>
         <div class="by">
             <h2>我们毕业已经</h2>
             <div id="time"><p class="a1">天</p><p class="a2">时</p><p class="a3">分</p><p class="a4">秒</p></div>
@@ -379,14 +464,45 @@
         minute1.innerHTML=m1+"分";
         second1.innerHTML=s1+"秒"; 
         }
-        var app=document.getElementById('asklz');
-        var typewriter=new Typewriter(asklz,{loop:true});
-        typewriter.typeString('欢迎来到这个网站……')
-        .pauseFor(3000)
-        .deleteAll()
-        .typeString('没啥话说……')
-        .pauseFor(2500)
-        .start();
+        var app = document.getElementById('asklz');
+var texts2 = ['欢迎来到这个网站……', '没啥话说……'];
+var currentTextIndex = 0;
+var currentCharIndex = 0;
+var isDeleting = false;
+var typingSpeed = 100; // 打字速度(ms)
+var pauseTime = 3000; // 停顿时间(ms)
+
+function type() {
+    var currentText = texts2[currentTextIndex];
+    
+    if (isDeleting) {
+        // 删除字符
+        app.textContent = currentText.substring(0, currentCharIndex - 1);
+        currentCharIndex--;
+    } else {
+        // 输入字符
+        app.textContent = currentText.substring(0, currentCharIndex + 1);
+        currentCharIndex++;
+    }
+
+    // 判断状态
+    if (!isDeleting && currentCharIndex === currentText.length) {
+        // 完成输入，开始暂停
+        isDeleting = true;
+        setTimeout(type, pauseTime);
+    } else if (isDeleting && currentCharIndex === 0) {
+        // 完成删除，切换到下一文本
+        isDeleting = false;
+        currentTextIndex = (currentTextIndex + 1) % texts2.length;
+        setTimeout(type, typingSpeed);
+    } else {
+        // 继续打字或删除
+        setTimeout(type, isDeleting ? typingSpeed / 2 : typingSpeed);
+    }
+}
+
+// 启动打字效果
+setTimeout(type, 1000); // 延迟1秒开始
     </script>
     </div>
     
@@ -3230,7 +3346,7 @@
                 <p>我明天会一个、一个地检查~</p>
                 <p>我会让你自己把笔折断~</p>
                 <p>我画画很烂的~</p>
-                <p>我会到午餐版给你唱赞美诗~</p>
+                <p>我会到午餐班给你唱赞美诗~</p>
                 <p>要用尺子~</p>
                 <p>快闪一下~</p>
                 <p>鼓掌都不会鼓？</p>
