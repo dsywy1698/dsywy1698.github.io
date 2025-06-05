@@ -10,6 +10,7 @@
     function loading(){document.getElementById("loading").style.animation="out 0.7s 0.3s forwards";}
     </script>
     <style>
+    :root{color-scheme:light dark;}
     *{box-sizing:border-box;}
     html{scroll-behavior:smooth;font-size:100%;}
     body{margin:0;padding:0;font-family:"微软雅黑",sans-serif;background:#e6ffff;}
@@ -188,9 +189,8 @@
     #Ct #jiaobian>div{width:10px;height:300px;margin:auto;background-image:linear-gradient(to right,#fc6,#fb3,#fb3,#fc6);border-radius:2px;animation:jiaobian 1s;-webkit-animation:jiaobian 1s;animation-iteration-count:infinite;-webkit-animation-iteration-count:infinite;transform-origin:5px 5px;}
     @keyframes jiaobian{0%{transform:rotate(20deg);}50%{transform:rotate(-20deg);}100%{transform:rotate(20deg);}}
     
-    /*深色模式
     @media (prefers-color-scheme:dark){
-    body{background:#e6ffff;}
+    body{background:#009;}
     hr{color:#cff;border:1px solid #cff;}
     a{color:#ff6;}
     a:hover{color:#ff0;}
@@ -226,42 +226,34 @@
     ul>ul>p,ol>ol>p,ol>ul>p,ul>ol>p{color:#ffcce6;}
     .size-small{color:#e6ccff;}
     
-    #Index main{background:linear-gradient(#e6ffff 0vh, #e6ffff 95vh, #06f 150vh);color:#fff!important;padding:0px 0px 10px 0px;}
+    #Index main{background:linear-gradient(#009 0vh, #009 95vh, #06f 150vh);color:#fff!important;padding:0px 0px 10px 0px;}
     #Index .login{color:#000;}
     #Index .login_title{color:#006;}
     #Index .by{background:#6600ff99;box-shadow:0 4px 8px 0 rgba(102,0,204,0.2),0 6px 20px 0 rgba(102,0,204,0.19);}
     #Index .by>h2{color:#fff;}
-    #Index .by p{background:#369;padding:7px 20px;border-radius:100vw;display:inline;margin:5px;}
-    #Index .login>div{font-size:1.25rem;background:#fff;width:500px;margin:auto;padding:0.3em;border:1px solid #cc0000;border-radius:100vw;height:1.9em;}
-    #Index #asklz{margin:0;padding:0;}
-    #Index #time{background:#b3cce6;font-size:1.875rem;padding:15px 0;border-radius:0 15px 15px 0;text-align:center;}
-    #Index #teacher{background:#ffffff33;margin:10px 0 10px 25px;padding:5px;border-radius:20px 0 0 20px;}
-    #Index #teacher>a{background:#f69;text-decoration:none;color:#fff;display:block;margin:10px;border-radius:8px;padding:15px;height:160px;overflow:hidden;transition:0.3s;}
+    #Index .by p{background:#369;}
+    #Index .login>div{background:#fff;border:1px solid #cc0000;}
+    #Index #time{background:#b3cce6;}
+    #Index #teacher{background:#ffffff33;}
+    #Index #teacher>a{background:#f69;color:#fff;}
     #Index #teacher>a:hover{background:#f37;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);}
-    #Index #teacher>h1,#Index #pupil>h1,#Index #qt>h1{background:#ffffff88;color:#000066;padding:10px;margin:10px;border-radius:100vw;text-align:center;display:block;}
-    #Index #pupil{margin:30px 20px 30px 20px;background:linear-gradient(#ffffff55 0%,#ffffff00 90%);padding:5px;border-radius:20px 20px 0 0;}
-    #Index #pupil>a{display:block;text-decoration:none;background:linear-gradient(to right,#1a1aff 0%,#1a1aff 50%,#1a1aff66 90%);color:#fff;border-radius:100vw;font-size:1.25rem;padding:8px 40px 8px 30px;margin:5px;transition:0.5s;}
-    #Index #pupil>a>i{float:right;font-size:1.5rem;}
-    #Index #pupil>a:hover{padding:8px 25px 8px 30px;}
-    #Index .box{width:33.33%;float:left;}
-    #Index .box>a{padding:18px;border-radius:10px;margin:5px;height:170px;display:block;text-decoration:none;color:#fff;overflow:auto;background:#3333ffcc;transition:0.3s;box-shadow:0 4px 8px 0 rgba(51,51,255,0.2),0 6px 20px 0 rgba(51,51,255,0.19);}
+    #Index #teacher>h1,#Index #pupil>h1,#Index #qt>h1{background:#ffffff88;color:#000066;}
+    #Index #pupil{background:linear-gradient(#ffffff55 0%,#ffffff00 90%);}
+    #Index #pupil>a{background:linear-gradient(to right,#1a1aff 0%,#1a1aff 50%,#1a1aff66 90%);color:#fff;}
+    #Index .box>a{color:#fff;background:#3333ffcc;box-shadow:0 4px 8px 0 rgba(51,51,255,0.2),0 6px 20px 0 rgba(51,51,255,0.19);}
     #Index .box>a:hover{background:#3333ffff;}
-    #Index .classroom{background:#66ffffcc;border-radius:5px;box-shadow:0 4px 8px 0 rgba(0,204,204,0.2),0 6px 20px 0 rgba(0,204,204,0.19);}
-    #Index .classroom>div{display:flex;width:100%;padding:5px;}
-    #Index .classroom>div a{text-decoration:none;font-size:1.25rem;background:#00ccff66;padding:5px;width:100%;text-align:center;border:1px solid #06c;color:#033;}
-    #Index .classroom>div a[href]{text-decoration:none;font-size:1.25rem;background:#00ccffcc;padding:5px;width:100%;text-align:center;border:1px solid #06c;transition:0.3s;}
+    #Index .classroom{background:#66ffffcc;box-shadow:0 4px 8px 0 rgba(0,204,204,0.2),0 6px 20px 0 rgba(0,204,204,0.19);}
+    #Index .classroom>div a{background:#00ccff66;border:1px solid #06c;color:#033;}
+    #Index .classroom>div a[href]{background:#00ccffcc;}
     #Index .classroom>div a[href]:hover{background:#00ccff;color:#06c;}
-    #Index .a{margin:5px 0 5px 5px;border-radius:5px 0 0 5px;}
-    #Index .b{margin:5px 15px 5px 0;border-radius:0 5px 5px 0;}
-    #Index #siziren::before{content:"锐辰";}
-    #Index #sj>a{background:#f06;color:#ffe6f0;text-align:center;border-radius:10px;padding:10px;display:block;margin:10px;}
-    #Index #sj>a>div{text-align:left;background:#f69;color:#660029;border-radius:10px;padding:5px;}
-    #Index #ds{background:#aa5;color:#331a00;border-radius:30px;padding:10px;width:calc(100vw - 20px);text-decoration:none;height:150px;overflow:hidden;text-align:center;transition:0.3s;margin:30px 10px 0 10px;}
+    #Index #sj>a{background:#f06;color:#ffe6f0;}
+    #Index #sj>a>div{background:#f69;color:#660029;}
+    #Index #ds{background:#aa5;color:#331a00;}
     #Index #ds:hover{background:#884;}
-    #Index #webpage{background:#fcf;border-radius:15px;margin:60px 10px;padding-bottom:5px;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);}
-    #Index #webpage>div{background:#f9f;padding:5px;width:100%;border-radius:15px 15px 0 0;}
-    #Index #webpage>div>span{float:right;color:#909;}
-    #Index #webpage>a{text-decoration:none;display:block;background:#dfff80;margin:10px;padding:10px;border-radius:10px;color:#394d00;transition:0.3s;}
+    #Index #webpage{background:#fcf;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);}
+    #Index #webpage>div{background:#f9f;}
+    #Index #webpage>div>span{color:#909;}
+    #Index #webpage>a{background:#dfff80;color:#394d00;}
     #Index #webpage>a:hover{background:#cf3;}
     #Index #gw{border-left:20px solid #00e6ac77;background:linear-gradient(to right,#33ffccdd 0%,#33ffcc88 50%,#33ffcc00 93%);color:#066;}
     #Index #dy{border-left:20px solid #ff660077;background:linear-gradient(to right,#ff9933dd 0%,#ff993388 50%,#ff993300 95%);color:#600;}
@@ -275,7 +267,7 @@
     #Et .dow{color:#fff;background:#3cc;}
     #Ct #jiaobian{background:#fff;}
     #Ct #jiaobian>div{background-image:linear-gradient(to right,#fc6,#fb3,#fb3,#fc6);}
-  }*/
+  }
     </style>
 </head>
 <body onload="loading()">
@@ -464,45 +456,22 @@
         minute1.innerHTML=m1+"分";
         second1.innerHTML=s1+"秒"; 
         }
-        var app = document.getElementById('asklz');
-var texts2 = ['欢迎来到这个网站……', '没啥话说……'];
-var currentTextIndex = 0;
-var currentCharIndex = 0;
-var isDeleting = false;
-var typingSpeed = 100; // 打字速度(ms)
-var pauseTime = 3000; // 停顿时间(ms)
-
-function type() {
-    var currentText = texts2[currentTextIndex];
-    
-    if (isDeleting) {
-        // 删除字符
-        app.textContent = currentText.substring(0, currentCharIndex - 1);
-        currentCharIndex--;
-    } else {
-        // 输入字符
-        app.textContent = currentText.substring(0, currentCharIndex + 1);
-        currentCharIndex++;
-    }
-
-    // 判断状态
-    if (!isDeleting && currentCharIndex === currentText.length) {
-        // 完成输入，开始暂停
-        isDeleting = true;
-        setTimeout(type, pauseTime);
-    } else if (isDeleting && currentCharIndex === 0) {
-        // 完成删除，切换到下一文本
-        isDeleting = false;
-        currentTextIndex = (currentTextIndex + 1) % texts2.length;
-        setTimeout(type, typingSpeed);
-    } else {
-        // 继续打字或删除
-        setTimeout(type, isDeleting ? typingSpeed / 2 : typingSpeed);
-    }
-}
-
-// 启动打字效果
-setTimeout(type, 1000); // 延迟1秒开始
+        var app=document.getElementById('asklz');
+        var texts2=['欢迎来到这个网站……','没啥话说……'];
+        var currentTextIndex=0;
+        var currentCharIndex=0;
+        var isDeleting=false;
+        var typingSpeed=100;//打字速度
+        var pauseTime=1700;//停顿时间
+        function type(){
+    var currentText=texts2[currentTextIndex];
+    if(isDeleting){app.textContent=currentText.substring(0,currentCharIndex-1);currentCharIndex--;}
+    else{app.textContent=currentText.substring(0,currentCharIndex+1);currentCharIndex++;}
+    if(!isDeleting&&currentCharIndex===currentText.length){isDeleting=true;setTimeout(type,pauseTime);}
+    else if(isDeleting&&currentCharIndex===0){isDeleting=false;currentTextIndex=(currentTextIndex+1)%texts2.length;setTimeout(type,typingSpeed);}
+    else{setTimeout(type,isDeleting?typingSpeed/2:typingSpeed);}
+        }
+        setTimeout(type,1000);
     </script>
     </div>
     
@@ -3529,10 +3498,11 @@ setTimeout(type, 1000); // 延迟1秒开始
         <p>CT也会让带读的人避免重复读，有时候也读语文书。带读的人则喜欢投影瞿眀爔的课堂笔记。</p>
         <p>自从上完《穷人》，大家就喜欢上了这一课的《课堂笔记》（因为有“顾兮”），每次读到这里事异常精神。</p>
         <h2>自学</h2>
-        <p>有时，CT会把一类课文当二类上，或者把二类课文当一类（以至于CT写课题时都不加星号）。在六下时，又一篇课文是《骑鹅旅行记（节选）》，内容很多。那CT是怎么教的呢？他当时就让大家自学（也就是间接自习），还说：</p>
+        <p>有时，CT会把一类课文当二类上，或者把二类课文当一类（以至于CT写课题时都不加星号）。六下有一篇课文是《骑鹅旅行记（节选）》，内容很多。那CT是怎么教的呢？他当时就让大家自学（也就是间接自习），还说：</p>
         <div class="say">
             <i class="fa fa-quote-left"></i>&nbsp;以后二类课文都自学~&nbsp;<i class="fa fa-quote-right"></i>
         </div>
+        <p>就这样，一节课下来什么都没上，学生根本没自学；同时CT也获得了宝贵的休息时间。</p>
         <h2>读书</h2>
         <p>再就是读。CT每节课都会让大家读这读那：优化、五三的题起初是让一个人读，后面就演变为全班读；自己语文书上的批注要读很多遍，说是重点。有时候同学们都的声音小了，CT还会让某一组或全班或该站的人站起来，并叫读书声大以及回答过问题的人坐下。</p>
         <p>后来，CT每听见同学们读书声未达到CT的标准，就会说“小声”。</p>
@@ -3634,7 +3604,7 @@ setTimeout(type, 1000); // 延迟1秒开始
         <div class="say">
             <i class="fa fa-quote-left"></i>&nbsp;我这道题是故意做错的~&nbsp;<i class="fa fa-quote-right"></i>
         </div>
-        <p>由此可以联想到，CT叫错人名字时也说是故意的，还说等一下会解释原因。</p>
+        <p>由此可以联想到，一次CT叫错人名字时也说是故意的，还说等一下会解释原因——其实根本没解释。</p>
         <h2>改作业</h2>
         <p>CT改的作业很“独特”。CT的勾是一个经典，他的勾一般都是横着的一条，尾部有尖角、墨水等东西。有时候打勾打到右边一页了，看起来就像有两个勾。</p>
         <p>六年级下学期，同学们开始流行不交优化、五三。这时他们就会自己模仿CT的样子打勾。CT说，自己都有在作业上做记号，于是大家模仿CT打勾时，会刻意在空白处用红笔画一下，并用手指划过它，把它晕染开来，这也是CT打勾的印记，不知是不是CT口称的“记号”（可能记号是骗人的）。</p>
@@ -3643,7 +3613,7 @@ setTimeout(type, 1000); // 延迟1秒开始
         <p>CT打问号还可能有其他原因，如没用递等式就会被打3个问号。</p>
         <h2>停笔</h2>
         <p>CT不让人在自己讲评作业（尤其是读书）时动笔，CT会反复提醒“停笔，等下会有时间给你们抄。”等读完后，通常会有两种结果，一是CT的确留了充裕的时间让大家抄，二是CT直接翻页。</p>
-        <p>如果有人还是不听，CT就会让他把笔折断，根本原因就是CT不敢自己折断笔，怕被人告。</p>
+        <p>如果有人还是不听，CT就会让他把笔折断。</p>
         <p>正因如此，CT还说了一系列荒唐的话。CT说“自己的记忆力不如大家，都能把这些答案背下来”（CT还说自己不用课本可以上课）。</p>
         <p>还有经典的：</p>
         <div class="say">
