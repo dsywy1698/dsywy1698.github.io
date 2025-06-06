@@ -109,17 +109,15 @@
     #Index #siziren::before{content:"锐辰";}
     #Index #sj>a{background:#f06;color:#ffe6f0;text-align:center;border-radius:10px;padding:10px;display:block;margin:10px;}
     #Index #sj>a>div{text-align:left;background:#f69;color:#660029;border-radius:10px;padding:5px;}
-    #Index #ds{background:#aa5;color:#331a00;border-radius:30px;padding:10px;width:calc(100vw - 20px);text-decoration:none;height:150px;overflow:hidden;text-align:center;transition:0.3s;margin:30px 10px 0 10px;}
-    #Index #ds:hover{background:#884;}
+    #Index #ds{background:#dfff80cc;color:#394d00;border-radius:30px;padding:10px;text-decoration:none;height:150px;overflow:hidden;text-align:center;transition:0.3s;margin:30px 10px 0 10px;display:block;}
+    #Index #ds:hover{background:#ccff33cc;}
     #Index #webpage{background:#fcf;border-radius:15px;margin:60px 10px;padding-bottom:5px;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);}
     #Index #webpage>div{background:#f9f;padding:5px;width:100%;border-radius:15px 15px 0 0;}
     #Index #webpage>div>span{float:right;color:#909;}
-    #Index #webpage>a{text-decoration:none;display:block;background:#dfff80;margin:10px;padding:10px;border-radius:10px;color:#394d00;transition:0.3s;}
-    #Index #webpage>a:hover{background:#cf3;}
+    #Index #webpage>a{text-decoration:none;display:block;background:#df80ff;margin:10px;padding:10px;border-radius:10px;color:#303;transition:0.3s;}
+    #Index #webpage>a:hover{background:#d966ff;}
     #Index #webpage h3{margin:10px 0;}
-    #Index #gw{border-left:20px solid #00e6ac77;margin:15px 0;background:linear-gradient(to right,#33ffccdd 0%,#33ffcc88 50%,#33ffcc00 93%);text-decoration:none;color:#066;padding:10px;width:100%;height:160px;overflow:hidden;}
-    #Index #dy{border-left:20px solid #ff660077;margin:15px 0;background:linear-gradient(to right,#ff9933dd 0%,#ff993388 50%,#ff993300 95%);text-decoration:none;color:#600;padding:10px;width:100%;height:160px;overflow:hidden;}
-    #Index #ss{border-left:20px solid #8800cc77;margin:15px 0;background:linear-gradient(to right,#d580ffdd 0%,#d580ff88 50%,#d580ff00 95%);text-decoration:none;color:#600;padding:10px;width:100%;height:160px;overflow:hidden;}
+    #Index .other{margin:10px;display:block;background:linear-gradient(to right,#ff8533dd,#ff9933dd);text-decoration:none;color:#600;padding:10px 20px;height:160px;overflow:hidden;border-radius:30px;}
     #Index footer>ol>li{color:#66f;}
     @media screen and (min-width:1600px){
       header,main,footer{display:none;}
@@ -141,7 +139,7 @@
       #Index .login{padding-top:80px;}
       #Index .login_title{font-size:5rem;padding:20px;}
       #Index .login>div{font-size:1.1875rem;width:80vw;}
-      #Index #time{font-size:1.5625rem;padding:5px;}
+      #Index #time{font-size:1.5625rem;padding:5px;width:200px;}
       #Index .by p{display:block;margin:5px;border-radius:100vw;}
       #Index .box{width:100%;}
       #Index .col_title>h1>span{display:none;}
@@ -189,85 +187,7 @@
     #Ct #jiaobian>div{width:10px;height:300px;margin:auto;background-image:linear-gradient(to right,#fc6,#fb3,#fb3,#fc6);border-radius:2px;animation:jiaobian 1s;-webkit-animation:jiaobian 1s;animation-iteration-count:infinite;-webkit-animation-iteration-count:infinite;transform-origin:5px 5px;}
     @keyframes jiaobian{0%{transform:rotate(20deg);}50%{transform:rotate(-20deg);}100%{transform:rotate(20deg);}}
     
-    @media (prefers-color-scheme:dark){
-    body{background:#009;}
-    hr{color:#cff;border:1px solid #cff;}
-    a{color:#ff6;}
-    a:hover{color:#ff0;}
-    ::-moz-selection{color:#e6f0ff;background:#80b3ff66;}
-    ::selection{color:#e6f0ff;background:#80b3ff66;}
-    nav{background:#ccffffaa;box-shadow:0 4px 8px 0 #0066ff08,0 6px 20px 0 #0066ff07;}
-    nav button{color:#36c;}
-    nav button:hover{background:#66ccff88;}
-    .dropdown-content a{color:#006;}
-    .dropdown-content h2{color:#fff;}
-    .dropdown-content a:hover{background:#66ffffaa;}
-    .loading{background:#e6ffff;color:#39f;}
-    .loading button{background:#9df;color:#fff;}
-    .flashing::before,.flashing::after,.flashing span{background-color:#4285f4;}
-    @keyframes dotFlashing{0%{background-color:#4285f4;}50%,100%{background-color:rgba(66,133,244,0.2);}}
-    header>div{background:linear-gradient(#0f9 0%,#00ff99bb 90%);color:#030;border:3px solid #090;}
-    header>div>p>i{border:2px solid blue;}
-    .header{background:linear-gradient(to bottom,#6600ffcc 0%,#6600ff88 100%);box-shadow:0 4px 8px 0 #cc99ff33,0 6px 20px 0 #cc99ff33;}
-    .header>div{background:#ffffff22;}
-    .header-wh>strong{background:#ee00ee88;}
-    .header-my>p{background:#33cccc88;}
-    .header>p{background:#ffffff22;}
-    footer{background:linear-gradient(#06f 0px,#009 150px);color:#66f;}
-    main:not(#Index>main){background:#06f;color:#fff;}
-    @keyframes main{0%{background:#e6ffff;color:#000000;}30%{background:#e6ffff;color:#000000;}100%{background:#06f;color:#ffffff;}}
-    article{background:#09f;box-shadow:0 4px 8px 0 #3399ff33,0 6px 20px 0 #3399ff33;}
-    .img_box{background:linear-gradient(#0099cc 0%,#0099cc77 90%);}
-    .img_box p{color:#e6f9ff;}
-    .say{background:#e6b3ff;color:#203;box-shadow:0 4px 8px 0 #ff33cc33,0 6px 16px 0 #ff33cc22;}
-    .say>i{color:#f39;}
-    li{color:#ffe6cc;}
-    ol>p,ul>p{font-size:0.9375rem;color:#9df;}
-    ul>ul>p,ol>ol>p,ol>ul>p,ul>ol>p{color:#ffcce6;}
-    .size-small{color:#e6ccff;}
-    
-    #Index main{background:linear-gradient(#009 0vh, #009 95vh, #06f 150vh);color:#fff!important;padding:0px 0px 10px 0px;}
-    #Index .login{color:#000;}
-    #Index .login_title{color:#006;}
-    #Index .by{background:#6600ff99;box-shadow:0 4px 8px 0 rgba(102,0,204,0.2),0 6px 20px 0 rgba(102,0,204,0.19);}
-    #Index .by>h2{color:#fff;}
-    #Index .by p{background:#369;}
-    #Index .login>div{background:#fff;border:1px solid #cc0000;}
-    #Index #time{background:#b3cce6;}
-    #Index #teacher{background:#ffffff33;}
-    #Index #teacher>a{background:#f69;color:#fff;}
-    #Index #teacher>a:hover{background:#f37;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);}
-    #Index #teacher>h1,#Index #pupil>h1,#Index #qt>h1{background:#ffffff88;color:#000066;}
-    #Index #pupil{background:linear-gradient(#ffffff55 0%,#ffffff00 90%);}
-    #Index #pupil>a{background:linear-gradient(to right,#1a1aff 0%,#1a1aff 50%,#1a1aff66 90%);color:#fff;}
-    #Index .box>a{color:#fff;background:#3333ffcc;box-shadow:0 4px 8px 0 rgba(51,51,255,0.2),0 6px 20px 0 rgba(51,51,255,0.19);}
-    #Index .box>a:hover{background:#3333ffff;}
-    #Index .classroom{background:#66ffffcc;box-shadow:0 4px 8px 0 rgba(0,204,204,0.2),0 6px 20px 0 rgba(0,204,204,0.19);}
-    #Index .classroom>div a{background:#00ccff66;border:1px solid #06c;color:#033;}
-    #Index .classroom>div a[href]{background:#00ccffcc;}
-    #Index .classroom>div a[href]:hover{background:#00ccff;color:#06c;}
-    #Index #sj>a{background:#f06;color:#ffe6f0;}
-    #Index #sj>a>div{background:#f69;color:#660029;}
-    #Index #ds{background:#aa5;color:#331a00;}
-    #Index #ds:hover{background:#884;}
-    #Index #webpage{background:#fcf;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);}
-    #Index #webpage>div{background:#f9f;}
-    #Index #webpage>div>span{color:#909;}
-    #Index #webpage>a{background:#dfff80;color:#394d00;}
-    #Index #webpage>a:hover{background:#cf3;}
-    #Index #gw{border-left:20px solid #00e6ac77;background:linear-gradient(to right,#33ffccdd 0%,#33ffcc88 50%,#33ffcc00 93%);color:#066;}
-    #Index #dy{border-left:20px solid #ff660077;background:linear-gradient(to right,#ff9933dd 0%,#ff993388 50%,#ff993300 95%);color:#600;}
-    #Index #ss{border-left:20px solid #8800cc77;background:linear-gradient(to right,#d580ffdd 0%,#d580ff88 50%,#d580ff00 95%);color:#600;}
-    #Index footer>ol>li{color:#66f;}
-    #Pupil .wxl{background:#a300cc;}
-    #Pupil .wxl>p{background:#db4dff;color:#fff;}
-    #Pupil #love{background:#9966ff;border:2px solid #73f;}
-    #Pupil .zw{background:#336699dd;}
-    
-    #Et .dow{color:#fff;background:#3cc;}
-    #Ct #jiaobian{background:#fff;}
-    #Ct #jiaobian>div{background-image:linear-gradient(to right,#fc6,#fb3,#fb3,#fc6);}
-  }
+    @media (prefers-color-scheme:dark){}
     </style>
 </head>
 <body onload="loading()">
@@ -418,13 +338,13 @@
             <h1>其他</h1>
                 <a onclick="openPage('Ds', this)" id="ds" class="clear"><h1>大事</h1><p>微胖才是YYDS~</p></a>
             <div id="webpage">
-                <div class="clear"><span>&#8210;&nbsp;&nbsp;&#9723;&nbsp;&nbsp;&times;&nbsp;</span></div>
+                <div class="clear"><span>&times;&nbsp;&nbsp;</span></div>
                 <a href="pupil/lst.htm" target="_blank"><h1>李诗彤网页</h1><p>林煜昕是我的仆人。</p></a>
                 <a href="https://guojijia.github.io" target="_blank"><h1>郭吉家网页</h1><p>“他是一种群居动物。”</p></a>
             </div>
-            <a href="https://wgw.weixiao100.com.cn/custom/gw/78218603-X" target="_blank" id="gw" class="clear"><h1>东升小学官网</h1><p>黑历史集中营。<br/><span style="font-size:0.65rem;">注：大屏设备可能无法正常访问。</span></p></a>
-            <a href="https://pan.baidu.com/s/1Mv3vhvNZrv6GYVSv0eUlBg?from=init&pwd=6688#list/path=%2F" target="_blank" id="dy" class="clear"><h1>微电影</h1><p>弃——因为你，才让我背对命运，不——害——怕……</p></a>
-            <a href="https://wgw.weixiao100.com.cn/custom/wgw/index?schoolCode=92500135036" target="_blank" id="ss" class="clear"><h1>四十中官网</h1><p>非常的shit.</p></a>
+            <a href="https://wgw.weixiao100.com.cn/custom/gw/78218603-X" target="_blank" class="other"><h1>东升小学官网</h1><p>黑历史集中营。<br/><span style="font-size:0.65rem;">注：大屏设备可能无法正常访问。</span></p></a>
+            <a href="https://pan.baidu.com/s/1Mv3vhvNZrv6GYVSv0eUlBg?from=init&pwd=6688#list/path=%2F" target="_blank" class="other"><h1>微电影</h1><p>弃——因为你，才让我背对命运，不——害——怕……</p></a>
+            <a href="https://wgw.weixiao100.com.cn/custom/wgw/index?schoolCode=92500135036" target="_blank" class="other"><h1>四十中官网</h1><p>CT：“有时候我也会到四十中参加活动。”</p></a>
     </div>
     </main>
     <footer>
