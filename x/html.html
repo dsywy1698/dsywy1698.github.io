@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -7,16 +6,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 *{box-sizing: border-box;}
-::-webkit-scrollbar{width:10px;background:#cff;}
-::-webkit-scrollbar-track{background:#66a3ff;}
-::-webkit-scrollbar-thumb{background:#33f;border-radius:5px;height:150px;}
-::-webkit-scrollbar-thumb:hover{background:#00c;}
+::-webkit-scrollbar{width:10px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:#669;border-radius:5px;height:150px;}
+::-webkit-scrollbar-thumb:hover{background:#8585ad;}
 body{margin:0;font-size:100%;background:#03c;}
-button{font-size:20px;background:#c9f;color:#000;border:0;padding:6px 20px;margin:6px;border-radius:100vw;transition:0.3s;}
-button:hover{background:#b366ff;}
+button{font-size:18px;border:0;padding:5px 16px;margin:0;transition:0.3s;display:inline;border-radius:100vw;}
+.b1{background:#cc99ffdd;}
+.b2{background:#ff9966dd;}
+.b3{background:#33cc33dd;}
+.b1:hover{background:#cc99ff;}
+.b2:hover{background:#ff9966;}
+.b3:hover{background:#33cc33;}
 #dragbar{position:absolute;cursor: col-resize;z-index:3;padding:5px;}
 #shield{display:none;top:0;left:0;width:100%;position:absolute;height:100%;z-index:4;}
-#container{background-color:#03c;width:100%;overflow:hidden;;position:absolute;top:50px;bottom:0;height:auto;}
+#container{background-color:#03c;width:100%;overflow:hidden;;position:absolute;top:45px;bottom:0;height:auto;}
 #textareacontainer,#iframecontainer{float:left;height:100%;width:50%;}
 #textarea,#iframe{height:100%;width:100%;padding-bottom:10px;padding-top:1px;}
 #textarea,#iframe{padding:5px;}
@@ -25,9 +29,27 @@ button:hover{background:#b366ff;}
 #textareaCode{background-color: #ffffff;font-family: consolas,"courier new",monospace;font-size:15px;height:100%;width:100%;padding:8px;resize: none;border:none;line-height:normal;}
 .CodeMirror.cm-s-default{line-height:normal;padding: 4px;height:100%;width:100%;}
 #iframeResult,#iframeSource{height:100%;width:100%;}
-.CodeMirror {font-family:Consolas,"等线","微软雅黑",monospace,sans-serif;font-size:15px;height: 300px;color: black;border-radius:5px;}
+
+.CodeMirror {font-family:Consolas,"等线","微软雅黑",monospace,sans-serif;font-size:15px;height:300px;color:black;border-radius:5px;}
+.CodeMirror-lines{padding:4px 0}
+.CodeMirror pre{padding:0 4px}
+.CodeMirror-scrollbar-filler,.CodeMirror-gutter-filler{background-color:white}
+.CodeMirror-gutters{border-right:1px solid #ddd;background-color:#f7f7f7;white-space:nowrap}
+.CodeMirror-linenumber{padding:0 3px 0 5px;min-width:20px;text-align:right;color:#999;white-space:nowrap}
+.CodeMirror-guttermarker{color:black}
+.CodeMirror-guttermarker-subtle{color:#999}
+.CodeMirror-cursor{border-left:1px solid black;border-right:none;width:0}
+.CodeMirror div.CodeMirror-secondarycursor{border-left:1px solid silver}
+.cm-fat-cursor .CodeMirror-cursor{width:auto;border:0 !important;background:#7e7}
+.cm-fat-cursor div.CodeMirror-cursors{z-index:1}
+.cm-animate-fat-cursor{width:auto;border:0;-webkit-animation:blink 1.06s steps(1) infinite;-moz-animation:blink 1.06s steps(1) infinite;animation:blink 1.06s steps(1) infinite;background-color:#7e7}
+.CodeMirror-overwrite .CodeMirror-cursor{}
+.cm-tab{display:inline-block;text-decoration:inherit}
+.CodeMirror-rulers{position:absolute;left:0;right:0;top:-50px;bottom:-20px;overflow:hidden}
+.CodeMirror-ruler{border-left:1px solid #ccc;top:0;bottom:0;position:absolute}
 
 /* DEFAULT THEME */
+
 .cm-s-default .cm-header {color: blue;}
 .cm-s-default .cm-quote {color: #090;}
 .cm-negative {color: #d44;}
@@ -36,6 +58,7 @@ button:hover{background:#b366ff;}
 .cm-em {font-style: italic;}
 .cm-link {text-decoration: underline;}
 .cm-strikethrough {text-decoration: line-through;}
+
 .cm-s-default .cm-keyword {color: mediumblue/*#708*/;}
 .cm-s-default .cm-atom {color: mediumblue/*#219*/;}
 .cm-s-default .cm-number {color: mediumblue/*#164*/;}
@@ -44,8 +67,10 @@ button:hover{background:#b366ff;}
 .cm-s-default .cm-def {color: black/*#00f*/;}
 .cm-s-default .cm-variable {color:black;}
 .cm-s-default .cm-m-css.cm-variable {color:mediumblue;}
+.cm-s-default .cm-punctuation {}
 .cm-s-default .cm-property {color:red;}
 .cm-s-default .cm-m-javascript.cm-property {color: black;}
+.cm-s-default .cm-operator {}
 .cm-s-default .cm-variable-2 {color:black/*#05a*/;}
 .cm-s-default .cm-variable-3 {color: #085;}
 .cm-s-default .cm-comment {color: green/*#a50*/;}
@@ -95,71 +120,72 @@ body.darktheme .cm-s-default .cm-link {color: #00c;}
 body.darktheme .CodeMirror-cursor {
   border-left: 1px solid white;
 }
-.cm-m-clike.cm-string {color: brown/*#a11*/;}
-.cm-s-default .cm-error {color: #f00;}
-.cm-invalidchar {color: #f00;}
-.CodeMirror-composing { border-bottom: 2px solid; }
-/* Default styles for common addons */
-/* STOP */
-/* The rest of this file contains styles related to the mechanics of
-   the editor. You probably shouldn't touch them. */
-.CodeMirror {position: relative;overflow: hidden;background: white;}
-body.darktheme .CodeMirror {background-color:rgb(40, 44, 52);color:rgb(255, 255, 255);}
-.CodeMirror-scroll {overflow: scroll !important;margin-bottom: -30px; margin-right: -30px;padding-bottom: 30px;height: 100%;outline: none;position: relative;}
-.CodeMirror-sizer {position: relative;border-right: 30px solid transparent;
-}
-.CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {position: absolute;z-index: 3;display: none;}
-.CodeMirror-vscrollbar {right: 0; top: 0;overflow-x: hidden;overflow-y: scroll;}
-.CodeMirror-hscrollbar {bottom: 0; left: 0;overflow-y: hidden;overflow-x: scroll;}
-.CodeMirror-scrollbar-filler {right: 0; bottom: 0;}
-.CodeMirror-gutter-filler {left: 0; bottom: 0;}
-.CodeMirror-gutters {position: absolute; left: 0; top: 0;min-height: 100%;z-index: 3;}
-.CodeMirror-gutter {white-space: normal;height: 100%;display: inline-block;vertical-align: top;margin-bottom: -30px;}
-.CodeMirror-gutter-wrapper {position: absolute;z-index: 4;background: none !important;border: none !important;}
-.CodeMirror-gutter-background {position: absolute;top: 0; bottom: 0;z-index: 4;}
-.CodeMirror-gutter-elt {position: absolute;cursor: default;z-index: 4;}
-.CodeMirror-gutter-wrapper {-webkit-user-select: none;-moz-user-select: none;user-select: none;}
 
-.CodeMirror-lines {cursor: text;min-height: 1px; /* prevents collapsing before first draw */}
-.CodeMirror pre{-moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;border-width: 0;background: transparent;font-family: inherit;font-size: inherit;margin: 0;white-space: pre;word-wrap: normal;line-height: inherit;color: inherit;z-index: 2;position: relative;overflow: visible;-webkit-tap-highlight-color: transparent;-webkit-font-variant-ligatures: none;font-variant-ligatures: none;}
-.CodeMirror-wrap pre {word-wrap: break-word;white-space: pre-wrap;word-break: normal;}
-.CodeMirror-linebackground {position: absolute;left: 0; right: 0; top: 0; bottom: 0;z-index: 0;}
-.CodeMirror-linewidget {position: relative;z-index: 2;overflow: auto;}
-.CodeMirror-code {outline: none;}
-.CodeMirror-scroll,
-.CodeMirror-sizer,
-.CodeMirror-gutter,
-.CodeMirror-gutters,
-.CodeMirror-linenumber {-moz-box-sizing: content-box;box-sizing: content-box;}
-.CodeMirror-measure {position: absolute;width: 100%;height: 0;overflow: hidden;visibility: hidden;}
-.CodeMirror-cursor {position: absolute;pointer-events: none;}
-.CodeMirror-measure pre { position: static; }
-div.CodeMirror-cursors {visibility: hidden;position: relative;z-index: 3;}
-div.CodeMirror-dragcursors {visibility: visible;}
-.CodeMirror-focused div.CodeMirror-cursors {visibility: visible;}
-.CodeMirror-selected { background: #d9d9d9; }
-body.darktheme .CodeMirror-selected { background: #777777;}
-.CodeMirror-focused .CodeMirror-selected { background: #d7d4f0; }
-body.darktheme .CodeMirror-focused .CodeMirror-selected { background: #0063e6;}
-.CodeMirror-crosshair { cursor: crosshair; }
-.CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection { background: #d7d4f0; }
-.CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection { background: #d7d4f0; }
+.cm-m-clike.cm-string{color:brown}
+.cm-s-default .cm-error{color:#f00}
+.cm-invalidchar{color:#f00}
+.CodeMirror-composing{border-bottom:2px solid}
+div.CodeMirror span.CodeMirror-matchingbracket{color:#0f0}
+div.CodeMirror span.CodeMirror-nonmatchingbracket{color:#f22}
+.CodeMirror-matchingtag{background:rgba(255,150,0,.3)}
+.CodeMirror-activeline-background{background:#e8f2ff}
+.CodeMirror{position:relative;overflow:hidden;background:white}
+body.darktheme .CodeMirror{background-color:rgb(40,44,52);color:rgb(255,255,255)}
+.CodeMirror-scroll{overflow:scroll !important;margin-bottom:-30px;margin-right:-30px;padding-bottom:30px;height:100%;outline:none;position:relative}
+.CodeMirror-sizer{position:relative;border-right:30px solid transparent}
+.CodeMirror-vscrollbar,.CodeMirror-hscrollbar,.CodeMirror-scrollbar-filler,.CodeMirror-gutter-filler{position:absolute;z-index:3;display:none}
+.CodeMirror-vscrollbar{right:0;top:0;overflow-x:hidden;overflow-y:scroll}
+.CodeMirror-hscrollbar{bottom:0;left:0;overflow-y:hidden;overflow-x:scroll}
+.CodeMirror-scrollbar-filler{right:0;bottom:0}
+.CodeMirror-gutter-filler{left:0;bottom:0}
+.CodeMirror-gutters{position:absolute;left:0;top:0;min-height:100%;z-index:3}
+.CodeMirror-gutter{white-space:normal;height:100%;display:inline-block;vertical-align:top;margin-bottom:-30px}
+.CodeMirror-gutter-wrapper{position:absolute;z-index:4;background:none !important;border:none !important}
+.CodeMirror-gutter-background{position:absolute;top:0;bottom:0;z-index:4}
+.CodeMirror-gutter-elt{position:absolute;cursor:default;z-index:4}
+.CodeMirror-gutter-wrapper{-webkit-user-select:none;-moz-user-select:none;user-select:none}
+.CodeMirror-lines{cursor:text;min-height:1px}
+.CodeMirror pre{-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;border-width:0;background:transparent;font-family:inherit;font-size:inherit;margin:0;white-space:pre;word-wrap:normal;line-height:inherit;color:inherit;z-index:2;position:relative;overflow:visible;-webkit-tap-highlight-color:transparent;-webkit-font-variant-ligatures:none;font-variant-ligatures:none}
+.CodeMirror-wrap pre{word-wrap:break-word;white-space:pre-wrap;word-break:normal}
+.CodeMirror-linebackground{position:absolute;left:0;right:0;top:0;bottom:0;z-index:0}
+.CodeMirror-linewidget{position:relative;z-index:2;overflow:auto}
+.CodeMirror-code{outline:none}
+.CodeMirror-scroll,.CodeMirror-sizer,.CodeMirror-gutter,.CodeMirror-gutters,.CodeMirror-linenumber{-moz-box-sizing:content-box;box-sizing:content-box}
+.CodeMirror-measure{position:absolute;width:100%;height:0;overflow:hidden;visibility:hidden}
+.CodeMirror-cursor{position:absolute;pointer-events:none}
+.CodeMirror-measure pre{position:static}
+div.CodeMirror-cursors{visibility:hidden;position:relative;z-index:3}
+div.CodeMirror-dragcursors{visibility:visible}
+.CodeMirror-focused div.CodeMirror-cursors{visibility:visible}
+.CodeMirror-selected{background:#d9d9d9}
+body.darktheme .CodeMirror-selected{background:#777777}
+.CodeMirror-focused .CodeMirror-selected{background:#d7d4f0}
+body.darktheme .CodeMirror-focused .CodeMirror-selected{background:#0063e6}
+.CodeMirror-crosshair{cursor:crosshair}
+.CodeMirror-line::selection,.CodeMirror-line > span::selection,.CodeMirror-line > span > span::selection{background:#d7d4f0}
+.CodeMirror-line::-moz-selection,.CodeMirror-line > span::-moz-selection,.CodeMirror-line > span > span::-moz-selection{background:#d7d4f0}
+.cm-searching{background:#ffa;background:rgba(255,255,0,.4)}
+.cm-force-border{padding-right:.1px}
 </style>
 </head>
 <body>
-<div>
-<div style="overflow:auto">
-   <button onclick="submitTryit(1);ga('send', 'event', 'runCode', 'click');">run</button>
-   <span style="padding:8px;display:block;float:right!important;color:#fff;font-family:Consolas" id="framesize"></span>
+<div class="trytopnav">
+<div style="overflow:hidden;background:#66f;padding:3px;margin:2px;border-radius:100vw;white-space:nowrap!important;">
+  <button class="b1" onclick="restack(currentStack)">方向</button>
+  <button class="b2" onclick="retheme()">主题</button>
+  <button class="b3" onclick="submitTryit(1);ga('send', 'event', 'runCode', 'click');">运行</button>
+  <span style="padding:8px;display:block;float:right!important;color:#fff;font-family:Consolas" id="framesize"></span>
 </div>
 </div>
 <div id="shield"></div>
 <a href="javascript:void(0)" id="dragbar"></a>
 <div id="container">
+<div id="menuOverlay" style="cursor:pointer;z-index:4"></div>
   <div id="textareacontainer">
     <div id="textarea">
       <div id="textareawrapper">
-        <textarea autocomplete="off" id="textareaCode" wrap="logical" spellcheck="false"></textarea>
+        <textarea autocomplete="off" id="textareaCode" wrap="logical" spellcheck="false">
+</textarea>
         <form id="codeForm" autocomplete="off" style="margin:0px;display:none;">
           <input type="hidden" name="code" id="code" />
         </form>
@@ -179,12 +205,40 @@ body.darktheme .CodeMirror-focused .CodeMirror-selected { background: #0063e6;}
   (global.CodeMirror = factory());
 }(this, (function () { 'use strict';
 
-var userAgent = navigator.userAgent,platform = navigator.platform,gecko = /gecko\/\d/i.test(userAgent),ie_upto10 = /MSIE \d/.test(userAgent),ie_11up = /Trident\/(?:[7-9]|\d{2,})\..*rv:(\d+)/.exec(userAgent),ie = ie_upto10 || ie_11up,ie_version = ie && (ie_upto10 ? document.documentMode || 6 : ie_11up[1]),webkit = /WebKit\//.test(userAgent),qtwebkit = webkit && /Qt\/\d+\.\d+/.test(userAgent),chrome = /Chrome\//.test(userAgent),presto = /Opera\//.test(userAgent),safari = /Apple Computer/.test(navigator.vendor),mac_geMountainLion = /Mac OS X 1\d\D([8-9]|\d\d)\D/.test(userAgent),phantom = /PhantomJS/.test(userAgent),ios = /AppleWebKit/.test(userAgent) && /Mobile\/\w+/.test(userAgent),mobile = ios || /Android|webOS|BlackBerry|Opera Mini|Opera Mobi|IEMobile/i.test(userAgent),mac = ios || /Mac/.test(platform),chromeOS = /\bCrOS\b/.test(userAgent),windows = /win/i.test(platform),presto_version = presto && userAgent.match(/Version\/(\d*\.\d*)/);
+// Kludges for bugs and behavior differences that can't be feature
+// detected are enabled based on userAgent etc sniffing.
+var userAgent = navigator.userAgent
+var platform = navigator.platform
+
+var gecko = /gecko\/\d/i.test(userAgent)
+var ie_upto10 = /MSIE \d/.test(userAgent)
+var ie_11up = /Trident\/(?:[7-9]|\d{2,})\..*rv:(\d+)/.exec(userAgent)
+var ie = ie_upto10 || ie_11up
+var ie_version = ie && (ie_upto10 ? document.documentMode || 6 : ie_11up[1])
+var webkit = /WebKit\//.test(userAgent)
+var qtwebkit = webkit && /Qt\/\d+\.\d+/.test(userAgent)
+var chrome = /Chrome\//.test(userAgent)
+var presto = /Opera\//.test(userAgent)
+var safari = /Apple Computer/.test(navigator.vendor)
+var mac_geMountainLion = /Mac OS X 1\d\D([8-9]|\d\d)\D/.test(userAgent)
+var phantom = /PhantomJS/.test(userAgent)
+
+var ios = /AppleWebKit/.test(userAgent) && /Mobile\/\w+/.test(userAgent)
+// This is woefully incomplete. Suggestions for alternative methods welcome.
+var mobile = ios || /Android|webOS|BlackBerry|Opera Mini|Opera Mobi|IEMobile/i.test(userAgent)
+var mac = ios || /Mac/.test(platform)
+var chromeOS = /\bCrOS\b/.test(userAgent)
+var windows = /win/i.test(platform)
+
+var presto_version = presto && userAgent.match(/Version\/(\d*\.\d*)/)
 if (presto_version) { presto_version = Number(presto_version[1]) }
 if (presto_version && presto_version >= 15) { presto = false; webkit = true }
+// Some browsers use the wrong event properties to signal cmd/ctrl on OS X
 var flipCtrlCmd = mac && (qtwebkit || presto && (presto_version == null || presto_version < 12.11))
 var captureRightClick = gecko || (ie && ie_version >= 9)
+
 function classTest(cls) { return new RegExp("(^|\\s)" + cls + "(?:$|\\s)\\s*") }
+
 var rmClass = function(node, cls) {
   var current = node.className
   var match = classTest(cls).exec(current)
@@ -193,14 +247,17 @@ var rmClass = function(node, cls) {
     node.className = current.slice(0, match.index) + (after ? match[1] + after : "")
   }
 }
+
 function removeChildren(e) {
   for (var count = e.childNodes.length; count > 0; --count)
     { e.removeChild(e.firstChild) }
   return e
 }
+
 function removeChildrenAndAdd(parent, e) {
   return removeChildren(parent).appendChild(e)
 }
+
 function elt(tag, content, className, style) {
   var e = document.createElement(tag)
   if (className) { e.className = className }
@@ -209,6 +266,7 @@ function elt(tag, content, className, style) {
   else if (content) { for (var i = 0; i < content.length; ++i) { e.appendChild(content[i]) } }
   return e
 }
+
 var range
 if (document.createRange) { range = function(node, start, end, endNode) {
   var r = document.createRange()
@@ -225,8 +283,9 @@ else { range = function(node, start, end) {
   r.moveStart("character", start)
   return r
 } }
+
 function contains(parent, child) {
-  if (child.nodeType == 3)
+  if (child.nodeType == 3) // Android browser always returns false when child is a textnode
     { child = child.parentNode }
   if (parent.contains)
     { return parent.contains(child) }
@@ -235,7 +294,11 @@ function contains(parent, child) {
     if (child == parent) { return true }
   } while (child = child.parentNode)
 }
+
 function activeElt() {
+  // IE and Edge may throw an "Unspecified Error" when accessing document.activeElement.
+  // IE < 10 will throw when accessed while the page is loading or in an iframe.
+  // IE > 9 and Edge will throw when accessed in an iframe if document.body is unavailable.
   var activeElement
   try {
     activeElement = document.activeElement
@@ -246,6 +309,7 @@ function activeElt() {
     { activeElement = activeElement.root.activeElement }
   return activeElement
 }
+
 function addClass(node, cls) {
   var current = node.className
   if (!classTest(cls).test(current)) { node.className += (current ? " " : "") + cls }
@@ -256,15 +320,18 @@ function joinClasses(a, b) {
     { if (as[i] && !classTest(as[i]).test(b)) { b += " " + as[i] } }
   return b
 }
+
 var selectInput = function(node) { node.select() }
 if (ios) // Mobile Safari apparently has a bug where select() is broken.
   { selectInput = function(node) { node.selectionStart = 0; node.selectionEnd = node.value.length } }
 else if (ie) // Suppress mysterious IE10 errors
   { selectInput = function(node) { try { node.select() } catch(_e) {} } }
+
 function bind(f) {
   var args = Array.prototype.slice.call(arguments, 1)
   return function(){return f.apply(null, args)}
 }
+
 function copyObj(obj, target, overwrite) {
   if (!target) { target = {} }
   for (var prop in obj)
@@ -272,6 +339,9 @@ function copyObj(obj, target, overwrite) {
       { target[prop] = obj[prop] } }
   return target
 }
+
+// Counts the column offset in a string, taking tabs into account.
+// Used mostly to find indentation.
 function countColumn(string, end, tabSize, startIndex, startValue) {
   if (end == null) {
     end = string.search(/[^\s\u00a0]/)
@@ -286,21 +356,33 @@ function countColumn(string, end, tabSize, startIndex, startValue) {
     i = nextTab + 1
   }
 }
+
 function Delayed() {this.id = null}
 Delayed.prototype.set = function(ms, f) {
   clearTimeout(this.id)
   this.id = setTimeout(f, ms)
 }
+
 function indexOf(array, elt) {
   for (var i = 0; i < array.length; ++i)
     { if (array[i] == elt) { return i } }
   return -1
 }
+
+// Number of pixels added to scroller and sizer to hide scrollbar
 var scrollerGap = 30
+
+// Returned or thrown by various protocols to signal 'I'm not
+// handling this'.
 var Pass = {toString: function(){return "CodeMirror.Pass"}}
+
+// Reused option objects for setSelection & friends
 var sel_dontScroll = {scroll: false};
 var sel_mouse = {origin: "*mouse"};
 var sel_move = {origin: "+move"}
+
+// The inverse of countColumn -- find the offset that corresponds to
+// a particular column.
 function findColumn(string, goal, tabSize) {
   for (var pos = 0, col = 0;;) {
     var nextTab = string.indexOf("\t", pos)
@@ -314,24 +396,30 @@ function findColumn(string, goal, tabSize) {
     if (col >= goal) { return pos }
   }
 }
+
 var spaceStrs = [""]
 function spaceStr(n) {
   while (spaceStrs.length <= n)
     { spaceStrs.push(lst(spaceStrs) + " ") }
   return spaceStrs[n]
 }
+
 function lst(arr) { return arr[arr.length-1] }
+
 function map(array, f) {
   var out = []
   for (var i = 0; i < array.length; i++) { out[i] = f(array[i], i) }
   return out
 }
+
 function insertSorted(array, value, score) {
   var pos = 0, priority = score(value)
   while (pos < array.length && score(array[pos]) <= priority) { pos++ }
   array.splice(pos, 0, value)
 }
+
 function nothing() {}
+
 function createObj(base, props) {
   var inst
   if (Object.create) {
@@ -343,6 +431,7 @@ function createObj(base, props) {
   if (props) { copyObj(props, inst) }
   return inst
 }
+
 var nonASCIISingleCaseWordChar = /[\u00df\u0587\u0590-\u05f4\u0600-\u06ff\u3040-\u309f\u30a0-\u30ff\u3400-\u4db5\u4e00-\u9fcc\uac00-\ud7af]/
 function isWordCharBasic(ch) {
   return /\w/.test(ch) || ch > "\x80" &&
@@ -353,63 +442,123 @@ function isWordChar(ch, helper) {
   if (helper.source.indexOf("\\w") > -1 && isWordCharBasic(ch)) { return true }
   return helper.test(ch)
 }
+
 function isEmpty(obj) {
   for (var n in obj) { if (obj.hasOwnProperty(n) && obj[n]) { return false } }
   return true
 }
-var extendingChars = /[\u0300-\u036f\u0483-\u0489\u0591-\u05bd\u05bf\u05c1\u05c2u1ba5\u1ba8\u1ba9\u1c2c-\u1c33\u1c36\u1c37\u1cd0-\u1cd2\u1cd4-\u1ce0\u1ce2-\u1ce8\u1ced\u1dc0-\u1de6\u1dfd-\u1dff\u200c\u200d\u20d0-\u20f0\u2cef-\u2cf1\u2de0-\u2dff\u302a-\u302f\u3099\u309a\ua66f-\ua672\ua67c\ua67d\ua6f0\ua6f1\ua802\ua806\ua80b\ua825\ua826\ua8c4\ua8e0-\ua8f1\ua926-\ua92d\ua947-\ua951\ua980-\ua982\ua9b3\ua9b6-\ua9b9\ua9bc\uaa29-\uaa2e\uaa31\uaa32\uaa35\uaa36\uaa43\uaa4c\uaab0\uaab2-\uaab4\uaab7\uaab8\uaabe\uaabf\uaac1\uabe5\uabe8\uabed\udc00-\udfff\ufb1e\ufe00-\ufe0f\ufe20-\ufe26\uff9e\uff9f]/
+
+// Extending unicode characters. A series of a non-extending char +
+// any number of extending chars is treated as a single unit as far
+// as editing and measuring is concerned. This is not fully correct,
+// since some scripts/fonts/browsers also treat other configurations
+// of code points as a group.
+var extendingChars = /[\u0300-\u036f\u0483-\u0489\u0591-\u05bd\u05bf\u05c1\u05c2\u05c4\u05c5\u05c7\u0610-\u061a\u064b-\u065e\u0670\u06d6-\u06dc\u06de-\u06e4\u06e7\u06e8\u06ea-\u06ed\u0711\u0730-\u074a\u07a6-\u07b0\u07eb-\u07f3\u0816-\u0819\u081b-\u0823\u0825-\u0827\u0829-\u082d\u0900-\u0902\u093c\u0941-\u0948\u094d\u0951-\u0955\u0962\u0963\u0981\u09bc\u09be\u09c1-\u09c4\u09cd\u09d7\u09e2\u09e3\u0a01\u0a02\u0a3c\u0a41\u0a42\u0a47\u0a48\u0a4b-\u0a4d\u0a51\u0a70\u0a71\u0a75\u0a81\u0a82\u0abc\u0ac1-\u0ac5\u0ac7\u0ac8\u0acd\u0ae2\u0ae3\u0b01\u0b3c\u0b3e\u0b3f\u0b41-\u0b44\u0b4d\u0b56\u0b57\u0b62\u0b63\u0b82\u0bbe\u0bc0\u0bcd\u0bd7\u0c3e-\u0c40\u0c46-\u0c48\u0c4a-\u0c4d\u0c55\u0c56\u0c62\u0c63\u0cbc\u0cbf\u0cc2\u0cc6\u0ccc\u0ccd\u0cd5\u0cd6\u0ce2\u0ce3\u0d3e\u0d41-\u0d44\u0d4d\u0d57\u0d62\u0d63\u0dca\u0dcf\u0dd2-\u0dd4\u0dd6\u0ddf\u0e31\u0e34-\u0e3a\u0e47-\u0e4e\u0eb1\u0eb4-\u0eb9\u0ebb\u0ebc\u0ec8-\u0ecd\u0f18\u0f19\u0f35\u0f37\u0f39\u0f71-\u0f7e\u0f80-\u0f84\u0f86\u0f87\u0f90-\u0f97\u0f99-\u0fbc\u0fc6\u102d-\u1030\u1032-\u1037\u1039\u103a\u103d\u103e\u1058\u1059\u105e-\u1060\u1071-\u1074\u1082\u1085\u1086\u108d\u109d\u135f\u1712-\u1714\u1732-\u1734\u1752\u1753\u1772\u1773\u17b7-\u17bd\u17c6\u17c9-\u17d3\u17dd\u180b-\u180d\u18a9\u1920-\u1922\u1927\u1928\u1932\u1939-\u193b\u1a17\u1a18\u1a56\u1a58-\u1a5e\u1a60\u1a62\u1a65-\u1a6c\u1a73-\u1a7c\u1a7f\u1b00-\u1b03\u1b34\u1b36-\u1b3a\u1b3c\u1b42\u1b6b-\u1b73\u1b80\u1b81\u1ba2-\u1ba5\u1ba8\u1ba9\u1c2c-\u1c33\u1c36\u1c37\u1cd0-\u1cd2\u1cd4-\u1ce0\u1ce2-\u1ce8\u1ced\u1dc0-\u1de6\u1dfd-\u1dff\u200c\u200d\u20d0-\u20f0\u2cef-\u2cf1\u2de0-\u2dff\u302a-\u302f\u3099\u309a\ua66f-\ua672\ua67c\ua67d\ua6f0\ua6f1\ua802\ua806\ua80b\ua825\ua826\ua8c4\ua8e0-\ua8f1\ua926-\ua92d\ua947-\ua951\ua980-\ua982\ua9b3\ua9b6-\ua9b9\ua9bc\uaa29-\uaa2e\uaa31\uaa32\uaa35\uaa36\uaa43\uaa4c\uaab0\uaab2-\uaab4\uaab7\uaab8\uaabe\uaabf\uaac1\uabe5\uabe8\uabed\udc00-\udfff\ufb1e\ufe00-\ufe0f\ufe20-\ufe26\uff9e\uff9f]/
 function isExtendingChar(ch) { return ch.charCodeAt(0) >= 768 && extendingChars.test(ch) }
+
+// The display handles the DOM integration, both for input reading
+// and content drawing. It holds references to DOM nodes and
+// display-related state.
+
 function Display(place, doc, input) {
   var d = this
   this.input = input
+
+  // Covers bottom-right square when both scrollbars are present.
   d.scrollbarFiller = elt("div", null, "CodeMirror-scrollbar-filler")
   d.scrollbarFiller.setAttribute("cm-not-content", "true")
+  // Covers bottom of gutter when coverGutterNextToScrollbar is on
+  // and h scrollbar is present.
   d.gutterFiller = elt("div", null, "CodeMirror-gutter-filler")
   d.gutterFiller.setAttribute("cm-not-content", "true")
+  // Will contain the actual code, positioned to cover the viewport.
   d.lineDiv = elt("div", null, "CodeMirror-code")
+  // Elements are added to these to represent selection and cursors.
   d.selectionDiv = elt("div", null, null, "position: relative; z-index: 1")
   d.cursorDiv = elt("div", null, "CodeMirror-cursors")
+  // A visibility: hidden element used to find the size of things.
   d.measure = elt("div", null, "CodeMirror-measure")
+  // When lines outside of the viewport are measured, they are drawn in this.
   d.lineMeasure = elt("div", null, "CodeMirror-measure")
+  // Wraps everything that needs to exist inside the vertically-padded coordinate system
   d.lineSpace = elt("div", [d.measure, d.lineMeasure, d.selectionDiv, d.cursorDiv, d.lineDiv],
                     null, "position: relative; outline: none")
+  // Moved around its parent to cover visible view.
   d.mover = elt("div", [elt("div", [d.lineSpace], "CodeMirror-lines")], null, "position: relative")
+  // Set to the height of the document, allowing scrolling.
   d.sizer = elt("div", [d.mover], "CodeMirror-sizer")
   d.sizerWidth = null
+  // Behavior of elts with overflow: auto and padding is
+  // inconsistent across browsers. This is used to ensure the
+  // scrollable area is big enough.
   d.heightForcer = elt("div", null, null, "position: absolute; height: " + scrollerGap + "px; width: 1px;")
+  // Will contain the gutters, if any.
   d.gutters = elt("div", null, "CodeMirror-gutters")
   d.lineGutter = null
+  // Actual scrollable element.
   d.scroller = elt("div", [d.sizer, d.heightForcer, d.gutters], "CodeMirror-scroll")
   d.scroller.setAttribute("tabIndex", "-1")
+  // The element in which the editor lives.
   d.wrapper = elt("div", [d.scrollbarFiller, d.gutterFiller, d.scroller], "CodeMirror")
+
+  // Work around IE7 z-index bug (not perfect, hence IE7 not really being supported)
   if (ie && ie_version < 8) { d.gutters.style.zIndex = -1; d.scroller.style.paddingRight = 0 }
   if (!webkit && !(gecko && mobile)) { d.scroller.draggable = true }
+
   if (place) {
     if (place.appendChild) { place.appendChild(d.wrapper) }
     else { place(d.wrapper) }
   }
+
+  // Current rendered range (may be bigger than the view window).
   d.viewFrom = d.viewTo = doc.first
   d.reportedViewFrom = d.reportedViewTo = doc.first
+  // Information about the rendered lines.
   d.view = []
   d.renderedView = null
+  // Holds info about a single rendered line when it was rendered
+  // for measurement, while not in view.
   d.externalMeasured = null
+  // Empty space (in pixels) above the view
   d.viewOffset = 0
   d.lastWrapHeight = d.lastWrapWidth = 0
   d.updateLineNumbers = null
+
   d.nativeBarWidth = d.barHeight = d.barWidth = 0
   d.scrollbarsClipped = false
+
+  // Used to only resize the line number gutter when necessary (when
+  // the amount of lines crosses a boundary that makes its width change)
   d.lineNumWidth = d.lineNumInnerWidth = d.lineNumChars = null
+  // Set to true when a non-horizontal-scrolling line widget is
+  // added. As an optimization, line widget aligning is skipped when
+  // this is false.
   d.alignWidgets = false
+
   d.cachedCharWidth = d.cachedTextHeight = d.cachedPaddingH = null
+
+  // Tracks the maximum line length so that the horizontal scrollbar
+  // can be kept static when scrolling.
   d.maxLine = null
   d.maxLineLength = 0
   d.maxLineChanged = false
+
+  // Used for measuring wheel scrolling granularity
   d.wheelDX = d.wheelDY = d.wheelStartX = d.wheelStartY = null
+
+  // True when shift is held down.
   d.shift = false
+
+  // Used to track whether anything happened since the context menu
+  // was opened.
   d.selForContextMenu = null
+
   d.activeTouch = null
+
   input.init(d)
 }
+
+// Find the line object corresponding to the given line number.
 function getLine(doc, n) {
   n -= doc.first
   if (n < 0 || n >= doc.size) { throw new Error("There is no line " + (n + doc.first) + " in the document.") }
@@ -423,6 +572,9 @@ function getLine(doc, n) {
   }
   return chunk.lines[n]
 }
+
+// Get the part of a document between two positions, as an array of
+// strings.
 function getBetween(doc, start, end) {
   var out = [], n = start.line
   doc.iter(start.line, end.line + 1, function (line) {
@@ -434,15 +586,22 @@ function getBetween(doc, start, end) {
   })
   return out
 }
+// Get the lines between from and to, as array of strings.
 function getLines(doc, from, to) {
   var out = []
   doc.iter(from, to, function (line) { out.push(line.text) }) // iter aborts when callback returns truthy value
   return out
 }
+
+// Update the height of a line, propagating the height change
+// upwards to parent nodes.
 function updateLineHeight(line, height) {
   var diff = height - line.height
   if (diff) { for (var n = line; n; n = n.parent) { n.height += diff } }
 }
+
+// Given a line object, find its line number by walking up through
+// its parent links.
 function lineNo(line) {
   if (line.parent == null) { return null }
   var cur = line.parent, no = indexOf(cur.lines, line)
@@ -454,6 +613,9 @@ function lineNo(line) {
   }
   return no + cur.first
 }
+
+// Find the line at the given vertical position, using the height
+// information in the document tree.
 function lineAtHeight(chunk, h) {
   var n = chunk.first
   outer: do {
@@ -473,14 +635,21 @@ function lineAtHeight(chunk, h) {
   }
   return n + i
 }
+
 function isLine(doc, l) {return l >= doc.first && l < doc.first + doc.size}
+
 function lineNumberFor(options, i) {
   return String(options.lineNumberFormatter(i + options.firstLineNumber))
 }
+
+// A Pos instance represents a position within the text.
 function Pos (line, ch) {
   if (!(this instanceof Pos)) { return new Pos(line, ch) }
   this.line = line; this.ch = ch
 }
+
+// Compare two positions, return 0 if they are the same, a negative
+// number when a is less, and a positive number otherwise.
 function cmp(a, b) { return a.line - b.line || a.ch - b.ch }
 
 function copyPos(x) {return Pos(x.line, x.ch)}
@@ -750,12 +919,20 @@ function conflictingCollapsedRange(doc, lineNo$$1, from, to, marker) {
       { return true }
   } }
 }
+
+// A visual line is a line as drawn on the screen. Folding, for
+// example, can cause multiple logical lines to appear on the same
+// visual line. This finds the start of the visual line that the
+// given line is part of (usually that is the line itself).
 function visualLine(line) {
   var merged
   while (merged = collapsedSpanAtStart(line))
     { line = merged.find(-1, true).line }
   return line
 }
+
+// Returns an array of logical lines that continue the visual line
+// started by the argument, or undefined if there are no such lines.
 function visualLineContinued(line) {
   var merged, lines
   while (merged = collapsedSpanAtEnd(line)) {
@@ -764,6 +941,9 @@ function visualLineContinued(line) {
   }
   return lines
 }
+
+// Get the line number of the start of the visual line that the
+// given line number is part of.
 function visualLineNo(doc, lineN) {
   var line = getLine(doc, lineN), vis = visualLine(line)
   if (line == vis) { return lineN }
@@ -927,6 +1107,12 @@ function moveInLine(line, pos, dir, byUnit) {
   while (pos > 0 && isExtendingChar(line.text.charAt(pos)))
   return pos
 }
+
+// This is needed in order to move 'visually' through bi-directional
+// text -- i.e., pressing left should make the cursor go left, even
+// when in RTL text. The tricky part is the 'jumps', where RTL and
+// LTR text touch each other. This often requires the cursor offset
+// to move more than one unit, in order to visually move one unit.
 function moveVisually(line, start, dir, byUnit) {
   var bidi = getOrder(line)
   if (!bidi) { return moveLogically(line, start, dir, byUnit) }
@@ -955,9 +1141,34 @@ function moveLogically(line, start, dir, byUnit) {
   if (byUnit) { while (target > 0 && isExtendingChar(line.text.charAt(target))) { target += dir } }
   return target < 0 || target > line.text.length ? null : target
 }
+
+// Bidirectional ordering algorithm
+// See http://unicode.org/reports/tr9/tr9-13.html for the algorithm
+// that this (partially) implements.
+
+// One-char codes used for character types:
+// L (L):   Left-to-Right
+// R (R):   Right-to-Left
+// r (AL):  Right-to-Left Arabic
+// 1 (EN):  European Number
+// + (ES):  European Number Separator
+// % (ET):  European Number Terminator
+// n (AN):  Arabic Number
+// , (CS):  Common Number Separator
+// m (NSM): Non-Spacing Mark
+// b (BN):  Boundary Neutral
+// s (B):   Paragraph Separator
+// t (S):   Segment Separator
+// w (WS):  Whitespace
+// N (ON):  Other Neutrals
+
+// Returns null if characters are ordered as they appear
+// (left-to-right), or an array of sections ({from, to, level}
+// objects) in the order in which they occur visually.
 var bidiOrdering = (function() {
   // Character types for codepoints 0 to 0xff
   var lowTypes = "bbbbbbbbbtstwsbbbbbbbbbbbbbbssstwNN%%%NNNNNN,N,N1111111111NNNNNNNLLLLLLLLLLLLLLLLLLLLLLLLLLNNNNNNLLLLLLLLLLLLLLLLLLLLLLLLLLNNNNbbbbbbsbbbbbbbbbbbbbbbbbbbbbbbbbb,N%%%%NNNNLNNNNN%%11NLNNN1LNNNNNLLLLLLLLLLLLLLLLLLLLLLLNLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLN"
+  // Character types for codepoints 0x600 to 0x6ff
   var arabicTypes = "rrrrrrrrrrrr,rNNmmmmmmrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrmmmmmmmmmmmmmmrrrrrrrnnnnnnnnnn%nnrrrmrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrmmmmmmmmmmmmmmmmmmmNmmmm"
   function charType(code) {
     if (code <= 0xf7) { return lowTypes.charAt(code) }
@@ -968,6 +1179,7 @@ var bidiOrdering = (function() {
     else if (code == 0x200c) { return "b" }
     else { return "L" }
   }
+
   var bidiRE = /[\u0590-\u05f4\u0600-\u06ff\u0700-\u08ac]/
   var isNeutral = /[stwN]/, isStrong = /[LRr]/, countsAsLeft = /[Lb1n]/, countsAsNum = /[1n]/
   // Browsers seem to always treat the boundaries of block elements as being L.
@@ -983,16 +1195,31 @@ var bidiOrdering = (function() {
     var len = str.length, types = []
     for (var i = 0; i < len; ++i)
       { types.push(charType(str.charCodeAt(i))) }
+
+    // W1. Examine each non-spacing mark (NSM) in the level run, and
+    // change the type of the NSM to the type of the previous
+    // character. If the NSM is at the start of the level run, it will
+    // get the type of sor.
     for (var i$1 = 0, prev = outerType; i$1 < len; ++i$1) {
       var type = types[i$1]
       if (type == "m") { types[i$1] = prev }
       else { prev = type }
     }
+
+    // W2. Search backwards from each instance of a European number
+    // until the first strong type (R, L, AL, or sor) is found. If an
+    // AL is found, change the type of the European number to Arabic
+    // number.
+    // W3. Change all ALs to R.
     for (var i$2 = 0, cur = outerType; i$2 < len; ++i$2) {
       var type$1 = types[i$2]
       if (type$1 == "1" && cur == "r") { types[i$2] = "n" }
       else if (isStrong.test(type$1)) { cur = type$1; if (type$1 == "r") { types[i$2] = "R" } }
     }
+
+    // W4. A single European separator between two European numbers
+    // changes to a European number. A single common separator between
+    // two numbers of the same type changes to that type.
     for (var i$3 = 1, prev$1 = types[0]; i$3 < len - 1; ++i$3) {
       var type$2 = types[i$3]
       if (type$2 == "+" && prev$1 == "1" && types[i$3+1] == "1") { types[i$3] = "1" }
@@ -1000,6 +1227,11 @@ var bidiOrdering = (function() {
                (prev$1 == "1" || prev$1 == "n")) { types[i$3] = prev$1 }
       prev$1 = type$2
     }
+
+    // W5. A sequence of European terminators adjacent to European
+    // numbers changes to all European numbers.
+    // W6. Otherwise, separators and terminators change to Other
+    // Neutral.
     for (var i$4 = 0; i$4 < len; ++i$4) {
       var type$3 = types[i$4]
       if (type$3 == ",") { types[i$4] = "N" }
@@ -1011,11 +1243,22 @@ var bidiOrdering = (function() {
         i$4 = end - 1
       }
     }
+
+    // W7. Search backwards from each instance of a European number
+    // until the first strong type (R, L, or sor) is found. If an L is
+    // found, then change the type of the European number to L.
     for (var i$5 = 0, cur$1 = outerType; i$5 < len; ++i$5) {
       var type$4 = types[i$5]
       if (cur$1 == "L" && type$4 == "1") { types[i$5] = "L" }
       else if (isStrong.test(type$4)) { cur$1 = type$4 }
     }
+
+    // N1. A sequence of neutrals takes the direction of the
+    // surrounding strong text if the text on both sides has the same
+    // direction. European and Arabic numbers act as if they were R in
+    // terms of their influence on neutrals. Start-of-level-run (sor)
+    // and end-of-level-run (eor) are used at level run boundaries.
+    // N2. Any remaining neutrals take the embedding direction.
     for (var i$6 = 0; i$6 < len; ++i$6) {
       if (isNeutral.test(types[i$6])) {
         var end$1 = void 0
@@ -1027,6 +1270,12 @@ var bidiOrdering = (function() {
         i$6 = end$1 - 1
       }
     }
+
+    // Here we depart from the documented algorithm, in order to avoid
+    // building up an actual levels array. Since there are only three
+    // levels (0, 1, 2) in an implementation that doesn't take
+    // explicit embedding into account, we can build up the order on
+    // the fly, without following the level-based algorithm.
     var order = [], m
     for (var i$7 = 0; i$7 < len;) {
       if (countsAsLeft.test(types[i$7])) {
@@ -1064,12 +1313,23 @@ var bidiOrdering = (function() {
     return order
   }
 })()
+
+// Get the bidi ordering for the given line (and cache it). Returns
+// false for lines that are fully left-to-right, and an array of
+// BidiSpan objects otherwise.
 function getOrder(line) {
   var order = line.order
   if (order == null) { order = line.order = bidiOrdering(line.text) }
   return order
 }
+
+// EVENT HANDLING
+
+// Lightweight event framework. on/off also work on DOM nodes,
+// registering native DOM handlers.
+
 var noHandlers = []
+
 var on = function(emitter, type, f) {
   if (emitter.addEventListener) {
     emitter.addEventListener(type, f, false)
@@ -1080,6 +1340,7 @@ var on = function(emitter, type, f) {
     map$$1[type] = (map$$1[type] || noHandlers).concat(f)
   }
 }
+
 function getHandlers(emitter, type) {
   return emitter._handlers && emitter._handlers[type] || noHandlers
 }
@@ -1244,16 +1505,26 @@ function hasBadZoomedRects(measure) {
   var fromRange = range(node, 0, 1).getBoundingClientRect()
   return badZoomedRects = Math.abs(normal.left - fromRange.left) > 1
 }
+
+// Known modes, by name and by MIME
 var modes = {};
 var mimeModes = {}
+
+// Extra arguments are stored as the mode's dependencies, which is
+// used by (legacy) mechanisms like loadmode.js to automatically
+// load a mode. (Preferred mechanism is the require/define calls.)
 function defineMode(name, mode) {
   if (arguments.length > 2)
     { mode.dependencies = Array.prototype.slice.call(arguments, 2) }
   modes[name] = mode
 }
+
 function defineMIME(mime, spec) {
   mimeModes[mime] = spec
 }
+
+// Given a MIME type, a {name, ...options} config object, or a name
+// string, return a mode config object.
 function resolveMode(spec) {
   if (typeof spec == "string" && mimeModes.hasOwnProperty(spec)) {
     spec = mimeModes[spec]
@@ -1410,10 +1681,20 @@ StringStream.prototype = {
     finally { this.lineStart -= n }
   }
 }
+
+// Compute a style array (an array starting with a mode generation
+// -- for invalidation -- followed by pairs of end positions and
+// style strings), which is used to highlight the tokens on the
+// line.
 function highlightLine(cm, line, state, forceToEnd) {
+  // A styles array always starts with a number identifying the
+  // mode/overlays that it is based on (for easy invalidation).
   var st = [cm.state.modeGen], lineClasses = {}
+  // Compute the base array of styles
   runMode(cm, line.text, cm.doc.mode, state, function (end, style) { return st.push(end, style); },
     lineClasses, forceToEnd)
+
+  // Run overlays, adjust style array.
   var loop = function ( o ) {
     var overlay = cm.state.overlays[o], i = 1, at = 0
     runMode(cm, line.text, overlay.mode, true, function (end, style) {
@@ -1899,7 +2180,6 @@ function insertLineContent(line, builder, styles) {
   }
 }
 
-
 // These objects are used to represent the visible (currently drawn)
 // part of the document. A LineView may correspond to multiple
 // logical lines, if those are connected by collapsed ranges.
@@ -1999,6 +2279,10 @@ function fireOrphanDelayed() {
   orphanDelayedCallbacks = null
   for (var i = 0; i < delayed.length; ++i) { delayed[i]() }
 }
+
+// When an aspect of a line changes, a string is added to
+// lineView.changes. This updates the relevant part of the line's
+// DOM structure.
 function updateLineForChanges(cm, lineView, lineN, dims) {
   for (var j = 0; j < lineView.changes.length; j++) {
     var type = lineView.changes[j]
@@ -2009,6 +2293,9 @@ function updateLineForChanges(cm, lineView, lineN, dims) {
   }
   lineView.changes = null
 }
+
+// Lines with gutter elements, widgets or a background class need to
+// be wrapped, and have the extra elements added to the wrapper div
 function ensureLineWrapped(lineView) {
   if (lineView.node == lineView.text) {
     lineView.node = elt("div", null, null, "position: relative")
@@ -2019,6 +2306,7 @@ function ensureLineWrapped(lineView) {
   }
   return lineView.node
 }
+
 function updateLineBackground(lineView) {
   var cls = lineView.bgClass ? lineView.bgClass + " " + (lineView.line.bgClass || "") : lineView.line.bgClass
   if (cls) { cls += " CodeMirror-linebackground" }
@@ -2030,6 +2318,9 @@ function updateLineBackground(lineView) {
     lineView.background = wrap.insertBefore(elt("div", null, cls), wrap.firstChild)
   }
 }
+
+// Wrapper around buildLineContent which will reuse the structure
+// in display.externalMeasured when possible.
 function getLineContent(cm, lineView) {
   var ext = cm.display.externalMeasured
   if (ext && ext.line == lineView.line) {
@@ -2039,6 +2330,10 @@ function getLineContent(cm, lineView) {
   }
   return buildLineContent(cm, lineView)
 }
+
+// Redraw the line's text. Interacts with the background and text
+// classes because the mode may output tokens that influence these
+// classes.
 function updateLineText(cm, lineView) {
   var cls = lineView.text.className
   var built = getLineContent(cm, lineView)
@@ -2123,11 +2418,15 @@ function buildLineElement(cm, lineView, lineN, dims) {
   insertLineWidgets(cm, lineView, dims)
   return lineView.node
 }
+
+// A lineView may contain multiple logical lines (when merged by
+// collapsed spans). The widgets for all of them need to be drawn.
 function insertLineWidgets(cm, lineView, dims) {
   insertLineWidgetsFor(cm, lineView.line, lineView, dims, true)
   if (lineView.rest) { for (var i = 0; i < lineView.rest.length; i++)
     { insertLineWidgetsFor(cm, lineView.rest[i], lineView, dims, false) } }
 }
+
 function insertLineWidgetsFor(cm, line, lineView, dims, allowAbove) {
   if (!line.widgets) { return }
   var wrap = ensureLineWrapped(lineView)
@@ -2143,6 +2442,7 @@ function insertLineWidgetsFor(cm, line, lineView, dims, allowAbove) {
     signalLater(widget, "redraw")
   }
 }
+
 function positionLineWidget(widget, node, lineView, dims) {
   if (widget.noHScroll) {
     (lineView.alignable || (lineView.alignable = [])).push(node)
@@ -2160,6 +2460,7 @@ function positionLineWidget(widget, node, lineView, dims) {
     if (!widget.noHScroll) { node.style.marginLeft = -dims.gutterTotalWidth + "px" }
   }
 }
+
 function widgetHeight(widget) {
   if (widget.height != null) { return widget.height }
   var cm = widget.doc.cm
@@ -2174,6 +2475,8 @@ function widgetHeight(widget) {
   }
   return widget.height = widget.node.parentNode.offsetHeight
 }
+
+// Return true when the given mouse event happened in a widget
 function eventInWidget(display, e) {
   for (var n = e_target(e); n != display.wrapper; n = n.parentNode) {
     if (!n || (n.nodeType == 1 && n.getAttribute("cm-ignore-events") == "true") ||
@@ -2181,6 +2484,9 @@ function eventInWidget(display, e) {
       { return true }
   }
 }
+
+// POSITION MEASUREMENT
+
 function paddingTop(display) {return display.lineSpace.offsetTop}
 function paddingVert(display) {return display.mover.offsetHeight - display.lineSpace.offsetHeight}
 function paddingH(display) {
@@ -2191,6 +2497,7 @@ function paddingH(display) {
   if (!isNaN(data.left) && !isNaN(data.right)) { display.cachedPaddingH = data }
   return data
 }
+
 function scrollGap(cm) { return scrollerGap - cm.display.nativeBarWidth }
 function displayWidth(cm) {
   return cm.display.scroller.clientWidth - scrollGap(cm) - cm.display.barWidth
@@ -2199,6 +2506,10 @@ function displayHeight(cm) {
   return cm.display.scroller.clientHeight - scrollGap(cm) - cm.display.barHeight
 }
 
+// Ensure the lineView.wrapping.heights array is populated. This is
+// an array of bottom offsets for the lines that make up a drawn
+// line. When lineWrapping is on, there might be more than one
+// height.
 function ensureLineHeights(cm, lineView, rect) {
   var wrapping = cm.options.lineWrapping
   var curWidth = wrapping && displayWidth(cm)
@@ -2216,6 +2527,10 @@ function ensureLineHeights(cm, lineView, rect) {
     heights.push(rect.bottom - rect.top)
   }
 }
+
+// Find a line map (mapping character offsets to text nodes) and a
+// measurement cache for the given line number. (A line view might
+// contain multiple lines when collapsed ranges are present.)
 function mapFromLineView(lineView, line, lineN) {
   if (lineView.line == line)
     { return {map: lineView.measure.map, cache: lineView.measure.cache} }
@@ -2227,6 +2542,8 @@ function mapFromLineView(lineView, line, lineN) {
       { return {map: lineView.measure.maps[i$1], cache: lineView.measure.caches[i$1], before: true} } }
 }
 
+// Render a line into the hidden node display.externalMeasured. Used
+// when measurement is needed for a line that's not in the viewport.
 function updateExternalMeasurement(cm, line) {
   line = visualLine(line)
   var lineN = lineNo(line)
@@ -2237,6 +2554,9 @@ function updateExternalMeasurement(cm, line) {
   removeChildrenAndAdd(cm.display.lineMeasure, built.pre)
   return view
 }
+
+// Get a {top, bottom, left, right} box (in line-local coordinates)
+// for a given character.
 function measureChar(cm, line, ch, bias) {
   return measureCharPrepared(cm, prepareMeasureForLine(cm, line), ch, bias)
 }
@@ -2249,6 +2569,12 @@ function findViewForLine(cm, lineN) {
   if (ext && lineN >= ext.lineN && lineN < ext.lineN + ext.size)
     { return ext }
 }
+
+// Measurement can be split in two steps, the set-up work that
+// applies to the whole line, and the measurement of the actual
+// character. Functions like coordsChar, that need to do a lot of
+// measurements in a row, can thus ensure that the set-up work is
+// only done once.
 function prepareMeasureForLine(cm, line) {
   var lineN = lineNo(line)
   var view = findViewForLine(cm, lineN)
@@ -2268,6 +2594,9 @@ function prepareMeasureForLine(cm, line) {
     hasHeights: false
   }
 }
+
+// Given a prepared measurement object, measures the position of an
+// actual character (or fetches it from the cache).
 function measureCharPrepared(cm, prepared, ch, bias, varHeight) {
   if (prepared.before) { ch = -1 }
   var key = ch + (bias || ""), found
@@ -2292,6 +2621,8 @@ var nullRect = {left: 0, right: 0, top: 0, bottom: 0}
 
 function nodeAndOffsetInLineMap(map$$1, ch, bias) {
   var node, start, end, collapse, mStart, mEnd
+  // First, search the line map for the text node corresponding to,
+  // or closest to, the target character.
   for (var i = 0; i < map$$1.length; i += 3) {
     mStart = map$$1[i]
     mEnd = map$$1[i + 1]
@@ -2424,6 +2755,11 @@ function clearCaches(cm) {
 
 function pageScrollX() { return window.pageXOffset || (document.documentElement || document.body).scrollLeft }
 function pageScrollY() { return window.pageYOffset || (document.documentElement || document.body).scrollTop }
+
+// Converts a {top, bottom, left, right} box from line-local
+// coordinates into another coordinate system. Context may be one of
+// "line", "div" (display.lineDiv), "local"./null (editor), "window",
+// or "page".
 function intoCoordSystem(cm, lineObj, rect, context, includeWidgets) {
   if (!includeWidgets && lineObj.widgets) { for (var i = 0; i < lineObj.widgets.length; ++i) { if (lineObj.widgets[i].above) {
     var size = widgetHeight(lineObj.widgets[i])
@@ -2443,6 +2779,9 @@ function intoCoordSystem(cm, lineObj, rect, context, includeWidgets) {
   rect.top += yOff; rect.bottom += yOff
   return rect
 }
+
+// Coverts a box from "div" coords to another coordinate system.
+// Context may be "window", "page", "div", or "local"./null.
 function fromCoordSystem(cm, coords, context) {
   if (context == "div") { return coords }
   var left = coords.left, top = coords.top
@@ -2465,6 +2804,9 @@ function charCoords(cm, pos, context, lineObj, bias) {
   return intoCoordSystem(cm, lineObj, measureChar(cm, lineObj, pos.ch, bias), context)
 }
 
+// Returns a box for a given cursor position, which may have an
+// 'other' property containing the position of the secondary cursor
+// on a bidi boundary.
 function cursorCoords(cm, pos, context, lineObj, preparedMeasure, varHeight) {
   lineObj = lineObj || getLine(cm.doc, pos.line)
   if (!preparedMeasure) { preparedMeasure = prepareMeasureForLine(cm, lineObj) }
@@ -2495,6 +2837,8 @@ function cursorCoords(cm, pos, context, lineObj, preparedMeasure, varHeight) {
   return val
 }
 
+// Used to cheaply estimate the coordinates for a position. Used for
+// intermediate scroll updates.
 function estimateCoords(cm, pos) {
   var left = 0
   pos = clipPos(cm.doc, pos)
@@ -2503,6 +2847,13 @@ function estimateCoords(cm, pos) {
   var top = heightAtLine(lineObj) + paddingTop(cm.display)
   return {left: left, right: left, top: top, bottom: top + lineObj.height}
 }
+
+// Positions returned by coordsChar contain some extra information.
+// xRel is the relative x position of the input coordinates compared
+// to the found position (so xRel > 0 means the coordinates are to
+// the right of the character position, for example). When outside
+// is true, that means the coordinates lie outside the line's
+// vertical range.
 function PosWithInfo(line, ch, outside, xRel) {
   var pos = Pos(line, ch)
   pos.xRel = xRel
@@ -2510,6 +2861,8 @@ function PosWithInfo(line, ch, outside, xRel) {
   return pos
 }
 
+// Compute the character position closest to the given coordinates.
+// Input must be lineSpace-local ("div" coordinate system).
 function coordsChar(cm, x, y) {
   var doc = cm.doc
   y += cm.display.viewOffset
@@ -2556,6 +2909,10 @@ function coordsCharInner(cm, lineObj, lineNo$$1, x, y) {
       var ch = x < fromX || x - fromX <= toX - x ? from : to
       var outside = ch == from ? fromOutside : toOutside
       var xDiff = x - (ch == from ? fromX : toX)
+      // This is a kludge to handle the case where the coordinates
+      // are after a line-wrapped line. We should replace it with a
+      // more general handling of cursor positions around line
+      // breaks. (Issue #4078)
       if (toOutside && !bidi && !/\s/.test(lineObj.text.charAt(ch)) && xDiff > 0 &&
           ch < lineObj.text.length && preparedMeasure.view.measure.heights.length > 1) {
         var charSize = measureCharPrepared(cm, preparedMeasure, ch, "right")
@@ -2600,6 +2957,8 @@ function textHeight(display) {
   removeChildren(display.measure)
   return height || 1
 }
+
+// Compute the default character width.
 function charWidth(display) {
   if (display.cachedCharWidth != null) { return display.cachedCharWidth }
   var anchor = elt("span", "xxxxxxxxxx")
@@ -2609,6 +2968,9 @@ function charWidth(display) {
   if (width > 2) { display.cachedCharWidth = width }
   return width || 10
 }
+
+// Do a bulk-read of the DOM positions and sizes needed to draw the
+// view, so that we don't interleave reading and writing to the DOM.
 function getDimensions(cm) {
   var d = cm.display, left = {}, width = {}
   var gutterLeft = d.gutters.clientLeft
@@ -2622,9 +2984,17 @@ function getDimensions(cm) {
           gutterWidth: width,
           wrapperWidth: d.wrapper.clientWidth}
 }
+
+// Computes display.scroller.scrollLeft + display.gutters.offsetWidth,
+// but using getBoundingClientRect to get a sub-pixel-accurate
+// result.
 function compensateForHScroll(display) {
   return display.scroller.getBoundingClientRect().left - display.sizer.getBoundingClientRect().left
 }
+
+// Returns a function that estimates the height of a line, to use as
+// first approximation until the line becomes visible (and is thus
+// properly measurable).
 function estimateHeight(cm) {
   var th = textHeight(cm.display), wrapping = cm.options.lineWrapping
   var perLine = wrapping && Math.max(5, cm.display.scroller.clientWidth / charWidth(cm.display) - 3)
@@ -2651,6 +3021,11 @@ function estimateLineHeights(cm) {
   })
 }
 
+// Given a mouse event, find the corresponding position. If liberal
+// is false, it checks whether a gutter or scrollbar was clicked,
+// and returns null if it was. forRect is used by rectangular
+// selections, and tries to estimate a character position even for
+// coordinates beyond the right of the text.
 function posFromMouse(cm, e, liberal, forRect) {
   var display = cm.display
   if (!liberal && e_target(e).getAttribute("cm-not-content") == "true") { return null }
@@ -2667,6 +3042,8 @@ function posFromMouse(cm, e, liberal, forRect) {
   return coords
 }
 
+// Find the view element corresponding to a given line. Return null
+// when the line isn't visible.
 function findViewIndex(cm, n) {
   if (n >= cm.display.viewTo) { return null }
   n -= cm.display.viewFrom
@@ -2848,6 +3225,9 @@ function onBlur(cm, e) {
   clearInterval(cm.display.blinker)
   setTimeout(function () { if (!cm.state.focused) { cm.display.shift = false } }, 150)
 }
+
+// Re-align line numbers and gutter marks to compensate for
+// horizontal scrolling.
 function alignHorizontally(cm) {
   var display = cm.display, view = display.view
   if (!display.alignWidgets && (!display.gutters.firstChild || !cm.options.fixedGutter)) { return }
@@ -2867,6 +3247,10 @@ function alignHorizontally(cm) {
   if (cm.options.fixedGutter)
     { display.gutters.style.left = (comp + gutterW) + "px" }
 }
+
+// Used to ensure that the line number gutter is still the right
+// size for the current document size. Returns true when an update
+// is needed.
 function maybeUpdateLineNumberWidth(cm) {
   if (!cm.options.lineNumbers) { return false }
   var doc = cm.doc, last = lineNumberFor(cm.options, doc.first + doc.size - 1), display = cm.display
@@ -2911,16 +3295,25 @@ function updateHeightsInViewport(cm) {
     }
   }
 }
+
+// Read and store the height of line widgets associated with the
+// given line.
 function updateWidgetHeight(line) {
   if (line.widgets) { for (var i = 0; i < line.widgets.length; ++i)
     { line.widgets[i].height = line.widgets[i].node.parentNode.offsetHeight } }
 }
+
+// Compute the lines that are visible in a given viewport (defaults
+// the the current scroll position). viewport may contain top,
+// height, and ensure (see op.scrollToPos) properties.
 function visibleLines(display, doc, viewport) {
   var top = viewport && viewport.top != null ? Math.max(0, viewport.top) : display.scroller.scrollTop
   top = Math.floor(top - paddingTop(display))
   var bottom = viewport && viewport.bottom != null ? viewport.bottom : top + display.wrapper.clientHeight
 
   var from = lineAtHeight(doc, top), to = lineAtHeight(doc, bottom)
+  // Ensure is a {from: {line, ch}, to: {line, ch}} object, and
+  // forces those lines into the viewport (if possible).
   if (viewport && viewport.ensure) {
     var ensureFrom = viewport.ensure.from.line, ensureTo = viewport.ensure.to.line
     if (ensureFrom < from) {
@@ -2933,6 +3326,9 @@ function visibleLines(display, doc, viewport) {
   }
   return {from: from, to: Math.max(to, from + 1)}
 }
+
+// Sync the scrollable area and scrollbars, ensure the viewport
+// covers the visible area.
 function setScrollTop(cm, val) {
   if (Math.abs(cm.doc.scrollTop - val) < 2) { return }
   cm.doc.scrollTop = val
@@ -2942,6 +3338,8 @@ function setScrollTop(cm, val) {
   if (gecko) { updateDisplaySimple(cm) }
   startWorker(cm, 100)
 }
+// Sync scroller and scrollbar, ensure the gutter elements are
+// aligned.
 function setScrollLeft(cm, val, isScroller) {
   if (isScroller ? val == cm.doc.scrollLeft : Math.abs(cm.doc.scrollLeft - val) < 2) { return }
   val = Math.min(val, cm.display.scroller.scrollWidth - cm.display.scroller.clientWidth)
@@ -2950,8 +3348,24 @@ function setScrollLeft(cm, val, isScroller) {
   if (cm.display.scroller.scrollLeft != val) { cm.display.scroller.scrollLeft = val }
   cm.display.scrollbars.setScrollLeft(val)
 }
+
+// Since the delta values reported on mouse wheel events are
+// unstandardized between browsers and even browser versions, and
+// generally horribly unpredictable, this code starts by measuring
+// the scroll effect that the first few mouse wheel events have,
+// and, from that, detects the way it can convert deltas to pixel
+// offsets afterwards.
+//
+// The reason we want to know the amount a wheel event will scroll
+// is that it gives us a chance to update the display before the
+// actual scrolling happens, reducing flickering.
+
 var wheelSamples = 0;
 var wheelPixelsPerUnit = null
+// Fill in a browser-detected starting value on browsers where we
+// know one. These don't have to be accurate -- the result of them
+// being wrong would just be a slight flicker on the first wheel
+// scroll (if it is large enough).
 if (ie) { wheelPixelsPerUnit = -.53 }
 else if (gecko) { wheelPixelsPerUnit = 15 }
 else if (chrome) { wheelPixelsPerUnit = -.7 }
@@ -2979,6 +3393,11 @@ function onScrollWheel(cm, e) {
   var canScrollX = scroll.scrollWidth > scroll.clientWidth
   var canScrollY = scroll.scrollHeight > scroll.clientHeight
   if (!(dx && canScrollX || dy && canScrollY)) { return }
+
+  // Webkit browsers on OS X abort momentum scrolls when the target
+  // of the scroll event is removed from the scrollable element.
+  // This hack (see related code in patchDisplay) makes sure the
+  // element is kept around.
   if (dy && mac && webkit) {
     outer: for (var cur = e.target, view = display.view; cur != scroll; cur = cur.parentNode) {
       for (var i = 0; i < view.length; i++) {
@@ -2989,15 +3408,29 @@ function onScrollWheel(cm, e) {
       }
     }
   }
+
+  // On some browsers, horizontal scrolling will cause redraws to
+  // happen before the gutter has been realigned, causing it to
+  // wriggle around in a most unseemly way. When we have an
+  // estimated pixels/delta value, we just handle horizontal
+  // scrolling entirely here. It'll be slightly off from native, but
+  // better than glitching out.
   if (dx && !gecko && !presto && wheelPixelsPerUnit != null) {
     if (dy && canScrollY)
       { setScrollTop(cm, Math.max(0, Math.min(scroll.scrollTop + dy * wheelPixelsPerUnit, scroll.scrollHeight - scroll.clientHeight))) }
     setScrollLeft(cm, Math.max(0, Math.min(scroll.scrollLeft + dx * wheelPixelsPerUnit, scroll.scrollWidth - scroll.clientWidth)))
+    // Only prevent default scrolling if vertical scrolling is
+    // actually possible. Otherwise, it causes vertical scroll
+    // jitter on OSX trackpads when deltaX is small and deltaY
+    // is large (issue #3579)
     if (!dy || (dy && canScrollY))
       { e_preventDefault(e) }
     display.wheelStartX = null // Abort measurement, if in progress
     return
   }
+
+  // 'Project' the visible viewport to cover the area that is being
+  // scrolled into view (if we know enough to estimate it).
   if (dy && wheelPixelsPerUnit != null) {
     var pixels = dy * wheelPixelsPerUnit
     var top = cm.doc.scrollTop, bot = top + display.wrapper.clientHeight
@@ -3027,6 +3460,10 @@ function onScrollWheel(cm, e) {
   }
 }
 
+// SCROLLBARS
+
+// Prepare DOM reads needed to update the scrollbars. Done in one
+// shot to minimize update/measure roundtrips.
 function measureForScrollbars(cm) {
   var d = cm.display, gutterW = d.gutters.offsetWidth
   var docH = Math.round(cm.doc.height + paddingVert(cm.display))
@@ -3116,6 +3553,12 @@ NativeScrollbars.prototype = copyObj({
   enableZeroWidthBar: function(bar, delay) {
     bar.style.pointerEvents = "auto"
     function maybeDisable() {
+      // To find out whether the scrollbar is still visible, we
+      // check whether the element under the pixel in the bottom
+      // left corner of the scrollbar box is the scrollbar box
+      // itself (when the bar is still visible) or its filler child
+      // (when the bar is hidden). If it is still visible, we keep
+      // it enabled, if it's hidden, we disable pointer events.
       var box = bar.getBoundingClientRect()
       var elt$$1 = document.elementFromPoint(box.left + 1, box.bottom - 1)
       if (elt$$1 != bar) { bar.style.pointerEvents = "none" }
@@ -3150,6 +3593,9 @@ function updateScrollbars(cm, measure) {
     startWidth = cm.display.barWidth; startHeight = cm.display.barHeight
   }
 }
+
+// Re-synchronize the fake scrollbars with the actual size of the
+// content.
 function updateScrollbarsInner(cm, measure) {
   var d = cm.display
   var sizes = d.scrollbars.update(measure)
@@ -3193,6 +3639,11 @@ function initScrollbars(cm) {
   if (cm.display.scrollbars.addClass)
     { addClass(cm.display.wrapper, cm.display.scrollbars.addClass) }
 }
+
+// SCROLLING THINGS INTO VIEW
+
+// If an editor sits on the top or bottom of the window, partially
+// scrolled out of view, this ensures that the cursor is visible.
 function maybeScrollWindow(cm, coords) {
   if (signalDOMEvent(cm, "scrollCursorIntoView")) { return }
 
@@ -3206,6 +3657,10 @@ function maybeScrollWindow(cm, coords) {
     cm.display.lineSpace.removeChild(scrollNode)
   }
 }
+
+// Scroll a given position into view (immediately), verifying that
+// it actually became visible (as line heights are accurately
+// measured, the position of something may 'drift' during drawing).
 function scrollPosIntoView(cm, pos, end, margin) {
   if (margin == null) { margin = 0 }
   var coords
@@ -3230,12 +3685,18 @@ function scrollPosIntoView(cm, pos, end, margin) {
   }
   return coords
 }
+
+// Scroll a given set of coordinates into view (immediately).
 function scrollIntoView(cm, x1, y1, x2, y2) {
   var scrollPos = calculateScrollPos(cm, x1, y1, x2, y2)
   if (scrollPos.scrollTop != null) { setScrollTop(cm, scrollPos.scrollTop) }
   if (scrollPos.scrollLeft != null) { setScrollLeft(cm, scrollPos.scrollLeft) }
 }
 
+// Calculate a new scroll position needed to scroll the given
+// rectangle into view. Returns an object with scrollTop and
+// scrollLeft properties. When these are undefined, the
+// vertical/horizontal position does not need to be adjusted.
 function calculateScrollPos(cm, x1, y1, x2, y2) {
   var display = cm.display, snapMargin = textHeight(cm.display)
   if (y1 < 0) { y1 = 0 }
@@ -3263,6 +3724,9 @@ function calculateScrollPos(cm, x1, y1, x2, y2) {
     { result.scrollLeft = x2 + (tooWide ? 0 : 10) - screenw }
   return result
 }
+
+// Store a relative adjustment to the scroll position in the current
+// operation (to be applied when the operation finishes).
 function addToScrollPos(cm, left, top) {
   if (left != null || top != null) { resolveScrollToPos(cm) }
   if (left != null)
@@ -3271,6 +3735,8 @@ function addToScrollPos(cm, left, top) {
     { cm.curOp.scrollTop = (cm.curOp.scrollTop == null ? cm.doc.scrollTop : cm.curOp.scrollTop) + top }
 }
 
+// Make sure that at the end of the operation the current cursor is
+// shown.
 function ensureCursorVisible(cm) {
   resolveScrollToPos(cm)
   var cur = cm.getCursor(), from = cur, to = cur
@@ -3281,6 +3747,10 @@ function ensureCursorVisible(cm) {
   cm.curOp.scrollToPos = {from: from, to: to, margin: cm.options.cursorScrollMargin, isCursor: true}
 }
 
+// When an operation has its scrollToPos property set, and another
+// scroll action is applied before the end of the operation, this
+// 'simulates' scrolling that position into view in a cheap way, so
+// that the effect of intermediate scroll commands is not ignored.
 function resolveScrollToPos(cm) {
   var range$$1 = cm.curOp.scrollToPos
   if (range$$1) {
@@ -3294,6 +3764,11 @@ function resolveScrollToPos(cm) {
   }
 }
 
+// Operations are used to wrap a series of changes to the editor
+// state in such a way that each change won't have to update the
+// cursor and display (which would be awkward, slow, and
+// error-prone). Instead, display updates are batched and then all
+// combined and executed at once.
 
 var nextOpId = 0
 // Start a new operation.
@@ -3328,6 +3803,8 @@ function endOperation(cm) {
   })
 }
 
+// The DOM updates done when an operation finishes are batched so
+// that the minimum number of relayouts are required.
 function endOperations(group) {
   var ops = group.ops
   for (var i = 0; i < ops.length; i++) // Read DOM
@@ -3364,6 +3841,10 @@ function endOperation_R2(op) {
   if (op.updatedDisplay) { updateHeightsInViewport(cm) }
 
   op.barMeasure = measureForScrollbars(cm)
+
+  // If the max line changed since it was last measured, measure it,
+  // and ensure the document's width matches it.
+  // updateDisplay_W2 will use these properties to do the actual resizing
   if (display.maxLineChanged && !cm.options.lineWrapping) {
     op.adjustWidthTo = measureChar(cm, display.maxLine, display.maxLine.text.length).left + 3
     cm.display.sizerWidth = op.adjustWidthTo
@@ -3405,8 +3886,12 @@ function endOperation_finish(op) {
   var cm = op.cm, display = cm.display, doc = cm.doc
 
   if (op.updatedDisplay) { postUpdateDisplay(cm, op.update) }
+
+  // Abort mouse wheel delta measurement, when scrolling explicitly
   if (display.wheelStartX != null && (op.scrollTop != null || op.scrollLeft != null || op.scrollToPos))
     { display.wheelStartX = display.wheelStartY = null }
+
+  // Propagate the scroll position to the actual DOM scroller
   if (op.scrollTop != null && (display.scroller.scrollTop != op.scrollTop || op.forceScroll)) {
     doc.scrollTop = Math.max(0, Math.min(display.scroller.scrollHeight - display.scroller.clientHeight, op.scrollTop))
     display.scrollbars.setScrollTop(doc.scrollTop)
@@ -3418,11 +3903,15 @@ function endOperation_finish(op) {
     display.scroller.scrollLeft = doc.scrollLeft
     alignHorizontally(cm)
   }
+  // If we need to scroll a specific position into view, do so.
   if (op.scrollToPos) {
     var coords = scrollPosIntoView(cm, clipPos(doc, op.scrollToPos.from),
                                    clipPos(doc, op.scrollToPos.to), op.scrollToPos.margin)
     if (op.scrollToPos.isCursor && cm.state.focused) { maybeScrollWindow(cm, coords) }
   }
+
+  // Fire events for markers that are hidden/unidden by editing or
+  // undoing
   var hidden = op.maybeHiddenMarkers, unhidden = op.maybeUnhiddenMarkers
   if (hidden) { for (var i = 0; i < hidden.length; ++i)
     { if (!hidden[i].lines.length) { signal(hidden[i], "hide") } } }
@@ -3474,6 +3963,13 @@ function docMethodOp(f) {
     finally { endOperation(cm) }
   }
 }
+
+// Updates the display.view data structure for a given change to the
+// document. From and to are in pre-change coordinates. Lendiff is
+// the amount of lines added or subtracted by the change. This is
+// used for changes that span multiple lines, or change the way
+// lines are divided into visual lines. regLineChange (below)
+// registers single-line changes.
 function regChange(cm, from, to, lendiff) {
   if (from == null) { from = cm.doc.first }
   if (to == null) { to = cm.doc.first + cm.doc.size }
@@ -3699,6 +4195,10 @@ function maybeClipScrollbars(cm) {
     display.scrollbarsClipped = true
   }
 }
+
+// Does the actual updating of the line display. Bails out
+// (returning false) when there is nothing to be done and forced is
+// false.
 function updateDisplayIfNeeded(cm, update) {
   var display = cm.display, doc = cm.doc
 
@@ -3899,6 +4399,12 @@ function setGuttersForLineNumbers(options) {
     options.gutters.splice(found, 1)
   }
 }
+
+// Selection objects are immutable. A new one is created every time
+// the selection changes. A selection is one or more non-overlapping
+// (and non-touching) ranges, sorted, and an integer that indicates
+// which one is the primary selection (the one that's scrolled into
+// view, that getCursor returns, etc).
 function Selection(ranges, primIndex) {
   this.ranges = ranges
   this.primIndex = primIndex
@@ -4246,8 +4752,18 @@ function selectionEventCanBeMerged(doc, origin, prev, sel) {
     prev.somethingSelected() == sel.somethingSelected() &&
     new Date - doc.history.lastSelTime <= (doc.cm ? doc.cm.options.historyEventDelay : 500)
 }
+
+// Called whenever the selection changes, sets the new selection as
+// the pending selection in the history, and pushes the old pending
+// selection into the 'done' array when it was significantly
+// different (in number of selected ranges, emptiness, or time).
 function addSelectionToHistory(doc, sel, opId, options) {
   var hist = doc.history, origin = options && options.origin
+
+  // A new event is started when the previous origin does not match
+  // the current, or the origins don't allow matching. Origins
+  // starting with * are always merged, those starting with + are
+  // merged when similar and close together in time.
   if (opId == hist.lastSelOp ||
       (origin && hist.lastSelOrigin == origin &&
        (hist.lastModTime == hist.lastSelTime && hist.lastOrigin == origin ||
@@ -4301,6 +4817,10 @@ function getOldSpans(doc, change) {
   return nw
 }
 
+// Used for un/re-doing changes from the history. Combines the
+// result of computing the existing spans with the set of spans that
+// existed in the history (so that deleting around a span and then
+// undoing brings back the span).
 function mergeOldSpans(doc, change) {
   var old = getOldSpans(doc, change)
   var stretched = stretchSpansOverChange(doc, change)
@@ -4348,6 +4868,15 @@ function copyHistoryArray(events, newGroup, instantiateSel) {
   }
   return copy
 }
+
+// The 'scroll' parameter given to many of these indicated whether
+// the new cursor position should be scrolled into view after
+// modifying the selection.
+
+// If shift is held or the extend flag is set, extends a range to
+// include a given position (and optionally a second position).
+// Otherwise, simply returns the range between the given positions.
+// Used for cursor motion and such.
 function extendRange(doc, range, head, other) {
   if (doc.cm && doc.cm.display.shift || doc.extend) {
     var anchor = range.anchor
@@ -4804,6 +5333,14 @@ function rebaseHistSelSingle(pos, from, to, diff) {
     pos.ch = 0
   }
 }
+
+// Tries to rebase an array of history events given a change in the
+// document. If the change touches the same lines as the event, the
+// event, and everything 'behind' it, is discarded. If the change is
+// before the event, the event's positions are updated. Uses a
+// copy-on-write scheme for the positions, to avoid having to
+// reallocate them all on every rebase, but also avoid problems with
+// shared position objects being unsafely updated.
 function rebaseHistArray(array, from, to, diff) {
   for (var i = 0; i < array.length; ++i) {
     var sub = array[i], ok = true
@@ -4849,6 +5386,20 @@ function changeLine(doc, handle, changeType, op) {
   if (op(line, no) && doc.cm) { regLineChange(doc.cm, no, changeType) }
   return line
 }
+
+// The document is represented as a BTree consisting of leaves, with
+// chunk of lines in them, and branches, with up to ten leaves or
+// other branch nodes below them. The top node is always a branch
+// node, and is the document object itself (meaning it has
+// additional methods and properties).
+//
+// All nodes have parent links. The tree is used both to go from
+// line numbers to line objects, and to go from objects to numbers.
+// It also indexes by height, and is used to convert between height
+// and line object, and to find the total height of the document.
+//
+// See also http://marijnhaverbeke.nl/blog/codemirror-line-tree.html
+
 function LeafChunk(lines) {
   var this$1 = this;
 
@@ -5072,6 +5623,21 @@ function addLineWidget(doc, handle, node, options) {
   return widget
 }
 
+// TEXTMARKERS
+
+// Created with markText and setBookmark methods. A TextMarker is a
+// handle that can be used to clear or find a marked position in the
+// document. Line objects hold arrays (markedSpans) containing
+// {from, to, marker} object pointing to such marker objects, and
+// indicating that such a marker is present on that line. Multiple
+// lines may point to the same marker when it spans across lines.
+// The spans will have null for their from/to properties when the
+// marker continues beyond the start/end of the line. Markers have
+// links back to the lines they currently touch.
+
+// Collapsed markers have unique ids, in order to be able to order
+// them, which is needed for uniquely determining an outer marker
+// when they overlap (they may nest, but not partially overlap).
 var nextMarkerId = 0
 
 function TextMarker(doc, type) {
@@ -5126,6 +5692,12 @@ TextMarker.prototype.clear = function() {
   if (withOp) { endOperation(cm) }
   if (this.parent) { this.parent.clear() }
 }
+
+// Find the position of the marker in the document. Returns a {from,
+// to} object by default. Side can be passed to get a specific side
+// -- 0 (both), -1 (left), or 1 (right). When lineObj is true, the
+// Pos objects returned contain a line object, rather than a line
+// number (used to prevent looking up the same line twice).
 TextMarker.prototype.find = function(side, lineObj) {
   var this$1 = this;
 
@@ -5355,6 +5927,10 @@ var Doc = function(text, mode, firstLine, lineSep) {
 
 Doc.prototype = createObj(BranchChunk.prototype, {
   constructor: Doc,
+  // Iterate over the document. Supports two forms -- with only one
+  // argument, it calls that for each line in the document. With
+  // three, it iterates over the range given by the first two (with
+  // the second being non-inclusive).
   iter: function(from, to, op) {
     if (op) { this.iterN(from - this.first, to - from, op) }
     else { this.iterN(this.first, this.first + this.size, from) }
@@ -5968,6 +6544,12 @@ function normalizeKeyName(name) {
   if (shift) { name = "Shift-" + name }
   return name
 }
+
+// This is a kludge to keep keymaps mostly working as raw objects
+// (backwards compatibility) while at the same time support features
+// like normalization and multi-stroke key bindings. It compiles a
+// new normalized keymap, and then updates the old object to reflect
+// this.
 function normalizeKeyMap(keymap) {
   var copy = {}
   for (var keyname in keymap) { if (keymap.hasOwnProperty(keyname)) {
@@ -6011,6 +6593,9 @@ function lookupKey(key, map$$1, handle, context) {
     }
   }
 }
+
+// Modifier key presses don't count as 'real' key presses for the
+// purpose of keymap fallthrough.
 function isModifierKey(value) {
   var name = typeof value == "string" ? value : keyNames[value.keyCode]
   return name == "Ctrl" || name == "Alt" || name == "Shift" || name == "Mod"
@@ -6057,6 +6642,8 @@ function deleteNearSelection(cm, compute) {
   })
 }
 
+// Commands are parameter-less actions that can be performed on an
+// editor, mostly used for keybindings.
 var commands = {
   selectAll: selectAll,
   singleSelection: function (cm) { return cm.setSelection(cm.getCursor("anchor"), cm.getCursor("head"), sel_dontScroll); },
@@ -6152,6 +6739,13 @@ var commands = {
     if (cm.somethingSelected()) { cm.indentSelection("add") }
     else { cm.execCommand("insertTab") }
   },
+  // Swap the two chars left and right of each selection's head.
+  // Move cursor behind the two swapped characters afterwards.
+  //
+  // Doesn't consider line feeds a character.
+  // Doesn't scan more than one line above to find a character.
+  // Doesn't do anything on an empty line.
+  // Doesn't do anything with non-empty selections.
   transposeChars: function (cm) { return runInOp(cm, function () {
     var ranges = cm.listSelections(), newSel = []
     for (var i = 0; i < ranges.length; i++) {
@@ -6189,7 +6783,6 @@ var commands = {
   openLine: function (cm) { return cm.replaceSelection("\n", "start"); },
   toggleOverwrite: function (cm) { return cm.toggleOverwrite(); }
 }
-
 
 function lineStart(cm, lineN) {
   var line = getLine(cm.doc, lineN)
@@ -6361,6 +6954,12 @@ function onKeyPress(e) {
   if (handleCharBinding(cm, e, ch)) { return }
   cm.display.input.onKeyPress(e)
 }
+
+// A mouse down can be a single click, double click, triple click,
+// start of selection drag, start of text drag, new cursor
+// (ctrl-click), rectangle drag (alt-drag), or xwin
+// middle-click-paste. Or it might be a click on something we should
+// not interfere with, such as a scrollbar or widget.
 function onMouseDown(e) {
   var cm = this, display = cm.display
   if (signalDOMEvent(cm, e) || display.activeTouch && display.input.supportsTouch()) { return }
@@ -6606,7 +7205,6 @@ function leftButtonSelect(cm, e, start, type, addNew) {
   on(document, "mouseup", up)
 }
 
-
 // Determines whether an event happened in the gutter, and fires the
 // handlers for the corresponding event.
 function gutterEvent(cm, e, type, prevent) {
@@ -6637,6 +7235,11 @@ function clickInGutter(cm, e) {
   return gutterEvent(cm, e, "gutterClick", true)
 }
 
+// CONTEXT MENU HANDLING
+
+// To make the context menu work, we need to briefly unhide the
+// textarea (making it as unobtrusive as possible) to let the
+// right-click take effect on it.
 function onContextMenu(cm, e) {
   if (eventInWidget(cm.display, e) || contextMenuInGutter(cm, e)) { return }
   if (signalDOMEvent(cm, e, "contextmenu")) { return }
@@ -6702,7 +7305,7 @@ function defineOptions(CodeMirror) {
       }
       lineNo++
     })
- for (var i = newBreaks.length - 1; i >= 0; i--)
+    for (var i = newBreaks.length - 1; i >= 0; i--)
       { replaceRange(cm.doc, val, newBreaks[i], Pos(newBreaks[i].line, newBreaks[i].ch + val.length)) }
   })
   option("specialChars", /[\u0000-\u001f\u007f\u00ad\u200b-\u200f\u2028\u2029\ufeff]/g, function (cm, val, old) {
@@ -7014,6 +7617,11 @@ function registerEventHandlers(cm) {
 var initHooks = []
 CodeMirror$1.defineInitHook = function (f) { return initHooks.push(f); }
 
+// Indent the given line. The how parameter can be "smart",
+// "add"/null, "subtract", or "prev". When aggressive is false
+// (typically set to true for forced single-line indents), empty
+// lines are not indented, and places where the mode returns Pass
+// are left alone.
 function indentLine(cm, n, how, aggressive) {
   var doc = cm.doc, state
   if (how == null) { how = "add" }
@@ -7072,6 +7680,10 @@ function indentLine(cm, n, how, aggressive) {
     }
   }
 }
+
+// This will be set to a {lineWise: bool, text: [string]} object, so
+// that, when pasting, we know what kind of selections the copied
+// text was made out of.
 var lastCopied = null
 
 function setLastCopied(newLastCopied) {
@@ -7180,6 +7792,10 @@ function disableBrowserMagic(field, spellcheck) {
 function hiddenTextarea() {
   var te = elt("textarea", null, null, "position: absolute; bottom: -1em; padding: 0; width: 1px; height: 1em; outline: none")
   var div = elt("div", [te], null, "overflow: hidden; position: relative; width: 3px; height: 0px;")
+  // The textarea is kept positioned near the cursor to prevent the
+  // fact that it'll be scrolled into view on input from scrolling
+  // our fake cursor out of view. On webkit, when wrap=off, paste is
+  // very slow. So make the area wide instead.
   if (webkit) { te.style.width = "1000px" }
   else { te.setAttribute("wrap", "off") }
   // If border: 0; -- iOS fails to open keyboard (issue #1287)
@@ -7187,6 +7803,14 @@ function hiddenTextarea() {
   disableBrowserMagic(te)
   return div
 }
+
+// The publicly visible API. Note that methodOp(f) means
+// 'wrap f in an operation, performed on its `this` parameter'.
+
+// This is not the complete set of editor methods. Most of the
+// methods defined on the Doc type are also injected into
+// CodeMirror.prototype, for backwards compatibility and
+// convenience.
 
 var addEditorMethods = function(CodeMirror) {
   var optionHandlers = CodeMirror.optionHandlers
@@ -7627,6 +8251,15 @@ var addEditorMethods = function(CodeMirror) {
   }
 }
 
+// Used for horizontal relative motion. Dir is -1 or 1 (left or
+// right), unit can be "char", "column" (like char, but doesn't
+// cross line boundaries), "word" (across next word), or "group" (to
+// the start of next group of word or non-word-non-whitespace
+// chars). The visually param controls whether, in right-to-left
+// text, direction 1 means to move towards the next index in the
+// string, or towards the character to the right of the current
+// position. The resulting position will have a hitSide=true
+// property if it reached the end of the document.
 function findPosH(doc, pos, dir, unit, visually) {
   var line = pos.line, ch = pos.ch, origDir = dir
   var lineObj = getLine(doc, line)
@@ -8358,10 +8991,21 @@ TextareaInput.prototype = copyObj({
     }
     input.polling.set(20, p)
   },
+
+  // Read input from the textarea, and update the document to match.
+  // When something is selected, it is present in the textarea, and
+  // selected (unless it is huge, in which case a placeholder is
+  // used). When nothing is selected, the cursor sits after previously
+  // seen text (can be empty), which is stored in prevInput (we must
+  // not reset the textarea when typing, because that breaks IME).
   poll: function() {
     var this$1 = this;
 
     var cm = this.cm, input = this.textarea, prevInput = this.prevInput
+    // Since this is called a *lot*, try to bail out as cheaply as
+    // possible when it is clear that nothing happened. hasSelection
+    // will be the case when there is a lot of text in the textarea,
+    // in which case reading its value would be expensive.
     if (this.contextMenuPending || !cm.state.focused ||
         (hasSelection(input) && !prevInput && !this.composing) ||
         cm.isReadOnly() || cm.options.disableInput || cm.state.keySeq)
@@ -8617,7 +9261,13 @@ eventMixin(Doc)
 // INPUT HANDLING
 
 CodeMirror$1.inputStyles = {"textarea": TextareaInput, "contenteditable": ContentEditableInput}
-CodeMirror$1.defineMode = function(name) {
+
+// MODE DEFINITION AND QUERYING
+
+// Extra arguments are stored as the mode's dependencies, which is
+// used by (legacy) mechanisms like loadmode.js to automatically
+// load a mode. (Preferred mechanism is the require/define calls.)
+CodeMirror$1.defineMode = function(name/*, mode, â€¦*/) {
   if (!CodeMirror$1.defaults.mode && name != "null") { CodeMirror$1.defaults.mode = name }
   defineMode.apply(this, arguments)
 }
@@ -8646,6 +9296,17 @@ CodeMirror$1.version = "5.21.0"
 return CodeMirror$1;
 
 })));
+
+
+
+
+
+
+
+
+// CodeMirror, copyright (c) by Marijn Haverbeke and others
+// Distributed under an MIT license: http://codemirror.net/LICENSE
+
 (function(mod) {
   if (typeof exports == "object" && typeof module == "object") // CommonJS
     mod(require("../../lib/codemirror"));
@@ -9468,6 +10129,13 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
   });
 
 });
+
+
+//XML:
+
+// CodeMirror, copyright (c) by Marijn Haverbeke and others
+// Distributed under an MIT license: http://codemirror.net/LICENSE
+
 (function(mod) {
   if (typeof exports == "object" && typeof module == "object") // CommonJS
     mod(require("../../lib/codemirror"));
@@ -9861,6 +10529,13 @@ if (!CodeMirror.mimeModes.hasOwnProperty("text/html"))
 });
 
 
+
+
+//JAVASCRIPT:
+
+// CodeMirror, copyright (c) by Marijn Haverbeke and others
+// Distributed under an MIT license: http://codemirror.net/LICENSE
+
 (function(mod) {
   if (typeof exports == "object" && typeof module == "object") // CommonJS
     mod(require("../../lib/codemirror"));
@@ -10057,6 +10732,13 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
   }
 
   var brackets = "([{}])";
+  // This is a crude lookahead trick to try and notice that we're
+  // parsing the argument patterns for a fat-arrow function before we
+  // actually hit the arrow token. It only works if the arrow is on
+  // the same line as the arguments and there's no strange noise
+  // (comments) in between. Fallback is to only notice when we hit the
+  // arrow, and not declare the arguments as locals for the arrow
+  // body.
   function findFatArrow(stream, state) {
     if (state.fatArrowAt) state.fatArrowAt = null;
     var arrow = stream.string.indexOf("=>", stream.start);
@@ -10635,6 +11317,15 @@ CodeMirror.defineMIME("text/typescript", { name: "javascript", typescript: true 
 CodeMirror.defineMIME("application/typescript", { name: "javascript", typescript: true });
 
 });
+
+
+
+//HTMLMIXED:
+
+
+// CodeMirror, copyright (c) by Marijn Haverbeke and others
+// Distributed under an MIT license: http://codemirror.net/LICENSE
+
 (function(mod) {
   if (typeof exports == "object" && typeof module == "object") // CommonJS
     mod(require("../../lib/codemirror"), require("../xml/xml"), require("../javascript/javascript"), require("../css/css"));
@@ -10784,7 +11475,11 @@ CodeMirror.defineMIME("application/typescript", { name: "javascript", typescript
   }, "xml", "javascript", "css");
 
   CodeMirror.defineMIME("text/html", "htmlmixed");
-});
+});</script>
+<script>
+// CodeMirror, copyright (c) by Marijn Haverbeke and others
+// Distributed under an MIT license: https://codemirror.net/LICENSE
+
 (function(mod) {
   if (typeof exports == "object" && typeof module == "object") // CommonJS
     mod(require("../../lib/codemirror"), require("../xml/xml"), require("../javascript/javascript"))
@@ -10932,6 +11627,15 @@ CodeMirror.defineMIME("application/typescript", { name: "javascript", typescript
 });
 </script>
 <script>
+(function(){
+var el = document.createElement("script");
+el.src = "https://lf1-cdn-tos.bytegoofy.com/goofy/ttzz/push.js?808b972c01b18f83c1823ba5ff0ef8b6d47379116ada666be7b543cb9915c18bfd9a9dcb5ced4d7780eb6f3bbd089073c2a6d54440560d63862bbf4ec01bba3a";
+el.id = "ttzz";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(el, s);
+})(window)
+</script>
+<script>
 if (window.addEventListener) {              
     window.addEventListener("resize", browserResize);
 } else if (window.attachEvent) {                 
@@ -10979,6 +11683,7 @@ function getSavedFile() {
 </script>
 <script>
 submitTryit()
+
 function submitTryit(n) {
   if (window.editor) {
     window.editor.save();
@@ -11003,6 +11708,7 @@ function submitTryit(n) {
 	    pos=t.search(/script/i);
     }
     document.getElementById("code").value=t;
+    //document.getElementById("codeForm").action = "https://tryit.w3schools.com/tryit_view.php?x=" + Math.random();
 	document.getElementById("codeForm").action = "/tryit/tryit_view.php?x=" + Math.random();
     document.getElementById('codeForm').method = "post";
     document.getElementById('codeForm').acceptCharset = "utf-8";
@@ -11013,6 +11719,9 @@ function submitTryit(n) {
     ifrw.document.open();
     ifrw.document.write(text);  
     ifrw.document.close();
+    //2016 年 2 月 23 日:contentEditable 设置为 true，以修复 firefox 中的文本选择（bug）。
+    //（然后返回 false 以防止内容可编辑）
+    //（要重现错误:在结果窗口中选择带有和不带有下面的 contentEditable 语句的文本。） 
     if (ifrw.document.body && !ifrw.document.body.isContentEditable) {
       ifrw.document.body.contentEditable = true;
       ifrw.document.body.contentEditable = false;
@@ -11067,7 +11776,7 @@ function showFrameSize() {
   var width, height;
   width = Number(w3_getStyleValue(document.getElementById("iframeResult"), "width").replace("px", "")).toFixed();
   height = Number(w3_getStyleValue(document.getElementById("iframeResult"), "height").replace("px", "")).toFixed();
-  document.getElementById("framesize").innerHTML = "<span>" + width + " × " + height + "</span>";
+  document.getElementById("framesize").innerHTML = "<span style='color:#fff;display:block'>" + width + " × " + height + "</span>";
 }
 var dragging = false;
 var stack;
@@ -11154,6 +11863,34 @@ if (window.addEventListener) {
   window.addEventListener("load", fixDragBtn);
   window.addEventListener("load", showFrameSize);
 }
+function click_savebtn() {
+  if (window.editor) {
+    window.editor.save();
+  }
+  document.getElementById('saveModal').style.display = 'block';
+}
+function click_google_savebtn() {
+  if (window.editor) {
+    window.editor.save();
+  }
+  document.getElementById('driveSaveModal').style.display='block'
+}
+
+function click_google_loadbtn() {
+  document.getElementById('driveLoadModal').style.display='block'
+}
+function retheme() {
+  var cc = document.body.className;
+  if (cc.indexOf("darktheme") > -1) {
+    document.body.className = cc.replace("darktheme", "");
+    if (opener) {opener.document.body.className = cc.replace("darktheme", "");}
+    localStorage.setItem("preferredmode", "light");
+  } else {
+    document.body.className += " darktheme";
+    if (opener) {opener.document.body.className += " darktheme";}
+    localStorage.setItem("preferredmode", "dark");
+  }
+}
 (
 function setThemeMode() {
   var x = localStorage.getItem("preferredmode");
@@ -11163,6 +11900,7 @@ function setThemeMode() {
 })();
 function colorcoding() {
   var ua = navigator.userAgent;
+  //Opera Mini 在尝试编辑文本区域时刷新页面。
   if (ua && ua.toUpperCase().indexOf("OPERA MINI") > -1) { return false; }
   window.editor = CodeMirror.fromTextArea(document.getElementById("textareaCode"), {
     mode: "text/html",
@@ -11171,6 +11909,7 @@ function colorcoding() {
     smartIndent: false,
     addModeClass: true
   });
+//  window.editor.on("change", function () {window.editor.save();});
 }
 colorcoding();
 
@@ -11180,6 +11919,194 @@ function w3_getStyleValue(elmnt,style) {
     } else {
         return elmnt.currentStyle[style];
     }
+}
+
+
+// 创建并呈现一个 Picker 对象以选择 HTML 文件
+function createPicker() {
+    if (pickerApiLoaded) {
+        var view = new google.picker.View(google.picker.ViewId.DOCS);
+        view.setMimeTypes("text/html");
+        var picker = new google.picker.PickerBuilder().
+            addView(view).
+            setOAuthToken(oauthToken).
+            setDeveloperKey(developerKey).
+            setCallback(pickerCallback).
+            build();
+        picker.setVisible(true);
+    }
+}
+// 将文件内容放入 tryit 编辑器
+function pickerCallback(data) {
+    var docID = '';
+    if (data[google.picker.Response.ACTION] == google.picker.Action.PICKED) {
+        var doc = data[google.picker.Response.DOCUMENTS][0];
+        docID = doc[google.picker.Document.ID];
+        getContentOfFile(docID);
+    }
+}
+
+//Get contents
+function getContentOfFile(theID){
+    gapi.client.request({'path': '/drive/v3/files/'+theID+'?alt=media&key='+developerKey,'method': 'GET',callback: function ( theResponseJS, theResponseTXT ) {
+        var myToken = gapi.auth.getToken();
+        var code = JSON.parse(theResponseTXT);
+        code = code.gapiRequest.data.body;
+        document.getElementById("textareaCode").value=code;
+        window.editor.getDoc().setValue(code);
+        submitTryit(1);
+        resetDriveLoadModal();
+        }
+    });
+}
+
+var createFileWithHTMLContent = function(name,data,callback) {
+    const boundary = '-------314159265358979323846';
+    const delimiter = "\r\n--" + boundary + "\r\n";
+    const close_delim = "\r\n--" + boundary + "--";
+    const contentType = 'text/html';
+
+    var metadata = {
+        'name': name,
+        'mimeType': contentType
+    };
+
+    var multipartRequestBody =
+        delimiter +
+        'Content-Type: application/json\r\n\r\n' +
+        JSON.stringify(metadata) +
+        delimiter +
+        'Content-Type: ' + contentType + '\r\n\r\n' +
+        data +
+        close_delim;
+
+    var request = gapi.client.request({
+        'path': '/upload/drive/v3/files',
+        'method': 'POST',
+        'params': {'uploadType': 'multipart'},
+        'headers': {
+            'Content-Type': 'multipart/related; boundary="' + boundary + '"'
+        },
+        'body': multipartRequestBody});
+    if (!callback) {
+        callback = function(file) {
+            console.log(file);
+            document.getElementById("driveSavedText").innerHTML = file.name + " saved in Google Drive";
+            document.getElementById("driveSavedPanel").className = "w3-panel w3-large";
+        };
+    }
+    request.execute(callback);
+}
+
+if (navigator.userAgent.indexOf("MSIE") > 0 || navigator.userAgent.indexOf("Edge") > 0) {
+    document.getElementById("saveGDriveBtn").style.display = "none";
+    document.getElementById("loadGDriveBtn").style.display = "none";
+}
+
+function resetDriveSaveModal() {
+    document.getElementById('driveSavedText').innerHTML='';
+    document.getElementById('driveSaveModal').style.display='none'
+    document.getElementById('driveSavedPanel').style.display='none'
+    document.getElementById('driveText').style.display='block'
+    document.getElementById("driveSavedPanel").className = "w3-panel w3-large loader";
+}
+function resetDriveLoadModal() {
+    document.getElementById('driveLoadModal').style.display='none'
+}
+
+function saveFile(code) {
+    document.getElementById('preSave').style.display='none';
+    if (code.length>20000) {
+        document.getElementById('errorSave').style.display='block';    
+        return;
+    }
+    document.getElementById('postSave').style.display='block';    
+    var paramObj = {};
+    paramObj.code = code;
+    var paramB = JSON.stringify(paramObj);
+    var httpB = new XMLHttpRequest();
+    httpB.open("POST", globalURL, true);
+
+    httpB.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    httpB.onreadystatechange = function() {
+    if(httpB.readyState == 4 && httpB.status == 200) {
+        if(httpB.responseText.substr(0,2) == "OK" ) {
+          var getId = httpB.responseText.substr(2);
+          document.getElementById("shareLink").href = "/code/tryit.asp?filename=" + getId;
+          document.getElementById("shareLinkText").innerHTML = "/code/tryit.asp?filename=" + getId;
+          document.getElementById('saveLoader').style.display = "none";
+          document.getElementById("saveModalSaved").style.display  = "block";
+        }
+    }
+    }
+    httpB.send(paramB);
+}
+function hideAndResetModal() {
+    document.getElementById("saveModal").style.display = "none";
+    document.getElementById('preSave').style.display = "block";
+    document.getElementById('errorSave').style.display = "none";    
+    document.getElementById('postSave').style.display = "none";
+    document.getElementById("saveModalSaved").style.display = "none";
+    document.getElementById('saveDisclaimer').style.display= "none";
+    document.getElementById('saveLoader').style.display = "block";
+}
+
+var addr = document.location.href;
+function displayError() {
+  document.getElementById("err_url").value = addr;
+  document.getElementById("err_form").style.display = "block";
+  document.getElementById("err_email").focus();
+  hideSent();
+}
+function hideError() {
+  document.getElementById("err_form").style.display = "none";
+}
+function hideSent() {
+  document.getElementById("err_sent").style.display = "none";
+}
+function sendErr() {
+  var xmlhttp;
+  var err_url = document.getElementById("err_url").value;
+  var err_email = document.getElementById("err_email").value;
+  var err_desc = document.getElementById("err_desc").value;
+  if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp = new XMLHttpRequest();
+  } else {// code for IE6, IE5
+    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.open("POST", "/err_sup.html", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send("err_url=" + err_url + "&err_email=" + err_email + "&err_desc=" + escape(err_desc));
+  document.getElementById("err_desc").value = "";
+  hideError();
+  document.getElementById("err_sent").style.display = "block";
+}
+function openMenu() {
+    var x = document.getElementById("navbarDropMenu");
+    var y = document.getElementById("menuOverlay");
+    var z = document.getElementById("menuButton");
+    if (z.className.indexOf("w3-text-gray") == -1) {
+        z.className += " w3-text-gray";
+    } else { 
+        z.className = z.className.replace(" w3-text-gray", "");
+    }
+    if (z.className.indexOf("w3-gray") == -1) {
+        z.className += " w3-gray";
+    } else { 
+        z.className = z.className.replace(" w3-gray", "");
+    }
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+    if (y.className.indexOf("w3-show") == -1) {
+        y.className += " w3-show";
+    } else { 
+        y.className = y.className.replace(" w3-show", "");
+    }
+
 }
 </script>
 </body>
