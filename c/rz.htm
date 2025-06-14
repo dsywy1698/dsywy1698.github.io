@@ -16,7 +16,7 @@ html,.dropdown-content{-ms-overflow-style:none;scrollbar-width:none;}
 *::-moz-selection{color:#e6f0ff;background:#80b3ff88;}
 *::selection{color:#e6f0ff;background:#80b3ff88;}
 p,li{line-height:calc(1em + 12px);}
-nav{position:fixed;width:98vw;z-index:1;margin:1vw;border-radius:20px;padding-left:5px;backdrop-filter:blur(20px);background-color:#33ccffaa;}
+nav{position:fixed;width:100%;z-index:1;padding-left:5px;backdrop-filter:blur(20px);background-color:#33ccffaa;}
 nav button{text-decoration:none;display:inline-block;padding:10px;font-size:1.25rem;border:none;background-color:transparent;color:#36c;}
 .dropdown-content{display:none;width:100%;height:400px;overflow:auto;left:0;-webkit-animation-name:menu;-webkit-animation-duration:0.3s;animation-name:menu;animation-duration:0.3s;}
 .dropdown-content a{color:#fff;padding:12px 16px;text-decoration:none;display:block;border-radius:100vw;transition:0.3s;}
@@ -56,8 +56,9 @@ nav input:focus{outline:none;background:#cff;}
 main p{display:block;}
 .filtered{display:none!important;}
 ul{margin:3px 3px 3px 13px;padding:5px 5px 5px -1px;background:#ffffff44;border-radius:15px;}
-em{background:#f9c;margin:3px 3px 3px 2em;padding:10px;border-radius:10px;display:block;text-indent:0;color:#603;}
 ul>img{width:200px;text-align:center;}
+.mt{background:#f9c;margin:3px 3px 3px 2em;padding:10px;border-radius:10px;text-indent:0;color:#603;font-style:oblique;}
+.mt p{background:#ffffff88;text-align:center;border-radius:100vw;text-indent:0;font-style:normal;}
 </style>
 </head>
 <body>
@@ -86,7 +87,7 @@ ul>img{width:200px;text-align:center;}
 </nav>
 <header>
     <h1 class="title">日志</h1>
-    <div style="border:3px solid #c00;border-radius:20px;padding:20px;color:#300;background:#f99;margin:30px;font-size:1.125rem;">
+    <div style="border:3px solid #c00;border-radius:20px;padding:20px;color:#300;background:#f99;margin:30px;font-size:1.125rem">
         <strong style="margin:0;paddding:0;">页面含有黄色内容！谨慎查看！！！</strong>
     </div>
 </header>
@@ -216,8 +217,8 @@ ul>img{width:200px;text-align:center;}
     <p>数学课件中出现“绿化队今年植树约2棵”、“某区在校中学生约75人”。</p>
     <p>美术老师被人称“跟地理老师一样是超雄……”。</p>
     <p>美术课前三分钟，郑致辰：“美术课代表上来领读！”</p>
-    <p>美术老师语录：<br/>
-    <em>牛叉！<br/>有点变态。<br/>看（女生）够了没？<br/>你也得了这个后视症啊！<br/>（林奕扬说自己请假）没来你又没有死了！<br/>他的眼睛看上去充满了期待。<br/>（林奕扬画画难看）我看你不是做完了，你是人完了！<br/>我还以为你右边（女生）看腻了，开始看后面。<br/>要是你们家婴儿哭的话，把这张作业（狮子素描图）拿出来，立马就不哭了，还能避邪啊！<br/>（林奕扬）不要创造新物种。</em></p>
+    <br/>
+    <div class="mt"><p>美术老师语录</p>牛叉！<br/>有点变态。<br/>看（女生）够了没？<br/>你也得了这个后视症啊！<br/>（林奕扬说自己请假）没来你又没有死了！<br/>他的眼睛看上去充满了期待。<br/>（林奕扬画画难看）我看你不是做完了，你是人完了！<br/>我还以为你右边（女生）看腻了，开始看后面。<br/>要是你们家婴儿哭的话，把这张作业（狮子素描图）拿出来，立马就不哭了，还能避邪啊！<br/>（林奕扬）不要创造新物种。</div>
     <p>美术课上有人被罚转圈20下。</p>
     <p>大课间被人告知要跑操，出去后发现只有初三要跑。</p>
     <p>林奕扬把“华威菜多多”保温箱上的密封条撕下来（创造9班撕密封条先例），发现上面写着“红烧冬瓜、蒜香金针菇、闽南姜母鸭、么么脆鸡排、高汤鱼丸”几样菜品，其中“么么脆鸡排”被学生大肆调侃。</p>
@@ -335,7 +336,7 @@ ul>img{width:200px;text-align:center;}
         <p>别班喝的海带汤里的海带中出现虫卵，汤杯放在水池边引发大量学生关注，相当一部分人说以后再也不喝海带汤。</p>
         <p>午休时刘老师在外面弄小测，蒲林豪、林梓颢、郑致辰、林奕扬“喵喵喵”，被刘老师叫去办公室罚站、打手。林芷琪在午休时跳舞却逃过一劫。</p>
         <p>王淮：“蔡华楷，你欠黄丰揍了是吧！”</p>
-        <p>美术老师语录：<em>这么骚包！<br/>（对叶弘毅）看一个男生那么激动，你也是男的，公的！<br/>（对林奕扬）这是人类的作业吗？<br/>你还好这口啊！</em></p>
+        <div class="mt"><p>美术老师语录</p>这么骚包！<br/>（对叶弘毅）看一个男生那么激动，你也是男的，公的！<br/>（对林奕扬）这是人类的作业吗？<br/>你还好这口啊！</div>
         <p>学生模仿美术老师：“红（ho&#772;ng）笔（bi&#772;）”“只能用铅笔（bi&#772;）”</p>
         <p>美术老师：“操作（zuo&#772;）”“尺（chi&#772;）子”“装饰（shi&#772;）”“青苔（ta&#772;i）”</p>
         </div>
@@ -343,7 +344,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>25</time>
     <div>
-        
         <p>讲评校本作业时，数学老师投影薛阅晨的，里面的题有的变了符号，有的没变，数学老师就说“心情好就变，心情不好就不变”“这是边看电视边写的啊”“跳步跳跳变成跳楼”。</p>
         <p>数学老师将“孙悟空”读成“xu&#772;n悟空”。</p>
         <p>刘老师：“这么热还开什么风扇？”</p>
@@ -370,7 +370,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>30</time>
     <div>
-        
         <p>数学老师打开课件时播放音乐。</p>
         <p>据悉，语文老师被车撞，手臂需手术。</p>
         <p>上课时地理老师接到一个广告的电话。</p>
@@ -381,12 +380,11 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>31</time>
     <div>
-        
         <p>叶弘毅在教室门上玩单杠。</p>
         <p>因台风原因，来学校时没电。倪浩宇称刘老师打电话叫电工修电，不一会儿电力恢复。</p>
         <p>刮台风时崔宇臣从窗台抓到神秘生物（据悉是蜻蜓）。</p>
         <p>学生争论蔡华楷课上是否讲话。</p>
-        <p>美术老师语录：<em>男生怎么有中国大妈的特色？<br/>什么功夫这么高深啊！<br/>我还以为你喝多了！<br/>我以为你死了！</em></p>
+        <div class="mt"><p>美术老师语录</p>男生怎么有中国大妈的特色？<br/>什么功夫这么高深啊！<br/>我还以为你喝多了！<br/>我以为你死了！</div>
         <p>林奕扬画乱涂乱画，称“这个是梵高的画……”</p>
     </div>
 </div>
@@ -416,7 +414,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>5</time>
     <div>
-        
         <p>林奕扬、蔡华楷数学课上玩（太阳）反光，林奕扬还把光斑投到数学老师身上。</p>
         <p>蔡华楷被叫回答问题，坐下时没坐到凳子上，于是“砰”的一声摔倒，数学老师追问是谁干的，蔡华楷表示自己刚刚站起来时把凳子向后推了一下。</p>
         <p>数学老师在拍郭沁诗试卷的前两页，同时郑致辰（值日班长）在记作业未完成的学生的名单，数学老师问：“在写什么？”郑致辰：“在记名单。”数学老师：“作业拿过来。”郑致辰以为老师检查，就递了过去，结果数学老师投影了他作业的3、4页。</p>
@@ -432,7 +429,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>6</time>
     <div>
-        
         <p>林芷琪领读单词时读到“铅笔”，学生模仿美术老师的读“铅bi&#772;”被刘老师骂，后刘老师让大家拿科作业纸写上刚才读“铅bi&#772;”的人并将他们叫到办公室。</p>
         <p>地理老师对薛阅晨：“帅哥！……”对林奕扬：“（头发）还要剃得光一点……”</p>
         <p>地理老师讲火车隧道坡度，蔡华楷问能不能先上坡再修成平缓的线路，地理老师：“……你叫火车司机坐过山车啊！……”</p>
@@ -443,7 +439,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>7</time>
     <div>
-        
         <p>林奕扬到讲台交小测时把刘老师杯中的牛奶打翻，江雨晴的英语本受害。</p>
         <p>前一天刘老师说“跑操路过我面前时要喊‘三单要加s’”，当天跑操时蒲林豪喊“三单不要加s！”。</p>
         <p>抄作业时林奕扬说“So easy!”，刘老师：“林奕扬这次期中考英语必须135分以上。”</p>
@@ -458,7 +453,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>8</time>
     <div>
-        
         <p>跑操时林奕扬鞋子掉，他不得不单脚跳一会儿。</p>
         <p>薛阅晨带秒表计时刘老师上课时间。</p>
         <p>林奕扬上课时：“能不能开空调，裤子都弄湿了。”</p>
@@ -615,7 +609,7 @@ ul>img{width:200px;text-align:center;}
         <p>林奕扬表演滑跪技巧。</p>
         <p>午休时郑永泽被刘老师表扬“睡觉很认真”，还加了一分量化分。</p>
         <p>陆梓豪：“脑筋就是脑的精液。”</p>
-        <p>美术老师语录：<br/><em>（多人上厕所）你们班集体肾亏啊！<br/>这个（狮子）显然是做过手术啊！<br/>你今天没有吃药吧！还是吃错药了？<br/>我等下对你进行听力测试啊！<br/>拉一泡尿也这么高兴？</em></p>
+        <div class="mt"><p>美术老师语录</p>（多人上厕所）你们班集体肾亏啊！<br/>这个（狮子）显然是做过手术啊！<br/>你今天没有吃药吧！还是吃错药了？<br/>我等下对你进行听力测试啊！<br/>拉一泡尿也这么高兴？</div>
     </div>
 </div>
 <div>
@@ -626,7 +620,7 @@ ul>img{width:200px;text-align:center;}
         <p>语文老师将“陈睿卓”念成“陈卓睿”。</p>
     </div>
 </div>
- <h1 id="d2412">2024年12月</h1>
+<h1 id="d2412">2024年12月</h1>
 <div>
     <time>2</time>
     <div>
@@ -638,7 +632,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>3</time>
     <div>
-        
         <p>林奕扬午休时在地上“爬行”、跳舞。</p>
         <p>跑操时上演“恩亚危机”，叶弘毅被黄恩亚碰到。</p>
         <p>薛阅晨：“误食大便。”</p>
@@ -649,7 +642,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>4</time>
     <div>
-        
         <p>地理老师：“阅晨宝宝，我爱你呦~”</p>
         <p>黄恩亚数学作业乱做，起立时拍桌子（经典动作）。</p>
         <p>郑致辰和崔宇臣数学课牵手。</p>
@@ -659,14 +651,12 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>5</time>
     <div>
-        
-        <p>美术老师语录：<br/><em>（崔宇臣擦鼻涕）回家去把插座插到屁股上……赶紧给自己通通电！……失控了你！……什么意思？你这个电流扩大了？<br/>（林奕扬要上厕所）（吃饭前）先把气放出来再吃？……那你刚才（做骚包动作）就是想拉？……那你现在上什么厕所？就地解决！</em></p>
+        <div class="mt"><p>美术老师语录</p>（崔宇臣擦鼻涕）回家去把插座插到屁股上……赶紧给自己通通电！……失控了你！……什么意思？你这个电流扩大了？<br/>（林奕扬要上厕所）（吃饭前）先把气放出来再吃？……那你刚才（做骚包动作）就是想拉？……那你现在上什么厕所？就地解决！</div>
     </div>
 </div>
 <div>
     <time>6</time>
     <div>
-        
         <p>早上唐家祺（主犯）、林奕扬（从犯）在门口吓人。</p>
         <p>林承钰喝奶茶引起关注。</p>
     </div>
@@ -693,14 +683,12 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>10</time>
     <div>
-        
         <p>刘老师和体育老师一起打羽毛球。（据刘老师说，当时她出了一身汗，打完后没换衣服导致当天发烧）</p>
     </div>
 </div>
 <div>
     <time>11</time>
     <div>
-        
         <p>语文老师：“刘奕扬。”</p>
         <p>数学老师对杨依诺说：“那个照镜子的，回答一下这道题。”杨依诺回答后，数学老师说：“在说俄罗斯话吗？”</p>
         <p>薛阅晨、王淮漏拍照片，被地理老师叫做“漏漏”。</p>
@@ -709,7 +697,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>12</time>
     <div>
-        
         <p>刘老师和学生谈“阅晨宝宝”。</p>
         <p>黄恩亚：“我喜欢高级玩家。”“我在戒色。”“立了（立体）图形。”</p>
     </div>
@@ -729,13 +716,12 @@ ul>img{width:200px;text-align:center;}
     <time>16</time>
     <div>
         <p>薛阅晨点“小猴子（班级优化大师的随机功能）”时说“有种不祥的预感”，结果直接抽到他。</p>
-        <p>美术老师语录：<br/><em>（对崔宇臣）是谁把你果子偷了？……还是活在森林里面爽<br/>看到同类很兴奋哦！<br/>你找到你的母猴了吗？</em></p>
+        <div class="mt"><p>美术老师语录</p>（对崔宇臣）是谁把你果子偷了？……还是活在森林里面爽<br/>看到同类很兴奋哦！<br/>你找到你的母猴了吗？</div>
 </div>
 </div>
 <div>
     <time>17</time>
     <div>
-        
         <p>洪鑫洋带读：“诸子书（诫子书）……”</p>
         <p>语文老师念小测满分名单，念到洪鑫洋时，学生：“哇——（忽然改口）咦——”</p>
         <p>有人调侃每次抽“小猴子”时一定会抽到（站在讲台上抽背的）课代表。</p>
@@ -745,7 +731,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>18</time>
     <div>
-        
         <p>辩论时辩手几乎都手舞足蹈。</p>
         <p>郭沁诗、陈子岩聊天，地理老师罚他们一左一右站到后面并说：“一直在碰撞……”</p>
         <p>地理老师讲到“冬天用护肤品”时，林奕扬问“那你老婆呢？”结果被打4下。</p>
@@ -756,7 +741,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>19</time>
     <div>
-        
         <p>黄恩亚没戴口罩、手套包了三个饺子（据说形状似三角形、馅多）并被三位“幸运儿”吃到。</p>
         <p>蔡华楷把塑料包到饺子里。</p>
         <p>崔宇臣那组用面粉和面团。</p>
@@ -769,7 +753,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>20</time>
     <div>
-        
         <p>师：“杂家。”唐家祺：“唐家。”</p>
         <p>洪鑫洋：“而顷刻两狼（毙）……”</p>
         <p>陈睿卓被叫翻译句子：“丁家的井挖到了一个人。”</p>
@@ -788,7 +771,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>24</time>
     <div>
-        
         <p>唐家祺：“enjoy old people（赏老人）……”</p>
         <p>语文课上学生发现黄恩亚一直把手放在生殖器官上面，跑操时大家就议论此事，甚至有人说“别人射出来的是蝌蚪，黄恩亚射出来的是青蛙”“射穿地球”。跑操结束后有人让黄恩亚当场撸，黄恩亚：“现在不是时候。”</p>
         <p>林奕扬吃寿司。</p>
@@ -799,7 +781,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>25</time>
     <div>
-        
         <p>王淮英语月考卷中学校写“仓实小”。</p>
         <p>薛阅晨汤里喝出塑料。</p>
         <p>蔡华楷画“女苔藓”SSR卡被刘老师发现并谈话。</p>
@@ -810,7 +791,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>26</time>
     <div>
-        
         <p>阅读课上有人把借书卡从3楼栏杆（栏杆后面有窗户）扔下。</p>
         <p>有人中午（英语小测）重测时在屏幕上写“黄恩亚”。</p>
     </div>
@@ -818,7 +798,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>27</time>
     <div>
-        
         <p>师：“垂线的交点叫什么？”洪鑫洋：“垂点（垂足）！”</p>
         <p>黄恩亚午休后在背书的单子前跳舞。</p>
         <p>黄恩亚：“我身上有致癌物！”</p>
@@ -828,7 +807,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>28</time>
     <div>
-        
         <p>有人写“方欣妍don't take卷子”被称“语法错误”。</p>
         <p>学习小组“加餐”。</p>
         <p>刘老师突发奇想改班上电脑壁纸，学生：“要第一张！（嘘！别打扰我学习）”</p>
@@ -851,7 +829,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>2</time>
     <div>
-        
         <p>上体育课时有人发现一只老鼠爬出来。</p>
         <p>语文老师：“社交。”郑致辰：“射和交。”</p>
     </div>
@@ -859,7 +836,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>3</time>
     <div>
-        
         <p>黄恩亚上课习惯性把脚伸到过道上把刘老师绊倒。</p>
         <p>语文课写作文，下课后崔宇臣只字未写。</p>
         <p>《皇帝的新装》课件中出现上半身裸体皇帝，但下半身被遮住。唐家祺：“为什么他还有穿衣服？”师：“家祺，你想看什么……”</p>
@@ -869,7 +845,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>7</time>
     <div>
-        
         <p>黄恩亚放响屁。林芷琪：“黄恩亚放屁好响啊！”别人：“水仙说‘黄恩亚放屁好香啊’！”</p>
         <p>陆梓豪：“澳门独立制度……”</p>
     </div>
@@ -877,7 +852,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>8</time>
     <div>
-        
         <p>数学老师讲课把自己手机的“小艺小艺”唤起，师：“手机都听懂了是吧？”随后手机问：“是不是想让我帮助化简？”师：“手机是非常认真的。”</p>
         <p>历史试卷第四页选择题没选项，林奕扬选A。</p>
         <p>郑致辰：“饿得二弟都站不起来了……”</p>
@@ -886,7 +860,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>9</time>
     <div>
-        
         <p>师：“每次都要拿致辰的……字又好看，写得又不错……”</p>
         <p>跑操时林奕扬羽绒服爆掉。</p>
         <p>跑操结束后有高年级打篮球，被刘老师批斗（拍照发给他们班的班主任）。</p>
@@ -897,7 +870,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>10</time>
     <div>
-        
         <p>崔宇臣被叫回答问题，许久答不上来。语文老师突然说：“（唐家祺）秋裤？”</p>
         <p>语文老师让林承钰回答问题。此时恰好洪鑫洋在睡觉被郑永泽提醒，洪鑫洋以为老师叫他，于是起立回答问题。</p>
     </div>
@@ -911,7 +883,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>14</time>
     <div>
-        
         <p>学生拿饭时：“不要乱插……会生殖隔离！”</p>
     </div>
 </div>
@@ -978,7 +949,7 @@ ul>img{width:200px;text-align:center;}
         <p>大扫除时电灯“爆炸”，随后9班停电，刘老师：“要低调。”（擦完电灯后，一人去开灯，结果听到“砰”的一声巨响，教室里的人看到一阵转瞬即逝的闪光，吓了大家一跳，然后灯也打不开了。）</p>
     </div>
 </div>
- <h1 id="not1">（未记录确定日期）</h1>
+<h1 id="not1">（未记录确定日期）</h1>
 <div>
     <div>
         <p>地理老师抽李梦妍回答盆地特征，李梦妍不会，地理老师就说：“自己家的脸盆长什么样都不知道？”</p>
@@ -1059,8 +1030,8 @@ ul>img{width:200px;text-align:center;}
     <div>
         <p>刘老师给“如来佛组”成员点（外卖）奶茶，备注：“不要香菜和芹菜，谢谢老板。”</p>
         <p>师：“在打游戏。”黄恩亚：“在看片。”师：“翘的部分。”黄恩亚：“立的部分。”</p>
-        <p>美术老师语录：<br/>
-        <em>你交了，应该是烧焦了。<br/>（郑锦熠趴着）你在练法轮功吗？……会出人命的！<br/>（蒲林豪）你有些不适应人类的生活……还是森林里面好……那里有潺潺的溪水、茂密的森林……<br/>你们两个都是公的！……好歹对美女感点兴趣……<br/>不是长期的智障，是临时智障……</em></p>
+        <br/>
+        <div class="mt"><p>美术老师语录</p>你交了，应该是烧焦了。<br/>（郑锦熠趴着）你在练法轮功吗？……会出人命的！<br/>（蒲林豪）你有些不适应人类的生活……还是森林里面好……那里有潺潺的溪水、茂密的森林……<br/>你们两个都是公的！……好歹对美女感点兴趣……<br/>不是长期的智障，是临时智障……</div>
     </div>
 </div>
 <div>
@@ -1139,7 +1110,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>4</time>
     <div>
-        
         <p>早读李映辰被罚站，结果她脚踩在椅子上蹲着。</p>
         <p>黄恩亚：“又要跑操，他妈我立了啊！”“我有个称号，叫做‘口交哥’。”“停车什么枫林晚？（停车坐爱枫林晚）”</p>
         <p>唐家祺跑操时：“我左肾开始有点痛了，有点虚了，早知道昨天就不撸了。”郑致辰：“我也是。”</p>
@@ -1205,7 +1175,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>13</time>
     <div>
-        
         <p>蔡华楷吃黄恩亚橘子。</p>
     </div>
 </div>
@@ -1269,7 +1238,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>25</time>
     <div>
-        
         <p>体育课时唐家祺把排球掂到树上。</p>
         <p>林钰颖讲劳技PPT：①郑致辰提问难倒林钰颖，她便说：“你时间结束了，换诗语吧！”②PPT内容太多，她就说：“就这样，自己看吧。”③最后一页出现：“汇报人：木木”。学生问木木是谁，林钰颖：“木木是我阿姨。”</p>
         <p>刘老师让大家用英语翻译：“唐家祺（年龄）太小了，不能搭飞机。”学生笑。</p>
@@ -1279,7 +1247,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>26</time>
     <div>
-        
         <p>信息课，后排学生玩游戏：“射！”叶弘毅用画图3D做“王淮拉屎”、“高冷王淮”图片。</p>
         <p>地理课前，地理老师抽查上节课知识点，说：“这节主要抽姓‘郑’的人。”随后抽到郑致辰、郑诗语、郑炜。</p>
         <p>地理课，师：“像这个廖成yi&#768;吧……”学生纠正后不久，师：“那廖成yi&#768;的期末……”</p>
@@ -1288,19 +1255,17 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>27</time>
     <div>
-        
         <p>生物课上到人的生殖：</p>
         <ul>
             <li>唐家祺：“精液里有有机物吗？”师：“有。”唐：“吃了会有好处吗？”</li>
             <li>林奕扬：“为什么我姥姥2年能生7个？”</li>
         </ul>
-        <p>美术老师语录：<br/><em>（陆梓豪）三番五次地去骚扰他（郑致辰）……有兴趣吧！<br/>老师太小了？<br/>（林奕扬）你突然间来到人间……</em></p>
+        <div class="mt"><p>美术老师语录</p>（陆梓豪）三番五次地去骚扰他（郑致辰）……有兴趣吧！<br/>老师太小了？<br/>（林奕扬）你突然间来到人间……</div>
     </div>
 </div>
 <div>
     <time>28</time>
     <div>
-        
         <p>前几天英语月考多人不遵守考试纪律被刘老师制裁，惩罚卷面分-10、量化-10、写300字反思并家长签字。</p>
         <p>语文老师：“廖成yi&#768;。”</p>
         <p>政治课，师：“那林俊卓（陈睿卓）你说一下什么是‘紫菜蛋花汤’。”“让那个世豪（曹世强）回答一下。”</p>
@@ -1311,7 +1276,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>31</time>
     <div>
-        
         <p>语文老师念成绩：“郑成羲（廖成羲），74。”</p>
         <p>上课时陆梓豪靠近郑致辰，郑致辰：“这里有贞子！”</p>
         <p>廖成羲坐椅子时摔倒。</p>
@@ -1325,7 +1289,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>1</time>
     <div>
-        
         <p>历史课，郑熠菲、廖成羲上台写题目。廖成羲写出极其飘逸的字；郑熠菲把“成吉思汗”写成“成志思汗”，元灭南宋的时间写“2069年”。</p>
         <p>历史课，蔡华楷传的纸条被没收，历史老师观看后：“3个爱心。”</p>
     </div>
@@ -1333,7 +1296,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>2</time>
     <div>
-        
         <p>地理课蒲林豪怪叫，师：“在泰国做了什么？”</p>
         <p>数学老师：“水鬼店（水果店）。”</p>
         <p>语文课到3楼阅览室看书。</p>
@@ -1342,7 +1304,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>3</time>
     <div>
-        
         <p>美术老师手机声音不小心外放，学生听到“……迷路”。</p>
         <p>英语课请人对话：</p>
         <ul>
@@ -1527,7 +1488,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>29</time>
     <div>
-        
         <p>洪鑫洋极速带读，如：“昨夜见军帖，可汗大点兵。雄兔脚扑朔，雌兔眼迷离……”“独坐幽篁里，弹琴复长啸。此夜曲中闻折柳，何人不起故园情。”</p>
         <p>英语课上李梦妍模仿曾好记录黄恩亚被刘老师发现，下课后谈话并喜提反思表。</p>
         <p>数学课午休时崔宇臣偷坐到郑致辰座位上（此时郑致辰不在），数学老师发现后问：“宇臣在哪？”周围的人摇头（偷笑），崔宇臣假装睡觉，不久后抬头，数学老师罚他站一中午。</p>
@@ -1539,7 +1499,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>30</time>
     <div>
-        
         <p>地理老师：“小胖先生。”“小仙女，小仙男……”</p>
         <p>李映辰其期中数学成绩近班级前10（113分）。</p>
     </div>
@@ -1614,7 +1573,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>13</time>
     <div>
-        
         <p>语文课时陈睿卓凳子向后倒掉。</p>
         <p>林奕扬中午吃椰子。</p>
         <p>陈子岩、郑诗语“拍卖”班上12人的水杯。</p>
@@ -1630,7 +1588,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>14</time>
     <div>
-        
         <p>地理老师：“廖成yi&#768;……”</p>
         <p>蔡华楷数学作业最后一题第一小题没写（很简单），师：“偷懒吧……站十分钟！”</p>
         <p>抽背林奕扬，林奕扬：“生病了！不会背啊！头痛啊！”然后用外套抱住头趴下。</p>
@@ -1639,7 +1596,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>15</time>
     <div>
-        
         <p>美术老师：“这个叫徐嘉明……没想到这么可爱，让我看一下？断奶了没有？回家去爹妈给你买拨浪鼓吧……”不久徐嘉明真用纸做出一个拨浪鼓。</p>
         <p>李映辰拉拉杆书包到班，陈子岩等人看见后将她称为“空姐”。</p>
         <p>陈睿卓午餐吃冬虫夏草。</p>
@@ -1648,7 +1604,6 @@ ul>img{width:200px;text-align:center;}
 <div>
     <time>16</time>
     <div>
-        
         <p>地理课，蔡华楷“跳舞”被看见，师：“原来蔡华楷还会跳舞。”课上让大家做题：“做得最快的还是我们舞蹈最优美的蔡华楷。”另外还说出“洪ji&#772;洋”“刘炜”。</p>
         <p>李映辰在音乐教室抠墙皮并扔到林奕扬身上，历史课时又坐到后面桌子上（她迟到被罚站后面），历史老师：“这位同学怎么爬到桌子上了？……你（蒲林豪）叫下班主任吧。”蒲林豪：“确定？”师：“叫你去了就去了，还要确定？”然后刘老师过来找她谈话。谈话后李映辰又开始抠墙皮、坐桌子，陆梓豪（当时是值日班长）：“要不要去找刘老师？”结果李映辰主动走向办公室。</p>
         <p>徐嘉明骑生物园斑马；折“杀猪刀”被刘老师谈话。</p>
@@ -1726,8 +1681,7 @@ ul>img{width:200px;text-align:center;}
         <p>陆梓豪午托放响屁。</p>
         <p>语文老师对李梦妍：“小妞啊，坐好啊！”</p>
         <p>刘老师点蜜雪冰城，蔡华楷把小票偷走，发现又有“不要香菜和芹菜，谢谢老板~~~”。</p>
-        <p>美术老师语录：
-                <em>减祺（家祺），回去做你的作业！<br/>你不要乱放电啊，后排！<br/>快点画你的画，木木顿挫！……画完了没有，木木顿挫！……</em></p>
+        <div class="mt"><p>美术老师语录</p>减祺（家祺），回去做你的作业！<br/>你不要乱放电啊，后排！<br/>快点画你的画，木木顿挫！……画完了没有，木木顿挫！……</div>
     </div>
 </div>
 <div>
@@ -1786,35 +1740,60 @@ ul>img{width:200px;text-align:center;}
 <script>
 function performSearch() {
     const searchTerm = document.getElementById('search').value.trim().toLowerCase();
-    const allElements = document.querySelectorAll('main p, main li');
+    const searchableElements = document.querySelectorAll('main p, main li, main .mt');
     const visibleMonths = new Set();
     document.querySelectorAll('.filtered').forEach(el => el.classList.remove('filtered'));
-    document.querySelectorAll('.highlight').forEach(hl => {hl.outerHTML = hl.innerHTML; });
+    document.querySelectorAll('.highlight').forEach(hl => {
+        hl.outerHTML = hl.innerHTML;
+    });
     if (searchTerm) {
         const regex = new RegExp(`(${escapeRegExp(searchTerm)})`, 'gi');
-        allElements.forEach(element => {
+        searchableElements.forEach(element => {
             const original = element.textContent;
             const hasMatch = regex.test(original);
             if (hasMatch) {
                 element.innerHTML = original.replace(regex, '<span class="highlight">$1</span>');
-                if (element.tagName === 'LI') {
-                    const ul = element.closest('ul');
-                    const parentDiv = ul.closest('main > div > div');
-                    ul.querySelectorAll('li').forEach(li =>{li.classList.remove('filtered');});
-                    let prevP = ul.previousElementSibling;
-                    while (prevP && prevP.tagName !== 'P') {prevP = prevP.previousElementSibling;}
-                    if (prevP) prevP.classList.remove('filtered');}
+                if (element.classList.contains('mt')) {
+                    const parentDiv = element.closest('main  div.mt');
+                    parentDiv.querySelector('p')?.classList.remove('filtered');
+                    parentDiv.querySelector('ul')?.querySelectorAll('li').forEach(li => {
+                        li.classList.remove('filtered');
+                    });
+                } else if (element.tagName === 'LI') {
+                    element.closest('ul').querySelectorAll('li').forEach(li => {
+                        li.classList.remove('filtered');
+                    });
+                    let prevP = element.closest('ul').previousElementSibling;
+                    while (prevP && prevP.tagName !== 'P' && !prevP.classList.contains('mt')) {
+                        prevP = prevP.previousElementSibling;
+                    }
+                    if (prevP) prevP.classList.remove('filtered');
+                }
                 const parentDiv = element.closest('main > div');
                 if (parentDiv) {
                     let monthHeader = parentDiv.previousElementSibling;
-                    while (monthHeader && monthHeader.tagName !== 'H1') {monthHeader = monthHeader.previousElementSibling;}
+                    while (monthHeader && monthHeader.tagName !== 'H1') {
+                        monthHeader = monthHeader.previousElementSibling;
+                    }
                     if (monthHeader) visibleMonths.add(monthHeader.id);
-                }}else{element.classList.add('filtered');}});}else{allElements.forEach(el => el.classList.remove('filtered'));}
+                }
+            } else {
+                element.classList.add('filtered');
+            }
+        });
+    } else {
+        searchableElements.forEach(el => el.classList.remove('filtered'));
+    }
     document.querySelectorAll('main > div').forEach(div => {
-        const hasVisible = [...div.querySelectorAll('p, li')].some(el => 
-            !el.classList.contains('filtered'));
-        div.style.display = hasVisible ? '' : 'none';});
-    document.querySelectorAll('main h1').forEach(h1 => {h1.style.display = visibleMonths.has(h1.id) || !searchTerm ? '' : 'none';});}
+        const hasVisible = [...div.querySelectorAll('p, li, .mt')].some(el => 
+            !el.classList.contains('filtered')
+        );
+        div.style.display = hasVisible ? '' : 'none';
+    });
+    document.querySelectorAll('main h1').forEach(h1 => {
+        h1.style.display = visibleMonths.has(h1.id) || !searchTerm ? '' : 'none';
+    });
+}
 function escapeRegExp(string) {return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');}
 function goTop(){window.scrollTo(0,0);}
 function goBottom(){window.scrollTo(0,document.documentElement.scrollHeight);}
