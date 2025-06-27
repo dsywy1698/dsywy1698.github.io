@@ -25,7 +25,7 @@
     .tabcontent{display:none;}
     ::-moz-selection{color:#e6f0ff;background:#80b3ff66;}
     ::selection{color:#e6f0ff;background:#80b3ff66;}
-    nav{background:#ccffffaa;position:fixed;width:98.8vw;z-index:1;backdrop-filter:blur(20px);box-shadow:0 4px 8px 0 #0066ff08,0 6px 20px 0 #0066ff07;margin:0.6vw;border-radius:20px;}
+    nav{background:#ccffffaa;position:fixed;width:98.8vw;z-index:1;backdrop-filter:blur(20px);box-shadow:0 2px 20px #0066ff08;margin:0.6vw;border-radius:20px;}
     nav button{text-decoration:none;color:#36c;display:inline-block;padding:7px;margin:3px;font-size:1.25rem;border:none;background:transparent;border-radius:10px;transition:0.2s;}
     nav button:hover{background:#66ccff88;}
     .dropdown-content{display:none;width:100%;-webkit-animation-name:menu;-webkit-animation-duration:0.3s;animation-name:menu;animation-duration:0.3s;overflow:auto;left:0;border-top:1px solid #3cf;height:400px;}
@@ -49,7 +49,7 @@
     header>h1{padding:30px 10px;font-size:7.5rem;margin:0;text-align:center;}
     header>div{background:linear-gradient(#0f9 0%,#00ff99bb 90%);color:#030;display:table;content:"";clear:both;padding:20px;border:3px solid #090;border-radius:25px;margin:20px;}
     header>div>p>i{border:2px solid blue;padding:7px;border-radius:5px;}
-    .header{background:linear-gradient(to bottom,#6600ffcc 0%,#6600ff88 100%);padding:15px;border-radius:25px;box-shadow:0 4px 8px 0 #cc99ff33,0 6px 20px 0 #cc99ff33;}
+    .header{background:linear-gradient(to bottom,#6600ffcc 0%,#6600ff88 100%);padding:15px;border-radius:25px;box-shadow0 2px 20px #cc99ff33;}
     .header>h1{font-size:3rem;margin:10px 3px;}
     .header>div{background:#ffffff22;padding:10px;border-radius:0 20px 20px 20px;}
     .header>div>p{margin:5px;font-weight:100;}
@@ -63,13 +63,13 @@
     img{border-radius:15px;}
     audio{width:98%;margin:auto 1%;}
     .title_center{text-align:center;margin:7px;}
-    article{padding:10px;background:#09f;border-radius:20px;margin:2.5px 0;box-shadow:0 4px 8px 0 #3399ff33,0 6px 20px 0 #3399ff33;}
+    article{padding:10px;background:#09f;border-radius:20px;margin:2.5px 0;box-shadow:0 2px 20px #3399ff33;}
     article>p{text-indent:2em;margin:7px 0;}
     article i{display:inline;}
     img,video,.max-width,iframe{max-width:100%;object-fit:contain;}
     .img_box{padding:10px;margin:10px 0;border-radius:15px;background:linear-gradient(#0099cc 0%,#0099cc77 90%);text-align:center;}
     .img_box p{color:#e6f9ff;margin:10px 0;}
-    .say{background:#e6b3ff;color:#203;text-align:center;padding:10px;font-size:1.5625rem;margin:5px 0;border-radius:10px;box-shadow:0 4px 8px 0 #ff33cc33,0 6px 16px 0 #ff33cc22;}
+    .say{background:#e6b3ff;color:#203;text-align:center;padding:10px;font-size:1.5625rem;margin:5px 0;border-radius:10px;box-shadow:0 2px 20px #ff33cc33;}
     .say>i{color:#f39;font-size:1.875rem;}
     li{color:#ffe6cc;}
     ol>p,ul>p{font-size:0.9375rem;margin:5px;margin-left:25px;color:#9df;}
@@ -82,24 +82,26 @@
     #Index h1{font-size:2.5rem;margin:5px 0;}
     #Index .login{text-align:center;padding-top:90px;height:100vh;color:#000;}
     #Index .login_title{font-size:8.125rem;margin:0;padding:40px;color:#006;}
-    #Index .by{margin-right:30px;background:#6600ff99;padding:20px 20px 20px 0;border-radius:0 20px 20px 0;box-shadow:0 4px 8px 0 rgba(102,0,204,0.2),0 6px 20px 0 rgba(102,0,204,0.19);}
+    #Index .by{margin-right:30px;background:#6600ff99;padding:20px 20px 20px 0;border-radius:0 20px 20px 0;box-shadow:0 2px 20px rgba(102,0,204,0.2);}
     #Index .by>h2{margin:0 0 10px 10px;color:#fff;text-align:center;}
     #Index .by p{background:#336699dd;padding:7px 20px;border-radius:100vw;display:inline;margin:5px;}
+    #Index #toggle-btn{background:#00000000;padding:5px 0 0 20px;color:#fff;border:0;}
+    #Index #toggle-btn:hover{color:#cff;}
     #Index .login>div{font-size:1.25rem;background:#fff;width:500px;margin:auto;padding:0.3em;border:1px solid #cc0000;border-radius:100vw;height:1.9em;}
     #Index #asklz{margin:0;padding:0;}
     #Index #time{background:#b3cce6;font-size:1.875rem;padding:15px 0;border-radius:0 15px 15px 0;text-align:center;}
     #Index #teacher{background:#ffffff33;margin:10px 0 10px 25px;padding:5px;border-radius:20px 0 0 20px;}
     #Index #teacher>a{background:#f69;text-decoration:none;color:#fff;display:block;margin:10px;border-radius:8px;padding:15px;height:160px;overflow:hidden;transition:0.3s;}
-    #Index #teacher>a:hover{background:#f37;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);}
+    #Index #teacher>a:hover{background:#f37;box-shadow:0 2px 20px rgba(0,0,0,0.2);}
     #Index #teacher>h1,#Index #pupil>h1,#Index #qt>h1{background:#ffffff88;color:#000066;padding:10px;margin:10px;border-radius:100vw;text-align:center;display:block;}
     #Index #pupil{margin:30px 20px 30px 20px;background:linear-gradient(#ffffff55 0%,#ffffff00 90%);padding:5px;border-radius:20px 20px 0 0;}
     #Index #pupil>a{display:block;text-decoration:none;background:linear-gradient(to right,#1a1aff 0%,#1a1aff 50%,#1a1aff66 90%);color:#fff;border-radius:100vw;font-size:1.25rem;padding:8px 40px 8px 30px;margin:5px;transition:0.5s;}
     #Index #pupil>a>i{float:right;font-size:1.5rem;}
     #Index #pupil>a:hover{padding:8px 25px 8px 30px;}
     #Index .box{width:33.33%;float:left;}
-    #Index .box>a{padding:18px;border-radius:10px;margin:5px;height:170px;display:block;text-decoration:none;color:#fff;overflow:auto;background:#3333ffcc;transition:0.3s;box-shadow:0 4px 8px 0 rgba(51,51,255,0.2),0 6px 20px 0 rgba(51,51,255,0.19);}
+    #Index .box>a{padding:18px;border-radius:10px;margin:5px;height:170px;display:block;text-decoration:none;color:#fff;overflow:auto;background:#3333ffcc;transition:0.3s;box-shadow:0 2px 20px rgba(51,51,255,0.2);}
     #Index .box>a:hover{background:#3333ffff;}
-    #Index .classroom{background:#66ffffcc;border-radius:5px;box-shadow:0 4px 8px 0 rgba(0,204,204,0.2),0 6px 20px 0 rgba(0,204,204,0.19);}
+    #Index .classroom{background:#66ffffcc;border-radius:5px;box-shadow:0 2px 20px rgba(0,204,204,0.2);}
     #Index .classroom>div{display:flex;width:100%;padding:5px;}
     #Index .classroom>div a{text-decoration:none;font-size:1.25rem;background:#00ccff66;padding:5px;width:100%;text-align:center;border:1px solid #06c;color:#033;}
     #Index .classroom>div a[href]{text-decoration:none;font-size:1.25rem;background:#00ccffcc;padding:5px;width:100%;text-align:center;border:1px solid #06c;transition:0.3s;}
@@ -111,7 +113,7 @@
     #Index #sj>a>div{text-align:left;background:#f69;color:#660029;border-radius:10px;padding:5px;}
     #Index #ds{background:#dfff80cc;color:#394d00;border-radius:30px;padding:10px;text-decoration:none;height:150px;overflow:hidden;text-align:center;transition:0.3s;margin:30px 10px 0 10px;display:block;}
     #Index #ds:hover{background:#ccff33cc;}
-    #Index #webpage{background:#fcf;border-radius:15px;margin:60px 10px;padding-bottom:5px;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);}
+    #Index #webpage{background:#fcf;border-radius:15px;margin:60px 10px;padding-bottom:5px;box-shadow:0 2px 20px rgba(0,0,0,0.2);}
     #Index #webpage>div{background:#f9f;padding:5px;width:100%;border-radius:15px 15px 0 0;}
     #Index #webpage>div>span{float:right;color:#909;}
     #Index #webpage>a{text-decoration:none;display:block;background:#df80ff;margin:10px;padding:10px;border-radius:10px;color:#303;transition:0.3s;}
@@ -134,13 +136,13 @@
       #Index .a{margin:4px 0 4px 4px;}
       #Index .b{margin:4px 10px 4px 0;}
       nav{width:98vw;margin:1vw;}
+      #Index .by p{display:block;margin:5px;border-radius:100vw;}
     }
     @media screen and (max-width:600px){
       #Index .login{padding-top:80px;}
       #Index .login_title{font-size:5rem;padding:20px;}
       #Index .login>div{font-size:1.1875rem;width:80vw;}
       #Index #time{font-size:1.5625rem;padding:5px;}
-      #Index .by p{display:block;margin:5px;border-radius:100vw;}
       #Index .box{width:100%;}
       #Index .col_title>h1>span{display:none;}
       #Index .button_l,.button_r{width:120px;}
@@ -233,7 +235,14 @@
         <div class="login"><h1 class="login_title">六年一班</h1><div><p id="asklz"></p></div></div>
         <div class="by">
             <h2>我们毕业已经</h2>
-            <div id="time"><p class="a1">天</p><p class="a2">时</p><p class="a3">分</p><p class="a4">秒</p></div>
+            <div id="time">
+            <p><span id="years">0</span>年</p>
+            <p><span id="days">0</span>天</p>
+            <p><span id="hours">0</span>时</p>
+            <p><span id="minutes">0</span>分</p>
+            <p><span id="seconds">0</span>秒</p>
+            </div>
+        <button id="toggle-btn">显示天数</button>
         </div>
         <div id="teacher">
             <h1>老师</h1>
@@ -357,32 +366,85 @@
         <p>网页到底了！</p>
     </footer>
     <script>
-        var day1=document.querySelector(".a1");
-        var hour1=document.querySelector(".a2");
-        var minute1=document.querySelector(".a3");
-        var second1=document.querySelector(".a4");
-        var time1=+new Date( "2024-6-28 09:15:00" );
-        countDown1();
-        setInterval(countDown1,1000);
-        function countDown1(){
-        var now_time1=+new Date();
-        var times1=(now_time1-time1)/1000;
-        var d1=parseInt(times1/60/60/24);
-        var h1=parseInt(times1/60/60%24);
-        var m1=parseInt(times1/60%60);
-        var s1=parseInt(times1/1%60);
-        day1.innerHTML=d1+"天";
-        hour1.innerHTML=h1+"时";
-        minute1.innerHTML=m1+"分";
-        second1.innerHTML=s1+"秒"; 
+        const fixedGraduationDateTime = new Date(2024, 5, 28, 9, 15, 0);
+        const yearsElement = document.getElementById('years');
+        const daysElement = document.getElementById('days');
+        const hoursElement = document.getElementById('hours');
+        const minutesElement = document.getElementById('minutes');
+        const secondsElement = document.getElementById('seconds');
+        const toggleBtn = document.getElementById('toggle-btn');
+        let isTotalDaysMode = false;
+        let totalDays = 0;
+        let years = 0;
+        let remainingDays = 0;
+        let hours = 0;
+        let minutes = 0;
+        let seconds = 0;
+        function calculateTime() {
+            const now = new Date();
+            const diffMs = now - fixedGraduationDateTime;
+            const diffSec = Math.floor(diffMs / 1000);
+            seconds = diffSec % 60;
+            const diffMin = Math.floor(diffSec / 60);
+            minutes = diffMin % 60;
+            const diffHour = Math.floor(diffMin / 60);
+            hours = diffHour % 24;
+            const diffDay = Math.floor(diffHour / 24);
+            years = 0;
+            remainingDays = diffDay;
+            let year = fixedGraduationDateTime.getFullYear();
+            while (true) {
+                const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+                const daysInYear = isLeapYear ? 366 : 365;
+                
+                if (remainingDays >= daysInYear) {
+                    remainingDays -= daysInYear;
+                    years++;
+                    year++;
+                } else {
+                    break;
+                }
+            }
+            totalDays = 0;
+            let tempYear = fixedGraduationDateTime.getFullYear();
+            for (let i = 0; i < years; i++) {
+                const isLeapYear = (tempYear % 4 === 0 && tempYear % 100 !== 0) || tempYear % 400 === 0;
+                totalDays += isLeapYear ? 366 : 365;
+                tempYear++;
+            }
+            totalDays += remainingDays;
         }
+        function updateDisplay() {
+            if (!isTotalDaysMode) {
+                yearsElement.textContent = years;
+                daysElement.textContent = remainingDays;
+            } else {
+                yearsElement.textContent = "0";
+                daysElement.textContent = totalDays;
+            }
+            hoursElement.textContent = hours;
+            minutesElement.textContent = minutes;
+            secondsElement.textContent = seconds;
+        }
+        function updateTime() {
+            calculateTime();
+            updateDisplay();
+        }
+        toggleBtn.addEventListener('click', function() {
+            isTotalDaysMode = !isTotalDaysMode;
+            toggleBtn.textContent = isTotalDaysMode ? "显示年数" : "显示天数";
+            updateDisplay();
+        });
+        updateTime();
+        setInterval(updateTime, 1000);
+        
         var app=document.getElementById('asklz');
         var texts2=['欢迎来到这个网站……','没啥话说……'];
         var currentTextIndex=0;
         var currentCharIndex=0;
         var isDeleting=false;
-        var typingSpeed=100;//打字速度
-        var pauseTime=1700;//停顿时间
+        var typingSpeed=100;
+        var pauseTime=1700;
         function type(){
     var currentText=texts2[currentTextIndex];
     if(isDeleting){app.textContent=currentText.substring(0,currentCharIndex-1);currentCharIndex--;}
@@ -3936,6 +3998,5 @@ function goTop(){window.scrollTo(0,0);}
 function goBottom(){window.scrollTo(0,document.documentElement.scrollHeight);}
 </script>
 </div>
-<!--主题切换、打字js、导航栏动画-->
 </body>
 </html>
