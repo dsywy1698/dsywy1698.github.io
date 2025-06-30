@@ -13,22 +13,55 @@ body{margin:0;padding:0;font-family:sans-serif;background-color:#00284d;}
 .clear::after{display:table;content:"";clear:both;}
 html::-webkit-scrollbar,.dropdown-content::-webkit-scrollbar{display:none;}
 html,.dropdown-content{-ms-overflow-style:none;scrollbar-width:none;}
+a{color:#cff;}
 *::-moz-selection{color:#e6f0ff;background:#80b3ff88;}
 *::selection{color:#e6f0ff;background:#80b3ff88;}
 p,li{line-height:calc(1em + 12px);}
 nav{position:fixed;width:100%;z-index:1;padding-left:5px;backdrop-filter:blur(20px);background-color:#33ccffaa;}
-nav button{text-decoration:none;display:inline-block;padding:10px;font-size:1.25rem;border:none;background-color:transparent;color:#36c;}
-.dropdown-content{display:none;width:100%;height:400px;overflow:auto;left:0;-webkit-animation-name:menu;-webkit-animation-duration:0.3s;animation-name:menu;animation-duration:0.3s;}
-.dropdown-content a{color:#fff;padding:12px 16px;text-decoration:none;display:block;border-radius:100vw;transition:0.3s;}
-.dropdown-content a:hover{background:#00000033;}
-.dropdown-content h2{color:#fff;margin:10px;}
-.menu:hover+.dropdown-content,.dropdown-content:hover{display:block;}
-@keyframes menu{from{height:100px;opacity:0.3;}to{height:400px;opacity:1;}}
+nav button{text-decoration:none;display:inline-block;padding:10px;font-size:1.25rem;border:none;background-color:transparent;color:#cff;}
+.dropdown-content {
+    display:none;
+    position:absolute;
+    width:200px;
+    height:400px;
+    overflow-y:auto;
+    left:15px;
+    background: #003d73dd;
+    border-radius:15px;
+    -webkit-animation-name: menu;
+    -webkit-animation-duration: 0.3s;
+    animation-name: menu;
+    animation-duration: 0.3s;
+    transform-origin: top;
+}
+.dropdown-content a {
+    color: #cff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 0;
+    transition:0.3s;
+}
+.dropdown-content a:hover {
+    background-color: #0059b3;
+}
+.dropdown-content h2 {
+    color: #fff;
+    margin: 10px;
+    font-size: 1.2rem;
+}
+@keyframes menu {
+    from {
+        transform: scaleY(0);
+        opacity: 0;
+    }
+    to {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
 header>h1{padding:30px 0;font-size:7.5rem;margin:0;text-align:center;}
 footer{background:#00284d;padding:30px;padding-top:80px;color:#3cf;}
-.loading{padding:100px 50px;width:100vw;height:100vh;text-align:center;font-size:1.25rem;z-index:1;background-color:#e6ffff;color:#009;}
-.loading>h1{font-size:3.75rem;}
-.loading button{font-size:1.4375rem;border:0;border-radius:10000px;padding:5px;width:50%;background-color:#00f;color:#fff;}
 #div{position:relative;-webkit-animation-name:animatebottom;-webkit-animation-duration:1s;animation-name:animatebottom;animation-duration:0.7s;}
 @-webkit-keyframes animatebottom{from{bottom:-50px;opacity:0;} to{bottom:0px;opacity:1;}}
 @keyframes animatebottom{ from{bottom:-50px;opacity:0;} to{bottom:0;opacity:1;}}
@@ -36,20 +69,51 @@ footer{background:#00284d;padding:30px;padding-top:80px;color:#3cf;}
 @media screen and (max-width: 340px) {
   header,main,nav,footer{display:none;}
   .small{display:block;font-size:1.875rem;color:red;padding:5px;text-align:center;background-color:#e6ffff;height:100vh;}
-  .loading{display:none;}
 }
-.title{text-align:center;font-size:80px;margin:90px;}
-main{padding:7px;background:#00284d!important;margin-bottom:5px;margin:0;}
+.title{text-align:center;font-size:80px;margin:70px auto;}
+main{padding:15px;background:#00284d!important;margin-bottom:5px;margin:0;}
 header{background:#00284d;color:#fff;padding:5px;margin:0}
-main>div{margin:5px 5px 5px 0;padding:7px;border-radius:10px;width:100%;font-size:1.125rem;background-color:#99ddff55;color:#fff;}
-time{position:relative;top:-7px;left:-7px;float:left;margin:0;text-align:center;padding:3px 0;width:2em;border-radius:10px 0 10px 0;font-size:1.125rem;background:#6cf;color:#003;}
-main>div p{margin:0;padding:2.5px 0;text-indent:2em;}/*
-main>div p:first-of-type{text-indent:0;}*/
-main h1{background:#ff00ffaa!important;text-align:center;border-radius:100vw;margin:25px 15px 5px 15px;padding:10px;color:#fff;}
+main>div{margin:10px 0;padding:20px 8px 10px 8px;border-radius:10px;width:100%;font-size:1.125rem;background-color:#99ddff55;color:#fff;}
+time{position: relative;
+    top: -15px;
+    left: -3px;
+    float: left;
+    margin-right: -30px;
+    text-align: center;
+    padding: 5px 0;
+    text-align:center;
+    min-width: 1.8em;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight:700;
+    background: #6cf;
+    color: #003;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);}
+main>div p{margin:0;padding:2.5px 0;text-indent:2em;}
+main h1{background:#00999988!important;text-align:center;border-radius:100vw;margin:25px 15px 5px 15px;padding:10px;color:#fff;}
 .menu:hover+input+.dropdown-content,.dropdown-content:hover{display:block;}
-nav input{padding:7px;margin:5px;display:inline-block;width:150px;border-radius:100vw;border:0;background:#e6ffff;font-size:16px;float:right;}
-nav input:focus{outline:none;background:#cff;}
-::placeholder{color:#6cf;opacity:1;}
+nav input {
+    padding: 6px 15px;
+    margin:5px;
+    border-radius:100vw;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.2);
+    font-size: 16px;
+    color: white;
+    max-width: 150px;
+    transition: all 0.3s;
+    float:right;
+}
+
+nav input:focus {
+    outline: none;
+    background: rgba(255,255,255,0.3);
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.5);
+}
+
+::placeholder {
+    color: rgba(255,255,255,0.7);
+}
 :-ms-input-placeholder,::-ms-input-placeholder{color:#6cf;}
 .highlight{background-color:#d9b3ff88;padding:0 5px;border-radius:15px;}
 .p-hidden{display:none;}
@@ -965,6 +1029,7 @@ ul>img{width:200px;text-align:center;}
         <p>朱奕辰的作业出现“M为中原（中点）”。</p>
         <p>刘老师：“永淮的作文……”</p>
         <p>杨依诺在（地理）活动课上硬要送地理老师一个千纸鹤。</p>
+        <p>政治课观看<a href="https://www.bilibili.com/video/BV1NP411b71y/" about="_blank">小水滴</a>视频，背景音乐出现《孤勇者》。</p>
     </div>
 </div>
 <h1 id="d2502">2025年2月</h1>
