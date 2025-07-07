@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -6,43 +7,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 *{box-sizing: border-box;}
-::-webkit-scrollbar{width:10px;}
+::-webkit-scrollbar{width:6px;}
 ::-webkit-scrollbar-track{background:transparent;}
-::-webkit-scrollbar-thumb{background:#669;border-radius:5px;height:150px;}
+::-webkit-scrollbar-thumb{background:#669;border-radius:5px;height:20%;}
 ::-webkit-scrollbar-thumb:hover{background:#8585ad;}
-body{margin:0;font-size:100%;background:#03c;}
-button{font-size:16px;padding:5px 10px;margin:3px;border-radius:5px;background-color:rgba(255, 255, 255, 0.1);color:white;border:0;transition:all 0.2s ease;}
-button:hover{background-color:rgba(255, 255, 255, 0.2);transform:translateY(-1px);}
+body{margin:0;font-size:100%;background:#03c;overflow:hidden;}
+button{width:20px;height:20px;margin:5px 0 5px 5px;border-radius:100vw;background-color:rgba(255, 255, 255, 0.1);border:0;transition:all 0.2s ease;}
+.b1{background:#0066ff88;}
+.b1:hover{background:#0066ffcc;}
+.b2{background:#cc000088;}
+.b2:hover{background:#cc0000cc;}
+.b3{background:#00993388;}
+.b3:hover{background:#009933cc;}
 #dragbar{position:absolute;cursor:col-resize;z-index:3;padding:5px;}
 #shield{display:none;top:0;left:0;width:100%;position:absolute;height:100%;z-index:4;}
-#container{background-color:#03c;width:100%;overflow:hidden;;position:absolute;top:45px;bottom:0;height:auto;}
+#container{background-color:#03c;width:100%;overflow:hidden;position:absolute;top:0;bottom:0;height:auto;}
 #textareacontainer,#iframecontainer{float:left;height:100%;width:50%;}
-#textarea,#iframe{height:100%;width:100%;padding-bottom:10px;padding-top:1px;}
-#textarea,#iframe{padding:1px;}
-#textareawrapper{width:100%;height:100%;background-color: #ffffff;position:relative;box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);border-radius:2px;}
-#iframewrapper{width:100%;height:100%;-webkit-overflow-scrolling: touch;background-color: #ffffff;box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);border-radius:2px;}
-#textareaCode{background-color: #ffffff;font-family: consolas,"courier new",monospace;font-size:15px;height:100%;width:100%;padding:8px;resize: none;border:none;line-height:normal;}
-.CodeMirror.cm-s-default{line-height:normal;padding: 4px;height:100%;width:100%;}
+#textarea,#iframe{height:100%;width:100%;padding-bottom:10px;padding:0;border:1px solid #000;}
+#textareawrapper{width:100%;height:100%;background-color:#ffffff;position:relative;}
+#iframewrapper{width:100%;height:100%;-webkit-overflow-scrolling:touch;background-color:#ffffff;}
+#textareaCode{background-color:#ffffff;font-family:consolas,"courier new",monospace;font-size:15px;height:100%;width:100%;resize:none;line-height:normal;}
+.CodeMirror.cm-s-default{line-height:normal;padding:4px;height:100%;width:100%;}
 #iframeResult,#iframeSource{height:100%;width:100%;}
-.trytopnav{overflow:hidden;padding:3px;margin:0;white-space:nowrap!important;}
-
-.CodeMirror {font-family:Consolas,"等线","微软雅黑",monospace,sans-serif;font-size:15px;height:300px;color:black;border-radius:2px;}
-.CodeMirror-lines{padding:4px 0}
-.CodeMirror pre{padding:0 4px}
-.CodeMirror-scrollbar-filler,.CodeMirror-gutter-filler{background-color:white}
-.CodeMirror-gutters{border-right:1px solid #ddd;background-color:#f7f7f7;white-space:nowrap}
-.CodeMirror-linenumber{padding:0 3px 0 5px;min-width:20px;text-align:right;color:#999;white-space:nowrap}
-.CodeMirror-guttermarker{color:black}
-.CodeMirror-guttermarker-subtle{color:#999}
-.CodeMirror-cursor{border-left:1px solid black;border-right:none;width:0}
-.CodeMirror div.CodeMirror-secondarycursor{border-left:1px solid silver}
-.cm-fat-cursor .CodeMirror-cursor{width:auto;border:0 !important;background:#7e7}
-.cm-fat-cursor div.CodeMirror-cursors{z-index:1}
-.cm-animate-fat-cursor{width:auto;border:0;-webkit-animation:blink 1.06s steps(1) infinite;-moz-animation:blink 1.06s steps(1) infinite;animation:blink 1.06s steps(1) infinite;background-color:#7e7}
-.CodeMirror-overwrite .CodeMirror-cursor{}
-.cm-tab{display:inline-block;text-decoration:inherit}
-.CodeMirror-rulers{position:absolute;left:0;right:0;top:-50px;bottom:-20px;overflow:hidden}
-.CodeMirror-ruler{border-left:1px solid #ccc;top:0;bottom:0;position:absolute}
+.trytopnav{overflow:hidden;padding:0;margin:0;white-space:nowrap!important;z-index:10000;background:#000000bb;position:fixed;width:180px;border-radius:100vw;margin:2px;backdrop-filter:blur(2px);}
 
 .cm-s-default .cm-keyword { color: #0000FF; } /* 关键字：蓝色 */
 .cm-s-default .cm-atom { color: #7D007D; } /* 原子值：紫色 */
@@ -67,7 +54,6 @@ button:hover{background-color:rgba(255, 255, 255, 0.2);transform:translateY(-1px
 .cm-s-default .cm-link { color: #00c; } /* 链接：蓝色 */
 .cm-s-default .cm-error { color: #f00; } /* 错误：红色 */
 .cm-invalidchar { color: #f00; } /* 无效字符：红色 */
-
 body.darktheme .cm-s-default .cm-keyword { color: #569CD6; } /* 关键字：浅蓝色 */
 body.darktheme .cm-s-default .cm-atom { color: #C586C0; } /* 原子值：粉色 */
 body.darktheme .cm-s-default .cm-number { color: #B5CEA8; } /* 数字：浅绿色 */
@@ -92,9 +78,23 @@ body.darktheme .cm-s-default .cm-link { color: #569CD6; } /* 链接：浅蓝色 
 body.darktheme .cm-s-default .cm-error { color: #F44747; } /* 错误：红色 */    
 body.darktheme .CodeMirror-cursor {border-left:1px solid white;}
 
-.cm-m-clike.cm-string{color:brown}
-.cm-s-default .cm-error{color:#f00}
-.cm-invalidchar{color:#f00}
+.CodeMirror {font-family:Consolas,"等线","微软雅黑",monospace,sans-serif;font-size:15px;height:300px;color:black;}
+.CodeMirror-lines{padding:4px 0}
+.CodeMirror pre{padding:0 4px}
+.CodeMirror-scrollbar-filler,.CodeMirror-gutter-filler{background-color:white}
+.CodeMirror-gutters{border-right:1px solid #ddd;background-color:#f7f7f7;white-space:nowrap}
+.CodeMirror-linenumber{padding:0 3px 0 5px;min-width:20px;text-align:right;color:#999;white-space:nowrap}
+.CodeMirror-guttermarker{color:black}
+.CodeMirror-guttermarker-subtle{color:#999}
+.CodeMirror-cursor{border-left:1px solid black;border-right:none;width:0}
+.CodeMirror div.CodeMirror-secondarycursor{border-left:1px solid silver}
+.cm-fat-cursor .CodeMirror-cursor{width:auto;border:0 !important;background:#7e7}
+.cm-fat-cursor div.CodeMirror-cursors{z-index:1}
+.cm-animate-fat-cursor{width:auto;border:0;-webkit-animation:blink 1.06s steps(1) infinite;-moz-animation:blink 1.06s steps(1) infinite;animation:blink 1.06s steps(1) infinite;background-color:#7e7}
+.CodeMirror-overwrite .CodeMirror-cursor{}
+.cm-tab{display:inline-block;text-decoration:inherit}
+.CodeMirror-rulers{position:absolute;left:0;right:0;top:-50px;bottom:-20px;overflow:hidden}
+.CodeMirror-ruler{border-left:1px solid #ccc;top:0;bottom:0;position:absolute}
 .CodeMirror-composing{border-bottom:2px solid}
 div.CodeMirror span.CodeMirror-matchingbracket{color:#0f0}
 div.CodeMirror span.CodeMirror-nonmatchingbracket{color:#f22}
@@ -136,38 +136,81 @@ body.darktheme .CodeMirror-focused .CodeMirror-selected{background:#0063e6}
 .CodeMirror-line::selection,.CodeMirror-line > span::selection,.CodeMirror-line > span > span::selection{background:#d7d4f0}
 .CodeMirror-line::-moz-selection,.CodeMirror-line > span::-moz-selection,.CodeMirror-line > span > span::-moz-selection{background:#d7d4f0}
 .cm-searching{background:#ffa;background:rgba(255,255,0,.4)}
-.cm-force-border{padding-right:.1px}
+.cm-force-border{padding-right:1px}
 </style>
 </head>
 <body>
-<div class="trytopnav">
-  <button onclick="restack(currentStack)">方向</button>
-  <button onclick="retheme()">主题</button>
-  <button onclick="submitTryit(1);ga('send', 'event', 'runCode', 'click');">运行</button>
-  <span style="padding:8px;display:block;float:right!important;color:#fff;font-family:Consolas" id="framesize"></span>
-</div>
+
 <div id="shield"></div>
 <a href="javascript:void(0)" id="dragbar"></a>
 <div id="container">
-<div id="menuOverlay" style="cursor:pointer;z-index:4"></div>
-  <div id="textareacontainer">
-    <div id="textarea">
-      <div id="textareawrapper">
-        <textarea autocomplete="off" id="textareaCode" wrap="logical" spellcheck="false">
-</textarea>
-        <form id="codeForm" autocomplete="off" style="margin:0px;display:none;">
-          <input type="hidden" name="code" id="code" />
-        </form>
-       </div>
+ <div id="menuOverlay" style="cursor:pointer;z-index:4"></div>
+ <div id="textareacontainer">
+  <div id="textarea">
+   <div id="textareawrapper">
+    <div class="trytopnav" id="trytopnav">
+     <button class="b1" onclick="restack(currentStack)"></button>
+     <button class="b2" onclick="retheme()"></button>
+     <button class="b3" onclick="submitTryit(1);ga('send', 'event', 'runCode', 'click');" style="width:30px;"></button>
+     <span style="padding:5px 7.5px;display:block;float:right!important;color:#fff;font-family:Consolas;user-select:none;" id="framesize"></span>
     </div>
+    <textarea autocomplete="off" id="textareaCode" wrap="logical" spellcheck="false"></textarea>
+   </div>
   </div>
-  <div id="iframecontainer">
-    <div id="iframe">
-      <div id="iframewrapper"></div>
-    </div>
-  </div>
+ </div>
+ <div id="iframecontainer">
+  <div id="iframe"><div id="iframewrapper"></div></div>
+ </div>
 </div>
-<script>(function (global, factory) {
+<script>
+function setupDragging() {
+    const toast = document.getElementById('trytopnav');
+    const header = document.getElementById('framesize');
+    let isDragging = false;
+    let offsetX, offsetY;
+    let startWidth;
+    let startHeight;
+    header.addEventListener('mousedown', function(e) {
+        isDragging = true;
+        offsetX = e.clientX - toast.offsetLeft;
+        offsetY = e.clientY - toast.offsetTop;
+        startWidth = toast.offsetWidth;
+        startHeight = toast.offsetHeight;
+        e.stopPropagation();
+    });
+    document.addEventListener('mousemove', function(e) {
+        if (isDragging) {
+            // 计算新位置
+            let newLeft = e.clientX - offsetX;
+            let newTop = e.clientY - offsetY;
+            // 防止拖出视口
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const toastWidth = startWidth;
+            const toastHeight = startHeight;
+            // 限制左侧边界
+            if (newLeft < 0) newLeft = 0;
+            // 限制右侧边界
+            if (newLeft > viewportWidth - toastWidth) newLeft = viewportWidth - toastWidth;
+            // 限制顶部边界
+            if (newTop < 0) newTop = 0;
+            // 限制底部边界
+            if (newTop > viewportHeight - toastHeight) newTop = viewportHeight - toastHeight;
+            // 应用新位置
+            toast.style.left = newLeft + 'px';
+            toast.style.top = newTop + 'px';
+            // 保持宽高一致
+            toast.style.width = toastWidth + 'px';
+            toast.style.height = toastHeight + 'px';
+        }
+    });
+    document.addEventListener('mouseup', function() {
+        isDragging = false;
+    });
+}setupDragging();
+
+
+(function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
   (global.CodeMirror = factory());
@@ -9468,127 +9511,6 @@ CodeMirror.defineMIME("application/typescript", { name: "javascript", typescript
 });
 </script>
 <script>
-(function(mod) {
-  if (typeof exports == "object" && typeof module == "object") 
-    mod(require("../../lib/codemirror"), require("../xml/xml"), require("../javascript/javascript"))
-  else if (typeof define == "function" && define.amd) 
-    define(["../../lib/codemirror", "../xml/xml", "../javascript/javascript"], mod)
-  else 
-    mod(CodeMirror)
-})(function(CodeMirror) {
-  "use strict"
-  function Context(state, mode, depth, prev) {
-    this.state = state; this.mode = mode; this.depth = depth; this.prev = prev
-  }
-  function copyContext(context) {
-    return new Context(CodeMirror.copyState(context.mode, context.state),
-                       context.mode,
-                       context.depth,
-                       context.prev && copyContext(context.prev))
-  }
-  CodeMirror.defineMode("jsx", function(config, modeConfig) {
-    var xmlMode = CodeMirror.getMode(config, {name: "xml", allowMissing: true, multilineTagIndentPastTag: false, allowMissingTagName: true})
-    var jsMode = CodeMirror.getMode(config, modeConfig && modeConfig.base || "javascript")
-    function flatXMLIndent(state) {
-      var tagName = state.tagName
-      state.tagName = null
-      var result = xmlMode.indent(state, "", "")
-      state.tagName = tagName
-      return result
-    }
-    function token(stream, state) {
-      if (state.context.mode == xmlMode)
-        return xmlToken(stream, state, state.context)
-      else
-        return jsToken(stream, state, state.context)
-    }
-    function xmlToken(stream, state, cx) {
-      if (cx.depth == 2) { 
-        if (stream.match(/^.*?\*\
-        else stream.skipToEnd()
-        return "comment"
-      }
-      if (stream.peek() == "{") {
-        xmlMode.skipAttribute(cx.state)
-        var indent = flatXMLIndent(cx.state), xmlContext = cx.state.context
-        if (xmlContext && stream.match(/^[^>]*>\s*$/, false)) {
-          while (xmlContext.prev && !xmlContext.startOfLine)
-            xmlContext = xmlContext.prev
-          if (xmlContext.startOfLine) indent -= config.indentUnit
-          else if (cx.prev.state.lexical) indent = cx.prev.state.lexical.indented
-        } else if (cx.depth == 1) {
-          indent += config.indentUnit
-        }
-        state.context = new Context(CodeMirror.startState(jsMode, indent),
-                                    jsMode, 0, state.context)
-        return null
-      }
-      if (cx.depth == 1) { 
-        if (stream.peek() == "<") { 
-          xmlMode.skipAttribute(cx.state)
-          state.context = new Context(CodeMirror.startState(xmlMode, flatXMLIndent(cx.state)),
-                                      xmlMode, 0, state.context)
-          return null
-        } else if (stream.match("//")) {
-          stream.skipToEnd()
-          return "comment"
-        } else if (stream.match("/*")) {
-          cx.depth = 2
-          return token(stream, state)
-        }
-      }
-      var style = xmlMode.token(stream, cx.state), cur = stream.current(), stop
-      if (/\btag\b/.test(style)) {
-        if (/>$/.test(cur)) {
-          if (cx.state.context) cx.depth = 0
-          else state.context = state.context.prev
-        } else if (/^</.test(cur)) {
-          cx.depth = 1
-        }
-      } else if (!style && (stop = cur.indexOf("{")) > -1) {
-        stream.backUp(cur.length - stop)
-      }
-      return style
-    }
-    function jsToken(stream, state, cx) {
-      if (stream.peek() == "<" && jsMode.expressionAllowed(stream, cx.state)) {
-        jsMode.skipExpression(cx.state)
-        state.context = new Context(CodeMirror.startState(xmlMode, jsMode.indent(cx.state, "", "")),
-                                    xmlMode, 0, state.context)
-        return null
-      }
-      var style = jsMode.token(stream, cx.state)
-      if (!style && cx.depth != null) {
-        var cur = stream.current()
-        if (cur == "{") {
-          cx.depth++
-        } else if (cur == "}") {
-          if (--cx.depth == 0) state.context = state.context.prev
-        }
-      }
-      return style
-    }
-    return {
-      startState: function() {
-        return {context: new Context(CodeMirror.startState(jsMode), jsMode)}
-      },
-      copyState: function(state) {
-        return {context: copyContext(state.context)}
-      },
-      token: token,
-      indent: function(state, textAfter, fullLine) {
-        return state.context.mode.indent(state.context.state, textAfter, fullLine)
-      },
-      innerMode: function(state) {
-        return state.context
-      }
-    }
-  }, "xml", "javascript")
-  CodeMirror.defineMIME("text/jsx", "jsx")
-  CodeMirror.defineMIME("text/typescript-jsx", {name: "jsx", base: {name: "javascript", typescript: true}})
-});
-</script>
-<script>
 if (window.addEventListener) {              
     window.addEventListener("resize", browserResize);
 } else if (window.attachEvent) {                 
@@ -9631,8 +9553,6 @@ function getSavedFile() {
     }
     httpA.send(paramA);   
 }
-</script>
-<script>
 submitTryit()
 function submitTryit(n) {
   if (window.editor) {
@@ -9722,7 +9642,7 @@ function showFrameSize() {
   var width, height;
   width = Number(w3_getStyleValue(document.getElementById("iframeResult"), "width").replace("px", "")).toFixed();
   height = Number(w3_getStyleValue(document.getElementById("iframeResult"), "height").replace("px", "")).toFixed();
-  document.getElementById("framesize").innerHTML = "<span style='color:#fff;display:block'>" + width + " × " + height + "</span>";
+  document.getElementById("framesize").innerHTML = width + "·" + height;
 }
 var dragging = false;
 var stack;
@@ -9846,71 +9766,6 @@ function w3_getStyleValue(elmnt,style) {
     } else {
         return elmnt.currentStyle[style];
     }
-}
-function hideAndResetModal() {
-    document.getElementById("saveModal").style.display = "none";
-    document.getElementById('preSave').style.display = "block";
-    document.getElementById('errorSave').style.display = "none";    
-    document.getElementById('postSave').style.display = "none";
-    document.getElementById("saveModalSaved").style.display = "none";
-    document.getElementById('saveDisclaimer').style.display= "none";
-    document.getElementById('saveLoader').style.display = "block";
-}
-var addr = document.location.href;
-function displayError() {
-  document.getElementById("err_url").value = addr;
-  document.getElementById("err_form").style.display = "block";
-  document.getElementById("err_email").focus();
-  hideSent();
-}
-function hideError() {
-  document.getElementById("err_form").style.display = "none";
-}
-function hideSent() {
-  document.getElementById("err_sent").style.display = "none";
-}
-function sendErr() {
-  var xmlhttp;
-  var err_url = document.getElementById("err_url").value;
-  var err_email = document.getElementById("err_email").value;
-  var err_desc = document.getElementById("err_desc").value;
-  if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-    xmlhttp = new XMLHttpRequest();
-  } else {// code for IE6, IE5
-    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  xmlhttp.open("POST", "/err_sup.html", true);
-  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlhttp.send("err_url=" + err_url + "&err_email=" + err_email + "&err_desc=" + escape(err_desc));
-  document.getElementById("err_desc").value = "";
-  hideError();
-  document.getElementById("err_sent").style.display = "block";
-}
-function openMenu() {
-    var x = document.getElementById("navbarDropMenu");
-    var y = document.getElementById("menuOverlay");
-    var z = document.getElementById("menuButton");
-    if (z.className.indexOf("w3-text-gray") == -1) {
-        z.className += " w3-text-gray";
-    } else { 
-        z.className = z.className.replace(" w3-text-gray", "");
-    }
-    if (z.className.indexOf("w3-gray") == -1) {
-        z.className += " w3-gray";
-    } else { 
-        z.className = z.className.replace(" w3-gray", "");
-    }
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-    }
-    if (y.className.indexOf("w3-show") == -1) {
-        y.className += " w3-show";
-    } else { 
-        y.className = y.className.replace(" w3-show", "");
-    }
-
 }
 </script>
 </body>
