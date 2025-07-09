@@ -21,7 +21,7 @@ button{width:20px;height:20px;border-radius:100vw;background-color:rgba(255, 255
 #dragbar{position:absolute;cursor:col-resize;z-index:3;padding:5px;}
 #shield{display:none;top:0;left:0;width:100%;position:absolute;height:100%;z-index:4;}
 #container{width:100%;overflow:hidden;position:absolute;top:0;bottom:0;height:auto;}
-#textareacontainer,#iframecontainer{float:left;height:100%;width:50%;}
+#textareacontainer,#iframecontainer{float:left;height:100%;width:50%;transition:0.5s}
 #textarea,#iframe{height:100%;width:100%;padding-bottom:10px;padding:0;}
 #textarea{background:#eee;}
 #textareawrapper{width:100%;height:100%;position:relative;}
@@ -30,30 +30,30 @@ button{width:20px;height:20px;border-radius:100vw;background-color:rgba(255, 255
 #iframeResult,#iframeSource{height:100%;width:100%;}
 .trytopnav{overflow:hidden;padding:0;margin:0;white-space:nowrap!important;z-index:10000;background:#000000aa;position:fixed;width:180px;border-radius:100vw;backdrop-filter:blur(1px);left:calc((100vw - 180px) / 2);top:2px;}
 
-.CodeMirror.cm-s-default{line-height:normal;padding:0;height:100%;width:100%;}
-.cm-s-default .cm-keyword{color:#0000FF}/*关键字：蓝色 */
-.cm-s-default .cm-atom{color:#7D007D}/*原子值：紫色 */
-.cm-s-default .cm-number{color:#008000}/*数字：绿色 */
-.cm-s-default .cm-def{color:#0000FF}/*定义：蓝色 */
-.cm-s-default .cm-variable{color:#000}/*变量：黑色 */
-.cm-s-default .cm-variable-2{color:#005A9C}/*变量2：深蓝色 */
-.cm-s-default .cm-variable-3{color:#008080}/*变量3：青绿色 */
-.cm-s-default .cm-property{color:#309}/*属性：黑色 */
-.cm-s-default .cm-operator{color:#AA22FF}/*操作符：紫色 */
-.cm-s-default .cm-comment{color:#3F7F5F;font-style:italic}/*注释：深绿色，斜体 */
-.cm-s-default .cm-string{color:#BA2121}/*字符串：红色 */
-.cm-s-default .cm-string-2{color:#FF0000}/*字符串2：深红色 */
-.cm-s-default .cm-meta{color:#555}/*元数据：灰色 */
-.cm-s-default .cm-qualifier{color:#555}/*限定符：灰色 */
-.cm-s-default .cm-builtin{color:#30A}/*内置函数：靛蓝色 */
-.cm-s-default .cm-bracket{color:#997}/*括号：橄榄色 */
-.cm-s-default .cm-tag{color:#170}/*标签：深绿色 */
-.cm-s-default .cm-attribute{color:#00c}/*属性：蓝色 */
-.cm-s-default .cm-header{color:blue}/*头部：蓝色 */
-.cm-s-default .cm-quote{color:#090}/*引用：绿色 */
-.cm-s-default .cm-link{color:#00c}/*链接：蓝色 */
-.cm-s-default .cm-error{color:#f00}/*错误：红色 */
-.cm-invalidchar{color:#f00; } /* 无效字符：红色 */
+.CodeMirror.cm-s-default{line-height:normal;padding:0;height:100%;width:100%;transition:0.5s;}
+.cm-s-default .cm-keyword{color:#0000FF;transition:0.5s;}/*关键字：蓝色 */
+.cm-s-default .cm-atom{color:#7D007D;transition:0.5s;}/*原子值：紫色 */
+.cm-s-default .cm-number{color:#008000;transition:0.5s;}/*数字：绿色 */
+.cm-s-default .cm-def{color:#0000FF;transition:0.5s;}/*定义：蓝色 */
+.cm-s-default .cm-variable{color:#000;transition:0.5s;}/*变量：黑色 */
+.cm-s-default .cm-variable-2{color:#005A9C;transition:0.5s;}/*变量2：深蓝色 */
+.cm-s-default .cm-variable-3{color:#008080;transition:0.5s;}/*变量3：青绿色 */
+.cm-s-default .cm-property{color:#309;transition:0.5s;}/*属性：黑色 */
+.cm-s-default .cm-operator{color:#AA22FF;transition:0.5s;}/*操作符：紫色 */
+.cm-s-default .cm-comment{color:#3F7F5F;font-style:italic;transition:0.5s;}/*注释：深绿色，斜体 */
+.cm-s-default .cm-string{color:#BA2121;transition:0.5s;}/*字符串：红色 */
+.cm-s-default .cm-string-2{color:#FF0000;transition:0.5s;}/*字符串2：深红色 */
+.cm-s-default .cm-meta{color:#555;transition:0.5s;}/*元数据：灰色 */
+.cm-s-default .cm-qualifier{color:#555;transition:0.5s;}/*限定符：灰色 */
+.cm-s-default .cm-builtin{color:#30A;transition:0.5s;}/*内置函数：靛蓝色 */
+.cm-s-default .cm-bracket{color:#997;transition:0.5s;}/*括号：橄榄色 */
+.cm-s-default .cm-tag{color:#170;transition:0.5s;}/*标签：深绿色 */
+.cm-s-default .cm-attribute{color:#00c;transition:0.5s;}/*属性：蓝色 */
+.cm-s-default .cm-header{color:blue;transition:0.5s;}/*头部：蓝色 */
+.cm-s-default .cm-quote{color:#090;transition:0.5s;}/*引用：绿色 */
+.cm-s-default .cm-link{color:#00c;transition:0.5s;}/*链接：蓝色 */
+.cm-s-default .cm-error{color:#f00;transition:0.5s;}/*错误：红色 */
+.cm-invalidchar{color:#f00;;transition:0.5s;} /* 无效字符：红色 */
 .darktheme .cm-s-default .cm-keyword { color: #569CD6; } /* 关键字：浅蓝色 */
 .darktheme .cm-s-default .cm-atom { color: #C586C0; } /* 原子值：粉色 */
 .darktheme .cm-s-default .cm-number { color: #B5CEA8; } /* 数字：浅绿色 */
@@ -78,14 +78,14 @@ button{width:20px;height:20px;border-radius:100vw;background-color:rgba(255, 255
 .darktheme .cm-s-default .cm-error { color: #F44747; } /* 错误：红色 */    
 .darktheme .CodeMirror-cursor {border-left:1px solid white;}
 
-.CodeMirror {font-family:Consolas,"等线","微软雅黑",monospace,sans-serif;font-size:15px;height:300px;color:black;position:relative;overflow:hidden;background:#fff;box-shadow:inset 0px 0px 5px rgba(0, 0, 0, 0.3);}
-.CodeMirror-lines{padding:4px 0}
-.CodeMirror pre{padding:0 4px}
+.CodeMirror {font-family:Consolas,"等线","微软雅黑",monospace,sans-serif;font-size:15px;color:black;position:relative;overflow:hidden;background:#fff;box-shadow:inset 0px 0px 5px rgba(0, 0, 0, 0.3);transition:0.5s;}
+.CodeMirror-lines{padding:4px 0;}
+.CodeMirror pre{padding:0 4px;}
 .CodeMirror-scrollbar-filler,.CodeMirror-gutter-filler{background-color:white}
-.CodeMirror-gutters{border-right:1px solid #ddd;background-color:#f7f7f7;white-space:nowrap;}
-.CodeMirror-linenumber{padding:0 2px;min-width:20px;text-align:right;color:#999;white-space:nowrap}
+.CodeMirror-gutters{border-right:1px solid #ddd;background-color:#f7f7f7;white-space:nowrap;transition:0.5s;}
+.CodeMirror-linenumber{padding:0 2px;min-width:20px;text-align:right;color:#999;white-space:nowrap;}
 .darktheme .CodeMirror-gutters{border-right:1px solid #435370;background-color:#222a39;white-space:nowrap}
-.CodeMirror-guttermarker{color:black}
+.CodeMirror-guttermarker{color:black;}
 .CodeMirror-guttermarker-subtle{color:#999}
 .CodeMirror-cursor{border-left:1px solid black;border-right:none;width:0}
 .CodeMirror div.CodeMirror-secondarycursor{border-left:1px solid silver}
@@ -99,7 +99,7 @@ button{width:20px;height:20px;border-radius:100vw;background-color:rgba(255, 255
 div.CodeMirror span.CodeMirror-matchingbracket{color:#0f0}
 div.CodeMirror span.CodeMirror-nonmatchingbracket{color:#f22}
 .CodeMirror-matchingtag{background:rgba(255,150,0,.3)}
-.CodeMirror-activeline-background{background:#e8f2ff;border-radius:5px;}
+.CodeMirror-activeline-background{background:#e8f2ff;border-radius:5px;transition:0.5s;}
 .darktheme .CodeMirror-activeline-background{background:#273759;border-radius:5px;}
 body.darktheme .CodeMirror{background-color:rgb(40,44,52);color:#fff}
 .CodeMirror-scroll{overflow:scroll!important;margin-bottom:-30px;margin-right:-50px;padding-bottom:30px;height:100%;outline:none;position:relative}
