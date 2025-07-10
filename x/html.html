@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -8,20 +10,20 @@
 *{box-sizing: border-box;}
 ::-webkit-scrollbar{width:6px;}
 ::-webkit-scrollbar-track{background:transparent;}
-::-webkit-scrollbar-thumb{background:#669;border-radius:5px;height:20%;}
+::-webkit-scrollbar-thumb{background:#7a8ab8;border-radius:5px;height:20%;}
 ::-webkit-scrollbar-thumb:hover{background:#8585ad;}
 body{margin:0;font-size:100%;overflow:hidden;}
-button{width:20px;height:20px;border-radius:100vw;background-color:rgba(255, 255, 255, 0.1);border:0;transition:all 0.2s ease;}
-.b1{background:#0066ff88;margin:5px 1px 5px 5px;}
-.b1:hover{background:#0066ffdd;}
-.b2{background:#cc000088;margin:5px 1px 5px 1px;}
-.b2:hover{background:#cc0000dd;}
-.b3{background:#00993388;width:30px;margin:5px 0 5px 1px;}
-.b3:hover{background:#009933dd;}
+button{width:20px;height:20px;border-radius:100vw;background-color:rgba(255, 255, 255, 0.1);border:0;transition:all 0.2s ease;margin:auto;}
+.b1{background:#cc000088;margin:5px 1px 5px 5px;}
+.b1:hover{background:#cc0000dd;}
+.b2{background:#00993388;margin:5px 0;width:30px;}
+.b2:hover{background:#009933dd;}
+.b3{background:#0066ff88;margin:5px 0 5px 1px;}
+.b3:hover{background:#0066ffdd;}
 #dragbar{position:absolute;cursor:col-resize;z-index:3;padding:5px;}
 #shield{display:none;top:0;left:0;width:100%;position:absolute;height:100%;z-index:4;}
 #container{width:100%;overflow:hidden;position:absolute;top:0;bottom:0;height:auto;}
-#textareacontainer,#iframecontainer{float:left;height:100%;width:50%;transition:0.5s}
+#textareacontainer,#iframecontainer{float:left;height:100%;width:50%;}
 #textarea,#iframe{height:100%;width:100%;padding-bottom:10px;padding:0;}
 #textarea{background:#eee;}
 #textareawrapper{width:100%;height:100%;position:relative;}
@@ -151,10 +153,13 @@ body.darktheme .CodeMirror-focused .CodeMirror-selected{background:#0063e6}
   <div id="textarea">
    <div id="textareawrapper">
     <div class="trytopnav" id="trytopnav">
+    <span style="display:inline-block;width:45px;float:left!important;color:#fff;font-family:Consolas;user-select:none;padding:5px 0;text-align:center;" id="framesizew"></span>
+    <div style="display:inline-block;width:90px">
      <button class="b1" onclick="restack(currentStack)"></button>
-     <button class="b2" onclick="retheme()"></button>
-     <button class="b3" onclick="submitTryit(1);ga('send', 'event', 'runCode', 'click');"></button>
-     <span style="padding:5px 7.5px;display:block;float:right!important;color:#fff;font-family:Consolas;user-select:none;" id="framesize"></span>
+     <button class="b2" onclick="submitTryit(1);ga('send', 'event', 'runCode', 'click');"></button>
+     <button class="b3" onclick="retheme()"></button>
+     </div>
+     <span style="display:inline-block;width:45px;float:right!important;color:#fff;font-family:Consolas;user-select:none;padding:5px 0;text-align:center;" id="framesizeh"></span>
     </div>
     <textarea autocomplete="off" id="textareaCode" wrap="logical" spellcheck="false"></textarea>
    </div>
@@ -167,12 +172,11 @@ body.darktheme .CodeMirror-focused .CodeMirror-selected{background:#0063e6}
 <script>
 function setupDragging() {
     const toast = document.getElementById('trytopnav');
-    const header = document.getElementById('framesize');
     let isDragging = false;
     let offsetX, offsetY;
     let startWidth;
     let startHeight;
-    header.addEventListener('mousedown', function(e) {
+    toast.addEventListener('mousedown', function(e) {
         isDragging = true;
         offsetX = e.clientX - toast.offsetLeft;
         offsetY = e.clientY - toast.offsetTop;
@@ -351,7 +355,8 @@ function showFrameSize() {
   var width, height;
   width = Number(w3_getStyleValue(document.getElementById("iframeResult"), "width").replace("px", "")).toFixed();
   height = Number(w3_getStyleValue(document.getElementById("iframeResult"), "height").replace("px", "")).toFixed();
-  document.getElementById("framesize").innerHTML = width + "·" + height;
+  document.getElementById("framesizew").innerHTML = width;
+  document.getElementById("framesizeh").innerHTML = height;
 }
 var dragging = false;
 var stack;
