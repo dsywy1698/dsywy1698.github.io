@@ -92,7 +92,7 @@
     #Index #asklz{margin:0;padding:0;}
     #Index #time{background:#b3cce6;font-size:1.875rem;padding:15px 0;border-radius:0 15px 15px 0;text-align:center;}
     #Index #teacher{background:#ffffff33;margin:10px 0 10px 25px;padding:5px;border-radius:20px 0 0 20px;}
-    #Index #teacher>a{background:#f69;text-decoration:none;color:#fff;display:block;margin:10px;border-radius:8px;padding:15px;height:160px;overflow:hidden;transition:0.3s;}
+    #Index #teacher>a{background:#f69;text-decoration:none;color:#fff;display:block;margin:12px 20px;border-radius:8px;padding:15px;height:160px;overflow:hidden;transition:0.3s;}
     #Index #teacher>a:hover{background:#f37;box-shadow:0 2px 20px rgba(0,0,0,0.2);}
     #Index #teacher>h1,#Index #pupil>h1,#Index #qt>h1{background:#ffffff88;color:#000066;padding:10px;margin:10px;border-radius:100vw;text-align:center;display:block;}
     #Index #pupil{margin:30px 20px 30px 20px;background:linear-gradient(#ffffff55 0%,#ffffff00 90%);padding:5px;border-radius:20px 20px 0 0;}
@@ -102,13 +102,13 @@
     #Index .box{width:33.33%;float:left;}
     #Index .box>a{padding:18px;border-radius:10px;margin:5px;height:170px;display:block;text-decoration:none;color:#fff;overflow:auto;background:#3333ffcc;transition:0.3s;box-shadow:0 2px 20px rgba(51,51,255,0.2);}
     #Index .box>a:hover{background:#3333ffff;}
-    #Index .classroom{background:#66ffffcc;border-radius:5px;box-shadow:0 2px 20px rgba(0,204,204,0.2);}
-    #Index .classroom>div{display:flex;width:100%;padding:5px;}
-    #Index .classroom>div a{text-decoration:none;font-size:1.25rem;background:#00ccff66;padding:5px;width:100%;text-align:center;border:1px solid #06c;color:#033;}
-    #Index .classroom>div a[href]{text-decoration:none;font-size:1.25rem;background:#00ccffcc;padding:5px;width:100%;text-align:center;border:1px solid #06c;transition:0.3s;}
+    #Index .classroom{background:#66ffffcc;border-radius:5px;box-shadow:0 2px 20px rgba(0,204,204,0.2);display:flex;padding:0 5px;}
+    #Index .classroom>div{display:flex;flex-direction:column;padding:5px 0;width:12.5%;}
+    #Index .classroom>div a{text-decoration:none;font-size:1.25rem;background:#00ccff66;padding:5px;text-align:center;border:1px solid #06c;color:#033;height:40px;}
+    #Index .classroom>div a[href]{background:#00ccffcc;transition:0.3s;}
     #Index .classroom>div a[href]:hover{background:#00ccff;color:#06c;}
-    #Index .a{margin:5px 0 5px 5px;border-radius:5px 0 0 5px;}
-    #Index .b{margin:5px 15px 5px 0;border-radius:0 5px 5px 0;}
+    #Index .a>a{margin:5px 0 5px 5px;border-radius:5px 0 0 5px;}
+    #Index .b>a{margin:5px 5px 5px 0;border-radius:0 5px 5px 0;}
     #Index #siziren::before{content:"锐辰";}
     #Index #sj>a{background:#f06;color:#ffe6f0;text-align:center;border-radius:10px;padding:10px;display:block;margin:10px;}
     #Index #sj>a>div{text-align:left;background:#f69;color:#660029;border-radius:10px;padding:5px;}
@@ -133,9 +133,9 @@
     @media screen and (max-width:800px){
       #Index .login_title{font-size:6.25rem;}
       #Index .box{width:50%;}
-      #Index .classroom>div a,#Index .classroom>div a[href]{font-size:1rem;}
-      #Index .a{margin:4px 0 4px 4px;}
-      #Index .b{margin:4px 10px 4px 0;}
+      #Index .classroom>div a{font-size:1rem;height:32px;}
+      #Index .a>a{margin:4px 0 4px 4px;}
+      #Index .b>a{margin:4px 4px 4px 0;}
       nav{width:98vw;margin:1vw;}
       #Index .by p{display:block;margin:5px;border-radius:100vw;}
       #Index #time{font-size:1.5625rem;padding:5px;}
@@ -145,28 +145,28 @@
       #Index .login_title{font-size:5rem;padding:20px;}
       #Index .login>div{font-size:1.1875rem;width:80vw;}
       #Index .box{width:100%;}
+      #Index .classroom{border-radius:10px;display:flex;flex-wrap:wrap;padding:5px;}
+      #Index .classroom>div{padding:5px 0;width:25%;margin:0;}
+      #Index .classroom>div a{font-size:1.25rem;height:40px;}
+      #Index .a>a{margin:5px 0 5px 5px;border-radius:10px 0 0 10px;}
+      #Index .b>a{margin:5px 5px 5px 0;border-radius:0 10px 10px 0;}
+      #Index #siziren::before{content:"锐辰";}
       #Index .col_title>h1>span{display:none;}
       #Index .button_l,.button_r{width:120px;}
       #Index .tab{overflow:hidden;width:240px;margin:auto;}
-      #Index .classroom>div a{font-size:0.9375rem!important;padding:2px!important;}
-      #Index .a{margin:1px 0 1px 1px;}
-      #Index .b{margin:1px 4px 1px 0;}
       #Index #pupil{margin:30px 15px 30px 15px;}
     }
     @media screen and (max-width:500px){
-      #Index .classroom>div a,#Index .classroom>div a[href]{font-size:0.7rem;padding:1px;border:0.3px solid #06c;}
-      #Index .a{margin:0.7px 0 0.7px 0.7px;border-radius:2px 0 0 2px;}
-      #Index .b{margin:0.7px 3px 0.7px 0;border-radius:0 2px 2px 0;}
+      #Index .classroom{border-radius:10px;display:flex;flex-wrap:wrap;}
+      #Index .classroom>div{padding:5px 0;width:25%;margin:0;}
+      #Index .classroom>div a{font-size:1rem;height:32px;}
       #Index .login>div{width:90vw;}
     }
     @media screen and (max-width:470px){
       #Index #time{padding:auto 5px;}
       #Index .by{margin-right:15px;padding:20px 10px 20px 0;border-radius:0 17px 17px 0;}
-      #Index .classroom>div a{font-size:0.625rem!important;padding:1px!important;}
-      #Index .a{margin:0.5px 0 0.5px 0.5px;}
-      #Index .b{margin:0.5px 2px 0.5px 0;}
       #Index #pupil{margin:30px 10px 30px 10px;}
-      #Index .classroom>div{padding:3px;}
+      #Index #siziren::before{content:"...";}
     }
     @media screen and (max-width:350px){
       header,main,footer{display:none;}
@@ -272,75 +272,77 @@
             <hr/>
             <h2>所有</h2>
             <div class="classroom">
-            <div>
-                <a onclick="openPage('Pupil', this)" href="#czy" class="a">陈忠宇</a>
-                <a onclick="openPage('Pupil', this)" href="#qzh" class="b">邱子韩</a>
-                <a onclick="openPage('Pupil', this)" href="#ycm" class="a">叶宸铭</a>
-                <a onclick="openPage('Pupil', this)" href="#xcz" class="b">谢承志</a>
-                <a onclick="openPage('Pupil', this)" href="#lcj" class="a">吕楚鋆</a>
-                <a onclick="openPage('Pupil', this)" href="#zjx" class="b">郑瑾烯</a>
-                <a onclick="openPage('Pupil', this)" href="#ghx" class="a">郭浩轩</a>
-                <a onclick="openPage('Pupil', this)" href="#gjj" class="b">郭吉家</a>
+            <div class="a">
+                <a onclick="openPage('Pupil', this)" href="#czy">陈忠宇</a>
+                <a onclick="openPage('Pupil', this)" href="#qmx">瞿眀爔</a>
+                <a>黄语熙</a>
+                <a>童钰轩</a>
+                <a onclick="openPage('Pupil', this)" href="#gyf">郭予凡</a>
+                <a onclick="openPage('Pupil', this)" href="#xyh">许逸晗</a>
+                <a onclick="openPage('Pupil', this)" href="#clh">陈砾航</a>
             </div>
-            <div>
-                <a onclick="openPage('Pupil', this)" href="#qmx" class="a">瞿眀爔</a>
-                <a class="b">陈欣蕾</a>
-                <a class="a">游武毅</a>
-                <a onclick="openPage('Pupil', this)" href="#lst" class="b">李诗彤</a>
-                <a class="a">林妍筱</a>
-                <a onclick="openPage('Pupil', this)" href="#zmy" class="b">郑明洋</a>
-                <a onclick="openPage('Pupil', this)" href="#chq" class="a">陈昊圻</a>
-                <a onclick="openPage('Pupil', this)" href="#cn" class="b">陈诺</a>
+            <div class="b">
+                <a onclick="openPage('Pupil', this)" href="#qzh">邱子韩</a>
+                <a>陈欣蕾</a>
+                <a onclick="openPage('Pupil', this)" href="#wxl">王湘琳</a>
+                <a onclick="openPage('Pupil', this)" href="#lzc">林泽晨</a>
+                <a onclick="openPage('Pupil', this)" href="#zsy">曾诗芸</a>
+                <a onclick="openPage('Pupil', this)" href="#lyx">林煜昕</a>
+                <a onclick="openPage('Pupil', this)" href="#wym">吴一鸣</a>
             </div>
-            <div>
-                <a class="a">黄语熙</a>
-                <a onclick="openPage('Pupil', this)" href="#wxl" class="b">王湘琳</a>
-                <a onclick="openPage('Pupil', this)" href="#cyh" class="a">陈宇恒</a>
-                <a onclick="openPage('Pupil', this)" href="#zxy" class="b">张纤雅</a>
-                <a onclick="openPage('Pupil', this)" href="#zqk" class="a">郑权楷</a>
-                <a onclick="openPage('Pupil', this)" href="#lgy" class="b">刘圭宥</a>
-                <a onclick="openPage('Pupil', this)" href="#zwc" class="a">张炜承</a>
-                <a class="b">陈慧欣</a>
+            <div class="a">
+                <a onclick="openPage('Pupil', this)" href="#ycm">叶宸铭</a>
+                <a>游武毅</a>
+                <a onclick="openPage('Pupil', this)" href="#cyh">陈宇恒</a>
+                <a onclick="openPage('Pupil', this)" href="#zlj">郑隆俊</a>
+                <a>陈鑫怡</a>
+                <a>陈盈如</a>
+                <a onclick="openPage('Pupil', this)" href="#cyh2">陈彦豪</a>
             </div>
-            <div>
-                <a class="a">童钰轩</a>
-                <a onclick="openPage('Pupil', this)" href="#lzc" class="b">林泽晨</a>
-                <a onclick="openPage('Pupil', this)" href="#zlj" class="a">郑隆俊</a>
-                <a onclick="openPage('Pupil', this)" href="#lly" class="b">林柳妍</a>
-                <a class="a">周志朋</a>
-                <a class="b">陈睿婕</a>
-                <a onclick="openPage('Pupil', this)" href="#dxy" class="a">董轩宇</a>
-                <a onclick="openPage('Pupil', this)" href="#lpl" class="b">林佩玲</a>
-            </div>
-            <div>
-                <a onclick="openPage('Pupil', this)" href="#gyf" class="a">郭予凡</a>
-                <a onclick="openPage('Pupil', this)" href="#zsy" class="b">曾诗芸</a>
-                <a class="a">陈鑫怡</a>
-                <a onclick="openPage('Pupil', this)" href="#cyc" class="b">蔡宇城</a>
-                <a onclick="openPage('Pupil', this)" href="#hyrc" class="a" title="何亦锐辰">何亦<span id="siziren"></span></a>
-                <a class="b">刘睿萱</a>
-                <a onclick="openPage('Pupil', this)" href="#jyy" class="a">江玥瑶</a>
-                <a onclick="openPage('Pupil', this)" href="#zcx" class="b">张辰熙</a>
-            </div>
-            <div>
-                <a onclick="openPage('Pupil', this)" href="#xyh" class="a">许逸晗</a>
-                <a onclick="openPage('Pupil', this)" href="#lyx" class="b">林煜昕</a>
-                <a class="a">陈盈如</a>
+            <div class="b">
+                <a onclick="openPage('Pupil', this)" href="#xcz">谢承志</a>
+                <a onclick="openPage('Pupil', this)" href="#lst">李诗彤</a>
+                <a onclick="openPage('Pupil', this)" href="#zxy">张纤雅</a>
+                <a onclick="openPage('Pupil', this)" href="#lly">林柳妍</a>
+                <a onclick="openPage('Pupil', this)" href="#cyc">蔡宇城</a>
                 <a class="b">林安冉</a>
-                <a onclick="openPage('Pupil', this)" href="#lzc2" class="a">刘子岑</a>
-                <a onclick="openPage('Pupil', this)" href="#dyz" class="b">董艳泽</a>
-                <a onclick="openPage('Pupil', this)" href="#cmx" class="a">陈旻希</a>
-                <a onclick="openPage('Pupil', this)" href="#cr" class="b">陈锐</a>
+                <a class="b"></a>
             </div>
-            <div>
-                <a onclick="openPage('Pupil', this)" href="#clh" class="a">陈砾航</a>
-                <a onclick="openPage('Pupil', this)" href="#wym" class="b">吴一鸣</a>
-                <a onclick="openPage('Pupil', this)" href="#cyh2" class="a">陈彦豪</a>
-                <a class="b"></a>
-                <a class="a">陈睿卓</a>
-                <a class="b"></a>
-                <a class="a"></a>
-                <a onclick="openPage('Pupil', this)" href="#wzc" class="b">王芷辰</a>
+            <div class="a">
+                <a onclick="openPage('Pupil', this)" href="#lcj">吕楚鋆</a>
+                <a>林妍筱</a>
+                <a onclick="openPage('Pupil', this)" href="#zqk">郑权楷</a>
+                <a>周志朋</a>
+                <a onclick="openPage('Pupil', this)" href="#hyrc" title="何亦锐辰">何亦<span id="siziren"></span></a>
+                <a onclick="openPage('Pupil', this)" href="#lzc2">刘子岑</a>
+                <a>陈睿卓</a>
+            </div>
+            <div class="b">
+                <a onclick="openPage('Pupil', this)" href="#zjx">郑瑾烯</a>
+                <a onclick="openPage('Pupil', this)" href="#zmy">郑明洋</a>
+                <a onclick="openPage('Pupil', this)" href="#lgy">刘圭宥</a>
+                <a>陈睿婕</a>
+                <a>刘睿萱</a>
+                <a onclick="openPage('Pupil', this)" href="#dyz">董艳泽</a>
+                <a></a>
+            </div>
+            <div class="a">
+                <a onclick="openPage('Pupil', this)" href="#ghx">郭浩轩</a>
+                <a onclick="openPage('Pupil', this)" href="#chq">陈昊圻</a>
+                <a onclick="openPage('Pupil', this)" href="#zwc">张炜承</a>
+                <a onclick="openPage('Pupil', this)" href="#dxy">董轩宇</a>
+                <a onclick="openPage('Pupil', this)" href="#jyy">江玥瑶</a>
+                <a onclick="openPage('Pupil', this)" href="#cmx">陈旻希</a>
+                <a></a>
+            </div>
+            <div class="b">
+                <a onclick="openPage('Pupil', this)" href="#gjj">郭吉家</a>
+                <a onclick="openPage('Pupil', this)" href="#cn">陈诺</a>
+                <a>陈慧欣</a>
+                <a onclick="openPage('Pupil', this)" href="#lpl">林佩玲</a>
+                <a onclick="openPage('Pupil', this)" href="#zcx">张辰熙</a>
+                <a onclick="openPage('Pupil', this)" href="#cr">陈锐</a>
+                <a onclick="openPage('Pupil', this)" href="#wzc">王芷辰</a>
             </div>
             </div>
         </div>
@@ -3367,7 +3369,7 @@
         <p>还有一些人会帮忙准备东西，也就是假惺惺。</p>
         <p>就算CT到了三楼（五年级是4楼），还会有几个人抓住最后的时机观察——这些人有时还会被CT抓住。有时动静搞太大了，CT到班后就开始进行“审判”。</p>
         <h2>早读</h2>
-        <p>周四、周五均为CT早读，不过CT通常在早读的后半部分才进入教室，所以同学们几乎都在“自习”，像补批注的、吃零食的、讲话的随处可见，只有瞿眀爔会读一下。（详见下方）</p>
+        <p>周四、周五均为CT早读，不过CT通常在早读的后半部分才进入教室，每次早读，门口木桌是CT必然出没的地方。而且很多时候只是巡视一番，然后就会来到木桌旁坐下，开始刷视频或者改作业、写（自己）的优化、五三。所以同学们几乎都在“自习”，像补批注的、吃零食的、讲话的随处可见，只有瞿眀爔会读一下。（详见下方）</p>
         <article>
             <p>铃声一响，男神就拿着课堂笔记来到了讲台上，然后放好、打开展台、调整……一气呵成。</p>
             <p>随后，他发出低沉且成熟的声音：“多音字，预备，起！”</p>
@@ -3588,7 +3590,7 @@
             <li>味道</li>
             <p>CT经常说“教室里都是灰尘的味道”，然后借机去门口木桌。</p>
             <li>门口木桌</li>
-            <p>CT很注重门口木桌的整齐度，尤其椅子要摆放好，还特地吩咐蔡宇城、陈彦豪二人每节下课去整理。每次早读，门口木桌是CT必然出没的地方。CT进教室后，只是巡视一番，然后就会来到木桌旁坐下，开始刷视频或者改作业、写（自己）的优化、五三。</p>
+            <p>CT很注重门口木桌的整齐度，尤其椅子要摆放好，还特地吩咐蔡宇城、陈彦豪二人每节下课去整理。</p>
         </ul>
         <p>CT还称“自己的办公室很干净，不信可以问组长”。</p>
         <p>另外，CT上课很喜欢用粉笔，常用粉笔写小标题、形近字组词等。而且，他喜欢用不同色的粉笔写东西，还说“我上课要用白色的、蓝色的、红色的、黄色的、绿色的……粉笔~”。如写小标题，CT会用一种颜色写序号、另一种颜色写小标题内容。CT还尤为喜欢蓝色粉笔（他自己说的）。</p>
