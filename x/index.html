@@ -25,7 +25,7 @@
     .tabcontent{display:none;}
     ::-moz-selection{color:#e6f0ff;background:#80b3ff66;}
     ::selection{color:#e6f0ff;background:#80b3ff66;}
-    nav{background:#ccffffaa;position:fixed;width:98.8vw;z-index:1;backdrop-filter:blur(20px);box-shadow:0 2px 20px #0066ff08;margin:0.6vw;border-radius:20px;}
+    nav{background:#ccffffaa;position:fixed;width:98.8vw;z-index:1;backdrop-filter:blur(20px);box-shadow:0 15px 35px #0066ff08,0 5px 15px #0066ff08;margin:0.6vw;border-radius:20px;}
     nav button{text-decoration:none;color:#36c;display:inline-block;padding:7px;margin:3px;font-size:1.25rem;border:none;background:transparent;border-radius:10px;transition:0.2s;}
     nav button:hover{background:#66ccff88;}
     .dropdown-content{display:none;width:100%;-webkit-animation-name:menu;-webkit-animation-duration:0.3s;animation-name:menu;animation-duration:0.3s;overflow:auto;left:0;border-top:1px solid #3cf;height:400px;}
@@ -64,10 +64,10 @@
     img{border-radius:15px;}
     audio{width:98%;margin:auto 1%;}
     .title_center{text-align:center;margin:7px;}
-    article{padding:10px;background:#09f;border-radius:20px;margin:2.5px 0;box-shadow:0 2px 20px #3399ff33;}
+    article{padding:10px;background:#09f;border-radius:20px;margin:2.5px 0;box-shadow:0 1px 1px #0066cc33,0 2px 2px #0066cc33,0 4px 4px #0066cc33,0 8px 8px #0066cc33;}
     article>p{text-indent:2em;margin:7px 0;}
     article i{display:inline;}
-    img,video,.max-width,iframe{max-width:100%;object-fit:contain;}
+    img,video,.max-width,iframe,svg{max-width:100%;object-fit:contain;}
     .img_box{padding:10px;margin:10px 0;border-radius:15px;background:linear-gradient(#0099cc 0%,#0099cc77 90%);text-align:center;}
     .img_box p{color:#e6f9ff;margin:10px 0;}
     .say{background:#e6b3ff;color:#203;text-align:center;padding:10px;font-size:1.5625rem;margin:5px 0;border-radius:10px;box-shadow:0 2px 20px #ff33cc33;}
@@ -82,15 +82,15 @@
     #Index main{background:linear-gradient(#e6ffff 0vh, #e6ffff 95vh, #06f 150vh);color:#fff!important;padding:0px 0px 10px 0px;}
     #Index h1{font-size:2.5rem;margin:5px 0;}
     #Index .login{text-align:center;padding-top:90px;height:100vh;color:#000;}
-    #Index .login_title{font-size:8.125rem;margin:0;padding:40px;color:#006;}
-    #Index .by{margin-right:30px;background:#6600ff99;padding:20px 20px 20px 0;border-radius:0 20px 20px 0;box-shadow:0 2px 20px rgba(102,0,204,0.2);}
+    #Index .login_title{font-size:8.125rem;margin:0;padding:40px 0;color:#006;}
+    #Index .login>div{font-size:1.25rem;background:#fff;width:500px;margin:auto;padding:0.3em;border:1px solid #cc0000;border-radius:100vw;height:1.9em;}
+    #Index .by{margin-right:30px;background:#6600ff77;padding:20px 20px 20px 0;border-radius:0 20px 20px 0;box-shadow:0 2px 20px rgba(102,0,204,0.2);}
     #Index .by>h2{margin:0 0 10px 10px;color:#fff;text-align:center;}
     #Index .by p{background:#336699dd;padding:7px 20px;border-radius:100vw;display:inline;margin:5px;}
-    #Index #toggle-btn{background:#00000000;padding:5px 0 0 20px;color:#fff;border:0;}
-    #Index #toggle-btn:hover{color:#cff;}
-    #Index .login>div{font-size:1.25rem;background:#fff;width:500px;margin:auto;padding:0.3em;border:1px solid #cc0000;border-radius:100vw;height:1.9em;}
     #Index #asklz{margin:0;padding:0;}
     #Index #time{background:#b3cce6;font-size:1.875rem;padding:15px 0;border-radius:0 15px 15px 0;text-align:center;}
+    #Index #toggle-btn{background:#00000000;padding:5px 0 0 20px;color:#fff;border:0;}
+    #Index #toggle-btn:hover{color:#cff;}
     #Index #teacher{background:#ffffff33;margin:10px 0 10px 25px;padding:5px;border-radius:20px 0 0 20px;}
     #Index #teacher>a{background:#f69;text-decoration:none;color:#fff;display:block;margin:12px 20px;border-radius:8px;padding:15px;height:160px;overflow:hidden;transition:0.3s;}
     #Index #teacher>a:hover{background:#f37;box-shadow:0 2px 20px rgba(0,0,0,0.2);}
@@ -102,22 +102,21 @@
     #Index .box{width:33.33%;float:left;}
     #Index .box>a{padding:18px;border-radius:10px;margin:5px;height:170px;display:block;text-decoration:none;color:#fff;overflow:auto;background:#3333ffcc;transition:0.3s;box-shadow:0 2px 20px rgba(51,51,255,0.2);}
     #Index .box>a:hover{background:#3333ffff;}
-    #Index .classroom{background:#66ffffcc;border-radius:5px;box-shadow:0 2px 20px rgba(0,204,204,0.2);display:flex;padding:0 5px;}
+    #Index .classroom{background:#66ffffcc;border-radius:15px;box-shadow:0 2px 20px rgba(0,204,204,0.2);display:flex;padding:5px 10px;}
     #Index .classroom>div{display:flex;flex-direction:column;padding:5px 0;width:12.5%;}
     #Index .classroom>div a{text-decoration:none;font-size:1.25rem;background:#00ccff66;padding:5px;text-align:center;border:1px solid #06c;color:#033;height:40px;}
     #Index .classroom>div a[href]{background:#00ccffcc;transition:0.3s;}
     #Index .classroom>div a[href]:hover{background:#00ccff;color:#06c;}
-    #Index .a>a{margin:5px 0 5px 5px;border-radius:5px 0 0 5px;}
-    #Index .b>a{margin:5px 5px 5px 0;border-radius:0 5px 5px 0;}
+    #Index .a>a{margin:5px 0 5px 5px;border-radius:10px 0 0 10px;}
+    #Index .b>a{margin:5px 5px 5px 0;border-radius:0 10px 10px 0;}
     #Index #siziren::before{content:"锐辰";}
     #Index #sj>a{background:#f06;color:#ffe6f0;text-align:center;border-radius:10px;padding:10px;display:block;margin:10px;}
-    #Index #sj>a>div{text-align:left;background:#f69;color:#660029;border-radius:10px;padding:5px;}
     #Index #ds{background:#dfff80cc;color:#394d00;border-radius:30px;padding:10px;text-decoration:none;height:150px;overflow:hidden;text-align:center;transition:0.3s;margin:30px 10px 0 10px;display:block;}
     #Index #ds:hover{background:#ccff33cc;}
-    #Index #webpage{background:#fcf;border-radius:15px;margin:60px 10px;padding-bottom:5px;box-shadow:0 2px 20px rgba(0,0,0,0.2);}
+    #Index #webpage{background:#fcf;border-radius:25px;margin:60px 10px;padding-bottom:5px;box-shadow:0 2px 20px rgba(0,0,0,0.2);}
     #Index #webpage>div{background:#f9f;padding:5px;width:100%;border-radius:15px 15px 0 0;}
     #Index #webpage>div>span{float:right;color:#909;}
-    #Index #webpage>a{text-decoration:none;display:block;background:#df80ff;margin:10px;padding:10px;border-radius:10px;color:#303;transition:0.3s;}
+    #Index #webpage>a{text-decoration:none;display:block;background:#df80ff;margin:10px;padding:10px;border-radius:20px;color:#303;transition:0.3s;}
     #Index #webpage>a:hover{background:#d966ff;}
     #Index #webpage h3{margin:10px 0;}
     #Index .other{margin:10px;display:block;background:linear-gradient(to right,#ff8533dd,#ff9933dd);text-decoration:none;color:#600;padding:10px 20px;height:160px;overflow:hidden;border-radius:30px;}
@@ -142,14 +141,14 @@
     }
     @media screen and (max-width:600px){
       #Index .login{padding-top:80px;}
-      #Index .login_title{font-size:5rem;padding:20px;}
-      #Index .login>div{font-size:1.1875rem;width:80vw;}
+      #Index .login_title{font-size:5rem;padding:20px 0;}
+      #Index .login>div{font-size:1.1875rem;width:90vw;}
       #Index .box{width:100%;}
-      #Index .classroom{border-radius:10px;display:flex;flex-wrap:wrap;padding:5px;}
+      #Index .classroom{border-radius:20px;display:flex;flex-wrap:wrap;}
       #Index .classroom>div{padding:5px 0;width:25%;margin:0;}
       #Index .classroom>div a{font-size:1.25rem;height:40px;}
-      #Index .a>a{margin:5px 0 5px 5px;border-radius:10px 0 0 10px;}
-      #Index .b>a{margin:5px 5px 5px 0;border-radius:0 10px 10px 0;}
+      #Index .a>a{margin:5px 0 5px 5px;border-radius:15px 0 0 15px;}
+      #Index .b>a{margin:5px 5px 5px 0;border-radius:0 15px 15px 0;}
       #Index #siziren::before{content:"锐辰";}
       #Index .col_title>h1>span{display:none;}
       #Index .button_l,.button_r{width:120px;}
@@ -160,7 +159,6 @@
       #Index .classroom{border-radius:10px;display:flex;flex-wrap:wrap;}
       #Index .classroom>div{padding:5px 0;width:25%;margin:0;}
       #Index .classroom>div a{font-size:1rem;height:32px;}
-      #Index .login>div{width:90vw;}
     }
     @media screen and (max-width:470px){
       #Index #time{padding:auto 5px;}
@@ -523,7 +521,7 @@
             </div>
         </header>
         <hr/>
-        <p>每个班都有各种各样的学生，他们各显神通，造就了这一个班级。六年一班的“典型”就是刘圭宥、王湘琳、叶宸铭等人。</p>
+        <p>每个班都有各种各样的学生，他们各显神通，造就了一整个班级。</p>
         <p class="size-small">注：点击上方的“<i class="fa fa-navicon"></i>”按钮快速跳转至目标位置！</p>
         <p class="size-small">注：网站中的学生数据是截至毕业时的，在毕业前转学的学生未统计。</p>
         <hr/><hr/>
@@ -556,124 +554,68 @@
         <p>六年级上学期时，王湘琳有一本日记本，不过是拿英语笔记本改的！</p>
         <div style="background:linear-gradient(#c299ff 0%,#c299ffaa 90%);padding:10px;border-radius:10px;">
             <h2 style="text-align:center;">王湘琳日记本制作流程</h2>
-            <canvas id="rjb-1" width="400" height="600"><p style="color:red">无法显示</p></canvas>
-            <script>
-                    function draw(){
-                      var canvas = document.getElementById('rjb-1');
-                      if(!canvas.getContext) return;
-                      var ctx = canvas.getContext("2d");
-                      ctx.fillStyle="#bf8040";
-                      ctx.fillRect(0, 0, 400, 600);
-                      ctx.fillStyle="#734d26";
-                      ctx.fillRect(0, 0, 20, 600);
-                      ctx.fillStyle="#e6ccb3";
-                      ctx.fillRect(290, 95, 110, 67);
-                      ctx.font="30px 楷体"
-                      ctx.fillStyle="black";
-                      ctx.fillText("英语", 305, 135);
-                    }
-                    draw();
-            </script>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400">
+                <rect x="0" y="0" width="400" height="600" fill="#bf8040" />
+                <rect x="0" y="0" width="20" height="600" fill="#734d26" />
+                <rect x="290" y="95" width="110" height="67" fill="#e6ccb3" />
+                <text x="305" y="135" font-family="楷体" font-size="30" fill="black">英语</text>
+            </svg>
             <p>要做日记本，那还得看王湘琳。首先，准备好一本刚出生的英语本，上面有着“英语”二字，里面没有任何字迹。本子的整体呈褐色，封面材质应该是牛皮纸吧。</p>
-            <canvas id="rjb-2" width="400" height="600"><p style="color:red">也无法显示</p></canvas>
-            <script>
-                    function draw(){
-                      var canvas = document.getElementById('rjb-2');
-                      if(!canvas.getContext) return;
-                      var ctx = canvas.getContext("2d");
-                      ctx.fillStyle="#bf8040";
-                      ctx.fillRect(0, 0, 400, 600);
-                      ctx.fillStyle="#734d26";
-                      ctx.fillRect(0, 0, 20, 600);
-                      ctx.fillStyle="#e6ccb3";
-                      ctx.fillRect(290, 95, 110, 67);
-                      ctx.fillStyle="white";
-                      ctx.fillRect(300, 100, 90, 70);
-                      ctx.fillStyle="white";
-                      ctx.fillRect(285, 200, 25, 230);
-                      ctx.fillRect(253, 200, 25, 200);
-                      ctx.fillRect(221, 200, 25, 150);
-                      ctx.fillRect(325, 210, 70, 60);
-                    }
-                    draw();
-            </script>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400">
+                <rect x="0" y="0" width="400" height="600" fill="#bf8040" />
+                <rect x="0" y="0" width="20" height="600" fill="#734d26" />
+                <rect x="290" y="95" width="110" height="67" fill="#e6ccb3" />
+                <rect x="300" y="100" width="90" height="70" fill="white" />
+                <rect x="285" y="200" width="25" height="230" fill="white" />
+                <rect x="253" y="200" width="25" height="200" fill="white" />
+                <rect x="221" y="200" width="25" height="150" fill="white" />
+                <rect x="325" y="210" width="70" height="60" fill="white" />
+            </svg>
             <p>这时，一个很重要的工具——涂改带就上场了。</p>
             <p>准备好涂改带，并将“英语”涂掉，这样，英语本就初步具备了变成笔记本的条件。</p>
             <p>但王湘琳这种人，肯定不会满足于这种简陋的本子——她偏要给日记本一点装饰。于是，她又在下面涂出了一个框，接着又在左边画出三列。</p>
-            <canvas id="rjb-3" width="400" height="600"><p style="color:red">还是无法显示</p></canvas>
-            <script>
-                    function draw(){
-                      var canvas = document.getElementById('rjb-3');
-                      if(!canvas.getContext) return;
-                      var ctx = canvas.getContext("2d");
-                      ctx.fillStyle="#bf8040";
-                      ctx.fillRect(0, 0, 400, 600);//日记本
-                      ctx.fillStyle="#734d26";
-                      ctx.fillRect(0, 0, 20, 600);//左侧封皮
-                      ctx.fillStyle="#e6ccb3";
-                      ctx.fillRect(290, 95, 110, 67);//原来的“英语”
-                      ctx.fillStyle="white";
-                      ctx.fillRect(300, 100, 90, 70);//被涂掉的“英语”
-                      ctx.font="30px sans-serif"
-                      ctx.fillStyle="black";
-                      ctx.fillText("日记", 305, 125);
-                      ctx.fillText("本", 325, 165);//“日记本”
-                      ctx.fillStyle="white";
-                      ctx.fillRect(285, 200, 25, 230);
-                      ctx.fillRect(253, 200, 25, 200);
-                      ctx.fillRect(221, 200, 25, 150);//三行涂改带
-                      ctx.fillRect(325, 210, 70, 60);
-                      ctx.font="20px sans-serif"
-                      ctx.fillStyle="black";
-                      var t="我们每个人都有七情六欲";
-    		              ctx.fillText(t[0], 287, 220);
-    		              ctx.fillText(t[1], 287, 240);
-    		              ctx.fillText(t[2], 287, 260);
-    		              ctx.fillText(t[3], 287, 280);
-    		              ctx.fillText(t[4], 287, 300);
-    		              ctx.fillText(t[5], 287, 320);
-    		              ctx.fillText(t[6], 287, 340);
-    		              ctx.fillText(t[7], 287, 360);
-    		              ctx.fillText(t[8], 287, 380);
-    		              ctx.fillText(t[9], 287, 400);
-    	              	  ctx.fillText(t[10], 287, 420);
-                      var tt="喜怒哀乐悲恐惊";
-    		              ctx.fillText(tt[0], 255, 220);
-    		              ctx.fillText(tt[1], 255, 240);
-    		              ctx.fillText(tt[2], 255, 260);
-    		              ctx.fillText(tt[3], 255, 280);
-    		              ctx.fillText(tt[4], 255, 300);
-    		              ctx.fillText(tt[5], 255, 320);
-    		              ctx.fillText(tt[6], 255, 340);
-                      var ttt="酸甜苦辣咸"
-    		              ctx.fillText(ttt[0], 223, 220);
-    		              ctx.fillText(ttt[1], 223, 240);
-    		              ctx.fillText(ttt[2], 223, 260);
-    		              ctx.fillText(ttt[3], 223, 280);
-    		              ctx.fillText(ttt[4], 223, 300);//三行文字
-                      var tttt="心情本"
-    		              ctx.fillText(tttt[0], 327, 230);
-    		              ctx.fillText(tttt[1], 350, 230);
-    		              ctx.fillText(tttt[2], 340, 260);
-                      ctx.beginPath();
-                      ctx.moveTo(229,305);
-                      ctx.lineTo(229,312);
-                      ctx.closePath();
-                      ctx.stroke();//眼睛1
-                      ctx.beginPath();
-                      ctx.moveTo(237,305);
-                      ctx.lineTo(237,312);
-                      ctx.closePath();
-                      ctx.stroke();//眼睛2
-                      ctx.beginPath();
-                      ctx.moveTo(227, 315);
-                      ctx.arcTo(232.5, 325, 240, 315, 5);
-                      ctx.lineTo(240, 315)
-                      ctx.stroke();//嘴
-                      ctx.fillText("顾兮", 40, 570);
-                    }
-                    draw();
-            </script>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400">
+                <rect x="0" y="0" width="400" height="600" fill="#bf8040" />
+                <rect x="0" y="0" width="20" height="600" fill="#734d26" />
+                <rect x="290" y="95" width="110" height="67" fill="#e6ccb3" />
+                <rect x="300" y="100" width="90" height="70" fill="white" />
+                <text x="305" y="125" font-family="sans-serif" font-size="30" fill="black">日记</text>
+                <text x="325" y="165" font-family="sans-serif" font-size="30" fill="black">本</text>
+                <rect x="285" y="200" width="25" height="230" fill="white" />
+                <rect x="253" y="200" width="25" height="200" fill="white" />
+                <rect x="221" y="200" width="25" height="150" fill="white" />
+                <rect x="325" y="210" width="70" height="60" fill="white" />
+                <text x="287" y="220" font-family="sans-serif" font-size="20" fill="black">我</text>
+                <text x="287" y="240" font-family="sans-serif" font-size="20" fill="black">们</text>
+                <text x="287" y="260" font-family="sans-serif" font-size="20" fill="black">每</text>
+                <text x="287" y="280" font-family="sans-serif" font-size="20" fill="black">个</text>
+                <text x="287" y="300" font-family="sans-serif" font-size="20" fill="black">人</text>
+                <text x="287" y="320" font-family="sans-serif" font-size="20" fill="black">都</text>
+                <text x="287" y="340" font-family="sans-serif" font-size="20" fill="black">有</text>
+                <text x="287" y="360" font-family="sans-serif" font-size="20" fill="black">七</text>
+                <text x="287" y="380" font-family="sans-serif" font-size="20" fill="black">情</text>
+                <text x="287" y="400" font-family="sans-serif" font-size="20" fill="black">六</text>
+                <text x="287" y="420" font-family="sans-serif" font-size="20" fill="black">欲</text>
+                <text x="255" y="220" font-family="sans-serif" font-size="20" fill="black">喜</text>
+                <text x="255" y="240" font-family="sans-serif" font-size="20" fill="black">怒</text>
+                <text x="255" y="260" font-family="sans-serif" font-size="20" fill="black">哀</text>
+                <text x="255" y="280" font-family="sans-serif" font-size="20" fill="black">乐</text>
+                <text x="255" y="300" font-family="sans-serif" font-size="20" fill="black">悲</text>
+                <text x="255" y="320" font-family="sans-serif" font-size="20" fill="black">恐</text>
+                <text x="255" y="340" font-family="sans-serif" font-size="20" fill="black">惊</text>
+                <text x="223" y="220" font-family="sans-serif" font-size="20" fill="black">酸</text>
+                <text x="223" y="240" font-family="sans-serif" font-size="20" fill="black">甜</text>
+                <text x="223" y="260" font-family="sans-serif" font-size="20" fill="black">苦</text>
+                <text x="223" y="280" font-family="sans-serif" font-size="20" fill="black">辣</text>
+                <text x="223" y="300" font-family="sans-serif" font-size="20" fill="black">咸</text>
+                <text x="327" y="230" font-family="sans-serif" font-size="20" fill="black">心</text>
+                <text x="350" y="230" font-family="sans-serif" font-size="20" fill="black">情</text>
+                <text x="340" y="260" font-family="sans-serif" font-size="20" fill="black">本</text>
+                <line x1="229" y1="305" x2="229" y2="312" stroke="black" />
+                <line x1="237" y1="305" x2="237" y2="312" stroke="black" />
+                <path d="M227,315 Q232.5,325 240,315" stroke="black" fill="none" />
+                <text x="40" y="570" font-family="sans-serif" font-size="20" fill="black">顾兮</text>
+            </svg>
             <p>最后，在原来“英语”的那个区域写上“日记本”，下面的方框写“心情本”，然后即兴发挥一段：</p>
             <p style="text-align:center;">我们每个人都有七情六欲<br/>喜怒哀乐悲恐惊<br/>酸甜苦辣咸</p>
             <p>再加个笑脸，左下角写个“顾兮”这本日记本就做好了！虽然封面不怎么样，但能用就很好了。</p>
@@ -690,45 +632,19 @@
         <p>成功偷到日记的案例也不少，如李诗彤就曾在午托时翻出日记本并拍照。另外，在一次ET看班时，蔡宇城就把王湘琳用涂改带涂抹的“保密”部分刮开，令王湘琳哭了一中午。</p>
         <p>原来，涂改带涂掉的部分就是王湘琳的“绝密”，类似的还有：</p>
         <div class="img_box" style="text-align:center;">
-            <canvas id="wan" width="400" height="200" class="max-width"></canvas>
-            <script>
-                    function draw(){
-                      var canvas = document.getElementById('wan');
-                      if(!canvas.getContext) return;
-                      var ctx = canvas.getContext("2d");
-    
-                      ctx.fillStyle="#e6e6e6";
-                      ctx.fillRect(0, 0, 400, 200 );
-                      ctx.fillStyle="#fff";
-                      ctx.fillRect(10, 70, 350, 100 );
-                      ctx.font="20px sans-serif"
-                      ctx.fillStyle="#000";
-                      ctx.fillText("余佳皓，", 300, 40);
-                      ctx.font="30px sans-serif"
-                      ctx.fillText("（加密）", 100, 135);
-                      ctx.font="15px sans-serif"
-                      ctx.fillText("学你的~", 300, 190);
-                    }
-                    draw();
-            </script>
+            <svg width="400" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" y="0" width="400" height="200" fill="#e6e6e6" />
+                <rect x="10" y="70" width="350" height="100" fill="#fff" />
+                <text x="300" y="40" font-family="sans-serif" font-size="20">余佳皓，</text>
+                <text x="100" y="135" font-family="sans-serif" font-size="30">（加密）</text>
+                <text x="300" y="190" font-family="sans-serif" font-size="15">学你的~</text>
+            </svg>
             <p>王湘琳日记的加密部分</p>
-            <canvas id="wan2" width="400" height="200" class="max-width"></canvas>
-            <script>
-                    function draw(){
-                      var canvas = document.getElementById('wan2');
-                      if(!canvas.getContext) return;
-                      var ctx = canvas.getContext("2d");
-    
-                      ctx.fillStyle="#e6e6e6";
-                      ctx.fillRect(0, 0, 400, 200 );
-                      ctx.font="20px sans-serif"
-                      ctx.fillStyle="#000";
-                      ctx.fillText("余佳皓，", 300, 40);
-                      ctx.font="60px sans-serif"
-                      ctx.fillText("我爱你！", 110, 120);
-                    }
-                    draw();
-            </script>
+            <svg width="400" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" y="0" width="400" height="200" fill="#e6e6e6" />
+                <text x="300" y="40" font-family="sans-serif" font-size="20">余佳皓，</text>
+                <text x="110" y="120" font-family="sans-serif" font-size="60">我爱你！</text>
+            </svg>
             <p>原来的内容</p>
         </div>
         <p>除了写与余佳皓的故事外，她还写了：</p>
@@ -953,7 +869,6 @@
             <img src="lgy4.jpg" onerror="this.src='break.svg';"/>
             <p>“因为立了很开心”</p>
         </div>
-        <p>总之很像添狗。</p>
         <p>但是，他在CT的课上就不一样了。CT多次说刘圭宥的大队委席位不保，对他的印象不怎么样。</p>
         <h2>朋友圈</h2>
         <p>刘圭宥六年以来最经典的桥段当然是那条朋友圈了。前一天刚发出去，第二天就在班上炸开了锅！</p>
@@ -1988,9 +1903,9 @@
         <h1 style="font-size:50px">班级大事</h1>
         <h1 id="moyuwan">墨鱼丸</h1>
         <img src="https://so1.360tres.com/t012680d34962993436.png" onerror="this.src='break.svg';"/>
-        <p>话说同学们对班上电脑的探索可谓是永无止境。自从一年级开学，老师向大家展示黑板里面藏起来的电脑时，命中注定就有更多电脑即将遭殃……</p>
-        <p>要说同学们是什么时候第一次点墨鱼丸的话，我们不得而知。但根据现有材料，发现早在五年级，同学们就开始了。这之前其实也没少折腾电脑，时不时就有新闻资讯被点开，引起班上的一阵尖叫声。</p>
-        <p>墨鱼丸这个应用处在电脑右下角任务栏中，图标是一个暂停键外包一个矩形。不动时，它还会不时变换颜色以吸引大家注意。一旦点开，就会出现一个小窗口，黑色背景，中间有黄色章鱼，章鱼下方是一行小的白色字体：“加载中，请稍侯”。当加载完毕后，就会出现随机的视频，还可能用到了大数据以推荐。</p>
+        <p>话说同学们对班上电脑的探索可谓是永无止境。自从一年级开学，老师向大家展示黑板里面藏起来的电脑时，命中注定就会有更多电脑遭殃……</p>
+        <p>要说同学们是什么时候第一次点墨鱼丸的话，我们不得而知。但根据现有材料，早在五年级，同学们就开始这么做了。这之前其实也没少折腾电脑，时不时就有新闻资讯被点开，引起班上的一阵尖叫声。</p>
+        <p>墨鱼丸这个应用处在电脑右下角任务栏中，图标是一个暂停键外包一个矩形。不动时，它还会不时变换颜色以吸引大家注意。一旦点开，就会出现一个小窗口，黑色背景，中间有黄色章鱼，章鱼下方是一行小的白色字体：“加载中，请稍侯”。当加载完毕后，就会出现随机的视频，还用到了大数据加以推荐。</p>
         <p>同学们对墨鱼丸的“探索”分为了多个阶段，每个阶段的程度各不相同。</p>
         <h2>第一阶段</h2>
         <p>自从有人发现了墨鱼丸后，每节下课，讲台上便会聚集一堆吃瓜的人。他们之中大都是陈彦豪这类“好学生”。每当墨鱼丸被点开，视频还未出来时，同学们就会大呼小叫。这时一些人（如瞿眀爔）就会跑上去，拿着教鞭想方设法关闭它。</p>
@@ -2004,7 +1919,7 @@
         <div class="say">
             <i class="fa fa-quote-left"></i>&nbsp;微胖才是YYDS~&nbsp;<i class="fa fa-quote-right"></i>
         </div>
-        <p>随后展示了一条裙子，还没反应过来，突然就专场了，裙子被一个微胖的女生穿着，引起班上的同学尖叫。关键是这一类视频出现了不下三次，慢慢的就被大家记住了。</p>
+        <p>随后展示了一条裙子，还没反应过来，突然就转场了，裙子被一个微胖的女生穿着，引起班上的同学尖叫。关键是这一类视频出现了不下三次，慢慢的就被大家记住了。</p>
         <p>另外，黑丝也经常出现。一些视频在那里介绍黑丝的穿法，还特意把“黑丝”写成“嗨丝”。</p>
         <p>可惜的是，这个阶段没持续多久，就被MT明令禁止了。之后很少有墨鱼丸的亮相。有一次，CT不慎点开墨鱼丸，但并没有美女、帅哥。</p>
         <hr/>
@@ -2030,17 +1945,19 @@
         <p>午餐班的饭菜由“福建京元餐饮管理有限公司”制作。每次午托，班门口就会摆着两个保温箱和一个汤桶，上面有封签。</p>
         <p>至于午餐班的饭，味道也是呈下降趋势。刚开始时非常美味，到后来就变得“啥也不是”，同学们还将午餐班的肉称为“老鼠肉”。</p>
         <p>所以，同学们会在午餐班带东西下饭，最主要的就是魔芋爽。还有陈宇恒带的水果；郭予凡带的烧仙草、芒果；林柳妍、许逸晗带的果冻、薯片、饼干等；李诗彤带的魔芋爽、点的麦当劳；林泽晨带的华莱士蜜汁手扒鸡、自制牛肉……</p>
+        <p>同时饭盒也有一些奥秘。起初，红色饭盒是教师餐，橙色饭盒是学生餐；但后来经常出现红、橙饭盒混合放在饭箱里的情况。六年级六一节前后，有一天的教师餐甚至有面条。</p>
+        <p>还有一件令人哭笑不得的事：有一次315晚会刚刚曝光梅菜扣肉，次日学校午餐就出现了这道菜。</p>
         <h2>看班</h2>
         <p>每次一来午托，同学们就会关注今天是那个老师看班，这点可以从讲台上点名的单子中看出。不过六年级时，看班顺序是有规律的，按照以下顺序循环：</p>
         <ul>
             <li>MT</li>
-            <p>MT看班时，吴一鸣、张炜承需搬一把躺椅（有时还会让拿罐装饮料），睡觉时MT就躺在椅子上。在睡觉前，他也可能会让六（1）的人把“大本”（练习）交到讲台上给她批改。</p>
+            <p>MT看班时，吴一鸣、张炜承需搬一把躺椅（有时还会让拿罐装饮料），睡觉时MT就躺在椅子上。在睡觉前，他也可能会让六（1）的人把“大本”交到讲台上给她批改。</p>
             <li>ET</li>
             <p>ET是个经典看班人物，睡觉前，她就侧坐在讲台后面看手机；睡觉时则会巡视——当然这也是一个很搞笑的时期。</p>
             <li>何睿</li>
             <p>何睿的午托可谓“乱成一锅粥”。他是其他班的英语老师，导致他教的学生总会很“大胆”的跟他交流。午托开始后，同学们自然会讲话，而且就算他开口制止也没有用，甚至有人换位置去打“三国杀”。有些人表示总能听到他的叹气声。这样的结果便是把其他老师招来，让同学们遭受一顿批评。</p>
             <li>郑岩鑫</li>
-            <p>郑岩鑫是体育老师。每次他看班，就会时不时点一些朴朴的零食，然后叫那两个“帮手”下去拿。拿上来后，一些人就会厚着脸皮向他“乞讨”。一次，他把可乐倒进自己的杯子里并加冰，很多人就说要喝一口，结果他就给吴一鸣到了一小杯，令人羡慕。</p>
+            <p>郑岩鑫是体育老师。每次他看班，就会时不时点一些朴朴的零食，然后叫那两个“帮手”下去拿。拿上来后，一些人就会厚着脸皮向他“乞讨”。一次，他把可乐倒进自己的杯子里并加冰，很多人就说要喝一口，结果他只给吴一鸣一小杯，令人羡慕。</p>
             <li>郑彦捷</li>
             <p></p>
             <li>江滢</li>
@@ -2048,17 +1965,17 @@
             <li>郑艺苗</li>
             <p></p>
             <li>陈冲</li>
-            <p></p>
+            <p>陈冲非常严厉，所以她看班的时候学生不敢乱来。</p>
             <li>黄佳</li>
-            <p></p>
+            <p>她看班时气氛比较活跃。</p>
         </ul>
         <p>其中，郑岩鑫、郑彦捷、陈冲、MT、ET会让大家午休，不过ET的午休其实是吃瓜的好时机。</p>
-        <p>在午托结束的前十分钟，大家需要开始做卫生。</p>
+        <p>在午托结束的前十分钟，大家需要开始做卫生。这时老师通常会指定几个人去扫地。</p>
         <hr/>
         <h1 id="cesuo">厕所</h1>
-        <p>话说学校的厕所也是非常热门。其实在一楼，厕所还是比较正常的。可是越往上层走，厕所就越恶心。而在四楼，男厕所也是一个传奇。</p>
+        <p>学校的厕所也非常热门。其实在一楼，厕所还是比较正常的。可是越往上层走，厕所就越恶心。而在四楼，男厕所也是一个传奇。</p>
         <p>每到下课，男厕所便会炸开锅。厕所里每天都会有屎出现，关键是它们的位置很独特。例如门上的屎、楼梯上的屎，就连墙上也不能避免；此外，厕所门也是个热点，门被卸下来都是家常便饭。而那些被卸下来的门，有的就扔在男厕所的地板上，上面通常会出现一坨答辩，有一扇门还被用来“搭帐篷”，顾名思义就是把门架在隔间的板上。</p>
-        <p>像陈彦豪这类人，就会用水去泼别人，最后搞得一身湿。有一段时间，他还玩出了“爆炸”的玩法，就是用水龙头像瓶子里灌水，搞得沸沸扬扬。</p>
+        <p>像陈彦豪这类人，就会用水去泼别人，最后搞得一身湿。有一段时间，他还玩出了“爆炸”的玩法，就是用水龙头向瓶子里不断灌水，直至喷出来，搞得沸沸扬扬。</p>
         <hr/>
         <h1>更多</h1>
         <p>班上经常会出现莫名其妙的动物（活的），除了常见的蜜蜂外，有一次还出现了蟑螂。六年级时，班上甚至出现了螃蟹，被同学们围观。</p>
@@ -2125,22 +2042,23 @@
             <li>拍集体照</li>
             <p></p>
             <li>班上拍</li>
-            <p></p>
+            <p>除了上课情景、黄老师讲话、给三位老师送花等常规拍摄，还录制了一些花絮（如王湘琳大战陈宇恒）</p>
             <li>操场拍照</li>
             <p>当时座椅很烫屁股，一些人为了降温就把水浇到地上，结果照片拍出来后一些人前面有一摊水。</p>
             <li>午餐（麦当劳）</li>
-            <p>这次拍毕业照借用了一楼别班的教室，可以说是这次拍摄的“基地”。</p>
+            <p>这次拍毕业照借用了一楼别班的教室，是这次拍摄的“基地”。没有任务的人就会在这里等待——麦当劳就是在这吃的。</p>
             <li>拍个人照</li>
-            <p>拍照时有人把风车扔到3楼，还有人在花圃骑自行车。</p>
+            <p>在这个活动中，所有人分成多个小组进行拍照，还用上了很多道具。另外，拍照时有人把风车扔到3楼，还有人在花圃骑自行车。</p>
             <li>录制毕业感言</li>
             <p></p>
             <li>如果可以</li>
-            <p>当时多人表示“听不见”，近一半的人拿手机录像，后排的人则在挥舞手机。</p>
+            <p>这是刘圭宥的社死现场。当时多人表示“听不见”，近一半的人拿手机录像，后排的人则在挥舞手机。</p>
         </ul>
         <div class="img_box">
             <img src="lgy5.jpg" onerror="this.src='break.svg';"/>
             <p>刘圭宥唱《如果可以》</p>
         </div>
+        <p>另外还有围着水池站成一圈拍照和站在走廊扔纸飞机等。</p>
         <p>当毕业留念册发下来后，同学们发现这些册子是有名字的，结果就开始了归还行动。</p>
         <hr/>
         <h1 id="dz">地震</h1>
@@ -2151,7 +2069,27 @@
         <h1 id="aiqing">爱情关系</h1>
         <p>如下图（箭头左边的人喜欢箭头右边的人）：</p>
         <div style="background:#aff;border-radius:20px;text-align:center;">
-            <img src="xihuan.svg"/>
+            <svg width="700" viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg">
+  <text fill="#000000" stroke="#000" stroke-width="0" x="70" y="80" font-size="30" font-family="Noto Sans JP" text-anchor="start">王湘琳</text>
+  <text fill="#000000" stroke="#000" stroke-width="0" x="550" y="340" font-size="30" font-family="Noto Sans JP" text-anchor="start">陈诺</text>
+  <text fill="#000000" stroke="#000" stroke-width="0" x="70" y="418" font-size="30" font-family="Noto Sans JP" text-anchor="start">瞿眀爔</text>
+  <text fill="#000000" stroke="#000" stroke-width="0" x="540" y="180" font-size="30" font-family="Noto Sans JP" text-anchor="start">李诗彤</text>
+  <text fill="#000000" stroke="#000" stroke-width="0" x="70" y="312" font-size="30" font-family="Noto Sans JP" text-anchor="start">陈旻希</text>
+  <text fill="#000000" stroke="#000" stroke-width="0" x="540" y="270" font-size="30" font-family="Noto Sans JP" text-anchor="start">童钰轩</text>
+  <text fill="#000000" stroke="#000" stroke-width="0" x="540" y="80" font-size="30" font-family="Noto Sans JP" text-anchor="start">余佳皓</text>
+  <text fill="#000000" stroke="#000" stroke-width="0" x="70" y="200" font-size="30" font-family="Noto Sans JP" text-anchor="start">刘圭宥</text>
+  <path fill="#ffaaaa" stroke-width="0" d="m334.63229,-56.83898l11.55391,-47.14586l12.35023,47.54659l-9.75456,-8.19027l-1.05345,313.82891l-3.75892,-0.31408l0.39021,-313.3643l-9.72742,7.639l0,0.00001z" id="svg_12" stroke="#000" transform="rotate(89.71 346.584 72.6078)"/>
+  <path fill="#ffaaaa" stroke-width="0" d="m334.63229,-56.83898l11.55391,-47.14586l12.35023,47.54659l-9.75456,-8.19027l-1.05345,313.82891l-3.75892,-0.31407l0.39021,-313.3643l-9.72742,7.639z" id="svg_13" stroke="#000" transform="rotate(89.71 346.585 72.6077)"/>
+  <path fill="#ffaaaa" stroke-width="0" d="m334.63229,-56.83898l11.55391,-47.14586l12.35023,47.54659l-9.75456,-8.19027l-1.05345,313.82891l-3.75892,-0.31407l0.39021,-313.3643l-9.72742,7.639z" id="svg_14" stroke="#000" transform="rotate(89.71 346.584 72.6078)"/>
+  <path transform="rotate(77.7882 353.777 373.101)" stroke="#000" fill="#ffaaaa" stroke-width="0" d="m341.82467,236.29142l11.55391,-49.82743l12.35023,50.25095l-9.75456,-8.65611l-1.05345,331.67892l-3.75892,-0.33193l0.39021,-331.18788l-9.72742,8.0735l0,-0.00001z" id="svg_15"/>
+  <path transform="rotate(108.825 354.697 264.996)" fill="#ffaaaa" stroke-width="0" d="m342.74472,124.42794l11.55391,-51.19619l12.35023,51.63135l-9.75456,-8.8939l-1.05345,340.79017l-3.75892,-0.34105l0.39021,-340.28565l-9.72742,8.29527z" id="svg_16" stroke="#000"/>
+  <path fill="#ffaaaa" stroke-width="0" d="m338.92409,52.6467l11.55391,-47.14586l12.35023,47.54659l-9.75456,-8.19027l-1.05345,313.82891l-3.75892,-0.31407l0.39021,-313.3643l-9.72742,7.639z" id="svg_18" stroke="#000" transform="rotate(86.9179 350.876 182.093)"/>
+  <path fill="#ffaaaa" stroke-width="0" d="m106.20981,219.28425l8.40167,-9.34459l8.98073,9.42402l-7.09323,-1.62336l-0.76604,62.20275l-2.73338,-0.06225l0.28375,-62.11066l-7.0735,1.5141l0,-0.00001z" id="svg_19" stroke="#000"/>
+  <path fill="#ffaaaa" stroke-width="0" d="m338.39663,95.42774l11.55391,-47.78953l12.35023,48.19573l-9.75456,-8.30209l-1.05345,318.11355l-3.75892,-0.31836l0.39021,-317.6426l-9.72742,7.74329l0,0.00001z" id="svg_20" stroke="#000" transform="rotate(99.6583 350.349 226.642)"/>
+  <text fill="#000000" stroke="#000" stroke-width="0" x="540" y="430" id="svg_4" font-size="30" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">陈忠宇</text>
+  <path stroke="#000" fill="#ffaaaa" stroke-width="0" d="m572.20981,356.21404l12.26842,-6.27438l13.11398,6.32771l-10.35779,-1.09l-1.1186,41.7657l-3.99138,-0.0418l0.41434,-41.70387l-10.32897,1.01663l0,-0.00001z" id="svg_5"/>
+ 
+</svg>
         </div>
         <hr/>
         <h1 id="cz">初中</h1>
@@ -2176,7 +2114,7 @@
             <p>十六班：林妍筱&nbsp;陈立航</p>
         </article>
         <p>这便是分到四十中的学生。另外，据可靠消息，李诗彤、许逸晗在附中；王湘琳在平潭一中（“平潭一中”对王湘琳来说是个敏感词汇）。</p>
-        <p>来到四十中，首先就会发现：那里的饭菜跟京元一样难吃，是“华威菜多多”做的。有别于小学的地方是，这里的密封条上面有菜品名称，于是每到第三节下课，班门口的密封条就被一抢而空。</p>
+        <p>来到四十中，首先就会发现：那里的饭菜跟京元一样难吃，是“华威菜多多”做的。有别于小学的地方是，这里的密封条上面有菜品名称。</p>
         <p>当然，四十中也会“督促”菜品质量，如填写问卷、家长陪餐等，不过味道和以前差不了多少。有一次，有人甚至在海带排骨汤里喝出了虫卵，那碗汤就被放在了水池旁边。</p>
         <p>其次便是跑操了。小学时还只在冬天偶尔有该项目，到了四十中就成了“经典项目”，除周一、周末培优、恶劣天气、操场被占用及其他特殊情况外，每天跑一次，圈数一般为5~9圈（初中）。</p>
         <p>凡是大考前300名的都可以去培优班。学校甚至还遵循“自愿原则”，让大家签回执。</p>
@@ -2191,7 +2129,25 @@
         <h2>宿舍</h2>
         <h3>宿舍楼</h3>
         <p>四十中学生住在下图的四栋楼中，其中：初一男生住振兴楼、女生住尚武楼；高一男生住崇军楼、女生住自强楼。</p>
-        <img src="building.svg"/>
+        <div class="img_box">
+            <svg width="400" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+                <rect x="30" y="30" width="100" height="200" fill="#ffaaaa"/>
+                <rect x="270" y="30" width="100" height="200" fill="#ffaaaa"/>
+                <rect x="30" y="250" width="100" height="200" fill="#aad4ff"/>
+                <rect x="270" y="250" width="100" height="200" fill="#aad4ff"/>
+                <path d="M130,0 H270 V30 H130 Z" fill="#e5e5e5"/>
+                <text x="170" y="23" font-family="Noto Sans JP" font-size="20" fill="#000">小卖部</text>
+                <text x="55" y="95" font-family="Noto Sans JP" font-size="50" fill="#7f0000">尚</text>
+                <text x="55" y="195" font-family="Noto Sans JP" font-size="50" fill="#7f0000">武</text>
+                <text x="295" y="95" font-family="Noto Sans JP" font-size="50" fill="#7f0000">自</text>
+                <text x="295" y="195" font-family="Noto Sans JP" font-size="50" fill="#7f0000">强</text>
+                <text x="55" y="315" font-family="Noto Sans JP" font-size="50" fill="#003f7f">崇</text>
+                <text x="55" y="415" font-family="Noto Sans JP" font-size="50" fill="#003f7f">军</text>
+                <text x="295" y="315" font-family="Noto Sans JP" font-size="50" fill="#003f7f">振</text>
+                <text x="295" y="415" font-family="Noto Sans JP" font-size="50" fill="#003f7f">兴</text>
+            </svg>
+            <p>宿舍楼平面图</p>
+        </div>
         <p>左边的楼有6层、右边5层。</p>
         <h3>布局</h3>
         <p>每层楼有两个楼梯口、两侧有两个厕所及若干水池，走廊有防盗网、顶上还有晾衣杆。宿舍内部左右各3个上下铺，共计12张床。每间宿舍有两扇窗以及风扇、空调、铁架子。</p>
@@ -2201,7 +2157,7 @@
         <p>最后一天，大家要把三件套拆掉放回。当同学们走进机房时，看到了这样一幕：几个比人高的洗衣机矗立其中，前面是圆形玻璃，里面有很多三件套正在被清洗。洗衣机运行的声音很大，走近时还能感觉到热气。旁边时三件套堆成的小山，同学们就把自己的三件套扔到这里——可见其卫生状况。</p>
         <p>总之，三件套虽没有想象中的脏，但也绝非干净。</p>
         <p>床铺就几根铁架支撑，稍微动一动就吱吱作响。</p>
-        <p>至于“小动物”，目前是没有出现，但是辅导员曾经说：“不要再床上吃零食，不然会招惹小动物……”</p>
+        <p>至于“小动物”，不知道各个宿舍的情况，但是辅导员曾经说：“不要再床上吃零食，不然会招惹小动物……”</p>
         <h2>食堂</h2>
         <p>龙翔的食堂很大，且打饭窗口很多。另外，有两个打汤窗口。</p>
         <p>吃饭的流程主要有下面几步：</p>
@@ -2225,7 +2181,7 @@
         <p>再就是早餐了。一个鸡蛋是标配，另外还有两道小菜，主食则是馒头、包子之类的，至少不是单调的“馒头配萝卜干”。所以，一些人说早餐是三餐内最好吃的了。</p>
         <p>但另外两餐就不一样了。每次你去外面，就会看到部分装剩饭剩菜的桶已经满出来了，还堆出了一座小山。这种现象最早体现在第二天的晚餐中，一些人表示那顿饭是最难吃的。还有一些人说，当时去到饭，看到这一幕时，差点没吐出来。</p>
         <h2>小卖部</h2>
-        <p>和其他地方一样，这里有小卖部，就在四栋宿舍楼旁。里面还有卖汉堡、自制饮料之类的，开放时几乎爆满。但这儿的物价是真的高，一瓶纯悦矿泉水能卖3块。</p>
+        <p>和其他地方一样，这里有小卖部，就在四栋宿舍楼旁。里面还有卖汉堡、自制饮料之类的，开放时几乎爆满。但这儿的物价是真的高，一瓶矿泉水能卖3块，炸鸡、奶茶、汉堡等更是无法想象。</p>
         <p>当然，这里最受欢迎的东西是泡面，在第一天时，同学们得知可以吃泡面，结果当天晚上泡面就被抢光。第二天晚上，是吃泡面的高峰，第三天就禁止吃泡面了。原因是，当时厕所的垃圾桶里出现了泡面的桶，且开水房里、蹲坑里都是泡面汤汁，非常恶心。</p>
         <h2>操场</h2>
         <p>这里已知的操场有两个，一个就是普通操场，开营仪式、闭营仪式都在这举行。但这个操场有个令人无语的地方，就是会掉色。闭营仪式前，同学们坐在操场上，一会儿就有人发现自己的鞋底变绿了，然后就说这里会掉色。</p>
@@ -2243,7 +2199,7 @@
         <p>同学们如果有什么事，也得叫“辅导员”，说“教官”大抵是没用的。但还是阻止不了同学们说辅导员为“教官”。</p>
         <p>龙翔有专门为辅导员准备的喇叭，每天叫宿舍里的人起床、集合或者在大厅里“发号施令”都离不开它。其中有一个喇叭上面还贴了很多搞笑的贴纸。</p>
         <p>有人发现，辅导员的手机壁纸是美女，于是就有人去作死问他，结果那人就被批评了，这时又有人发现当时辅导员在憋笑，而且据说有其他辅导员凑近去看他的手机。</p>
-        <p>辅导员的口音也很古怪。就说“一二一”，有一个辅导员是这么读的：“一儿一”。一次那个班的学生齐步走，就故意将“一二一”喊成“一儿一”。另一个辅导员则读成这样：“亚二一”。</p>
+        <p>辅导员的口音也很古怪。如说“一二一”，有一个辅导员是这么读的：“一儿一”。一次那个班的学生齐步走，就故意将“一二一”喊成“一儿一”。另一个辅导员则读成这样：“亚二一”。</p>
         <p>这里的辅导员还非常喜欢喊“四十中”、“初中部”、“高中部”、“×班”等，反正对应的学生得答“到！”，例如以下情景：</p>
         <article>
             <p>辅导员：“四十中？”</p>
@@ -2291,9 +2247,9 @@
             <i class="fa fa-quote-left"></i>&nbsp;四十中，起——床——&nbsp;<i class="fa fa-quote-right"></i>
         </div>
         <p>在众多辅导员中，有几个“长（zha&#780;ng）”的角色，掌管其他辅导员。所以龙翔会出现“辅导员大骂辅导员”的“奇观”。</p>
-        <p>辅导员还喜欢用“钓鱼”战术控制学生。例如，辅导员多次说过：“如果今天练得好，明天就全都是玩；如果练得不好，就全都是训练。”“明天（下午）训练的时间取决于你们现在的态度。”之类的话。当然哪怕同学们练得再好，也鲜有玩的时间。另一种情况则是辅导员会“挑刺”，指出方阵中的部分学生那里不好，并让玩的时间泡汤。</p>
+        <p>辅导员还喜欢用“钓鱼”战术控制学生。例如，辅导员多次说过：“如果今天练得好，明天就全都是玩；如果练得不好，就全都是训练。”“明天（下午）训练的时间取决于你们现在的态度。”之类的话。当然哪怕同学们练得再好，也鲜有玩的时间。另一种情况则是辅导员会“挑刺”，指出方阵中的部分学生哪里不好，并让玩的时间泡汤。</p>
         <p>另一种渠道就是压榨休息时间，看这样几句话：“这一遍练得好就休息，练不好就一直练。”“最后一遍练完就休息。”而当所谓的“这一遍”练完后，往往没有想象中的休息。要么就是再去练其他的项目，要么练第二遍、第三遍。举个例子，第四晚出来集合，本来说好宣誓完就回宿舍，结果宣誓了两遍后又冒出个唱国歌环节，本来说“唱得好就提前解散”，等到唱得好了，又开始练队列/感恩的心，回宿舍的最早时间也自然被推到九点半。</p>
-        <p>这里就不得不牵扯到两个基本事实。第一个：在到达龙翔的第一天，辅导员说这里有60个玩的项目，且需要门票才能玩。这里分为两个主要项目，一是训练、二是玩，两者互相穿插。如果练得好，玩的时间就多，练不好，就别提玩的事情。这样也间接加强了辅导员对学生的控制，加强了训练效果；同时也导致从学生的角度来看，五天基本全是训练。</p>
+        <p>这里就不得不牵扯到两个基本事实。第一个：在到达龙翔的第一天，辅导员说这里有60个玩的项目，且需要门票才能玩。这里分为两个主要项目，一是训练、二是玩，两者互相穿插。如果练得好，玩的时间就多，练不好，就别提玩的事情。这样也间接加强了辅导员对学生的控制，提升了训练效果；同时也导致从学生的角度来看，五天基本全是训练。</p>
         <p>第二个：辅导员说，只有在晚上8:00-9:00才能去小卖部，其余时间段去的话就会被驻守在那的辅导员抓住。然后看看龙翔4个晚上的安排：第一晚看电影，第二晚在大厅玩游戏/体验VR，第三晚训练，第四晚文艺晚会。没有一晚能在8点之前回到宿舍的。</p>
         <h2>训练</h2>
         <p>这次军训，以班为单位展开训练，所有行动必须和本班一起。</p>
@@ -2455,7 +2411,7 @@
         </article>
         <hr/>
         <h1 id="xxxz">小学现状</h1>
-        <p>最后说一下小学的现状。话说我们刚毕业，东升就开始升级，挖掘机都进去了，将来还会盖一栋楼，并用连廊与教学楼连接。而且在东升的对面，鞋厂直接被改成人行道和店铺，宽阔了不少，看上去风光无限，超市、饭店、托管纷纷入驻。</p>
+        <p>最后说一下小学的现状。话说我们刚毕业，东升就开始升级，挖掘机都进去了，将来还会盖一栋楼，并用连廊与教学楼连接。而且在东升的对面，鞋厂直接被改成人行道和店铺，宽阔了不少，看上去风光无限，超市、饭店、托管纷纷入驻。有一段时间，连东升网站都升级了。</p>
         <p>据说，ET在我们上初中时被开除了，但CT仍然在正常教书。据说他一次教四年级学生时，还特地用了一节课在表扬人。</p>
         <p>……</p>
     </main>
@@ -2695,34 +2651,13 @@
         <h1 id="e-dzsb">电子设备</h1>
         <h2>课件</h2>
         <p>ET的课件一般都是自制的，而且特垃圾。</p>
-        <canvas id="wwnn" width="600" height="400"></canvas>
-        <script>
-        function draw(){
-          var canvas = document.getElementById('wwnn');
-          if(!canvas.getContext) return;
-          var ctx = canvas.getContext("2d");
-          ctx.fillStyle="#00cc00";
-          ctx.fillRect(0, 0, 600, 400 );
-          ctx.fillStyle="#fff";
-          ctx.beginPath();
-          ctx.moveTo(50,30);
-          ctx.lineTo(550,30);
-          ctx.arcTo(570,30,570,50,20);
-          ctx.lineTo(570,350);
-          ctx.arcTo(570,370,550,370,20);
-          ctx.lineTo(50,370);
-          ctx.arcTo(30,370,30,350,20);
-          ctx.lineTo(30,50);
-          ctx.arcTo(30,30,50,30,20);
-          ctx.fill();
-          ctx.fillStyle="#cccccc";
-          ctx.fillRect(20, 5, 500, 200 );
-          ctx.fillStyle="black";
-          ctx.font="30px Serif";
-          ctx.fillText("This is a picture.", 70, 250);
-        }
-        draw();
-        </script>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600">
+            <rect x="0" y="0" width="600" height="400" fill="#00cc00" />
+            <path d="M50,30 L550,30 A20,20 0 0 1 570,50 L570,350 A20,20 0 0 1 550,370 L50,370 A20,20 0 0 1 30,350 L30,50 A20,20 0 0 1 50,30 Z" 
+                  fill="white" />
+            <rect x="20" y="5" width="500" height="200" fill="#cccccc" />
+            <text x="70" y="250" font-family="Serif" font-size="30" fill="black">This is a picture.</text>
+        </svg>
         <p>当然，ET在六年级下学期前，经常使用樱花背景，之后才换成其他背景。（不过布置作业的背景始终是樱花的——到现在也没有变）</p>
         <p>在六下时，ET似乎很喜欢用“两侧模式”，每次打开课件后都要特地去设置。刚开始这样时，同学们会议论纷纷。由此产生了一个经典：“经典模式！两侧模式！专注模式！极简模式！”</p>
         <h2>微信</h2>
@@ -2802,40 +2737,15 @@
         <p>于是，ET又换了一种播放方式——她下载了一个软件，叫“Abode Flash Player”（下文简称“f”）这个应用把笨重的视频塞进了一个圆圈里，ET只需点击，即可弹出清晰的课文动画。每当课件播放到“Listen and follow.”时，整个课件页面都几乎全白，只有一句话和那个“f”。</p>
         <p>不过，f也有一个美中不足的地方——点进去后它是默认静音的，需要ET手动把声音调大，然后把进度条拉到最左侧，重播。</p>
         <p>但这还不是最致命的。其实，f还有很明显的缺点，就是“版本过低”。</p>
-        <canvas id="f" width="1000" height="600"></canvas>
-        <script>
-        function draw(){
-        var canvas = document.getElementById('f');
-        if(!canvas.getContext) return;
-        var ctx = canvas.getContext("2d");
-        ctx.fillStyle="white";
-        ctx.fillRect(0,0,1000,600);
-        ctx.strokeStyle="blue";
-        ctx.beginPath();
-        ctx.moveTo(40,10);
-        ctx.lineTo(960,10);
-        ctx.arcTo(990,10,990,40,30);
-        ctx.lineTo(990,560);
-        ctx.arcTo(990,590,960,590,30);
-        ctx.lineTo(40,590);
-        ctx.arcTo(10,590,10,560,30);
-        ctx.lineTo(10,40);
-        ctx.arcTo(10,10,40,10,30);
-        ctx.closePath();
-        ctx.stroke();
-        ctx.fillStyle="black";
-        ctx.font="65px sans-serif";
-        ctx.fillText("Abode Flash Player更新提示", 75, 150);
-        ctx.fillStyle="black";
-        ctx.font="45px serif";
-        ctx.fillText("该版本过旧，不支持运行，请升级后使", 160, 250);
-        ctx.fillText("用，查看升级详情：", 70, 300);
-        ctx.fillStyle="blue";
-        ctx.font="45px serif";
-        ctx.fillText("https:// ...... .com/ ...... .html", 95,450);	
-        }
-        draw();
-        </script>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000">
+            <rect x="0" y="0" width="1000" height="600" fill="white" />
+            <path d="M40,10 L960,10 A30,30 0 0 1 990,40 L990,560 A30,30 0 0 1 960,590 L40,590 A30,30 0 0 1 10,560 L10,40 A30,30 0 0 1 40,10 Z" 
+                  fill="none" stroke="blue" stroke-width="1" />
+            <text x="75" y="150" font-family="sans-serif" font-size="65" fill="black">Abode Flash Player更新提示</text>
+            <text x="160" y="250" font-family="serif" font-size="45" fill="black">该版本过旧，不支持运行，请升级后使</text>
+            <text x="70" y="300" font-family="serif" font-size="45" fill="black">用，查看升级详情：</text>
+            <text x="95" y="450" font-family="serif" font-size="45" fill="blue">https:// ...... .com/ ...... .html</text>
+        </svg>
         <p>每当这时，ET就只好打开英语书，自己念课文。不过有一次，ET似乎找到了升级方法。有一次，ET又点开了f。同学们正准备看笑话呢，接下来的一幕却让他们大跌眼镜——</p>
         <article> 
             <p>点开f后，出现了正常播放的课文动画，过程非常流畅。同学们惊呼道：</p>
@@ -2893,17 +2803,16 @@
         </article>
         <p>于是，ET就把他拽出来，在过道上拉来拉去。具体表现就是：</p>
         <article>
-            <p>ET的声音提高了八度。陈昊圻正站在自己的座位旁，ET则站在他前面，手握拳，盯着他。突然，ET手臂发力，把陈昊圻的头用力一推，手臂伸直，使得他的头一歪。</p>
-            <p>“……你干什么啊！”</p>
-            <p>有人小声地笑了。</p>
-            <p>陈昊圻走到讲台旁，ET的眼睛、身体也同步跟着他。陈昊圻伸手，想把玩具拿回来，却被ET打了个措手不及。ET抓住陈昊圻的脖子，往陈昊圻座位的方向一推。陈昊圻眼中的事物飞快变化着，从玩具转移到看戏的同学们，然后变成地板，他赶紧扶住桌子才没有摔倒。ET紧接着抓住陈昊圻的衣服，把他一把拉了回去，露出了蓝色的内衣。ET觉得这样抓不太牢，于是很快换了个地方抓住，然后继续拉。ET动作敏捷，力大如牛，完全没有老年人的迟钝、无力。陈昊圻的手飞了起来，在空中划出一道优美的弧线，另一只手连忙抓住讲台，身体却还是向后倒去。</p>
-            <p>“我叫你那个东西拿这么久啊，哈？！”</p>
-            <p>陈昊圻还没缓过神来，ET又抓住他的衣服，推了他一下，他终于站定了。陈昊圻转向ET，发现ET正火冒三丈、怒发冲冠地盯着自己呢！忽然，ET又伸手，抓住了他的衣服。</p>
+            <p>ET的声音陡然拔高了八度。陈昊圻刚在座位旁站定，ET已经冲到他面前，拳头攥得指节发白，眼睛像淬了火的钉子，死死钉在他脸上。猛地，ET胳膊一绷，发力将陈昊圻的头往前一推，手臂直挺挺地伸着，陈昊圻的头不由自主地向旁边歪去。</p>
+            <p>“…… 你干什么啊！”</p>
+            <p>周围传来几声细碎的笑，像投入湖面的小石子，荡开一圈圈涟漪。</p>
+            <p>陈昊圻快步走向讲台，ET的眼睛、身体也寸步不离地跟着他转动。陈昊圻伸手想去拿回玩具，ET的手却快得让人反应不及，一把打开他的手。紧接着，ET揪住陈昊圻的脖子，朝着座位的方向猛力一推。陈昊圻眼前的景象瞬间乱了套，玩具、围观的同学、教室的地板飞快地在视野里切换，他慌忙一把扶住桌子，才勉强没摔在地上。ET紧跟着攥住陈昊圻的衣服，硬生生把他往回拉，蓝色的内衣从掀起的衣角里露了出来。ET觉得这样抓着不牢靠，手指在布料上快速滑动，换了个更紧实的地方攥住，继续使劲拽。她的动作又快又猛，力气大得惊人，完全没有一点老年人的迟缓与无力。陈昊圻的一只手被扯得扬起来，在空中划过一道急促的弧线，另一只手急忙死死抠住讲台边缘，身体却还是控制不住地向后仰。</p>
+            <p>“我叫你把那东西拿这么久啊，哈？！”</p>
+            <p>陈昊圻还没从眩晕中缓过神，ET又抓住他的衣服，往前一搡，他踉跄几步，总算站稳了。陈昊圻转头看向ET，只见她额角的青筋突突直跳，眼睛瞪得滚圆，满脸都是按捺不住的怒火。忽然，ET的手又伸了过来，牢牢揪住他的衣领。</p>
             <p>“你不用来了，出去！”</p>
-            <p>ET一只手抓住他的衣服，另一只手直勾勾地指向门口，然后，ET把陈昊圻推向了讲台。</p>
+            <p>ET一只手攥着他的衣服，另一只手伸直了，指尖直勾勾地指向门口，接着，猛地将陈昊圻往讲台方向推去。</p>
             <p>“明天开始不用来了！”</p>
-            <p>陈昊圻又扶住了桌子，蹦了一下，站在了自己座位旁，手里拿着英语书，转向ET。</p>
-            <p>ET还盯着陈昊圻。她走上讲台，拉了拉口罩：“站到……卫生橱旁边。”</p>
+            <p>陈昊圻再次扶住桌子，身体晃了晃，随后在座位旁站定，手里紧紧捏着英语书，转脸面向 ET。ET走上讲台，拉了拉口罩：“站到……卫生橱旁边。”</p>
             <p>接着，ET一拍讲台：</p>
             <p>“过分了哈？！”</p>
         </article>
@@ -3014,7 +2923,7 @@
             <p>那人：“你有资格开除我？”</p>
             <p>ET：“怎么不行了？我从三年级开始教你快四年了，教得这么辛苦，连这点规矩都不懂？还是不是我的学生了！我还教过别的学校呢！就你，比得过我？我可是教了三十年书的，你才几岁呀？哈？！你以为你算老几？你以为我想教你呀？我也可以不教你呀！我去教别人也比去教你这种人好！”</p>
             <p>那人：“我请你来教我了？”</p>
-            <p>ET“你这号人敢用这种语气对待老师？！你很勇啊！你很拽呀！拽呀，继续拽呀？！你以为你很拽呀？我拽起来比你更拽！不信我现在就可以拽给你看！你们的家长肯定也很拽，不然怎么可能教育出这种小孩？到时候你们进入社会，肯定也很拽。你们两个是我见过最不尊重老师的学生，哈。连老师都不尊重，那你对待别人又会是怎样个态度啊，哈？你们来午餐班，都是签过协议的！你们两个实在太放肆了哈。不要给脸不要脸！”</p>
+            <p>ET：“你这号人敢用这种语气对待老师？！你很勇啊！你很拽呀！拽呀，继续拽呀？！你以为你很拽呀？我拽起来比你更拽！不信我现在就可以拽给你看！你们的家长肯定也很拽，不然怎么可能教育出这种小孩？到时候你们进入社会，肯定也很拽。你们两个是我见过最不尊重老师的学生，哈。连老师都不尊重，那你对待别人又会是怎样个态度啊，哈？你们来午餐班，都是签过协议的！你们两个实在太放肆了哈。不要给脸不要脸！”</p>
         </article>
         <p>另外说一下，在这件事之前，发生了很多“小事”，如：
         <article>
@@ -3090,7 +2999,7 @@
             <p>ET彻底被激怒了。她猛地把陈睿卓从座位拽到了过道上：“哈，你还狡辩呀？来，去林老师办公室继续狡辩！”</p>
             <p>ET一边说，一边试图把他拽向门口，不过只拽了一点距离，于是她又举起软尺。</p>
             <p>陈睿卓想要挣脱ET的手，可是ET却死命抓住他的衣服不放，并且另一只手努力寻找着突破口——寻找打他的机会，但是效果甚微。于是ET也不找什么手了，直接对着他的手臂一阵猛抽，软尺在衣服和桌角间来回摆动，发出一声声轻响。打了一会儿，ET愣是没打到手，于是飞速把抓住衣服的手松开，转而去抓他的手。接着不等找准位置，就打了一下又一下，嘴里还不停吐出一句句气话。</p>
-            <p>突然，ET猛地松开他的手，转而抓住了他桌上的新启航，往门口用力一扔，新启航便消失在走廊，整个过程不到一秒。</p>
+            <p>突然，ET猛地松开他的手，转而抓住了他桌上的新启航，往门口用力一扔，新启航便消失在走廊。</p>
             <p>“哇！”</p>
             <p>“哇！”</p>
             <p>“ET高空抛物！”</p>
@@ -3334,7 +3243,13 @@
         <h2>电脑</h2>
         <h3>展台</h3>
         <p>CT很不擅长用电脑。每次想要打开展台，都会傻傻地去点右上角的小花朵——哪怕是此时展台已经正常打开——在里面选中展台，结果可想而知：</p>
-        <img src="gaopaiyi.svg" height="60%" alt="没有接高拍仪，请接上高拍仪再试！"/>
+        <svg width="800" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+            <rect x="60" y="140" width="680" height="135" fill="#666" stroke="#000"/>
+            <rect x="65" y="145" width="670" height="60" fill="#e5e5e5"/>
+            <rect x="65" y="210" width="670" height="60" fill="#e5e5e5"/>
+            <text x="160" y="190" font-family="Noto Sans JP" font-size="30" fill="#000">没有接高拍仪，请接上高拍仪再试！</text>
+            <text x="375" y="250" font-family="Noto Sans JP" font-size="30" fill="#000">OK</text>
+        </svg>
         <p>然后，CT就只好点“OK”，页面就会跳转至以蓝色为背景的一个操控台。而CT又回去点小花朵里的展台，结果又是没接高拍仪……如此循环。直到一些“假惺惺”指点后，CT才明白要去“内置电脑”里点击“鸿合视频展台”。有一次，郑权楷见CT弄不来，便忍不住跑上讲台帮忙：“老师，不要浪费时间了，我来帮你弄吧！”</p>
         <p>有时，CT还会意外点到其他地方，比如把触屏给关闭。这还不算厉害的。有一次，CT直接点出了墨鱼丸，不一会儿就出现视频的声音（还好不是美女）。</p>
         <h3>魔法</h3>
@@ -3709,23 +3624,27 @@
             </div>
         </div>
         <hr/>
-        <p>其实MT的梗并不多，也没啥好讲的。</p>
+        <p>其实MT的梗并不多。</p>
         <hr/>
         <h1 id="m-zssl">知识梳理</h1>
-        <p>MT让大家买了《5·3天天练》后，就经常让大家罚抄里面的知识梳理。像“知识梳理，三遍！”的这种情况时有发生。像同学们吵闹、桌子没有对齐、闹出什么事来这些行为，都有可能被罚抄。</p>
+        <p>MT让大家买了《5·3天天练》后，就经常让大家罚抄里面的知识梳理。经常就会出现这么一种情况：</p>
+        <div class="say">
+            <i class="fa fa-quote-left"></i>&nbsp;知识梳理，三遍！&nbsp;<i class="fa fa-quote-right"></i>
+        </div>
+        <p>像同学们吵闹、桌子没有对齐、闹出什么事来这些行为，都有可能被罚抄。</p>
         <p>起初，MT还只是让抄某个单元的知识梳理，不过等小学课程都学完后，所谓的“一遍”可就不是特指某个单元了，而是六下1~5单元知识梳理。</p>
         <p>其实这种现象不止在六下发生，在此之前，MT就罚过大家抄十遍《白鹭》，后来就被校长发现了。</p>
         <hr/>
         <h1 id="m-zz">14个组长</h1>
-        <p>为了培养同学们（减轻自己的负担），MT在六上期末时就指定了14个组长，也就是说，每3~4人就分为一小组，其中有一个人为组长。组长在六上还好，但到了六下，任务就重起来。主要负责批改作业、画手抄报等。</p>
-        <p>当讲评完作业后，MT首先会让14个组长把作业上交批改，全部过关后在分发下来，让他们批改组员的作业，批改完一并放到讲台，MT最后快速浏览一遍，防止改错的情况。</p>
+        <p>为了培养同学们的能力，MT在六上期末时就指定了14个组长，也就是说，每3~4人就分为一小组，其中有一个人为组长。组长在六上还好，但到了六下，任务就重起来。主要负责批改作业、画手抄报等。</p>
+        <p>当讲评完作业后，MT首先会让14个组长把作业上交批改，全部过关后在分发下来，让他们批改组员的作业，批改完一并放到讲台，MT最后快速浏览一遍，防止出现改错的情况。</p>
         <p>MT还搞了一个积分的表格，以调动同学们的热情。每当做出一些令MT满意的事（如讲53、画画），都可以为自己的组加分（而每次刘圭宥这个组总是获得高分）。</p>
         <hr/>
         <h1 id="m-jt">讲题</h1>
         <p>MT会让学生评讲“大本”和53。讲题包括“one by one”和请人讲题。</p>
         <p>当组长讲题时，需要上台并在屏幕上做批注来表达思路。这时大家往往会使用万能公式：</p>
         <article>
-            <p>【题目】（）【题目】。那么我们可以……，然后呢……，以为……，所以……。</p>
+            <p>【题目】（）【题目】。那么我们可以……，然后呢……，因为……，所以……。</p>
         </article>
         <p>讲完一页后，需要留给大家时间订正。</p>
         <p>一些人讲题时很有特色：</p>
@@ -3735,7 +3654,7 @@
             <li>刘圭宥</li>
             <p>刘圭宥讲完让大家订正时会到第一组前等待。一次他看到谢承志的“金榜题名”挂件，就好奇地拿起来看。结果每次谢承志坐在第一组时，李诗彤/叶宸铭就会让谢承志拿金榜题名给刘圭宥看。</p>
             <li>林佩玲</li>
-            <p>她讲题时，董轩宇往往很危险。一次MT说可以提问别人。于是她说：“这道题请人来讲，董轩宇。”</p>
+            <p>她讲题时，董轩宇往往很危险。一次MT说可以提问别人，于是她说：“这道题请人来讲，董轩宇。”</p>
         </ul>
         <hr/>
         <h1 id="m-yryb">一人一包</h1>
@@ -3761,7 +3680,6 @@
             </article>
             <p>然后大家都发：“新年快乐林老师”。</p>
             <p>然后：</p>
-            <p class="size-small">以下聊天记录省略了一些内容，且昵称为真名（MT外）。</p>
             <article>
                 <p>MT：该去看看世界🫰🏻</p>
                 <p>王湘琳：林老师在群里吗？！</p>
@@ -3777,14 +3695,7 @@
                 <p>MT：现在我只想玩手机</p>
                 <p>MT：出了东升我们是朋友</p>
                 <p>MT：在东升请尊称林老师</p>
-            </article>
-            <p>接下来的一句话（&nbsp;&nbsp;&nbsp;&nbsp;）：</p>
-            <div class="say">
-                <i class="fa fa-quote-left"></i>&nbsp;现在是我的手机时间&nbsp;<i class="fa fa-quote-right"></i>
-            </div>
-            <p>然后：</p>
-            <article>
-                <p>MT：现在是我的手机时间</p>
+                <p>MT：现在是我的手机时间<span style="color:blue">（名句）</span></p>
                 <p>MT：咋啦 辛苦一年了 瓜娃子</p>
                 <p>李诗彤：老师有去哪里玩吗🌚</p>
                 <p>MT：沿海一条线</p>
@@ -3861,11 +3772,11 @@
         </div>
         <hr/>
         <p class="size-small">注意：“AT”由陈宇恒起名，即“art teacher”的缩写。</p>
-        <p>AT原是美术老师，在六年级时莫名其妙的转变成了科学、综合实践老师。</p>
+        <p>AT原是美术老师，在六年级时莫名其妙地转变成了科学、综合实践老师。</p>
         <hr/>
         <h1 id="a-sk">上课</h1>
         <p>至于AT的上课质量，其实也不咋地。AT上课其实就是循环这三件事：罚站、自习、讲课。</p>
-        <p>讲课的话，AT会准备好课件，随后都是照着课件读一遍，自己会偶尔添加一些毫无难度的知识点——其实这些内容学生都能讲出来。</p>
+        <p>讲课的话，AT会准备好课件，随后照着课件读一遍，自己会偶尔添加一些毫无难度的知识点——其实这些内容学生都能讲出来。</p>
         <p>后来，AT的课就直接变成了看视频，比如“如果历史是一群喵”。</p>
         <p>至于游戏，AT总是会说一句“你们太吵了”，然后直接跳过。当然也有例外，如一次校长巡课，不光同学们自觉保持安静，连AT都把课讲得非常生动，到游戏时也请了两个人玩，可见AT态度转变之大。</p>
         <hr/>

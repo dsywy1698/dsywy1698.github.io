@@ -1,9 +1,0 @@
-<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
- <g>
-  <rect fill="#666666" stroke="#000" x="60" y="140" width="680" height="135" id="svg_1"/>
-  <rect fill="#e5e5e5" x="65" y="145" width="670" height="60" id="svg_2"/>
-  <rect fill="#e5e5e5" x="65" y="210" width="670" height="60" id="svg_3"/>
-  <text fill="#000000" stroke="#000" x="160" y="190" id="svg_4" stroke-width="0" font-size="30" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">没有接高拍仪，请接上高拍仪再试！</text>
-  <text fill="#000000" x="375" y="250" id="svg_5" stroke-width="0" font-size="30" font-family="Noto Sans JP" text-anchor="start" xml:space="preserve">OK</text>
- </g>
-</svg>
