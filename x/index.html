@@ -16,7 +16,7 @@
     body{margin:0;padding:0;font-family:"微软雅黑",sans-serif;background:#e6ffff;}
     .clear{display:table;content:"";clear:both;}
     p,li{line-height:1.5rem;letter-spacing:0.8px;}
-    hr{color:#cff;border:1px solid #cff;border-radius:100px;}
+    hr{color:#cff;border:1px solid #cff;border-radius:100px;margin:10px  20px;}
     a{color:#ff6;}
     a:hover{color:#ff0;}
     .small,.big{display:none;}
@@ -49,7 +49,7 @@
     header>h1{padding:30px 10px;font-size:7.5rem;margin:0;text-align:center;}
     header>div{background:linear-gradient(#0f9 0%,#00ff99bb 90%);color:#030;display:table;content:"";clear:both;padding:20px;border:3px solid #090;border-radius:25px;margin:20px;}
     header>div>p>i{border:2px solid blue;padding:7px;border-radius:5px;}
-    .header{background:linear-gradient(to bottom,#6600ffcc 0%,#6600ff88 100%);padding:15px;border-radius:25px;box-shadow0 2px 20px #cc99ff33;}
+    .header{background:linear-gradient(to bottom,#6600ffcc 0%,#6600ff88 100%);padding:15px;border-radius:25px;box-shadow:0 2px 20px #cc99ff33;}
     .header>h1{font-size:3rem;margin:10px 3px;}
     .header>div{background:#ffffff22;padding:10px;border-radius:0 20px 20px 20px;}
     .header>div>p{margin:5px;font-weight:100;}
@@ -76,6 +76,7 @@
     ol>p,ul>p{font-size:0.9375rem;margin:5px;margin-left:25px;color:#9df;}
     ul>ul>p,ol>ol>p,ol>ul>p,ul>ol>p{color:#ffcce6;}
     .smaller{color:#e6ccff;font-size:0.9375rem;}
+    .header[id],h1[id]{scroll-margin-top:70px;}
     #div>*{position:relative;}
     @keyframes fade-in{from{opacity:0;bottom:-100px;}to{opacity:1;bottom:0;}}
     
@@ -199,18 +200,8 @@
             <button onclick="loading()">跳过</button>
         </div>
         <script>
-        const texts = ["今晚我家只有我一个人","顾兮——爱惜","微胖才是YYDS","你永久蹲出来","这周末刚好有个周末","知识梳理，3遍","×××和余佳皓在3楼拉大便","用爱唤醒学生的心灵","如果可以","好，全部起立","你连比亚迪都买不起","算了算了，就来个蚂蚁生存吧","身上的勾比卷子上的还多","Women's Day","你去5楼把单词抄3遍","你，在干什么？站到后面去！","越优秀，越努力","我现在已经12岁了","请你们喝星巴克（蜜雪冰城）","女性乘务员","承诺是金","葵花宝典","把93拿出来做","我的红笔没有water了","我的鞭子不长眼镜","抄出来做","递等式","没有接高拍仪，请接上高拍仪再试","密密麻麻，麻麻密密","这篇课文从你们爷爷那一代起就开始读了","喝酒班、抽烟班、打架班、纹身班"];
-        let currentIndex = 0;
-        const carouselText = document.getElementById('carouselText');
-        carouselText.textContent = texts[currentIndex];
-        function rotateText() {
-            currentIndex = (currentIndex + 1) % texts.length;
-            carouselText.style.opacity = '0';
-            setTimeout(() => {
-                carouselText.textContent = texts[currentIndex];
-                carouselText.style.opacity = '1';
-            }, 200);}
-        setInterval(rotateText, 1000);
+        const texts=["今晚我家只有我一个人","顾兮——爱惜","微胖才是YYDS","你永久蹲出来","这周末刚好有个周末","知识梳理，3遍","×××和余佳皓在3楼拉大便","用爱唤醒学生的心灵","如果可以","好，全部起立","你连比亚迪都买不起","算了算了，就来个蚂蚁生存吧","身上的勾比卷子上的还多","Women's Day","你去5楼把单词抄3遍","你，在干什么？站到后面去！","越优秀，越努力","我现在已经12岁了","请你们喝星巴克（蜜雪冰城）","女性乘务员","承诺是金","葵花宝典","把93拿出来做","我的红笔没有water了","我的鞭子不长眼镜","抄出来做","递等式","没有接高拍仪，请接上高拍仪再试","密密麻麻，麻麻密密","这篇课文从你们爷爷那一代起就开始读了","喝酒班、抽烟班、打架班、纹身班"];let currentIndex=0;const carouselText=document.getElementById('carouselText');carouselText.textContent=texts[currentIndex];function rotateText(){currentIndex=(currentIndex+1)%texts.length;carouselText.style.opacity='0';setTimeout(()=>{carouselText.textContent=texts[currentIndex];carouselText.style.opacity='1';},200);}
+setInterval(rotateText,1000);
         </script>
     </div>
     <div class="small"><p>请放大窗口</p></div>
@@ -367,93 +358,8 @@
         <p>网页到底了！</p>
     </footer>
     <script>
-        const fixedGraduationDateTime = new Date(2024, 5, 28, 9, 15, 0);
-        const yearsElement = document.getElementById('years');
-        const daysElement = document.getElementById('days');
-        const hoursElement = document.getElementById('hours');
-        const minutesElement = document.getElementById('minutes');
-        const secondsElement = document.getElementById('seconds');
-        const toggleBtn = document.getElementById('toggle-btn');
-        let isTotalDaysMode = false;
-        let totalDays = 0;
-        let years = 0;
-        let remainingDays = 0;
-        let hours = 0;
-        let minutes = 0;
-        let seconds = 0;
-        function calculateTime() {
-            const now = new Date();
-            const diffMs = now - fixedGraduationDateTime;
-            const diffSec = Math.floor(diffMs / 1000);
-            seconds = diffSec % 60;
-            const diffMin = Math.floor(diffSec / 60);
-            minutes = diffMin % 60;
-            const diffHour = Math.floor(diffMin / 60);
-            hours = diffHour % 24;
-            const diffDay = Math.floor(diffHour / 24);
-            years = 0;
-            remainingDays = diffDay;
-            let year = fixedGraduationDateTime.getFullYear();
-            while (true) {
-                const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
-                const daysInYear = isLeapYear ? 366 : 365;
-                if (remainingDays >= daysInYear) {
-                    remainingDays -= daysInYear;
-                    years++;
-                    year++;
-                } else {
-                    break;
-                }
-            }
-            totalDays = 0;
-            let tempYear = fixedGraduationDateTime.getFullYear();
-            for (let i = 0; i < years; i++) {
-                const isLeapYear = (tempYear % 4 === 0 && tempYear % 100 !== 0) || tempYear % 400 === 0;
-                totalDays += isLeapYear ? 366 : 365;
-                tempYear++;
-            }
-            totalDays += remainingDays;
-        }
-        function updateDisplay() {
-            if (!isTotalDaysMode) {
-                yearsElement.textContent = years;
-                daysElement.textContent = remainingDays;
-            } else {
-                yearsElement.textContent = "0";
-                daysElement.textContent = totalDays;
-            }
-            hoursElement.textContent = hours;
-            minutesElement.textContent = minutes;
-            secondsElement.textContent = seconds;
-        }
-        function updateTime() {
-            calculateTime();
-            updateDisplay();
-        }
-        toggleBtn.addEventListener('click', function() {
-            isTotalDaysMode = !isTotalDaysMode;
-            toggleBtn.textContent = isTotalDaysMode ? "年数" : "天数";
-            updateDisplay();
-        });
-        updateTime();
-        setInterval(updateTime, 1000);
-        
-        var app=document.getElementById('asklz');
-        var texts2=['欢迎来到这个网站……','没啥话说……'];
-        var currentTextIndex=0;
-        var currentCharIndex=0;
-        var isDeleting=false;
-        var typingSpeed=100;
-        var pauseTime=1700;
-        function type(){
-    var currentText=texts2[currentTextIndex];
-    if(isDeleting){app.textContent=currentText.substring(0,currentCharIndex-1);currentCharIndex--;}
-    else{app.textContent=currentText.substring(0,currentCharIndex+1);currentCharIndex++;}
-    if(!isDeleting&&currentCharIndex===currentText.length){isDeleting=true;setTimeout(type,pauseTime);}
-    else if(isDeleting&&currentCharIndex===0){isDeleting=false;currentTextIndex=(currentTextIndex+1)%texts2.length;setTimeout(type,typingSpeed);}
-    else{setTimeout(type,isDeleting?typingSpeed/2:typingSpeed);}
-        }
-        setTimeout(type,1000);
+        const fixedGraduationDateTime=new Date(2024,5,28,9,15,0);const yearsElement=document.getElementById('years');const daysElement=document.getElementById('days');const hoursElement=document.getElementById('hours');const minutesElement=document.getElementById('minutes');const secondsElement=document.getElementById('seconds');const toggleBtn=document.getElementById('toggle-btn');let isTotalDaysMode=false;let totalDays=0;let years=0;let remainingDays=0;let hours=0;let minutes=0;let seconds=0;function calculateTime() {const now=new Date();const diffMs=now-fixedGraduationDateTime;const diffSec=Math.floor(diffMs/1000);seconds=diffSec%60;const diffMin=Math.floor(diffSec/60);minutes=diffMin%60;const diffHour=Math.floor(diffMin/60);hours=diffHour%24;const diffDay=Math.floor(diffHour/24);years=0;remainingDays=diffDay;let year=fixedGraduationDateTime.getFullYear();while(true){const isLeapYear=(year%4===0&&year%100!==0)||year%400===0;const daysInYear=isLeapYear?366:365;if(remainingDays>=daysInYear){remainingDays-=daysInYear;years++;year++;} else {break;}}totalDays=0;let tempYear=fixedGraduationDateTime.getFullYear();for (let i=0;i<years;i++){const isLeapYear=(tempYear%4===0&&tempYear%100!==0)||tempYear%400===0;totalDays+=isLeapYear?366:365;tempYear++;}totalDays+=remainingDays;}function updateDisplay(){if(!isTotalDaysMode){yearsElement.textContent=years;daysElement.textContent=remainingDays;}else{yearsElement.textContent="0";daysElement.textContent=totalDays;}hoursElement.textContent=hours;minutesElement.textContent=minutes;secondsElement.textContent=seconds;}function updateTime(){calculateTime();updateDisplay();}toggleBtn.addEventListener('click',function(){isTotalDaysMode=!isTotalDaysMode;toggleBtn.textContent=isTotalDaysMode?"年数":"天数";updateDisplay();});updateTime();setInterval(updateTime,1000);
+        var app=document.getElementById('asklz');var texts2=['欢迎来到这个网站……','没啥话说……'];var currentTextIndex=0;var currentCharIndex=0;var isDeleting=false;var typingSpeed=100;var pauseTime=1700;function type(){var currentText=texts2[currentTextIndex];if(isDeleting){app.textContent=currentText.substring(0,currentCharIndex-1);currentCharIndex--;}else{app.textContent=currentText.substring(0,currentCharIndex+1);currentCharIndex++;}if(!isDeleting&&currentCharIndex===currentText.length){isDeleting=true;setTimeout(type,pauseTime);}else if(isDeleting&&currentCharIndex===0){isDeleting=false;currentTextIndex=(currentTextIndex+1)%texts2.length;setTimeout(type,typingSpeed);}else{setTimeout(type,isDeleting?typingSpeed/2:typingSpeed);}}setTimeout(type,1000);
     </script>
     </div>
     
@@ -3803,14 +3709,9 @@
     </div>
 
 <script>
-function openPage(pageName,elmnt){
-  var tabcontent=document.getElementsByClassName("tabcontent");
-  for(var i=0;i<tabcontent.length;i++){tabcontent[i].style.display="none";}
-  document.getElementById(pageName).style.display="block";
-  document.getElementById(pageName).style.animation="fade-in 0.5s forwards";
-}
-document.getElementById("defaultOpen").click();
-function goTop(){window.scrollTo(0,0);}
+function openPage(pageName,elmnt){var tabcontent=document.getElementsByClassName("tabcontent");for(var i=0;i<tabcontent.length;i++){tabcontent[i].style.display="none";}
+document.getElementById(pageName).style.display="block";document.getElementById(pageName).style.animation="fade-in 0.5s forwards";}
+document.getElementById("defaultOpen").click();function goTop(){window.scrollTo(0,0);}
 function goBottom(){window.scrollTo(0,document.documentElement.scrollHeight);}
 </script>
 </div>
