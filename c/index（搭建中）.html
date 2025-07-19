@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!--增加加载功能-->
+<head>
+    <title></title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="robots" content="noindex,nofollow"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <style>
+        :root{color-scheme:light dark;}
+        *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;}
+        *::-webkit-scrollbar{display:none!important;}
+        ::-moz-selection,::selection{color:;background:;}
+        html{scroll-behavior:smooth;font-size:100%;}
+        body{font-family:"微软雅黑",sans-serif;}
+        #bigger,#smaller/*,#content*/{display:none;}
+        /*基本样式*/
+        .clear{display:table;content:"";clear:both;}
+        p,li{line-height:;letter-spacing:;}
+        hr{color:;border:1px solid ;border-radius:100px;margin:;}
+        a{color:;}
+        a:hover{color:;}
+        /*缩小/放大窗口*/
+        
+        /*无js窗口*/
+        
+        /*加载页面*/
+        
+        /*老旧浏览器*/
+        
+        /*页面*/
+        /*导航栏*/
+        nav{}
+        nav>button{}
+        nav>buton:hover{}
+        
+        @media screen and (min-width:2000px){#bigger{display:block;}#content{display:none;}
+        @media screen and (max-width:300px){#smaller{display:block;}#content{display:none;}
+    </style>
+</head>
+<body>
+    <div id="bigger">请缩小窗口</div>
+    <div id="smaller">请放大窗口</div>
+    <div id="loader"></div>
+    <div id="content">
+        <nav>
+            <button id="mainNavButton" onclick="showPage('home')"><i class="fa fa-home"></i></button>
+            <button onclick="toggleSubMenu()"><i class="fa fa-navicon"></i></button>
+            <div id="subMenu" style="display:none;position:absolute;">
+                <div id="about-anchors" style="display: none; margin-left: 10px;">
+                    <a href="#">页面</a>
+                    <a href="#">页面</a>
+                </div>
+                <div id="contact-anchors">
+                    <a href="#">页面</a>
+                    <a href="#">页面</a>
+                </div>
+                <button data-page="contact" onclick="showPage('contact')">页面</button>
+                
+                <button data-page="about" onclick="showPage('about')">页面</button>
+            </div>
+        </nav>
+        
+        <!-- 页面内容 -->
+        <div id="home" class="page">
+            <h1>欢迎来到首页</h1>
+            <p>这是单页应用的主页内容。</p>
+        </div>
+        
+        <div id="about" class="page" style="display:none;">
+            <h1>关于我们</h1>
+            <h2 id="section1">公司简介</h2>
+            <p>这里是我们公司的简介内容...</p>
+            <h2 id="section2">团队介绍</h2>
+            <p>我们的团队成员包括...</p>
+        </div>
+        
+        <div id="contact" class="page" style="display:none;">
+            <h1>联系我们</h1>
+            <h2 id="email">电子邮件</h2>
+            <p>example@example.com</p>
+            <h2 id="phone">电话联系</h2>
+            <p>123-456-7890</p>
+        </div>
+    </div>
+    <noscript>
+        <style>#loader,#bigger,#smaller,#content{display:none!important;}</style>
+        本网站需要JavaScript才能正常运行，请启用JavaScript后刷新页面
+    </noscript>
+    <script>
+        let currentPage = null;
+        let subMenuVisible = false;
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.style.display = 'none';
+            });
+            document.getElementById(pageId).style.display = 'block';
+            currentPage = pageId;
+            updateNavButtons(pageId);
+            updateAnchorLinks(pageId);
+            subMenuVisible = false;
+            document.getElementById('subMenu').style.display = 'none';
+        }
+        function updateNavButtons(activePageId) {
+            document.getElementById('mainNavButton').style.display = 
+                activePageId === 'home' ? 'none' : 'inline-block';
+            document.querySelectorAll('#subMenu button[data-page]').forEach(button => {
+                button.style.display = 
+                    button.getAttribute('data-page') === activePageId ? 'none' : 'block';
+            });
+        }
+        function updateAnchorLinks(pageId) {
+            document.querySelectorAll('#subMenu div[id$="-anchors"]').forEach(div => {
+                div.style.display = 'none';
+            });
+            const anchors = document.getElementById(`${pageId}-anchors`);
+            if (anchors) anchors.style.display = 'block';
+        }
+        function toggleSubMenu() {
+            subMenuVisible = !subMenuVisible;
+            document.getElementById('subMenu').style.display = 
+                subMenuVisible ? 'block' : 'none';
+        }
+        window.onload = () => showPage('home');
+    </script>
+</body>
+</html>
