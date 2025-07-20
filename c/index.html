@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+<!--老旧浏览器代码-->
 <head>
     <title>标题</title>
     <meta charset="UTF-8"/>
@@ -18,6 +19,7 @@
         body{font-family:"微软雅黑",sans-serif;}
         #bigger,#smaller{display:none;}
         #content{position:relative;top:;}
+        #content>div{padding:calc(40px + clamp(2px,1vw,10px)) 0;}
         #content>div:not(#home){display:none;}
         /*基本样式*/
         p,li{line-height:;letter-spacing:;}
@@ -38,13 +40,13 @@
         
         /*页面*/
         /*导航栏*/
-        nav{display:block;position:fixed;top:clamp(2px,1vw,10px);left:clamp(2px,1vw,10px);width:calc(100vw - clamp(2px,1vw,10px) * 2);background:light-dark(#ccffffbb,#ccffffbb);padding:;border-radius:;backdrop-filter:blur(20px);}
-        nav>button{border:none;background:transparent;}
-        nav>buton:hover{}
-        nav>div{position:absolute;background:light-dark(#ccffffbb,#ccffffbb);}
+        nav{display:block;position:fixed;top:clamp(2px,1vw,10px);left:clamp(2px,1vw,10px);width:calc(100vw - clamp(2px,1vw,10px) * 2);height:40px;background:light-dark(#ccffffbb,#ccffffbb);padding:2.5px;border-radius:20px;backdrop-filter:blur(20px);}
+        nav>button{width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;transition:0.5s;border-radius:20px;}
+        nav>button:hover{background:#00000033;}
+        nav>div{position:absolute;width:clamp(200px,40vw,600px);background:light-dark(#ccffffbb,#ccffffbb);}
         nav>div>button{background:transparent;}
         nav>div>div{}
-        nav>div>div>a{background:transparent;}
+        nav>div>div>a{display:block;text-decoration:none;}
         nav>div>div>a:hover{}
         
         /**/
@@ -67,6 +69,8 @@
     <div id="content">
         <nav>
             <button id="mainNavButton" onclick="showPage('home')"><i class="fa fa-home"></i></button>
+            <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
+            <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
             <button onclick="toggleSubMenu()"><i class="fa fa-navicon"></i></button>
             <div id="subMenu">
                 <div id="p1-anchors">
@@ -77,8 +81,8 @@
                     <a href="#">链接3</a>
                     <a href="#">链接4</a>
                 </div>
-                <button data-page="contact" onclick="showPage('p1')">页面1</button>
-                <button data-page="about" onclick="showPage('p2')">页面2</button>
+                <button onclick="showPage('p1')">页面1</button>
+                <button onclick="showPage('p2')">页面2</button>
             </div>
         </nav>
         <div id="home">
@@ -99,6 +103,7 @@
         本网站需要JavaScript才能正常运行，请启用JavaScript后刷新页面
     </noscript>
     <script>
+        //页面切换
         let currentPage = null;
         let subMenuVisible = false;
         function showPage(pageId) {
@@ -115,9 +120,10 @@
         function updateNavButtons(activePageId) {
             document.getElementById('mainNavButton').style.display = 
                 activePageId === 'home' ? 'none' : 'inline-block';
-            document.querySelectorAll('nav>div button[data-page]').forEach(button => {
+            document.querySelectorAll('nav>div button[onclick]').forEach(button => {
+                const pageId = button.getAttribute('onclick').match(/showPage\('(.+?)'\)/)[1];
                 button.style.display = 
-                    button.getAttribute('data-page') === activePageId ? 'none' : 'block';
+                    pageId === activePageId ? 'none' : 'block';
             });
         }
         function updateAnchorLinks(pageId) {
@@ -132,6 +138,10 @@
             document.querySelector('nav>div').style.display = 
                 subMenuVisible ? 'block' : 'none';
         }
+        
+        //返回顶部/底部
+        function goTop(){window.scrollTo(0,0);}
+        function goBottom(){window.scrollTo(0,document.documentElement.scrollHeight);}
     </script>
 </body>
 </html>
