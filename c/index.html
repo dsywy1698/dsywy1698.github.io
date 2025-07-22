@@ -13,11 +13,10 @@
         :root{color-scheme:light dark;}
         *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;}
         *::-webkit-scrollbar{display:none!important;}
-        ::-moz-selection,::selection{color:;background:;}
+        ::-moz-selection,::selection{color:var(--selection-color);background:var(--selection-background);}
         html{scroll-behavior:smooth;font-size:100%;}
         body{font-family:"微软雅黑",sans-serif;}
-        #bigger,#smaller{display:none;}
-        #content{position:relative;top:;}
+        #content{position:relative;}
         #content>div{padding:calc(40px + clamp(2px,1vw,10px)) 0;}
         #content>div:not(#home){display:none;}
         /*基本样式*/
@@ -28,15 +27,36 @@
         h1,h2,h3,h4,h5,h6{}
         img,svg,canvas,audio,video{max-width:100%;}
         button{border:none;}
+        /*主题*/
+        #content[data-mode^="brief"]{}
+        #content[data-mode="brief-light"]{}
+        #content[data-mode="brief-dark"]{}
+        #content[data-mode="brief-blue"]{}
+        #content[data-mode="brief-timeline"]{}
+        #content[data-mode^="atmosphere"]{}
+        #content[data-mode="atmosphere-cottage"]{background-image:url();}
+        #content[data-mode="atmosphere-seaside"]{background-image:url();}
+        #content[data-mode="atmosphere-sky"]{background-image:url();}
+        #content[data-mode="atmosphere-campus"]{background-image:url();}
+        #content[data-shadow="subtle"]{}
+        #content[data-shadow="none"]{}
+        #content[data-radius="large"]{}
+        #content[data-radius="small"]{}
+        #content[data-font-size="large"]{}
+        #content[data-font-size="normal"]{}
+        #content[data-font-size="small"]{}
+        #content[data-line-spacing="tight"]{}
+        #content[data-line-spacing="loose"]{}
         /*缩小/放大窗口*/
-        
+        #bigger,#smaller{display:none;justify-content:center;align-items:center;color:light-dark(#06c,#9df);padding:20px 5px;text-align:center;background:light-dark(#e6ffff,#039);height:100vh;transition:0.5s;}
+        #bigger{font-size:5rem;}
+        #smaller{font-size:1.2rem;}
+        #smaller:hover,#bigger:hover{background:light-dark(#cff,#06c);}
         /*无js窗口*/
-        
+        noscript{display:block;width:100vw;height:100vh;background:#fcc;color:#c00;text-align:center;font-weight:800;font-size:1.25rem;}
         /*加载页面*/
         #loader{background:light-dark(#ccc,#000);color:light-dark(#000,#fff);width:100vw;height:100vh;z-index:2;overflow:hidden;position:fixed;top:0;left:0;}
         @keyframes out{0%{opacity:1;}99%{opacity:0;}100%{opacity:0;display:none;}}
-        /*老旧浏览器*/
-        
         /*页面*/
         /*导航栏*/
         nav{display:block;position:fixed;top:clamp(2px,1vw,10px);left:clamp(2px,1vw,10px);width:calc(100vw - clamp(2px,1vw,10px) * 2);height:40px;background:light-dark(#ccffffbb,#ccffffbb);padding:2.5px;border-radius:20px;backdrop-filter:blur(20px);}
@@ -48,31 +68,32 @@
         nav>div>div{}
         nav>div>div>a{display:block;width:100%;text-decoration:none;transition:0.5s;}
         nav>div>div>a:hover{background:#00000033;}
-        
-        /**/
+        /*首页*/
+        /*正文*/
         
         /*页脚*/
         footer{}
         
-        @media screen and (min-width:2000px){#bigger{display:block;}#content,#loader{display:none!important;}}
-        @media screen and (max-width:300px){#smaller{display:block;}#content,#loader{display:none!important;}}
+        @media screen and (min-width:2000px){#bigger{display:flex;}#content,#loader{display:none!important;}}
+        @media screen and (max-width:300px){#smaller{display:flex;}#content,#loader{display:none!important;}}
+        
+        @media (prefers-color-scheme:dark){}
     </style>
 </head>
 <body onload="loading()">
     <div id="loader">
-            <div class="flashing"><span></span></div>
-            <div></div>
-            <button onclick="loading()">跳过</button>
+        <button onclick="loading()">跳过</button>
     </div>
     <div id="bigger">请缩小窗口</div>
     <div id="smaller">请放大窗口</div>
-    <div id="content">
+    <div id="content" data-mode="brief-light" data-shadow="subtle" data-radius="large" data-font-size="normal" data-line-spacing="tight">
         <nav>
             <button id="mainNavButton" onclick="showPage('home')"><i class="fa fa-home"></i></button>
             <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
             <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
+            <button onclick=""><i class="fa fa-gear"></i></button>
             <button onclick="toggleSubMenu()"><i class="fa fa-navicon"></i></button>
-            <div id="subMenu">
+            <div>
                 <div id="p1-anchors">
                     <a href="#">链接1</a>
                     <a href="#">链接2</a>
@@ -85,69 +106,26 @@
                 <button onclick="showPage('p2')">页面2</button>
             </div>
         </nav>
+        <dialog>
+            <div><span>&times;</span>设置</div>
+            <section>
+                <h2>主题</h2>
+                
+            </section>
+            <section>
+                <h2>字体</h2>
+                
+            </section>
+            <section>
+                <h2>样式</h2>
+                
+            </section>
+        </dialog>
         <div id="home">
             <h1>欢迎来到首页</h1>
-            <p>这是单页应用的主页内容。</p>
+            <p>页面开发中，敬请期待。</p>
         </div>
         <div id="p1">
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
-            <h1>页面1</h1>
             <h1>页面1</h1>
         </div>
         <div id="p2">
@@ -158,9 +136,12 @@
     </div>
     <noscript>
         <style>#loader,#bigger,#smaller,#content{display:none!important;}</style>
-        本网站需要JavaScript才能正常运行，请启用JavaScript后刷新页面
+        <p>本网站需要JavaScript才能正常运行，请启用JavaScript后刷新页面</p>
     </noscript>
+    <div id="oldbrowser" style="display:none;">浏览器版本过旧，不支持显示</div>
     <script>
+        //旧版浏览器
+        
         //页面切换
         let currentPage = null;
         let subMenuVisible = false;
@@ -200,6 +181,10 @@
         //返回顶部/底部
         function goTop(){window.scrollTo(0,0);}
         function goBottom(){window.scrollTo(0,document.documentElement.scrollHeight);}
+        
+        //模态框
+        
+        //主题切换
     </script>
 </body>
 </html>
