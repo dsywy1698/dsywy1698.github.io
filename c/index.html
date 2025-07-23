@@ -17,7 +17,7 @@
         ::selection{background:var(--selection);}
         html{scroll-behavior:smooth;font-size:100%;}
         body{font-family:"微软雅黑",sans-serif;}
-        #content{position:relative;}
+        #content{position:relative;padding:10px;}
         #content>div{padding:calc(40px + clamp(2px,1vw,10px)) 0;}
         #content>div:not(#home){display:none;}
         /*基本样式*/
@@ -31,18 +31,27 @@
         #content[data-mode^="brief"]{}
         #content[data-mode="brief-light"]{background:#fff;color:#000;--selection:#9494b888;--nav-bg:#ddddddbb;--nav-btn:#404040;}
         #content[data-mode="brief-dark"]{background:#262626;color:#fff;--selection:#8585ad88;--nav-bg:#595959bb;--nav-btn:#e6e6e6;}
-        #content[data-mode="brief-blue"]{background:;color:;--selection:;--nav-bg:;--nav-btn:;}
+        #content[data-mode="brief-light-blue"]{background:;color:;--selection:;--nav-bg:;--nav-btn:;}
+        #content[data-mode="brief-dark-blue"]{background:;color:;--selection:;--nav-bg:;--nav-btn:;}
         #content[data-mode="brief-timeline"]{--selection:;--nav-bg:;--nav-btn:;}
-        #content[data-mode^="atmosphere"]{padding:10px;}
+        #content[data-mode^="atmosphere"]{}
         #content[data-mode^="atmosphere"]>div{margin:auto;width:100%;max-width:900px;}
-        #content[data-mode="atmosphere-cottage"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
-        #content[data-mode="atmosphere-seaside"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
-        #content[data-mode="atmosphere-sky"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
-        #content[data-mode="atmosphere-campus"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
-        #content[data-mode="atmosphere-cottage"]>div{background:;backdrop-filter:blur(5px);}
-        #content[data-mode="atmosphere-seaside"]>div{background:;backdrop-filter:blur(5px);}
-        #content[data-mode="atmosphere-sky"]>div{background:;backdrop-filter:blur(5px);}
-        #content[data-mode="atmosphere-campus"]>div{background:;backdrop-filter:blur(5px);}
+        #content[data-mode="atmosphere-light-cottage"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
+        #content[data-mode="atmosphere-dark-cottage"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
+        #content[data-mode="atmosphere-light-seaside"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
+        #content[data-mode="atmosphere-dark-seaside"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
+        #content[data-mode="atmosphere-light-sky"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
+        #content[data-mode="atmosphere-dark-sky"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
+        #content[data-mode="atmosphere-light-campus"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
+        #content[data-mode="atmosphere-dark-campus"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
+        #content[data-mode="atmosphere-light-cottage"]>div{background:;backdrop-filter:blur(5px);}
+        #content[data-mode="atmosphere-dark-cottage"]>div{background:;backdrop-filter:blur(5px);}
+        #content[data-mode="atmosphere-light-seaside"]>div{background:;backdrop-filter:blur(5px);}
+        #content[data-mode="atmosphere-dark-seaside"]>div{background:;backdrop-filter:blur(5px);}
+        #content[data-mode="atmosphere-light-sky"]>div{background:;backdrop-filter:blur(5px);}
+        #content[data-mode="atmosphere-dark-sky"]>div{background:;backdrop-filter:blur(5px);}
+        #content[data-mode="atmosphere-light-campus"]>div{background:;backdrop-filter:blur(5px);}
+        #content[data-mode="atmosphere-dark-campus"]>div{background:;backdrop-filter:blur(5px);}
         #content[data-shadow="subtle"]{}
         #content[data-shadow="none"]{}
         #content[data-radius="large"]{--radius-x:2.5px;--radius-2x:5px;--radius-3x:7.5px;--radius-4x:10px;--radius-5x:12.5px;--radius-6x:15px;--radius-7x:17.5px;--radius-8x:20px;--radius-9x:22.5px;--radius-10x:25px;}
@@ -85,6 +94,10 @@
         #settingdialog>div:nth-of-type(1)>span:hover{}
         #settingdialog>div:nth-of-type(2){height:calc(100% - 40px);padding:10px;overflow-y:auto;}
         #settingdialog>div:nth-of-type(2)>section{}
+        #settingdialog label{height:25px;background:#cff;padding:2.5px;border-radius:12.5px;}
+        #settingdialog input[type="radio"]{-webkit-appearance:none;-moz-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;outline:none;margin-right:10px;position:relative;top:0;background:#fff;transition:0.3s;}
+        #settingdialog input[type="radio"]:before{content:var(--input-content);}
+        #settingdialog input[type="radio"]:checked{background:#2196F3;}
         /*首页*/
         /*正文*/
         
@@ -103,7 +116,7 @@
     </div>
     <div id="bigger">请缩小窗口</div>
     <div id="smaller">请放大窗口</div>
-    <div id="content" data-mode="brief-light" data-shadow="subtle" data-radius="large" data-font-size="normal" data-line-spacing="tight" data-font-weight="normal">
+    <div id="content" data-mode="system" data-shadow="subtle" data-radius="large" data-font-size="normal" data-line-spacing="loose" data-font-weight="normal">
         <nav>
             <button id="mainNavButton" onclick="showPage('home')"><i class="fa fa-home"></i></button>
             <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
@@ -128,39 +141,47 @@
             <div>
                 <section>
                     <h2>主题</h2>
-                    <label><input type="radio" name="theme" value="brief-light" onclick="changeTheme('brief-light')"> 简洁-浅色</label><br>
-                    <label><input type="radio" name="theme" value="brief-dark" onclick="changeTheme('brief-dark')"> 简洁-深色</label><br>
-                    <label><input type="radio" name="theme" value="brief-blue" onclick="changeTheme('brief-blue')"> 简洁-蓝色</label><br>
-                    <label><input type="radio" name="theme" value="brief-timeline" onclick="changeTheme('brief-timeline')"> 简洁-时间线</label><br>
-                    <label><input type="radio" name="theme" value="atmosphere-cottage" onclick="changeTheme('atmosphere-cottage')"> 氛围-小屋</label><br>
-                    <label><input type="radio" name="theme" value="atmosphere-seaside" onclick="changeTheme('atmosphere-seaside')"> 氛围-海边</label><br>
-                    <label><input type="radio" name="theme" value="atmosphere-sky" onclick="changeTheme('atmosphere-sky')"> 氛围-天空</label><br>
-                    <label><input type="radio" name="theme" value="atmosphere-campus" onclick="changeTheme('atmosphere-campus')"> 氛围-校园</label>
+                    <label><input type="radio" name="theme" value="system" onclick="changeTheme('system')">跟随系统</label><br>
+                    <label><input type="radio" name="theme" value="brief-light" onclick="changeTheme('brief-light')">简洁-浅色</label><br>
+                    <label><input type="radio" name="theme" value="brief-dark" onclick="changeTheme('brief-dark')">简洁-深色</label><br>
+                    <label><input type="radio" name="theme" value="brief-light-blue" onclick="changeTheme('brief-light-blue')">简洁-浅蓝</label><br>
+                    <label><input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-dark-blue')">简洁-深蓝</label><br>
+                    <label><input type="radio" name="theme" value="brief-timeline" onclick="changeTheme('brief-timeline')">时间线</label><br>
+                    <label><input type="radio" name="theme" value="atmosphere-light-cottage" onclick="changeTheme('atmosphere-light-cottage')">氛围-浅色-小屋</label><br>
+                    <label><input type="radio" name="theme" value="atmosphere-dark-cottage" onclick="changeTheme('atmosphere-dark-cottage')">氛围-深色-小屋</label><br>
+                    <label><input type="radio" name="theme" value="atmosphere-light-seaside" onclick="changeTheme('atmosphere-light-seaside')">氛围-浅色-海边</label><br>
+                    <label><input type="radio" name="theme" value="atmosphere-dark-seaside" onclick="changeTheme('atmosphere-dark-seaside')">氛围-深色-海边</label><br>
+                    <label><input type="radio" name="theme" value="atmosphere-light-sky" onclick="changeTheme('atmosphere-light-sky')">氛围-浅色-天空</label><br>
+                    <label><input type="radio" name="theme" value="atmosphere-dark-sky" onclick="changeTheme('atmosphere-dark-sky')">氛围-深色-天空</label><br>
+                    <label><input type="radio" name="theme" value="atmosphere-light-campus" onclick="changeTheme('atmosphere-light-campus')">氛围-浅色-校园</label><br>
+                    <label><input type="radio" name="theme" value="atmosphere-dark-campus" onclick="changeTheme('atmosphere-dark-campus')">氛围-深色-校园</label>
                 </section>
                 <section>
                     <h2>字体</h2>
                     <h3>字号</h3>
-                    <label><input type="radio" name="fontsize" value="small" onclick="changeFontSize('small')"> 小</label><br>
-                    <label><input type="radio" name="fontsize" value="normal" onclick="changeFontSize('normal')"> 正常</label><br>
-                    <label><input type="radio" name="fontsize" value="large" onclick="changeFontSize('large')"> 大</label><br>
+                    <label>
+                    <input type="radio" name="fontsize" value="small" onclick="changeFontSize('small')" style="--input-content:'小';">
+                    <input type="radio" name="fontsize" value="normal" onclick="changeFontSize('normal')" style="--input-content:'中';">
+                    <input type="radio" name="fontsize" value="large" onclick="changeFontSize('large')" style="--input-content:'大';">
+                    </label>
                     
                     <h3>行距/字距</h3>
-                    <label><input type="radio" name="linespacing" value="tight" onclick="changeLineSpacing('tight')"> 紧凑</label><br>
-                    <label><input type="radio" name="linespacing" value="loose" onclick="changeLineSpacing('loose')"> 宽松</label>
+                    <label><input type="radio" name="linespacing" value="tight" onclick="changeLineSpacing('tight')">紧凑</label><br>
+                    <label><input type="radio" name="linespacing" value="loose" onclick="changeLineSpacing('loose')">宽松</label>
                     <h3>字重</h3>
-                    <label><input type="radio" name="fontweight" value="thin" onclick="changeFontWeight('thin')"> 细</label><br>
-                    <label><input type="radio" name="fontweight" value="normal" onclick="changeFontWeight('normal')"> 正常</label><br>
-                    <label><input type="radio" name="fontweight" value="bold" onclick="changeFontWeight('bold')"> 粗</label>
+                    <label><input type="radio" name="fontweight" value="thin" onclick="changeFontWeight('thin')">细</label><br>
+                    <label><input type="radio" name="fontweight" value="normal" onclick="changeFontWeight('normal')">正常</label><br>
+                    <label><input type="radio" name="fontweight" value="bold" onclick="changeFontWeight('bold')">粗</label>
                 </section>
                 <section>
                     <h2>样式</h2>
                     <h3>圆角</h3>
-                    <label><input type="radio" name="radius" value="small" onclick="changeRadius('small')"> 小圆角</label><br>
-                    <label><input type="radio" name="radius" value="large" onclick="changeRadius('large')"> 大圆角</label><br>
+                    <label><input type="radio" name="radius" value="small" onclick="changeRadius('small')">小圆角</label><br>
+                    <label><input type="radio" name="radius" value="large" onclick="changeRadius('large')">大圆角</label><br>
                     
                     <h3>阴影</h3>
-                    <label><input type="radio" name="shadow" value="subtle" onclick="changeShadow('subtle')"> 柔和</label><br>
-                    <label><input type="radio" name="shadow" value="none" onclick="changeShadow('none')"> 无</label>
+                    <label><input type="radio" name="shadow" value="subtle" onclick="changeShadow('subtle')">柔和</label><br>
+                    <label><input type="radio" name="shadow" value="none" onclick="changeShadow('none')">无</label>
                 </section>
                 <section>
                     <button onclick="resetToDefault()">恢复默认</button>
@@ -289,10 +310,14 @@
         function changeTheme(theme) {
             const content = document.getElementById('content');
             content.removeAttribute('data-mode');
-            if (theme) {content.setAttribute('data-mode', theme);}
+            if (theme && theme !== 'system') {
+                content.setAttribute('data-mode', theme);
+            } else if (theme === 'system') {
+                const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'brief-dark' : 'brief-light';
+                content.setAttribute('data-mode', systemTheme);
+            }
             localStorage.setItem('selectedTheme', theme);
         }
-        
         function changeFontSize(size) {
             const content = document.getElementById('content');
             content.setAttribute('data-font-size', size);
@@ -318,7 +343,6 @@
             content.setAttribute('data-shadow', shadow);
             localStorage.setItem('selectedShadow', shadow);
         }
-        
         function initSettings() {
             const savedTheme = localStorage.getItem('selectedTheme');
             const savedFontSize = localStorage.getItem('selectedFontSize');
@@ -326,7 +350,13 @@
             const savedLineSpacing = localStorage.getItem('selectedLineSpacing');
             const savedFontWeight = localStorage.getItem('selectedFontWeight');
             const savedShadow = localStorage.getItem('selectedShadow');
-            if (savedTheme) changeTheme(savedTheme);
+            if (savedTheme === 'system') {
+                const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+                systemTheme.addListener(handleSystemThemeChange);
+                handleSystemThemeChange(systemTheme);
+            } else if (savedTheme) {
+                changeTheme(savedTheme);
+            }
             if (savedFontSize) changeFontSize(savedFontSize);
             if (savedRadius) changeRadius(savedRadius);
             if (savedLineSpacing) changeLineSpacing(savedLineSpacing);
@@ -334,10 +364,15 @@
             if (savedShadow) changeShadow(savedShadow);
             updateSettingRadios();
         }
-        
+        function handleSystemThemeChange(e) {
+            const content = document.getElementById('content');
+            const theme = e.matches ? 'brief-dark' : 'brief-light';
+            content.setAttribute('data-mode', theme);
+        }
         function updateSettingRadios() {
             const content = document.getElementById('content');
-            
+            const savedTheme = localStorage.getItem('selectedTheme') || 'system';
+            document.querySelector(`input[name="theme"][value="${savedTheme}"]`).checked = true;
             const currentTheme = content.getAttribute('data-mode') || 'brief-light';
             document.querySelector(`input[name="theme"][value="${currentTheme}"]`).checked = true;
             const currentFontSize = content.getAttribute('data-font-size') || 'normal';
@@ -351,23 +386,22 @@
             const currentShadow = content.getAttribute('data-shadow') || 'subtle';
             document.querySelector(`input[name="shadow"][value="${currentShadow}"]`).checked = true;
         }
-        
         window.addEventListener('DOMContentLoaded', initSettings);
-    function resetToDefault() {
-        localStorage.removeItem('selectedTheme');
-        localStorage.removeItem('selectedFontSize');
-        localStorage.removeItem('selectedRadius');
-        localStorage.removeItem('selectedLineSpacing');
-        localStorage.removeItem('selectedFontWeight');
-        localStorage.removeItem('selectedShadow');
-        changeTheme('brief-light');
-        changeFontSize('normal');
-        changeRadius('large');
-        changeLineSpacing('loose');
-        changeFontWeight('normal');
-        changeShadow('subtle');
-        updateSettingRadios();
-    }
+            function resetToDefault() {
+            localStorage.removeItem('selectedTheme');
+            localStorage.removeItem('selectedFontSize');
+            localStorage.removeItem('selectedRadius');
+            localStorage.removeItem('selectedLineSpacing');
+            localStorage.removeItem('selectedFontWeight');
+            localStorage.removeItem('selectedShadow');
+            changeTheme('system');
+            changeFontSize('normal');
+            changeRadius('large');
+            changeLineSpacing('loose');
+            changeFontWeight('normal');
+            changeShadow('subtle');
+            updateSettingRadios();
+        }
     </script>
 </body>
 </html>
