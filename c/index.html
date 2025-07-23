@@ -44,7 +44,7 @@
         #content[data-font-size="large"]{font-size:125%;}
         #content[data-font-size="normal"]{font-size:100%;}
         #content[data-font-size="small"]{font-size:75%;}
-        #content[data-line-spacing="tight"] p,#content[data-line-spacing="tight"] li{line-height:1.6em;letter-spacing:0.1em;}
+        #content[data-line-spacing="tight"] p,#content[data-line-spacing="tight"] li{line-height:1.7em;letter-spacing:0.15em;}
         #content[data-line-spacing="loose"] p,#content[data-line-spacing="loose"] li{line-height:1.3em;letter-spacing:0.05em;}
         /*缩小/放大窗口*/
         #bigger,#smaller{display:none;justify-content:center;align-items:center;color:light-dark(#06c,#9df);padding:20px 5px;text-align:center;background:light-dark(#e6ffff,#039);height:100vh;transition:0.5s;}
@@ -68,16 +68,20 @@
         nav>div>div>a{display:block;width:100%;text-decoration:none;transition:0.5s;}
         nav>div>div>a:hover{background:#00000033;}
         /*设置-模态框*/
-        #settingdialog{width:clamp();border:none;padding:10px;border-radius:var(--radius-6x);background:light-dark(#ffffffaa,#000000aa);backdrop-filter:blur(20px);margin:0;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);}
         dialog::backdrop{background:light-dark(#00000055,#ffffff55);backdrop-filter:blur(1px);}
+        #settingdialog{width:clamp();border:none;border-radius:var(--radius-6x);background:light-dark(#ffffffaa,#000000aa);backdrop-filter:blur(20px);margin:0;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);}
+        #settingdialog>div{background:light-dark(#00000022,#ffffff22);width:100%;width:clamp(300px,80vw,600px);padding:8px 15px;}
+        #settingdialog>div>span{float:right;}
+        #settingdialog>div>span:hover{}
+        #settingdialog>section{padding:10px;}
         /*首页*/
         /*正文*/
         
         /*页脚*/
         footer{}
         
-        @media screen and (min-width:2000px){#bigger{display:flex;}#content,#loader{display:none!important;}}
-        @media screen and (max-width:300px){#smaller{display:flex;}#content,#loader{display:none!important;}}
+        @media screen and (min-width:1600px){#bigger{display:flex;}#content,#loader{display:none!important;}}
+        @media screen and (max-width:320px){#smaller{display:flex;}#content,#loader{display:none!important;}}
         
         @media (prefers-color-scheme:dark){}
     </style>
@@ -109,7 +113,7 @@
             </div>
         </nav>
         <dialog id="settingdialog">
-            <div><span onclick="document.getElementById('settingdialog').close()">&times;</span>设置</div>
+            <div><strong>设置</strong><span onclick="document.getElementById('settingdialog').close()">&times;</span></div>
             <section>
                 <h2>主题</h2>
                 
@@ -126,13 +130,69 @@
         <div id="home">
             <h1>欢迎来到首页</h1>
             <p>页面开发中，敬请期待。</p>
+            <hr/>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
+            <p>这是一段测试文本。这是一段测试文本。</p>
         </div>
         <div id="p1">
             <h1>页面1</h1>
-            <p>文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本</p>
+            <p>这是一段测试文本。</p>
         </div>
         <div id="p2">
             <h1>页面2</h1>
+            <p>这是一段测试文本。</p>
         </div>
         <footer>
         </footer>
