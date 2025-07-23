@@ -13,7 +13,8 @@
         :root{color-scheme:light dark;}
         *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;}
         *::-webkit-scrollbar{display:none!important;}
-        ::-moz-selection,::selection{color:var(--selection-color);background:var(--selection-background);}
+        ::-moz-selection{background:var(--selection);}
+        ::selection{background:var(--selection);}
         html{scroll-behavior:smooth;font-size:100%;}
         body{font-family:"微软雅黑",sans-serif;}
         #content{position:relative;}
@@ -28,24 +29,32 @@
         button{border:none;}
         /*主题*/
         #content[data-mode^="brief"]{}
-        #content[data-mode="brief-light"]{}
-        #content[data-mode="brief-dark"]{}
-        #content[data-mode="brief-blue"]{}
-        #content[data-mode="brief-timeline"]{}
-        #content[data-mode^="atmosphere"]{}
-        #content[data-mode="atmosphere-cottage"]{background-image:url();}
-        #content[data-mode="atmosphere-seaside"]{background-image:url();}
-        #content[data-mode="atmosphere-sky"]{background-image:url();}
-        #content[data-mode="atmosphere-campus"]{background-image:url();}
+        #content[data-mode="brief-light"]{background:#fff;color:#000;--selection:#9494b888;--nav-bg:#ddddddbb;--nav-btn:#404040;}
+        #content[data-mode="brief-dark"]{background:#262626;color:#fff;--selection:#8585ad88;--nav-bg:#595959bb;--nav-btn:#e6e6e6;}
+        #content[data-mode="brief-blue"]{background:;color:;--selection:;--nav-bg:;--nav-btn:;}
+        #content[data-mode="brief-timeline"]{--selection:;--nav-bg:;--nav-btn:;}
+        #content[data-mode^="atmosphere"]{padding:10px;}
+        #content[data-mode^="atmosphere"]>div{margin:auto;width:100%;max-width:900px;}
+        #content[data-mode="atmosphere-cottage"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
+        #content[data-mode="atmosphere-seaside"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
+        #content[data-mode="atmosphere-sky"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
+        #content[data-mode="atmosphere-campus"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
+        #content[data-mode="atmosphere-cottage"]>div{background:;backdrop-filter:blur(5px);}
+        #content[data-mode="atmosphere-seaside"]>div{background:;backdrop-filter:blur(5px);}
+        #content[data-mode="atmosphere-sky"]>div{background:;backdrop-filter:blur(5px);}
+        #content[data-mode="atmosphere-campus"]>div{background:;backdrop-filter:blur(5px);}
         #content[data-shadow="subtle"]{}
         #content[data-shadow="none"]{}
         #content[data-radius="large"]{--radius-x:2.5px;--radius-2x:5px;--radius-3x:7.5px;--radius-4x:10px;--radius-5x:12.5px;--radius-6x:15px;--radius-7x:17.5px;--radius-8x:20px;--radius-9x:22.5px;--radius-10x:25px;}
         #content[data-radius="small"]{--radius-x:1px;--radius-2x:2px;--radius-3x:3px;--radius-4x:4px;--radius-5x:5px;--radius-6x:6px;--radius-7x:7px;--radius-8x:8px;--radius-9x:9px;--radius-10x:10px;--radius-11x:11px;--radius-12x:12px;--radius-13x:13px;--radius-14x:14px;--radius-15x:15px;--radius-16x:16px;--radius-17x:17px;--radius-18x:18px;--radius-19x:19px;--radius-20x:20px;}
-        #content[data-font-size="large"]{font-size:125%;}
+        #content[data-font-size="large"]{font-size:112.5%;}
         #content[data-font-size="normal"]{font-size:100%;}
-        #content[data-font-size="small"]{font-size:75%;}
-        #content[data-line-spacing="tight"] p,#content[data-line-spacing="tight"] li{line-height:1.7em;letter-spacing:0.15em;}
-        #content[data-line-spacing="loose"] p,#content[data-line-spacing="loose"] li{line-height:1.3em;letter-spacing:0.05em;}
+        #content[data-font-size="small"]{font-size:87.5%;}
+        #content[data-line-spacing="loose"] p,#content[data-line-spacing="loose"] li{line-height:1.7em;letter-spacing:0.15em;}
+        #content[data-line-spacing="tight"] p,#content[data-line-spacing="tight"] li{line-height:1.3em;letter-spacing:0.05em;}
+        #content[data-font-weight="thin"]{font-weight:100;}
+        #content[data-font-weight="normal"]{font-weight:400;}
+        #content[data-font-weight="bold"]{font-weight:600;}
         /*缩小/放大窗口*/
         #bigger,#smaller{display:none;justify-content:center;align-items:center;color:light-dark(#06c,#9df);padding:20px 5px;text-align:center;background:light-dark(#e6ffff,#039);height:100vh;transition:0.5s;}
         #bigger{font-size:5rem;}
@@ -58,9 +67,10 @@
         @keyframes out{0%{opacity:1;}99%{opacity:0;}100%{opacity:0;display:none;}}
         /*页面*/
         /*导航栏*/
-        nav{display:block;position:fixed;top:clamp(2px,1vw,10px);left:clamp(2px,1vw,10px);width:calc(100vw - clamp(2px,1vw,10px) * 2);height:40px;background:light-dark(#ccffffbb,#ccffffbb);padding:2.5px;border-radius:var(--radius-8x);backdrop-filter:blur(20px);}
+        nav{display:block;position:fixed;top:clamp(2px,1vw,10px);left:clamp(2px,1vw,10px);width:calc(100vw - clamp(2px,1vw,10px) * 2);height:40px;background:var(--nav-bg);padding:2.5px;border-radius:var(--radius-8x);backdrop-filter:blur(20px);z-index:1;}
         nav>button{width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;transition:0.5s;border-radius:var(--radius-8x);}
         nav>button:hover{background:#00000033;}
+        nav>button>i{color:var(--nav-btn);}
         nav>div{position:absolute;width:clamp(150px,35vw,300px);background:light-dark(#ccffffbb,#ccffffbb);transform-origin:top;border-radius:var(--radius-2x);max-height:clamp(200px,40vh,400px);overflow-y:auto;font-size:1.125rem;}
         nav>div>button{display:block;width:100%;background:transparent;transition:0.5s;font-size:1.125rem;}
         nav>div>button:hover{background:#00000033;}
@@ -69,11 +79,12 @@
         nav>div>div>a:hover{background:#00000033;}
         /*设置-模态框*/
         dialog::backdrop{background:light-dark(#00000055,#ffffff55);backdrop-filter:blur(1px);}
-        #settingdialog{width:clamp();border:none;border-radius:var(--radius-6x);background:light-dark(#ffffffaa,#000000aa);backdrop-filter:blur(20px);margin:0;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);}
-        #settingdialog>div{background:light-dark(#00000022,#ffffff22);width:100%;width:clamp(300px,80vw,600px);padding:8px 15px;}
-        #settingdialog>div>span{float:right;}
-        #settingdialog>div>span:hover{}
-        #settingdialog>section{padding:10px;}
+        #settingdialog{width:clamp(300px,80vw,600px);height:clamp(350px,60vh,800px);border:none;border-radius:var(--radius-6x);background:light-dark(#ffffffaa,#000000aa);backdrop-filter:blur(20px);position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);overflow:hidden;}
+        #settingdialog>div:nth-of-type(1){position:sticky;top:0;background:light-dark(#00000022,#ffffff22);width:100%;padding:8px 15px;line-height:24px;}
+        #settingdialog>div:nth-of-type(1)>span{float:right;}
+        #settingdialog>div:nth-of-type(1)>span:hover{}
+        #settingdialog>div:nth-of-type(2){height:calc(100% - 40px);padding:10px;overflow-y:auto;}
+        #settingdialog>div:nth-of-type(2)>section{}
         /*首页*/
         /*正文*/
         
@@ -81,7 +92,7 @@
         footer{}
         
         @media screen and (min-width:1600px){#bigger{display:flex;}#content,#loader{display:none!important;}}
-        @media screen and (max-width:320px){#smaller{display:flex;}#content,#loader{display:none!important;}}
+        @media screen and (max-width:320px),(max-height:400px){#smaller{display:flex;}#content,#loader{display:none!important;}}
         
         @media (prefers-color-scheme:dark){}
     </style>
@@ -92,7 +103,7 @@
     </div>
     <div id="bigger">请缩小窗口</div>
     <div id="smaller">请放大窗口</div>
-    <div id="content" data-mode="brief-light" data-shadow="subtle" data-radius="large" data-font-size="normal" data-line-spacing="tight">
+    <div id="content" data-mode="brief-light" data-shadow="subtle" data-radius="large" data-font-size="normal" data-line-spacing="tight" data-font-weight="normal">
         <nav>
             <button id="mainNavButton" onclick="showPage('home')"><i class="fa fa-home"></i></button>
             <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
@@ -114,18 +125,47 @@
         </nav>
         <dialog id="settingdialog">
             <div><strong>设置</strong><span onclick="document.getElementById('settingdialog').close()">&times;</span></div>
-            <section>
-                <h2>主题</h2>
-                
-            </section>
-            <section>
-                <h2>字体</h2>
-                
-            </section>
-            <section>
-                <h2>样式</h2>
-                
-            </section>
+            <div>
+                <section>
+                    <h2>主题</h2>
+                    <label><input type="radio" name="theme" value="brief-light" onclick="changeTheme('brief-light')"> 简洁-浅色</label><br>
+                    <label><input type="radio" name="theme" value="brief-dark" onclick="changeTheme('brief-dark')"> 简洁-深色</label><br>
+                    <label><input type="radio" name="theme" value="brief-blue" onclick="changeTheme('brief-blue')"> 简洁-蓝色</label><br>
+                    <label><input type="radio" name="theme" value="brief-timeline" onclick="changeTheme('brief-timeline')"> 简洁-时间线</label><br>
+                    <label><input type="radio" name="theme" value="atmosphere-cottage" onclick="changeTheme('atmosphere-cottage')"> 氛围-小屋</label><br>
+                    <label><input type="radio" name="theme" value="atmosphere-seaside" onclick="changeTheme('atmosphere-seaside')"> 氛围-海边</label><br>
+                    <label><input type="radio" name="theme" value="atmosphere-sky" onclick="changeTheme('atmosphere-sky')"> 氛围-天空</label><br>
+                    <label><input type="radio" name="theme" value="atmosphere-campus" onclick="changeTheme('atmosphere-campus')"> 氛围-校园</label>
+                </section>
+                <section>
+                    <h2>字体</h2>
+                    <h3>字号</h3>
+                    <label><input type="radio" name="fontsize" value="small" onclick="changeFontSize('small')"> 小</label><br>
+                    <label><input type="radio" name="fontsize" value="normal" onclick="changeFontSize('normal')"> 正常</label><br>
+                    <label><input type="radio" name="fontsize" value="large" onclick="changeFontSize('large')"> 大</label><br>
+                    
+                    <h3>行距/字距</h3>
+                    <label><input type="radio" name="linespacing" value="tight" onclick="changeLineSpacing('tight')"> 紧凑</label><br>
+                    <label><input type="radio" name="linespacing" value="loose" onclick="changeLineSpacing('loose')"> 宽松</label>
+                    <h3>字重</h3>
+                    <label><input type="radio" name="fontweight" value="thin" onclick="changeFontWeight('thin')"> 细</label><br>
+                    <label><input type="radio" name="fontweight" value="normal" onclick="changeFontWeight('normal')"> 正常</label><br>
+                    <label><input type="radio" name="fontweight" value="bold" onclick="changeFontWeight('bold')"> 粗</label>
+                </section>
+                <section>
+                    <h2>样式</h2>
+                    <h3>圆角</h3>
+                    <label><input type="radio" name="radius" value="small" onclick="changeRadius('small')"> 小圆角</label><br>
+                    <label><input type="radio" name="radius" value="large" onclick="changeRadius('large')"> 大圆角</label><br>
+                    
+                    <h3>阴影</h3>
+                    <label><input type="radio" name="shadow" value="subtle" onclick="changeShadow('subtle')"> 柔和</label><br>
+                    <label><input type="radio" name="shadow" value="none" onclick="changeShadow('none')"> 无</label>
+                </section>
+                <section>
+                    <button onclick="resetToDefault()">恢复默认</button>
+                </section>
+            </div>
         </dialog>
         <div id="home">
             <h1>欢迎来到首页</h1>
@@ -245,9 +285,89 @@
         function goTop(){window.scrollTo(0,0);}
         function goBottom(){window.scrollTo(0,document.documentElement.scrollHeight);}
         
-        //模态框
+        //设置
+        function changeTheme(theme) {
+            const content = document.getElementById('content');
+            content.removeAttribute('data-mode');
+            if (theme) {content.setAttribute('data-mode', theme);}
+            localStorage.setItem('selectedTheme', theme);
+        }
         
-        //主题切换
+        function changeFontSize(size) {
+            const content = document.getElementById('content');
+            content.setAttribute('data-font-size', size);
+            localStorage.setItem('selectedFontSize', size);
+        }
+        function changeRadius(size) {
+            const content = document.getElementById('content');
+            content.setAttribute('data-radius', size);
+            localStorage.setItem('selectedRadius', size);
+        }
+        function changeLineSpacing(spacing) {
+            const content = document.getElementById('content');
+            content.setAttribute('data-line-spacing', spacing);
+            localStorage.setItem('selectedLineSpacing', spacing);
+        }
+        function changeFontWeight(weight) {
+            const content = document.getElementById('content');
+            content.setAttribute('data-font-weight', weight);
+            localStorage.setItem('selectedFontWeight', weight);
+        }
+        function changeShadow(shadow) {
+            const content = document.getElementById('content');
+            content.setAttribute('data-shadow', shadow);
+            localStorage.setItem('selectedShadow', shadow);
+        }
+        
+        function initSettings() {
+            const savedTheme = localStorage.getItem('selectedTheme');
+            const savedFontSize = localStorage.getItem('selectedFontSize');
+            const savedRadius = localStorage.getItem('selectedRadius');
+            const savedLineSpacing = localStorage.getItem('selectedLineSpacing');
+            const savedFontWeight = localStorage.getItem('selectedFontWeight');
+            const savedShadow = localStorage.getItem('selectedShadow');
+            if (savedTheme) changeTheme(savedTheme);
+            if (savedFontSize) changeFontSize(savedFontSize);
+            if (savedRadius) changeRadius(savedRadius);
+            if (savedLineSpacing) changeLineSpacing(savedLineSpacing);
+            if (savedFontWeight) changeFontWeight(savedFontWeight);
+            if (savedShadow) changeShadow(savedShadow);
+            updateSettingRadios();
+        }
+        
+        function updateSettingRadios() {
+            const content = document.getElementById('content');
+            
+            const currentTheme = content.getAttribute('data-mode') || 'brief-light';
+            document.querySelector(`input[name="theme"][value="${currentTheme}"]`).checked = true;
+            const currentFontSize = content.getAttribute('data-font-size') || 'normal';
+            document.querySelector(`input[name="fontsize"][value="${currentFontSize}"]`).checked = true;
+            const currentRadius = content.getAttribute('data-radius') || 'large';
+            document.querySelector(`input[name="radius"][value="${currentRadius}"]`).checked = true;
+            const currentLineSpacing = content.getAttribute('data-line-spacing') || 'loose';
+            document.querySelector(`input[name="linespacing"][value="${currentLineSpacing}"]`).checked = true;
+            const currentFontWeight = content.getAttribute('data-font-weight') || 'normal';
+            document.querySelector(`input[name="fontweight"][value="${currentFontWeight}"]`).checked = true;
+            const currentShadow = content.getAttribute('data-shadow') || 'subtle';
+            document.querySelector(`input[name="shadow"][value="${currentShadow}"]`).checked = true;
+        }
+        
+        window.addEventListener('DOMContentLoaded', initSettings);
+    function resetToDefault() {
+        localStorage.removeItem('selectedTheme');
+        localStorage.removeItem('selectedFontSize');
+        localStorage.removeItem('selectedRadius');
+        localStorage.removeItem('selectedLineSpacing');
+        localStorage.removeItem('selectedFontWeight');
+        localStorage.removeItem('selectedShadow');
+        changeTheme('brief-light');
+        changeFontSize('normal');
+        changeRadius('large');
+        changeLineSpacing('loose');
+        changeFontWeight('normal');
+        changeShadow('subtle');
+        updateSettingRadios();
+    }
     </script>
 </body>
 </html>
