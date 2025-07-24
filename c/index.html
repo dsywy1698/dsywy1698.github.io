@@ -18,7 +18,7 @@
         html{font-size:100%;}
         body{font-family:"微软雅黑",sans-serif;}
         #content{position:relative;top:0;left:0;width:100vw;height:100vh;}
-        #content>div{padding:calc(40px + clamp(2px,1vw,10px)) 10px;overflow-y:auto;scroll-behavior:smooth;height:calc(100vh - 20px);}
+        #content>div{padding:calc(40px + clamp(2px,1vw,10px)) 10px;overflow-y:auto;scroll-behavior:smooth;}
         #content>div:not(#home){display:none;}
         /*基本样式*/
         hr{color:;border:1px solid ;border-radius:100px;margin:;}
@@ -29,13 +29,14 @@
         button{border:none;}
         /*主题*/
         #content[data-mode^="brief"]{}
+        #content[data-mode^="brief"]>div{height:100vh;}
         #content[data-mode="brief-light"]{background:#fff;color:#000;--selection:#9494b888;--nav-bg:#ddddddbb;--nav-btn:#404040;}
         #content[data-mode="brief-dark"]{background:#262626;color:#fff;--selection:#8585ad88;--nav-bg:#595959bb;--nav-btn:#e6e6e6;}
         #content[data-mode="brief-light-blue"]{background:;color:;--selection:;--nav-bg:;--nav-btn:;}
         #content[data-mode="brief-dark-blue"]{background:;color:;--selection:;--nav-bg:;--nav-btn:;}
         #content[data-mode="brief-timeline"]{--selection:;--nav-bg:;--nav-btn:;}
         #content[data-mode^="atmosphere"]{background-position:50% 50%;background-repeat:no-repeat;background-size:cover;background-attachment:fixed;padding:10px 0;}
-        #content[data-mode^="atmosphere"]>div{max-width:900px;margin:auto;width:calc(100vw - 20px);backdrop-filter:blur(5px);border-radius:var(--radius-8x);}
+        #content[data-mode^="atmosphere"]>div{max-width:900px;margin:auto;width:calc(100vw - 20px);height:calc(100vh - 20px);backdrop-filter:blur(5px);border-radius:var(--radius-8x);}
         #content[data-mode="atmosphere-light-cottage"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
         #content[data-mode="atmosphere-dark-cottage"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
         #content[data-mode="atmosphere-light-seaside"]{background-image:url("seaside.webp");--selection:;--nav-bg:#99bbff88;--nav-btn:;}
