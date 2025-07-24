@@ -15,10 +15,10 @@
         *::-webkit-scrollbar{display:none!important;}
         ::-moz-selection{background:var(--selection);}
         ::selection{background:var(--selection);}
-        html{scroll-behavior:smooth;font-size:100%;}
+        html{font-size:100%;}
         body{font-family:"微软雅黑",sans-serif;}
-        #content{position:relative;padding:10px;}
-        #content>div{padding:calc(40px + clamp(2px,1vw,10px)) 0;}
+        #content{position:relative;top:0;left:0;width:100vw;height:100vh;}
+        #content>div{padding:calc(40px + clamp(2px,1vw,10px)) 10px;overflow-y:auto;scroll-behavior:smooth;height:calc(100vh - 20px);}
         #content>div:not(#home){display:none;}
         /*基本样式*/
         hr{color:;border:1px solid ;border-radius:100px;margin:;}
@@ -34,24 +34,24 @@
         #content[data-mode="brief-light-blue"]{background:;color:;--selection:;--nav-bg:;--nav-btn:;}
         #content[data-mode="brief-dark-blue"]{background:;color:;--selection:;--nav-bg:;--nav-btn:;}
         #content[data-mode="brief-timeline"]{--selection:;--nav-bg:;--nav-btn:;}
-        #content[data-mode^="atmosphere"]{}
-        #content[data-mode^="atmosphere"]>div{margin:auto;width:100%;max-width:900px;}
+        #content[data-mode^="atmosphere"]{background-position:50% 50%;background-repeat:no-repeat;background-size:cover;background-attachment:fixed;padding:10px 0;}
+        #content[data-mode^="atmosphere"]>div{max-width:900px;margin:auto;width:calc(100vw - 20px);backdrop-filter:blur(5px);border-radius:var(--radius-8x);}
         #content[data-mode="atmosphere-light-cottage"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
         #content[data-mode="atmosphere-dark-cottage"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
-        #content[data-mode="atmosphere-light-seaside"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
-        #content[data-mode="atmosphere-dark-seaside"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
+        #content[data-mode="atmosphere-light-seaside"]{background-image:url("seaside.webp");--selection:;--nav-bg:#99bbff88;--nav-btn:;}
+        #content[data-mode="atmosphere-dark-seaside"]{background-image:url("seaside.webp");--selection:;--nav-bg:;--nav-btn:;}
         #content[data-mode="atmosphere-light-sky"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
         #content[data-mode="atmosphere-dark-sky"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
         #content[data-mode="atmosphere-light-campus"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
         #content[data-mode="atmosphere-dark-campus"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
         #content[data-mode="atmosphere-light-cottage"]>div{background:;backdrop-filter:blur(5px);}
         #content[data-mode="atmosphere-dark-cottage"]>div{background:;backdrop-filter:blur(5px);}
-        #content[data-mode="atmosphere-light-seaside"]>div{background:;backdrop-filter:blur(5px);}
-        #content[data-mode="atmosphere-dark-seaside"]>div{background:;backdrop-filter:blur(5px);}
-        #content[data-mode="atmosphere-light-sky"]>div{background:;backdrop-filter:blur(5px);}
-        #content[data-mode="atmosphere-dark-sky"]>div{background:;backdrop-filter:blur(5px);}
-        #content[data-mode="atmosphere-light-campus"]>div{background:;backdrop-filter:blur(5px);}
-        #content[data-mode="atmosphere-dark-campus"]>div{background:;backdrop-filter:blur(5px);}
+        #content[data-mode="atmosphere-light-seaside"]>div{background:#99bbff88;}
+        #content[data-mode="atmosphere-dark-seaside"]>div{background:;}
+        #content[data-mode="atmosphere-light-sky"]>div{background:;}
+        #content[data-mode="atmosphere-dark-sky"]>div{background:;}
+        #content[data-mode="atmosphere-light-campus"]>div{background:;}
+        #content[data-mode="atmosphere-dark-campus"]>div{background:;}
         #content[data-shadow="subtle"]{}
         #content[data-shadow="none"]{}
         #content[data-radius="large"]{--radius-x:2.5px;--radius-2x:5px;--radius-3x:7.5px;--radius-4x:10px;--radius-5x:12.5px;--radius-6x:15px;--radius-7x:17.5px;--radius-8x:20px;--radius-9x:22.5px;--radius-10x:25px;}
@@ -61,7 +61,7 @@
         #content[data-font-size="small"]{font-size:87.5%;}
         #content[data-line-spacing="loose"] p,#content[data-line-spacing="loose"] li{line-height:1.7em;letter-spacing:0.15em;}
         #content[data-line-spacing="tight"] p,#content[data-line-spacing="tight"] li{line-height:1.3em;letter-spacing:0.05em;}
-        #content[data-font-weight="thin"]{font-weight:100;}
+        #content[data-font-weight="thin"]{font-weight:200;}
         #content[data-font-weight="normal"]{font-weight:400;}
         #content[data-font-weight="bold"]{font-weight:600;}
         /*缩小/放大窗口*/
@@ -94,10 +94,13 @@
         #settingdialog>div:nth-of-type(1)>span:hover{}
         #settingdialog>div:nth-of-type(2){height:calc(100% - 40px);padding:10px;overflow-y:auto;}
         #settingdialog>div:nth-of-type(2)>section{}
-        #settingdialog label{height:25px;background:#cff;padding:2.5px;border-radius:12.5px;}
-        #settingdialog input[type="radio"]{-webkit-appearance:none;-moz-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;outline:none;margin-right:10px;position:relative;top:0;background:#fff;transition:0.3s;}
-        #settingdialog input[type="radio"]:before{content:var(--input-content);}
-        #settingdialog input[type="radio"]:checked{background:#2196F3;}
+        #settingdialog>div:nth-of-type(2)>section>div{height:35px;background:yellow;padding:2.5px;border-radius:17.5px;margin:2.5px 0;}
+        #settingdialog>div:nth-of-type(2)>section>div>p{display:inline;line-height:30px;}
+        #settingdialog>div:nth-of-type(2)>section>div>label{height:30px;padding:2.5px;background:#cff;border-radius:15px;float:right;}
+        #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]{-webkit-appearance:none;-moz-appearance:none;appearance:none;width:25px;height:25px;border-radius:12.5px;position:relative;background:#fff;transition:0.5s;}
+        #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]:before{content:var(--input-content);font-size:19px;transition:0.5s;position:relative;top:-3px;left:3px;width:25px;height:25px;}
+        #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]:checked{background:#2196F3;}
+        #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]:checked:before{color:#fff;}
         /*首页*/
         /*正文*/
         
@@ -139,7 +142,7 @@
         <dialog id="settingdialog">
             <div><strong>设置</strong><span onclick="document.getElementById('settingdialog').close()">&times;</span></div>
             <div>
-                <section>
+                <section id="mode-setting">
                     <h2>主题</h2>
                     <label><input type="radio" name="theme" value="system" onclick="changeTheme('system')">跟随系统</label><br>
                     <label><input type="radio" name="theme" value="brief-light" onclick="changeTheme('brief-light')">简洁-浅色</label><br>
@@ -158,30 +161,46 @@
                 </section>
                 <section>
                     <h2>字体</h2>
-                    <h3>字号</h3>
-                    <label>
-                    <input type="radio" name="fontsize" value="small" onclick="changeFontSize('small')" style="--input-content:'小';">
-                    <input type="radio" name="fontsize" value="normal" onclick="changeFontSize('normal')" style="--input-content:'中';">
-                    <input type="radio" name="fontsize" value="large" onclick="changeFontSize('large')" style="--input-content:'大';">
-                    </label>
-                    
-                    <h3>行距/字距</h3>
-                    <label><input type="radio" name="linespacing" value="tight" onclick="changeLineSpacing('tight')">紧凑</label><br>
-                    <label><input type="radio" name="linespacing" value="loose" onclick="changeLineSpacing('loose')">宽松</label>
-                    <h3>字重</h3>
-                    <label><input type="radio" name="fontweight" value="thin" onclick="changeFontWeight('thin')">细</label><br>
-                    <label><input type="radio" name="fontweight" value="normal" onclick="changeFontWeight('normal')">正常</label><br>
-                    <label><input type="radio" name="fontweight" value="bold" onclick="changeFontWeight('bold')">粗</label>
+                    <div>
+                        <p>字号</p>
+                        <label>
+                            <input type="radio" name="fontsize" value="small" onclick="changeFontSize('small')" style="--input-content:'小';">
+                            <input type="radio" name="fontsize" value="normal" onclick="changeFontSize('normal')" style="--input-content:'中';">
+                            <input type="radio" name="fontsize" value="large" onclick="changeFontSize('large')" style="--input-content:'大';">
+                        </label>
+                    </div>
+                    <div>
+                        <p>行距/字距</p>
+                        <label>
+                            <input type="radio" name="linespacing" value="tight" onclick="changeLineSpacing('tight')" style="--input-content:'小';">
+                            <input type="radio" name="linespacing" value="loose" onclick="changeLineSpacing('loose')" style="--input-content:'大';">
+                        </label>
+                    </div>
+                    <div>
+                        <p>字重</p>
+                        <label>
+                            <input type="radio" name="fontweight" value="thin" onclick="changeFontWeight('thin')" style="--input-content:'细';">
+                            <input type="radio" name="fontweight" value="normal" onclick="changeFontWeight('normal')" style="--input-content:'中';">
+                            <input type="radio" name="fontweight" value="bold" onclick="changeFontWeight('bold')" style="--input-content:'粗';">
+                        </label>
+                    </div>
                 </section>
                 <section>
                     <h2>样式</h2>
-                    <h3>圆角</h3>
-                    <label><input type="radio" name="radius" value="small" onclick="changeRadius('small')">小圆角</label><br>
-                    <label><input type="radio" name="radius" value="large" onclick="changeRadius('large')">大圆角</label><br>
-                    
-                    <h3>阴影</h3>
-                    <label><input type="radio" name="shadow" value="subtle" onclick="changeShadow('subtle')">柔和</label><br>
-                    <label><input type="radio" name="shadow" value="none" onclick="changeShadow('none')">无</label>
+                    <div>
+                        <p>圆角</p>
+                        <label>
+                            <input type="radio" name="radius" value="small" onclick="changeRadius('small')" style="--input-content:'小';">
+                            <input type="radio" name="radius" value="large" onclick="changeRadius('large')" style="--input-content:'大';">
+                        </label>
+                    </div>
+                    <div>
+                        <p>阴影</p>
+                        <label>
+                            <input type="radio" name="shadow" value="subtle" onclick="changeShadow('subtle')" style="--input-content:'有';">
+                            <input type="radio" name="shadow" value="none" onclick="changeShadow('none')" style="--input-content:'无';">
+                        </label>
+                    </div>
                 </section>
                 <section>
                     <button onclick="resetToDefault()">恢复默认</button>
@@ -303,8 +322,8 @@
         }
         
         //返回顶部/底部
-        function goTop(){window.scrollTo(0,0);}
-        function goBottom(){window.scrollTo(0,document.documentElement.scrollHeight);}
+        function goTop(){document.querySelector('#content>div').scrollTo(0,0);}
+        function goBottom(){document.querySelector('#content>div').scrollTo(0,document.documentElement.scrollHeight);}
         
         //设置
         function changeTheme(theme) {
