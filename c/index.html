@@ -10,7 +10,7 @@
     function loading(){document.getElementById("loader").style.animation="out 0.7s 0.3s forwards";showPage('home');}
     </script>
     <style>
-        :root{color-scheme:light dark;}
+        :root{color-scheme:light dark;--blur-amount:5px;}
         *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;}
         *::-webkit-scrollbar{display:none!important;}
         ::-moz-selection{background:var(--selection);}
@@ -33,28 +33,23 @@
         #content[data-mode="brief-light"]{background:#fff;color:#000;--selection:#9494b888;--nav-bg:#ddddddbb;--nav-btn:#404040;--dialogbg:#ffffff99;--settingbg:#00000011;--radiobg:#00000055;}
         #content[data-mode="brief-dark"]{background:#262626;color:#fff;--selection:#8585ad88;--nav-bg:#595959bb;--nav-btn:#e6e6e6;--dialogbg:#00000099;--settingbg:#ffffff11;--radiobg:#ffffff55;}
         #content[data-mode="brief-light-blue"]{background:#e6ffff;color:#001a1a;--selection:#0099cc88;--nav-bg:#33ccffbb;--nav-btn:#046;--dialogbg:#99ddff99;--settingbg:#0088cc11;--radiobg:#0088cc55;}
-        #content[data-mode="brief-dark-blue"]{background:#026;color:#cdf;--selection:#3366ff88;--nav-bg:#0033ccbb;--nav-btn:#99b3ff;--dialogbg:#00608099;--settingbg:#0099cc11;--radiobg:#0099cc55;}
+        #content[data-mode="brief-dark-blue"]{background:#026;color:#cdf;--selection:#3366ff88;--nav-bg:#0033ccbb;--nav-btn:#99b3ff;--dialogbg:#1a3b5aee;--settingbg:#339af015;--radiobg:#339af030;}
         #content[data-mode="brief-timeline"]{--selection:;--nav-bg:;--nav-btn:;--dialogbg:;--settingbg:;--radiobg:;}
         #content[data-mode^="atmosphere"]{background-position:50% 50%;background-repeat:no-repeat;background-size:cover;background-attachment:fixed;padding:10px 0;}
-        #content[data-mode^="atmosphere"]>div{max-width:900px;margin:auto;width:calc(100vw - 20px);height:calc(100vh - 20px);backdrop-filter:blur(5px);border-radius:var(--radius-8x);}
+        #content[data-mode^="atmosphere"]>div{max-width:900px;margin:auto;width:calc(100vw - 20px);height:calc(100vh - 20px);backdrop-filter:blur(var(--blur-amount));border-radius:var(--radius-8x);}
         #content[data-mode^="atmosphere-dark"]{filter:brightness(0.9);}
         #content[data-mode^="atmosphere-dark"]>div,#content[data-mode^="atmosphere-dark"] dialog{color:#fff;}
-        #content[data-mode="atmosphere-light-cottage"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;--dialogbg:;--settingbg:;}
-        #content[data-mode="atmosphere-dark-cottage"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;}
+        #content[data-mode^="atmosphere-light"]>div{background:#ffffff55;}
+        #content[data-mode^="atmosphere-dark"]>div{background:#00000066;}
+        #content[data-mode="atmosphere-light-cottage"]{background-image:url("cottage.webp");--selection:;--nav-bg:#cc996688;--nav-btn:;--dialogbg:;--settingbg:;}
+        #content[data-mode="atmosphere-dark-cottage"]{background-image:url("cottage.webp");--selection:;--nav-bg:;--nav-btn:;}
         #content[data-mode="atmosphere-light-seaside"]{background-image:url("seaside.webp");--selection:;--nav-bg:#99bbff88;--nav-btn:#002080cc;--dialogbg:#66ffff66;--settingbg:#00eeee11;--radiobg:#00eeee55;}
         #content[data-mode="atmosphere-dark-seaside"]{background-image:url("seaside.webp");--selection:;--nav-bg:#00666688;--nav-btn:#e6ffffcc;--dialogbg:#0066cc66;--settingbg:#66b3ff11;--radiobg:#66b3ff55;}
         #content[data-mode="atmosphere-light-sky"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;--dialogbg:;--settingbg:;}
         #content[data-mode="atmosphere-dark-sky"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;--dialogbg:;--settingbg:;}
-        #content[data-mode="atmosphere-light-campus"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;--dialogbg:;--settingbg:;}
-        #content[data-mode="atmosphere-dark-campus"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;--dialogbg:;--settingbg:;}
-        #content[data-mode="atmosphere-light-cottage"]>div{background:;}
-        #content[data-mode="atmosphere-dark-cottage"]>div{background:;}
-        #content[data-mode="atmosphere-light-seaside"]>div{background:#ffffff55;}
-        #content[data-mode="atmosphere-dark-seaside"]>div{background:#00000066;}
-        #content[data-mode="atmosphere-light-sky"]>div{background:;}
-        #content[data-mode="atmosphere-dark-sky"]>div{background:;}
-        #content[data-mode="atmosphere-light-campus"]>div{background:;}
-        #content[data-mode="atmosphere-dark-campus"]>div{background:;}
+        #content[data-mode="atmosphere-light-custom"]{background-image:var(--custom-bg-image);--selection:#8585ad88;--nav-bg:#ffffff88;--nav-btn:#404040;--dialogbg:#ffffff99;--settingbg:#00000011;--radiobg:#00000055;}
+        #content[data-mode="atmosphere-dark-custom"]{background-image:var(--custom-bg-image);--selection:#8585ad88;--nav-bg:#00000088;--nav-btn:#e6e6e6;--dialogbg:#00000099;--settingbg:#ffffff11;--radiobg:#ffffff55;}
+        
         #content[data-shadow="subtle"]{}
         #content[data-shadow="none"]{}
         #content[data-radius="large"]{--radius-x:2.5px;--radius-2x:5px;--radius-3x:7.5px;--radius-4x:10px;--radius-5x:12.5px;--radius-6x:15px;--radius-7x:17.5px;--radius-8x:20px;--radius-9x:22.5px;--radius-10x:25px;}
@@ -80,10 +75,11 @@
         /*页面*/
         /*导航栏*/
         nav{display:block;position:fixed;top:clamp(2px,1vw,10px);left:clamp(2px,1vw,10px);width:calc(100vw - clamp(2px,1vw,10px) * 2);height:40px;background:var(--nav-bg);padding:2.5px;border-radius:var(--radius-8x);backdrop-filter:blur(20px);z-index:1;}
+        #content[data-mode^="atmosphere"]>nav{top:15px;left:calc((100vw - clamp(290px,calc(100vw - 30px),890px)) / 2);width:calc(100vw - 30px);max-width:890px;}
         nav>button{width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;transition:0.5s;border-radius:var(--radius-8x);}
         nav>button:hover{background:#00000033;}
         nav>button>i{color:var(--nav-btn);}
-        nav>div{position:relative;width:clamp(150px,35vw,300px);background:light-dark(#ccffffbb,#ccffffbb);transform-origin:top;border-radius:var(--radius-2x);max-height:clamp(200px,40vh,400px);overflow-y:auto;}
+        nav>div{position:relative;width:clamp(150px,35vw,300px);background:var(--nav-bg);transform-origin:top;border-radius:var(--radius-2x);max-height:clamp(200px,40vh,400px);overflow-y:auto;}
         nav>div>button{display:block;width:100%;background:transparent;transition:0.5s;font-size:1.125rem;}
         nav>div>button:hover{background:#00000033;}
         nav>div>div{}
@@ -104,7 +100,9 @@
         #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]:before{content:var(--input-content);font-size:19px;transition:0.5s;position:relative;top:-3px;left:3px;width:25px;height:25px;}
         #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]:checked{background:#2196F3;}
         #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]:checked:before{color:#fff;}
-        #settingdialog>div:nth-of-type(2)>section:last-of-type>button{color:var(--root-color);padding:3px 8px;line-height:24px;background:var(--settingbg);border-radius:var(--radius-6x);}
+        #settingdialog>div:nth-of-type(2)>section button{color:var(--root-color);padding:1px 8px;line-height:23px;background:var(--settingbg);border-radius:var(--radius-5x);margin:2.5px;}
+        .atmosphere-settings{display:none;}
+        #content[data-mode^="atmosphere"]~dialog.atmosphere-settings{display: block;}
         /*首页*/
         /*正文*/
         
@@ -160,8 +158,21 @@
                     <label><input type="radio" name="theme" value="atmosphere-dark-seaside" onclick="changeTheme('atmosphere-dark-seaside')">氛围-深色-海边</label><br>
                     <label><input type="radio" name="theme" value="atmosphere-light-sky" onclick="changeTheme('atmosphere-light-sky')">氛围-浅色-天空</label><br>
                     <label><input type="radio" name="theme" value="atmosphere-dark-sky" onclick="changeTheme('atmosphere-dark-sky')">氛围-深色-天空</label><br>
-                    <label><input type="radio" name="theme" value="atmosphere-light-campus" onclick="changeTheme('atmosphere-light-campus')">氛围-浅色-校园</label><br>
-                    <label><input type="radio" name="theme" value="atmosphere-dark-campus" onclick="changeTheme('atmosphere-dark-campus')">氛围-深色-校园</label>
+                    <label><input type="radio" name="theme" value="atmosphere-light-custom" onclick="changeTheme('atmosphere-light-custom')">浅色-自定义</label><br>
+                    <label><input type="radio" name="theme" value="atmosphere-dark-custom" onclick="changeTheme('atmosphere-dark-custom')">深色-自定义</label>
+                    <div>
+                        <p>自定义背景图片</p>
+                        <input type="file" id="bgUpload" accept="image/*" style="display:none">
+                        <button onclick="document.getElementById('bgUpload').click()" style="float:right;">上传</button>
+                        <button onclick="localStorage.removeItem('customBgImage');customBgImage=null;document.documentElement.style.removeProperty('--custom-bg-image');const currentTheme=document.getElementById('content').getAttribute('data-mode');if(currentTheme==='atmosphere-light-custom'||currentTheme==='atmosphere-dark-custom'){changeTheme('system');}" style="float:right;">清除</button>
+                    </div>
+                    <div class="atmosphere-settings">
+                        <p>遮罩模糊度</p>
+                        <label>
+                            <input type="range" id="blurRange" min="0" max="20" step="1" oninput="changeBlurAmount(this.value)">
+                            <span id="blurValue">5px</span>
+                        </label>
+                    </div>
                 </section>
                 <section>
                     <h2>字体</h2>
@@ -340,6 +351,15 @@
                 content.setAttribute('data-mode', systemTheme);
             }
             localStorage.setItem('selectedTheme', theme);
+            updateBlurControlVisibility();
+        }
+        function updateBlurControlVisibility() {
+            const content = document.getElementById('content');
+            const isAtmosphereMode = content.getAttribute('data-mode')?.startsWith('atmosphere');
+            const blurControl = document.querySelector('.atmosphere-settings');
+            if (blurControl) {
+                blurControl.style.display = isAtmosphereMode ? 'block' : 'none';
+            }
         }
         function changeFontSize(size) {
             const content = document.getElementById('content');
@@ -366,6 +386,18 @@
             content.setAttribute('data-shadow', shadow);
             localStorage.setItem('selectedShadow', shadow);
         }
+        function changeBlurAmount(value) {
+    document.documentElement.style.setProperty('--blur-amount', value + 'px');
+    document.getElementById('blurValue').textContent = value + 'px';
+    localStorage.setItem('blurAmount', value);
+}
+
+function initBlurAmount() {
+    const savedBlur = localStorage.getItem('blurAmount');
+    if (savedBlur) {
+        changeBlurAmount(savedBlur);
+    }
+}
         function initSettings() {
             const savedTheme = localStorage.getItem('selectedTheme');
             const savedFontSize = localStorage.getItem('selectedFontSize');
@@ -386,7 +418,43 @@
             if (savedFontWeight) changeFontWeight(savedFontWeight);
             if (savedShadow) changeShadow(savedShadow);
             updateSettingRadios();
+    initBlurAmount();
         }
+        let customBgImage = null;
+        function handleBgUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                customBgImage = e.target.result;
+                localStorage.setItem('customBgImage', customBgImage);
+                applyCustomBg();
+                const currentTheme = document.getElementById('content').getAttribute('data-mode');
+                if (currentTheme === 'atmosphere-light-custom' || currentTheme === 'atmosphere-dark-custom') {
+                    document.documentElement.style.setProperty('--custom-bg-image', `url("${customBgImage}")`);
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+        function applyCustomBg() {
+            if (customBgImage) {
+                document.documentElement.style.setProperty('--custom-bg-image', `url("${customBgImage}")`);
+            }
+        }
+        function initCustomBg() {
+            const savedBg = localStorage.getItem('customBgImage');
+            if (savedBg) {
+                customBgImage = savedBg;
+                applyCustomBg();
+            }
+        }
+        window.addEventListener('DOMContentLoaded', function() {
+            initSettings();
+            initCustomBg();
+            document.getElementById('bgUpload').addEventListener('change', handleBgUpload);
+            initBlurAmount();
+            updateBlurControlVisibility();
+        });
         function handleSystemThemeChange(e) {
             const content = document.getElementById('content');
             const theme = e.matches ? 'brief-dark' : 'brief-light';
@@ -410,7 +478,8 @@
             document.querySelector(`input[name="shadow"][value="${currentShadow}"]`).checked = true;
         }
         window.addEventListener('DOMContentLoaded', initSettings);
-            function resetToDefault() {
+        
+        function resetToDefault() {
             localStorage.removeItem('selectedTheme');
             localStorage.removeItem('selectedFontSize');
             localStorage.removeItem('selectedRadius');
@@ -424,8 +493,13 @@
             changeFontWeight('normal');
             changeShadow('subtle');
             updateSettingRadios();
+            localStorage.removeItem('customBgImage');
+            customBgImage = null;
+            document.documentElement.style.removeProperty('--custom-bg-image');
+            localStorage.removeItem('blurAmount');
+            changeBlurAmount(5);
+            updateBlurControlVisibility();
         }
-        
     </script>
 </body>
 </html>
