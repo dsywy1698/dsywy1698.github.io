@@ -45,8 +45,8 @@
         body[data-mode="atmosphere-dark-cottage"]{background-image:url("cottage.webp");--selection:#80600088;--nav-bg:;--nav-btn:;}
         body[data-mode="atmosphere-light-seaside"]{background-image:url("seaside.webp");--selection:;--nav-bg:#99bbff88;--nav-btn:#002080cc;--dialogbg:#66ffff66;--settingbg:#00eeee11;--radiobg:#00eeee55;}
         body[data-mode="atmosphere-dark-seaside"]{background-image:url("seaside.webp");--selection:;--nav-bg:#00666688;--nav-btn:#e6ffffcc;--dialogbg:#0066cc66;--settingbg:#66b3ff11;--radiobg:#66b3ff55;}
-        body[data-mode="atmosphere-light-sky"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;--dialogbg:;--settingbg:;}
-        body[data-mode="atmosphere-dark-sky"]{background-image:url("");--selection:;--nav-bg:;--nav-btn:;--dialogbg:;--settingbg:;}
+        body[data-mode="atmosphere-light-valley"]{background-image:url("valley.webp");--selection:;--nav-bg:;--nav-btn:;--dialogbg:;--settingbg:;}
+        body[data-mode="atmosphere-dark-valley"]{background-image:url("valley.webp");--selection:;--nav-bg:;--nav-btn:;--dialogbg:;--settingbg:;}
         body[data-mode="atmosphere-light-custom"]{background-image:var(--custom-bg-image);--selection:#8585ad88;--nav-bg:#ffffff88;--nav-btn:#404040;--dialogbg:#ffffff99;--settingbg:#00000011;--radiobg:#00000055;}
         body[data-mode="atmosphere-dark-custom"]{background-image:var(--custom-bg-image);--selection:#8585ad88;--nav-bg:#00000088;--nav-btn:#e6e6e6;--dialogbg:#00000099;--settingbg:#ffffff11;--radiobg:#ffffff55;}
         
@@ -75,7 +75,7 @@
         /*页面*/
         /*导航栏*/
         nav{position:fixed;top:clamp(2px,1vw,10px);left:clamp(2px,1vw,10px);width:calc(100vw - clamp(2px,1vw,10px) * 2);background:var(--nav-bg);padding:2.5px;border-radius:var(--radius-8x);backdrop-filter:blur(20px);z-index:1;}
-        #content[data-mode^="atmosphere"]>nav{top:15px;left:calc((100vw - clamp(290px,calc(100vw - 30px),890px)) / 2);width:calc(100vw - 30px);max-width:890px;}
+        body[data-mode^="atmosphere"] #content nav{top:15px;left:calc((100vw - clamp(290px,calc(100vw - 30px),890px)) / 2);width:calc(100vw - 30px);max-width:890px;}
         nav>div:first-child>button{width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;transition:0.5s;border-radius:var(--radius-8x);}
         nav>div:first-child>button:hover{background:#00000033;}
         nav>div:first-child>button>i{color:var(--nav-btn);}
@@ -158,8 +158,8 @@
                     <label><input type="radio" name="theme" value="atmosphere-dark-cottage" onclick="changeTheme('atmosphere-dark-cottage')">氛围-深色-小屋</label><br>
                     <label><input type="radio" name="theme" value="atmosphere-light-seaside" onclick="changeTheme('atmosphere-light-seaside')">氛围-浅色-海边</label><br>
                     <label><input type="radio" name="theme" value="atmosphere-dark-seaside" onclick="changeTheme('atmosphere-dark-seaside')">氛围-深色-海边</label><br>
-                    <label><input type="radio" name="theme" value="atmosphere-light-sky" onclick="changeTheme('atmosphere-light-sky')">氛围-浅色-天空</label><br>
-                    <label><input type="radio" name="theme" value="atmosphere-dark-sky" onclick="changeTheme('atmosphere-dark-sky')">氛围-深色-天空</label><br>
+                    <label><input type="radio" name="theme" value="atmosphere-light-valley" onclick="changeTheme('atmosphere-light-valley')">氛围-浅色-山谷</label><br>
+                    <label><input type="radio" name="theme" value="atmosphere-dark-valley" onclick="changeTheme('atmosphere-dark-valley')">氛围-深色-山谷</label><br>
                     <label><input type="radio" name="theme" value="atmosphere-light-custom" onclick="changeTheme('atmosphere-light-custom')">浅色-自定义</label><br>
                     <label><input type="radio" name="theme" value="atmosphere-dark-custom" onclick="changeTheme('atmosphere-dark-custom')">深色-自定义</label>
                     <div>
