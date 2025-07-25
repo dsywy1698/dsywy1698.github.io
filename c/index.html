@@ -30,10 +30,10 @@
         /*主题*/
         #content[data-mode^="brief"]{}
         #content[data-mode^="brief"]>div{height:100vh;}
-        #content[data-mode="brief-light"]{background:#fff;color:#000;--root-color:#000;--selection:#9494b888;--nav-bg:#ddddddbb;--nav-btn:#404040;--dialogbg:#ffffff99;--settingbg:#00000011;--radiobg:#00000055;}
-        #content[data-mode="brief-dark"]{background:#262626;color:#fff;--root-color:#fff;--selection:#8585ad88;--nav-bg:#595959bb;--nav-btn:#e6e6e6;--dialogbg:#00000099;--settingbg:#ffffff11;--radiobg:#ffffff55;}
-        #content[data-mode="brief-light-blue"]{background:;color:;--selection:;--nav-bg:;--nav-btn:;--dialogbg:;--settingbg:;--radiobg:;}
-        #content[data-mode="brief-dark-blue"]{background:;color:;--selection:;--nav-bg:;--nav-btn:;--dialogbg:;--settingbg:;--radiobg:;}
+        #content[data-mode="brief-light"]{background:#fff;color:#000;--selection:#9494b888;--nav-bg:#ddddddbb;--nav-btn:#404040;--dialogbg:#ffffff99;--settingbg:#00000011;--radiobg:#00000055;}
+        #content[data-mode="brief-dark"]{background:#262626;color:#fff;--selection:#8585ad88;--nav-bg:#595959bb;--nav-btn:#e6e6e6;--dialogbg:#00000099;--settingbg:#ffffff11;--radiobg:#ffffff55;}
+        #content[data-mode="brief-light-blue"]{background:#e6ffff;color:#001a1a;--selection:#0099cc88;--nav-bg:#33ccffbb;--nav-btn:#046;--dialogbg:#99ddff99;--settingbg:#0088cc11;--radiobg:#0088cc55;}
+        #content[data-mode="brief-dark-blue"]{background:#026;color:#cdf;--selection:#3366ff88;--nav-bg:#0033ccbb;--nav-btn:#99b3ff;--dialogbg:#00608099;--settingbg:#0099cc11;--radiobg:#0099cc55;}
         #content[data-mode="brief-timeline"]{--selection:;--nav-bg:;--nav-btn:;--dialogbg:;--settingbg:;--radiobg:;}
         #content[data-mode^="atmosphere"]{background-position:50% 50%;background-repeat:no-repeat;background-size:cover;background-attachment:fixed;padding:10px 0;}
         #content[data-mode^="atmosphere"]>div{max-width:900px;margin:auto;width:calc(100vw - 20px);height:calc(100vh - 20px);backdrop-filter:blur(5px);border-radius:var(--radius-8x);}
@@ -91,7 +91,7 @@
         nav>div>div>a:hover{background:#00000033;}
         /*设置-模态框*/
         dialog::backdrop{background:light-dark(#00000055,#ffffff55);backdrop-filter:blur(1px);}
-        #settingdialog{width:clamp(300px,80vw,600px);height:clamp(350px,60vh,800px);border:none;border-radius:var(--radius-6x);background:var(--dialogbg);backdrop-filter:blur(20px);position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);overflow:hidden;color:var(--root-color)}
+        #settingdialog{width:clamp(300px,80vw,600px);height:clamp(350px,60vh,800px);border:none;border-radius:var(--radius-6x);background:var(--dialogbg);backdrop-filter:blur(20px);position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);overflow:hidden;color:var(--root-color);}
         #settingdialog>div:nth-of-type(1){position:sticky;top:0;background:var(--settingbg);width:100%;padding:8px 15px;line-height:24px;}
         #settingdialog>div:nth-of-type(1)>span{float:right;}
         #settingdialog>div:nth-of-type(1)>span:hover{}
@@ -327,7 +327,7 @@
         
         //返回顶部/底部
         function goTop(){document.querySelector('#content>div').scrollTo(0,0);}
-        function goBottom(){document.querySelector('#content>div').scrollTo(0,document.documentElement.scrollHeight);}
+        function goBottom(){document.querySelector('#content>div').scrollTo(0,document.querySelector('#content>div').scrollHeight);}
         
         //设置
         function changeTheme(theme) {
@@ -426,19 +426,6 @@
             updateSettingRadios();
         }
         
-        //移动端视口高度兼容
-function fixMobileBackground() {
-  const body = document.body;
-  const vh = window.innerHeight;
-  body.style.backgroundPosition = `center ${vh}px`;
-}
-let isResizing;
-window.addEventListener('resize', () => {
-  cancelAnimationFrame(isResizing);
-  isResizing = requestAnimationFrame(fixMobileBackground);
-});
-window.addEventListener('load', fixMobileBackground);
-fixMobileBackground();
     </script>
 </body>
 </html>
