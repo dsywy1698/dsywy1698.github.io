@@ -15,7 +15,7 @@
         *::-webkit-scrollbar{display:none!important;}
         ::-moz-selection{background:var(--selection);}
         ::selection{background:var(--selection);}
-        html{font-size:100%;}
+        html{font-size:100%;height:calc(var(--vh,1vh) * 100)}
         body{font-family:"微软雅黑",sans-serif;}
         #content{position:relative;top:0;left:0;width:100vw;height:100vh;}
         #content>div{padding:calc(40px + clamp(2px,1vw,10px)) 10px;overflow-y:auto;scroll-behavior:smooth;}
@@ -425,6 +425,20 @@
             changeShadow('subtle');
             updateSettingRadios();
         }
+        
+        //移动端视口高度兼容
+function fixMobileBackground() {
+  const body = document.body;
+  const vh = window.innerHeight;
+  body.style.backgroundPosition = `center ${vh}px`;
+}
+let isResizing;
+window.addEventListener('resize', () => {
+  cancelAnimationFrame(isResizing);
+  isResizing = requestAnimationFrame(fixMobileBackground);
+});
+window.addEventListener('load', fixMobileBackground);
+fixMobileBackground();
     </script>
 </body>
 </html>
