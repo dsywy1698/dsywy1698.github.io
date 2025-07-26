@@ -11,7 +11,7 @@
     </script>
     <style>
         :root{color-scheme:light dark;--blur-amount:5px;}
-        *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;transition:all 0.5s ease;}
+        *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;transition:background-color 0.5s ease,color 0.5s ease,backdrop-filter 0.5s ease,font-size 0.5s ease,border-radius 0.5s ease,box-shadow 0.5s ease,line-height 0.5s ease,letter-spacing 0.5s ease;}
         *::-webkit-scrollbar{display:none!important;}
         ::-moz-selection{background:var(--selection);}
         ::selection{background:var(--selection);}
@@ -44,7 +44,6 @@
     --dialogbg: var(--timeline-dialog-bg);
     --settingbg: #00000011;
     --radiobg: #00000055;
-    transition: background-color 10s ease, color 10s ease;
 }
         body[data-mode^="atmosphere"]{background-position:50% 50%;background-repeat:no-repeat;background-size:cover;background-attachment:fixed;padding:10px 0;}
         body[data-mode^="atmosphere"] #content>div{max-width:900px;margin:auto;width:calc(100vw - 20px);height:calc(100vh - 20px);backdrop-filter:blur(var(--blur-amount));border-radius:var(--radius-8x);}
