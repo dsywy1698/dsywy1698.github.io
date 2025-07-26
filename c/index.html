@@ -29,11 +29,11 @@
         /*主题*/
         body[data-mode^="brief"]{}
         body[data-mode^="brief"] #content>div{height:100vh;}
-        body[data-mode="brief-light"]{background:#fff;color:#000;--selection:#9494b888;--loaderbg:#e6e6e6;--nav-bg:#ddddddbb;--nav-btn:#404040;--dialogbg:#ffffff99;--settingbg:#00000011;--radiobg:#00000055;}
-        body[data-mode="brief-dark"]{background:#262626;color:#fff;--selection:#8585ad88;--loaderbg:#1a1a1a;--nav-bg:#595959bb;--nav-btn:#e6e6e6;--dialogbg:#00000099;--settingbg:#ffffff11;--radiobg:#ffffff55;}
-        body[data-mode="brief-light-blue"]{background:#e6ffff;color:#001a1a;--selection:#0099cc88;--nav-bg:#33ccffbb;--nav-btn:#046;--dialogbg:#99ddff99;--settingbg:#0088cc11;--radiobg:#0088cc55;}
-        body[data-mode="brief-dark-blue"]{background:#026;color:#cdf;--selection:#3366ff88;--nav-bg:#0033ccbb;--nav-btn:#99b3ff;--dialogbg:#1a3b5aee;--settingbg:#339af015;--radiobg:#339af030;}
-        body[data-mode="brief-orangegreen"]{background:#ccffe6;color:#000;--selection:#ff993388;--nav-bg:#ff8000bb;--nav-btn:#331a00;--dialogbg:#ffb36699;--settingbg:#995c0011;--radiobg:#5cd65c55;}
+        body[data-mode="brief-light"]{background:#fff;color:#000;--selection:#9494b888;--loaderbg:#e6e6e6;--loadercolor:#000;--startflashing:#999;--endflashing:#666;--nav-bg:#ddddddbb;--nav-btn:#404040;--dialogbg:#ffffff99;--settingbg:#00000011;--radiobg:#00000055;}
+        body[data-mode="brief-dark"]{background:#262626;color:#fff;--selection:#8585ad88;--loaderbg:#1a1a1a;--loadercolor:#fff;--startflashing:#ccc;--endflashing:#999;--nav-bg:#595959bb;--nav-btn:#e6e6e6;--dialogbg:#00000099;--settingbg:#ffffff11;--radiobg:#ffffff55;}
+        body[data-mode="brief-light-blue"]{background:#e6ffff;color:#001a1a;--selection:#0099cc88;--loaderbg:#cff;--loadercolor:;--startflashing:;--endflashing:;--nav-bg:#33ccffbb;--nav-btn:#046;--dialogbg:#99ddff99;--settingbg:#0088cc11;--radiobg:#0088cc55;}
+        body[data-mode="brief-dark-blue"]{background:#026;color:#cdf;--selection:#3366ff88;--loaderbg:#039;--loadercolor:;--startflashing:;--endflashing:;--nav-bg:#0033ccbb;--nav-btn:#99b3ff;--dialogbg:#1a3b5aee;--settingbg:#339af015;--radiobg:#339af030;}
+        body[data-mode="brief-orangegreen"]{background:linear-gradient(45deg,#ccffe6,#ffebcc);color:#000;--selection:#ff993388;--loaderbg:linear-gradient(45deg,#cfc,#ffe0b3);--loadercolor:;--startflashing:;--endflashing:;--nav-bg:linear-gradient(90deg,#ff8800bb,#00cc00bb);--nav-btn:#331a00;--dialogbg:#ffb36699;--settingbg:#995c0011;--radiobg:#5cd65c55;}
         body[data-mode="brief-timeline"] {
     background: var(--timeline-bg);
     color: var(--timeline-color);
@@ -52,14 +52,14 @@
         body[data-mode^="atmosphere-dark"] #content>div,body[data-mode^="atmosphere-dark"] #content dialog{color:#fff;}
         body[data-mode^="atmosphere-light"] #content>div{background:#ffffff55;}
         body[data-mode^="atmosphere-dark"] #content>div{background:#00000066;}
-        body[data-mode="atmosphere-light-cottage"]{background-image:url("cottage.webp");--selection:#ffbf0088;--nav-bg:#cc996688;--nav-btn:#4d3319;--dialogbg:#ffcc6666;--settingbg:#ffaa0011;--radiobg:#ffaa0055;}
-        body[data-mode="atmosphere-dark-cottage"]{background-image:url("cottage.webp");--selection:#80600088;--nav-bg:#994d0088;--nav-btn:#fc9;--dialogbg:#66330066;--settingbg:#994d0011;--radiobg:#994d0055;}
-        body[data-mode="atmosphere-light-seaside"]{background-image:url("seaside.webp");--selection:;--nav-bg:#99bbff88;--nav-btn:#002080cc;--dialogbg:#66ffff66;--settingbg:#00eeee11;--radiobg:#00eeee55;}
-        body[data-mode="atmosphere-dark-seaside"]{background-image:url("seaside.webp");--selection:;--nav-bg:#00666688;--nav-btn:#e6ffffcc;--dialogbg:#0066cc66;--settingbg:#66b3ff11;--radiobg:#66b3ff55;}
-        body[data-mode="atmosphere-light-valley"]{background-image:url("valley.webp");--selection:#aaff0088;--nav-bg:#99e60088;--nav-btn:#206040;--dialogbg:#00ff9999;--settingbg:#00cc0011;--radiobg:#00cc0055;}
-        body[data-mode="atmosphere-dark-valley"]{background-image:url("valley.webp");--selection:#33cccc88;--nav-bg:#19666688;--nav-btn:#adebeb;--dialogbg:#00663399;--settingbg:#00cc6611;--radiobg:#00cc6655;}
-        body[data-mode="atmosphere-light-custom"]{background-image:var(--custom-bg-image);--selection:#8585ad88;--nav-bg:#ffffff88;--nav-btn:#404040;--dialogbg:#ffffff99;--settingbg:#00000011;--radiobg:#00000055;}
-        body[data-mode="atmosphere-dark-custom"]{background-image:var(--custom-bg-image);--selection:#8585ad88;--nav-bg:#00000088;--nav-btn:#e6e6e6;--dialogbg:#00000099;--settingbg:#ffffff11;--radiobg:#ffffff55;}
+        body[data-mode="atmosphere-light-cottage"]{background-image:url("cottage.webp");--selection:#ffbf0088;--loaderbg:#ecd9c6;--loadercolor:;--startflashing:;--endflashing:;--nav-bg:#cc996688;--nav-btn:#4d3319;--dialogbg:#ffcc6666;--settingbg:#ffaa0011;--radiobg:#ffaa0055;}
+        body[data-mode="atmosphere-dark-cottage"]{background-image:url("cottage.webp");--selection:#80600088;--loaderbg:#331a00;--loadercolor:;--startflashing:;--endflashing:;--nav-bg:#994d0088;--nav-btn:#fc9;--dialogbg:#66330066;--settingbg:#994d0011;--radiobg:#994d0055;}
+        body[data-mode="atmosphere-light-seaside"]{background-image:url("seaside.webp");--selection:#00ccff88;--loaderbg:#ccf2ff;--loadercolor:;--startflashing:;--endflashing:;--nav-bg:#99bbff88;--nav-btn:#002080cc;--dialogbg:#66ffff66;--settingbg:#00eeee11;--radiobg:#00eeee55;}
+        body[data-mode="atmosphere-dark-seaside"]{background-image:url("seaside.webp");--selection:#10336688;--loaderbg:#004080;--loadercolor:;--startflashing:;--endflashing:;--nav-bg:#00666688;--nav-btn:#e6ffffcc;--dialogbg:#0066cc66;--settingbg:#66b3ff11;--radiobg:#66b3ff55;}
+        body[data-mode="atmosphere-light-valley"]{background-image:url("valley.webp");--selection:#aaff0088;--loaderbg:#ccffcc;--loadercolor:;--startflashing:;--endflashing:;--nav-bg:#99e60088;--nav-btn:#206040;--dialogbg:#00ff9999;--settingbg:#00cc0011;--radiobg:#00cc0055;}
+        body[data-mode="atmosphere-dark-valley"]{background-image:url("valley.webp");--selection:#33cccc88;--loaderbg:#360;--loadercolor:;--startflashing:;--endflashing:;--nav-bg:#19666688;--nav-btn:#adebeb;--dialogbg:#00663399;--settingbg:#00cc6611;--radiobg:#00cc6655;}
+        body[data-mode="atmosphere-light-custom"]{background-image:var(--custom-bg-image);--selection:#8585ad88;--loaderbg:#e6e6e6;--loadercolor:;--startflashing:;--endflashing:;--nav-bg:#ffffff88;--nav-btn:#404040;--dialogbg:#ffffff99;--settingbg:#00000011;--radiobg:#00000055;}
+        body[data-mode="atmosphere-dark-custom"]{background-image:var(--custom-bg-image);--selection:#8585ad88;--loaderbg:#1a1a1a;--loadercolor:;--startflashing:;--endflashing:;--nav-bg:#00000088;--nav-btn:#e6e6e6;--dialogbg:#00000099;--settingbg:#ffffff11;--radiobg:#ffffff55;}
         
         body[data-shadow="subtle"]{--shadow-x:0 0 0 var(--shadow);}
         body[data-shadow="none"]{--shadow-x:0;}
@@ -81,8 +81,17 @@
         /*无js窗口*/
         noscript{display:block;width:100vw;height:100vh;background:#fcc;color:#c00;text-align:center;font-weight:800;font-size:1.25rem;}
         /*加载页面*/
-        #loader{background:var(--loaderbg);color:light-dark(#000,#fff);width:100vw;height:100vh;z-index:2;overflow:hidden;position:fixed;top:0;left:0;}
+        #loader{background:var(--loaderbg);width:100vw;height:100vh;z-index:2;overflow:hidden;position:fixed;top:0;left:0;text-align:center;display:flex;justify-content:center;align-items:center;}
         @keyframes out{0%{opacity:1;}99%{opacity:0;}100%{opacity:0;display:none;}}
+        #loader>div>p{color:var(--loadercolor);transition:opacity 0.2s;margin:10px 0;padding:0;font-weight:200;font-size:1.25rem;}
+        #loader>div{position:relative;width:calc(100vw - 20px);max-width:700px;}
+        #loader>div>div{position:relative;width:60px;height:20px;margin:10px auto;}
+        #loader>div>div::before,#loader>div>div::after,#loader>div>div span{content:'';position:absolute;top:0;width:20px;height:20px;border-radius:50%;animation:dotFlashing 1s infinite alternate;}
+        #loader>div>div::before{left:-10px;animation-delay:0s;}
+        #loader>div>div span{left:20px;animation-delay:0.2s;}
+        #loader>div>div::after{left:50px;animation-delay:0.4s;}
+        #loader button{background:var(--nav-bg);font-size:1.125rem;padding:2.5px 15px;line-height:30px;border-radius:var(--radius-7x);}
+        @keyframes dotFlashing{0%{background-color:var(--startflashing);transform:scale(1);}50%,100%{background-color:var(--endflashing);transform:scale(0.8);}}
         /*页面*/
         /*导航栏*/
         nav{position:fixed;top:clamp(2px,1vw,10px);left:clamp(2px,1vw,10px);width:calc(100vw - clamp(2px,1vw,10px) * 2);background:var(--nav-bg);padding:2.5px;border-radius:var(--radius-8x);backdrop-filter:blur(20px);z-index:1;}
@@ -97,7 +106,7 @@
         nav>div:last-child>div>a{display:block;width:100%;text-decoration:none;transition:0.5s;}
         nav>div:last-child>div>a:hover{background:#00000033;}
         /*设置-模态框*/
-        dialog::backdrop{background:light-dark(#00000055,#ffffff55);backdrop-filter:blur(1px);}
+        dialog::backdrop{background:#00000055;backdrop-filter:blur(1px);}
         #settingdialog{width:clamp(300px,80vw,600px);height:clamp(350px,60vh,800px);border:none;border-radius:var(--radius-6x);background:var(--dialogbg);backdrop-filter:blur(20px);position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);overflow:hidden;color:var(--root-color);}
         #settingdialog>div:nth-of-type(1){position:sticky;top:0;background:var(--settingbg);width:100%;padding:8px 15px;line-height:24px;}
         #settingdialog>div:nth-of-type(1)>span{float:right;}
@@ -124,11 +133,22 @@
         @media screen and (max-width:320px),(max-height:400px){#smaller{display:flex;}#content,#loader{display:none!important;}}
         
         @media (prefers-color-scheme:dark){}
+        
+        
+        
     </style>
 </head>
 <body onload="loading()" data-mode="system" data-shadow="subtle" data-radius="large" data-font-size="normal" data-line-spacing="loose" data-font-weight="normal">
     <div id="loader">
-        <button onclick="loading()">跳过</button>
+        <div>
+            <div><span></span></div>
+            <p></p>
+            <button onclick="loading()">跳过</button>
+        </div>
+        <script>
+        const texts=["文本1","文本2"];let currentIndex=0;const carouselText=document.querySelector('#loader>div>p');carouselText.textContent=texts[currentIndex];function rotateText(){currentIndex=(currentIndex+1)%texts.length;carouselText.style.opacity='0';setTimeout(()=>{carouselText.textContent=texts[currentIndex];carouselText.style.opacity='1';},200);}
+setInterval(rotateText,1000);
+        </script>
     </div>
     <div id="bigger">请缩小窗口</div>
     <div id="smaller">请放大窗口</div>
@@ -164,7 +184,7 @@
                     <label><input type="radio" name="theme" value="brief-dark" onclick="changeTheme('brief-dark')">简洁-深色</label><br>
                     <label><input type="radio" name="theme" value="brief-light-blue" onclick="changeTheme('brief-light-blue')">简洁-浅蓝</label><br>
                     <label><input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-dark-blue')">简洁-深蓝</label><br>
-                    <label><input type="radio" name="theme" value="brief-orangegreen" onclick="changeTheme('brief-orangegreen')">简洁-<span style="color:#ff8000">橙</span><span style="color:#0f0">绿</span></label><br>
+                    <label><input type="radio" name="theme" value="brief-orangegreen" onclick="changeTheme('brief-orangegreen')"><span style="color:#0f0">橙</span><span style="color:#ff8000">绿</span></label><br>
                     <label><input type="radio" name="theme" value="brief-timeline" onclick="changeTheme('brief-timeline')">时间线</label><br>
                     <label><input type="radio" name="theme" value="atmosphere-light-cottage" onclick="changeTheme('atmosphere-light-cottage')">氛围-浅色-小屋</label><br>
                     <label><input type="radio" name="theme" value="atmosphere-dark-cottage" onclick="changeTheme('atmosphere-dark-cottage')">氛围-深色-小屋</label><br>
@@ -326,8 +346,7 @@
             currentPage = pageId;
             updateNavButtons(pageId);
             updateAnchorLinks(pageId);
-            subMenuVisible = false;
-            document.querySelector('nav>div:last-child').style.display = 'none';
+            toggleSubMenu(false);
         }
         function updateNavButtons(activePageId) {
             document.getElementById('mainNavButton').style.display = 
@@ -344,12 +363,25 @@
             });
             const anchors = document.getElementById(`${pageId}-anchors`);
             if (anchors) anchors.style.display = 'block';
-        }
-        function toggleSubMenu() {
-            subMenuVisible = !subMenuVisible;
+        } 
+        function toggleSubMenu(show = null) {
+            subMenuVisible = show !== null ? show : !subMenuVisible;
             document.querySelector('nav>div:last-child').style.display = 
                 subMenuVisible ? 'block' : 'none';
         }
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const menuButton = document.querySelector('nav>div:first-child>button:last-child');
+            
+            if (menuButton.contains(event.target)) return;
+            
+            if (subMenuVisible && !nav.contains(event.target)) {
+                toggleSubMenu(false);
+            }
+        });
+        document.querySelector('nav>div:last-child').addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
         
         //返回顶部/底部
         function goTop(){document.querySelector('#content>div[style*="display: block"]').scrollTo(0,0);}
@@ -431,6 +463,14 @@
                 blurControl.style.display = isAtmosphereMode ? 'block' : 'none';
             }
         }
+        function initBlurAmount() {
+            const savedBlur = localStorage.getItem('blurAmount');
+            if (savedBlur) {
+                changeBlurAmount(savedBlur);
+            } else {
+                changeBlurAmount(5);
+            }
+        }
         function changeFontSize(size) {
             const content = document.body;
             content.setAttribute('data-font-size', size);
@@ -456,16 +496,16 @@
             content.setAttribute('data-shadow', shadow);
             localStorage.setItem('selectedShadow', shadow);
         }
-function changeBlurAmount(value) {
-    document.documentElement.style.setProperty('--blur-amount', value + 'px');
-    localStorage.setItem('blurAmount', value);
-    updateBlurRadios();
-}
-function updateBlurRadios() {
-    const savedBlur = localStorage.getItem('blurAmount') || '5';
-    document.querySelector(`input[name="blur"][value="${savedBlur}"]`).checked = true;
-}
-
+        function changeBlurAmount(value) {
+            document.documentElement.style.setProperty('--blur-amount', value + 'px');
+            localStorage.setItem('blurAmount', value);
+            updateBlurRadios();
+        }function updateBlurRadios() {
+            const savedBlur = localStorage.getItem('blurAmount') || '5';
+            document.querySelectorAll('input[name="blur"]').forEach(radio => {
+                radio.checked = (radio.value === savedBlur);
+            });
+        }
         function initSettings() {
             const savedTheme = localStorage.getItem('selectedTheme');
             const savedFontSize = localStorage.getItem('selectedFontSize');
@@ -521,6 +561,7 @@ function updateBlurRadios() {
             }
         }
         window.addEventListener('DOMContentLoaded', function() {
+            toggleSubMenu(false);
             initSettings();
             initCustomBg();
             document.getElementById('bgUpload').addEventListener('change', handleBgUpload);
@@ -572,8 +613,6 @@ function updateBlurRadios() {
             changeBlurAmount(5);
             updateBlurRadios();
         }
-        
-    
     </script>
 </body>
 </html>
