@@ -26,11 +26,12 @@
         h1,h2,h3,h4,h5,h6{}
         img,svg,canvas,audio,video{max-width:100%;}
         button{border:none;}
+        #content>div *[id]{scroll-margin-top:55px;}
         /*主题*/
         body[data-mode^="brief"]{}
         body[data-mode^="brief"] #content>div{height:100vh;}
         body[data-mode="brief-light"]{background:#fff;color:#000;--selection:#9494b888;--shadow:#00000022;--loaderbg:#e6e6e6;--loadercolor:#000;--startflashing:#999;--endflashing:#666;--nav-bg:#ddddddbb;--nav-btn:#404040;--dialogbg:#ffffff99;--settingbg:#00000011;--radiobg:#00000055;}
-        body[data-mode="brief-dark"]{background:#262626;color:#fff;--selection:#8585ad88;--shadow:#ffffff22;--loaderbg:#1a1a1a;--loadercolor:#fff;--startflashing:#ccc;--endflashing:#999;--nav-bg:#595959bb;--nav-btn:#e6e6e6;--dialogbg:#00000099;--settingbg:#ffffff11;--radiobg:#ffffff55;}
+        body[data-mode="brief-dark"]{background:#000;color:#fff;--selection:#8585ad88;--shadow:#ffffff22;--loaderbg:#1a1a1a;--loadercolor:#fff;--startflashing:#ccc;--endflashing:#999;--nav-bg:#595959bb;--nav-btn:#e6e6e6;--dialogbg:#00000099;--settingbg:#ffffff11;--radiobg:#ffffff55;}
         body[data-mode="brief-light-blue"]{background:#e6ffff;color:#001a1a;--selection:#0099cc88;--shadow:#00339922;--loaderbg:#cff;--loadercolor:;--startflashing:;--endflashing:;--nav-bg:#33ccffbb;--nav-btn:#046;--dialogbg:#99ddff99;--settingbg:#0088cc11;--radiobg:#0088cc55;}
         body[data-mode="brief-dark-blue"]{background:#026;color:#cdf;--selection:#3366ff88;--shadow:#ccffff22;--loaderbg:#039;--loadercolor:;--startflashing:;--endflashing:;--nav-bg:#0033ccbb;--nav-btn:#99b3ff;--dialogbg:#1a3b5aee;--settingbg:#339af015;--radiobg:#339af030;}
         body[data-mode="brief-orangegreen"]{background:linear-gradient(45deg,#ccffe6,#ffebcc);color:#000;--selection:#ff993388;--shadow:#cc000022;--loaderbg:linear-gradient(45deg,#cfc,#ffe0b3);--loadercolor:;--startflashing:#f90;--endflashing:#3c3;--nav-bg:linear-gradient(90deg,#ff8800bb,#00cc00bb);--nav-btn:#331a00;--dialogbg:#ffb36699;--settingbg:#995c0011;--radiobg:#5cd65c55;}
@@ -123,8 +124,12 @@
         #settingdialog>div:nth-of-type(2)>section button{color:var(--root-color);padding:1px 8px;line-height:23px;background:var(--settingbg);border-radius:var(--radius-5x);margin:2.5px;}
         .atmosphere-settings{display:none;}
         #content[data-mode^="atmosphere"]~dialog.atmosphere-settings{display:block;display:flex;flex-wrap:wrap;}
+        #mode-setting{display:flex;flex-wrap:wrap;justify-content:center;}
+        #mode-setting>h2{flex-basis:100%;}
         #mode-setting>label>input{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
-        #mode-setting>label{margin:2.5px 0;}
+        #mode-setting>label{margin:2.5px;display:block;background:var(--settingbg);border-radius:var(--radius-5x);padding:5px;flex-basis:calc(50% - 5px);}
+        #mode-setting>label>svg{border-radius:var(--radius-4x);}
+        #mode-setting>label>p{}
         /*首页*/
         /*正文*/
         
@@ -133,6 +138,7 @@
         
         @media screen and (min-width:1600px){#bigger{display:flex;}#content,#loader{display:none!important;}}
         @media screen and (max-width:320px),(max-height:400px){#smaller{display:flex;}#content,#loader{display:none!important;}}
+        @media screen and (max-width:100px){#smaller,#bigger,#content,#loader,#oldbrowser{display:none!important;}}
         
         @media (prefers-color-scheme:dark){}
         
@@ -181,21 +187,83 @@ setInterval(rotateText,1000);
             <div>
                 <section id="mode-setting">
                     <h2>主题</h2>
-                    <label><input type="radio" name="theme" value="system" onclick="changeTheme('system')">跟随系统</label><br>
-                    <label><input type="radio" name="theme" value="brief-light" onclick="changeTheme('brief-light')">简洁-浅色</label><br>
-                    <label><input type="radio" name="theme" value="brief-dark" onclick="changeTheme('brief-dark')">简洁-深色</label><br>
-                    <label><input type="radio" name="theme" value="brief-light-blue" onclick="changeTheme('brief-light-blue')">简洁-浅蓝</label><br>
-                    <label><input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-dark-blue')">简洁-深蓝</label><br>
-                    <label><input type="radio" name="theme" value="brief-orangegreen" onclick="changeTheme('brief-orangegreen')"><span style="color:#0f0">橙</span><span style="color:#ff8000">绿</span></label><br>
-                    <label><input type="radio" name="theme" value="brief-timeline" onclick="changeTheme('brief-timeline')">时间线</label><br>
-                    <label><input type="radio" name="theme" value="atmosphere-light-cottage" onclick="changeTheme('atmosphere-light-cottage')">氛围-浅色-小屋</label><br>
-                    <label><input type="radio" name="theme" value="atmosphere-dark-cottage" onclick="changeTheme('atmosphere-dark-cottage')">氛围-深色-小屋</label><br>
-                    <label><input type="radio" name="theme" value="atmosphere-light-seaside" onclick="changeTheme('atmosphere-light-seaside')">氛围-浅色-海边</label><br>
-                    <label><input type="radio" name="theme" value="atmosphere-dark-seaside" onclick="changeTheme('atmosphere-dark-seaside')">氛围-深色-海边</label><br>
-                    <label><input type="radio" name="theme" value="atmosphere-light-valley" onclick="changeTheme('atmosphere-light-valley')">氛围-浅色-山谷</label><br>
-                    <label><input type="radio" name="theme" value="atmosphere-dark-valley" onclick="changeTheme('atmosphere-dark-valley')">氛围-深色-山谷</label><br>
-                    <label><input type="radio" name="theme" value="atmosphere-light-custom" onclick="changeTheme('atmosphere-light-custom')">浅色-自定义</label><br>
-                    <label><input type="radio" name="theme" value="atmosphere-dark-custom" onclick="changeTheme('atmosphere-dark-custom')">深色-自定义</label>
+                    <label style="text-align:center;flex-basis:100%;">
+                        <input type="radio" name="theme" value="system" onclick="changeTheme('system')">跟随系统
+                    </label>
+                    <label style="text-align:center;">
+                        <input type="radio" name="theme" value="brief-orangegreen" onclick="changeTheme('brief-orangegreen')"><span style="color:#0f0">橙</span><span style="color:#ff8000">绿</span>
+                    </label>
+                    <label style="text-align:center;">
+                        <input type="radio" name="theme" value="brief-timeline" onclick="changeTheme('brief-timeline')">时间线
+                    </label>
+                    <label>
+                        <svg width="300" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0" y="0" width="300" height="150" fill="#fff"/>
+                            <rect x="0" y="0" width="300" height="40" fill="#dddddd"/>
+                            <rect x="10" y="100" width="40" height="40" fill="#4285f4" rx="5" ry="5"/>
+                            <rect x="60" y="100" width="40" height="40" fill="#34a853" rx="5" ry="5"/>
+                            <rect x="110" y="100" width="40" height="40" fill="#ea4335" rx="5" ry="5"/>
+                            <text x="170" y="135" fill="#000" font-size="40">Aa</text>
+                        </svg>
+                        <input type="radio" name="theme" value="brief-light" onclick="changeTheme('brief-light')">简洁-浅色
+                    </label>
+                    <label>
+                        <svg width="300" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0" y="0" width="300" height="150" fill="#000"/>
+                            <rect x="0" y="0" width="300" height="40" fill="#595959"/>
+                            <rect x="10" y="100" width="40" height="40" fill="#4285f4" rx="5" ry="5"/>
+                            <rect x="60" y="100" width="40" height="40" fill="#34a853" rx="5" ry="5"/>
+                            <rect x="110" y="100" width="40" height="40" fill="#ea4335" rx="5" ry="5"/>
+                            <text x="170" y="135" fill="#fff" font-size="40">Aa</text>
+                        </svg>
+                        <input type="radio" name="theme" value="brief-dark" onclick="changeTheme('brief-dark')">简洁-深色
+                    </label>
+                    <label>
+                        <svg width="300" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0" y="0" width="300" height="150" fill="#e6ffff"/>
+                            <rect x="0" y="0" width="300" height="40" fill="#33ccff"/>
+                            <rect x="10" y="100" width="40" height="40" fill="#4285f4" rx="5" ry="5"/>
+                            <rect x="60" y="100" width="40" height="40" fill="#34a853" rx="5" ry="5"/>
+                            <rect x="110" y="100" width="40" height="40" fill="#ea4335" rx="5" ry="5"/>
+                            <text x="170" y="135" fill="#00aaaa" font-size="40">Aa</text>
+                        </svg>
+                        <input type="radio" name="theme" value="brief-light-blue" onclick="changeTheme('brief-light-blue')">简洁-浅蓝
+                    </label>
+                    <label>
+                        <svg width="300" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0" y="0" width="300" height="150" fill="#026"/>
+                            <rect x="0" y="0" width="300" height="40" fill="#03c"/>
+                            <rect x="10" y="100" width="40" height="40" fill="#4285f4" rx="5" ry="5"/>
+                            <rect x="60" y="100" width="40" height="40" fill="#34a853" rx="5" ry="5"/>
+                            <rect x="110" y="100" width="40" height="40" fill="#ea4335" rx="5" ry="5"/>
+                            <text x="170" y="135" fill="#cdf" font-size="40">Aa</text>
+                        </svg>
+                        <input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-dark-blue')">简洁-深蓝
+                    </label>
+                    <label>
+                        <input type="radio" name="theme" value="atmosphere-light-cottage" onclick="changeTheme('atmosphere-light-cottage')">氛围-浅色-小屋
+                    </label>
+                    <label>
+                        <input type="radio" name="theme" value="atmosphere-dark-cottage" onclick="changeTheme('atmosphere-dark-cottage')">氛围-深色-小屋
+                    </label>
+                    <label>
+                        <input type="radio" name="theme" value="atmosphere-light-seaside" onclick="changeTheme('atmosphere-light-seaside')">氛围-浅色-海边
+                    </label>
+                    <label>
+                        <input type="radio" name="theme" value="atmosphere-dark-seaside" onclick="changeTheme('atmosphere-dark-seaside')">氛围-深色-海边
+                    </label>
+                    <label>
+                        <input type="radio" name="theme" value="atmosphere-light-valley" onclick="changeTheme('atmosphere-light-valley')">氛围-浅色-山谷
+                    </label>
+                    <label>
+                        <input type="radio" name="theme" value="atmosphere-dark-valley" onclick="changeTheme('atmosphere-dark-valley')">氛围-深色-山谷
+                    </label>
+                    <label>
+                        <input type="radio" name="theme" value="atmosphere-light-custom" onclick="changeTheme('atmosphere-light-custom')">浅色-自定义
+                    </label>
+                    
+                <label>
+                        <input type="radio" name="theme" value="atmosphere-dark-custom" onclick="changeTheme('atmosphere-dark-custom')">深色-自定义</label>
                     <div>
                         <p>自定义背景图片</p>
                         <input type="file" id="bgUpload" accept="image/*" style="display:none">
@@ -263,6 +331,9 @@ setInterval(rotateText,1000);
             <h1>欢迎来到首页</h1>
             <p>页面开发中，敬请期待。</p>
             <hr/>
+            <div>
+                <!--灯箱-->
+            </div>
             <p>这是一段测试文本。这是一段测试文本。</p>
             <p>这是一段测试文本。这是一段测试文本。</p>
             <p>这是一段测试文本。这是一段测试文本。</p>
