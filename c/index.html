@@ -93,7 +93,7 @@
         @keyframes dotFlashing{0%{background-color:var(--startflashing);transform:scale(1);}50%,100%{background-color:var(--endflashing);transform:scale(0.8);}}
         /*页面*/
         /*导航栏*/
-        nav{position:fixed;top:clamp(2px,1vw,10px);left:clamp(2px,1vw,10px);width:calc(100vw - clamp(2px,1vw,10px) * 2);background:var(--nav-bg);padding:2.5px;border-radius:var(--radius-8x);backdrop-filter:blur(20px);z-index:1;box-shadow:var(--shadow-so-x);}
+        nav{position:fixed;top:clamp(2px,1vw,10px);left:clamp(2px,1vw,10px);width:calc(100vw - clamp(2px,1vw,10px) * 2);background:var(--nav-bg);padding:2.5px;border-radius:var(--radius-8x);backdrop-filter:blur(20px);z-index:1;box-shadow:var(--shadow-so-5x);user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}
         body[data-mode^="atmosphere"] #content nav{top:15px;left:calc((100vw - clamp(290px,calc(100vw - 30px),890px)) / 2);width:calc(100vw - 30px);max-width:890px;}
         nav>div:first-child>button{width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;transition:0.5s;border-radius:var(--radius-8x);}
         nav>div:first-child>button:hover{background:#00000033;}
@@ -108,27 +108,29 @@
         nav>div:last-child>div>a:hover{background:#00000033;}
         /*设置-模态框*/
         dialog::backdrop{background:#00000055;backdrop-filter:blur(1px);}
-        #settingdialog{width:clamp(300px,80vw,600px);height:clamp(350px,60vh,800px);border:none;border-radius:var(--radius-6x);background:var(--dialogbg);backdrop-filter:blur(20px);position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);overflow:hidden;color:var(--root-color);}
+        #settingdialog{width:clamp(300px,80vw,600px);height:clamp(350px,60vh,800px);border:none;border-radius:var(--radius-6x);background:var(--dialogbg);backdrop-filter:blur(20px);position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);overflow:hidden;color:var(--root-color);user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}
         #settingdialog>div:nth-of-type(1){position:sticky;top:0;background:var(--settingbg);width:100%;padding:8px 15px;line-height:24px;}
         #settingdialog>div:nth-of-type(1)>span{float:right;}
         #settingdialog>div:nth-of-type(1)>span:hover{}
         #settingdialog>div:nth-of-type(2){height:calc(100% - 40px);padding:10px;overflow-y:auto;}
+        #settingdialog h2{margin:10px;}
+        #settingdialog h2:before{width:5px;height:20px;content:"";background:var(--radiobg);display:inline-block;position:relative;top:2.5px;left:-7.5px;border-radius:2.5px;}
         #settingdialog>div:nth-of-type(2)>section{}
         #settingdialog>div:nth-of-type(2)>section>div{height:35px;background:var(--settingbg);padding:2.5px 2.5px 2.5px 7.5px;border-radius:var(--radius-7x);margin:2.5px 0;}
         #settingdialog>div:nth-of-type(2)>section>div>p{display:inline;line-height:30px;}
         #settingdialog>div:nth-of-type(2)>section>div>label{height:30px;padding:2.5px;background:var(--radiobg);border-radius:15px;float:right;}
         #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]{-webkit-appearance:none;-moz-appearance:none;appearance:none;width:25px;height:25px;border-radius:12.5px;position:relative;background:#00000022;transition:0.5s;}
-        #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]:before{content:var(--input-content);font-size:19px;transition:0.5s;width:25px;height:25px;line-height:25px;margin:3px;color:#000;}
+        #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]:before{content:var(--input-content);font-size:19px;transition:0.5s;width:25px;height:25px;line-height:25px;margin:3px;color:#ffffff44;}
         #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]:checked{background:#ffffff22;}
-        #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]:checked:before{color:#fff;}
+        #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]:checked:before{color:unset;}
         #settingdialog>div:nth-of-type(2)>section button{color:var(--root-color);padding:1px 8px;line-height:23px;background:var(--settingbg);border-radius:var(--radius-5x);margin:2.5px;}
         .atmosphere-settings{display:none;}
         #content[data-mode^="atmosphere"]~dialog.atmosphere-settings{display:block;display:flex;flex-wrap:wrap;}
         #mode-setting{display:flex;flex-wrap:wrap;justify-content:center;}
         #mode-setting>h2{flex-basis:100%;}
         #mode-setting>label>input{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
-        #mode-setting>label{margin:2.5px;display:block;background:var(--settingbg);border-radius:var(--radius-5x);padding:5px;flex-basis:calc(50% - 5px);}
-        #mode-setting>label>svg{border-radius:var(--radius-4x);}
+        #mode-setting>label{margin:2.5px;display:block;background:var(--settingbg);border-radius:var(--radius-5x);padding:5px;flex-basis:calc(50% - 5px);text-align:center;}
+        #mode-setting>label>svg{border-radius:var(--radius-4x);display:block;margin:auto;}
         #mode-setting>label>p{}
         /*首页*/
         /*正文*/
@@ -187,13 +189,13 @@ setInterval(rotateText,1000);
             <div>
                 <section id="mode-setting">
                     <h2>主题</h2>
-                    <label style="text-align:center;flex-basis:100%;">
+                    <label style="flex-basis:100%;">
                         <input type="radio" name="theme" value="system" onclick="changeTheme('system')">跟随系统
                     </label>
-                    <label style="text-align:center;">
+                    <label style="">
                         <input type="radio" name="theme" value="brief-orangegreen" onclick="changeTheme('brief-orangegreen')"><span style="color:#0f0">橙</span><span style="color:#ff8000">绿</span>
                     </label>
-                    <label style="text-align:center;">
+                    <label style="">
                         <input type="radio" name="theme" value="brief-timeline" onclick="changeTheme('brief-timeline')">时间线
                     </label>
                     <label>
@@ -240,37 +242,21 @@ setInterval(rotateText,1000);
                         </svg>
                         <input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-dark-blue')">简洁-深蓝
                     </label>
-                    <label>
-                        <input type="radio" name="theme" value="atmosphere-light-cottage" onclick="changeTheme('atmosphere-light-cottage')">氛围-浅色-小屋
-                    </label>
-                    <label>
-                        <input type="radio" name="theme" value="atmosphere-dark-cottage" onclick="changeTheme('atmosphere-dark-cottage')">氛围-深色-小屋
-                    </label>
-                    <label>
-                        <input type="radio" name="theme" value="atmosphere-light-seaside" onclick="changeTheme('atmosphere-light-seaside')">氛围-浅色-海边
-                    </label>
-                    <label>
-                        <input type="radio" name="theme" value="atmosphere-dark-seaside" onclick="changeTheme('atmosphere-dark-seaside')">氛围-深色-海边
-                    </label>
-                    <label>
-                        <input type="radio" name="theme" value="atmosphere-light-valley" onclick="changeTheme('atmosphere-light-valley')">氛围-浅色-山谷
-                    </label>
-                    <label>
-                        <input type="radio" name="theme" value="atmosphere-dark-valley" onclick="changeTheme('atmosphere-dark-valley')">氛围-深色-山谷
-                    </label>
-                    <label>
-                        <input type="radio" name="theme" value="atmosphere-light-custom" onclick="changeTheme('atmosphere-light-custom')">浅色-自定义
-                    </label>
-                    
-                <label>
-                        <input type="radio" name="theme" value="atmosphere-dark-custom" onclick="changeTheme('atmosphere-dark-custom')">深色-自定义</label>
-                    <div>
+                    <label><input type="radio" name="theme" value="atmosphere-light-cottage" onclick="changeTheme('atmosphere-light-cottage')">氛围-浅色-小屋</label>
+                    <label><input type="radio" name="theme" value="atmosphere-dark-cottage" onclick="changeTheme('atmosphere-dark-cottage')">氛围-深色-小屋</label>
+                    <label><input type="radio" name="theme" value="atmosphere-light-seaside" onclick="changeTheme('atmosphere-light-seaside')">氛围-浅色-海边</label>
+                    <label><input type="radio" name="theme" value="atmosphere-dark-seaside" onclick="changeTheme('atmosphere-dark-seaside')">氛围-深色-海边</label>
+                    <label><input type="radio" name="theme" value="atmosphere-light-valley" onclick="changeTheme('atmosphere-light-valley')">氛围-浅色-山谷</label>
+                    <label><input type="radio" name="theme" value="atmosphere-dark-valley" onclick="changeTheme('atmosphere-dark-valley')">氛围-深色-山谷</label>
+                    <label><input type="radio" name="theme" value="atmosphere-light-custom" onclick="changeTheme('atmosphere-light-custom')">浅色-自定义</label>
+                    <label><input type="radio" name="theme" value="atmosphere-dark-custom" onclick="changeTheme('atmosphere-dark-custom')">深色-自定义</label>
+                    <div style="flex-basis:100%;">
                         <p>自定义背景图片</p>
-                        <input type="file" id="bgUpload" accept="image/*" style="display:none">
+                        <input type="file" id="bgUpload" accept="image/*" style="display:none;">
                         <button onclick="document.getElementById('bgUpload').click()" style="float:right;">上传</button>
                         <button onclick="localStorage.removeItem('customBgImage');customBgImage=null;document.documentElement.style.removeProperty('--custom-bg-image');const currentTheme=document.getElementById('content').getAttribute('data-mode');if(currentTheme==='atmosphere-light-custom'||currentTheme==='atmosphere-dark-custom'){changeTheme('system');}" style="float:right;">清除</button>
                     </div>
-                    <div class="atmosphere-settings">
+                    <div class="atmosphere-settings" style="flex-basis:100%;">
                         <p>遮罩模糊度</p>
                         <label>
                             <input type="radio" name="blur" value="0" onclick="changeBlurAmount(0)" style="--input-content:'无';">
