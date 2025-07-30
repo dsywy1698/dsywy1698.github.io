@@ -307,6 +307,16 @@ setInterval(rotateText,1000);
                     </div>
                 </section>
                 <section>
+                    <h2>内容过滤</h2>
+                    <div>
+                        <p>过滤敏感内容</p>
+                        <label>
+                            <input type="radio" name="contentfilter" value="show" onclick="changeContentFilter('show')" style="--input-content:'关';">
+                            <input type="radio" name="contentfilter" value="hide" onclick="changeContentFilter('hide')" style="--input-content:'开';">
+                        </label>
+                    </div>
+                </section>
+                <section>
                     <button onclick="resetToDefault()">恢复默认</button>
                 </section>
             </div>
@@ -320,6 +330,7 @@ setInterval(rotateText,1000);
             </div>
             <p>这是一段测试文本。</p>
             <a href="#">sss</a>
+            <p data-f>隐藏文本。</p>
         </div>
         <div id="p1">
             <h1>页面1</h1>
@@ -397,6 +408,22 @@ setInterval(rotateText,1000);
         function goBottom(){document.querySelector('#content>div[style*="display: block"]').scrollTo(0,document.querySelector('#content>div[style*="display: block"]').scrollHeight);}
         
         //设置
+        function changeContentFilter(mode) {
+            const filteredElements = document.querySelectorAll('[data-f]');
+            filteredElements.forEach(el => {
+                el.style.display = mode === 'show' ? '' : 'none';
+            });
+            localStorage.setItem('contentFilter', mode);
+        }
+        function initContentFilter() {
+            const savedFilter = localStorage.getItem('contentFilter') || 'hide';
+            changeContentFilter(savedFilter);
+            updateFilterRadios();
+        }
+        function updateFilterRadios() {
+            const savedFilter = localStorage.getItem('contentFilter') || 'hide';
+            document.querySelector(`input[name="contentfilter"][value="${savedFilter}"]`).checked = true;
+        }
         function changeTheme(theme) {
             const content = document.body;
             content.removeAttribute('data-mode');
@@ -540,6 +567,7 @@ setInterval(rotateText,1000);
                     changeBlurAmount(savedBlur);
                 }
             updateBlurRadios();
+            initContentFilter();
         }
         let customBgImage = null;
         function handleBgUpload(e) {
@@ -621,6 +649,9 @@ setInterval(rotateText,1000);
             localStorage.removeItem('blurAmount');
             changeBlurAmount(5);
             updateBlurRadios();
+            localStorage.removeItem('contentFilter');
+            changeContentFilter('hide');
+            updateFilterRadios();
         }
     </script>
 </body>
