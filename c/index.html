@@ -33,7 +33,7 @@
         body[data-mode="brief-light"]{background:#fff;color:#000;--selection:#9494b888;--shadow:#00000022;--loaderbg:#e6e6e6;--loadercolor:#000;--startflashing:#999;--endflashing:#666;--nav-bg:#ddddddbb;--nav-btn:#404040;--dialogbg:#ffffff99;--settingbg:#00000011;--radiobg:#00000055;}
         body[data-mode="brief-dark"]{background:#000;color:#fff;--selection:#8585ad88;--shadow:#ffffff22;--loaderbg:#1a1a1a;--loadercolor:#fff;--startflashing:#ccc;--endflashing:#999;--nav-bg:#595959bb;--nav-btn:#e6e6e6;--dialogbg:#00000099;--settingbg:#ffffff11;--radiobg:#ffffff55;}
         body[data-mode="brief-light-blue"]{background:#e6ffff;color:#001a1a;--selection:#0099cc88;--shadow:#00339922;--loaderbg:#cff;--loadercolor:;--startflashing:;--endflashing:;--nav-bg:#33ccffbb;--nav-btn:#046;--dialogbg:#99ddff99;--settingbg:#0088cc11;--radiobg:#0088cc55;}
-        body[data-mode="brief-dark-blue"]{background:#026;color:#cdf;--selection:#3366ff88;--shadow:#ccffff22;--loaderbg:#039;--loadercolor:;--startflashing:;--endflashing:;--nav-bg:#0033ccbb;--nav-btn:#99b3ff;--dialogbg:#1a3b5aee;--settingbg:#339af015;--radiobg:#339af030;}
+        body[data-mode="brief-dark-blue"]{background:#00284d;color:#cdf;--selection:#3366ff88;--shadow:#ccffff22;--loaderbg:#039;--loadercolor:;--startflashing:;--endflashing:;--nav-bg:#0033ccbb;--nav-btn:#99b3ff;--dialogbg:#1a3b5aee;--settingbg:#339af015;--radiobg:#339af030;}
         body[data-mode="brief-orangegreen"]{background:linear-gradient(45deg,#ccffe6,#ffebcc);color:#000;--selection:#ff993388;--shadow:#cc000022;--loaderbg:linear-gradient(45deg,#cfc,#ffe0b3);--loadercolor:;--startflashing:#f90;--endflashing:#3c3;--nav-bg:linear-gradient(90deg,#ff8800bb,#00cc00bb);--nav-btn:#331a00;--dialogbg:#ffb36699;--settingbg:#995c0011;--radiobg:#5cd65c55;}
         body[data-mode="brief-timeline"] {
     background: var(--timeline-bg);
@@ -132,11 +132,118 @@
         #mode-setting>label{margin:2.5px;display:block;background:var(--settingbg);border-radius:var(--radius-5x);padding:5px;flex-basis:calc(50% - 5px);text-align:center;}
         #mode-setting>label>svg{border-radius:var(--radius-4x);display:block;margin:auto;}
         #mode-setting>label>p{}
-        /*首页*/
-        /*正文*/
         
-        /*页脚*/
-        footer{}
+        /*页面样式*/
+        /*基础*/
+        #content>div>header{}
+        #content>div>main{}
+        /*首页*/
+        
+        /*幻灯片*/
+        /* 幻灯片样式 */
+    #slideshow-container {
+        position: relative;
+        margin: 20px auto;
+        overflow: hidden;
+        border-radius: var(--radius-8x);
+        box-shadow: var(--shadow-so-3x);
+        max-width:800px;
+    }
+    
+    .slideshow {
+        display: flex;
+        transition: transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+        height: 400px;
+    }
+    
+    .slide {
+        min-width: 100%;
+        position: relative;
+    }
+    
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-size: 1.125rem;
+    }
+    
+    .slide-controls {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .slide-controls button {
+        background:#ffffff44;
+        color: white;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 18px;
+        width:30px;height:30px;
+        transition: all 0.3s ease;
+    }
+    
+    .slide-controls button:hover {
+        background: rgba(255, 255, 255, 0.7);
+        color: #333;
+    }
+    
+    .slide-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+    }
+    
+    .slide-dots .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .slide-dots .dot.active {
+        background: white;
+        transform: scale(1.2);
+    }
+    
+    /* 淡入淡出动画 */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    .slide.active {
+        display: block;
+        animation: fadeIn 0.7s ease-in-out;
+    }
+        /*日志*/
+        #event>main>h1{background:#00999988;text-align:center;border-radius:100vw;margin:25px 15px 5px 15px;padding:10px;color:#fff;}
+        #event>main>div{margin:10px 0;padding:20px 8px 10px 8px;border-radius:var(--radius-4x);width:100%;background:var(--event-a,#99ddff55);box-shadow:var(--shadow-hd-x);}
+        #event>main>div>time{position:relative;top:-15px;left:-3px;float:left;margin-right:-9999px;text-align:center;padding:5px 0;min-width:1.9em;border-radius:var(--radius-4x);font-weight:700;background:var(--event-time,#6cf);box-shadow:var(--shadow-ho-x);}
+        #event>main>div>p{padding:2.5px 0;text-indent:2em;}
+        #event>main>div>ul{margin:3px 3px 3px 13px;padding:5px;background:#ffffff44;border-radius:var(--radius-6x);}
+        #event>main>div>ul>li{text-indent:2em;list-style-type:none;}
+        #event>main>div>ul>li:before{position:relative;content:"●";color:#00000088;margin-right:5px;}
+        #event>main>div.bg-b{background:var(--event-b);}
+        #event>main>div.bg-c{background:var(--event-c);}
         
         @media screen and (min-width:1600px){#bigger{display:flex;}#content,#loader{display:none!important;}}
         @media screen and (max-width:320px),(max-height:400px){#smaller{display:flex;}#content,#loader{display:none!important;}}
@@ -170,15 +277,15 @@ setInterval(rotateText,1000);
                 <button onclick="toggleSubMenu()"><i class="fa fa-navicon"></i></button>
             </div>
             <div>
-                <div id="p1-anchors">
-                    <a href="#">链接1</a>
-                    <a href="#">链接2</a>
+                <div id="event-anchors">
+                    <a href="#event-d2409">2024年9月</a>
+                    <a href="#event-d">链接2</a>
                 </div>
                 <div id="p2-anchors">
                     <a href="#">链接3</a>
                     <a href="#">链接4</a>
                 </div>
-                <button onclick="showPage('p1')">页面1</button>
+                <button onclick="showPage('event')">日志</button>
                 <button onclick="showPage('p2')">页面2</button>
             </div>
         </nav>
@@ -322,19 +429,53 @@ setInterval(rotateText,1000);
             </div>
         </dialog>
         <div id="home">
+            <div id="slideshow-container">
+                <div class="slideshow">
+                    <div class="slide active">
+                        <img src="https://picsum.photos/300/200">
+                        <div class="caption">第一张幻灯片</div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://picsum.photos/300/200">
+                        <div class="caption">第二张幻灯片</div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://picsum.photos/300/200">
+                        <div class="caption">第三张幻灯片</div>
+                    </div>
+                </div>
+                <div class="slide-controls">
+                    <button class="prev fa fa-angle-left" onclick="moveSlide(-1)"></button>
+                    <div class="slide-dots"></div>
+                    <button class="next fa fa-angle-right" onclick="moveSlide(1)"></button>
+                </div>
+            </div>
             <h1>欢迎来到首页</h1>
             <p>页面开发中，敬请期待。</p>
             <hr/>
-            <div id="slideshow">
-                <!--幻灯片-->
-            </div>
             <p>这是一段测试文本。</p>
             <a href="#">sss</a>
             <p data-f>隐藏文本。</p>
         </div>
-        <div id="p1">
-            <h1>页面1</h1>
-            <p>这是一段测试文本。</p>
+        <div id="event">
+            <header>
+                <h1>日志</h1>
+            </header>
+            <main>
+                <h1 id="event-d2409">2024年9月</h1>
+                <div>
+                    <time>1</time>
+                    <p>文本1</p>
+                    <p>文本2</p>
+                    <p data-f>隐藏文本</p>
+                    <ul>
+                        <li>无序列表项</li>
+                        <li data-f>隐藏无序列表项</li>
+                        <li>很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的无序列表项</li>
+                    </ul>
+                    <p>长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长文本</p>
+                </div>
+            </main>
         </div>
         <div id="p2">
             <h1>页面2</h1>
@@ -653,6 +794,69 @@ setInterval(rotateText,1000);
             changeContentFilter('hide');
             updateFilterRadios();
         }
+        
+        //幻灯片
+        let currentSlide = 0;
+    let slideInterval;
+    const slides = document.querySelectorAll('.slide');
+    const slideContainer = document.querySelector('.slideshow');
+    const dotsContainer = document.querySelector('.slide-dots');
+    
+    // 初始化幻灯片
+    function initSlideshow() {
+        // 创建指示点
+        slides.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+        
+        // 设置第一个点为活动状态
+        updateDots();
+        
+        // 开始自动播放
+        startAutoPlay();
+        
+        // 鼠标悬停时暂停自动播放
+        const slideshow = document.querySelector('#slideshow-container');
+        slideshow.addEventListener('mouseenter', pauseAutoPlay);
+        slideshow.addEventListener('mouseleave', startAutoPlay);
+    }
+    
+    // 更新指示点状态
+    function updateDots() {
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+    }
+    
+    // 移动到指定幻灯片
+    function goToSlide(index) {
+        currentSlide = (index + slides.length) % slides.length;
+        slideContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+        updateDots();
+    }
+    
+    // 移动幻灯片
+    function moveSlide(n) {
+        goToSlide(currentSlide + n);
+    }
+    
+    // 开始自动播放
+    function startAutoPlay() {
+        pauseAutoPlay();
+        slideInterval = setInterval(() => moveSlide(1), 5000);
+    }
+    
+    // 暂停自动播放
+    function pauseAutoPlay() {
+        clearInterval(slideInterval);
+    }
+    
+    // 初始化幻灯片
+    document.addEventListener('DOMContentLoaded', initSlideshow);
     </script>
 </body>
 </html>
