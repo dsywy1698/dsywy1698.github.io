@@ -79,6 +79,8 @@
         #smaller:hover,#bigger:hover{background:light-dark(#cff,#06c);}
         /*无js窗口*/
         noscript{display:block;width:100vw;height:100vh;background:#fcc;color:#c00;text-align:center;font-weight:800;font-size:1.25rem;}
+        /*旧版浏览器*/
+        #oldbrowser {display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:#fff;color:#000;z-index:9999;padding:20px;font-size:20px;}
         /*加载页面*/
         #loader{background:var(--loaderbg);width:100vw;height:100vh;z-index:2;overflow:hidden;position:fixed;top:0;left:0;text-align:center;display:flex;justify-content:center;align-items:center;transition:none;}
         @keyframes out{0%{opacity:1;}99%{opacity:0;}100%{opacity:0;display:none;}}
@@ -98,14 +100,23 @@
         nav>div:first-child>button{width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;transition:0.5s;border-radius:var(--radius-8x);}
         nav>div:first-child>button:hover{background:#00000033;}
         nav>div:first-child>button>i{color:var(--nav-btn);}
-        nav>div:last-child{background:#ffffff08;transform-origin:top;border-radius:var(--radius-7x);height:0;max-height:0;opacity:0;overflow:hidden;padding:0 2.5px;transition:all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);interpolate-size:allow-keywords;}
-        nav>div:last-child.active{height:auto;opacity:1;max-height:clamp(200px,40vh,400px);overflow-y:auto;padding:0 2.5px;}
-        nav>div:last-child>button{display:block;width:100%;background:transparent;transition:0.5s;font-size:1.125rem;text-align:left;margin:2.5px 0;border-radius:var(--radius-6x);padding:0 10px;line-height:30px;font-weight:unset;}
-        nav>div:last-child>button:hover{background:#00000033;}
-        nav>div:last-child>div{}
-        nav>div:last-child>div:before{}
-        nav>div:last-child>div>a{display:block;width:100%;text-decoration:none;transition:0.5s;color:unset;margin:2.5px;padding:5px 10px;line-height:25px;border-radius:var(--radius-6x);}
-        nav>div:last-child>div>a:hover{background:#00000033;}
+        nav>div:nth-of-type(2){background:#ffffff08;transform-origin:top;border-radius:var(--radius-7x);height:0;max-height:0;opacity:0;overflow:hidden;padding:0 2.5px;transition:all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);interpolate-size:allow-keywords;}
+        nav>div:nth-of-type(2).active{height:auto;opacity:1;max-height:clamp(200px,40vh,400px);overflow-y:auto;padding:0 2.5px;}
+        nav>div:nth-of-type(2)>button{display:block;width:100%;background:transparent;transition:0.5s;font-size:1.125rem;text-align:left;margin:2.5px 0;border-radius:var(--radius-6x);padding:0 10px;line-height:30px;font-weight:unset;}
+        nav>div:nth-of-type(2)>button:hover{background:#00000033;}
+        nav>div:nth-of-type(2)>div{}
+        nav>div:nth-of-type(2)>div:before{}
+        nav>div:nth-of-type(2)>div>a{display:block;width:100%;text-decoration:none;transition:0.5s;color:unset;margin:2.5px;padding:5px 10px;line-height:25px;border-radius:var(--radius-6x);}
+        nav>div:nth-of-type(2)>div>a:hover{background:#00000033;}
+        nav>div:nth-of-type(3){position: absolute;top:0;left:0;width:100%;height:100%;background:#ffffffaa;display:none;align-items:center;padding:0 10px;border-radius:var(--radius-8x);}
+        nav>div:nth-of-type(3)>input{flex-grow:1;background:transparent;border:none;outline:none;color:inherit;font-size:1rem;padding:5px;}
+        nav>div:nth-of-type(3)>span{margin:0 10px;}
+        nav>div:nth-of-type(3)>button{background:transparent;border:none;color:inherit;font-size:1.2rem;cursor:pointer;width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:50%;}
+        nav>div:nth-of-type(3)>button:hover{background:#00000033;}
+        nav>div:nth-of-type(3)>input::placeholder{color:#a3b8c2;opacity:1;}
+        nav>div:nth-of-type(3)>input:-ms-input-placeholder{color:#a3b8c2;}
+        nav>div:nth-of-type(3)>input::-ms-input-placeholder{color:#a3b8c2;}
+        mark{background:var(--markbg,#ff0);color:inherit;padding:0 2px;border-radius:var(--radius-2x);}
         /*设置-模态框*/
         dialog::backdrop{background:#00000055;backdrop-filter:blur(1px);}
         #settingdialog{width:clamp(300px,80vw,600px);height:clamp(350px,60vh,800px);border:none;border-radius:var(--radius-6x);background:var(--dialogbg);backdrop-filter:blur(20px);position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);overflow:hidden;color:var(--root-color);user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}
@@ -141,99 +152,19 @@
         
         /*幻灯片*/
         /* 幻灯片样式 */
-    #slideshow-container {
-        position: relative;
-        margin: 20px auto;
-        overflow: hidden;
-        border-radius: var(--radius-8x);
-        box-shadow: var(--shadow-so-3x);
-        max-width:800px;
-    }
+        #slideshow{position:relative;margin:20px auto;overflow:hidden;border-radius:var(--radius-8x);box-shadow:var(--shadow-so-3x);max-width:800px;}
+        #slideshow>div:first-child{display:flex;transition:transform 0.7s cubic-bezier(0.25,0.1,0.25,1);height:clamp(300px,60vh,400px);}
+        #slideshow>div:first-child>div{min-width:100%;position:relative;}
+        #slideshow>div:first-child>div img{width:100%;height:100%;object-fit:cover;}
+        #slideshow>div:first-child>div>div{position:absolute;bottom:0;left:0;right:0;background:#00000088;color:white;padding:10px;text-align:center;font-size:1.125rem;}
+        #slideshow>div:last-child{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;}
+        #slideshow>div:last-child button{background:#ffffff44;color:white;border-radius:50%;cursor:pointer;font-size:18px;width:30px;height:30px;transition:all 0.3s ease;margin:7.5px;}
+        #slideshow>div:last-child button:hover{background:rgba(255,255,255,0.7);color:#333;}
+        #slideshow>div:last-child>div{display:flex;justify-content:center;gap:8px;margin-top:30px;}
+        #slideshow>div:last-child>div .dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer;transition:all 0.3s ease;}
+        #slideshow>div:last-child>div .dot.active{background:white;transform:scale(1.2);}
+        #slideshow>div:first-child>div.active{display:block;}
     
-    .slideshow {
-        display: flex;
-        transition: transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
-        height: 400px;
-    }
-    
-    .slide {
-        min-width: 100%;
-        position: relative;
-    }
-    
-    .slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    
-    .caption {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.5);
-        color: white;
-        padding: 10px;
-        text-align: center;
-        font-size: 1.125rem;
-    }
-    
-    .slide-controls {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .slide-controls button {
-        background:#ffffff44;
-        color: white;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 18px;
-        width:30px;height:30px;
-        transition: all 0.3s ease;
-    }
-    
-    .slide-controls button:hover {
-        background: rgba(255, 255, 255, 0.7);
-        color: #333;
-    }
-    
-    .slide-dots {
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-    }
-    
-    .slide-dots .dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.5);
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-    
-    .slide-dots .dot.active {
-        background: white;
-        transform: scale(1.2);
-    }
-    
-    /* 淡入淡出动画 */
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-    
-    .slide.active {
-        display: block;
-        animation: fadeIn 0.7s ease-in-out;
-    }
         /*日志*/
         #event>main>h1{background:#00999988;text-align:center;border-radius:100vw;margin:25px 15px 5px 15px;padding:10px;color:#fff;}
         #event>main>div{margin:10px 0;padding:20px 8px 10px 8px;border-radius:var(--radius-4x);width:100%;background:var(--event-a,#99ddff55);box-shadow:var(--shadow-hd-x);}
@@ -275,6 +206,7 @@ setInterval(rotateText,1000);
                 <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
                 <button onclick="document.getElementById('settingdialog').showModal()"><i class="fa fa-gear"></i></button>
                 <button onclick="toggleSubMenu()"><i class="fa fa-navicon"></i></button>
+                <button onclick="toggleSearch()"><i class="fa fa-search"></i></button>
             </div>
             <div>
                 <div id="event-anchors">
@@ -287,6 +219,11 @@ setInterval(rotateText,1000);
                 </div>
                 <button onclick="showPage('event')">日志</button>
                 <button onclick="showPage('p2')">页面2</button>
+            </div>
+            <div>
+                <input type="text" placeholder="搜索...">
+                <span>0</span>
+                <button onclick="toggleSearch()">&times;</button>
             </div>
         </nav>
         <dialog id="settingdialog">
@@ -414,7 +351,7 @@ setInterval(rotateText,1000);
                     </div>
                 </section>
                 <section>
-                    <h2>内容过滤</h2>
+                    <h2>正文</h2>
                     <div>
                         <p>过滤敏感内容</p>
                         <label>
@@ -429,24 +366,24 @@ setInterval(rotateText,1000);
             </div>
         </dialog>
         <div id="home">
-            <div id="slideshow-container">
-                <div class="slideshow">
-                    <div class="slide active">
+            <div id="slideshow">
+                <div>
+                    <div class="active">
                         <img src="https://picsum.photos/300/200">
-                        <div class="caption">第一张幻灯片</div>
+                        <div>第一张幻灯片</div>
                     </div>
-                    <div class="slide">
+                    <div>
                         <img src="https://picsum.photos/300/200">
-                        <div class="caption">第二张幻灯片</div>
+                        <div>第二张幻灯片</div>
                     </div>
-                    <div class="slide">
+                    <div>
                         <img src="https://picsum.photos/300/200">
-                        <div class="caption">第三张幻灯片</div>
+                        <div>第三张幻灯片</div>
                     </div>
                 </div>
-                <div class="slide-controls">
+                <div>
                     <button class="prev fa fa-angle-left" onclick="moveSlide(-1)"></button>
-                    <div class="slide-dots"></div>
+                    <div></div>
                     <button class="next fa fa-angle-right" onclick="moveSlide(1)"></button>
                 </div>
             </div>
@@ -488,9 +425,57 @@ setInterval(rotateText,1000);
         <style>#loader,#bigger,#smaller,#content{display:none!important;}</style>
         <p>本网站需要JavaScript才能正常运行，请启用JavaScript后刷新页面</p>
     </noscript>
-    <div id="oldbrowser" style="display:none;">浏览器版本过旧，不支持显示</div>
+    <div id="oldbrowser">浏览器版本过旧，不支持显示。<br/>请下载最新浏览器或升级至最新浏览器后重试。</div>
     <script>
         //旧版浏览器
+        function checkBrowserCompatibility() {
+            const featuresToCheck = [
+                'color-scheme',
+                'backdrop-filter',
+                'scroll-behavior',
+                'scroll-snap-type',
+                'gap',
+                'aspect-ratio',
+                'container',
+                'has'
+            ];
+            const testElement = document.createElement('div');
+            document.body.appendChild(testElement);
+            let unsupportedFeatures = [];
+            featuresToCheck.forEach(feature => {
+                try {
+                    if (feature === 'has') {
+                        testElement.innerHTML = '<div id="test-has"><p></p></div>';
+                        const style = document.createElement('style');
+                        style.textContent = '#test-has:has(p) { display: block; }';
+                        document.head.appendChild(style);
+                        const isSupported = getComputedStyle(testElement.querySelector('#test-has')).display === 'block';
+                        document.head.removeChild(style);
+                        if (!isSupported) {
+                            unsupportedFeatures.push(':has() selector');
+                        }
+                    } else {
+                        testElement.style[feature] = 'initial';
+                        if (!testElement.style[feature]) {
+                            unsupportedFeatures.push(feature);
+                        }
+                    }
+                } catch (e) {
+                    unsupportedFeatures.push(feature);
+                }
+            });
+            document.body.removeChild(testElement);
+            if (unsupportedFeatures.length > 0) {
+                const oldBrowserDiv = document.getElementById('oldbrowser');
+                const details = document.createElement('p');
+                details.textContent = `不支持的特性: ${unsupportedFeatures.join(', ')}`;
+                oldBrowserDiv.appendChild(details);
+                oldBrowserDiv.style.display = 'flex';
+                document.getElementById('content').style.display = 'none';
+                document.getElementById('loader').style.display = 'none';
+            }
+        }
+        window.addEventListener('DOMContentLoaded', checkBrowserCompatibility);
         
         //页面切换
         let currentPage = null;
@@ -508,14 +493,14 @@ setInterval(rotateText,1000);
         function updateNavButtons(activePageId) {
             document.getElementById('mainNavButton').style.display = 
                 activePageId === 'home' ? 'none' : 'inline-block';
-            document.querySelectorAll('nav>div:last-child button[onclick]').forEach(button => {
+            document.querySelectorAll('nav>div:nth-of-type(2) button[onclick]').forEach(button => {
                 const pageId = button.getAttribute('onclick').match(/showPage\('(.+?)'\)/)[1];
                 button.style.display = 
                     pageId === activePageId ? 'none' : 'block';
             });
         }
         function updateAnchorLinks(pageId) {
-            document.querySelectorAll('nav>div:last-child div[id$="-anchors"]').forEach(div => {
+            document.querySelectorAll('nav>div:nth-of-type(2) div[id$="-anchors"]').forEach(div => {
                 div.style.display = 'none';
             });
             const anchors = document.getElementById(`${pageId}-anchors`);
@@ -523,7 +508,7 @@ setInterval(rotateText,1000);
         } 
         function toggleSubMenu(show = null) {
             subMenuVisible = show !== null ? show : !subMenuVisible;
-            const subMenu = document.querySelector('nav>div:last-child');
+            const subMenu = document.querySelector('nav>div:nth-of-type(2)');
             
             if (subMenuVisible) {
                 subMenu.classList.add('active');
@@ -534,13 +519,11 @@ setInterval(rotateText,1000);
         document.addEventListener('click', function(event) {
             const nav = document.querySelector('nav');
             const menuButton = document.querySelector('nav>div:first-child>button:last-child');
-            const subMenu = document.querySelector('nav>div:last-child');
-            
-            if (menuButton.contains(event.target)) return;
-            
-            if (subMenuVisible && !nav.contains(event.target)) {
-                subMenu.classList.remove('active');
-                subMenuVisible = false;
+            const subMenu = document.querySelector('nav>div:nth-of-type(2)');
+            const isClickInsideMenu = nav.contains(event.target) && 
+                                    !event.target.closest('nav>div:nth-of-type(3)'); 
+            if (subMenuVisible && !isClickInsideMenu) {
+                toggleSubMenu(false);
             }
         });
         
@@ -794,69 +777,141 @@ setInterval(rotateText,1000);
             changeContentFilter('hide');
             updateFilterRadios();
         }
+        //搜索
+        let searchActive = false;
+        // 修改搜索功能
+        function toggleSearch() {
+            if (subMenuVisible) return;
+            const searchContainer = document.querySelector('nav>div:nth-of-type(3)');
+            searchActive = !searchActive;
+            if (searchActive) {
+                searchContainer.style.display = 'flex';
+                searchContainer.querySelector('input').focus();
+                toggleSubMenu(false);
+            } else {
+                searchContainer.style.display = 'none';
+                clearSearch();
+            }
+        }
+        function performSearch() {
+            const searchInput = document.querySelector('nav>div:nth-of-type(3) input');
+            const resultsCount = document.querySelector('nav>div:nth-of-type(3) span');
+            const query = searchInput.value.trim().toLowerCase();
+            if (!query) {
+                clearSearch();
+                return;
+            }
+            const currentPage = document.querySelector('#content>div[style*="display: block"]');
+            const marks = currentPage.querySelectorAll('mark');
+            marks.forEach(mark => {
+                const parent = mark.parentNode;
+                parent.replaceChild(document.createTextNode(mark.textContent), mark);
+                parent.normalize();
+            });
+            const textNodes = [];
+            const walker = document.createTreeWalker(
+                currentPage,
+                NodeFilter.SHOW_TEXT,
+                null,
+                false
+            );
+            let node;
+            let count = 0;
+            while (node = walker.nextNode()) {
+                if (node.parentNode.nodeName === 'SCRIPT' || node.parentNode.nodeName === 'STYLE') {
+                    continue;
+                }
+                const text = node.nodeValue;
+                if (text.toLowerCase().includes(query)) {
+                    textNodes.push(node);
+                    count++;
+                }
+            }
+            textNodes.forEach(textNode => {
+                const text = textNode.nodeValue;
+                const parent = textNode.parentNode;
+                const fragments = text.split(new RegExp(`(${query})`, 'gi'));
+                
+                const fragment = document.createDocumentFragment();
+                fragments.forEach((part, i) => {
+                    if (i % 2 === 1) {
+                        const mark = document.createElement('mark');
+                        mark.textContent = part;
+                        mark.style.backgroundColor = 'rgba(255, 255, 0, 0.5)';
+                        fragment.appendChild(mark);
+                    } else if (part) {
+                        fragment.appendChild(document.createTextNode(part));
+                    }
+                });
+                parent.replaceChild(fragment, textNode);
+            });
+            resultsCount.textContent = `${count}`;
+        }
+        function clearSearch() {
+            const resultsCount = document.querySelector('nav>div:nth-of-type(3) span');
+            resultsCount.textContent = '0';
+            const currentPage = document.querySelector('#content>div[style*="display: block"]');
+            const marks = currentPage.querySelectorAll('mark');
+            marks.forEach(mark => {
+                const parent = mark.parentNode;
+                parent.replaceChild(document.createTextNode(mark.textContent), mark);
+                parent.normalize();
+            });
+            const searchInput = document.querySelector('nav>div:nth-of-type(3) input');
+            searchInput.value = '';
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.querySelector('nav>div:nth-of-type(3) input');
+            searchInput.addEventListener('input', performSearch);
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && searchActive) {
+                    toggleSearch();
+                }
+            });
+        });
         
         //幻灯片
         let currentSlide = 0;
-    let slideInterval;
-    const slides = document.querySelectorAll('.slide');
-    const slideContainer = document.querySelector('.slideshow');
-    const dotsContainer = document.querySelector('.slide-dots');
-    
-    // 初始化幻灯片
-    function initSlideshow() {
-        // 创建指示点
-        slides.forEach((_, index) => {
-            const dot = document.createElement('span');
-            dot.classList.add('dot');
-            dot.addEventListener('click', () => goToSlide(index));
-            dotsContainer.appendChild(dot);
-        });
-        
-        // 设置第一个点为活动状态
-        updateDots();
-        
-        // 开始自动播放
-        startAutoPlay();
-        
-        // 鼠标悬停时暂停自动播放
-        const slideshow = document.querySelector('#slideshow-container');
-        slideshow.addEventListener('mouseenter', pauseAutoPlay);
-        slideshow.addEventListener('mouseleave', startAutoPlay);
-    }
-    
-    // 更新指示点状态
-    function updateDots() {
-        const dots = document.querySelectorAll('.dot');
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentSlide);
-        });
-    }
-    
-    // 移动到指定幻灯片
-    function goToSlide(index) {
-        currentSlide = (index + slides.length) % slides.length;
-        slideContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-        updateDots();
-    }
-    
-    // 移动幻灯片
-    function moveSlide(n) {
-        goToSlide(currentSlide + n);
-    }
-    
-    // 开始自动播放
-    function startAutoPlay() {
-        pauseAutoPlay();
-        slideInterval = setInterval(() => moveSlide(1), 5000);
-    }
-    
-    // 暂停自动播放
-    function pauseAutoPlay() {
-        clearInterval(slideInterval);
-    }
-    
-    // 初始化幻灯片
-    document.addEventListener('DOMContentLoaded', initSlideshow);
+        let slideInterval;
+        const slides = document.querySelectorAll('#slideshow>div:first-child>div');
+        const slideContainer = document.querySelector('#slideshow>div:first-child');
+        const dotsContainer = document.querySelector('#slideshow>div:last-child>div');
+        function initSlideshow() {
+            slides.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+            updateDots();
+            startAutoPlay();
+            const slideshow = document.querySelector('#slideshow');
+            slideshow.addEventListener('mouseenter', pauseAutoPlay);
+            slideshow.addEventListener('mouseleave', startAutoPlay);
+        }
+        function updateDots() {
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+        function goToSlide(index) {
+            currentSlide = (index + slides.length) % slides.length;
+            slideContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+            updateDots();
+        }
+        function moveSlide(n) {
+            goToSlide(currentSlide + n);
+        }
+        function startAutoPlay() {
+            pauseAutoPlay();
+            slideInterval = setInterval(() => moveSlide(1), 5000);
+        }
+        function pauseAutoPlay() {
+            clearInterval(slideInterval);
+        }
+        document.addEventListener('DOMContentLoaded', initSlideshow);
+       
     </script>
 </body>
 </html>
