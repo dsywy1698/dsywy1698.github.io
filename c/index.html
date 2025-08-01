@@ -549,14 +549,19 @@ setInterval(rotateText,1000);
             updateNavButtons(pageId);
             updateAnchorLinks(pageId);
             toggleSubMenu(false);
+            document.getElementById(pageId).scrollTo(0, 0);
         }
         function updateNavButtons(activePageId) {
-            document.getElementById('mainNavButton').style.display = 
+            const mainNavButton = document.getElementById('mainNavButton');
+            mainNavButton.style.display = 
                 activePageId === 'home' ? 'none' : 'inline-block';
             document.querySelectorAll('nav>div:nth-of-type(2) button[onclick]').forEach(button => {
-                const pageId = button.getAttribute('onclick').match(/showPage\('(.+?)'\)/)[1];
-                button.style.display = 
-                    pageId === activePageId ? 'none' : 'block';
+                const match = button.getAttribute('onclick').match(/showPage\('(.+?)'\)/);
+                if (match) {
+                    const pageId = match[1];
+                    button.style.display = 
+                        pageId === activePageId ? 'none' : 'block';
+                }
             });
         }
         function updateAnchorLinks(pageId) {
@@ -782,6 +787,7 @@ setInterval(rotateText,1000);
             }
         }
         window.addEventListener('DOMContentLoaded', function() {
+            showPage('home');
             toggleSubMenu(false);
             initSettings();
             initCustomBg();
