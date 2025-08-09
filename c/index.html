@@ -56,7 +56,7 @@
             --radiobg: #00000055;
         }
         body[data-mode^="atmosphere"]{background-position:50% 50%;background-repeat:no-repeat;background-size:cover;background-attachment:fixed;transition:all 0.3s ease;}
-        body[data-mode^="atmosphere"] #content>div{max-width:900px;margin:auto;width:calc(100vw - 20px);height:calc(100vh - 20px);backdrop-filter:blur(var(--blur-amount));border-radius:var(--radius-8x);position:fixed;top:10px;left:calc((100vw - clamp(300px,calc(100vw - 20px),900px)) / 2)}
+        body[data-mode^="atmosphere"][data-fullscreen="no"] #content>div{max-width:900px;margin:auto;width:calc(100vw - 20px);height:calc(100vh - 20px);backdrop-filter:blur(var(--blur-amount));border-radius:var(--radius-8x);position:fixed;top:10px;left:calc((100vw - clamp(300px,calc(100vw - 20px),900px)) / 2)}
         body[data-mode^="atmosphere-dark"] #content>div,body[data-mode^="atmosphere-dark"] #content dialog{color:#fff;}
         body[data-mode^="atmosphere-light"] #content>div{background:#ffffff55;}
         body[data-mode^="atmosphere-dark"] #content>div{background:#00000066;}
@@ -117,7 +117,7 @@
         nav{position:fixed;top:clamp(2px,1vw,10px);left:clamp(2px,1vw,10px);width:calc(100vw - clamp(2px,1vw,10px) * 2);background:var(--nav-bg);padding:2.5px;border-radius:var(--radius-8x);backdrop-filter:blur(20px);z-index:1;box-shadow:var(--shadow-so-5x);user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}
         nav::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right,var(--nav-btn) var(--scroll-progress,0%),transparent 0);opacity:0.1;pointer-events:none;z-index:-1;border-radius:var(--radius-8x);height:40px;}
 
-        body[data-mode^="atmosphere"] #content nav{top:15px;left:calc((100vw - clamp(290px,calc(100vw - 30px),890px)) / 2);width:calc(100vw - 30px);max-width:890px;}
+        body[data-mode^="atmosphere"][data-fullscreen="no"] #content nav{top:15px;left:calc((100vw - clamp(290px,calc(100vw - 30px),890px)) / 2);width:calc(100vw - 30px);max-width:890px;}
         nav>div:first-child>button{width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;transition:0.5s;border-radius:var(--radius-8x);}
         nav>div:first-child>button:hover{background:#00000033;}
         nav>div:first-child>button>i{color:var(--nav-btn);}
@@ -155,8 +155,8 @@
         #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]:checked{background:#ffffff22;}
         #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]:checked:before{color:unset;}
         #settingdialog>div:nth-of-type(2)>section button{color:var(--root-color);padding:1px 8px;line-height:23px;background:var(--settingbg);border-radius:var(--radius-5x);margin:2.5px;}
-        .atmosphere-settings{display:none;}
-        #content[data-mode^="atmosphere"]~dialog.atmosphere-settings{display:block;display:flex;flex-wrap:wrap;}
+        body[data-mode^="brief"] .atmosphere-settings{display:none;}
+        body[data-mode^="atmosphere"] .atmosphere-settings{display:block;display:flex;flex-wrap:wrap;}
         #mode-setting{display:flex;flex-wrap:wrap;justify-content:center;}
         #mode-setting>h2{flex-basis:100%;}
         #mode-setting>label>input{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
@@ -348,6 +348,13 @@ setInterval(rotateText,1000);
                             <input type="radio" name="blur" value="0" onclick="changeBlurAmount(0)" style="--input-content:'无';">
                             <input type="radio" name="blur" value="5" onclick="changeBlurAmount(5)" style="--input-content:'中';">
                             <input type="radio" name="blur" value="10" onclick="changeBlurAmount(10)" style="--input-content:'强';">
+                        </label>
+                    </div>
+                    <div class="atmosphere-settings" style="flex-basis:100%;">
+                        <p>全屏显示</p>
+                        <label>
+                            <input type="radio" name="fullscreen" value="yes" onclick="changeFullscreenMode('yes')" style="--input-content:'是';">
+                            <input type="radio" name="fullscreen" value="no" onclick="changeFullscreenMode('no')" style="--input-content:'否';">
                         </label>
                     </div>
                 </section>
@@ -830,6 +837,19 @@ setInterval(rotateText,1000);
                 radio.checked = (radio.value === savedBlur);
             });
         }
+        function changeFullscreenMode(mode) {
+            document.body.setAttribute('data-fullscreen', mode);
+            localStorage.setItem('fullscreenMode', mode);
+        }
+        function initFullscreenMode() {
+            const savedMode = localStorage.getItem('fullscreenMode') || 'no';
+            changeFullscreenMode(savedMode);
+            updateFullscreenRadios();
+        }
+        function updateFullscreenRadios() {
+            const savedMode = localStorage.getItem('fullscreenMode') || 'no';
+            document.querySelector(`input[name="fullscreen"][value="${savedMode}"]`).checked = true;
+        }
         function initSettings() {
             const savedTheme = localStorage.getItem('selectedTheme');
             const savedFontSize = localStorage.getItem('selectedFontSize');
@@ -856,6 +876,7 @@ setInterval(rotateText,1000);
                 }
             updateBlurRadios();
             initContentFilter();
+            initFullscreenMode();
         }
         let customBgImage = null;
         function handleBgUpload(e) {
@@ -893,6 +914,7 @@ setInterval(rotateText,1000);
             document.getElementById('bgUpload').addEventListener('change', handleBgUpload);
             initBlurAmount();
             updateBlurControlVisibility();
+            initFullscreenMode();
         });
         function handleSystemThemeChange(e) {
             const content = document.body;
@@ -941,10 +963,11 @@ setInterval(rotateText,1000);
             localStorage.removeItem('contentFilter');
             changeContentFilter('hide');
             updateFilterRadios();
+            localStorage.removeItem('fullscreenMode');
+            changeFullscreenMode('no');
         }
         //搜索
         let searchActive = false;
-        // 修改搜索功能
         function toggleSearch() {
             if (subMenuVisible) return;
             const searchContainer = document.querySelector('nav>div:nth-of-type(3)');
