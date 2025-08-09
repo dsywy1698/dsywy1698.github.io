@@ -3,7 +3,6 @@
 <!--
 增加：
 自定义色调
-氛围模式全屏显示按钮
 自动生成导航
 边缘渐变透明
 -->
@@ -156,7 +155,7 @@
         #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]:checked:before{color:unset;}
         #settingdialog>div:nth-of-type(2)>section button{color:var(--root-color);padding:1px 8px;line-height:23px;background:var(--settingbg);border-radius:var(--radius-5x);margin:2.5px;}
         body[data-mode^="brief"] .atmosphere-settings{display:none;}
-        body[data-mode^="atmosphere"] .atmosphere-settings{display:block;display:flex;flex-wrap:wrap;}
+        body[data-mode^="atmosphere"] .atmosphere-settings{display:block;flex-basis:100%;}
         #mode-setting{display:flex;flex-wrap:wrap;justify-content:center;}
         #mode-setting>h2{flex-basis:100%;}
         #mode-setting>label>input{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
@@ -342,7 +341,7 @@ setInterval(rotateText,1000);
                         <button onclick="document.getElementById('bgUpload').click()" style="float:right;">上传</button>
                         <button onclick="localStorage.removeItem('customBgImage');customBgImage=null;document.documentElement.style.removeProperty('--custom-bg-image');const currentTheme=document.getElementById('content').getAttribute('data-mode');if(currentTheme==='atmosphere-light-custom'||currentTheme==='atmosphere-dark-custom'){changeTheme('system');}" style="float:right;">清除</button>
                     </div>
-                    <div class="atmosphere-settings" style="flex-basis:100%;">
+                    <div class="atmosphere-settings">
                         <p>遮罩模糊度</p>
                         <label>
                             <input type="radio" name="blur" value="0" onclick="changeBlurAmount(0)" style="--input-content:'无';">
@@ -350,7 +349,7 @@ setInterval(rotateText,1000);
                             <input type="radio" name="blur" value="10" onclick="changeBlurAmount(10)" style="--input-content:'强';">
                         </label>
                     </div>
-                    <div class="atmosphere-settings" style="flex-basis:100%;">
+                    <div class="atmosphere-settings">
                         <p>全屏显示</p>
                         <label>
                             <input type="radio" name="fullscreen" value="yes" onclick="changeFullscreenMode('yes')" style="--input-content:'是';">
