@@ -2,7 +2,6 @@
 <html lang="zh-CN">
 <!--
 增加：
-阅读指示器
 自定义色调
 氛围模式全屏显示按钮
 自动生成导航
@@ -116,12 +115,14 @@
         /*页面*/
         /*导航栏*/
         nav{position:fixed;top:clamp(2px,1vw,10px);left:clamp(2px,1vw,10px);width:calc(100vw - clamp(2px,1vw,10px) * 2);background:var(--nav-bg);padding:2.5px;border-radius:var(--radius-8x);backdrop-filter:blur(20px);z-index:1;box-shadow:var(--shadow-so-5x);user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}
+        nav::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right,var(--nav-btn) var(--scroll-progress,0%),transparent 0);opacity:0.1;pointer-events:none;z-index:-1;border-radius:var(--radius-8x);height:40px;}
+
         body[data-mode^="atmosphere"] #content nav{top:15px;left:calc((100vw - clamp(290px,calc(100vw - 30px),890px)) / 2);width:calc(100vw - 30px);max-width:890px;}
         nav>div:first-child>button{width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;transition:0.5s;border-radius:var(--radius-8x);}
         nav>div:first-child>button:hover{background:#00000033;}
         nav>div:first-child>button>i{color:var(--nav-btn);}
-        nav>div:nth-of-type(2){background:#ffffff08;transform-origin:top;border-radius:var(--radius-7x);height:0;max-height:0;opacity:0;overflow:hidden;padding:0 2.5px;transition:all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);interpolate-size:allow-keywords;}
-        nav>div:nth-of-type(2).active{height:auto;opacity:1;max-height:clamp(200px,40vh,400px);padding:0 2.5px;}
+        nav>div:nth-of-type(2){background:#ffffff08;transform-origin:top;border-radius:var(--radius-7x);height:0;max-height:0;opacity:0;overflow:hidden;padding:0 2.5px;transition:all 0.3s cubic-bezier(0.68,-0.6,0.32,1.6);interpolate-size:allow-keywords;}
+        nav>div:nth-of-type(2).active{height:auto;opacity:1;max-height:clamp(200px,40vh,400px);padding:0 2.5px;margin-top:5px;}
         nav>div:nth-of-type(2)>button{display:block;width:100%;background:transparent;transition:0.5s;font-size:1.125rem;text-align:left;margin:2.5px 0;border-radius:var(--radius-7x);padding:2.5px 10px;line-height:30px;font-weight:unset;}
         nav>div:nth-of-type(2)>button:hover{background:#00000033;}
         nav>div:nth-of-type(2)>div{position:relative;padding-left:7.5px;margin-left:5px;}
@@ -674,6 +675,25 @@ setInterval(rotateText,1000);
         //返回顶部/底部
         function goTop(){document.querySelector('#content>div[style*="display: block"]').scrollTo(0,0);}
         function goBottom(){document.querySelector('#content>div[style*="display: block"]').scrollTo(0,document.querySelector('#content>div[style*="display: block"]').scrollHeight);}
+        
+        //阅读指示器
+        function updateScrollProgress() {
+            const nav = document.querySelector('nav');
+            if (!nav) return;
+            
+            const currentPage = document.querySelector('#content>div[style*="display: block"]');
+            if (!currentPage) return;
+            
+            const scrollHeight = currentPage.scrollHeight - currentPage.clientHeight;
+            const scrollTop = currentPage.scrollTop;
+            const progress = (scrollTop / scrollHeight) * 100;
+            
+            nav.style.setProperty('--scroll-progress', progress + '%');
+        }
+        document.querySelectorAll('#content>div').forEach(page => {
+            page.addEventListener('scroll', updateScrollProgress);
+        });
+        window.addEventListener('DOMContentLoaded', updateScrollProgress);
         
         //设置
         function changeContentFilter(mode) {
