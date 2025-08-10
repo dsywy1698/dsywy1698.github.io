@@ -18,13 +18,13 @@
     </script>
     <style>
         :root{color-scheme:light dark;--blur-amount:5px;}
-        *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;transition:background 0.5s ease,color 0.5s ease,backdrop-filter 0.5s ease,font-size 0.5s ease,border-radius 0.5s ease,box-shadow 0.5s ease,line-height 0.5s ease,letter-spacing 0.5s ease;}
+        *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;transition:background 0.5s ease,color 0.5s ease,backdrop-filter 0.5s ease,font-size 0.5s ease,border-radius 0.5s ease,box-shadow 0.5s ease,line-height 0.5s ease,letter-spacing 0.5s ease;color:inherit;}
         *::-webkit-scrollbar{display:none!important;}
         ::-moz-selection{background:var(--selection);}
         ::selection{background:var(--selection);}
         html{font-size:100%;height:100vh;}
         body{font-family:"微软雅黑",sans-serif;}
-        #content>div{padding:50px 10px 10px 10px;overflow-y:auto;scroll-behavior:smooth;}
+        #content>div{padding:50px 10px 10px 10px;overflow-y:auto;scroll-behavior:smooth;height:100vh;}
         #content>div:not(#home){display:none;}
         /*基本样式*/
         hr{border:1px solid var(--hr);border-radius:100px;margin:5px 10px;}
@@ -37,7 +37,7 @@
         
         /*主题*/
         body[data-mode^="brief"]{}
-        body[data-mode^="brief"] #content>div{height:100vh;}
+        body[data-mode^="brief"] #content>div{}
         body[data-mode="brief-light"]{background:#fff;color:#000;--a:#03c;--ah:#06c;--hr:#888;--selection:#9494b888;--shadow:#00000022;--loaderbg:#e6e6e6;--loadercolor:#000;--startflashing:#999;--endflashing:#666;--nav-bg:#ddddddbb;--nav-btn:#404040;--dialogbg:#ffffff99;--settingbg:#00000011;--radiobg:#00000055;}
         body[data-mode="brief-dark"]{background:#000;color:#fff;--a:#9cf;--ah:#69f;--hr:#999;--selection:#8585ad88;--shadow:#ffffff22;--loaderbg:#1a1a1a;--loadercolor:#fff;--startflashing:#ccc;--endflashing:#999;--nav-bg:#595959bb;--nav-btn:#e6e6e6;--dialogbg:#00000099;--settingbg:#ffffff11;--radiobg:#ffffff55;}
         body[data-mode="brief-light-blue"]{background:#e6ffff;color:#001a1a;--a:#0040ff;--ah:#0080ff;--hr:#09f;--selection:#0099cc88;--shadow:#00339922;--loaderbg:#cff;--loadercolor:#001a1a;--startflashing:#0066cc;--endflashing:#0099cc;--nav-bg:#33ccffbb;--nav-btn:#046;--dialogbg:#99ddff99;--settingbg:#0088cc11;--radiobg:#0088cc55;}
@@ -120,6 +120,7 @@
         nav>div:first-child>button{width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;transition:0.5s;border-radius:var(--radius-8x);}
         nav>div:first-child>button:hover{background:#00000033;}
         nav>div:first-child>button>i{color:var(--nav-btn);}
+        nav:has(>div:nth-of-type(2).active)>div:first-child>button:last-child{opacity:0.3;pointer-events:none;}
         nav>div:nth-of-type(2){background:#ffffff08;transform-origin:top;border-radius:var(--radius-7x);height:0;max-height:0;opacity:0;overflow:hidden;padding:0 2.5px;transition:all 0.3s cubic-bezier(0.68,-0.6,0.32,1.6);interpolate-size:allow-keywords;}
         nav>div:nth-of-type(2).active{height:auto;opacity:1;max-height:clamp(200px,40vh,400px);padding:0 2.5px;margin-top:5px;}
         nav>div:nth-of-type(2)>button{display:block;width:100%;background:transparent;transition:0.5s;font-size:1.125rem;text-align:left;margin:2.5px 0;border-radius:var(--radius-7x);padding:2.5px 10px;line-height:30px;font-weight:unset;}
@@ -138,7 +139,7 @@
         mark{background:var(--markbg,#ff0);color:inherit;padding:0 2px;border-radius:var(--radius-2x);}
         /*设置-模态框*/
         dialog::backdrop{background:#00000055;backdrop-filter:blur(1px);}
-        #settingdialog{width:clamp(300px,80vw,600px);height:clamp(350px,60vh,800px);border:none;border-radius:var(--radius-6x);background:var(--dialogbg);backdrop-filter:blur(20px);position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);overflow:hidden;color:var(--root-color);user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}
+        #settingdialog{width:clamp(300px,80vw,600px);height:clamp(350px,60vh,800px);border:none;border-radius:var(--radius-6x);background:var(--dialogbg);backdrop-filter:blur(20px);position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);overflow:hidden;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}
         #settingdialog>div:nth-of-type(1){position:sticky;top:0;background:var(--settingbg);width:100%;padding:8px 15px;line-height:24px;}
         #settingdialog>div:nth-of-type(1)>span{float:right;}
         #settingdialog>div:nth-of-type(1)>span:hover{}
@@ -162,7 +163,12 @@
         #mode-setting>label{margin:2.5px;display:block;background:var(--settingbg);border-radius:var(--radius-5x);padding:5px;flex-basis:calc(50% - 5px);text-align:center;}
         #mode-setting>label>svg{border-radius:var(--radius-4x);display:block;margin:auto;}
         #mode-setting>label>p{}
-        
+        #mode-setting>label:has(input:checked){background:var(--nav-bg);color:var(--nav-btn);}
+        #settingdialog[open]{animation:dialogFadeIn 0.3s ease-out forwards;}
+        @keyframes dialogFadeIn{from{opacity:0;transform:translate(-50%,calc(-50% - 20px));}to{opacity:1;transform:translate(-50%,-50%);}}
+        #settingdialog[open]::backdrop{animation:backdropFadeIn 0.3s ease-out forwards;}
+        @keyframes backdropFadeIn{from{background:transparent;}to{background:#00000055;}}
+
         /*页面样式*/
         /*基础*/
         #content>div>header{}
@@ -876,6 +882,12 @@ setInterval(rotateText,1000);
             updateBlurRadios();
             initContentFilter();
             initFullscreenMode();
+            const settingDialog = document.getElementById('settingdialog');
+            settingDialog.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.close();
+                }
+            });
         }
         let customBgImage = null;
         function handleBgUpload(e) {
