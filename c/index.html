@@ -175,6 +175,10 @@
         /*基础*/
         #content>div>header{}
         #content>div>main{}
+        article{background:var(--article,#0066ff88);padding:12.5px;border-radius:var(--radius-6x);margin:5px 0;}
+        article>p{text-indent:2em;}
+        article>h1{text-align:center;margin:5px auto;}
+        q{background:var(--q,#0066ff88);font-size:1.125rem;}
         /*首页*/
         
         /*幻灯片*/
@@ -537,8 +541,18 @@ setInterval(rotateText,1000);
             </main>
         </div>
         <div id="p2">
-            <h1>页面2</h1>
+            <header>
+                <h1>页面2</h1>
+            </header>
             <p>这是一段测试文本。</p>
+            <article>
+                <h1>文章标题</h1>
+                <p>这是一个文章块，里面有大量文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本。</p>
+                <p>文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本。</p>
+            </article>
+            <p>下面是文本：</p>
+            <q>引用文本</q>
+            <p>文本。</p>
         </div>
         <footer>
         </footer>
