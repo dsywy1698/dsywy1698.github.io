@@ -17,6 +17,7 @@
     function loading(){document.getElementById("loader").style.animation="out 0.7s 0.3s forwards";if(sessionStorage.getItem('passwordVerified')==='true'){showPage('home');}}
     </script>
     <style>
+        @font-face{font-family:'icons';src:url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'),url('fa.woff2') format('woff2');font-display:swap;}
         :root{color-scheme:light dark;--blur-amount:5px;}
         *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;transition:background 0.5s ease,color 0.5s ease,backdrop-filter 0.5s ease,font-size 0.5s ease,border-radius 0.5s ease,box-shadow 0.5s ease,line-height 0.5s ease,letter-spacing 0.5s ease;color:inherit;}
         *::-webkit-scrollbar{display:none!important;}
@@ -40,11 +41,11 @@
         /*主题*/
         body[data-mode^="brief"]{}
         body[data-mode^="brief"] #content>div{}
-        body[data-mode="brief-light"]{background:#fff;color:#000;--a:#03c;--ah:#06c;--hr:#888;--selection:#9494b888;--shadow:#00000022;--loaderbg:#e6e6e6;--loadercolor:#000;--startflashing:#999;--endflashing:#666;--nav-bg:#ddddddbb;--nav-btn:#404040;--dialogbg:#ffffff99;--settingbg:#00000011;--radiobg:#00000055;}
-        body[data-mode="brief-dark"]{background:#000;color:#fff;--a:#9cf;--ah:#69f;--hr:#999;--selection:#8585ad88;--shadow:#ffffff22;--loaderbg:#1a1a1a;--loadercolor:#fff;--startflashing:#ccc;--endflashing:#999;--nav-bg:#595959bb;--nav-btn:#e6e6e6;--dialogbg:#00000099;--settingbg:#ffffff11;--radiobg:#ffffff55;}
-        body[data-mode="brief-light-blue"]{background:#e6ffff;color:#001a1a;--a:#0040ff;--ah:#0080ff;--hr:#09f;--selection:#0099cc88;--shadow:#00339922;--loaderbg:#cff;--loadercolor:#001a1a;--startflashing:#0066cc;--endflashing:#0099cc;--nav-bg:#33ccffbb;--nav-btn:#046;--dialogbg:#99ddff99;--settingbg:#0088cc11;--radiobg:#0088cc55;}
-        body[data-mode="brief-dark-blue"]{background:#00284d;color:#cdf;--a:#0ff;--ah:#00e6e6;--hr:#9cf;--selection:#3366ff88;--shadow:#ccffff22;--loaderbg:#039;--loadercolor:#cdf;--startflashing:#66b3ff;--endflashing:#3399ff;--nav-bg:#0033ccbb;--nav-btn:#99b3ff;--dialogbg:#1a3b5aee;--settingbg:#339af015;--radiobg:#339af030;}
-        body[data-mode="brief-orangegreen"]{background:linear-gradient(45deg,#ccffe6,#ffebcc);color:#000;--a:#090;--ah:#99c500;--hr:#c90;--selection:#ff993388;--shadow:#cc000022;--loaderbg:linear-gradient(45deg,#cfc,#ffe0b3);--loadercolor:#000;--startflashing:#f90;--endflashing:#3c3;--nav-bg:linear-gradient(90deg,#ff8800bb,#00cc00bb);--nav-btn:#331a00;--dialogbg:#ffb36699;--settingbg:#995c0011;--radiobg:#5cd65c55;}
+        body[data-mode="brief-light"]{background:#fff;color:#000;--a:#03c;--ah:#06c;--hr:#888;--selection:#9494b888;--shadow:#00000022;--article:#e9e9e288;--q:#d5dbdd88;--quot:#80939988;--loaderbg:#e6e6e6;--loadercolor:#000;--startflashing:#999;--endflashing:#666;--nav-bg:#ddddddbb;--nav-btn:#404040;--dialogbg:#ffffff99;--settingbg:#00000011;--radiobg:#00000055;}
+        body[data-mode="brief-dark"]{background:#000;color:#fff;--a:#9cf;--ah:#69f;--hr:#999;--selection:#8585ad88;--shadow:#ffffff22;--article:#29363d88;--q:#283e2888;--quot:#466d4688;--loaderbg:#1a1a1a;--loadercolor:#fff;--startflashing:#ccc;--endflashing:#999;--nav-bg:#595959bb;--nav-btn:#e6e6e6;--dialogbg:#00000099;--settingbg:#ffffff11;--radiobg:#ffffff55;}
+        body[data-mode="brief-light-blue"]{background:#e6ffff;color:#001a1a;--a:#0040ff;--ah:#0080ff;--hr:#09f;--selection:#0099cc88;--shadow:#00339922;--article:#cceeff88;--q:#adebeb88;--quot:#0099cc88;--loaderbg:#cff;--loadercolor:#001a1a;--startflashing:#0066cc;--endflashing:#0099cc;--nav-bg:#33ccffbb;--nav-btn:#046;--dialogbg:#99ddff99;--settingbg:#0088cc11;--radiobg:#0088cc55;}
+        body[data-mode="brief-dark-blue"]{background:#00284d;color:#cdf;--a:#0ff;--ah:#00e6e6;--hr:#9cf;--selection:#3366ff88;--shadow:#ccffff22;--article:;--q:;--quot:;--loaderbg:#039;--loadercolor:#cdf;--startflashing:#66b3ff;--endflashing:#3399ff;--nav-bg:#0033ccbb;--nav-btn:#99b3ff;--dialogbg:#1a3b5aee;--settingbg:#339af015;--radiobg:#339af030;}
+        body[data-mode="brief-orangegreen"]{background:linear-gradient(45deg,#ccffe6,#ffebcc);color:#000;--a:#090;--ah:#99c500;--hr:#c90;--selection:#ff993388;--shadow:#cc000022;--article:;--q:;--quot:;--loaderbg:linear-gradient(45deg,#cfc,#ffe0b3);--loadercolor:#000;--startflashing:#f90;--endflashing:#3c3;--nav-bg:linear-gradient(90deg,#ff8800bb,#00cc00bb);--nav-btn:#331a00;--dialogbg:#ffb36699;--settingbg:#995c0011;--radiobg:#5cd65c55;}
         body[data-mode="brief-timeline"] {
             background: var(--timeline-bg);
             color: var(--timeline-color);
@@ -128,7 +129,7 @@
         nav>div:nth-of-type(2)>button{display:block;width:100%;background:transparent;transition:0.5s;font-size:1.125rem;text-align:left;margin:2.5px 0;border-radius:var(--radius-7x);padding:2.5px 10px;line-height:30px;font-weight:unset;}
         nav>div:nth-of-type(2)>button:hover{background:#00000033;}
         nav>div:nth-of-type(2)>div{position:relative;padding-left:7.5px;margin-left:5px;}
-        nav>div:nth-of-type(2)>div:before{content:'';position:absolute;left:0;top:5px;bottom:5px;width:3px;background:var(--nav-btn);opacity:0.5;border-radius:1.5px;}
+        nav>div:nth-of-type(2)>div::before{content:'';position:absolute;left:0;top:5px;bottom:5px;width:3px;background:var(--nav-btn);opacity:0.5;border-radius:1.5px;}
         nav>div:nth-of-type(2)>div>a{display:block;width:100%;text-decoration:none;transition:0.5s;color:unset;margin:2.5px;padding:5px 10px;line-height:25px;border-radius:var(--radius-6x);}
         nav>div:nth-of-type(2)>div>a:hover{background:#00000033;}
         nav>div:nth-of-type(3){position: absolute;top:0;left:0;width:100%;height:100%;background:#ffffffbb;display:none;align-items:center;padding:0 10px;border-radius:var(--radius-8x);}
@@ -147,15 +148,15 @@
         #settingdialog>div:nth-of-type(1)>span:hover{}
         #settingdialog>div:nth-of-type(2){height:calc(100% - 40px);padding:10px;overflow-y:auto;}
         #settingdialog h2{margin:10px;position:relative;padding-left:12.5px;}
-        #settingdialog h2:before{width:5px;content:"";background:var(--radiobg);position:absolute;top:7.5px;bottom:7.5px;left:0;border-radius:2.5px;}
+        #settingdialog h2::before{width:5px;content:"";background:var(--radiobg);position:absolute;top:7.5px;bottom:7.5px;left:0;border-radius:2.5px;}
         #settingdialog>div:nth-of-type(2)>section{}
         #settingdialog>div:nth-of-type(2)>section>div{height:35px;background:var(--settingbg);padding:2.5px 2.5px 2.5px 7.5px;border-radius:var(--radius-7x);margin:2.5px 0;}
         #settingdialog>div:nth-of-type(2)>section>div>p{display:inline;line-height:30px;}
         #settingdialog>div:nth-of-type(2)>section>div>label{height:30px;padding:2.5px;background:var(--radiobg);border-radius:15px;float:right;}
         #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]{-webkit-appearance:none;-moz-appearance:none;appearance:none;width:25px;height:25px;border-radius:12.5px;position:relative;background:#00000022;transition:0.5s;}
-        #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]:before{content:var(--input-content);font-size:19px;transition:0.5s;width:25px;height:25px;line-height:25px;margin:3px;color:#ffffff44;}
+        #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]::before{content:var(--input-content);font-size:19px;transition:0.5s;width:25px;height:25px;line-height:25px;margin:3px;color:#ffffff44;}
         #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]:checked{background:#ffffff22;}
-        #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]:checked:before{color:unset;}
+        #settingdialog>div:nth-of-type(2)>section>div>label>input[type="radio"]:checked::before{color:unset;}
         #settingdialog>div:nth-of-type(2)>section button{color:var(--root-color);padding:1px 8px;line-height:23px;background:var(--settingbg);border-radius:var(--radius-5x);margin:2.5px;}
         body[data-mode^="brief"] .atmosphere-settings{display:none;}
         body[data-mode^="atmosphere"] .atmosphere-settings{display:block;flex-basis:100%;}
@@ -178,7 +179,9 @@
         article{background:var(--article,#0066ff88);padding:12.5px;border-radius:var(--radius-6x);margin:5px 0;}
         article>p{text-indent:2em;}
         article>h1{text-align:center;margin:5px auto;}
-        q{background:var(--q,#0066ff88);font-size:1.125rem;}
+        q{background:var(--q,#0066ff88);font-size:1.25rem;display:block;text-align:center;padding:8px;border-radius:var(--radius-4x);}
+        q::before{font-family:"icons";content:"\f10d";color:var(--quot);padding-right:5px;}
+        q::after{font-family:"icons";content:"\f10e";color:var(--quot);padding-left:5px;}
         /*首页*/
         
         /*幻灯片*/
@@ -202,7 +205,7 @@
         #event>main>div>p{padding:2.5px 0;text-indent:2em;}
         #event>main>div>ul{margin:3px 3px 3px 13px;padding:5px;background:#ffffff44;border-radius:var(--radius-6x);}
         #event>main>div>ul>li{text-indent:2em;list-style-type:none;}
-        #event>main>div>ul>li:before{position:relative;content:"●";color:#00000088;margin-right:5px;}
+        #event>main>div>ul>li::before{position:relative;content:"●";color:#00000088;margin-right:5px;}
         #event>main>div.sp1{background:#ccffcc55;}
         #event>main>div.sp1>time{background:#9f9;}
         #event>main>div.sp2{background:#ffeecc55;}
@@ -289,10 +292,10 @@ setInterval(rotateText,1000);
                     <label style="flex-basis:100%;">
                         <input type="radio" name="theme" value="system" onclick="changeTheme('system')">跟随系统
                     </label>
-                    <label style="">
+                    <label>
                         <input type="radio" name="theme" value="brief-orangegreen" onclick="changeTheme('brief-orangegreen')"><span style="color:#0f0">橙</span><span style="color:#ff8000">绿</span>
                     </label>
-                    <label style="">
+                    <label>
                         <input type="radio" name="theme" value="brief-timeline" onclick="changeTheme('brief-timeline')">时间线
                     </label>
                     <label><!--
@@ -338,7 +341,11 @@ setInterval(rotateText,1000);
                             <text x="170" y="135" fill="#cdf" font-size="40">Aa</text>
                         </svg>-->
                         <input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-dark-blue')">简洁-深蓝
+                    </label><!--
+                    <label>
+                        <input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-pink')">简洁-粉色
                     </label>
+                    -->
                     <label><input type="radio" name="theme" value="atmosphere-light-cottage" onclick="changeTheme('atmosphere-light-cottage')">氛围-浅色-小屋</label>
                     <label><input type="radio" name="theme" value="atmosphere-dark-cottage" onclick="changeTheme('atmosphere-dark-cottage')">氛围-深色-小屋</label>
                     <label><input type="radio" name="theme" value="atmosphere-light-seaside" onclick="changeTheme('atmosphere-light-seaside')">氛围-浅色-海边</label>
@@ -1127,7 +1134,6 @@ setInterval(rotateText,1000);
             clearInterval(slideInterval);
         }
         document.addEventListener('DOMContentLoaded', initSlideshow);
-       
     </script>
 </body>
 </html>
