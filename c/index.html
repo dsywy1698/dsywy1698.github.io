@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <!--
@@ -569,6 +570,9 @@ setInterval(rotateText,1000);
         <p>本网站需要JavaScript才能正常运行，请启用JavaScript后刷新页面</p>
     </noscript>
     <div id="oldbrowser">浏览器版本过旧，不支持显示。<br/>请下载最新浏览器或升级至最新浏览器后重试。</div>
+    <div id="uploadError" style="display:none;position:fixed;bottom:20px; left:50%;transform:translateX(-50%);background:#ff4444;color:white;padding: 10px 20px;border-radius:var(--radius-2x);transition:opacity 0.5s ease;">
+    图片上传失败，请重试
+</div>
     <script>
         //旧版浏览器
         function checkBrowserCompatibility() {
@@ -917,17 +921,48 @@ setInterval(rotateText,1000);
         function handleBgUpload(e) {
             const file = e.target.files[0];
             if (!file) return;
+            if (!file.type.match('image.*')) {
+                showUploadError('请上传图片文件');
+                return;
+            }
+            if (file.size > 5 * 1024 * 1024) {
+                showUploadError('图片大小不能超过5MB');
+                return;
+            }
             const reader = new FileReader();
             reader.onload = function(e) {
-                customBgImage = e.target.result;
-                localStorage.setItem('customBgImage', customBgImage);
-                applyCustomBg();
-                const currentTheme = document.body.getAttribute('data-mode');
-                if (currentTheme === 'atmosphere-light-custom' || currentTheme === 'atmosphere-dark-custom') {
-                    document.documentElement.style.setProperty('--custom-bg-image', `url("${customBgImage}")`);
+                try {
+                    customBgImage = e.target.result;
+                    localStorage.setItem('customBgImage', customBgImage);
+                    applyCustomBg();
+                    const currentTheme = document.body.getAttribute('data-mode');
+                    if (currentTheme === 'atmosphere-light-custom' || currentTheme === 'atmosphere-dark-custom') {
+                        document.documentElement.style.setProperty('--custom-bg-image', `url("${customBgImage}")`);
+                    }
+                } catch (error) {
+                    showUploadError('图片处理失败');
                 }
             };
-            reader.readAsDataURL(file);
+            reader.onerror = function() {
+                showUploadError('图片读取失败');
+            };
+            try {
+                reader.readAsDataURL(file);
+            } catch (error) {
+                showUploadError('图片上传失败');
+            }
+        }
+        function showUploadError(message) {
+            const errorDiv = document.getElementById('uploadError');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+            errorDiv.style.opacity = '1';
+            setTimeout(() => {
+                errorDiv.style.opacity = '0';
+                setTimeout(() => {
+                    errorDiv.style.display = 'none';
+                }, 500);
+            }, 3000);
         }
         function applyCustomBg() {
             if (customBgImage) {
@@ -935,10 +970,19 @@ setInterval(rotateText,1000);
             }
         }
         function initCustomBg() {
-            const savedBg = localStorage.getItem('customBgImage');
-            if (savedBg) {
-                customBgImage = savedBg;
-                applyCustomBg();
+            try {
+                const savedBg = localStorage.getItem('customBgImage');
+                if (savedBg) {
+                    if (savedBg.startsWith('data:image/')) {
+                        customBgImage = savedBg;
+                        applyCustomBg();
+                    } else {
+                        localStorage.removeItem('customBgImage');
+                    }
+                }
+            } catch (error) {
+                console.error('初始化自定义背景失败:', error);
+                localStorage.removeItem('customBgImage');
             }
         }
         window.addEventListener('DOMContentLoaded', function() {
