@@ -29,10 +29,10 @@
         #content>div:not(#home){display:none;}
         /*基本样式*/
         hr{border:1px solid var(--hr);border-radius:100px;margin:5px 10px;}
-        a{color:var(--a);}
+        a{color:var(--a);text-decoration-style:dotted;}
         a:hover{color:var(--ah);}
         h1,h2,h3,h4,h5,h6{}
-        sup[class="fa fa-external-link"]{font-size:0.7em;opacity:0.9;transition:0.2s;line-height:0;color:var(--a);vertical-align:super;position:relative;top:0;}
+        sup[class="fa fa-external-link"]{font-size:0.7em;opacity:0.8;transition:0.2s;line-height:0;color:var(--a);vertical-align:super;position:relative;top:0;}
         sup[class="fa fa-external-link"]:hover{opacity:0.7;}
         img,svg,canvas,audio,video{max-width:100%;}
         button{border:none;}
@@ -174,14 +174,14 @@
 
         /*页面样式*/
         /*基础*/
-        #content>div>header{}
+        #content>div>header{font-size:1.875rem;text-align:center;padding:35px 0;}
         #content>div>main{}
         article{background:var(--article,#0066ff88);padding:12.5px;border-radius:var(--radius-6x);margin:5px 0;}
         article>p{text-indent:2em;}
         article>h1{text-align:center;margin:5px auto;}
-        q{background:var(--q,#0066ff88);font-size:1.25rem;display:block;text-align:center;padding:8px;border-radius:var(--radius-4x);}
-        q::before{font-family:"icons";content:"\f10d";color:var(--quot);padding-right:5px;}
-        q::after{font-family:"icons";content:"\f10e";color:var(--quot);padding-left:5px;}
+        q{background:var(--q,#0066ff88);font-size:1.5625rem;display:block;text-align:center;padding:8px;border-radius:var(--radius-4x);}
+        q::before{font-family:"icons";content:"\f10d";color:var(--quot);padding-right:10px;}
+        q::after{font-family:"icons";content:"\f10e";color:var(--quot);padding-left:10px;}
         /*首页*/
         
         /*幻灯片*/
@@ -558,7 +558,7 @@ setInterval(rotateText,1000);
                 <p>文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本。</p>
             </article>
             <p>下面是文本：</p>
-            <q>引用文本</q>
+            <q>引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本</q>
             <p>文本。</p>
         </div>
         <footer>
