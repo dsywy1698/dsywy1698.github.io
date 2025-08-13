@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <!--
@@ -14,6 +13,7 @@
     <meta name="robots" content="noindex,nofollow"/>
     <link rel="stylesheet" href="fa.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="manifest" href="/c/manifest.json">
     <script>
     function loading(){document.getElementById("loader").style.animation="out 0.7s 0.3s forwards";if(sessionStorage.getItem('passwordVerified')==='true'){showPage('home');}}
     </script>
@@ -24,9 +24,9 @@
         *::-webkit-scrollbar{display:none!important;}
         ::-moz-selection{background:var(--selection);}
         ::selection{background:var(--selection);}
-        html{font-size:100%;height:100vh;}
+        html{font-size:100%;height:100dvh;}
         body{font-family:"微软雅黑",sans-serif;}
-        #content>div{padding:50px 10px 10px 10px;overflow-y:auto;scroll-behavior:smooth;height:100vh;backdrop-filter:blur(var(--blur-amount));}
+        #content>div{padding:50px 10px 10px 10px;overflow-y:auto;scroll-behavior:smooth;height:100dvh;backdrop-filter:blur(var(--blur-amount));}
         #content>div:not(#home){display:none;}
         /*基本样式*/
         hr{border:1px solid var(--hr);border-radius:100px;margin:5px 10px;}
@@ -59,7 +59,7 @@
             --radiobg: #00000055;
         }
         body[data-mode^="atmosphere"]{background-position:50% 50%;background-repeat:no-repeat;background-size:cover;background-attachment:fixed;transition:all 0.3s ease;}
-        body[data-mode^="atmosphere"][data-fullscreen="no"] #content>div{max-width:900px;margin:auto;width:calc(100vw - 20px);height:calc(100vh - 20px);backdrop-filter:blur(var(--blur-amount));border-radius:var(--radius-8x);position:fixed;top:10px;left:calc((100vw - clamp(300px,calc(100vw - 20px),900px)) / 2)}
+        body[data-mode^="atmosphere"][data-fullscreen="no"] #content>div{max-width:900px;margin:auto;width:calc(100dvw - 20px);height:calc(100dvh - 20px);backdrop-filter:blur(var(--blur-amount));border-radius:var(--radius-8x);position:fixed;top:10px;left:calc((100dvw - clamp(300px,calc(100dvw - 20px),900px)) / 2)}
         body[data-mode^="atmosphere-dark"] #content>div,body[data-mode^="atmosphere-dark"] #content dialog{color:#fff;}
         body[data-mode^="atmosphere-light"] #content>div{background:#ffffff55;}
         body[data-mode^="atmosphere-dark"] #content>div{background:#00000066;}
@@ -85,13 +85,13 @@
         body[data-font-weight="normal"]{font-weight:400;}
         body[data-font-weight="bold"]{font-weight:600;}
         /*缩小/放大窗口*/
-        #bigger,#smaller{display:none;justify-content:center;align-items:center;color:var(--loadercolor);padding:20px 5px;text-align:center;width:100vw;height:100vh;top:0;left:0;transition:0.5s;backdrop-filter:blur(20px);}
+        #bigger,#smaller{display:none;justify-content:center;align-items:center;color:var(--loadercolor);padding:20px 5px;text-align:center;width:100ddvw;height:100dvh;top:0;left:0;transition:0.5s;backdrop-filter:blur(20px);}
         #bigger{font-size:5rem;}
         #smaller{font-size:1.2rem;}
         /*无js窗口*/
-        noscript{display:block;width:100vw;height:100vh;background:#fcc;color:#c00;text-align:center;font-weight:800;font-size:1.25rem;}
+        noscript{display:block;width:100dvw;height:100dvh;background:#fcc;color:#c00;text-align:center;font-weight:800;font-size:1.25rem;}
         /*密码*/
-        #passwordOverlay {position:fixed;top:0;left:0;width:100vw;height:100vh;background:var(--dialogbg);backdrop-filter:blur(30px);z-index:9999;display:flex;justify-content:center;align-items:center;flex-direction:column;color:var(--nav-btn);}
+        #passwordOverlay {position:fixed;top:0;left:0;width:100dvw;height:100dvh;background:var(--dialogbg);backdrop-filter:blur(30px);z-index:9999;display:flex;justify-content:center;align-items:center;flex-direction:column;color:var(--nav-btn);}
         #passwordOverlay>div{background:var(--nav-bg);padding:30px;border-radius:var(--radius-8x);box-shadow:var(--shadow-so-4x);max-width:400px;width:90%;}
         #passwordOverlay>div>h2 {margin-bottom:20px;text-align:center;}
         #passwordOverlay>div>div{display:flex;margin:5px;}
@@ -102,12 +102,12 @@
         #passwordOverlay>div>div>button{background:var(--nav-btn);color:var(--nav-bg);border:1px solid var(--nav-btn);padding:10px 20px;border-radius:0 var(--radius-4x) var(--radius-4x) 0;cursor:pointer;font-size:1rem;transition:all 0.3s ease;flex-basis:90px;}
         #passwordOverlay>div>div>button:hover{opacity:0.8;}
         /*旧版浏览器*/
-        #oldbrowser {display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:#fff;color:#000;z-index:9999;padding:20px;font-size:20px;}
+        #oldbrowser {display:none;position:fixed;top:0;left:0;width:100dvw;height:100dvh;background:#fff;color:#000;z-index:9999;padding:20px;font-size:20px;}
         /*加载页面*/
-        #loader{background:var(--loaderbg);width:100vw;height:100vh;z-index:2;overflow:hidden;position:fixed;top:0;left:0;text-align:center;display:flex;justify-content:center;align-items:center;transition:none;}
+        #loader{background:var(--loaderbg);width:100dvw;height:100dvh;z-index:2;overflow:hidden;position:fixed;top:0;left:0;text-align:center;display:flex;justify-content:center;align-items:center;transition:none;}
         @keyframes out{0%{opacity:1;}99%{opacity:0;}100%{opacity:0;display:none;}}
         #loader>div>p{color:var(--loadercolor);transition:opacity 0.2s;margin:10px 0;padding:0;font-weight:200;font-size:1.25rem;}
-        #loader>div{position:relative;width:calc(100vw - 20px);max-width:700px;}
+        #loader>div{position:relative;width:calc(100dvw - 20px);max-width:700px;}
         #loader>div>div{position:relative;width:60px;height:20px;margin:10px auto;}
         #loader>div>div::before,#loader>div>div::after,#loader>div>div span{content:'';position:absolute;top:0;width:20px;height:20px;border-radius:50%;animation:dotFlashing 1s infinite alternate;}
         #loader>div>div::before{left:-10px;animation-delay:0s;}
@@ -117,16 +117,20 @@
         @keyframes dotFlashing{0%{background-color:var(--startflashing);transform:scale(1);}50%,100%{background-color:var(--endflashing);transform:scale(0.8);}}
         /*页面*/
         /*导航栏*/
-        nav{position:fixed;top:clamp(2px,1vw,10px);left:clamp(2px,1vw,10px);width:calc(100vw - clamp(2px,1vw,10px) * 2);background:var(--nav-bg);padding:2.5px;border-radius:var(--radius-8x);backdrop-filter:blur(20px);z-index:1;box-shadow:var(--shadow-so-5x);user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}
+        nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc(100dvw - clamp(2px,1dvw,10px) * 2);background:var(--nav-bg);padding:2.5px;border-radius:var(--radius-8x);backdrop-filter:blur(20px);z-index:1;box-shadow:var(--shadow-so-5x);user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}
         nav::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right,var(--nav-btn) var(--scroll-progress,0%),transparent 0);opacity:0.1;pointer-events:none;z-index:-1;border-radius:var(--radius-8x);height:40px;}
 
-        body[data-mode^="atmosphere"][data-fullscreen="no"] #content nav{top:15px;left:calc((100vw - clamp(290px,calc(100vw - 30px),890px)) / 2);width:calc(100vw - 30px);max-width:890px;}
+        body[data-mode^="atmosphere"][data-fullscreen="no"] #content nav{top:15px;left:calc((100dvw - clamp(290px,calc(100dvw - 30px),890px)) / 2);width:calc(100dvw - 30px);max-width:890px;}
         nav>div:first-child>button{width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;transition:0.5s;border-radius:var(--radius-8x);}
         nav>div:first-child>button:hover{background:#00000033;}
         nav>div:first-child>button>i{color:var(--nav-btn);}
+        nav>div:first-child{transition:all 0.3s ease;}
+        nav>div:first-child>button{transition:all 0.3s ease,opacity 0.3s ease;flex-shrink:0;}
+        #mainNavButton{transition:all 0.3s ease,opacity 0.3s ease;opacity:1;}
+        #mainNavButton[style*="display:none"]{display:inline-block!important;width:0;opacity:0;pointer-events:none;}
         nav:has(>div:nth-of-type(2).active)>div:first-child>button:last-child{opacity:0.3;pointer-events:none;}
         nav>div:nth-of-type(2){background:#ffffff08;transform-origin:top;border-radius:var(--radius-7x);height:0;max-height:0;opacity:0;overflow:hidden;padding:0 2.5px;transition:all 0.3s cubic-bezier(0.68,-0.6,0.32,1.6);interpolate-size:allow-keywords;}
-        nav>div:nth-of-type(2).active{height:auto;opacity:1;max-height:clamp(200px,40vh,400px);padding:0 2.5px;margin-top:5px;}
+        nav>div:nth-of-type(2).active{height:auto;opacity:1;max-height:clamp(200px,40dvh,400px);padding:0 2.5px;margin-top:5px;}
         nav>div:nth-of-type(2)>button{display:block;width:100%;background:transparent;transition:0.5s;font-size:1.125rem;text-align:left;margin:2.5px 0;border-radius:var(--radius-7x);padding:2.5px 10px;line-height:30px;font-weight:unset;}
         nav>div:nth-of-type(2)>button:hover{background:#00000033;}
         nav>div:nth-of-type(2)>div{position:relative;padding-left:7.5px;margin-left:5px;}
@@ -140,10 +144,12 @@
         nav>div:nth-of-type(3)>button:hover{background:#00000033;}
         nav>div:nth-of-type(3)>input::placeholder{color:#a3b8c2;opacity:1;}
         nav>div:nth-of-type(3)>input::-ms-input-placeholder{color:#a3b8c2;}
+        nav>div:nth-of-type(3){display:flex;position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;visibility:hidden;transition:all 0.3s ease;transform:translateY(-10px);}
+        nav>div:nth-of-type(3).active{opacity:1;visibility:visible;transform:translateY(0);}
         mark{background:var(--markbg,#ff0);color:inherit;padding:0 2px;border-radius:var(--radius-2x);}
         /*设置-模态框*/
         dialog::backdrop{background:#00000055;backdrop-filter:blur(1px);}
-        #settingdialog{width:clamp(300px,80vw,600px);height:clamp(350px,60vh,800px);border:none;border-radius:var(--radius-6x);background:var(--dialogbg);backdrop-filter:blur(20px);position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);overflow:hidden;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}
+        #settingdialog{width:clamp(300px,80dvw,600px);height:clamp(350px,60dvh,800px);border:none;border-radius:var(--radius-6x);background:var(--dialogbg);backdrop-filter:blur(20px);position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);overflow:hidden;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;will-change:transform,opacity;}
         #settingdialog>div:nth-of-type(1){position:sticky;top:0;background:var(--settingbg);width:100%;padding:8px 15px;line-height:24px;}
         #settingdialog>div:nth-of-type(1)>span{float:right;}
         #settingdialog>div:nth-of-type(1)>span:hover{}
@@ -187,7 +193,7 @@
         
         /*幻灯片*/
         #slideshow{position:relative;margin:20px auto;overflow:hidden;border-radius:var(--radius-8x);box-shadow:var(--shadow-so-3x);max-width:800px;}
-        #slideshow>div:first-child{display:flex;transition:transform 0.7s cubic-bezier(0.25,0.1,0.25,1);height:clamp(300px,60vh,400px);}
+        #slideshow>div:first-child{display:flex;transition:transform 0.7s cubic-bezier(0.25,0.1,0.25,1);height:clamp(300px,60dvh,400px);}
         #slideshow>div:first-child>div{min-width:100%;position:relative;}
         #slideshow>div:first-child>div img{width:100%;height:100%;object-fit:cover;}
         #slideshow>div:first-child>div>div{position:absolute;bottom:0;left:0;right:0;background:#00000088;color:white;padding:10px;text-align:center;font-size:1.125rem;}
@@ -200,7 +206,7 @@
         #slideshow>div:first-child>div.active{display:block;}
     
         /*日志*/
-        #event>main>h1{background:#00999988;text-align:center;border-radius:100vw;margin:25px 15px 5px 15px;padding:10px;color:#fff;}
+        #event>main>h1{background:#00999988;text-align:center;border-radius:100dvw;margin:25px 15px 5px 15px;padding:10px;color:#fff;}
         #event>main>div{margin:10px 0;padding:20px 8px 10px 8px;border-radius:var(--radius-4x);width:100%;background:#99ddff55;box-shadow:var(--shadow-hd-x);}
         #event>main>div>time{position:relative;top:-15px;left:-3px;float:left;margin-right:-9999px;text-align:center;padding:5px 0;min-width:1.9em;border-radius:var(--radius-4x);font-weight:700;background:#6cf;box-shadow:var(--shadow-ho-x);color:#000;}
         #event>main>div>p{padding:2.5px 0;text-indent:2em;}
@@ -228,7 +234,7 @@
           #event>main>div>time{border:1px solid #99ddff55;}
         }
         
-        
+
     </style>
 </head>
 <body onload="loading()" data-mode="system" data-shadow="subtle" data-radius="large" data-font-size="normal" data-line-spacing="loose" data-font-weight="normal">
@@ -299,62 +305,30 @@ setInterval(rotateText,1000);
                     <label>
                         <input type="radio" name="theme" value="brief-timeline" onclick="changeTheme('brief-timeline')">时间线
                     </label>
-                    <label><!--
-                        <svg width="300" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0" y="0" width="300" height="150" fill="#fff"/>
-                            <rect x="0" y="0" width="300" height="40" fill="#dddddd"/>
-                            <rect x="10" y="100" width="40" height="40" fill="#4285f4" rx="5" ry="5"/>
-                            <rect x="60" y="100" width="40" height="40" fill="#34a853" rx="5" ry="5"/>
-                            <rect x="110" y="100" width="40" height="40" fill="#ea4335" rx="5" ry="5"/>
-                            <text x="170" y="135" fill="#000" font-size="40">Aa</text>
-                        </svg>-->
+                    <label>
                         <input type="radio" name="theme" value="brief-light" onclick="changeTheme('brief-light')">简洁-浅色
                     </label>
-                    <label><!--
-                        <svg width="300" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0" y="0" width="300" height="150" fill="#000"/>
-                            <rect x="0" y="0" width="300" height="40" fill="#595959"/>
-                            <rect x="10" y="100" width="40" height="40" fill="#4285f4" rx="5" ry="5"/>
-                            <rect x="60" y="100" width="40" height="40" fill="#34a853" rx="5" ry="5"/>
-                            <rect x="110" y="100" width="40" height="40" fill="#ea4335" rx="5" ry="5"/>
-                            <text x="170" y="135" fill="#fff" font-size="40">Aa</text>
-                        </svg>-->
+                    <label>
                         <input type="radio" name="theme" value="brief-dark" onclick="changeTheme('brief-dark')">简洁-深色
                     </label>
-                    <label><!--
-                        <svg width="300" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0" y="0" width="300" height="150" fill="#e6ffff"/>
-                            <rect x="0" y="0" width="300" height="40" fill="#33ccff"/>
-                            <rect x="10" y="100" width="40" height="40" fill="#4285f4" rx="5" ry="5"/>
-                            <rect x="60" y="100" width="40" height="40" fill="#34a853" rx="5" ry="5"/>
-                            <rect x="110" y="100" width="40" height="40" fill="#ea4335" rx="5" ry="5"/>
-                            <text x="170" y="135" fill="#00aaaa" font-size="40">Aa</text>
-                        </svg>-->
+                    <label>
                         <input type="radio" name="theme" value="brief-light-blue" onclick="changeTheme('brief-light-blue')">简洁-浅蓝
                     </label>
-                    <label><!--
-                        <svg width="300" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0" y="0" width="300" height="150" fill="#026"/>
-                            <rect x="0" y="0" width="300" height="40" fill="#03c"/>
-                            <rect x="10" y="100" width="40" height="40" fill="#4285f4" rx="5" ry="5"/>
-                            <rect x="60" y="100" width="40" height="40" fill="#34a853" rx="5" ry="5"/>
-                            <rect x="110" y="100" width="40" height="40" fill="#ea4335" rx="5" ry="5"/>
-                            <text x="170" y="135" fill="#cdf" font-size="40">Aa</text>
-                        </svg>-->
+                    <label>
                         <input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-dark-blue')">简洁-深蓝
                     </label><!--
                     <label>
                         <input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-pink')">简洁-粉色
                     </label>
                     -->
-                    <label><input type="radio" name="theme" value="atmosphere-light-cottage" onclick="changeTheme('atmosphere-light-cottage')">氛围-浅色-小屋</label>
-                    <label><input type="radio" name="theme" value="atmosphere-dark-cottage" onclick="changeTheme('atmosphere-dark-cottage')">氛围-深色-小屋</label>
-                    <label><input type="radio" name="theme" value="atmosphere-light-seaside" onclick="changeTheme('atmosphere-light-seaside')">氛围-浅色-海边</label>
-                    <label><input type="radio" name="theme" value="atmosphere-dark-seaside" onclick="changeTheme('atmosphere-dark-seaside')">氛围-深色-海边</label>
-                    <label><input type="radio" name="theme" value="atmosphere-light-valley" onclick="changeTheme('atmosphere-light-valley')">氛围-浅色-山谷</label>
-                    <label><input type="radio" name="theme" value="atmosphere-dark-valley" onclick="changeTheme('atmosphere-dark-valley')">氛围-深色-山谷</label>
-                    <label><input type="radio" name="theme" value="atmosphere-light-custom" onclick="changeTheme('atmosphere-light-custom')">浅色-自定义</label>
-                    <label><input type="radio" name="theme" value="atmosphere-dark-custom" onclick="changeTheme('atmosphere-dark-custom')">深色-自定义</label>
+                    <label><input type="radio" name="theme" value="atmosphere-light-cottage" onclick="changeTheme('atmosphere-light-cottage')">氛围-浅-小屋</label>
+                    <label><input type="radio" name="theme" value="atmosphere-dark-cottage" onclick="changeTheme('atmosphere-dark-cottage')">氛围-深-小屋</label>
+                    <label><input type="radio" name="theme" value="atmosphere-light-seaside" onclick="changeTheme('atmosphere-light-seaside')">氛围-浅-海边</label>
+                    <label><input type="radio" name="theme" value="atmosphere-dark-seaside" onclick="changeTheme('atmosphere-dark-seaside')">氛围-深-海边</label>
+                    <label><input type="radio" name="theme" value="atmosphere-light-valley" onclick="changeTheme('atmosphere-light-valley')">氛围-浅-山谷</label>
+                    <label><input type="radio" name="theme" value="atmosphere-dark-valley" onclick="changeTheme('atmosphere-dark-valley')">氛围-深-山谷</label>
+                    <label><input type="radio" name="theme" value="atmosphere-light-custom" onclick="changeTheme('atmosphere-light-custom')">浅-自定义</label>
+                    <label><input type="radio" name="theme" value="atmosphere-dark-custom" onclick="changeTheme('atmosphere-dark-custom')">深-自定义</label>
                     <div style="flex-basis:100%;">
                         <p>自定义背景图片</p>
                         <input type="file" id="bgUpload" accept="image/*" style="display:none;">
@@ -673,8 +647,23 @@ setInterval(rotateText,1000);
         }
         function updateNavButtons(activePageId) {
             const mainNavButton = document.getElementById('mainNavButton');
-            mainNavButton.style.display = 
-                activePageId === 'home' ? 'none' : 'inline-block';
+            const isHomePage = activePageId === 'home';
+            requestAnimationFrame(() => {
+                if (isHomePage) {
+                    mainNavButton.style.opacity = '0';
+                    mainNavButton.style.width = '0';
+                    mainNavButton.style.marginRight = '0';
+                    setTimeout(() => {
+                        mainNavButton.style.display = 'none';
+                    }, 300);
+                } else {
+                    mainNavButton.style.display = 'inline-block';
+                    setTimeout(() => {
+                        mainNavButton.style.opacity = '1';
+                        mainNavButton.style.width = '35px';
+                    }, 10);
+                }
+            });
             document.querySelectorAll('nav>div:nth-of-type(2) button[onclick]').forEach(button => {
                 const match = button.getAttribute('onclick').match(/showPage\('(.+?)'\)/);
                 if (match) {
@@ -1053,10 +1042,20 @@ setInterval(rotateText,1000);
             searchActive = !searchActive;
             if (searchActive) {
                 searchContainer.style.display = 'flex';
+                requestAnimationFrame(() => {
+                    searchContainer.style.opacity = '1';
+                    searchContainer.style.visibility = 'visible';
+                    searchContainer.style.transform = 'translateY(0)';
+                });
                 searchContainer.querySelector('input').focus();
                 toggleSubMenu(false);
             } else {
-                searchContainer.style.display = 'none';
+                searchContainer.style.opacity = '0';
+                searchContainer.style.visibility = 'hidden';
+                searchContainer.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    searchContainer.style.display = 'none';
+                }, 300);
                 clearSearch();
             }
         }
@@ -1179,5 +1178,12 @@ setInterval(rotateText,1000);
         }
         document.addEventListener('DOMContentLoaded', initSlideshow);
     </script>
+<script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/c/sw.js', { 
+        scope: '/c/' 
+      });
+    }
+  </script>
 </body>
 </html>
