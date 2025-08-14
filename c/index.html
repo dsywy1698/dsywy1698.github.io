@@ -5,7 +5,6 @@
 自定义色调
 自动生成导航
 边缘渐变透明
-动态修改图标/标题
 -->
 <head>
     <title>标题</title>
@@ -123,6 +122,10 @@
         nav::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right,var(--nav-btn) var(--scroll-progress,0%),transparent 0);opacity:0.1;pointer-events:none;z-index:-1;border-radius:var(--radius-8x);height:40px;}
 
         body[data-mode^="atmosphere"][data-fullscreen="no"] #content nav{top:15px;left:calc((100dvw - clamp(290px,calc(100dvw - 30px),890px)) / 2);width:calc(100dvw - 30px);max-width:890px;}
+        body[data-mode^="brief"][data-nav-margin="no"] nav{width:100dvw;left:0;top:0;border-radius:0;
+            div:nth-of-type(3){border-radius:0;}
+            &:before{border-radius:0;}
+        }
         nav>div:first-child>button{width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;transition:0.5s;border-radius:var(--radius-8x);}
         nav>div:first-child>button:hover{background:#00000033;}
         nav>div:first-child>button>i{color:var(--nav-btn);}
@@ -169,6 +172,8 @@
         #settingdialog>div:nth-of-type(2)>section button{color:var(--root-color);padding:1px 8px;line-height:23px;background:var(--settingbg);border-radius:var(--radius-5x);margin:2.5px;}
         body[data-mode^="brief"] .atmosphere-settings{display:none;}
         body[data-mode^="atmosphere"] .atmosphere-settings{display:block;flex-basis:100%;}
+        body[data-mode^="brief"] .brief-settings{display:block;flex-basis:100%;}
+        body[data-mode^="atmosphere"] .brief-settings{display:none;}
         #mode-setting{display:flex;flex-wrap:wrap;justify-content:center;}
         #mode-setting>h2{flex-basis:100%;}
         #mode-setting>label>input{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
@@ -180,6 +185,7 @@
         @keyframes dialogFadeIn{from{opacity:0;transform:translate(-50%,calc(-50% - 20px));}to{opacity:1;transform:translate(-50%,-50%);}}
         #settingdialog[open]::backdrop{animation:backdropFadeIn 0.3s ease-out forwards;}
         @keyframes backdropFadeIn{from{background:transparent;}to{background:#00000055;}}
+        #settingdialog>div:nth-of-type(3){display:none;position:fixed;transform:translate(-50%,-50%);left:50%;top:50%;background:#ff4444aa;color:#fff;padding:8px 20px;border-radius:var(--radius-5x);transition:opacity 0.3s ease;}
 
         /*页面样式*/
         /*基础*/
@@ -239,7 +245,7 @@
 
     </style>
 </head>
-<body onload="loading()" data-mode="system" data-shadow="subtle" data-radius="large" data-font-size="normal" data-line-spacing="loose" data-font-weight="normal">
+<body onload="loading()" data-mode="system" data-shadow="subtle" data-radius="large" data-font-size="normal" data-line-spacing="loose" data-font-weight="normal" data-nav-margin="no">
     <div id="passwordOverlay">
         <div id="passwordForm">
             <h2>根据提示输入密码</h2>
@@ -352,6 +358,13 @@ setInterval(rotateText,1000);
                             <input type="radio" name="fullscreen" value="no" onclick="changeFullscreenMode('no')" style="--input-content:'否';">
                         </label>
                     </div>
+                    <div class="brief-settings">
+                        <p>导航栏边距</p>
+                        <label>
+                            <input type="radio" name="navmargin" value="yes" onclick="changeNavMargin('yes')" style="--input-content:'有';">
+                            <input type="radio" name="navmargin" value="no" onclick="changeNavMargin('no')" style="--input-content:'无';">
+                        </label>
+                    </div>
                 </section>
                 <section>
                     <h2>字体</h2>
@@ -410,6 +423,7 @@ setInterval(rotateText,1000);
                     <button onclick="resetToDefault()">恢复默认</button>
                 </section>
             </div>
+            <div>图片上传失败，请重试</div>
         </dialog>
         <div id="home">
             <div id="slideshow">
@@ -546,9 +560,6 @@ setInterval(rotateText,1000);
         <p>本网站需要JavaScript才能正常运行，请启用JavaScript后刷新页面</p>
     </noscript>
     <div id="oldbrowser">浏览器版本过旧，不支持显示。<br/>请下载最新浏览器或升级至最新浏览器后重试。</div>
-    <div id="uploadError" style="display:none;position:fixed;bottom:20px; left:50%;transform:translateX(-50%);background:#ff4444;color:white;padding: 10px 20px;border-radius:var(--radius-2x);transition:opacity 0.5s ease;">
-    图片上传失败，请重试
-</div>
     <script>
         //旧版浏览器
         function checkBrowserCompatibility() {
@@ -633,6 +644,18 @@ setInterval(rotateText,1000);
             initPasswordProtection();
         });
         
+        // 动态修改页面标题
+        function updatePageTitle() {
+            const currentPage = document.querySelector('#content>div[style*="display: block"]');
+            if (!currentPage) return;
+            const pageHeader = currentPage.querySelector('header h1');
+            if (pageHeader) {
+                document.title = `标题-${pageHeader.textContent}`;
+            } else {
+                document.title = baseTitle;
+            }
+        }
+        
         //页面切换
         let currentPage = null;
         let subMenuVisible = false;
@@ -646,6 +669,7 @@ setInterval(rotateText,1000);
             updateAnchorLinks(pageId);
             toggleSubMenu(false);
             document.getElementById(pageId).scrollTo(0, 0);
+            updatePageTitle();
         }
         function updateNavButtons(activePageId) {
             const mainNavButton = document.getElementById('mainNavButton');
@@ -685,7 +709,6 @@ setInterval(rotateText,1000);
         function toggleSubMenu(show = null) {
             subMenuVisible = show !== null ? show : !subMenuVisible;
             const subMenu = document.querySelector('nav>div:nth-of-type(2)');
-            
             if (subMenuVisible) {
                 subMenu.classList.add('active');
             } else {
@@ -702,6 +725,7 @@ setInterval(rotateText,1000);
                 toggleSubMenu(false);
             }
         });
+    
         
         //返回顶部/底部
         function goTop(){document.querySelector('#content>div[style*="display: block"]').scrollTo(0,0);}
@@ -874,6 +898,19 @@ setInterval(rotateText,1000);
             const savedMode = localStorage.getItem('fullscreenMode') || 'no';
             document.querySelector(`input[name="fullscreen"][value="${savedMode}"]`).checked = true;
         }
+        function changeNavMargin(margin) {
+            document.body.setAttribute('data-nav-margin', margin);
+            localStorage.setItem('navMargin', margin);
+        }
+        function initNavMargin() {
+            const savedMargin = localStorage.getItem('navMargin') || 'no';
+            changeNavMargin(savedMargin);
+            updateNavMarginRadios();
+        }
+        function updateNavMarginRadios() {
+            const savedMargin = localStorage.getItem('navMargin') || 'no';
+            document.querySelector(`input[name="navmargin"][value="${savedMargin}"]`).checked = true;
+        }
         function initSettings() {
             const savedTheme = localStorage.getItem('selectedTheme');
             const savedFontSize = localStorage.getItem('selectedFontSize');
@@ -901,6 +938,7 @@ setInterval(rotateText,1000);
             updateBlurRadios();
             initContentFilter();
             initFullscreenMode();
+            initNavMargin();
             const settingDialog = document.getElementById('settingdialog');
             settingDialog.addEventListener('click', function(e) {
                 if (e.target === this) {
@@ -944,7 +982,7 @@ setInterval(rotateText,1000);
             }
         }
         function showUploadError(message) {
-            const errorDiv = document.getElementById('uploadError');
+            const errorDiv = document.querySelector('#settingdialog>div:nth-of-type(3)');
             errorDiv.textContent = message;
             errorDiv.style.display = 'block';
             errorDiv.style.opacity = '1';
@@ -1035,7 +1073,11 @@ setInterval(rotateText,1000);
             updateFilterRadios();
             localStorage.removeItem('fullscreenMode');
             changeFullscreenMode('no');
+            localStorage.removeItem('navMargin');
+            changeNavMargin('no');
+            updateNavMarginRadios();
         }
+        
         //搜索
         let searchActive = false;
         function toggleSearch() {

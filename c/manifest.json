@@ -1,8 +1,8 @@
 {
   "name": "9班",
   "short_name": "9班",
-  "start_url": "/c/",  // 关键：子目录路径
-  "scope": "/c/",      // 限制作用域
+  "start_url": "/c/",
+  "scope": "/c/",
   "display": "standalone",
   "icons": [
     {
