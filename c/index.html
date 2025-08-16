@@ -48,17 +48,11 @@
         body[data-mode="brief-light-blue"]{background:#e6ffff;color:#001a1a;--a:#0040ff;--ah:#0080ff;--hr:#09f;--selection:#0099cc88;--shadow:#00339922;--article:#cceeff88;--q:#adebeb88;--quot:#0099cc88;--loaderbg:#cff;--loadercolor:#001a1a;--startflashing:#0066cc;--endflashing:#0099cc;--nav-bg:#33ccffbb;--nav-btn:#046;--dialogbg:#99ddff99;--settingbg:#0088cc11;--radiobg:#0088cc55;}
         body[data-mode="brief-dark-blue"]{background:#00284d;color:#cdf;--a:#0ff;--ah:#00e6e6;--hr:#9cf;--selection:#3366ff88;--shadow:#ccffff22;--article:;--q:;--quot:;--loaderbg:#039;--loadercolor:#cdf;--startflashing:#66b3ff;--endflashing:#3399ff;--nav-bg:#0033ccbb;--nav-btn:#99b3ff;--dialogbg:#1a3b5aee;--settingbg:#339af015;--radiobg:#339af030;}
         body[data-mode="brief-orangegreen"]{background:linear-gradient(45deg,#ccffe6,#ffebcc);color:#000;--a:#090;--ah:#99c500;--hr:#c90;--selection:#ff993388;--shadow:#cc000022;--article:;--q:;--quot:;--loaderbg:linear-gradient(45deg,#cfc,#ffe0b3);--loadercolor:#000;--startflashing:#f90;--endflashing:#3c3;--nav-bg:linear-gradient(90deg,#ff8800bb,#00cc00bb);--nav-btn:#331a00;--dialogbg:#ffb36699;--settingbg:#995c0011;--radiobg:#5cd65c55;}
-        body[data-mode="brief-timeline"] {
-            background: var(--timeline-bg);
-            color: var(--timeline-color);
-            --selection: #8585ad88;
-            --loaderbg: var(--timeline-bg);
-            --nav-bg: var(--timeline-nav-bg);
-            --nav-btn: var(--timeline-nav-btn);
-            --dialogbg: var(--timeline-dialog-bg);
-            --settingbg: #00000011;
-            --radiobg: #00000055;
-        }
+        body[data-time-period="morning"]{--timeline-bg:#e6f7ff;--timeline-color:#003366;--timeline-nav-bg:#99ccffbb;--timeline-nav-btn:#003366;--timeline-dialog-bg:#cce6ff99;}
+        body[data-time-period="afternoon"]{--timeline-bg:#fff2e6;--timeline-color:#663300;--timeline-nav-bg:#ffcc99bb;--timeline-nav-btn:#663300;--timeline-dialog-bg:#ffe6cc99;}
+        body[data-time-period="evening"]{--timeline-bg:#f0e6ff;--timeline-color:#330066;--timeline-nav-bg:#cc99ffbb;--timeline-nav-btn:#330066;--timeline-dialog-bg:#e6ccff99;}
+        body[data-time-period="night"]{--timeline-bg:#006;--timeline-color:#ccf;--timeline-nav-bg:#999900bb;--timeline-nav-btn:#ffc;--timeline-dialog-bg:#00009999;}
+        body[data-mode="brief-timeline"]{background:var(--timeline-bg);color:var(--timeline-color);--selection:#8585ad88;--loaderbg:var(--timeline-bg);--nav-bg:var(--timeline-nav-bg);--nav-btn:var(--timeline-nav-btn);--dialogbg:var(--timeline-dialog-bg);--settingbg:#00000011;--radiobg:#00000055;}
         body[data-mode^="atmosphere"]{background-position:50% 50%;background-repeat:no-repeat;background-size:cover;background-attachment:fixed;transition:all 0.3s ease;}
         body[data-mode^="atmosphere"][data-fullscreen="no"] #content>div{max-width:900px;margin:auto;width:calc(100dvw - 20px);height:calc(100dvh - 20px);backdrop-filter:blur(var(--blur-amount));border-radius:var(--radius-8x);position:fixed;top:10px;left:calc((100dvw - clamp(300px,calc(100dvw - 20px),900px)) / 2)}
         body[data-mode^="atmosphere-dark"] #content>div,body[data-mode^="atmosphere-dark"] #content dialog{color:#fff;}
@@ -328,7 +322,7 @@ setInterval(rotateText,1000);
                         <input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-pink')">粉
                     </label>
                     <label>
-                        <input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-pink')">蓝
+                        <input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-blue')">蓝
                     </label>
                     -->
                     <h3 style="flex-basis:100%;margin:5px;text-align:center;">氛围</h3>
@@ -338,6 +332,10 @@ setInterval(rotateText,1000);
                     <label><input type="radio" name="theme" value="atmosphere-dark-seaside" onclick="changeTheme('atmosphere-dark-seaside')">深-海边</label>
                     <label><input type="radio" name="theme" value="atmosphere-light-valley" onclick="changeTheme('atmosphere-light-valley')">浅-山谷</label>
                     <label><input type="radio" name="theme" value="atmosphere-dark-valley" onclick="changeTheme('atmosphere-dark-valley')">深-山谷</label>
+                    <!--
+                    <label><input type="radio" name="theme" value="atmosphere-light-sky" onclick="changeTheme('atmosphere-light-sky')">浅-星空</label>
+                    <label><input type="radio" name="theme" value="atmosphere-dark-sky" onclick="changeTheme('atmosphere-dark-sky')">深-星空</label>
+                    -->
                     <label><input type="radio" name="theme" value="atmosphere-light-custom" onclick="changeTheme('atmosphere-light-custom')">浅-自定义</label>
                     <label><input type="radio" name="theme" value="atmosphere-dark-custom" onclick="changeTheme('atmosphere-dark-custom')">深-自定义</label>
                     <div style="flex-basis:100%;">
@@ -491,17 +489,19 @@ setInterval(rotateText,1000);
             <header>
                 <h1>页面2</h1>
             </header>
-            <h2>副标题1</h2>
+            <main>
+            <h1>副标题1</h1>
             <p>这是一段测试文本。</p>
             <article>
                 <h1>文章标题</h1>
                 <p>这是一个文章块，里面有大量文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本。</p>
                 <p>文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本。</p>
             </article>
-            <h2>副标题2</h2>
+            <h1>副标题2</h1>
             <p>下面是文本：</p>
             <q>引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本</q>
             <p>文本。</p>
+            </main>
         </div>
         <footer>
         </footer>
@@ -734,36 +734,6 @@ setInterval(rotateText,1000);
             localStorage.setItem('selectedTheme', theme);
             updateBlurControlVisibility();
                 }
-        const timelineColors = {
-            morning: {
-                background: "#e6f7ff",
-                color: "#003366",
-                navBg: "#99ccffbb",
-                navBtn: "#003366",
-                dialogBg: "#cce6ff99"
-            },
-            afternoon: {
-                background: "#fff2e6",
-                color: "#663300",
-                navBg: "#ffcc99bb",
-                navBtn: "#663300",
-                dialogBg: "#ffe6cc99"
-            },
-            evening: {
-                background: "#f0e6ff",
-                color: "#330066",
-                navBg: "#cc99ffbb",
-                navBtn: "#330066",
-                dialogBg: "#e6ccff99"
-            },
-            night: {
-                background: "#1a1a1a",
-                color: "#e6e6e6",
-                navBg: "#333333bb",
-                navBtn: "#e6e6e6",
-                dialogBg: "#26262699"
-            }
-        };
         function updateTimelineTheme() {
             const now = new Date();
             const hours = now.getHours();
@@ -772,19 +742,15 @@ setInterval(rotateText,1000);
                 timePeriod = 'morning';
             } else if (hours >= 12 && hours < 17) {
                 timePeriod = 'afternoon';
-            } else if (hours >= 17 && hours < 21) {
+            } else if (hours >= 17 && hours < 20) {
                 timePeriod = 'evening';
             } else {
                 timePeriod = 'night';
             }
-            
-            const colors = timelineColors[timePeriod];
-            document.documentElement.style.setProperty('--timeline-bg', colors.background);
-            document.documentElement.style.setProperty('--timeline-color', colors.color);
-            document.documentElement.style.setProperty('--timeline-nav-bg', colors.navBg);
-            document.documentElement.style.setProperty('--timeline-nav-btn', colors.navBtn);
-            document.documentElement.style.setProperty('--timeline-dialog-bg', colors.dialogBg);
+            document.body.setAttribute('data-time-period', timePeriod);
         }
+        updateTimelineTheme();
+        setInterval(updateTimelineTheme, 60000);
         function updateBlurControlVisibility() {
             const content = document.body;
             const isAtmosphereMode = content.getAttribute('data-mode')?.startsWith('atmosphere');
