@@ -883,10 +883,12 @@ setInterval(rotateText,1000);
                 <section>
                     <h2>正文</h2>
                     <div>
-                        <p>过滤敏感内容</p>
+                        <p>过滤敏感内容等级</p>
                         <label>
-                            <input type="radio" name="contentfilter" value="show" onclick="changeContentFilter('show')" style="--input-content:'关';">
-                            <input type="radio" name="contentfilter" value="hide" onclick="changeContentFilter('hide')" style="--input-content:'开';">
+                           <input type="radio" name="contentfilter" value="0" onclick="changeContentFilter('0')" style="--input-content:'0';">
+                            <input type="radio" name="contentfilter" value="1" onclick="changeContentFilter('1')" style="--input-content:'1';">
+                            <input type="radio" name="contentfilter" value="2" onclick="changeContentFilter('2')" style="--input-content:'2';">
+                            <input type="radio" name="contentfilter" value="3" onclick="changeContentFilter('3')" style="--input-content:'3';">
                         </label>
                     </div>
                 </section>
@@ -921,7 +923,7 @@ setInterval(rotateText,1000);
             <h1>欢迎来到首页</h1>
             <p>页面开发中，敬请期待。</p>
             <hr/>
-            <p>这是一段测试文本。<span data-f>隐藏文本</span><a href="#">链接文本</a>角标<sup class="fa fa-external-link" onclick="showPage('event');document.location='#event-d2409';"></sup></p>
+            <p>这是一段测试文本。<span data-f="1">隐藏文本</span><a href="#">链接文本</a>角标<sup class="fa fa-external-link" onclick="showPage('event');document.location='#event-d2409';"></sup></p>
         </div>
         <div id="event">
             <header>
@@ -936,7 +938,7 @@ setInterval(rotateText,1000);
                     <p data-f>隐藏文本</p>
                     <ul>
                         <li>无序列表项</li>
-                        <li data-f>隐藏无序列表项</li>
+                        <li data-f="2">隐藏无序列表项</li>
                         <li>很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的无序列表项</li>
                     </ul>
                     <p>长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长文本</p>
@@ -975,6 +977,9 @@ setInterval(rotateText,1000);
                     <img src="cottage.webp"/>
                     <p>描述文本</p>
                 </div>
+                <p data-f="1">1级隐藏文本</p>
+                <p data-f="2">2级隐藏文本</p>
+                <p data-f="3">3级隐藏文本</p>
             </main>
         </div>
         <footer>
@@ -1176,20 +1181,24 @@ setInterval(rotateText,1000);
         window.addEventListener('DOMContentLoaded', updateScrollProgress);
         
         //设置
-        function changeContentFilter(mode) {
+        function changeContentFilter(level) {
             const filteredElements = document.querySelectorAll('[data-f]');
             filteredElements.forEach(el => {
-                el.style.display = mode === 'show' ? '' : 'none';
+                const filterLevel = el.getAttribute('data-f');
+                el.style.display = (level === '0' || !filterLevel) ? '' : 
+                                 (filterLevel <= level) ? 'none' : '';
             });
-            localStorage.setItem('contentFilter', mode);
+            localStorage.setItem('contentFilter', level);
         }
+        
         function initContentFilter() {
-            const savedFilter = localStorage.getItem('contentFilter') || 'hide';
+            const savedFilter = localStorage.getItem('contentFilter') || '0';
             changeContentFilter(savedFilter);
             updateFilterRadios();
         }
+        
         function updateFilterRadios() {
-            const savedFilter = localStorage.getItem('contentFilter') || 'hide';
+            const savedFilter = localStorage.getItem('contentFilter') || '0';
             document.querySelector(`input[name="contentfilter"][value="${savedFilter}"]`).checked = true;
         }
         function changeTheme(theme) {
@@ -1460,7 +1469,7 @@ setInterval(rotateText,1000);
             changeBlurAmount(5);
             updateBlurRadios();
             localStorage.removeItem('contentFilter');
-            changeContentFilter('hide');
+            changeContentFilter('0');
             updateFilterRadios();
             localStorage.removeItem('fullscreenMode');
             changeFullscreenMode('no');
