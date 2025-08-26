@@ -150,7 +150,7 @@ dialog{
     background:#0066ff88;
     backdrop-filter:blur(10px);
     border:none;
-    padding:20px;
+    padding:0;
     border-radius:20px;
     font-family:Consolas,sans-serif;
     &::-webkit-scrollbar{width:0;}
@@ -198,7 +198,7 @@ dialog button:hover{background:#4dc3ff;}
  </div>
 </div>
 <dialog id="dialog">
-  <span style="position:fixed;top:10px;left:10px;display:inline-block;background:#ffffff88;width:25px;height:25px;line-height:25px;font-size:20px;text-align:center;border-radius:50%;" onclick="document.getElementById('dialog').close();">&times;</span>
+  <span style="position:sticky;top:0;left:0;display:block;background:#ffffff88;width:100%;height:25px;line-height:25px;font-size:20px;backdrop-filter:blur(10px);padding-left:20px;margin-bottom:15px;" onclick="document.getElementById('dialog').close();">&times;</span>
   <div>
     <div style="margin:auto;width:236px;">
       <svg id='colormap' name='colormap' viewBox="0 0 234 200" style="margin-right:2px;" onmouseout="mouseOutMap()">
