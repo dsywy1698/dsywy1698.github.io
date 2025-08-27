@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="fa.css">
 <style>
-*{box-sizing: border-box;}
+*{box-sizing:border-box;}
 ::-webkit-scrollbar{width:6px;}
 ::-webkit-scrollbar-track{background:transparent;}
 ::-webkit-scrollbar-thumb{background:#7a8ab8;border-radius:5px;height:20%;}
@@ -141,6 +141,7 @@ body.darktheme .CodeMirror-focused .CodeMirror-selected{background:#0063e6}
 .CodeMirror-foldgutter-folded:after{content:"\25B8"}
 dialog{
     max-width:800px;
+    overflow-x:hidden;
     width:calc(100vw - 60px);
     height:calc(100vh - 100px);
     background:#0066ff88;
@@ -150,8 +151,8 @@ dialog{
     border-radius:20px;
     font-family:Consolas,sans-serif;
     &::-webkit-scrollbar{width:0;}
-    >span{position:sticky;top:0;left:0;display:block;background:#ffffff88;width:100%;height:25px;line-height:25px;font-size:20px;backdrop-filter:blur(10px);padding:20px auto;margin-bottom:15px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;text-align:center;}
-    >div{float:left;width:50%;text-align:center;@media(max-width:600px) {width:100%;}}
+    >span{position:sticky;top:0;left:0;display:block;background:#ffffff88;width:100%;height:25px;line-height:25px;font-size:20px;backdrop-filter:blur(10px);padding:20px auto;margin-bottom:15px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;text-align:center;cursor:pointer;}
+    >div{float:left;width:50%;text-align:center;@media(max-width:600px){width:100%;}}
     &::backdrop{background:#00000066;backdrop-filter:blur(2px);}
     #selectedcolor{border-radius:10px;width:220px;height:200px;margin:auto;padding:10px;max-width:100%;}
     #divpreview {border:0;width:80px;height:20px;margin:5px auto;border-radius:5px;visibility:hidden;}
@@ -166,7 +167,7 @@ dialog{
     button:hover{background:#4dc3ff;}
     >#icons{
         font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:20px;color:#333;width:100%;
-        div{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:120px;height:70px;margin:3px;padding:5px;background-color:#ffffffaa;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.05);cursor:pointer;transition:all 0.2s ease;}
+        div{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:120px;height:70px;margin:3px;padding:5px;background-color:#ffffffaa;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.05);transition:all 0.2s ease;}
         i{margin-bottom:8px;color:#2d426c;}
         i::before{font-size:30px;}
         span{font-size:12px;text-align:center;color:#666;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
@@ -201,7 +202,7 @@ dialog{
  </div>
 </div>
 <dialog id="dialog">
-  <span onclick="document.getElementById('dialog').close();">a&#772;&nbsp;&amp;#772;&nbsp;&nbsp;a&#769;&nbsp;&amp;#769;&nbsp;&nbsp;a&#780;&nbsp;&amp;#780;&nbsp;&nbsp;a&#768;&nbsp;&amp;#768;</span>
+  <span onclick="document.getElementById('dialog').close();">a&#772;&nbsp;772&nbsp;&nbsp;a&#769;769&nbsp;&nbsp;a&#780;780&nbsp;&nbsp;a&#768;768</span>
   <div>
     <div style="margin:auto;width:236px;">
       <svg id='colormap' name='colormap' viewBox="0 0 234 200" style="margin-right:2px;" onmouseout="mouseOutMap()">
