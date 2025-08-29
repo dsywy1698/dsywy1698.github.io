@@ -5,6 +5,8 @@
 自定义色调
 自动生成导航
 边缘渐变透明
+按标签搜索
+滚动到上一个/下一个搜索结果
 -->
 <head>
     <title>标题</title>
@@ -20,7 +22,7 @@
     </script>
     <style>
         @font-face{font-family:'icons';src:url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'),url('fa.woff2') format('woff2');font-display:swap;}
-        :root{color-scheme:light dark;--blur-amount:5px;}
+        :root{color-scheme:light dark;--blur-amount:5px;--custom-bg-image:none;}
         *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;transition:background 0.3s ease,color 0.3s ease,backdrop-filter 0.3s ease,border-radius 0.3s ease,box-shadow 0.3s ease,line-height 0.3s ease,letter-spacing 0.3s ease;color:inherit;}
         *::-webkit-scrollbar{display:none!important;}
         ::-moz-selection{background:var(--selection);}
@@ -61,7 +63,6 @@
             --dialogbg:#ffffff99;
             --settingbg:#00000011;
             --radiobg:#00000055;
-            --placeholder:#888888;
             --gallerybg:#b894a6;
         }
         body[data-mode="brief-dark"]{
@@ -84,7 +85,6 @@
             --dialogbg:#00000099;
             --settingbg:#ffffff11;
             --radiobg:#ffffff55;
-            --placeholder:#888888;
             --gallerybg:#806699;
         }/*
         body[data-mode="brief-blue"]{
@@ -107,7 +107,6 @@
             --dialogbg:;
             --settingbg:;
             --radiobg:;
-            --placeholder:;
             --gallerybg:;
         }
         body[data-mode="brief-pink"]{
@@ -130,7 +129,6 @@
             --dialogbg:;
             --settingbg:;
             --radiobg:;
-            --placeholder:;
             --gallerybg:;
         }*/
         body[data-mode="brief-light-blue"]{
@@ -153,7 +151,6 @@
             --dialogbg:#99ddff99;
             --settingbg:#0088cc11;
             --radiobg:#0088cc55;
-            --placeholder:#668cff;
             --gallerybg:;
         }
         body[data-mode="brief-dark-blue"]{
@@ -176,7 +173,6 @@
             --dialogbg:#00264dee;
             --settingbg:#3399ff15;
             --radiobg:#3399ff30;
-            --placeholder:#99ccff;
             --gallerybg:#004080;
             --markbg:#ffff0088;
             --blockquote:#00264d;
@@ -201,7 +197,6 @@
             --dialogbg:#ffb36699;
             --settingbg:#995c0011;
             --radiobg:#5cd65c55;
-            --placeholder:;
             --gallerybg:;
         }
         body[data-time-period="morning"]{
@@ -224,7 +219,6 @@
             --timeline-dialogbg:#fff0b399;
             --timeline-settingbg:#ffcc0011;
             --timeline-radiobg:#ffcc0055;
-            --timeline-placeholder:#d4a800;
             --timeline-gallerybg:#ffd700;
         }
         body[data-time-period="afternoon"]{
@@ -247,7 +241,6 @@
             --timeline-dialogbg:#f5f5dc99;
             --timeline-settingbg:#d2b48c11;
             --timeline-radiobg:#d2b48c55;
-            --timeline-placeholder:#8fbc8f;
             --timeline-gallerybg:#d2b48c;
         }
         body[data-time-period="evening"]{
@@ -270,7 +263,6 @@
             --timeline-dialogbg:#ffcc9999;
             --timeline-settingbg:#ff8c0011;
             --timeline-radiobg:#ff8c0055;
-            --timeline-placeholder:#ff6600;
             --timeline-gallerybg:#ff9933;
         }
         body[data-time-period="night"]{
@@ -293,7 +285,6 @@
             --timeline-dialogbg:#00006699;
             --timeline-settingbg:#9966ff11;
             --timeline-radiobg:#9966ff55;
-            --timeline-placeholder:#9999ff;
             --timeline-gallerybg:#333366;
         }
         body[data-mode="brief-timeline"]{
@@ -316,7 +307,6 @@
             --dialogbg:var(--timeline-dialogbg);
             --settingbg:var(--timeline-settingbg);
             --radiobg:var(--timeline-radiobg);
-            --placeholder:var(--timeline-placeholder);
             --gallerybg:var(--timeline-gallerybg);
         }
         body[data-mode^="atmosphere"]{background-position:50% 50%;background-repeat:no-repeat;background-size:cover;background-attachment:fixed;}
@@ -538,7 +528,6 @@
         /*导航栏*/
         nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc(100dvw - clamp(2px,1dvw,10px) * 2);background:var(--nav-bg);padding:2.5px;border-radius:var(--radius-8x);backdrop-filter:blur(20px);z-index:1;box-shadow:var(--shadow-so-5x);user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}
         nav::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right,var(--nav-btn) var(--scroll-progress,0%),transparent 0);opacity:0.1;pointer-events:none;z-index:-1;border-radius:var(--radius-8x);height:40px;}
-
         body[data-mode^="atmosphere"][data-fullscreen="no"] #content nav{top:15px;left:calc((100dvw - clamp(290px,calc(100dvw - 30px),890px)) / 2);width:calc(100dvw - 30px);max-width:890px;}
         body[data-mode^="brief"][data-nav-margin="no"] nav{
             width:100dvw;left:0;top:0;border-radius:0;
@@ -546,12 +535,15 @@
             &:before{border-radius:0;}
         }
         nav>div:first-child{
-            transition:all 0.3s ease;
-            >button{transition:all 0.3s ease,opacity 0.3s ease;flex-shrink:0;width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;transition:0.5s;border-radius:var(--radius-8x);
+            transition:all 0.3s ease;display:flex;
+            >button{transition:all 0.3s ease,opacity 0.3s ease;width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;transition:0.5s;border-radius:var(--radius-8x);margin:0 2.5px;
             &:hover{background:#00000033;}
             >i{color:var(--nav-btn);}
             }
         }
+        body[data-align="left"] nav>div:first-child{justify-content:flex-start;}
+        body[data-align="center"] nav>div:first-child{justify-content:space-around;}
+        body[data-align="right"] nav>div:first-child{justify-content:flex-end;}
         #mainNavButton{
             transition:all 0.3s ease,opacity 0.3s ease;opacity:1;
             &[style*="display:none"]{display:inline-block!important;width:0;opacity:0;pointer-events:none;}
@@ -574,11 +566,11 @@
             }
         }
         nav>div:nth-of-type(3){
-            position:absolute;top:0;left:0;width:100%;height:100%;background:#ffffffbb;align-items:center;padding:0 10px;border-radius:var(--radius-8x);display:flex;opacity:0;visibility:hidden;transition:all 0.3s ease;transform:translateY(-10px);
+            position:absolute;top:0;left:0;width:100%;height:100%;background:color-mix(in oklch,var(--nav-bg),#888888dd);align-items:center;padding:0 10px;border-radius:var(--radius-8x);display:flex;opacity:0;visibility:hidden;transition:all 0.3s ease;transform:translateY(-10px);
             &.active{opacity:1;visibility:visible;transform:translateY(0);}
             >input{
                 flex-grow:1;background:transparent;border:none;outline:none;color:inherit;font-size:1rem;padding:5px;
-                &::placeholder{color:var(--placeholder,#a3b8c2);opacity:1;}
+                &::placeholder{color:inherit;opacity:0.6;}
                 &::-ms-input-placeholder{color:#a3b8c2;}
             }
             >span{margin:0 10px;}
@@ -606,13 +598,23 @@
                         >label{
                             height:30px;padding:2.5px;background:var(--radiobg);border-radius:15px;float:right;
                             >input[type="radio"]{
-                                -webkit-appearance:none;-moz-appearance:none;appearance:none;width:25px;height:25px;border-radius:12.5px;position:relative;background:#00000022;transition:0.5s;
+                                -webkit-appearance:none;-moz-appearance:none;appearance:none;width:25px;height:25px;border-radius:12.5px;position:relative;transition:0.5s;
                                 &::before{content:var(--input-content);font-size:19px;transition:0.5s;width:25px;height:25px;line-height:25px;margin:3px;color:#ffffff44;}
                                 &:checked{
                                     background:#ffffff22;
                                     &::before{color:unset;}
                                 }
                             }
+                        }
+                    }
+                    >div:has(>label>input[type="checkbox"]){
+                        height:initial;display:flex;flex-wrap:wrap;justify-content:center;
+                        >p{flex-basis:100%;}
+                        >label{
+                            margin:2.5px;display:block;border-radius:var(--radius-5x);padding:5px;flex-basis:calc(50% - 5px);text-align:center;background:var(--nav-bg);color:var(--nav-btn);
+                            >input{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
+                            &:has(input:checked){background:var(--settingbg);}
+                            &:has(input:disabled){opacity:0.5;}
                         }
                     }
                 }
@@ -732,7 +734,7 @@
 
     </style>
 </head>
-<body onload="loading()" data-mode="system" data-shadow="subtle" data-radius="large" data-font-size="normal" data-line-spacing="loose" data-font-weight="normal" data-nav-margin="no">
+<body onload="loading()" data-mode="system" data-shadow="subtle" data-radius="large" data-font-size="normal" data-line-spacing="loose" data-font-weight="normal" data-nav-margin="no" data-align="left">
     <div id="passwordOverlay">
         <div id="passwordForm">
             <h2>输入密码</h2>
@@ -812,35 +814,13 @@ setInterval(rotateText,1000);
                     <label><input type="radio" name="theme" value="atmosphere-dark-sky" onclick="changeTheme('atmosphere-dark-sky')">深-星空</label>
                     -->
                     <label><input type="radio" name="theme" value="atmosphere-light-custom" onclick="changeTheme('atmosphere-light-custom')">浅-自定义</label>
-                    <label><input type="radio" name="theme" value="atmosphere-dark-custom" onclick="changeTheme('atmosphere-dark-custom')">深-自定义</label>
-                    <div style="flex-basis:100%;">
+                    <label><input type="radio" name="theme" value="atmosphere-dark-custom" onclick="changeTheme('atmosphere-dark-custom')">深-自定义</label><!--
+                    <div class="atmosphere-settings">
                         <p>自定义背景图片</p>
-                        <input type="file" id="bgUpload" accept="image/*" style="display:none;">
-                        <button onclick="document.getElementById('bgUpload').click()" style="float:right;">上传</button>
-                        <button onclick="localStorage.removeItem('customBgImage');customBgImage=null;document.documentElement.style.removeProperty('--custom-bg-image');const currentTheme=document.getElementById('content').getAttribute('data-mode');if(currentTheme==='atmosphere-light-custom'||currentTheme==='atmosphere-dark-custom'){changeTheme('system');}" style="float:right;">清除</button>
-                    </div>
-                    <div class="atmosphere-settings">
-                        <p>遮罩模糊度</p>
-                        <label>
-                            <input type="radio" name="blur" value="0" onclick="changeBlurAmount(0)" style="--input-content:'无';">
-                            <input type="radio" name="blur" value="5" onclick="changeBlurAmount(5)" style="--input-content:'中';">
-                            <input type="radio" name="blur" value="10" onclick="changeBlurAmount(10)" style="--input-content:'强';">
-                        </label>
-                    </div>
-                    <div class="atmosphere-settings">
-                        <p>全屏显示</p>
-                        <label>
-                            <input type="radio" name="fullscreen" value="yes" onclick="changeFullscreenMode('yes')" style="--input-content:'是';">
-                            <input type="radio" name="fullscreen" value="no" onclick="changeFullscreenMode('no')" style="--input-content:'否';">
-                        </label>
-                    </div>
-                    <div class="brief-settings">
-                        <p>导航栏边距</p>
-                        <label>
-                            <input type="radio" name="navmargin" value="yes" onclick="changeNavMargin('yes')" style="--input-content:'有';">
-                            <input type="radio" name="navmargin" value="no" onclick="changeNavMargin('no')" style="--input-content:'无';">
-                        </label>
-                    </div>
+                        <input type="file" style="display:none;">
+                            <button style="float:right;" onclick="">上传</button>
+                            <button style="float:right;" onclick="">清除</button>
+                    </div>-->
                 </section>
                 <section>
                     <h2>字体</h2>
@@ -884,16 +864,58 @@ setInterval(rotateText,1000);
                             <input type="radio" name="shadow" value="none" onclick="changeShadow('none')" style="--input-content:'无';">
                         </label>
                     </div>
+                    <div class="atmosphere-settings">
+                        <p>遮罩模糊度</p>
+                        <label>
+                            <input type="radio" name="blur" value="0" onclick="changeBlurAmount(0)" style="--input-content:'无';">
+                            <input type="radio" name="blur" value="5" onclick="changeBlurAmount(5)" style="--input-content:'中';">
+                            <input type="radio" name="blur" value="10" onclick="changeBlurAmount(10)" style="--input-content:'强';">
+                        </label>
+                    </div>
+                    <div class="atmosphere-settings">
+                        <p>全屏显示</p>
+                        <label>
+                            <input type="radio" name="fullscreen" value="yes" onclick="changeFullscreenMode('yes')" style="--input-content:'是';">
+                            <input type="radio" name="fullscreen" value="no" onclick="changeFullscreenMode('no')" style="--input-content:'否';">
+                        </label>
+                    </div>
+                </section>
+                <section>
+                    <h2>导航栏</h2>
+                    <div class="brief-settings">
+                        <p>边距</p>
+                        <label>
+                            <input type="radio" name="navmargin" value="yes" onclick="changeNavMargin('yes')" style="--input-content:'有';">
+                            <input type="radio" name="navmargin" value="no" onclick="changeNavMargin('no')" style="--input-content:'无';">
+                        </label>
+                    </div>
+                    <div>
+                        <p>项目对齐</p>
+                        <label>
+                            <input type="radio" name="navalign" value="left" onclick="changeNavAlign('left')" style="--input-content:'左';">
+                            <input type="radio" name="navalign" value="center" onclick="changeNavAlign('center')" style="--input-content:'中';">
+                            <input type="radio" name="navalign" value="right" onclick="changeNavAlign('right')" style="--input-content:'右';">
+                        </label>
+                    </div>
+                    <div>
+                        <p>显示项目</p>
+                        <label><input type="checkbox" name="navitems" value="home" checked disabled onclick="toggleNavItem('home')">回首页</label>
+                        <label><input type="checkbox" name="navitems" value="top" checked onclick="toggleNavItem('top')">回顶部</label>
+                        <label><input type="checkbox" name="navitems" value="bottom" checked onclick="toggleNavItem('bottom')">回底部</label>
+                        <label><input type="checkbox" name="navitems" value="settings" checked disabled onclick="toggleNavItem('settings')">设置</label>
+                        <label><input type="checkbox" name="navitems" value="menu" checked disabled onclick="toggleNavItem('menu')">菜单</label>
+                        <label><input type="checkbox" name="navitems" value="search" checked onclick="toggleNavItem('search')">搜索</label>
+                    </div>
                 </section>
                 <section>
                     <h2>正文</h2>
                     <div>
                         <p>过滤敏感内容等级</p>
                         <label>
-                           <input type="radio" name="contentfilter" value="0" onclick="changeContentFilter('0')" style="--input-content:'0';">
-                            <input type="radio" name="contentfilter" value="1" onclick="changeContentFilter('1')" style="--input-content:'1';">
-                            <input type="radio" name="contentfilter" value="2" onclick="changeContentFilter('2')" style="--input-content:'2';">
-                            <input type="radio" name="contentfilter" value="3" onclick="changeContentFilter('3')" style="--input-content:'3';">
+                           <input type="radio" name="contentfilter" value="0" onclick="changeContentFilter('0')" style="--input-content:'无';">
+                            <input type="radio" name="contentfilter" value="1" onclick="changeContentFilter('1')" style="--input-content:'一';">
+                            <input type="radio" name="contentfilter" value="2" onclick="changeContentFilter('2')" style="--input-content:'二';">
+                            <input type="radio" name="contentfilter" value="3" onclick="changeContentFilter('3')" style="--input-content:'三';">
                         </label>
                     </div>
                 </section>
@@ -1001,194 +1023,18 @@ setInterval(rotateText,1000);
     <div id="oldbrowser">浏览器版本过旧，不支持显示。<br/>请下载最新浏览器或升级至最新浏览器后重试。</div>
     <script>
         //旧版浏览器
-        function checkBrowserCompatibility() {
-            const featuresToCheck = [
-                'color-scheme',
-                'backdrop-filter',
-                'scroll-behavior',
-                'scroll-snap-type',
-                'gap',
-                'aspect-ratio',
-                'container',
-                'has'
-            ];
-            const testElement = document.createElement('div');
-            document.body.appendChild(testElement);
-            let unsupportedFeatures = [];
-            featuresToCheck.forEach(feature => {
-                try {
-                    if (feature === 'has') {
-                        testElement.innerHTML = '<div id="test-has"><p></p></div>';
-                        const style = document.createElement('style');
-                        style.textContent = '#test-has:has(p){display:block;}';
-                        document.head.appendChild(style);
-                        const isSupported = getComputedStyle(testElement.querySelector('#test-has')).display === 'block';
-                        document.head.removeChild(style);
-                        if (!isSupported) {
-                            unsupportedFeatures.push(':has() selector');
-                        }
-                    } else {
-                        testElement.style[feature] = 'initial';
-                        if (!testElement.style[feature]) {
-                            unsupportedFeatures.push(feature);
-                        }
-                    }
-                } catch (e) {
-                    unsupportedFeatures.push(feature);
-                }
-            });
-            document.body.removeChild(testElement);
-            if (unsupportedFeatures.length > 0) {
-                const oldBrowserDiv = document.getElementById('oldbrowser');
-                const details = document.createElement('p');
-                details.textContent = `不支持的特性: ${unsupportedFeatures.join(', ')}`;
-                oldBrowserDiv.appendChild(details);
-                oldBrowserDiv.style.display = 'flex';
-                document.getElementById('content').style.display = 'none';
-                document.getElementById('loader').style.display = 'none';
-            }
-        }
-        window.addEventListener('DOMContentLoaded', checkBrowserCompatibility);
-        
-        //密码
-        async function checkPassword() {
-            const password = document.querySelector('#passwordOverlay>div>div>input').value;
-            const error = document.querySelector('#passwordOverlay>div>div>input');
-            const encoder = new TextEncoder();
-            const data = encoder.encode(password);
-            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-            const correctHash = "ddec4e6a6e296862618bf9fd0f8a1f6cc62de71d6c4d8a2ea366e13a8c0f9174";//orangemumu
-            if (hashHex === correctHash) {
-                document.getElementById('passwordOverlay').style.display = 'none';
-                localStorage.setItem('passwordVerified', 'true');
-            } else {
-                error.style.background = '#ff000044';
-            }
-        }
-        function initPasswordProtection() {
-            if (localStorage.getItem('passwordVerified') === 'true') {
-                document.getElementById('passwordOverlay').style.display = 'none';
-                return;
-            }
-            document.querySelector('#passwordOverlay>div>div>button').addEventListener('click', checkPassword);
-            document.querySelector('#passwordOverlay>div>div>input').addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    checkPassword();
-                }
-            });
-        }
-        document.addEventListener('DOMContentLoaded', function() {
-            initPasswordProtection();
-        });
-        
+        function checkBrowserCompatibility(){var e,t;const n=document.createElement("div");document.body.appendChild(n);let d=[];["color-scheme","backdrop-filter","scroll-behavior","scroll-snap-type","gap","aspect-ratio","container","has"].forEach(t=>{try{var e,o;"has"===t?(n.innerHTML='<div id="test-has"><p></p></div>',(e=document.createElement("style")).textContent="#test-has:has(p){display:block;}",document.head.appendChild(e),o="block"===getComputedStyle(n.querySelector("#test-has")).display,document.head.removeChild(e),o||d.push(":has() selector")):(n.style[t]="initial",n.style[t]||d.push(t))}catch(e){d.push(t)}}),document.body.removeChild(n),0<d.length&&(e=document.getElementById("oldbrowser"),(t=document.createElement("p")).textContent="不支持的特性: "+d.join(", "),e.appendChild(t),e.style.display="flex",document.getElementById("content").style.display="none",document.getElementById("loader").style.display="none")}window.addEventListener("DOMContentLoaded",checkBrowserCompatibility);
+        //密码（orangemumu）
+        async function checkPassword(){var e=document.querySelector("#passwordOverlay>div>div>input").value,t=document.querySelector("#passwordOverlay>div>div>input"),e=(new TextEncoder).encode(e),e=await crypto.subtle.digest("SHA-256",e);"ddec4e6a6e296862618bf9fd0f8a1f6cc62de71d6c4d8a2ea366e13a8c0f9174"===Array.from(new Uint8Array(e)).map(e=>e.toString(16).padStart(2,"0")).join("")?(document.getElementById("passwordOverlay").style.display="none",localStorage.setItem("passwordVerified","true")):t.style.background="#ff000044"}function initPasswordProtection(){"true"===localStorage.getItem("passwordVerified")?document.getElementById("passwordOverlay").style.display="none":(document.querySelector("#passwordOverlay>div>div>button").addEventListener("click",checkPassword),document.querySelector("#passwordOverlay>div>div>input").addEventListener("keypress",function(e){"Enter"===e.key&&checkPassword()}))}document.addEventListener("DOMContentLoaded",function(){initPasswordProtection()});
         // 动态修改页面标题
-        function updatePageTitle() {
-            const currentPage = document.querySelector('#content>div[style*="display: block"]');
-            if (!currentPage) return;
-            const pageHeader = currentPage.querySelector('header h1');
-            if (pageHeader) {
-                document.title = `标题-${pageHeader.textContent}`;
-            } else {
-                document.title = baseTitle;
-            }
-        }
-        
+        function updatePageTitle(){var e=document.querySelector('#content>div[style*="display: block"]');e&&(e=e.querySelector("header h1"),document.title=e?"标题-"+e.textContent:baseTitle)}
         //页面切换
-        let currentPage = null;
-        let subMenuVisible = false;
-        function showPage(pageId) {
-            document.querySelectorAll('#content>div').forEach(page => {
-                page.style.display = 'none';
-            });
-            document.getElementById(pageId).style.display = 'block';
-            currentPage = pageId;
-            updateNavButtons(pageId);
-            updateAnchorLinks(pageId);
-            toggleSubMenu(false);
-            document.getElementById(pageId).scrollTo(0, 0);
-            updatePageTitle();
-        }
-        function updateNavButtons(activePageId) {
-            const mainNavButton = document.getElementById('mainNavButton');
-            const isHomePage = activePageId === 'home';
-            requestAnimationFrame(() => {
-                if (isHomePage) {
-                    mainNavButton.style.opacity = '0';
-                    mainNavButton.style.width = '0';
-                    mainNavButton.style.marginRight = '0';
-                    setTimeout(() => {
-                        mainNavButton.style.display = 'none';
-                    }, 300);
-                } else {
-                    mainNavButton.style.display = 'inline-block';
-                    setTimeout(() => {
-                        mainNavButton.style.opacity = '1';
-                        mainNavButton.style.width = '35px';
-                    }, 10);
-                }
-            });
-            document.querySelectorAll('nav>div:nth-of-type(2) button[onclick]').forEach(button => {
-                const match = button.getAttribute('onclick').match(/showPage\('(.+?)'\)/);
-                if (match) {
-                    const pageId = match[1];
-                    button.style.display = 
-                        pageId === activePageId ? 'none' : 'block';
-                }
-            });
-        }
-        function updateAnchorLinks(pageId) {
-            document.querySelectorAll('nav>div:nth-of-type(2) div[id$="-anchors"]').forEach(div => {
-                div.style.display = 'none';
-            });
-            const anchors = document.getElementById(`${pageId}-anchors`);
-            if (anchors) anchors.style.display = 'block';
-        } 
-        function toggleSubMenu(show = null) {
-            subMenuVisible = show !== null ? show : !subMenuVisible;
-            const subMenu = document.querySelector('nav>div:nth-of-type(2)');
-            if (subMenuVisible) {
-                subMenu.classList.add('active');
-            } else {
-                subMenu.classList.remove('active');
-            }
-        }
-        document.addEventListener('click', function(event) {
-            const nav = document.querySelector('nav');
-            const menuButton = document.querySelector('nav>div:first-child>button:last-child');
-            const subMenu = document.querySelector('nav>div:nth-of-type(2)');
-            const isClickInsideMenu = nav.contains(event.target) && 
-                                    !event.target.closest('nav>div:nth-of-type(3)'); 
-            if (subMenuVisible && !isClickInsideMenu) {
-                toggleSubMenu(false);
-            }
-        });
-    
-        
+        let currentPage=null,subMenuVisible=!1;function showPage(e){document.querySelectorAll("#content>div").forEach(e=>{e.style.display="none"}),document.getElementById(e).style.display="block",updateNavButtons(currentPage=e),updateAnchorLinks(e),toggleSubMenu(!1),document.getElementById(e).scrollTo(0,0),updatePageTitle()}function updateNavButtons(n){const e=document.getElementById("mainNavButton"),t="home"===n;requestAnimationFrame(()=>{t?(e.style.opacity="0",e.style.width="0",e.style.marginRight="0",setTimeout(()=>{e.style.display="none"},300)):(e.style.display="inline-block",setTimeout(()=>{e.style.opacity="1",e.style.width="35px"},10))}),document.querySelectorAll("nav>div:nth-of-type(2) button[onclick]").forEach(e=>{var t=e.getAttribute("onclick").match(/showPage\('(.+?)'\)/);t&&(t=t[1],e.style.display=t===n?"none":"block")})}function updateAnchorLinks(e){document.querySelectorAll('nav>div:nth-of-type(2) div[id$="-anchors"]').forEach(e=>{e.style.display="none"});e=document.getElementById(e+"-anchors");e&&(e.style.display="block")}function toggleSubMenu(e=null){subMenuVisible=null!==e?e:!subMenuVisible;e=document.querySelector("nav>div:nth-of-type(2)");subMenuVisible?e.classList.add("active"):e.classList.remove("active")}document.addEventListener("click",function(e){var t=document.querySelector("nav"),t=(document.querySelector("nav>div:first-child>button:last-child"),document.querySelector("nav>div:nth-of-type(2)"),t.contains(e.target)&&!e.target.closest("nav>div:nth-of-type(3)"));subMenuVisible&&!t&&toggleSubMenu(!1)});
         //返回顶部/底部
-        function goTop(){document.querySelector('#content>div[style*="display: block"]').scrollTo(0,0);}
-        function goBottom(){document.querySelector('#content>div[style*="display: block"]').scrollTo(0,document.querySelector('#content>div[style*="display: block"]').scrollHeight);}
-        
+        function goTop(){document.querySelector('#content>div[style*="display:block"]').scrollTo(0,0)}
+        function goBottom(){document.querySelector('#content>div[style*="display: block"]').scrollTo(0,document.querySelector('#content>div[style*="display:block"]').scrollHeight)}
         //阅读指示器
-        function updateScrollProgress() {
-            const nav = document.querySelector('nav');
-            if (!nav) return;
-            
-            const currentPage = document.querySelector('#content>div[style*="display: block"]');
-            if (!currentPage) return;
-            
-            const scrollHeight = currentPage.scrollHeight - currentPage.clientHeight;
-            const scrollTop = currentPage.scrollTop;
-            const progress = (scrollTop / scrollHeight) * 100;
-            
-            nav.style.setProperty('--scroll-progress', progress + '%');
-        }
-        document.querySelectorAll('#content>div').forEach(page => {
-            page.addEventListener('scroll', updateScrollProgress);
-        });
-        window.addEventListener('DOMContentLoaded', updateScrollProgress);
-        
+        function updateScrollProgress(){var e,o,r=document.querySelector("nav");r&&(e=document.querySelector('#content>div[style*="display: block"]'))&&(o=e.scrollHeight-e.clientHeight,r.style.setProperty("--scroll-progress",e.scrollTop/o*100+"%"))}document.querySelectorAll("#content>div").forEach(e=>{e.addEventListener("scroll",updateScrollProgress)}),window.addEventListener("DOMContentLoaded",updateScrollProgress);
         //设置
         function changeContentFilter(level) {
             const filteredElements = document.querySelectorAll('[data-f]');
@@ -1259,66 +1105,71 @@ setInterval(rotateText,1000);
                 changeBlurAmount(5);
             }
         }
-        function changeFontSize(size) {
-            const content = document.body;
-            content.setAttribute('data-font-size', size);
-            localStorage.setItem('selectedFontSize', size);
+        function changeFontSize(e){document.body.setAttribute("data-font-size",e),localStorage.setItem("selectedFontSize",e)}
+        function changeRadius(e){document.body.setAttribute("data-radius",e),localStorage.setItem("selectedRadius",e)}
+        function changeLineSpacing(e){document.body.setAttribute("data-line-spacing",e),localStorage.setItem("selectedLineSpacing",e)}
+        function changeFontWeight(e){document.body.setAttribute("data-font-weight",e),localStorage.setItem("selectedFontWeight",e)}
+        function changeShadow(e){document.body.setAttribute("data-shadow",e),localStorage.setItem("selectedShadow",e)}
+        function changeBlurAmount(e){document.documentElement.style.setProperty("--blur-amount",e+"px"),localStorage.setItem("blurAmount",e),updateBlurRadios()}
+        function updateBlurRadios(){const t=localStorage.getItem("blurAmount")||"5";document.querySelectorAll('input[name="blur"]').forEach(e=>{e.checked=e.value===t})}
+        function changeFullscreenMode(e){document.body.setAttribute("data-fullscreen",e),localStorage.setItem("fullscreenMode",e)}
+        function initFullscreenMode(){changeFullscreenMode(localStorage.getItem("fullscreenMode")||"no"),updateFullscreenRadios()}
+        function updateFullscreenRadios(){var e=localStorage.getItem("fullscreenMode")||"no";document.querySelector(`input[name="fullscreen"][value="${e}"]`).checked=!0}
+        function changeNavMargin(e){document.body.setAttribute("data-nav-margin",e),localStorage.setItem("navMargin",e)}
+        function initNavMargin(){changeNavMargin(localStorage.getItem("navMargin")||"no"),updateNavMarginRadios()}
+        function updateNavMarginRadios(){var e=localStorage.getItem("navMargin")||"no";document.querySelector(`input[name="navmargin"][value="${e}"]`).checked=!0}
+        function changeNavAlign(e){document.body.setAttribute("data-align",e),localStorage.setItem("navAlign",e)}
+        function initNavAlign(){changeNavAlign(localStorage.getItem("navAlign")||"left"),updateNavAlignRadios()}
+        function updateNavAlignRadios(){var e=localStorage.getItem("navAlign")||"left";document.querySelector(`input[name="navalign"][value="${e}"]`).checked=!0}
+        function toggleNavItem(item) {
+            const button = document.querySelector(`nav>div:first-child>button[data-navitem="${item}"]`);
+            if (!button) return;
+            const isChecked = document.querySelector(`input[name="navitems"][value="${item}"]`).checked;
+            button.style.display = isChecked ? 'inline-block' : 'none';
+            const navItems = JSON.parse(localStorage.getItem('navItems') || '{}');
+            navItems[item] = isChecked;
+            localStorage.setItem('navItems', JSON.stringify(navItems));
         }
-        function changeRadius(size) {
-            const content = document.body;
-            content.setAttribute('data-radius', size);
-            localStorage.setItem('selectedRadius', size);
+        function initNavItems() {
+            const navItems = JSON.parse(localStorage.getItem('navItems') || '{}');
+            const defaults = {
+                home: true,
+                top: true,
+                bottom: true,
+                settings: true,
+                menu: true,
+                search: true
+            };
+            const settings = {...defaults, ...navItems};
+            for (const [item, isChecked] of Object.entries(settings)) {
+                const checkbox = document.querySelector(`input[name="navitems"][value="${item}"]`);
+                if (checkbox) {
+                    checkbox.checked = isChecked;
+                }
+            }
+            updateNavButtonsVisibility();
         }
-        function changeLineSpacing(spacing) {
-            const content = document.body;
-            content.setAttribute('data-line-spacing', spacing);
-            localStorage.setItem('selectedLineSpacing', spacing);
-        }
-        function changeFontWeight(weight) {
-            const content = document.body;
-            content.setAttribute('data-font-weight', weight);
-            localStorage.setItem('selectedFontWeight', weight);
-        }
-        function changeShadow(shadow) {
-            const content = document.body;
-            content.setAttribute('data-shadow', shadow);
-            localStorage.setItem('selectedShadow', shadow);
-        }
-        function changeBlurAmount(value) {
-            document.documentElement.style.setProperty('--blur-amount', value + 'px');
-            localStorage.setItem('blurAmount', value);
-            updateBlurRadios();
-        }function updateBlurRadios() {
-            const savedBlur = localStorage.getItem('blurAmount') || '5';
-            document.querySelectorAll('input[name="blur"]').forEach(radio => {
-                radio.checked = (radio.value === savedBlur);
+        
+        function updateNavButtonsVisibility() {
+            const navItems = JSON.parse(localStorage.getItem('navItems') || '{}');
+            const buttons = document.querySelectorAll('nav>div:first-child>button');
+            buttons.forEach(button => {
+                const icon = button.querySelector('i');
+                if (icon) {
+                    if (icon.classList.contains('fa-home')) button.setAttribute('data-navitem', 'home');
+                    if (icon.classList.contains('fa-arrow-circle-up')) button.setAttribute('data-navitem', 'top');
+                    if (icon.classList.contains('fa-arrow-circle-down')) button.setAttribute('data-navitem', 'bottom');
+                    if (icon.classList.contains('fa-gear')) button.setAttribute('data-navitem', 'settings');
+                    if (icon.classList.contains('fa-navicon')) button.setAttribute('data-navitem', 'menu');
+                    if (icon.classList.contains('fa-search')) button.setAttribute('data-navitem', 'search');
+                }
             });
-        }
-        function changeFullscreenMode(mode) {
-            document.body.setAttribute('data-fullscreen', mode);
-            localStorage.setItem('fullscreenMode', mode);
-        }
-        function initFullscreenMode() {
-            const savedMode = localStorage.getItem('fullscreenMode') || 'no';
-            changeFullscreenMode(savedMode);
-            updateFullscreenRadios();
-        }
-        function updateFullscreenRadios() {
-            const savedMode = localStorage.getItem('fullscreenMode') || 'no';
-            document.querySelector(`input[name="fullscreen"][value="${savedMode}"]`).checked = true;
-        }
-        function changeNavMargin(margin) {
-            document.body.setAttribute('data-nav-margin', margin);
-            localStorage.setItem('navMargin', margin);
-        }
-        function initNavMargin() {
-            const savedMargin = localStorage.getItem('navMargin') || 'no';
-            changeNavMargin(savedMargin);
-            updateNavMarginRadios();
-        }
-        function updateNavMarginRadios() {
-            const savedMargin = localStorage.getItem('navMargin') || 'no';
-            document.querySelector(`input[name="navmargin"][value="${savedMargin}"]`).checked = true;
+            for (const [item, isChecked] of Object.entries(navItems)) {
+                const button = document.querySelector(`nav>div:first-child>button[data-navitem="${item}"]`);
+                if (button) {
+                    button.style.display = isChecked ? 'inline-block' : 'none';
+                }
+            }
         }
         function initSettings() {
             const savedTheme = localStorage.getItem('selectedTheme');
@@ -1327,13 +1178,8 @@ setInterval(rotateText,1000);
             const savedLineSpacing = localStorage.getItem('selectedLineSpacing');
             const savedFontWeight = localStorage.getItem('selectedFontWeight');
             const savedShadow = localStorage.getItem('selectedShadow');
-            if (savedTheme === 'system') {
-                const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
-                systemTheme.addListener(handleSystemThemeChange);
-                handleSystemThemeChange(systemTheme);
-            } else if (savedTheme) {
-                changeTheme(savedTheme);
-            }
+            if (savedTheme === 'system') {const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');systemTheme.addListener(handleSystemThemeChange);handleSystemThemeChange(systemTheme);}
+            else if (savedTheme) {changeTheme(savedTheme);}
             if (savedFontSize) changeFontSize(savedFontSize);
             if (savedRadius) changeRadius(savedRadius);
             if (savedLineSpacing) changeLineSpacing(savedLineSpacing);
@@ -1341,97 +1187,27 @@ setInterval(rotateText,1000);
             if (savedShadow) changeShadow(savedShadow);
             updateSettingRadios();
             const savedBlur = localStorage.getItem('blurAmount');
-                if (savedBlur) {
-                    changeBlurAmount(savedBlur);
-                }
+            if (savedBlur) {changeBlurAmount(savedBlur);}
             updateBlurRadios();
             initContentFilter();
             initFullscreenMode();
             initNavMargin();
             const settingDialog = document.getElementById('settingdialog');
-            settingDialog.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    this.close();
-                }
-            });
-        }
-        let customBgImage = null;
-        function handleBgUpload(e) {
-            const file = e.target.files[0];
-            if (!file) return;
-            if (!file.type.match('image.*')) {
-                showUploadError('请上传图片文件');
-                return;
-            }
-            if (file.size > 5 * 1024 * 1024) {
-                showUploadError('图片大小不能超过5MB');
-                return;
-            }
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                try {
-                    customBgImage = e.target.result;
-                    localStorage.setItem('customBgImage', customBgImage);
-                    applyCustomBg();
-                    const currentTheme = document.body.getAttribute('data-mode');
-                    if (currentTheme === 'atmosphere-light-custom' || currentTheme === 'atmosphere-dark-custom') {
-                        document.documentElement.style.setProperty('--custom-bg-image', `url("${customBgImage}")`);
-                    }
-                } catch (error) {
-                    showUploadError('图片处理失败');
-                }
-            };
-            reader.onerror = function() {
-                showUploadError('图片读取失败');
-            };
-            try {
-                reader.readAsDataURL(file);
-            } catch (error) {
-                showUploadError('图片上传失败');
-            }
-        }
-        function showUploadError(message) {
-            const errorDiv = document.querySelector('#settingdialog>div:nth-of-type(3)');
-            errorDiv.textContent = message;
-            errorDiv.style.display = 'block';
-            errorDiv.style.opacity = '1';
-            setTimeout(() => {
-                errorDiv.style.opacity = '0';
-                setTimeout(() => {
-                    errorDiv.style.display = 'none';
-                }, 500);
-            }, 3000);
-        }
-        function applyCustomBg() {
-            if (customBgImage) {
-                document.documentElement.style.setProperty('--custom-bg-image', `url("${customBgImage}")`);
-            }
-        }
-        function initCustomBg() {
-            try {
-                const savedBg = localStorage.getItem('customBgImage');
-                if (savedBg) {
-                    if (savedBg.startsWith('data:image/')) {
-                        customBgImage = savedBg;
-                        applyCustomBg();
-                    } else {
-                        localStorage.removeItem('customBgImage');
-                    }
-                }
-            } catch (error) {
-                console.error('初始化自定义背景失败:', error);
-                localStorage.removeItem('customBgImage');
-            }
+            settingDialog.addEventListener('click', function(e) {if (e.target === this) {this.close();}});
+            initNavAlign();
+            initNavItems();
+            updateNavButtonsVisibility();
         }
         window.addEventListener('DOMContentLoaded', function() {
             showPage('home');
             toggleSubMenu(false);
             initSettings();
-            initCustomBg();
-            document.getElementById('bgUpload').addEventListener('change', handleBgUpload);
             initBlurAmount();
             updateBlurControlVisibility();
             initFullscreenMode();
+            initNavAlign();
+            initNavItems();
+            updateNavButtonsVisibility();
         });
         function handleSystemThemeChange(e) {
             const content = document.body;
@@ -1471,9 +1247,6 @@ setInterval(rotateText,1000);
             changeFontWeight('normal');
             changeShadow('subtle');
             updateSettingRadios();
-            localStorage.removeItem('customBgImage');
-            customBgImage = null;
-            document.documentElement.style.removeProperty('--custom-bg-image');
             localStorage.removeItem('blurAmount');
             changeBlurAmount(5);
             updateBlurRadios();
@@ -1485,6 +1258,15 @@ setInterval(rotateText,1000);
             localStorage.removeItem('navMargin');
             changeNavMargin('no');
             updateNavMarginRadios();
+            localStorage.removeItem('navAlign');
+            changeNavAlign('left');
+            updateNavAlignRadios();
+            localStorage.removeItem('navItems');
+            const checkboxes = document.querySelectorAll('input[name="navitems"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = true;
+            });
+            updateNavButtonsVisibility();
         }
         
         //搜索
@@ -1590,53 +1372,8 @@ setInterval(rotateText,1000);
         });
         
         //幻灯片
-        let currentSlide = 0;
-        let slideInterval;
-        const slides = document.querySelectorAll('#slideshow>div:first-child>div');
-        const slideContainer = document.querySelector('#slideshow>div:first-child');
-        const dotsContainer = document.querySelector('#slideshow>div:last-child>div');
-        function initSlideshow() {
-            slides.forEach((_, index) => {
-                const dot = document.createElement('span');
-                dot.classList.add('dot');
-                dot.addEventListener('click', () => goToSlide(index));
-                dotsContainer.appendChild(dot);
-            });
-            updateDots();
-            startAutoPlay();
-            const slideshow = document.querySelector('#slideshow');
-            slideshow.addEventListener('mouseenter', pauseAutoPlay);
-            slideshow.addEventListener('mouseleave', startAutoPlay);
-        }
-        function updateDots() {
-            const dots = document.querySelectorAll('.dot');
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-        }
-        function goToSlide(index) {
-            currentSlide = (index + slides.length) % slides.length;
-            slideContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-            updateDots();
-        }
-        function moveSlide(n) {
-            goToSlide(currentSlide + n);
-        }
-        function startAutoPlay() {
-            pauseAutoPlay();
-            slideInterval = setInterval(() => moveSlide(1), 5000);
-        }
-        function pauseAutoPlay() {
-            clearInterval(slideInterval);
-        }
-        document.addEventListener('DOMContentLoaded', initSlideshow);
+        let currentSlide=0,slideInterval;const slides=document.querySelectorAll("#slideshow>div:first-child>div"),slideContainer=document.querySelector("#slideshow>div:first-child"),dotsContainer=document.querySelector("#slideshow>div:last-child>div");function initSlideshow(){slides.forEach((e,t)=>{var l=document.createElement("span");l.classList.add("dot"),l.addEventListener("click",()=>goToSlide(t)),dotsContainer.appendChild(l)}),updateDots(),startAutoPlay();var e=document.querySelector("#slideshow");e.addEventListener("mouseenter",pauseAutoPlay),e.addEventListener("mouseleave",startAutoPlay)}function updateDots(){document.querySelectorAll(".dot").forEach((e,t)=>{e.classList.toggle("active",t===currentSlide)})}function goToSlide(e){currentSlide=(e+slides.length)%slides.length,slideContainer.style.transform=`translateX(-${100*currentSlide}%)`,updateDots()}function moveSlide(e){goToSlide(currentSlide+e)}function startAutoPlay(){pauseAutoPlay(),slideInterval=setInterval(()=>moveSlide(1),5e3)}function pauseAutoPlay(){clearInterval(slideInterval)}document.addEventListener("DOMContentLoaded",initSlideshow);
     </script>
-    <script>
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('/c/sw.js', { 
-            scope: '/c/' 
-          });
-        }
-    </script>
+    <script>"serviceWorker"in navigator&&navigator.serviceWorker.register("/c/sw.js",{scope:"/c/"});</script>
 </body>
 </html>
