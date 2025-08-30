@@ -1,87 +1,977 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!--
+增加：
+自定义色调
+自动生成导航
+边缘渐变透明
+按标签搜索
+滚动到上一个/下一个搜索结果
+bug:
+1.无法应用图片
+-->
 <head>
-<title>9班八卦</title>
-<meta charset="utf-8"/> 
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-<link rel="icon" href="ico/79.ico"/>
-<style>
-*{box-sizing:border-box;}
-html{scroll-behavior:smooth;font-size:100%;}
-body{margin:0;padding:0;font-family:sans-serif;background-color:#00284d;}
-.clear::after{display:table;content:"";clear:both;}
-html::-webkit-scrollbar,.dropdown-content::-webkit-scrollbar{display:none;}
-html,.dropdown-content{-ms-overflow-style:none;scrollbar-width:none;}
-a{color:#cff;}
-*::-moz-selection{color:#e6f0ff;background:#80b3ff88;}
-*::selection{color:#e6f0ff;background:#80b3ff88;}
-p,li{line-height:calc(1em + 12px);}
-nav{position:fixed;width:100%;z-index:1;padding-left:5px;backdrop-filter:blur(20px);background-color:#33ccffaa;}
-nav button{text-decoration:none;display:inline-block;padding:10px;font-size:1.25rem;border:none;background-color:transparent;color:#cff;}
-.dropdown-content{display:none;position:absolute;width:200px;height:400px;overflow-y:auto;left:15px;background:#003d73dd;border-radius:15px;-webkit-animation-name:menu;-webkit-animation-duration:0.3s;animation-name:menu;animation-duration:0.3s;transform-origin:top;}
-.dropdown-content a{color:#cff;padding:12px 16px;text-decoration:none;display:block;border-radius:0;transition:0.3s;}
-.dropdown-content a:hover{background-color:#0059b3;}
-.dropdown-content h2{color:#fff;margin:10px;font-size:1.2rem;}
-@keyframes menu{from{transform:scaleY(0);opacity:0;}to{transform:scaleY(1);opacity:1;}}
-header>h1{padding:30px 0;font-size:7.5rem;margin:0;text-align:center;}
-footer{background:#00284d;padding:30px;padding-top:80px;color:#3cf;}
-#div{position:relative;-webkit-animation-name:animatebottom;-webkit-animation-duration:1s;animation-name:animatebottom;animation-duration:0.7s;}
-@-webkit-keyframes animatebottom{from{bottom:-50px;opacity:0;}to{bottom:0px;opacity:1;}}
-@keyframes animatebottom{from{bottom:-50px;opacity:0;}to{bottom:0;opacity:1;}}
-.small{display:none;}@media screen and (max-width:340px){header,main,nav,footer{display:none;}.small{display:block;background-color:#e6ffff;height:100vh;}}
-.title{text-align:center;font-size:80px;margin:70px auto;}
-main{padding:15px;background:#00284d!important;margin-bottom:5px;margin:0;}
-header{background:#00284d;color:#fff;padding:5px;margin:0}
-main>div{margin:10px 0;padding:20px 8px 10px 8px;border-radius:10px;width:100%;font-size:1.125rem;background-color:#99ddff55;color:#fff;box-shadow:0 2px 5px rgba(0,0,0,0.2);}
-time{position:relative;top:-15px;left:-3px;float:left;margin-right:-9999px;text-align:center;padding:5px 0;min-width:1.9em;border-radius:10px;font-size:1.1rem;font-weight:700;background:#6cf;color:#003;box-shadow:0 2px 5px rgba(0,0,0,0.2);}
-main>div p{margin:0;padding:2.5px 0;text-indent:2em;}
-main h1{background:#00999988!important;text-align:center;border-radius:100vw;margin:25px 15px 5px 15px;padding:10px;color:#fff;}
-.menu:hover+input+.dropdown-content,.dropdown-content:hover{display:block;}
-nav input{padding:6px 15px;margin:5px;border-radius:100vw;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.2);font-size:16px;color:white;max-width:150px;transition:all 0.3s;float:right;}
-nav input:focus{outline:none;background:rgba(255,255,255,0.3);box-shadow:0 0 0 2px rgba(255,255,255,0.5);}
-::placeholder{color:rgba(255,255,255,0.7);}:-ms-input-placeholder,::-ms-input-placeholder{color:#6cf;}
-.highlight{background-color:#d9b3ff88;padding:0 5px;border-radius:15px;}
-.p-hidden{display:none;}
-main p{display:block;}
-.filtered{display:none!important;}
-ul{margin:3px 3px 3px 13px;padding:5px 5px 5px -1px;background:#ffffff44;border-radius:15px;}
-ul>img{width:200px;text-align:center;}
-.mt{background:#f9c;margin:3px 3px 3px 2em;padding:10px;border-radius:10px;text-indent:0;color:#603;font-style:oblique;}
-.mt li{list-style-type:none;}
-</style>
+    <title>标题</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="robots" content="noindex,nofollow"/>
+    <link rel="stylesheet" href="fa.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="manifest" href="manifest.json"/>
+    <link rel="icon" href="9.png"/>
+    <script>
+    function loading(){document.getElementById("loader").style.animation="out 0.7s 0.3s forwards";if(sessionStorage.getItem('passwordVerified')==='true'){showPage('home');}}
+    </script>
+    <style>
+        @font-face{font-family:'icons';src:url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'),url('fa.woff2') format('woff2');font-display:swap;}
+        :root{color-scheme:light dark;--blur-amount:5px;--custom-bg-image:none;}
+        *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;transition:background 0.3s ease,color 0.3s ease,backdrop-filter 0.3s ease,border-radius 0.3s ease,box-shadow 0.3s ease,line-height 0.3s ease,letter-spacing 0.3s ease;color:inherit;}
+        *::-webkit-scrollbar{display:none!important;}
+        ::-moz-selection{background:var(--selection);}
+        ::selection{background:var(--selection);}
+        html{font-size:100%;height:100dvh;}
+        body{font-family:"微软雅黑",sans-serif;}
+        #content>div{padding:50px 10px 10px 10px;overflow-y:auto;scroll-behavior:smooth;height:100dvh;backdrop-filter:blur(var(--blur-amount));}
+        #content>div:not(#home){display:none;}
+        /*基本样式*/
+        hr{border:1px solid var(--hr);border-radius:100px;margin:5px 10px;}
+        a{color:var(--a);text-decoration-style:dotted;}
+        a:hover{color:var(--ah);}
+        h1,h2,h3,h4,h5,h6{}
+        sup[class="fa fa-external-link"]{font-size:0.7em;opacity:0.8;transition:0.2s;line-height:0;color:var(--a);vertical-align:super;position:relative;top:0;}
+        sup[class="fa fa-external-link"]:hover{opacity:0.7;}
+        img,svg,canvas,audio,video{max-width:100%;}
+        button{border:none;}
+        #content>div *[id]{scroll-margin-top:55px;}
+        
+        /*主题*/
+        body[data-mode="brief-light"]{
+            background:#fff;
+            color:#000;
+            --a:#03c;
+            --ah:#06c;
+            --hr:#888;
+            --selection:#9494b888;
+            --shadow:#00000022;
+            --article:#e9e9e288;
+            --q:#d5dbdd88;
+            --quot:#80939988;
+            --loaderbg:#e6e6e6;
+            --loadercolor:#000;
+            --startflashing:#999;
+            --endflashing:#666;
+            --nav-bg:#ddddddbb;
+            --nav-btn:#404040;
+            --dialogbg:#ffffff99;
+            --settingbg:#00000011;
+            --radiobg:#00000055;
+            --gallerybg:#b894a6;
+        }
+        body[data-mode="brief-dark"]{
+            background:#000;
+            color:#fff;
+            --a:#9cf;
+            --ah:#69f;
+            --hr:#999;
+            --selection:#8585ad88;
+            --shadow:#ffffff22;
+            --article:#29363d88;
+            --q:#283e2888;
+            --quot:#466d4688;
+            --loaderbg:#1a1a1a;
+            --loadercolor:#fff;
+            --startflashing:#ccc;
+            --endflashing:#999;
+            --nav-bg:#595959bb;
+            --nav-btn:#e6e6e6;
+            --dialogbg:#00000099;
+            --settingbg:#ffffff11;
+            --radiobg:#ffffff55;
+            --gallerybg:#806699;
+        }/*
+        body[data-mode="brief-blue"]{
+            background:#fff;
+            color:#000;
+            --a:;
+            --ah:;
+            --hr:;
+            --selection:;
+            --shadow:;
+            --article:;
+            --q:;
+            --quot:;
+            --loaderbg:;
+            --loadercolor:;
+            --startflashing:;
+            --endflashing:;
+            --nav-bg:;
+            --nav-btn:;
+            --dialogbg:;
+            --settingbg:;
+            --radiobg:;
+            --gallerybg:;
+        }
+        body[data-mode="brief-pink"]{
+            background:#fff;
+            color:#000;
+            --a:;
+            --ah:;
+            --hr:;
+            --selection:;
+            --shadow:;
+            --article:;
+            --q:;
+            --quot:;
+            --loaderbg:;
+            --loadercolor:;
+            --startflashing:;
+            --endflashing:;
+            --nav-bg:;
+            --nav-btn:;
+            --dialogbg:;
+            --settingbg:;
+            --radiobg:;
+            --gallerybg:;
+        }*/
+        body[data-mode="brief-light-blue"]{
+            background:#e6ffff;
+            color:#001a1a;
+            --a:#0040ff;
+            --ah:#0080ff;
+            --hr:#09f;
+            --selection:#0099cc88;
+            --shadow:#00339922;
+            --article:#cceeff88;
+            --q:#adebeb88;
+            --quot:#0099cc88;
+            --loaderbg:#cff;
+            --loadercolor:#001a1a;
+            --startflashing:#0066cc;
+            --endflashing:#0099cc;
+            --nav-bg:#33ccffbb;
+            --nav-btn:#046;
+            --dialogbg:#99ddff99;
+            --settingbg:#0088cc11;
+            --radiobg:#0088cc55;
+            --gallerybg:;
+        }
+        body[data-mode="brief-dark-blue"]{
+            background:#001a33;
+            color:#e6f3ff;
+            --a:#66b3ff;
+            --ah:#99ccff;
+            --hr:#3399ff;
+            --selection:#3399ff88;
+            --shadow:#66b3ff22;
+            --article:#00336688;
+            --q:#00264d88;
+            --quot:#00408088;
+            --loaderbg:#00264d;
+            --loadercolor:#cce6ff;
+            --startflashing:#66b3ff;
+            --endflashing:#3399ff;
+            --nav-bg:#004080bb;
+            --nav-btn:#cce6ff;
+            --dialogbg:#00264dee;
+            --settingbg:#3399ff15;
+            --radiobg:#3399ff30;
+            --gallerybg:#004080;
+            --markbg:#ffff0088;
+            --blockquote:#00264d;
+        }
+        body[data-mode="brief-orangegreen"]{
+            background:linear-gradient(45deg,#ccffe6,#ffebcc);
+            color:#000;
+            --a:#090;
+            --ah:#99c500;
+            --hr:#c90;
+            --selection:#ff993388;
+            --shadow:#cc000022;
+            --article:#ccff3388;
+            --q:linear-gradient(45deg,#ff990088,#33cc3388);
+            --quot:#99993388;
+            --loaderbg:linear-gradient(45deg,#cfc,#ffe0b3);
+            --loadercolor:#000;
+            --startflashing:#f90;
+            --endflashing:#3c3;
+            --nav-bg:linear-gradient(90deg,#ff8800bb,#00cc00bb);
+            --nav-btn:#331a00;
+            --dialogbg:#ffb36699;
+            --settingbg:#995c0011;
+            --radiobg:#5cd65c55;
+            --gallerybg:;
+        }
+        body[data-time-period="morning"]{
+            --timeline-bg:#fff8e6;
+            --timeline-color:#3a2e00;
+            --timeline-a:#d4a800;
+            --timeline-ah:#ffcc00;
+            --timeline-hr:#ffd700;
+            --timeline-selection:#ffd70088;
+            --timeline-shadow:#ffd70022;
+            --timeline-article:#fff0b388;
+            --timeline-q:#fff5cc88;
+            --timeline-quot:#ffcc0088;
+            --timeline-loaderbg:#fff5cc;
+            --timeline-loadercolor:#8c6d00;
+            --timeline-startflashing:#ffd700;
+            --timeline-endflashing:#ffb700;
+            --timeline-nav-bg:#ffd900bb;
+            --timeline-nav-btn:#5c4a00;
+            --timeline-dialogbg:#fff0b399;
+            --timeline-settingbg:#ffcc0011;
+            --timeline-radiobg:#ffcc0055;
+            --timeline-gallerybg:#ffd700;
+        }
+        body[data-time-period="afternoon"]{
+            --timeline-bg:#fff5f0;
+            --timeline-color:#3a2e1a;
+            --timeline-a:#8fbc8f;
+            --timeline-ah:#98fb98;
+            --timeline-hr:#d2b48c;
+            --timeline-selection:#98fb9888;
+            --timeline-shadow:#d2b48c22;
+            --timeline-article:#f0e0d088;
+            --timeline-q:#e6f0e688;
+            --timeline-quot:#8fbc8f88;
+            --timeline-loaderbg:#f5f5dc;
+            --timeline-loadercolor:#5a4a32;
+            --timeline-startflashing:#d2b48c;
+            --timeline-endflashing:#8fbc8f;
+            --timeline-nav-bg:#d2b48cbb;
+            --timeline-nav-btn:#5a4a32;
+            --timeline-dialogbg:#f5f5dc99;
+            --timeline-settingbg:#d2b48c11;
+            --timeline-radiobg:#d2b48c55;
+            --timeline-gallerybg:#d2b48c;
+        }
+        body[data-time-period="evening"]{
+            --timeline-bg:#ffebcc;
+            --timeline-color:#4a2e00;
+            --timeline-a:#ff8c00;
+            --timeline-ah:#ffa500;
+            --timeline-hr:#ff8c00;
+            --timeline-selection:#ff8c0088;
+            --timeline-shadow:#ff8c0022;
+            --timeline-article:#ffd69988;
+            --timeline-q:#ffcc9988;
+            --timeline-quot:#ff993388;
+            --timeline-loaderbg:#ffcc99;
+            --timeline-loadercolor:#8c4a00;
+            --timeline-startflashing:#ff9933;
+            --timeline-endflashing:#ff6600;
+            --timeline-nav-bg:#ff9933bb;
+            --timeline-nav-btn:#8c4a00;
+            --timeline-dialogbg:#ffcc9999;
+            --timeline-settingbg:#ff8c0011;
+            --timeline-radiobg:#ff8c0055;
+            --timeline-gallerybg:#ff9933;
+        }
+        body[data-time-period="night"]{
+            --timeline-bg:#000033;
+            --timeline-color:#e6e6ff;
+            --timeline-a:#ffff99;
+            --timeline-ah:#d9b3ff;
+            --timeline-hr:#9966ff;
+            --timeline-selection:#9966ff88;
+            --timeline-shadow:#e6e6ff22;
+            --timeline-article:#00006688;
+            --timeline-q:#33336688;
+            --timeline-quot:#6666cc88;
+            --timeline-loaderbg:#000066;
+            --timeline-loadercolor:#e6e6ff;
+            --timeline-startflashing:#9966ff;
+            --timeline-endflashing:#cc99ff;
+            --timeline-nav-bg:#999900bb;
+            --timeline-nav-btn:#ffffcc;
+            --timeline-dialogbg:#00006699;
+            --timeline-settingbg:#9966ff11;
+            --timeline-radiobg:#9966ff55;
+            --timeline-gallerybg:#333366;
+        }
+        body[data-mode="brief-timeline"]{
+            background:var(--timeline-bg);
+            color:var(--timeline-color);
+            --a:var(--timeline-a);
+            --ah:var(--timeline-ah);
+            --hr:var(--timeline-hr);
+            --selection:var(--timeline-selection);
+            --shadow:var(--timeline-shadow);
+            --article:var(--timeline-article);
+            --q:var(--timeline-q);
+            --quot:var(--timeline-quot);
+            --loaderbg:var(--timeline-loaderbg);
+            --loadercolor:var(--timeline-loadercolor);
+            --startflashing:var(--timeline-startflashing);
+            --endflashing:var(--timeline-endflashing);
+            --nav-bg:var(--timeline-nav-bg);
+            --nav-btn:var(--timeline-nav-btn);
+            --dialogbg:var(--timeline-dialogbg);
+            --settingbg:var(--timeline-settingbg);
+            --radiobg:var(--timeline-radiobg);
+            --gallerybg:var(--timeline-gallerybg);
+        }
+        body[data-mode^="atmosphere"]{background-position:50% 50%;background-repeat:no-repeat;background-size:cover;background-attachment:fixed;}
+        body[data-mode^="atmosphere"][data-fullscreen="no"] #content>div{max-width:900px;margin:auto;width:calc(100dvw - 20px);height:calc(100dvh - 20px);backdrop-filter:blur(var(--blur-amount));border-radius:var(--radius-8x);position:fixed;top:10px;left:calc((100dvw - clamp(300px,calc(100dvw - 20px),900px)) / 2)}
+        body[data-mode^="atmosphere-dark"] #content>div,body[data-mode^="atmosphere-dark"] #content dialog{color:#fff;}
+        body[data-mode^="atmosphere-light"] #content>div{background:#ffffff55;}
+        body[data-mode^="atmosphere-dark"] #content>div{background:#00000066;}
+        body[data-mode="atmosphere-light-cottage"]{
+            background-image:url("cottage.webp");
+            --selection:#ffbf0088;
+            --shadow:#66330022;
+            --loaderbg:#ecd9c6;
+            --loadercolor:#331a00;
+            --startflashing:#cc6600;
+            --endflashing:#996633;
+            --nav-bg:#cc996688;
+            --nav-btn:#4d3319;
+            --dialogbg:#ffcc6666;
+            --settingbg:#ffaa0011;
+            --radiobg:#ffaa0055;
+        }
+        body[data-mode="atmosphere-dark-cottage"]{
+            background-image:url("cottage.webp");
+            --selection:#80600088;
+            --shadow:#ffeecc22;
+            --loaderbg:#331a00;
+            --loadercolor:#fc9;
+            --startflashing:#cc9966;
+            --endflashing:#996633;
+            --nav-bg:#994d0088;
+            --nav-btn:#fc9;
+            --dialogbg:#66330066;
+            --settingbg:#994d0011;
+            --radiobg:#994d0055;
+        }
+        body[data-mode="atmosphere-light-seaside"]{
+            background-image:url("seaside.webp");
+            --selection:#00ccff88;
+            --shadow:#00336622;
+            --loaderbg:#ccf2ff;
+            --loadercolor:#002080;
+            --startflashing:#0066cc;
+            --endflashing:#0099cc;
+            --nav-bg:#99bbff88;
+            --nav-btn:#002080cc;
+            --dialogbg:#66ffff66;
+            --settingbg:#00eeee11;
+            --radiobg:#00eeee55;
+        }
+        body[data-mode="atmosphere-dark-seaside"]{
+            background-image:url("seaside.webp");
+            --selection:#10336688;
+            --shadow:#cceeff22;
+            --loaderbg:#004080;
+            --loadercolor:#e6ffff;
+            --startflashing:#66b3ff;
+            --endflashing:#3399ff;
+            --nav-bg:#00666688;
+            --nav-btn:#e6ffffcc;
+            --dialogbg:#0066cc66;
+            --settingbg:#66b3ff11;
+            --radiobg:#66b3ff55;
+        }
+        body[data-mode="atmosphere-light-valley"]{
+            background-image:url("valley.webp");
+            --selection:#aaff0088;
+            --shadow:#00330022;
+            --loaderbg:#ccffcc;
+            --loadercolor:#206040;
+            --startflashing:#009900;
+            --endflashing:#00cc00;
+            --nav-bg:#99e60088;
+            --nav-btn:#206040;
+            --dialogbg:#00ff9999;
+            --settingbg:#00cc0011;
+            --radiobg:#00cc0055;
+        }
+        body[data-mode="atmosphere-dark-valley"]{
+            background-image:url("valley.webp");
+            --selection:#33cccc88;
+            --shadow:#ccffcc22;
+            --loaderbg:#360;
+            --loadercolor:#adebeb;
+            --startflashing:#00cc66;
+            --endflashing:#009966;
+            --nav-bg:#19666688;
+            --nav-btn:#adebeb;
+            --dialogbg:#00663399;
+            --settingbg:#00cc6611;
+            --radiobg:#00cc6655;
+        }
+        body[data-mode="atmosphere-light-custom"]{
+            background-image:var(--custom-bg-image);
+            --selection:#8585ad88;
+            --shadow:#1a1a1a22;
+            --loaderbg:#e6e6e6;
+            --loadercolor:#404040;
+            --startflashing:#999;
+            --endflashing:#666;
+            --nav-bg:#ffffff88;
+            --nav-btn:#404040;
+            --dialogbg:#ffffff99;
+            --settingbg:#00000011;
+            --radiobg:#00000055;
+        }
+        body[data-mode="atmosphere-dark-custom"]{
+            background-image:var(--custom-bg-image);
+            --selection:#8585ad88;
+            --shadow:#e6e6e622;
+            --loaderbg:#1a1a1a;
+            --loadercolor:#e6e6e6;
+            --startflashing:#ccc;
+            --endflashing:#999;
+            --nav-bg:#00000088;
+            --nav-btn:#e6e6e6;
+            --dialogbg:#00000099;
+            --settingbg:#ffffff11;
+            --radiobg:#ffffff55;
+        }
+        
+        body[data-shadow="subtle"]{
+            --shadow-so-x:0 0 5px var(--shadow);
+            --shadow-so-2x:0 0 10px var(--shadow);
+            --shadow-so-3x:0 0 25px var(--shadow);
+            --shadow-so-4x:0 0 20px var(--shadow);
+            --shadow-so-5x:0 0 30px var(--shadow);
+            --shadow-so-6x:0 0 50px var(--shadow);
+            --shadow-si-x:inset 0 0 10px var(--shadow);
+            --shadow-si-2x:inset 0 0 20px var(--shadow);
+            --shadow-si-3x:inset 0 0 40px var(--shadow);
+            --shadow-ho-x:0 0 5px 2.5px var(--shadow);
+            --shadow-ho-2x:0 0 5px 5px var(--shadow);
+            --shadow-ho-3x:0 0 10px 10px var(--shadow);
+            --shadow-nf-x:5px 5px 10px var(--shadow);
+            --shadow-nf-2x:5px 5px 20px var(--shadow);
+            --shadow-nf-3x:7.5px 7.5px 20px var(--shadow);
+            --shadow-nf-4x:15px 15px 40px var(--shadow);
+            --shadow-hf-x:2.5px 2.5px 5px var(--shadow);
+            --shadow-hf-2x:5px 5px 5px var(--shadow);
+            --shadow-hd-x:0 5px 5px var(--shadow);
+            --shadow-hd-2x:0 10px 10px var(--shadow);
+            --shadow-hd-3x:0 15px 15px var(--shadow);
+        }
+        body[data-shadow="none"]{--shadow-x:0;}
+        body[data-radius="large"]{
+            --radius-x:2.5px;
+            --radius-2x:5px;
+            --radius-3x:7.5px;
+            --radius-4x:10px;
+            --radius-5x:12.5px;
+            --radius-6x:15px;
+            --radius-7x:17.5px;
+            --radius-8x:20px;
+            --radius-9x:22.5px;
+            --radius-10x:25px;
+        }
+        body[data-radius="small"]{
+            --radius-x:1px;
+            --radius-2x:2px;
+            --radius-3x:3px;
+            --radius-4x:4px;
+            --radius-5x:5px;
+            --radius-6x:6px;
+            --radius-7x:7px;
+            --radius-8x:8px;
+            --radius-9x:9px;
+            --radius-10x:10px;
+            --radius-11x:11px;
+            --radius-12x:12px;
+            --radius-13x:13px;
+            --radius-14x:14px;
+            --radius-15x:15px;
+            --radius-16x:16px;
+            --radius-17x:17px;
+            --radius-18x:18px;
+            --radius-19x:19px;
+            --radius-20x:20px;
+        }
+        body[data-font-size="large"]{font-size:112.5%;}
+        body[data-font-size="normal"]{font-size:100%;}
+        body[data-font-size="small"]{font-size:87.5%;}
+        body[data-line-spacing="loose"] p,body[data-line-spacing="loose"] li{line-height:1.7em;letter-spacing:0.15em;}
+        body[data-line-spacing="tight"] p,body[data-line-spacing="tight"] li{line-height:1.3em;letter-spacing:0.05em;}
+        body[data-font-weight="thin"]{font-weight:200;}
+        body[data-font-weight="normal"]{font-weight:400;}
+        body[data-font-weight="bold"]{font-weight:600;}
+        /*缩小/放大窗口*/
+        #bigger,#smaller{display:none;justify-content:center;align-items:center;color:var(--loadercolor);padding:20px 5px;text-align:center;width:100ddvw;height:100dvh;top:0;left:0;transition:0.5s;backdrop-filter:blur(20px);}
+        #bigger{font-size:5rem;}
+        #smaller{font-size:1.2rem;}
+        /*无js窗口*/
+        noscript{display:block;width:100dvw;height:100dvh;background:#fcc;color:#c00;text-align:center;font-weight:800;font-size:1.25rem;}
+        /*密码*/
+        #passwordOverlay {position:fixed;top:0;left:0;width:100dvw;height:100dvh;background:var(--dialogbg);backdrop-filter:blur(30px);z-index:9999;display:flex;justify-content:center;align-items:center;flex-direction:column;color:var(--nav-btn);}
+        #passwordOverlay>div{background:var(--nav-bg);padding:30px;border-radius:var(--radius-8x);box-shadow:var(--shadow-so-4x);max-width:400px;width:90%;}
+        #passwordOverlay>div>h2 {margin-bottom:20px;text-align:center;}
+        #passwordOverlay>div>div{display:flex;margin:5px;}
+        #passwordOverlay>div>div>input{width:100%;padding:10px;border-radius:var(--radius-4x) 0 0 var(--radius-4x);border:1px solid var(--nav-btn);background:var(--dialogbg);color:var(--nav-btn);font-size:1rem;}
+        #passwordOverlay>div>div>input:focus{outline:none;background:var(--settingbg);}
+        #passwordOverlay>div>div>input::placeholder{color:#ffffff44;opacity:1;}
+        #passwordOverlay>div>div>input::-ms-input-placeholder{color:#ffffff44;}
+        #passwordOverlay>div>div>button{background:var(--nav-btn);color:var(--nav-bg);border:1px solid var(--nav-btn);padding:10px 20px;border-radius:0 var(--radius-4x) var(--radius-4x) 0;cursor:pointer;font-size:1rem;transition:all 0.3s ease;flex-basis:90px;}
+        #passwordOverlay>div>div>button:hover{opacity:0.8;}
+        /*旧版浏览器*/
+        #oldbrowser {display:none;position:fixed;top:0;left:0;width:100dvw;height:100dvh;background:#fff;color:#000;z-index:9999;padding:20px;font-size:20px;}
+        /*加载页面*/
+        #loader{background:var(--loaderbg);width:100dvw;height:100dvh;z-index:2;overflow:hidden;position:fixed;top:0;left:0;text-align:center;display:flex;justify-content:center;align-items:center;transition:none;}
+        @keyframes out{0%{opacity:1;}99%{opacity:0;}100%{opacity:0;display:none;}}
+        #loader>div>p{color:var(--loadercolor);transition:opacity 0.2s;margin:10px 0;padding:0;font-weight:200;font-size:1.25rem;}
+        #loader>div{position:relative;width:calc(100dvw - 20px);max-width:700px;}
+        #loader>div>div{position:relative;width:60px;height:20px;margin:10px auto;}
+        #loader>div>div::before,#loader>div>div::after,#loader>div>div span{content:'';position:absolute;top:0;width:20px;height:20px;border-radius:50%;animation:dotFlashing 1s infinite alternate;}
+        #loader>div>div::before{left:-10px;animation-delay:0s;}
+        #loader>div>div span{left:20px;animation-delay:0.2s;}
+        #loader>div>div::after{left:50px;animation-delay:0.4s;}
+        #loader button{background:var(--nav-bg);font-size:1.125rem;padding:2.5px 15px;line-height:30px;border-radius:var(--radius-7x);}
+        @keyframes dotFlashing{0%{background-color:var(--startflashing);transform:scale(1);}50%,100%{background-color:var(--endflashing);transform:scale(0.8);}}
+        /*页面*/
+        /*导航栏*/
+        nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc(100dvw - clamp(2px,1dvw,10px) * 2);background:var(--nav-bg);padding:2.5px;border-radius:var(--radius-8x);backdrop-filter:blur(20px);z-index:1;box-shadow:var(--shadow-so-5x);user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}
+        nav::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right,var(--nav-btn) var(--scroll-progress,0%),transparent 0);opacity:0.1;pointer-events:none;z-index:-1;border-radius:var(--radius-8x);height:40px;}
+        body[data-mode^="atmosphere"][data-fullscreen="no"] #content nav{top:15px;left:calc((100dvw - clamp(290px,calc(100dvw - 30px),890px)) / 2);width:calc(100dvw - 30px);max-width:890px;}
+        body[data-mode^="brief"][data-nav-margin="no"] nav{
+            width:100dvw;left:0;top:0;border-radius:0;
+            >div:nth-of-type(3){border-radius:0;}
+            &:before{border-radius:0;}
+        }
+        nav>div:first-child{
+            transition:all 0.3s ease;display:flex;
+            >button{transition:all 0.3s ease,opacity 0.3s ease;width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;transition:0.5s;border-radius:var(--radius-8x);margin:0 2.5px;
+            &:hover{background:#00000033;}
+            >i{color:var(--nav-btn);}
+            }
+        }
+        body[data-align="left"] nav>div:first-child{justify-content:flex-start;}
+        body[data-align="center"] nav>div:first-child{justify-content:space-around;}
+        body[data-align="right"] nav>div:first-child{justify-content:flex-end;}
+        #mainNavButton{
+            transition:all 0.3s ease,opacity 0.3s ease;opacity:1;
+            &[style*="display:none"]{display:inline-block!important;width:0;opacity:0;pointer-events:none;}
+        }
+        nav:has(>div:nth-of-type(2).active)>div:first-child>button:last-child{opacity:0.3;pointer-events:none;}
+        nav>div:nth-of-type(2){
+            background:#ffffff08;transform-origin:top;border-radius:var(--radius-7x);height:0;max-height:0;opacity:0;overflow:auto;padding:0 2.5px;transition:all 0.3s cubic-bezier(0.68,-0.6,0.32,1.6);interpolate-size:allow-keywords;
+            &.active{height:auto;opacity:1;max-height:clamp(200px,40dvh,400px);padding:0 2.5px;margin-top:5px;}
+            >button{
+                display:block;width:100%;background:transparent;transition:0.5s;font-size:1.125rem;text-align:left;margin:2.5px 0;border-radius:var(--radius-7x);padding:2.5px 10px;line-height:30px;font-weight:unset;
+                &:hover{background:#00000033;}
+            }
+            >div{
+                position:relative;padding-left:7.5px;margin-left:5px;
+                &::before{content:'';position:absolute;left:0;top:5px;bottom:5px;width:3px;background:var(--nav-btn);opacity:0.5;border-radius:1.5px;}
+                >a{
+                    display:block;width:100%;text-decoration:none;transition:0.5s;color:unset;margin:2.5px;padding:5px 10px;line-height:25px;border-radius:var(--radius-6x);
+                    &:hover{background:#00000033;}
+                }
+            }
+        }
+        nav>div:nth-of-type(3){
+            position:absolute;top:0;left:0;width:100%;height:100%;background:color-mix(in oklch,var(--nav-bg),#888888dd);align-items:center;padding:0 10px;border-radius:var(--radius-8x);display:flex;opacity:0;visibility:hidden;transition:all 0.3s ease;transform:translateY(-10px);
+            &.active{opacity:1;visibility:visible;transform:translateY(0);}
+            >input{
+                flex-grow:1;background:transparent;border:none;outline:none;color:inherit;font-size:1rem;padding:5px;
+                &::placeholder{color:inherit;opacity:0.6;}
+                &::-ms-input-placeholder{color:#a3b8c2;}
+            }
+            >span{margin:0 10px;}
+            >button{
+                background:transparent;border:none;color:inherit;font-size:1.2rem;cursor:pointer;width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:50%;
+                &:hover{background:#00000033;}
+            }
+        }
+        mark{background:var(--markbg,#ff0);color:inherit;padding:0 2px;border-radius:var(--radius-2x);}
+        /*设置-模态框*/
+        dialog::backdrop{background:#00000055;backdrop-filter:blur(1px);}
+        #settingdialog{
+            width:clamp(300px,80dvw,600px);height:clamp(350px,60dvh,800px);border:none;border-radius:var(--radius-6x);background:var(--dialogbg);backdrop-filter:blur(20px);position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);overflow:hidden;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;will-change:transform,opacity;
+            >div:nth-of-type(1){
+                position:sticky;top:0;background:var(--settingbg);width:100%;padding:8px 15px;line-height:24px;
+                >span{float:right;}
+            }
+            >div:nth-of-type(2){
+                height:calc(100% - 40px);padding:10px;overflow-y:auto;
+                >section{
+                    button{color:var(--root-color);padding:1px 8px;line-height:23px;background:var(--settingbg);border-radius:var(--radius-5x);margin:2.5px;}
+                    >div{
+                        height:35px;background:var(--settingbg);padding:2.5px 2.5px 2.5px 7.5px;border-radius:var(--radius-7x);margin:2.5px 0;
+                        >p{display:inline;line-height:30px;}
+                        >label{
+                            height:30px;padding:2.5px;background:var(--radiobg);border-radius:15px;float:right;
+                            >input[type="radio"]{
+                                -webkit-appearance:none;-moz-appearance:none;appearance:none;width:25px;height:25px;border-radius:12.5px;position:relative;transition:0.5s;
+                                &::before{content:var(--input-content);font-size:19px;transition:0.5s;width:25px;height:25px;line-height:25px;margin:3px;color:#ffffff44;}
+                                &:checked{
+                                    background:#ffffff22;
+                                    &::before{color:unset;}
+                                }
+                            }
+                        }
+                    }
+                    >div:has(>label>input[type="checkbox"]){
+                        height:initial;display:flex;flex-wrap:wrap;justify-content:center;
+                        >p{flex-basis:100%;}
+                        >label{
+                            margin:2.5px;display:block;border-radius:var(--radius-5x);padding:5px;flex-basis:calc(50% - 5px);text-align:center;background:var(--nav-bg);color:var(--nav-btn);
+                            >input{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
+                            &:has(input:checked){background:var(--settingbg);}
+                            &:has(input:disabled){opacity:0.5;}
+                        }
+                    }
+                }
+                h2{
+                    margin:10px;position:relative;padding-left:12.5px;
+                    &::before{width:5px;content:"";background:var(--radiobg);position:absolute;top:7.5px;bottom:7.5px;left:0;border-radius:2.5px;}
+                }
+            }
+            >div:nth-of-type(3){display:none;position:fixed;transform:translate(-50%,-50%);left:50%;top:50%;background:#ff4444aa;color:#fff;padding:8px 20px;border-radius:var(--radius-5x);transition:opacity 0.3s ease;}
+        }
+        body[data-mode^="brief"] .atmosphere-settings{display:none;}
+        body[data-mode^="atmosphere"] .atmosphere-settings{display:block;flex-basis:100%;}
+        body[data-mode^="brief"] .brief-settings{display:block;flex-basis:100%;}
+        body[data-mode^="atmosphere"] .brief-settings{display:none;}
+        #mode-setting{
+            display:flex;flex-wrap:wrap;justify-content:center;
+            >h2{flex-basis:100%;}
+            >label{
+                margin:2.5px;display:block;background:var(--settingbg);border-radius:var(--radius-5x);padding:5px;flex-basis:calc(50% - 5px);text-align:center;
+                >input{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
+                &:has(input:checked){background:var(--nav-bg);color:var(--nav-btn);}
+            }
+        }
+        #settingdialog[open]{animation:dialogFadeIn 0.3s ease-out forwards;}
+        @keyframes dialogFadeIn{from{opacity:0;transform:translate(-50%,calc(-50% - 20px));}to{opacity:1;transform:translate(-50%,-50%);}}
+        #settingdialog[open]::backdrop{animation:backdropFadeIn 0.3s ease-out forwards;}
+        @keyframes backdropFadeIn{from{background:transparent;}to{background:#00000055;}}
+
+        /*页面样式*/
+        #content>div>header{font-size:1.875rem;text-align:center;padding:35px 0;}
+        #content>div>main{}
+        article{background:var(--article,#0066ff88);padding:12.5px;border-radius:var(--radius-6x);margin:5px 0;}
+        article>p{text-indent:2em;}
+        article>h1{text-align:center;margin:5px auto;}
+        q{background:var(--q,#0066ff88);font-size:1.5625rem;display:block;text-align:center;padding:8px;border-radius:var(--radius-4x);}
+        q::before{font-family:"icons";content:"\f10d";color:var(--quot);padding-right:10px;}
+        q::after{font-family:"icons";content:"\f10e";color:var(--quot);padding-left:10px;}
+        .gallery{
+            background:linear-gradient(color-mix(in oklch,var(--gallerybg),rgba(112.5,112.5,112.5,0.7)),color-mix(in oklch,var(--gallerybg),rgba(112.5,112.5,112.5,0.1)));padding:15px;border-radius:var(--radius-6x);text-align:center;
+            >img{max-width:600px;width:100%;border-radius:var(--radius-4x);}
+            >p{color:var(--gallerycolor);}
+        }
+        blockquote{
+            background:var(--blockquote);padding:20px;border-radius:var(--radius-4x);border-left:5px solid #88888888;
+        }
+        /*首页*/
+        #slideshow{
+            position:relative;margin:20px auto;overflow:hidden;border-radius:var(--radius-8x);box-shadow:var(--shadow-so-3x);max-width:800px;
+            >div:first-child{
+                display:flex;transition:transform 0.7s cubic-bezier(0.25,0.1,0.25,1);height:clamp(300px,60dvh,400px);
+                >div{
+                    min-width:100%;position:relative;
+                    &.active{display:block;}
+                    img{width:100%;height:100%;object-fit:cover;}
+                    >div{position:absolute;bottom:0;left:0;right:0;background:#00000088;color:white;padding:10px;text-align:center;font-size:1.125rem;}
+                }
+            }
+            >div:last-child{
+                position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;
+                button{
+                    background:#ffffff44;color:white;border-radius:50%;cursor:pointer;font-size:18px;width:30px;height:30px;transition:all 0.3s ease;margin:7.5px;
+                    &:hover{background:rgba(255,255,255,0.7);color:#333;}
+                }
+                >div{
+                    display:flex;justify-content:center;gap:8px;margin-top:30px;
+                    .dot{
+                        width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer;transition:all 0.3s ease;
+                        &.active{background:white;transform:scale(1.2);}
+                    }
+                }
+            }
+        }
+    
+        /*日志*/
+        #event>main{
+            >h1{background:#00999988;text-align:center;border-radius:100dvw;margin:25px 15px 5px 15px;padding:10px;color:#fff;}
+            >div{
+                margin:10px 0;padding:20px 8px 10px 8px;border-radius:var(--radius-4x);width:100%;background:#99ddff55;box-shadow:var(--shadow-hd-x);
+                >time{position:relative;top:-15px;left:-3px;float:left;margin-right:-9999px;text-align:center;padding:5px 0;min-width:1.9em;border-radius:var(--radius-4x);font-weight:700;background:#6cf;box-shadow:var(--shadow-ho-x);color:#000;}
+                >p{padding:2.5px 0;text-indent:2em;}
+                >ul{
+                    margin:3px 3px 3px 13px;padding:5px;background:#ffffff44;border-radius:var(--radius-6x);
+                    >li{
+                        text-indent:2em;list-style-type:none;
+                        &::before{position:relative;content:"●";color:#00000088;margin-right:5px;}
+                    }
+                }
+                &.sp1{
+                    background:#ccffcc55;
+                    >time{background:#9f9;}
+                }
+                &.sp2{
+                    background:#ffeecc55;
+                    >time{background:#fd9;}
+                }
+                &.sp3{
+                    background:#ffccee55;
+                    >time{background:#f9d;}
+                }
+            }
+        }
+        
+        @media screen and (min-width:1600px){#bigger{display:flex;}#password,#content,#loader{display:none!important;}}
+        @media screen and (max-width:320px),(max-height:400px){#smaller{display:flex;}#password,#content,#loader{display:none!important;}}
+        @media screen and (max-width:100px){#password,#smaller,#bigger,#content,#loader,#oldbrowser{display:none!important;}}
+        
+        @media (prefers-color-scheme:dark){}
+        
+        @media print{
+          nav,dialog,#bigger,#smaller,#loader{display:none!important;}
+          body{background-image:none;font-size:12pt;}
+          *{color:#000;background:#fff!important;box-shadow:none!important;}
+          #event>main>div{border:2px solid #99ddff55;}
+          #event>main>div>time{border:1px solid #99ddff55;}
+        }
+        
+
+    </style>
 </head>
-<body>
-<div class="small"></div>
-<div id="div">
-<nav>
-    <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
-    <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button><!--
-    <button onclick="document.location='index.html'" title="返回首页"><i class="fa fa-home"></i></button>-->
-    <button class="menu"><i class="fa fa-navicon"></i></button>
-    <input type="text" placeholder="关键词…" oninput="performSearch()" id="search"/>
-    <div class="dropdown-content">
-        <h2>七上</h2>
-        <a href="#d2409">2024年9月</a>
-        <a href="#d2410">2024年10月</a>
-        <a href="#d2411">2024年11月</a>
-        <a href="#d2412">2024年12月</a>
-        <a href="#d2501">2025年1月</a>
-        <a href="#not1">（未记录确定日期）</a>
-        <h2>七下</h2>
-        <a href="#d2502">2025年2月</a>
-        <a href="#d2503">2025年3月</a>
-        <a href="#d2504">2025年4月</a>
-        <a href="#d2505">2025年5月</a>
-        <a href="#d2506">2025年6月</a>
-        <h2>八上</h2>
+<body onload="loading()" data-mode="system" data-shadow="subtle" data-radius="large" data-font-size="normal" data-line-spacing="loose" data-font-weight="normal" data-nav-margin="no" data-align="left">
+    <div id="passwordOverlay">
+        <div id="passwordForm">
+            <h2>输入密码</h2>
+            <div>
+                <input type="password" id="passwordInput" placeholder="输入密码"/>
+                <button id="passwordSubmit">OK</button>
+            </div>
+            <small><strong>注意：</strong>此页面仅为……提供。</small>
+        </div>
     </div>
-</nav>
-<header>
-    <h1 class="title">八卦</h1>
-</header>
-<main>
-<h1 id="d2409">2024年9月</h1>
+    <div id="loader">
+        <div>
+            <div><span></span></div>
+            <p></p>
+            <button onclick="loading()">跳过</button>
+        </div>
+        <script>
+        const texts=["文本1","文本2"];let currentIndex=0;const carouselText=document.querySelector('#loader>div>p');carouselText.textContent=texts[currentIndex];function rotateText(){currentIndex=(currentIndex+1)%texts.length;carouselText.style.opacity='0';setTimeout(()=>{carouselText.textContent=texts[currentIndex];carouselText.style.opacity='1';},200);}
+setInterval(rotateText,1000);
+        </script>
+    </div>
+    <div id="bigger">请缩小窗口</div>
+    <div id="smaller">请放大窗口</div>
+    <div id="content">
+        <nav>
+            <div>
+                <button id="mainNavButton" onclick="showPage('home')"><i class="fa fa-home"></i></button>
+                <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
+                <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
+                <button onclick="document.getElementById('settingdialog').showModal()"><i class="fa fa-gear"></i></button>
+                <button onclick="toggleSubMenu()"><i class="fa fa-navicon"></i></button>
+                <button onclick="toggleSearch()"><i class="fa fa-search"></i></button>
+            </div>
+            <div>
+                <div id="event-anchors">
+                    <h2>七上</h2>
+        <a href="#event-d2409">2024年9月</a>
+        <a href="#event-d2410">2024年10月</a>
+        <a href="#event-d2411">2024年11月</a>
+        <a href="#event-d2412">2024年12月</a>
+        <a href="#event-d2501">2025年1月</a>
+        <a href="#event-not1">（未记录确定日期）</a>
+        <h2>七下</h2>
+        <a href="#event-d2502">2025年2月</a>
+        <a href="#event-d2503">2025年3月</a>
+        <a href="#event-d2504">2025年4月</a>
+        <a href="#event-d2505">2025年5月</a>
+        <a href="#event-d2506">2025年6月</a>
+        <h2>八上</h2>
+
+                </div>
+                <div id="p2-anchors">
+                    <a href="#">链接3</a>
+                    <a href="#">链接4</a>
+                </div>
+                <button onclick="showPage('event')">日志</button>
+                <button onclick="showPage('p2')">页面2</button>
+            </div>
+            <div>
+                <input type="text" placeholder="搜索...">
+                <span>0</span>
+                <button onclick="toggleSearch()">&times;</button>
+            </div>
+        </nav>
+        <dialog id="settingdialog">
+            <div><strong>设置</strong><span onclick="document.getElementById('settingdialog').close()">&times;</span></div>
+            <div>
+                <section id="mode-setting">
+                    <h2>主题</h2>
+                    <label style="flex-basis:100%;"><input type="radio" name="theme" value="system" onclick="changeTheme('system')">跟随系统</label>
+                    <label><input type="radio" name="theme" value="brief-orangegreen" onclick="changeTheme('brief-orangegreen')"><span style="color:#0f0">橙</span><span style="color:#ff8000">绿</span></label>
+                    <label><input type="radio" name="theme" value="brief-timeline" onclick="changeTheme('brief-timeline')">时间线</label>
+                    <h3 style="flex-basis:100%;margin:5px;text-align:center;">简洁</h3>
+                    <label><input type="radio" name="theme" value="brief-light" onclick="changeTheme('brief-light')">浅</label>
+                    <label><input type="radio" name="theme" value="brief-dark" onclick="changeTheme('brief-dark')">深</label><!--
+                    <label><input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-pink')">粉</label>
+                    <label><input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-blue')">蓝</label>
+                    -->
+                    <label><input type="radio" name="theme" value="brief-light-blue" onclick="changeTheme('brief-light-blue')">浅蓝</label>
+                    <label><input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-dark-blue')">深蓝</label>
+                    <h3 style="flex-basis:100%;margin:5px;text-align:center;">氛围</h3>
+                    <label><input type="radio" name="theme" value="atmosphere-light-cottage" onclick="changeTheme('atmosphere-light-cottage')">浅-小屋</label>
+                    <label><input type="radio" name="theme" value="atmosphere-dark-cottage" onclick="changeTheme('atmosphere-dark-cottage')">深-小屋</label>
+                    <label><input type="radio" name="theme" value="atmosphere-light-seaside" onclick="changeTheme('atmosphere-light-seaside')">浅-海边</label>
+                    <label><input type="radio" name="theme" value="atmosphere-dark-seaside" onclick="changeTheme('atmosphere-dark-seaside')">深-海边</label>
+                    <label><input type="radio" name="theme" value="atmosphere-light-valley" onclick="changeTheme('atmosphere-light-valley')">浅-山谷</label>
+                    <label><input type="radio" name="theme" value="atmosphere-dark-valley" onclick="changeTheme('atmosphere-dark-valley')">深-山谷</label>
+                    <!--
+                    <label><input type="radio" name="theme" value="atmosphere-light-sky" onclick="changeTheme('atmosphere-light-sky')">浅-星空</label>
+                    <label><input type="radio" name="theme" value="atmosphere-dark-sky" onclick="changeTheme('atmosphere-dark-sky')">深-星空</label>
+                    -->
+                    <label><input type="radio" name="theme" value="atmosphere-light-custom" onclick="changeTheme('atmosphere-light-custom')">浅-自定义</label>
+                    <label><input type="radio" name="theme" value="atmosphere-dark-custom" onclick="changeTheme('atmosphere-dark-custom')">深-自定义</label><!--
+                    <div class="atmosphere-settings">
+                        <p>自定义背景图片</p>
+                        <input type="file" style="display:none;">
+                            <button style="float:right;" onclick="">上传</button>
+                            <button style="float:right;" onclick="">清除</button>
+                    </div>-->
+                </section>
+                <section>
+                    <h2>字体</h2>
+                    <div>
+                        <p>字号</p>
+                        <label>
+                            <input type="radio" name="fontsize" value="small" onclick="changeFontSize('small')" style="--input-content:'小';">
+                            <input type="radio" name="fontsize" value="normal" onclick="changeFontSize('normal')" style="--input-content:'中';">
+                            <input type="radio" name="fontsize" value="large" onclick="changeFontSize('large')" style="--input-content:'大';">
+                        </label>
+                    </div>
+                    <div>
+                        <p>行距/字距</p>
+                        <label>
+                            <input type="radio" name="linespacing" value="tight" onclick="changeLineSpacing('tight')" style="--input-content:'小';">
+                            <input type="radio" name="linespacing" value="loose" onclick="changeLineSpacing('loose')" style="--input-content:'大';">
+                        </label>
+                    </div>
+                    <div>
+                        <p>字重</p>
+                        <label>
+                            <input type="radio" name="fontweight" value="thin" onclick="changeFontWeight('thin')" style="--input-content:'细';">
+                            <input type="radio" name="fontweight" value="normal" onclick="changeFontWeight('normal')" style="--input-content:'中';">
+                            <input type="radio" name="fontweight" value="bold" onclick="changeFontWeight('bold')" style="--input-content:'粗';">
+                        </label>
+                    </div>
+                </section>
+                <section>
+                    <h2>样式</h2>
+                    <div>
+                        <p>圆角</p>
+                        <label>
+                            <input type="radio" name="radius" value="small" onclick="changeRadius('small')" style="--input-content:'小';">
+                            <input type="radio" name="radius" value="large" onclick="changeRadius('large')" style="--input-content:'大';">
+                        </label>
+                    </div>
+                    <div>
+                        <p>阴影</p>
+                        <label>
+                            <input type="radio" name="shadow" value="subtle" onclick="changeShadow('subtle')" style="--input-content:'有';">
+                            <input type="radio" name="shadow" value="none" onclick="changeShadow('none')" style="--input-content:'无';">
+                        </label>
+                    </div>
+                    <div class="atmosphere-settings">
+                        <p>遮罩模糊度</p>
+                        <label>
+                            <input type="radio" name="blur" value="0" onclick="changeBlurAmount(0)" style="--input-content:'无';">
+                            <input type="radio" name="blur" value="5" onclick="changeBlurAmount(5)" style="--input-content:'中';">
+                            <input type="radio" name="blur" value="10" onclick="changeBlurAmount(10)" style="--input-content:'强';">
+                        </label>
+                    </div>
+                    <div class="atmosphere-settings">
+                        <p>全屏显示</p>
+                        <label>
+                            <input type="radio" name="fullscreen" value="yes" onclick="changeFullscreenMode('yes')" style="--input-content:'是';">
+                            <input type="radio" name="fullscreen" value="no" onclick="changeFullscreenMode('no')" style="--input-content:'否';">
+                        </label>
+                    </div>
+                </section>
+                <section>
+                    <h2>导航栏</h2>
+                    <div class="brief-settings">
+                        <p>边距</p>
+                        <label>
+                            <input type="radio" name="navmargin" value="yes" onclick="changeNavMargin('yes')" style="--input-content:'有';">
+                            <input type="radio" name="navmargin" value="no" onclick="changeNavMargin('no')" style="--input-content:'无';">
+                        </label>
+                    </div>
+                    <div>
+                        <p>项目对齐</p>
+                        <label>
+                            <input type="radio" name="navalign" value="left" onclick="changeNavAlign('left')" style="--input-content:'左';">
+                            <input type="radio" name="navalign" value="center" onclick="changeNavAlign('center')" style="--input-content:'中';">
+                            <input type="radio" name="navalign" value="right" onclick="changeNavAlign('right')" style="--input-content:'右';">
+                        </label>
+                    </div>
+                    <div>
+                        <p>显示项目</p>
+                        <label><input type="checkbox" name="navitems" value="home" checked disabled onclick="toggleNavItem('home')">回首页</label>
+                        <label><input type="checkbox" name="navitems" value="top" checked onclick="toggleNavItem('top')">回顶部</label>
+                        <label><input type="checkbox" name="navitems" value="bottom" checked onclick="toggleNavItem('bottom')">回底部</label>
+                        <label><input type="checkbox" name="navitems" value="settings" checked disabled onclick="toggleNavItem('settings')">设置</label>
+                        <label><input type="checkbox" name="navitems" value="menu" checked disabled onclick="toggleNavItem('menu')">菜单</label>
+                        <label><input type="checkbox" name="navitems" value="search" checked onclick="toggleNavItem('search')">搜索</label>
+                    </div>
+                </section>
+                <section>
+                    <h2>正文</h2>
+                    <div>
+                        <p>过滤敏感内容等级</p>
+                        <label>
+                           <input type="radio" name="contentfilter" value="0" onclick="changeContentFilter('0')" style="--input-content:'无';">
+                            <input type="radio" name="contentfilter" value="1" onclick="changeContentFilter('1')" style="--input-content:'一';">
+                            <input type="radio" name="contentfilter" value="2" onclick="changeContentFilter('2')" style="--input-content:'二';">
+                            <input type="radio" name="contentfilter" value="3" onclick="changeContentFilter('3')" style="--input-content:'三';">
+                        </label>
+                    </div>
+                </section>
+                <section>
+                    <button onclick="resetToDefault()">恢复默认</button>
+                </section>
+            </div>
+            <div>图片上传失败，请重试</div>
+        </dialog>
+        <div id="home">
+            <div id="slideshow">
+                <div>
+                    <div class="active">
+                        <img src="9.png">
+                        <div>第一张幻灯片</div>
+                    </div>
+                    <div>
+                        <img src="9.png">
+                        <div>第二张幻灯片</div>
+                    </div>
+                    <div>
+                        <img src="9.png">
+                        <div>第三张幻灯片</div>
+                    </div>
+                </div>
+                <div>
+                    <button class="prev fa fa-angle-left" onclick="moveSlide(-1)"></button>
+                    <div></div>
+                    <button class="next fa fa-angle-right" onclick="moveSlide(1)"></button>
+                </div>
+            </div>
+            <h1>欢迎来到首页</h1>
+            <p>页面开发中，敬请期待。</p>
+            <p>可前往“日志”<sup class="fa fa-external-link" onclick="showPage('event');document.location='#';"></sup>页面。</p>
+        </div>
+        <div id="event">
+            <header>
+                <h1>日志</h1>
+            </header>
+            <main>
+                <h1 id="event-d2409">2024年9月</h1>
 <div>
     <time>2</time>
     <p>上午跳闸6次（升旗时占四次。当时领导演讲时跳闸，几人赶紧搬音响，第四次跳闸时讲话那人自动“无缝衔接”，用起备用音响）</p>
@@ -184,7 +1074,7 @@ ul>img{width:200px;text-align:center;}
     <br/><strong style="color:red">#爆&nbsp;&nbsp;</strong>放假前夕，同学逐渐癫狂<strong style="color:red">！！！！！</strong>
     </div>
 </div>
-<h1 id="d2410">2024年10月</h1>
+<h1 id="event-d2410">2024年10月</h1>
 <div>
     <time>8</time>
     <p>刘老师在隔壁班讲话，声音通过麦克风被同学们听见。</p>
@@ -338,7 +1228,7 @@ ul>img{width:200px;text-align:center;}
     <p>美术老师语录：</p><ul class="mt"><li>男生怎么有中国大妈的特色？</li><li>什么功夫这么高深啊！</li><li>我还以为你喝多了！</li><li>我以为你死了！</li></ul>
     <p>林奕扬画乱涂乱画，称“这个是梵高的画……”</p>
 </div>
- <h1 id="d2411">2024年11月</h1>
+ <h1 id="event-d2411">2024年11月</h1>
 <div>
     <time>1</time>
     <p>蒲林豪早读时发现数学书忘带，数学老师进来后发现书本在展台上。</p>
@@ -524,7 +1414,7 @@ ul>img{width:200px;text-align:center;}
     <p>语文老师：“今天上《诫子书》。”黄恩亚：“戒色书。”</p>
     <p>语文老师将“陈睿卓”念成“陈卓睿”。</p>
 </div>
-<h1 id="d2412">2024年12月</h1>
+<h1 id="event-d2412">2024年12月</h1>
 <div>
     <time>2</time>
     <p>倪浩宇回答问题：“……with Wang Wei.”</p>
@@ -680,7 +1570,7 @@ ul>img{width:200px;text-align:center;}
     <p>洪鑫洋带读：“谢太傅集雪日内集……宋国有个人担忧天会崩塌……”</p>
     <p>文艺汇演老师上舞台跳舞（包括段长、地理老师），学生先是集体起立，后来甚至站在位子上看。</p>
 </div>
- <h1 id="d2501">2025年1月</h1>
+ <h1 id="event-d2501">2025年1月</h1>
 <div>
     <time>2</time>
     <p>上体育课时有人发现一只老鼠爬出来。</p>
@@ -775,7 +1665,7 @@ ul>img{width:200px;text-align:center;}
     <p>四十中回执把“寒假”打成“赛假”。</p>
     <p>大扫除时电灯“爆炸”，随后停电，刘老师：“要低调。”（擦完电灯后，一人去开灯，结果听到“砰”的一声巨响，教室里的人看到一阵转瞬即逝的闪光，吓了大家一跳，然后灯也打不开了。）</p>
 </div>
-<h1 id="not1">（未记录确定日期）</h1>
+<h1 id="event-not1">（未记录确定日期）</h1>
 <div>
     <p>地理老师抽李梦妍回答盆地特征，李梦妍不会，地理老师就说：“自己家的脸盆长什么样都不知道？”</p>
     <p>地理老师说自己曾经跟其他班讲撒哈拉沙漠女人洗澡的事。</p>
@@ -794,7 +1684,7 @@ ul>img{width:200px;text-align:center;}
     <p>杨依诺在（地理）活动课上硬要送地理老师一个千纸鹤。</p>
     <p>政治课观看<a href="https://www.bilibili.com/video/BV1NP411b71y/" about="_blank">小水滴</a>视频，背景音乐出现《孤勇者》。</p>
 </div>
-<h1 id="d2502">2025年2月</h1>
+<h1 id="event-d2502">2025年2月</h1>
 <div>
     <time>13</time>
     <p>黄恩亚：“我在戒色”“性教育视频”</p>
@@ -889,7 +1779,7 @@ ul>img{width:200px;text-align:center;}
     <p>体锻课跑操17圈，结束后段长称周四活动课在数学思维班有人做出不尊重老师行为（睡觉、骂脏话），让那人周一放学前主动承认。</p>
     <p>下午第三节是郑老师最后一节语文课，生：“要煽情！”“为什么最后一节了还上课！”</p>
 </div>
-<h1 id="d2503">2025年3月</h1>
+<h1 id="event-d2503">2025年3月</h1>
 <div>
     <time>3</time>
     <p>林芷琪：“刘天馨，有没有镜子？”陆梓豪（笑）：“有没有精子……”</p>
@@ -1033,7 +1923,7 @@ ul>img{width:200px;text-align:center;}
     <p>郑致辰：“你怎么知道自慰？”林芷琪：“我看过（小学的人）。”郑致辰：“哇！……（笑）”</p>
     <p>刘老师让大家猜小测上的“CTMO”是什么意思，蔡华楷：“中国高铁吗？”</p>
 </div>
-<h1 id="d2504">2025年4月</h1>
+<h1 id="event-d2504">2025年4月</h1>
 <div>
     <time>1</time>
     <p>历史课，郑熠菲、廖成羲上台写题目。廖成羲写出极其飘逸的字；郑熠菲把“成吉思汗”写成“成志思汗”，元灭南宋的时间写“2069年”。</p>
@@ -1206,7 +2096,7 @@ ul>img{width:200px;text-align:center;}
     <p>地理老师：“小胖先生。”“小仙女，小仙男……”</p>
     <p>李映辰其期中数学成绩近班级前10（113分）。</p>
 </div>
-<h1 id="d2505">2025年5月</h1>
+<h1 id="event-d2505">2025年5月</h1>
 <div>
     <time>6</time>
     <p>李梦妍小测F-。</p>
@@ -1354,7 +2244,7 @@ ul>img{width:200px;text-align:center;}
     <p>菜多多给订餐的人发AD钙。</p>
     <p>六一儿童节活动&amp;趣味运动会。（趣味运动会后期学生自由走动）</p>
 </div>
-<h1 id="d2506">2025年6月</h1>
+<h1 id="event-d2506">2025年6月</h1>
 <div>
     <time>3</time>
     <p>体育课下雨，学生在班上观看纪录片<a href="https://www.iqiyi.com/v_19rrk0vlos.html#:~:text=%E7%AE%80%E4%BB%8B%EF%BC%9A%E7%9B%AE%E5%87%BB%E4%B8%8D%E6%98%8E%E9%A3%9E%E8%A1%8C%E7%89%A9%E7%BA%AA%E5%BD%95%E7%89%87%E5%85%8D%E8%B4%B9%E5%9C%A8%E7%BA%BF%E8%A7%82%E7%9C%8B%EF%BC%8C%E7%AE%80%E4%BB%8B%EF%BC%9A%E5%9C%A8%E4%B8%AD%E5%9B%BD%EF%BC%8C%E7%A9%B6%E7%AB%9F%E5%87%BA%E7%8E%B0%E8%BF%87%E4%B8%8D%E6%98%8E%E9%A3%9E%E8%A1%8C%E7%89%A9%E5%90%97%EF%BC%9F%20%E4%B8%BA%E4%BB%80%E4%B9%88%E5%90%84%E5%9C%B0%E7%9B%AE%E5%87%BB%E8%80%85%E5%AF%B9%E9%A3%9E%E8%A1%8C%E7%89%A9%E5%BD%A2%E7%8A%B6%E3%80%81%E9%AB%98%E5%BA%A6%E7%9A%84%E6%8F%8F%E8%BF%B0%E5%8D%83%E5%B7%AE%E4%B8%87%E5%88%AB%E5%91%A2%EF%BC%9F,1994%E5%B9%B46%E6%9C%88%E9%97%B4%EF%BC%8C%E4%B8%9C%E5%8C%97%E6%9E%97%E5%8C%BA%E5%8F%91%E7%94%9F%E4%BA%86%E4%B8%80%E5%AE%97%E5%A5%87%E4%BA%8B%EF%BC%8C%E7%99%BE%E4%BD%99%E4%BA%BA%E7%9B%AE%E5%87%BB%E5%88%B0%E4%B8%80%E4%B8%8D%E6%98%8E%E7%89%A9%E4%BD%93%EF%BC%8C%E5%AE%83%E8%AE%A9%E6%88%91%E4%BB%AC%E4%B8%8D%E5%BE%97%E4%B8%8D%E4%B8%A5%E8%82%83%E5%9C%B0%E9%9D%A2%E5%AF%B9%E8%BF%99%E6%A0%B7%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98%EF%BC%9A%E5%9C%A8%E4%B8%AD%E5%9B%BD%EF%BC%8C%E7%A9%B6%E7%AB%9F%E5%87%BA%E7%8E%B0%E8%BF%87%E4%B8%8D%E6%98%8E%E9%A3%9E%E8%A1%8C%E7%89%A9%E5%90%97%EF%BC%9F%20%E8%80%83%E5%AF%9F%E9%98%9F%E5%A5%94%E8%B5%B4%E6%9E%97%E5%8C%BA%EF%BC%8C%E4%BB%96%E4%BB%AC%E5%88%86%E5%88%AB%E5%AF%B9%E7%9B%AE%E5%87%BB%E8%80%85%E5%92%8C%E4%B8%8D%E6%98%8E%E7%89%A9%E4%BD%93%E5%81%9C%E7%95%99%E5%A4%84%E8%BF%9B%E8%A1%8C%E5%8F%96%E8%AF%81%E3%80%82%20%E8%BF%99%E6%9C%89%E6%B2%A1%E6%9C%89%E5%8F%AF%E8%83%BD%E6%98%AF%E9%9B%86%E4%BD%93%E7%BC%96%E9%80%A0%E7%9A%84%E4%B8%80%E4%B8%AA%E8%B0%8E%E8%A8%80%EF%BC%9F" about="_blank">《目击不明飞行物》。</a></p>
@@ -1440,69 +2330,399 @@ ul>img{width:200px;text-align:center;}
     <time>30</time>
     <p>林芷琪在六一拍的照片被做成电脑壁纸。</p>
 </div>
-</main>
-<footer>
-    <p></p>
-</footer>
-<script>
-function performSearch() {
-    const searchTerm = document.getElementById('search').value.trim().toLowerCase();
-    const allElements = document.querySelectorAll('main p, main li');
-    const visibleMonths = new Set();
-    document.querySelectorAll('.filtered').forEach(el => el.classList.remove('filtered'));
-    document.querySelectorAll('.highlight').forEach(hl => {
-        hl.outerHTML = hl.innerHTML;
-    });
-    if (searchTerm) {
-        const regex = new RegExp(`(${escapeRegExp(searchTerm)})`, 'gi');
-        allElements.forEach(element => {
-            const original = element.textContent;
-            const hasMatch = regex.test(original);
-            if (hasMatch) {
-                element.innerHTML = original.replace(regex, '<span class="highlight">$1</span>');
-                if (element.tagName === 'LI') {
-                    const ul = element.closest('ul');
-                    const parentDiv = ul.closest('main > div > div');
-                    ul.querySelectorAll('li').forEach(li => {
-                        li.classList.remove('filtered');
-                    });
-                    let prevP = ul.previousElementSibling;
-                    while (prevP && prevP.tagName !== 'P') {
-                        prevP = prevP.previousElementSibling;
-                    }
-                    if (prevP) prevP.classList.remove('filtered');
+            </main>
+        </div>
+        <div id="p2">
+            <header>
+                <h1>页面2</h1>
+            </header>
+            <main>
+                <h1>副标题1</h1>
+                <p>这是一段测试文本。</p>
+                <article>
+                    <h1>文章标题</h1>
+                    <p>这是一个文章块，里面有大量文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本。</p>
+                    <p>文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本。</p>
+                </article>
+                <h1>副标题2</h1>
+                <p>下面是文本：</p>
+                <q>引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本引用文本</q>
+                <p>文本。</p>
+                <div class="gallery">
+                    <img src="cottage.webp"/>
+                    <p>描述文本</p>
+                </div>
+                <p data-f="1">1级隐藏文本</p>
+                <p data-f="2">2级隐藏文本</p>
+                <p data-f="3">3级隐藏文本</p>
+                <blockquote>
+                    <p>长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本</p>
+                    <p>长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本</p>
+                </blockquote>
+            </main>
+        </div>
+        <footer>
+        </footer>
+    </div>
+    <noscript>
+        <style>#loader,#bigger,#smaller,#content{display:none!important;}</style>
+        <p>本网站需要JavaScript才能正常运行，请启用JavaScript后刷新页面</p>
+    </noscript>
+    <div id="oldbrowser">浏览器版本过旧，不支持显示。<br/>请下载最新浏览器或升级至最新浏览器后重试。</div>
+    <script>
+        //旧版浏览器
+        function checkBrowserCompatibility(){var e,t;const n=document.createElement("div");document.body.appendChild(n);let d=[];["color-scheme","backdrop-filter","scroll-behavior","scroll-snap-type","gap","aspect-ratio","container","has"].forEach(t=>{try{var e,o;"has"===t?(n.innerHTML='<div id="test-has"><p></p></div>',(e=document.createElement("style")).textContent="#test-has:has(p){display:block;}",document.head.appendChild(e),o="block"===getComputedStyle(n.querySelector("#test-has")).display,document.head.removeChild(e),o||d.push(":has() selector")):(n.style[t]="initial",n.style[t]||d.push(t))}catch(e){d.push(t)}}),document.body.removeChild(n),0<d.length&&(e=document.getElementById("oldbrowser"),(t=document.createElement("p")).textContent="不支持的特性: "+d.join(", "),e.appendChild(t),e.style.display="flex",document.getElementById("content").style.display="none",document.getElementById("loader").style.display="none")}window.addEventListener("DOMContentLoaded",checkBrowserCompatibility);
+        //密码（orangemumu）
+        async function checkPassword(){var e=document.querySelector("#passwordOverlay>div>div>input").value,t=document.querySelector("#passwordOverlay>div>div>input"),e=(new TextEncoder).encode(e),e=await crypto.subtle.digest("SHA-256",e);"ddec4e6a6e296862618bf9fd0f8a1f6cc62de71d6c4d8a2ea366e13a8c0f9174"===Array.from(new Uint8Array(e)).map(e=>e.toString(16).padStart(2,"0")).join("")?(document.getElementById("passwordOverlay").style.display="none",localStorage.setItem("passwordVerified","true")):t.style.background="#ff000044"}function initPasswordProtection(){"true"===localStorage.getItem("passwordVerified")?document.getElementById("passwordOverlay").style.display="none":(document.querySelector("#passwordOverlay>div>div>button").addEventListener("click",checkPassword),document.querySelector("#passwordOverlay>div>div>input").addEventListener("keypress",function(e){"Enter"===e.key&&checkPassword()}))}document.addEventListener("DOMContentLoaded",function(){initPasswordProtection()});
+        // 动态修改页面标题
+        function updatePageTitle(){var e=document.querySelector('#content>div[style*="display: block"]');e&&(e=e.querySelector("header h1"),document.title=e?"标题-"+e.textContent:baseTitle)}
+        //页面切换
+        let currentPage=null,subMenuVisible=!1;function showPage(e){document.querySelectorAll("#content>div").forEach(e=>{e.style.display="none"}),document.getElementById(e).style.display="block",updateNavButtons(currentPage=e),updateAnchorLinks(e),toggleSubMenu(!1),document.getElementById(e).scrollTo(0,0),updatePageTitle()}function updateNavButtons(n){const e=document.getElementById("mainNavButton"),t="home"===n;requestAnimationFrame(()=>{t?(e.style.opacity="0",e.style.width="0",e.style.marginRight="0",setTimeout(()=>{e.style.display="none"},300)):(e.style.display="inline-block",setTimeout(()=>{e.style.opacity="1",e.style.width="35px"},10))}),document.querySelectorAll("nav>div:nth-of-type(2) button[onclick]").forEach(e=>{var t=e.getAttribute("onclick").match(/showPage\('(.+?)'\)/);t&&(t=t[1],e.style.display=t===n?"none":"block")})}function updateAnchorLinks(e){document.querySelectorAll('nav>div:nth-of-type(2) div[id$="-anchors"]').forEach(e=>{e.style.display="none"});e=document.getElementById(e+"-anchors");e&&(e.style.display="block")}function toggleSubMenu(e=null){subMenuVisible=null!==e?e:!subMenuVisible;e=document.querySelector("nav>div:nth-of-type(2)");subMenuVisible?e.classList.add("active"):e.classList.remove("active")}document.addEventListener("click",function(e){var t=document.querySelector("nav"),t=(document.querySelector("nav>div:first-child>button:last-child"),document.querySelector("nav>div:nth-of-type(2)"),t.contains(e.target)&&!e.target.closest("nav>div:nth-of-type(3)"));subMenuVisible&&!t&&toggleSubMenu(!1)});
+        //返回顶部/底部
+        function goTop(){document.querySelector('#content>div[style*="display: block"]').scrollTo(0,0);}
+        function goBottom(){document.querySelector('#content>div[style*="display: block"]').scrollTo(0,document.querySelector('#content>div[style*="display: block"]').scrollHeight);}
+        /*删除[style*="display: block"]中的空格功能会失效*/
+        //阅读指示器
+        function updateScrollProgress(){var e,o,r=document.querySelector("nav");r&&(e=document.querySelector('#content>div[style*="display: block"]'))&&(o=e.scrollHeight-e.clientHeight,r.style.setProperty("--scroll-progress",e.scrollTop/o*100+"%"))}document.querySelectorAll("#content>div").forEach(e=>{e.addEventListener("scroll",updateScrollProgress)}),window.addEventListener("DOMContentLoaded",updateScrollProgress);
+        //设置
+        function changeContentFilter(level) {
+            const filteredElements = document.querySelectorAll('[data-f]');
+            filteredElements.forEach(el => {
+                const filterLevel = el.getAttribute('data-f');
+                el.style.display = (level === '0' || !filterLevel) ? '' : 
+                                 (filterLevel <= level) ? 'none' : '';
+            });
+            localStorage.setItem('contentFilter', level);
+        }
+        
+        function initContentFilter() {
+            const savedFilter = localStorage.getItem('contentFilter') || '0';
+            changeContentFilter(savedFilter);
+            updateFilterRadios();
+        }
+        
+        function updateFilterRadios() {
+            const savedFilter = localStorage.getItem('contentFilter') || '0';
+            document.querySelector(`input[name="contentfilter"][value="${savedFilter}"]`).checked = true;
+        }
+        function changeTheme(theme) {
+            const content = document.body;
+            content.removeAttribute('data-mode');
+            if (theme && theme !== 'system') {
+                content.setAttribute('data-mode', theme);
+                if (theme === 'brief-timeline') {
+                    updateTimelineTheme();
+                    setInterval(updateTimelineTheme, 60000);
                 }
-                const parentDiv = element.closest('main > div');
-                if (parentDiv) {
-                    let monthHeader = parentDiv.previousElementSibling;
-                    while (monthHeader && monthHeader.tagName !== 'H1') {
-                        monthHeader = monthHeader.previousElementSibling;
-                    }
-                    if (monthHeader) visibleMonths.add(monthHeader.id);
-                }
-            } else {
-                element.classList.add('filtered');
+            } else if (theme === 'system') {
+                const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'brief-dark' : 'brief-light';
+                content.setAttribute('data-mode', systemTheme);
             }
+            localStorage.setItem('selectedTheme', theme);
+            updateBlurControlVisibility();
+                }
+        function updateTimelineTheme() {
+            const now = new Date();
+            const hours = now.getHours();
+            let timePeriod;
+            if (hours >= 5 && hours < 12) {
+                timePeriod = 'morning';
+            } else if (hours >= 12 && hours < 17) {
+                timePeriod = 'afternoon';
+            } else if (hours >= 17 && hours < 20) {
+                timePeriod = 'evening';
+            } else {
+                timePeriod = 'night';
+            }
+            document.body.setAttribute('data-time-period', timePeriod);
+        }
+        updateTimelineTheme();
+        setInterval(updateTimelineTheme, 60000);
+        function updateBlurControlVisibility() {
+            const content = document.body;
+            const isAtmosphereMode = content.getAttribute('data-mode')?.startsWith('atmosphere');
+            const blurControl = document.querySelector('.atmosphere-settings');
+            if (blurControl) {
+                blurControl.style.display = isAtmosphereMode ? 'block' : 'none';
+            }
+        }
+        function initBlurAmount() {
+            const savedBlur = localStorage.getItem('blurAmount');
+            if (savedBlur) {
+                changeBlurAmount(savedBlur);
+            } else {
+                changeBlurAmount(5);
+            }
+        }
+        function changeFontSize(e){document.body.setAttribute("data-font-size",e),localStorage.setItem("selectedFontSize",e)}
+        function changeRadius(e){document.body.setAttribute("data-radius",e),localStorage.setItem("selectedRadius",e)}
+        function changeLineSpacing(e){document.body.setAttribute("data-line-spacing",e),localStorage.setItem("selectedLineSpacing",e)}
+        function changeFontWeight(e){document.body.setAttribute("data-font-weight",e),localStorage.setItem("selectedFontWeight",e)}
+        function changeShadow(e){document.body.setAttribute("data-shadow",e),localStorage.setItem("selectedShadow",e)}
+        function changeBlurAmount(e){document.documentElement.style.setProperty("--blur-amount",e+"px"),localStorage.setItem("blurAmount",e),updateBlurRadios()}
+        function updateBlurRadios(){const t=localStorage.getItem("blurAmount")||"5";document.querySelectorAll('input[name="blur"]').forEach(e=>{e.checked=e.value===t})}
+        function changeFullscreenMode(e){document.body.setAttribute("data-fullscreen",e),localStorage.setItem("fullscreenMode",e)}
+        function initFullscreenMode(){changeFullscreenMode(localStorage.getItem("fullscreenMode")||"no"),updateFullscreenRadios()}
+        function updateFullscreenRadios(){var e=localStorage.getItem("fullscreenMode")||"no";document.querySelector(`input[name="fullscreen"][value="${e}"]`).checked=!0}
+        function changeNavMargin(e){document.body.setAttribute("data-nav-margin",e),localStorage.setItem("navMargin",e)}
+        function initNavMargin(){changeNavMargin(localStorage.getItem("navMargin")||"no"),updateNavMarginRadios()}
+        function updateNavMarginRadios(){var e=localStorage.getItem("navMargin")||"no";document.querySelector(`input[name="navmargin"][value="${e}"]`).checked=!0}
+        function changeNavAlign(e){document.body.setAttribute("data-align",e),localStorage.setItem("navAlign",e)}
+        function initNavAlign(){changeNavAlign(localStorage.getItem("navAlign")||"left"),updateNavAlignRadios()}
+        function updateNavAlignRadios(){var e=localStorage.getItem("navAlign")||"left";document.querySelector(`input[name="navalign"][value="${e}"]`).checked=!0}
+        function toggleNavItem(item) {
+            const button = document.querySelector(`nav>div:first-child>button[data-navitem="${item}"]`);
+            if (!button) return;
+            const isChecked = document.querySelector(`input[name="navitems"][value="${item}"]`).checked;
+            button.style.display = isChecked ? 'inline-block' : 'none';
+            const navItems = JSON.parse(localStorage.getItem('navItems') || '{}');
+            navItems[item] = isChecked;
+            localStorage.setItem('navItems', JSON.stringify(navItems));
+        }
+        function initNavItems() {
+            const navItems = JSON.parse(localStorage.getItem('navItems') || '{}');
+            const defaults = {
+                home: true,
+                top: true,
+                bottom: true,
+                settings: true,
+                menu: true,
+                search: true
+            };
+            const settings = {...defaults, ...navItems};
+            for (const [item, isChecked] of Object.entries(settings)) {
+                const checkbox = document.querySelector(`input[name="navitems"][value="${item}"]`);
+                if (checkbox) {
+                    checkbox.checked = isChecked;
+                }
+            }
+            updateNavButtonsVisibility();
+        }
+        
+        function updateNavButtonsVisibility() {
+            const navItems = JSON.parse(localStorage.getItem('navItems') || '{}');
+            const buttons = document.querySelectorAll('nav>div:first-child>button');
+            buttons.forEach(button => {
+                const icon = button.querySelector('i');
+                if (icon) {
+                    if (icon.classList.contains('fa-home')) button.setAttribute('data-navitem', 'home');
+                    if (icon.classList.contains('fa-arrow-circle-up')) button.setAttribute('data-navitem', 'top');
+                    if (icon.classList.contains('fa-arrow-circle-down')) button.setAttribute('data-navitem', 'bottom');
+                    if (icon.classList.contains('fa-gear')) button.setAttribute('data-navitem', 'settings');
+                    if (icon.classList.contains('fa-navicon')) button.setAttribute('data-navitem', 'menu');
+                    if (icon.classList.contains('fa-search')) button.setAttribute('data-navitem', 'search');
+                }
+            });
+            for (const [item, isChecked] of Object.entries(navItems)) {
+                const button = document.querySelector(`nav>div:first-child>button[data-navitem="${item}"]`);
+                if (button) {
+                    button.style.width = isChecked ? '35px' : '0';
+                }
+            }
+        }
+        function initSettings() {
+            const savedTheme = localStorage.getItem('selectedTheme');
+            const savedFontSize = localStorage.getItem('selectedFontSize');
+            const savedRadius = localStorage.getItem('selectedRadius');
+            const savedLineSpacing = localStorage.getItem('selectedLineSpacing');
+            const savedFontWeight = localStorage.getItem('selectedFontWeight');
+            const savedShadow = localStorage.getItem('selectedShadow');
+            if (savedTheme === 'system') {const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');systemTheme.addListener(handleSystemThemeChange);handleSystemThemeChange(systemTheme);}
+            else if (savedTheme) {changeTheme(savedTheme);}
+            if (savedFontSize) changeFontSize(savedFontSize);
+            if (savedRadius) changeRadius(savedRadius);
+            if (savedLineSpacing) changeLineSpacing(savedLineSpacing);
+            if (savedFontWeight) changeFontWeight(savedFontWeight);
+            if (savedShadow) changeShadow(savedShadow);
+            updateSettingRadios();
+            const savedBlur = localStorage.getItem('blurAmount');
+            if (savedBlur) {changeBlurAmount(savedBlur);}
+            updateBlurRadios();
+            initContentFilter();
+            initFullscreenMode();
+            initNavMargin();
+            const settingDialog = document.getElementById('settingdialog');
+            settingDialog.addEventListener('click', function(e) {if (e.target === this) {this.close();}});
+            initNavAlign();
+            initNavItems();
+            updateNavButtonsVisibility();
+        }
+        window.addEventListener('DOMContentLoaded', function() {
+            showPage('home');
+            toggleSubMenu(false);
+            initSettings();
+            initBlurAmount();
+            updateBlurControlVisibility();
+            initFullscreenMode();
+            initNavAlign();
+            initNavItems();
+            updateNavButtonsVisibility();
         });
-    } else {
-        allElements.forEach(el => el.classList.remove('filtered'));
-    }
-    document.querySelectorAll('main > div').forEach(div => {
-        const hasVisible = [...div.querySelectorAll('p, li')].some(el => 
-            !el.classList.contains('filtered')
-        );
-        div.style.display = hasVisible ? '' : 'none';
-    });
-    document.querySelectorAll('main h1').forEach(h1 => {
-        h1.style.display = visibleMonths.has(h1.id) || !searchTerm ? '' : 'none';
-    });
-}
-function escapeRegExp(string) {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-function goTop(){window.scrollTo(0,0);}
-function goBottom(){window.scrollTo(0,document.documentElement.scrollHeight);}
-</script>
-</div>
+        function handleSystemThemeChange(e) {
+            const content = document.body;
+            const theme = e.matches ? 'brief-dark' : 'brief-light';
+            content.setAttribute('data-mode', theme);
+        }
+        function updateSettingRadios() {
+            const content = document.body;
+            const savedTheme = localStorage.getItem('selectedTheme') || 'system';
+            document.querySelector(`input[name="theme"][value="${savedTheme}"]`).checked = true;
+            const currentTheme = content.getAttribute('data-mode') || 'brief-light';
+            document.querySelector(`input[name="theme"][value="${currentTheme}"]`).checked = true;
+            const currentFontSize = content.getAttribute('data-font-size') || 'normal';
+            document.querySelector(`input[name="fontsize"][value="${currentFontSize}"]`).checked = true;
+            const currentRadius = content.getAttribute('data-radius') || 'large';
+            document.querySelector(`input[name="radius"][value="${currentRadius}"]`).checked = true;
+            const currentLineSpacing = content.getAttribute('data-line-spacing') || 'loose';
+            document.querySelector(`input[name="linespacing"][value="${currentLineSpacing}"]`).checked = true;
+            const currentFontWeight = content.getAttribute('data-font-weight') || 'normal';
+            document.querySelector(`input[name="fontweight"][value="${currentFontWeight}"]`).checked = true;
+            const currentShadow = content.getAttribute('data-shadow') || 'subtle';
+            document.querySelector(`input[name="shadow"][value="${currentShadow}"]`).checked = true;
+        }
+        window.addEventListener('DOMContentLoaded', initSettings);
+        
+        function resetToDefault() {
+            localStorage.removeItem('selectedTheme');
+            localStorage.removeItem('selectedFontSize');
+            localStorage.removeItem('selectedRadius');
+            localStorage.removeItem('selectedLineSpacing');
+            localStorage.removeItem('selectedFontWeight');
+            localStorage.removeItem('selectedShadow');
+            changeTheme('system');
+            changeFontSize('normal');
+            changeRadius('large');
+            changeLineSpacing('loose');
+            changeFontWeight('normal');
+            changeShadow('subtle');
+            updateSettingRadios();
+            localStorage.removeItem('blurAmount');
+            changeBlurAmount(5);
+            updateBlurRadios();
+            localStorage.removeItem('contentFilter');
+            changeContentFilter('0');
+            updateFilterRadios();
+            localStorage.removeItem('fullscreenMode');
+            changeFullscreenMode('no');
+            localStorage.removeItem('navMargin');
+            changeNavMargin('no');
+            updateNavMarginRadios();
+            localStorage.removeItem('navAlign');
+            changeNavAlign('left');
+            updateNavAlignRadios();
+            localStorage.removeItem('navItems');
+            const checkboxes = document.querySelectorAll('input[name="navitems"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = true;
+            });
+            updateNavButtonsVisibility();
+        }
+        
+        //搜索
+        let searchActive = false;
+        function toggleSearch() {
+            if (subMenuVisible) return;
+            const searchContainer = document.querySelector('nav>div:nth-of-type(3)');
+            searchActive = !searchActive;
+            if (searchActive) {
+                searchContainer.style.display = 'flex';
+                requestAnimationFrame(() => {
+                    searchContainer.style.opacity = '1';
+                    searchContainer.style.visibility = 'visible';
+                    searchContainer.style.transform = 'translateY(0)';
+                });
+                searchContainer.querySelector('input').focus();
+                toggleSubMenu(false);
+            } else {
+                searchContainer.style.opacity = '0';
+                searchContainer.style.visibility = 'hidden';
+                searchContainer.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    searchContainer.style.display = 'none';
+                }, 300);
+                clearSearch();
+            }
+        }
+        function performSearch() {
+            const searchInput = document.querySelector('nav>div:nth-of-type(3) input');
+            const resultsCount = document.querySelector('nav>div:nth-of-type(3) span');
+            const query = searchInput.value.trim().toLowerCase();
+            if (!query) {
+                clearSearch();
+                return;
+            }
+            const currentPage = document.querySelector('#content>div[style*="display: block"]');
+            const marks = currentPage.querySelectorAll('mark');
+            marks.forEach(mark => {
+                const parent = mark.parentNode;
+                parent.replaceChild(document.createTextNode(mark.textContent), mark);
+                parent.normalize();
+            });
+            const textNodes = [];
+            const walker = document.createTreeWalker(
+                currentPage,
+                NodeFilter.SHOW_TEXT,
+                null,
+                false
+            );
+            let node;
+            let count = 0;
+            while (node = walker.nextNode()) {
+                if (node.parentNode.nodeName === 'SCRIPT' || node.parentNode.nodeName === 'STYLE') {
+                    continue;
+                }
+                const text = node.nodeValue;
+                if (text.toLowerCase().includes(query)) {
+                    textNodes.push(node);
+                    count++;
+                }
+            }
+            textNodes.forEach(textNode => {
+                const text = textNode.nodeValue;
+                const parent = textNode.parentNode;
+                const fragments = text.split(new RegExp(`(${query})`, 'gi'));
+                
+                const fragment = document.createDocumentFragment();
+                fragments.forEach((part, i) => {
+                    if (i % 2 === 1) {
+                        const mark = document.createElement('mark');
+                        mark.textContent = part;
+                        mark.style.backgroundColor = 'rgba(255, 255, 0, 0.5)';
+                        fragment.appendChild(mark);
+                    } else if (part) {
+                        fragment.appendChild(document.createTextNode(part));
+                    }
+                });
+                parent.replaceChild(fragment, textNode);
+            });
+            resultsCount.textContent = `${count}`;
+        }
+        function clearSearch() {
+            const resultsCount = document.querySelector('nav>div:nth-of-type(3) span');
+            resultsCount.textContent = '0';
+            const currentPage = document.querySelector('#content>div[style*="display: block"]');
+            const marks = currentPage.querySelectorAll('mark');
+            marks.forEach(mark => {
+                const parent = mark.parentNode;
+                parent.replaceChild(document.createTextNode(mark.textContent), mark);
+                parent.normalize();
+            });
+            const searchInput = document.querySelector('nav>div:nth-of-type(3) input');
+            searchInput.value = '';
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.querySelector('nav>div:nth-of-type(3) input');
+            searchInput.addEventListener('input', performSearch);
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && searchActive) {
+                    toggleSearch();
+                }
+            });
+        });
+        
+        //幻灯片
+        let currentSlide=0,slideInterval;const slides=document.querySelectorAll("#slideshow>div:first-child>div"),slideContainer=document.querySelector("#slideshow>div:first-child"),dotsContainer=document.querySelector("#slideshow>div:last-child>div");function initSlideshow(){slides.forEach((e,t)=>{var l=document.createElement("span");l.classList.add("dot"),l.addEventListener("click",()=>goToSlide(t)),dotsContainer.appendChild(l)}),updateDots(),startAutoPlay();var e=document.querySelector("#slideshow");e.addEventListener("mouseenter",pauseAutoPlay),e.addEventListener("mouseleave",startAutoPlay)}function updateDots(){document.querySelectorAll(".dot").forEach((e,t)=>{e.classList.toggle("active",t===currentSlide)})}function goToSlide(e){currentSlide=(e+slides.length)%slides.length,slideContainer.style.transform=`translateX(-${100*currentSlide}%)`,updateDots()}function moveSlide(e){goToSlide(currentSlide+e)}function startAutoPlay(){pauseAutoPlay(),slideInterval=setInterval(()=>moveSlide(1),5e3)}function pauseAutoPlay(){clearInterval(slideInterval)}document.addEventListener("DOMContentLoaded",initSlideshow);
+    </script>
+    <script>"serviceWorker"in navigator&&navigator.serviceWorker.register("/c/sw.js",{scope:"/c/"});</script>
 </body>
 </html>

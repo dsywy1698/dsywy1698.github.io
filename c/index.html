@@ -7,6 +7,8 @@
 边缘渐变透明
 按标签搜索
 滚动到上一个/下一个搜索结果
+bug:
+1.无法应用图片
 -->
 <head>
     <title>标题</title>
@@ -1031,8 +1033,9 @@ setInterval(rotateText,1000);
         //页面切换
         let currentPage=null,subMenuVisible=!1;function showPage(e){document.querySelectorAll("#content>div").forEach(e=>{e.style.display="none"}),document.getElementById(e).style.display="block",updateNavButtons(currentPage=e),updateAnchorLinks(e),toggleSubMenu(!1),document.getElementById(e).scrollTo(0,0),updatePageTitle()}function updateNavButtons(n){const e=document.getElementById("mainNavButton"),t="home"===n;requestAnimationFrame(()=>{t?(e.style.opacity="0",e.style.width="0",e.style.marginRight="0",setTimeout(()=>{e.style.display="none"},300)):(e.style.display="inline-block",setTimeout(()=>{e.style.opacity="1",e.style.width="35px"},10))}),document.querySelectorAll("nav>div:nth-of-type(2) button[onclick]").forEach(e=>{var t=e.getAttribute("onclick").match(/showPage\('(.+?)'\)/);t&&(t=t[1],e.style.display=t===n?"none":"block")})}function updateAnchorLinks(e){document.querySelectorAll('nav>div:nth-of-type(2) div[id$="-anchors"]').forEach(e=>{e.style.display="none"});e=document.getElementById(e+"-anchors");e&&(e.style.display="block")}function toggleSubMenu(e=null){subMenuVisible=null!==e?e:!subMenuVisible;e=document.querySelector("nav>div:nth-of-type(2)");subMenuVisible?e.classList.add("active"):e.classList.remove("active")}document.addEventListener("click",function(e){var t=document.querySelector("nav"),t=(document.querySelector("nav>div:first-child>button:last-child"),document.querySelector("nav>div:nth-of-type(2)"),t.contains(e.target)&&!e.target.closest("nav>div:nth-of-type(3)"));subMenuVisible&&!t&&toggleSubMenu(!1)});
         //返回顶部/底部
-        function goTop(){document.querySelector('#content>div[style*="display:block"]').scrollTo(0,0)}
-        function goBottom(){document.querySelector('#content>div[style*="display: block"]').scrollTo(0,document.querySelector('#content>div[style*="display:block"]').scrollHeight)}
+        function goTop(){document.querySelector('#content>div[style*="display: block"]').scrollTo(0,0);}
+        function goBottom(){document.querySelector('#content>div[style*="display: block"]').scrollTo(0,document.querySelector('#content>div[style*="display: block"]').scrollHeight);}
+        /*删除[style*="display: block"]中的空格功能会失效*/
         //阅读指示器
         function updateScrollProgress(){var e,o,r=document.querySelector("nav");r&&(e=document.querySelector('#content>div[style*="display: block"]'))&&(o=e.scrollHeight-e.clientHeight,r.style.setProperty("--scroll-progress",e.scrollTop/o*100+"%"))}document.querySelectorAll("#content>div").forEach(e=>{e.addEventListener("scroll",updateScrollProgress)}),window.addEventListener("DOMContentLoaded",updateScrollProgress);
         //设置
@@ -1167,7 +1170,7 @@ setInterval(rotateText,1000);
             for (const [item, isChecked] of Object.entries(navItems)) {
                 const button = document.querySelector(`nav>div:first-child>button[data-navitem="${item}"]`);
                 if (button) {
-                    button.style.display = isChecked ? 'inline-block' : 'none';
+                    button.style.width = isChecked ? '35px' : '0';
                 }
             }
         }
