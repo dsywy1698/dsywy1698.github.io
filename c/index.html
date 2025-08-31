@@ -540,7 +540,7 @@ bug:
         }
         nav>div:first-child{
             display:flex;
-            >button{transition:width 0.3s ease,opacity 0.3s ease margin 0.3s ease;width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;border-radius:var(--radius-8x);margin:0 2.5px;
+            >button{transition:background 0.3s ease;width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;border-radius:var(--radius-8x);margin:0 2.5px;
             &:hover{background:#00000033;}
             >i{color:var(--nav-btn);}
             }
@@ -549,7 +549,7 @@ bug:
         body[data-align="center"] nav>div:first-child{justify-content:space-around;}
         body[data-align="right"] nav>div:first-child{justify-content:flex-end;}
         #mainNavButton{
-            transition:opacity 0.3s ease;opacity:1;
+            transition:width 0.3s ease,opacity 0.3s ease,margin 0.3s ease,opacity 0.3s ease;opacity:1;
             &[style*="display:none"]{display:inline-block!important;width:0;opacity:0;pointer-events:none;}
         }
         nav:has(>div:nth-of-type(2).active)>div:first-child>button:last-child{opacity:0.3;pointer-events:none;}
@@ -648,28 +648,28 @@ bug:
         @keyframes backdropFadeIn{from{background:transparent;}to{background:#00000055;}}
 
         /*页面样式*/
-        #content>div>header{font-size:1.875rem;text-align:center;padding:35px 0;}
+        #content>div>header:not(#home>header){font-size:1.875rem;text-align:center;padding:35px 0;}
         #content>div>main{}
         article{background:var(--article,#0066ff88);padding:12.5px;border-radius:var(--radius-6x);margin:5px 0;}
         article>p{text-indent:2em;}
         article>h1{text-align:center;margin:5px auto;}
-        q{background:var(--q,#0066ff88);font-size:1.5625rem;display:block;text-align:center;padding:8px;border-radius:var(--radius-4x);}
+        q{background:var(--q,#0066ff88);font-size:1.5625rem;display:block;text-align:center;padding:8px;border-radius:var(--radius-4x);margin:5px 0;}
         q::before{font-family:"icons";content:"\f10d";color:var(--quot);padding-right:10px;}
         q::after{font-family:"icons";content:"\f10e";color:var(--quot);padding-left:10px;}
         .gallery{
-            background:linear-gradient(color-mix(in oklch,var(--gallerybg),rgba(112.5,112.5,112.5,0.7)),color-mix(in oklch,var(--gallerybg),rgba(112.5,112.5,112.5,0.1)));padding:15px;border-radius:var(--radius-6x);text-align:center;
+            background:linear-gradient(color-mix(in oklch,var(--gallerybg),rgba(112.5,112.5,112.5,0.7)),color-mix(in oklch,var(--gallerybg),rgba(112.5,112.5,112.5,0.1)));padding:15px;border-radius:var(--radius-6x);text-align:center;margin:5px 0;
             >img{max-width:600px;width:100%;border-radius:var(--radius-4x);}
             >p{color:var(--gallerycolor);}
         }
         blockquote{
-            background:var(--blockquote);padding:20px;border-radius:var(--radius-4x);border-left:5px solid #88888888;
+            background:var(--blockquote);padding:20px;border-radius:var(--radius-4x);border-left:5px solid #88888888;margin:5px 0;
         }
         /*首页*/
         #slideshow{
             position:relative;margin:20px auto;overflow:hidden;border-radius:var(--radius-8x);box-shadow:var(--shadow-so-3x);max-width:800px;
             >div:first-child{
                 display:flex;transition:transform 0.7s cubic-bezier(0.25,0.1,0.25,1);height:clamp(300px,60dvh,400px);
-                >div{
+                >a{
                     min-width:100%;position:relative;
                     &.active{display:block;}
                     img{width:100%;height:100%;object-fit:cover;}
@@ -688,6 +688,13 @@ bug:
                         width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer;transition:background 0.3s ease,transform 0.3s ease;
                         &.active{background:white;transform:scale(1.2);}
                     }
+                }
+            }
+        }
+        #home>main{
+            >section:nth-of-type(1){
+                >a{
+                    &:hover{}
                 }
             }
         }
@@ -933,31 +940,62 @@ setInterval(rotateText,1000);
             <div>图片上传失败，请重试</div>
         </dialog>
         <div id="home">
-            <div id="slideshow">
-                <div>
-                    <div class="active">
-                        <img src="9.png">
-                        <div>第一张幻灯片</div>
+            <header>
+                <div id="slideshow">
+                    <div>
+                        <a onclick="showPage('event');document.location='#event-d2409';" class="active">
+                            <img src="9.png">
+                            <div>第一张幻灯片</div>
+                        </a>
+                        <a onclick="showPage('event');document.location='#event-d2409';">
+                            <img src="9.png">
+                            <div>第二张幻灯片</div>
+                        </a>
+                        <a onclick="showPage('event');document.location='#event-d2409';">
+                            <img src="9.png">
+                            <div>第三张幻灯片</div>
+                        </a>
                     </div>
                     <div>
-                        <img src="9.png">
-                        <div>第二张幻灯片</div>
-                    </div>
-                    <div>
-                        <img src="9.png">
-                        <div>第三张幻灯片</div>
+                        <button class="prev fa fa-angle-left" onclick="moveSlide(-1)"></button>
+                        <div></div>
+                        <button class="next fa fa-angle-right" onclick="moveSlide(1)"></button>
                     </div>
                 </div>
-                <div>
-                    <button class="prev fa fa-angle-left" onclick="moveSlide(-1)"></button>
-                    <div></div>
-                    <button class="next fa fa-angle-right" onclick="moveSlide(1)"></button>
-                </div>
-            </div>
-            <h1>欢迎来到首页</h1>
-            <p>页面开发中，敬请期待。</p>
-            <hr/>
-            <p>这是一段测试文本。<span data-f="1">隐藏文本</span><a href="#">链接文本</a>角标<sup class="fa fa-external-link" onclick="showPage('event');document.location='#event-d2409';"></sup></p>
+                <h1>欢迎来到首页</h1>
+                <p>页面开发中，敬请期待。</p>
+                <hr/>
+                <p>这是一段测试文本。<span data-f="1">隐藏文本</span><a href="#">链接文本</a>角标<sup class="fa fa-external-link" onclick="showPage('event');document.location='#event-d2409';"></sup></p>
+            </header>
+            <main><!--
+                <section>
+                    <h1>模块1</h1>
+                    <a style="background:linear-gradient(-45deg,#9933ff88,#9933ff);" onclick="showPage('event');document.location='#event-d2409';">
+                        <p>decoration</p>
+                        <h2>链接1<sup style="background:#f3c;">描述</sup></h2>
+                    </a><style>
+                    
+        #home>main{
+            >section:nth-of-type(1){
+                max-width:800px;
+                >a{
+                border-radius:var(--radius-4x);padding:10px;display:block;aspect-ratio:7/3;width:100%;min-height:100px;color:#fff;overflow:hidden;
+                    >h2{
+                        font-size:2.5rem;position:relative;top:-60px;left:20px;
+                        >sup{
+                            border-radius:100vw;padding:3px 7px;font-size:1rem;
+                        }
+                    }
+                    >p{
+                        opacity:0.3;font-size:5rem;position:relative;top:10px;left:10px;letter-spacing:0.1em;
+                    }
+                    &:hover{}
+                }
+            }
+        }
+                    </style>
+                </section>-->
+            </main>
         </div>
         <div id="event">
             <header>
@@ -1036,7 +1074,7 @@ setInterval(rotateText,1000);
         // 动态修改页面标题
         function updatePageTitle(){var e=document.querySelector('#content>div[style*="display: block"]');e&&(e=e.querySelector("header h1"),document.title=e?"标题-"+e.textContent:baseTitle)}
         //页面切换
-        let currentPage=null,subMenuVisible=!1;function showPage(e){document.querySelectorAll("#content>div").forEach(e=>{e.style.display="none"}),document.getElementById(e).style.display="block",updateNavButtons(currentPage=e),updateAnchorLinks(e),toggleSubMenu(!1),document.getElementById(e).scrollTo(0,0),updatePageTitle()}function updateNavButtons(n){const e=document.getElementById("mainNavButton"),t="home"===n;requestAnimationFrame(()=>{t?(e.style.opacity="0",e.style.width="0",e.style.marginRight="0",setTimeout(()=>{e.style.display="none"},300)):(e.style.display="inline-block",setTimeout(()=>{e.style.opacity="1",e.style.width="35px"},10))}),document.querySelectorAll("nav>div:nth-of-type(2) button[onclick]").forEach(e=>{var t=e.getAttribute("onclick").match(/showPage\('(.+?)'\)/);t&&(t=t[1],e.style.display=t===n?"none":"block")})}function updateAnchorLinks(e){document.querySelectorAll('nav>div:nth-of-type(2) div[id$="-anchors"]').forEach(e=>{e.style.display="none"});e=document.getElementById(e+"-anchors");e&&(e.style.display="block")}function toggleSubMenu(e=null){subMenuVisible=null!==e?e:!subMenuVisible;e=document.querySelector("nav>div:nth-of-type(2)");subMenuVisible?e.classList.add("active"):e.classList.remove("active")}document.addEventListener("click",function(e){var t=document.querySelector("nav"),t=(document.querySelector("nav>div:first-child>button:last-child"),document.querySelector("nav>div:nth-of-type(2)"),t.contains(e.target)&&!e.target.closest("nav>div:nth-of-type(3)"));subMenuVisible&&!t&&toggleSubMenu(!1)});
+        let currentPage=null,subMenuVisible=!1;function showPage(e){document.querySelectorAll("#content>div").forEach(e=>{e.style.display="none"}),document.getElementById(e).style.display="block",updateNavButtons(currentPage=e),updateAnchorLinks(e),toggleSubMenu(!1),document.getElementById(e).scrollTo(0,0),updatePageTitle()}function updateNavButtons(n){const e=document.getElementById("mainNavButton"),t="home"===n;requestAnimationFrame(()=>{t?(e.style.opacity="0",e.style.width="0",e.style.margin="0",setTimeout(()=>{e.style.display="none"},300)):(e.style.display="inline-block",setTimeout(()=>{e.style.opacity="1",e.style.width="35px",e.style.margin="0 2.5px"},10))}),document.querySelectorAll("nav>div:nth-of-type(2) button[onclick]").forEach(e=>{var t=e.getAttribute("onclick").match(/showPage\('(.+?)'\)/);t&&(t=t[1],e.style.display=t===n?"none":"block")})}function updateAnchorLinks(e){document.querySelectorAll('nav>div:nth-of-type(2) div[id$="-anchors"]').forEach(e=>{e.style.display="none"});e=document.getElementById(e+"-anchors");e&&(e.style.display="block")}function toggleSubMenu(e=null){subMenuVisible=null!==e?e:!subMenuVisible;e=document.querySelector("nav>div:nth-of-type(2)");subMenuVisible?e.classList.add("active"):e.classList.remove("active")}document.addEventListener("click",function(e){var t=document.querySelector("nav"),t=(document.querySelector("nav>div:first-child>button:last-child"),document.querySelector("nav>div:nth-of-type(2)"),t.contains(e.target)&&!e.target.closest("nav>div:nth-of-type(3)"));subMenuVisible&&!t&&toggleSubMenu(!1)});
         //返回顶部/底部
         function goTop(){document.querySelector('#content>div[style*="display: block"]').scrollTo(0,0);}
         function goBottom(){document.querySelector('#content>div[style*="display: block"]').scrollTo(0,document.querySelector('#content>div[style*="display: block"]').scrollHeight);}
@@ -1380,7 +1418,7 @@ setInterval(rotateText,1000);
         });
         
         //幻灯片
-        let currentSlide=0,slideInterval;const slides=document.querySelectorAll("#slideshow>div:first-child>div"),slideContainer=document.querySelector("#slideshow>div:first-child"),dotsContainer=document.querySelector("#slideshow>div:last-child>div");function initSlideshow(){slides.forEach((e,t)=>{var l=document.createElement("span");l.classList.add("dot"),l.addEventListener("click",()=>goToSlide(t)),dotsContainer.appendChild(l)}),updateDots(),startAutoPlay();var e=document.querySelector("#slideshow");e.addEventListener("mouseenter",pauseAutoPlay),e.addEventListener("mouseleave",startAutoPlay)}function updateDots(){document.querySelectorAll(".dot").forEach((e,t)=>{e.classList.toggle("active",t===currentSlide)})}function goToSlide(e){currentSlide=(e+slides.length)%slides.length,slideContainer.style.transform=`translateX(-${100*currentSlide}%)`,updateDots()}function moveSlide(e){goToSlide(currentSlide+e)}function startAutoPlay(){pauseAutoPlay(),slideInterval=setInterval(()=>moveSlide(1),5e3)}function pauseAutoPlay(){clearInterval(slideInterval)}document.addEventListener("DOMContentLoaded",initSlideshow);
+        let currentSlide=0,slideInterval;const slides=document.querySelectorAll("#slideshow>div:first-child>a"),slideContainer=document.querySelector("#slideshow>div:first-child"),dotsContainer=document.querySelector("#slideshow>div:last-child>div");function initSlideshow(){slides.forEach((e,t)=>{var l=document.createElement("span");l.classList.add("dot"),l.addEventListener("click",()=>goToSlide(t)),dotsContainer.appendChild(l)}),updateDots(),startAutoPlay();var e=document.querySelector("#slideshow");e.addEventListener("mouseenter",pauseAutoPlay),e.addEventListener("mouseleave",startAutoPlay)}function updateDots(){document.querySelectorAll(".dot").forEach((e,t)=>{e.classList.toggle("active",t===currentSlide)})}function goToSlide(e){currentSlide=(e+slides.length)%slides.length,slideContainer.style.transform=`translateX(-${100*currentSlide}%)`,updateDots()}function moveSlide(e){goToSlide(currentSlide+e)}function startAutoPlay(){pauseAutoPlay(),slideInterval=setInterval(()=>moveSlide(1),5e3)}function pauseAutoPlay(){clearInterval(slideInterval)}document.addEventListener("DOMContentLoaded",initSlideshow);
     </script>
     <script>"serviceWorker"in navigator&&navigator.serviceWorker.register("/c/sw.js",{scope:"/c/"});</script>
 </body>
