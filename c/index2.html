@@ -25,20 +25,22 @@ bug:
     <style>
         @font-face{font-family:'icons';src:url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'),url('fa.woff2') format('woff2');font-display:swap;}
         :root{color-scheme:light dark;--blur-amount:5px;--custom-bg-image:none;}
-        *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;transition:background 0.3s ease,color 0.3s ease,backdrop-filter 0.3s ease,border-radius 0.3s ease,box-shadow 0.3s ease,line-height 0.3s ease,letter-spacing 0.3s ease;color:inherit;}
+        *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;transition:border-radius 0.3s ease,box-shadow 0.3s ease;color:inherit;}
+        a,body,selection,hr,q,article,nav,nav i,dialog,.gallery,blockquote,label,radio{transition:background 0.3s ease,color 0.3s ease;}
+        p,h1,h2,h3,h4,h5,h6,li{transition:line-height 0.3s ease,letter-spacing 0.3s ease;}
         *::-webkit-scrollbar{display:none!important;}
         ::-moz-selection{background:var(--selection);}
         ::selection{background:var(--selection);}
         html{font-size:100%;height:100dvh;}
         body{font-family:"微软雅黑",sans-serif;}
-        #content>div{padding:50px 10px 10px 10px;overflow-y:auto;scroll-behavior:smooth;height:100dvh;backdrop-filter:blur(var(--blur-amount));}
+        #content>div{padding:50px 10px 10px 10px;overflow-y:auto;scroll-behavior:smooth;height:100dvh;backdrop-filter:blur(var(--blur-amount));transition:backdrop-filter 0.3s ease;}
         #content>div:not(#home){display:none;}
         /*基本样式*/
         hr{border:1px solid var(--hr);border-radius:100px;margin:5px 10px;}
         a{color:var(--a);text-decoration-style:dotted;}
         a:hover{color:var(--ah);}
         h1,h2,h3,h4,h5,h6{}
-        sup[class="fa fa-external-link"]{font-size:0.7em;opacity:0.8;transition:0.2s;line-height:0;color:var(--a);vertical-align:super;position:relative;top:0;}
+        sup[class="fa fa-external-link"]{font-size:0.7em;opacity:0.8;line-height:0;color:var(--a);vertical-align:super;position:relative;top:0;}
         sup[class="fa fa-external-link"]:hover{opacity:0.7;}
         img,svg,canvas,audio,video{max-width:100%;}
         button{border:none;}
@@ -496,7 +498,7 @@ bug:
         body[data-font-weight="normal"]{font-weight:400;}
         body[data-font-weight="bold"]{font-weight:600;}
         /*缩小/放大窗口*/
-        #bigger,#smaller{display:none;justify-content:center;align-items:center;color:var(--loadercolor);padding:20px 5px;text-align:center;width:100ddvw;height:100dvh;top:0;left:0;transition:0.5s;backdrop-filter:blur(20px);}
+        #bigger,#smaller{display:none;justify-content:center;align-items:center;color:var(--loadercolor);padding:20px 5px;text-align:center;width:100ddvw;height:100dvh;top:0;left:0;backdrop-filter:blur(20px);}
         #bigger{font-size:5rem;}
         #smaller{font-size:1.2rem;}
         /*无js窗口*/
@@ -537,8 +539,8 @@ bug:
             &:before{border-radius:0;}
         }
         nav>div:first-child{
-            transition:all 0.3s ease;display:flex;
-            >button{transition:all 0.3s ease,opacity 0.3s ease;width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;transition:0.5s;border-radius:var(--radius-8x);margin:0 2.5px;
+            display:flex;
+            >button{transition:width 0.3s ease,opacity 0.3s ease margin 0.3s ease;width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;border-radius:var(--radius-8x);margin:0 2.5px;
             &:hover{background:#00000033;}
             >i{color:var(--nav-btn);}
             }
@@ -547,7 +549,7 @@ bug:
         body[data-align="center"] nav>div:first-child{justify-content:space-around;}
         body[data-align="right"] nav>div:first-child{justify-content:flex-end;}
         #mainNavButton{
-            transition:all 0.3s ease,opacity 0.3s ease;opacity:1;
+            transition:opacity 0.3s ease;opacity:1;
             &[style*="display:none"]{display:inline-block!important;width:0;opacity:0;pointer-events:none;}
         }
         nav:has(>div:nth-of-type(2).active)>div:first-child>button:last-child{opacity:0.3;pointer-events:none;}
@@ -555,20 +557,20 @@ bug:
             background:#ffffff08;transform-origin:top;border-radius:var(--radius-7x);height:0;max-height:0;opacity:0;overflow:auto;padding:0 2.5px;transition:all 0.3s cubic-bezier(0.68,-0.6,0.32,1.6);interpolate-size:allow-keywords;
             &.active{height:auto;opacity:1;max-height:clamp(200px,40dvh,400px);padding:0 2.5px;margin-top:5px;}
             >button{
-                display:block;width:100%;background:transparent;transition:0.5s;font-size:1.125rem;text-align:left;margin:2.5px 0;border-radius:var(--radius-7x);padding:2.5px 10px;line-height:30px;font-weight:unset;
+                display:block;width:100%;background:transparent;transition:background 0.3s ease,color 0.3s ease;font-size:1.125rem;text-align:left;margin:2.5px 0;border-radius:var(--radius-7x);padding:2.5px 10px;line-height:30px;font-weight:unset;
                 &:hover{background:#00000033;}
             }
             >div{
                 position:relative;padding-left:7.5px;margin-left:5px;
                 &::before{content:'';position:absolute;left:0;top:5px;bottom:5px;width:3px;background:var(--nav-btn);opacity:0.5;border-radius:1.5px;}
                 >a{
-                    display:block;width:100%;text-decoration:none;transition:0.5s;color:unset;margin:2.5px;padding:5px 10px;line-height:25px;border-radius:var(--radius-6x);
+                    display:block;width:100%;text-decoration:none;transition:background 0.3s ease,color 0.3s ease;color:unset;margin:2.5px;padding:5px 10px;line-height:25px;border-radius:var(--radius-6x);
                     &:hover{background:#00000033;}
                 }
             }
         }
         nav>div:nth-of-type(3){
-            position:absolute;top:0;left:0;width:100%;height:100%;background:color-mix(in oklch,var(--nav-bg),#888888dd);align-items:center;padding:0 10px;border-radius:var(--radius-8x);display:flex;opacity:0;visibility:hidden;transition:all 0.3s ease;transform:translateY(-10px);
+            position:absolute;top:0;left:0;width:100%;height:100%;background:color-mix(in oklch,var(--nav-bg),#888888dd);align-items:center;padding:0 10px;border-radius:var(--radius-8x);display:flex;opacity:0;visibility:hidden;transition:opacity 0.3s ease,transform 0.3s ease;transform:translateY(-10px);
             &.active{opacity:1;visibility:visible;transform:translateY(0);}
             >input{
                 flex-grow:1;background:transparent;border:none;outline:none;color:inherit;font-size:1rem;padding:5px;
@@ -600,8 +602,8 @@ bug:
                         >label{
                             height:30px;padding:2.5px;background:var(--radiobg);border-radius:15px;float:right;
                             >input[type="radio"]{
-                                -webkit-appearance:none;-moz-appearance:none;appearance:none;width:25px;height:25px;border-radius:12.5px;position:relative;transition:0.5s;
-                                &::before{content:var(--input-content);font-size:19px;transition:0.5s;width:25px;height:25px;line-height:25px;margin:3px;color:#ffffff44;}
+                                -webkit-appearance:none;-moz-appearance:none;appearance:none;width:25px;height:25px;border-radius:12.5px;position:relative;transition:background 0.3s ease,color 0.3s ease;
+                                &::before{content:var(--input-content);font-size:19px;width:25px;height:25px;line-height:25px;margin:3px;color:#ffffff44;}
                                 &:checked{
                                     background:#ffffff22;
                                     &::before{color:unset;}
@@ -677,13 +679,13 @@ bug:
             >div:last-child{
                 position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;
                 button{
-                    background:#ffffff44;color:white;border-radius:50%;cursor:pointer;font-size:18px;width:30px;height:30px;transition:all 0.3s ease;margin:7.5px;
+                    background:#ffffff44;color:white;border-radius:50%;cursor:pointer;font-size:18px;width:30px;height:30px;transition:background 0.3s ease,color 0.3s ease;margin:7.5px;
                     &:hover{background:rgba(255,255,255,0.7);color:#333;}
                 }
                 >div{
                     display:flex;justify-content:center;gap:8px;margin-top:30px;
                     .dot{
-                        width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer;transition:all 0.3s ease;
+                        width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer;transition:background 0.3s ease,transform 0.3s ease;
                         &.active{background:white;transform:scale(1.2);}
                     }
                 }
@@ -773,20 +775,20 @@ setInterval(rotateText,1000);
             <div>
                 <div id="event-anchors">
                     <h2>七上</h2>
-        <a href="#event-d2409">2024年9月</a>
-        <a href="#event-d2410">2024年10月</a>
-        <a href="#event-d2411">2024年11月</a>
-        <a href="#event-d2412">2024年12月</a>
-        <a href="#event-d2501">2025年1月</a>
-        <a href="#event-not1">（未记录确定日期）</a>
-        <h2>七下</h2>
-        <a href="#event-d2502">2025年2月</a>
-        <a href="#event-d2503">2025年3月</a>
-        <a href="#event-d2504">2025年4月</a>
-        <a href="#event-d2505">2025年5月</a>
-        <a href="#event-d2506">2025年6月</a>
-        <h2>八上</h2>
-
+                    <a href="#event-d2409">2024年9月</a>
+                    <a href="#event-d2410">2024年10月</a>
+                    <a href="#event-d2411">2024年11月</a>
+                    <a href="#event-d2412">2024年12月</a>
+                    <a href="#event-d2501">2025年1月</a>
+                    <a href="#event-not1">（未记录确定日期）</a>
+                    <h2>七下</h2>
+                    <a href="#event-d2502">2025年2月</a>
+                    <a href="#event-d2503">2025年3月</a>
+                    <a href="#event-d2504">2025年4月</a>
+                    <a href="#event-d2505">2025年5月</a>
+                    <a href="#event-d2506">2025年6月</a>
+                    <h2>八上</h2>
+                    <a href="#event-d2508">2025年8月</a>
                 </div>
                 <div id="p2-anchors">
                     <a href="#">链接3</a>
@@ -988,7 +990,7 @@ setInterval(rotateText,1000);
     <time>11</time>
     <p>林奕扬用夹子夹嘴、鼻子。</p>
 </div>
-<div>
+<div data-f="1">
     <time>15</time>
     <p>蒲林豪睡觉流口水。</p>
 </div>
@@ -996,7 +998,7 @@ setInterval(rotateText,1000);
     <time>16</time>
     <p>王淮作文出现“福州首都北京”。</p>
 </div>
-<div>
+<div data-f="1">
     <time>20</time>
     <p>蒲林豪睡觉第二次流口水。</p>
 </div>
@@ -1004,23 +1006,23 @@ setInterval(rotateText,1000);
     <time>23</time>
     <p>语文老师发明“防伪标志”。</p>
     <p>语文老师将“陈睿卓”念成“陈睿zhuo&#772;”；把“薛阅晨”念成“xia&#772;o阅晨”。</p>
-    <p>午休时林奕扬将外套套在书包（书包放桌上）外面，并用语文书将帽子撑起，做成假人。随后给大家展示自己摸（还把拉链拉开摸）那个假人的胸部以及生殖器官（还去吻、扯），体育老师发现后将外套扯下来。</p>
-    <p>教室门外贴着的考生名单中出现日本人名“中岛隆骏”被学生调侃“日本人考语文”。</p>
+    <p data-f="3">午休时林奕扬将外套套在书包（书包放桌上）外面，并用语文书将帽子撑起，做成假人。随后给大家展示自己摸（还把拉链拉开摸）那个假人的胸部以及生殖器官（还去吻、扯），体育老师发现后将外套扯下来。</p>
+    <p data-f="1">教室门外贴着的考生名单中出现日本人名“中岛隆骏”被学生调侃“日本人考语文”。</p>
 </div>
 <div>
     <time>24</time>
     <p>语文老师播放课文朗读时背景音是早读铃声。</p>
-    <p>音乐老师课件中出现“脏乱差”图片时，学生：“蒲林豪家！”出现婚礼相关图片时，生：“林芷琪和郑致辰！”</p>
-    <p>林奕扬被生物老师称“2B青年欢乐多”。</p>
+    <p data-f="3">音乐老师课件中出现“脏乱差”图片时，学生：“蒲林豪家！”出现婚礼相关图片时，生：“林芷琪和郑致辰！”</p>
+    <p data-f="2">林奕扬被生物老师称“2B青年欢乐多”。</p>
     <p>蒲林豪钻进装班服的纸箱。</p>
-    <p>林芷琪抢林奕扬筷子被刘老师找。<p>
-    <p>蒲林豪把刚发下来的班服当裤子穿，本人：“新时尚。”</p>
+    <p data-f="1">林芷琪抢林奕扬筷子被刘老师找。<p>
+    <p data-f="1">蒲林豪把刚发下来的班服当裤子穿，本人：“新时尚。”</p>
 </div>
 <div>
     <time>25</time>
-    <p>郑炜换座后被女生围住，本人表示“很高兴”。</p>
+    <p data-f="1">郑炜换座后被女生围住，本人表示“很高兴”。</p>
     <p>眼保健操时有人离开教室被扣26分，被刘老师留下并罚写说明。</p>
-    <p>林芷琪表示：初三毕业请全班吃蛋糕。</p>
+    <p data-f="1">林芷琪表示：初三毕业请全班吃蛋糕。</p>
 </div>
 <div>
     <time>26</time>
@@ -1030,8 +1032,8 @@ setInterval(rotateText,1000);
     <li>蒲林豪玩勺子，师：“还，还照镜子啊？过来。”然后将蒲林豪双手各打一下并没收勺子。</li>
     <li>薛阅晨“喵喵喵”（唱《see you again》）。</li>
     </ul>
-    <p>新梗：“金叵罗”。</p>
-    <p>蒲林豪饭粒掉到凳子、桌布上。</p>
+    <p data-f="1">新梗：“金叵罗”。</p>
+    <p data-f="1">蒲林豪饭粒掉到凳子、桌布上。</p>
     <p>自习时外面操场有人打鼓，王淮：“谁在敲桌子？”</p>
 </div>
 <div>
@@ -1039,7 +1041,8 @@ setInterval(rotateText,1000);
     <p>薛阅晨：“喝蜜蜂……”</p>
     <p>蒲林豪玩垃圾袋。</p>
     <p>唐家祺因多嘴被刘老师打10下。</p>
-</div><div style="background:#ccffcc55;">
+</div>
+<div style="background:#ccffcc55;">
     <time style="background:#9f9;">29</time>
     <p>班级热搜榜中出现：“依诺：宝宝（林芷琪）好快！”后被杨依诺擦掉。</p>
     <div style="color:#f39;background:#ffc;padding:5px;border-radius:5px;">
@@ -1079,83 +1082,82 @@ setInterval(rotateText,1000);
     <time>8</time>
     <p>刘老师在隔壁班讲话，声音通过麦克风被同学们听见。</p>
     <p>语文课上有人电子设备响铃，大课间班主任占用20分钟查明真相。</p>
-    <p>林奕扬吃腰带（并表演杂技）、矿泉水瓶封圈。</p>
+    <p data-f="1">林奕扬吃腰带（并表演杂技）、矿泉水瓶封圈。</p>
 </div>
 <div>
     <time>9</time>
     <p>地理老师将“学委”说成“zhe&#769;委”。</p>
     <p>郑诗语先后和蒲林豪（要单打独斗）和郑致辰（被其他人坑）上台答政治题。</p>
     <p>语文课代表把“从百草园到三味书屋”称为“三只松鼠”。</p>
-    <p>蒲林豪将腿蜷缩到衣服里面，被调侃“巨乳”“怀孕”。</p>
+    <p data-f="2">蒲林豪将腿蜷缩到衣服里面，被调侃“巨乳”“怀孕”。</p>
     <p>语文课上林奕扬用餐巾纸做“榴莲千层”（即把餐巾纸叠起来并在纸张间留出空隙）。</p>
 </div>
 <div>
     <time>10</time>
     <p>数学课件中出现“绿化队今年植树约2棵”、“某区在校中学生约75人”。</p>
-    <p>美术老师被人称“跟地理老师一样是超雄……”。</p>
+    <p data-f="2">美术老师被人称“跟地理老师一样是超雄……”。</p>
     <p>美术课前三分钟，郑致辰：“美术课代表上来领读！”</p>
-    <p>美术老师语录：</p><ul class="mt"><li>有点变态。</li><li>看（女生）够了没？</li><li>你也得了这个后视症啊！</li><li>他的眼睛看上去充满了期待。</li><li>（林奕扬画画难看）我看你不是做完了，你是人完了！</li><li>我还以为你右边（女生）看腻了，开始看后面。</li><li>要是你们家婴儿哭的话，把这张作业（狮子）拿出来，立马就不哭了，还能避邪啊！</li><li>（林奕扬）不要创造新物种。</li></ul>
+    <p>美术老师语录：</p><ul class="mt"><li data-f="1">有点变态。</li><li data-f="1">看（女生）够了没？</li><li>你也得了这个后视症啊！</li><li>他的眼睛看上去充满了期待。</li><li>（林奕扬画画难看）我看你不是做完了，你是人完了！</li><li data-f="1">我还以为你右边（女生）看腻了，开始看后面。</li><li>要是你们家婴儿哭的话，把这张作业（狮子）拿出来，立马就不哭了，还能避邪啊！</li><li>（林奕扬）不要创造新物种。</li></ul>
     <p>大课间被人告知要跑操，出去后发现只有初三要跑。</p>
     <p>林奕扬把“华威菜多多”保温箱上的密封条撕下来（创造9班撕密封条先例），发现“么么脆鸡排”。</p>
-    <p>体育课上蒲林豪称自己很虚，要报跆拳道。</p>
+    <p data-f="1">体育课上蒲林豪称自己很虚，要报跆拳道。</p>
 </div>
 <div>
     <time>11</time>
     <p>背《从百草园到三味书屋》时，学生：“……肥胖的黄丰（黄蜂）泽伏在蔡华（菜花）楷上……”</p>
-    <p>林奕扬把纸涂黑贴到牙齿上。</p>
-    <p>蒲林豪午休时第三次流口水并拉丝，学生将黑笔放到他的嘴下面、将红笔放在他耳朵上后惊醒蒲林豪。</p>
+    <p data-f="1">林奕扬把纸涂黑贴到牙齿上。</p>
+    <p data-f="1">蒲林豪午休时第三次流口水并拉丝，学生将黑笔放到他的嘴下面、将红笔放在他耳朵上后惊醒蒲林豪。</p>
 </div>
 <div>
     <time>12</time>
     <p>下课后刘老师检查未预习的人的记作业本，发现未抄后每人打5下左右。随后让全班回教室统一检查记作业本并不允许第三节下课。</p>
-    <p>午休时林奕扬让人绑自己手，体育老师发现后没收带子。林奕扬就开始转圈，转完后倒地。后又从体育老师身后偷偷爬过去拿那条带子被打屁股、扣2分。</p>
+    <p data-f="1">午休时林奕扬让人绑自己手，体育老师发现后没收带子。林奕扬就开始转圈，转完后倒地。后又从体育老师身后偷偷爬过去拿那条带子被打屁股、扣2分。</p>
     <p>午托时学生争吵背历史还是地理，林奕扬到办公室询问刘老师“今天背什么”，刘老师回答今天作业要背的单词，林奕扬回班相告，学生开始背英语，背了半个中午，刘老师进班时才发现背错了。</p>
     <p>蒲林豪坐讲台被称“葡萄老师”。</p>
     <p>叶弘毅打篮球时指甲断掉。</p>
-    <p>蒲林豪饭粒粘在脸上被笑。</p>
-    <p>音乐课有人问“送葬的是什么花”。</p>
-    <p>体育课蒲林豪躺在跑道上，并将小学校服绑在腿上（辣眼睛）。</p>
+    <p data-f="1">蒲林豪饭粒粘在脸上被笑。</p>
+    <p data-f="1">音乐课有人问“送葬的是什么花”。</p>
+    <p data-f="1">体育课蒲林豪躺在跑道上，并将小学校服绑在腿上（辣眼睛）。</p>
     <p>劳技老师课上教物理、历史知识，学生表示想学“水仙”。</p>
-    <p>体锻课时段长音响回音明显，非常滑稽，学生都在笑。</p>
+    <p data-f="1">体锻课时段长音响回音明显，非常滑稽，学生都在笑。</p>
 </div>
 <div>
     <time>14</time>
     <p>国旗下讲话主题为《食品安全》，学生：“国旗下讲话说是食品安全，但句句都在讲自己的午餐。”</p>
-    <p>林奕扬裤子破。</p>
-    <p>薛阅晨对体育老师说：“我去找下体育老师。”然后又说：“没找到体育老师。”</p>
-    <p>薛阅晨：“体育老师看美女！”</p>
+    <p data-f="1">林奕扬裤子破。</p>
+    <p data-f="1">薛阅晨对体育老师说：“我去找下体育老师。”然后又说：“没找到体育老师。”</p>
+    <p data-f="1">薛阅晨：“体育老师看美女！”</p>
 </div>
 <div>
     <time>15</time>
-    <p>英语课谈到记忆“+es”的方法，唐家祺：“我知道一个记忆方法：‘傻叉吃屎’。”</p>
+    <p data-f="1">英语课谈到记忆“+es”的方法，唐家祺：“我知道一个记忆方法：‘傻叉吃屎’。”</p>
     <p>刘老师：“唐家祺找不到女朋友。”</p>
     <p>刘老师说自己（以前）跳绳so easy，自己可以跳1000下；跳远可以跳2米；三级跳运动会第一；跑步满分。还说同学们“太菜了”以及自己数理化英最好。</p>
-    <p>生物课，学生看人体八大系统视频时出现生殖系统（起哄、笑），看完后，师：“……男生猥琐地笑，女生不好意思地笑……我们下学期学生殖系统……”并开始说学生殖系统那些事。下课后，郑致辰：“黄恩亚的必修课？”薛阅晨：“七年级下册的生物！”</p>
-    <p>林奕扬午休时照（刘天馨的）镜子。</p>
+    <p data-f="3">生物课，学生看人体八大系统视频时出现生殖系统（起哄、笑），看完后，师：“……男生猥琐地笑，女生不好意思地笑……我们下学期学生殖系统……”并开始说学生殖系统那些事。下课后，郑致辰：“黄恩亚的必修课？”薛阅晨：“七年级下册的生物！”</p>
+    <p data-f="1">林奕扬午休时照（刘天馨的）镜子。</p>
 </div>
 <div>
     <time>16</time>
     <p>地理老师：“李仁槿。”学生：“季仁槿！”师：“李仁什么？”学生：“季仁槿。”师：“什么槿……”</p>
-    <p>地理老师对蒲林豪说：“福州有一个精神病院，专治精神科。”</p>
-    <p>古诗学到“不知何处吹芦管”时，学生：“黄恩亚专场！”黄恩亚红温。</p>
+    <p data-f="1">地理老师对蒲林豪说：“福州有一个精神病院，专治精神科。”</p>
+    <p data-f="3">古诗学到“不知何处吹芦管”时，学生：“黄恩亚专场！”黄恩亚红温。</p>
     <p>政治老师问如何交朋友。林芷琪：“要说‘Nice to meet you.’”薛阅晨：“如果跟不务正业的精神小伙……”</p>
     <p>华威菜多多公司派人询问午餐情况，学生让关闭录像后疯狂吐槽饭菜，更是说“想吃帝王蟹、鲍鱼、海鲜”等。</p>
 </div>
 <div>
     <time>17</time>
     <p>美术课，临近下课时陈睿卓、林承钰被罚蹲，原因疑似乱画，后画被撕掉。下课后，同学们在讲台上“拼图”，拼完后发现画中有蜜蜂、鲨鱼、驴、蜘蛛以及两匹马（马嘉祺、马驾）。</p>
-    <p>蒲林豪耍“杂技（腿架脖子上）”时一体育老师路过并顺手拍照。</p>
-    <p>林奕扬用英语小测大象叫。</p>
+    <p data-f="1">蒲林豪耍“杂技（腿架脖子上）”时一体育老师路过并顺手拍照。</p>
+    <p data-f="1">林奕扬用英语小测大象叫。</p>
     <p>蒲林豪：“骨折不痛。”</p>
-    <p>陈子岩称：自己10月要开演唱会，门票10亿元；自己要去西伯利亚挖土豆、去亚马逊雨林荒野求生。学生：“震惊！陈子岩进男厕所”；“陈子岩私生活紊乱”；“陈子岩粉丝全是黑粉”。</p>
+    <p data-f="1">陈子岩称：自己10月要开演唱会，门票10亿元；自己要去西伯利亚挖土豆、去亚马逊雨林荒野求生。学生：“震惊！陈子岩进男厕所”；“陈子岩私生活紊乱”；“陈子岩粉丝全是黑粉”。</p>
     <p>刘老师进行思想教育时蚊子在屏幕上飞来飞去并点开文件夹等窗口。</p>
 </div>
 <div>
     <time>18</time>
-    
     <p>刘老师：“那就短的长袖……”“林奕扬形象不太好……”</p>
     <p>最后一节课语文老师不来上课，刘老师让背历史（且必须在放学前背完），结果放学后几乎全班留下（要么背诵没过、要么小测没过、要么值日）。</p>
-    <p>蒲林豪第四次流口水，起身时口水拉（很长的）丝。</p>
+    <p data-f="1">蒲林豪第四次流口水，起身时口水拉（很长的）丝。</p>
     <p>地理老师让蒲林豪回答问题，蒲林豪起立后，地理老师：“他是从梁山来的，一般梁山的人都不敢问……”</p>
     <p>地理老师请女生回答问题，问：“刘天馨是女生还是林奕扬是女生？”</p>
     <p>陈子岩的“演唱会门票”被历史老师发现。</p>
@@ -1168,29 +1170,26 @@ setInterval(rotateText,1000);
 </div>
 <div>
     <time>22</time>
-    
     <p>评比组老师巡视布置情况时把写着“仁槿（人机）公主”的热搜榜拍照。</p>
     <p>学校中午放《奢香夫人》引发关注。</p>
 </div>
 <div>
     <time>23</time>
-    
     <p>地理老师将“蒲林豪”叫成“蒋林豪”、将“季仁槿”叫成“李仁槿”、将“徐嘉明”叫成“徐嘉石”。</p>
     <p>地理老师看完林奕扬的作业后说：“……以后你妈妈要参加重大活动，让你化妆……把阎王吓傻了……”对郑炜：“你长得太‘帅’了！……”对蒲林豪：“你个傻逼……”</p>
     <p>地理老师：“‘啊’你个毛线虫（球）！”</p>
 </div>
 <div>
     <time>24</time>
-    
     <p>林奕扬上演“皇帝的新本”，交上去的周记没有一个字。</p>
     <p>语文老师检查《朝花夕拾》原著，郑致辰把开学时发的“四十中日常行为规范”封面改成“朝花夕拾”。</p>
     <p>刘老师：“这么热还开什么风扇？”</p>
-    <p>蒲林豪汤泡饭并把擦过鼻涕的纸塞进汤里。</p>
+    <p data-f="1">蒲林豪汤泡饭并把擦过鼻涕的纸塞进汤里。</p>
     <p>别班喝的海带汤里的海带中出现虫卵，汤杯放在水池边引发大量学生关注，相当一部分人说以后再也不喝海带汤。</p>
     <p>午休时刘老师在外面弄小测，蒲林豪、林梓颢、郑致辰、林奕扬“喵喵喵”，被刘老师叫去办公室罚站、打手。林芷琪在午休时跳舞却逃过一劫。</p>
     <p>王淮：“蔡华楷，你欠黄丰揍了是吧！”</p>
-    <p>美术老师语录：</p><ul class="mt"><li>这么骚包！</li><li>（对叶弘毅）看一个男生那么激动，你也是男的，公的！</li><li>（对林奕扬）这是人类的作业吗？</li><li>你还好这口啊！</li></ul>
-    <p>美术老师：“操作（zuo&#772;）”“尺（chi&#772;）子”“装饰（shi&#772;）”“青苔（ta&#772;i）”</p>
+    <p>美术老师语录：</p><ul class="mt"><li data-f="1">这么骚包！</li><li data-f="1">（对叶弘毅）看一个男生那么激动，你也是男的，公的！</li><li>（对林奕扬）这是人类的作业吗？</li><li data-f="1">你还好这口啊！</li></ul>
+    <p data-f="1">美术老师：“操作（zuo&#772;）”“尺（chi&#772;）子”“装饰（shi&#772;）”“青苔（ta&#772;i）”</p>
     </div>
 <div>
     <time>25</time>
@@ -1201,32 +1200,32 @@ setInterval(rotateText,1000);
 <div>
     <time>26</time>
     <p>抽背地理，蒲林豪拿历史书。</p>
-    <p>薛阅晨对体育老师手机说：“小艺小艺！”</p>
+    <p data-f="1">薛阅晨对体育老师手机说：“小艺小艺！”</p>
     <p>午休时陆梓豪将牛奶挤到后面桌上（受害人：郑熠菲、郭沁诗、林芷琪）。</p>
     <p>蚊子又在屏幕上点击（点开展台、IE）。</p>
 </div>
 <div>
     <time>29</time>
-    <p>黄恩亚对刘老师说自己肾不好。</p>
+    <p data-f="2">黄恩亚对刘老师说自己肾不好。</p>
     <p>谈论抽奖/抽罚内容时，唐家祺：“我要吃小零食的相反数！”刘老师：“就是唐家祺买零食。”</p>
     <p>刘老师：“我还是运动细胞非常发达的。”</p>
 </div>
 <div>
     <time>30</time>
     <p>数学老师打开课件时播放音乐。</p>
-    <p>语文老师被车撞，手臂需手术。其他老师代课。</p>
+    <p data-f="1">语文老师被车撞，手臂需手术。其他老师代课。</p>
     <p>上课时地理老师接到一个广告电话。</p>
     <p>地理老师将红色（巨）点叫做“红色的一坨”“黄色的一坨”。</p>
-    <p>林奕扬讲话时流口水。</p>
+    <p data-f="1">林奕扬讲话时流口水。</p>
 </div>
 <div>
     <time>31</time>
-    <p>叶弘毅在教室门上玩单杠。</p>
+    <p data-f="2">叶弘毅在教室门上玩单杠。</p>
     <p>因台风原因，来学校时没电。倪浩宇称刘老师打电话叫电工修电，不一会儿电力恢复。</p>
-    <p>刮台风时崔宇臣从窗台抓到神秘生物（蜻蜓）。</p>
+    <p data-f="1">刮台风时崔宇臣从窗台抓到神秘生物（蜻蜓）。</p>
     <p>学生争论蔡华楷课上是否讲话。</p>
-    <p>美术老师语录：</p><ul class="mt"><li>男生怎么有中国大妈的特色？</li><li>什么功夫这么高深啊！</li><li>我还以为你喝多了！</li><li>我以为你死了！</li></ul>
-    <p>林奕扬画乱涂乱画，称“这个是梵高的画……”</p>
+    <p>美术老师语录：</p><ul class="mt"><li>男生怎么有中国大妈的特色？</li><li>什么功夫这么高深啊！</li><li>我还以为你喝多了！</li><li data-f="1">我以为你死了！</li></ul>
+    <p>林奕扬画乱涂乱画，称：“这个是梵高的画……”</p>
 </div>
  <h1 id="event-d2411">2024年11月</h1>
 <div>
