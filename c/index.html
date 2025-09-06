@@ -89,10 +89,33 @@ bug:
             --settingbg:#ffffff11;
             --radiobg:#ffffff55;
             --gallerybg:#806699;
-        }/*
+        }
         body[data-mode="brief-blue"]{
-            background:#fff;
-            color:#000;
+            background:#06f;
+            color:#fff;
+            --a:#ff6;
+            --ah:#ff0;
+            --hr:#cff;
+            --selection:#ccffff88;
+            --shadow:#00999988;
+            --article:#09f;
+            --q:#d580ff;
+            --quot:#f39;
+            --loaderbg:#e6ffff;
+            --loadercolor:#39f;
+            --startflashing:#4285f4;
+            --endflashing:#87f2f8;
+            --nav-bg:#ccffffaa;
+            --nav-btn:#36c;
+            --dialogbg:#9cf;
+            --settingbg:#3399ff11;
+            --radiobg:#3399ff55;
+            --gallerybg:#09c;
+            --blockquote:#8019b6;
+        }
+        body[data-mode="brief-pink"]{
+            background:#e619e6;
+            color:#fff;
             --a:;
             --ah:;
             --hr:;
@@ -112,28 +135,6 @@ bug:
             --radiobg:;
             --gallerybg:;
         }
-        body[data-mode="brief-pink"]{
-            background:#fff;
-            color:#000;
-            --a:;
-            --ah:;
-            --hr:;
-            --selection:;
-            --shadow:;
-            --article:;
-            --q:;
-            --quot:;
-            --loaderbg:;
-            --loadercolor:;
-            --startflashing:;
-            --endflashing:;
-            --nav-bg:;
-            --nav-btn:;
-            --dialogbg:;
-            --settingbg:;
-            --radiobg:;
-            --gallerybg:;
-        }*/
         body[data-mode="brief-light-blue"]{
             background:#e6ffff;
             color:#001a1a;
@@ -477,25 +478,15 @@ bug:
             --radius-8x:8px;
             --radius-9x:9px;
             --radius-10x:10px;
-            --radius-11x:11px;
-            --radius-12x:12px;
-            --radius-13x:13px;
-            --radius-14x:14px;
-            --radius-15x:15px;
-            --radius-16x:16px;
-            --radius-17x:17px;
-            --radius-18x:18px;
-            --radius-19x:19px;
-            --radius-20x:20px;
         }
         body[data-font-size="large"]{font-size:112.5%;}
         body[data-font-size="normal"]{font-size:100%;}
         body[data-font-size="small"]{font-size:87.5%;}
         body[data-line-spacing="loose"] p,body[data-line-spacing="loose"] li{line-height:1.7em;letter-spacing:0.15em;}
-        body[data-line-spacing="tight"] p,body[data-line-spacing="tight"] li{line-height:1.3em;letter-spacing:0.05em;}
+        body[data-line-spacing="tight"] p,body[data-line-spacing="tight"] li{line-height:initial;letter-spacing:initial;}
         body[data-font-weight="thin"]{font-weight:200;}
-        body[data-font-weight="normal"]{font-weight:400;}
-        body[data-font-weight="bold"]{font-weight:600;}
+        body[data-font-weight="normal"]{font-weight:normal;}
+        body[data-font-weight="bold"]{font-weight:bold;}
         /*缩小/放大窗口*/
         #bigger,#smaller{display:none;justify-content:center;align-items:center;color:var(--loadercolor);padding:20px 5px;text-align:center;width:100ddvw;height:100dvh;top:0;left:0;backdrop-filter:blur(20px);}
         #bigger{font-size:5rem;}
@@ -708,8 +699,11 @@ bug:
                 >ul{
                     margin:3px 3px 3px 13px;padding:5px;background:#ffffff44;border-radius:var(--radius-6x);
                     >li{
-                        text-indent:2em;list-style-type:none;
-                        &::before{position:relative;content:"●";color:#00000088;margin-right:5px;}
+                        text-indent:2em;
+                        >ul{
+                            margin:3px 3px 3px 13px;padding:5px;background:#ffffff44;border-radius:var(--radius-5x);
+                            >li{text-indent:1em;}
+                        }
                     }
                 }
                 &.sp1{
@@ -809,10 +803,9 @@ setInterval(rotateText,1000);
                     <label><input type="radio" name="theme" value="brief-timeline" onclick="changeTheme('brief-timeline')">时间线</label>
                     <h3 style="flex-basis:100%;margin:5px;text-align:center;">简洁</h3>
                     <label><input type="radio" name="theme" value="brief-light" onclick="changeTheme('brief-light')">浅</label>
-                    <label><input type="radio" name="theme" value="brief-dark" onclick="changeTheme('brief-dark')">深</label><!--
+                    <label><input type="radio" name="theme" value="brief-dark" onclick="changeTheme('brief-dark')">深</label>
                     <label><input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-pink')">粉</label>
                     <label><input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-blue')">蓝</label>
-                    -->
                     <label><input type="radio" name="theme" value="brief-light-blue" onclick="changeTheme('brief-light-blue')">浅蓝</label>
                     <label><input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-dark-blue')">深蓝</label>
                     <h3 style="flex-basis:100%;margin:5px;text-align:center;">氛围</h3>
