@@ -314,7 +314,6 @@ bug:
             --gallerybg:var(--timeline-gallerybg);
         }
         body[data-mode^="atmosphere"]{background-position:50% 50%;background-repeat:no-repeat;background-size:cover;background-attachment:fixed;}
-        body[data-mode^="atmosphere"][data-fullscreen="no"] #content>div{max-width:900px;margin:auto;width:calc(100dvw - 20px);height:calc(100dvh - 20px);backdrop-filter:blur(var(--blur-amount));border-radius:var(--radius-8x);position:fixed;top:10px;left:calc((100dvw - clamp(300px,calc(100dvw - 20px),900px)) / 2)}
         body[data-mode^="atmosphere-dark"] #content>div,body[data-mode^="atmosphere-dark"] #content dialog{color:#fff;}
         body[data-mode^="atmosphere-light"] #content>div{background:#ffffff55;}
         body[data-mode^="atmosphere-dark"] #content>div{background:#00000066;}
@@ -430,8 +429,7 @@ bug:
             --settingbg:#ffffff11;
             --radiobg:#ffffff55;
         }
-        
-        body[data-shadow="subtle"]{
+        body[data-s="subtle"]{
             --shadow-so-x:0 0 5px var(--shadow);
             --shadow-so-2x:0 0 10px var(--shadow);
             --shadow-so-3x:0 0 25px var(--shadow);
@@ -454,8 +452,8 @@ bug:
             --shadow-hd-2x:0 10px 10px var(--shadow);
             --shadow-hd-3x:0 15px 15px var(--shadow);
         }
-        body[data-shadow="none"]{--shadow-x:0;}
-        body[data-radius="large"]{
+        body[data-s="none"]{--shadow-x:0;}
+        body[data-r="large"]{
             --radius-x:2.5px;
             --radius-2x:5px;
             --radius-3x:7.5px;
@@ -467,7 +465,7 @@ bug:
             --radius-9x:22.5px;
             --radius-10x:25px;
         }
-        body[data-radius="small"]{
+        body[data-r="small"]{
             --radius-x:1px;
             --radius-2x:2px;
             --radius-3x:3px;
@@ -479,14 +477,38 @@ bug:
             --radius-9x:9px;
             --radius-10x:10px;
         }
-        body[data-font-size="large"]{font-size:112.5%;}
-        body[data-font-size="normal"]{font-size:100%;}
-        body[data-font-size="small"]{font-size:87.5%;}
-        body[data-line-spacing="loose"] p,body[data-line-spacing="loose"] li{line-height:1.7em;letter-spacing:0.15em;}
-        body[data-line-spacing="tight"] p,body[data-line-spacing="tight"] li{line-height:initial;letter-spacing:initial;}
-        body[data-font-weight="thin"]{font-weight:200;}
-        body[data-font-weight="normal"]{font-weight:normal;}
-        body[data-font-weight="bold"]{font-weight:bold;}
+        body[data-fs="large"]{font-size:112.5%;}
+        body[data-fs="normal"]{font-size:100%;}
+        body[data-fs="small"]{font-size:87.5%;}
+        body[data-ls="loose"] p,body[data-ls="loose"] li{line-height:1.7em;letter-spacing:0.15em;}
+        body[data-ls="tight"] p,body[data-ls="tight"] li{line-height:initial;letter-spacing:initial;}
+        body[data-fw="thin"]{font-weight:200;}
+        body[data-fw="normal"]{font-weight:normal;}
+        body[data-fw="bold"]{font-weight:bold;}
+        body[data-b^="0px"] #content>div{backdrop-filter:blur(0px);}
+        body[data-b^="5px"] #content>div{backdrop-filter:blur(5px);}
+        body[data-b^="10px"] #content>div{backdrop-filter:blur(10px);}
+        body[data-mode^="atmosphere"][data-f="no"] #content>div{max-width:900px;margin:auto;width:calc(100dvw - 20px);height:calc(100dvh - 20px);border-radius:var(--radius-8x);position:fixed;top:10px;left:calc((100dvw - clamp(300px,calc(100dvw - 20px),900px)) / 2)}
+        body[data-mode^="atmosphere"][data-f="yes"] #content>div{}
+        body[data-mode^="atmosphere"][data-f="no"] #content nav{top:15px;left:calc((100dvw - clamp(290px,calc(100dvw - 30px),890px)) / 2);width:calc(100dvw - 30px);max-width:890px;}
+        body[data-mode^="atmosphere"][data-f="yes"] #content nav{width:100dvw;left:0;top:0;border-radius:0;
+            >div:nth-of-type(3){border-radius:0;}
+            &:before{border-radius:0;}}
+        body[data-mode^="brief"][data-nm="no"] nav{
+            width:100dvw;left:0;top:0;border-radius:0;
+            >div:nth-of-type(3){border-radius:0;}
+            &:before{border-radius:0;}
+        }
+        body[data-mode^="brief"][data-nm="yes"] nav{
+            top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc(100dvw - clamp(2px,1dvw,10px) * 2);
+        }
+        body[data-na="left"] nav>div:first-child{justify-content:flex-start;}
+        body[data-na="center"] nav>div:first-child{justify-content:space-around;}
+        body[data-na="right"] nav>div:first-child{justify-content:flex-end;}
+        body[data-cf="1"] *[data-tf="1"]{display:none;}
+        body[data-cf="2"] *[data-tf="1"],body[data-cf="2"] *[data-tf="2"]{display:none;}
+        body[data-cf="3"] *[data-tf]{display:none;}
+        
         /*缩小/放大窗口*/
         #bigger,#smaller{display:none;justify-content:center;align-items:center;color:var(--loadercolor);padding:20px 5px;text-align:center;width:100ddvw;height:100dvh;top:0;left:0;backdrop-filter:blur(20px);}
         #bigger{font-size:5rem;}
@@ -520,14 +542,8 @@ bug:
         @keyframes dotFlashing{0%{background-color:var(--startflashing);transform:scale(1);}50%,100%{background-color:var(--endflashing);transform:scale(0.8);}}
         /*页面*/
         /*导航栏*/
-        nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc(100dvw - clamp(2px,1dvw,10px) * 2);background:var(--nav-bg);padding:2.5px;border-radius:var(--radius-8x);backdrop-filter:blur(20px);z-index:1;box-shadow:var(--shadow-so-5x);user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}
+        nav{position:fixed;background:var(--nav-bg);padding:2.5px;border-radius:var(--radius-8x);backdrop-filter:blur(20px);z-index:1;box-shadow:var(--shadow-so-5x);user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}
         nav::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right,var(--nav-btn) var(--scroll-progress,0%),transparent 0);opacity:0.1;pointer-events:none;z-index:-1;border-radius:var(--radius-8x);height:40px;}
-        body[data-mode^="atmosphere"][data-fullscreen="no"] #content nav{top:15px;left:calc((100dvw - clamp(290px,calc(100dvw - 30px),890px)) / 2);width:calc(100dvw - 30px);max-width:890px;}
-        body[data-mode^="brief"][data-nav-margin="no"] nav{
-            width:100dvw;left:0;top:0;border-radius:0;
-            >div:nth-of-type(3){border-radius:0;}
-            &:before{border-radius:0;}
-        }
         nav>div:first-child{
             display:flex;
             >button{transition:background 0.3s ease;width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;border-radius:var(--radius-8x);margin:0 2.5px;
@@ -535,9 +551,6 @@ bug:
             >i{color:var(--nav-btn);}
             }
         }
-        body[data-align="left"] nav>div:first-child{justify-content:flex-start;}
-        body[data-align="center"] nav>div:first-child{justify-content:space-around;}
-        body[data-align="right"] nav>div:first-child{justify-content:flex-end;}
         #mainNavButton{
             transition:width 0.3s ease,opacity 0.3s ease,margin 0.3s ease,opacity 0.3s ease;opacity:1;
             &[style*="display:none"]{display:inline-block!important;width:0;opacity:0;pointer-events:none;}
@@ -738,7 +751,7 @@ bug:
 
     </style>
 </head>
-<body onload="loading()" data-mode="system" data-shadow="subtle" data-radius="large" data-font-size="normal" data-line-spacing="loose" data-font-weight="normal" data-nav-margin="no" data-align="left">
+<body onload="loading()" data-mode="system" data-s="subtle" data-r="large" data-fs="normal" data-ls="loose" data-fw="normal" data-b="5px" data-f="no" data-nm="no" data-na="left" data-cf="3">
     <div id="passwordOverlay">
         <div id="passwordForm">
             <h2>输入密码</h2>
@@ -786,10 +799,10 @@ setInterval(rotateText,1000);
             </div>
             <div>
                 <input type="text" placeholder="搜索...">
-                <span>0</span>
+                <span>0</span><!--
                 <button onclick="" class="fa fa-clone"></button>
                 <button onclick="" class="fa fa-chevron-up"></button>
-                <button onclick="" class="fa fa-chevron-down"></button>
+                <button onclick="" class="fa fa-chevron-down"></button>-->
                 <button onclick="toggleSearch()" class="fa fa-remove"></button>
             </div>
         </nav>
@@ -833,24 +846,24 @@ setInterval(rotateText,1000);
                     <div>
                         <p>字号</p>
                         <label>
-                            <input type="radio" name="fontsize" value="small" onclick="changeFontSize('small')" style="--input-content:'小';">
-                            <input type="radio" name="fontsize" value="normal" onclick="changeFontSize('normal')" style="--input-content:'中';">
-                            <input type="radio" name="fontsize" value="large" onclick="changeFontSize('large')" style="--input-content:'大';">
+                            <input type="radio" name="fs" value="small" onclick="changeFS('small')" style="--input-content:'小';">
+                            <input type="radio" name="fs" value="normal" onclick="changeFS('normal')" style="--input-content:'中';">
+                            <input type="radio" name="fs" value="large" onclick="changeFS('large')" style="--input-content:'大';">
                         </label>
                     </div>
                     <div>
                         <p>行距/字距</p>
                         <label>
-                            <input type="radio" name="linespacing" value="tight" onclick="changeLineSpacing('tight')" style="--input-content:'小';">
-                            <input type="radio" name="linespacing" value="loose" onclick="changeLineSpacing('loose')" style="--input-content:'大';">
+                            <input type="radio" name="ls" value="tight" onclick="changeLS('tight')" style="--input-content:'小';">
+                            <input type="radio" name="ls" value="loose" onclick="changeLS('loose')" style="--input-content:'大';">
                         </label>
                     </div>
                     <div>
                         <p>字重</p>
                         <label>
-                            <input type="radio" name="fontweight" value="thin" onclick="changeFontWeight('thin')" style="--input-content:'细';">
-                            <input type="radio" name="fontweight" value="normal" onclick="changeFontWeight('normal')" style="--input-content:'中';">
-                            <input type="radio" name="fontweight" value="bold" onclick="changeFontWeight('bold')" style="--input-content:'粗';">
+                            <input type="radio" name="fw" value="thin" onclick="changeFW('thin')" style="--input-content:'细';">
+                            <input type="radio" name="fw" value="normal" onclick="changeFW('normal')" style="--input-content:'中';">
+                            <input type="radio" name="fw" value="bold" onclick="changeFW('bold')" style="--input-content:'粗';">
                         </label>
                     </div>
                 </section>
@@ -859,30 +872,30 @@ setInterval(rotateText,1000);
                     <div>
                         <p>圆角</p>
                         <label>
-                            <input type="radio" name="radius" value="small" onclick="changeRadius('small')" style="--input-content:'小';">
-                            <input type="radio" name="radius" value="large" onclick="changeRadius('large')" style="--input-content:'大';">
+                            <input type="radio" name="r" value="small" onclick="changeR('small')" style="--input-content:'小';">
+                            <input type="radio" name="r" value="large" onclick="changeR('large')" style="--input-content:'大';">
                         </label>
                     </div>
                     <div>
                         <p>阴影</p>
                         <label>
-                            <input type="radio" name="shadow" value="subtle" onclick="changeShadow('subtle')" style="--input-content:'有';">
-                            <input type="radio" name="shadow" value="none" onclick="changeShadow('none')" style="--input-content:'无';">
+                            <input type="radio" name="s" value="subtle" onclick="changeS('subtle')" style="--input-content:'有';">
+                            <input type="radio" name="s" value="none" onclick="changeS('none')" style="--input-content:'无';">
                         </label>
                     </div>
                     <div class="atmosphere-settings">
                         <p>遮罩模糊度</p>
                         <label>
-                            <input type="radio" name="blur" value="0" onclick="changeBlurAmount(0)" style="--input-content:'无';">
-                            <input type="radio" name="blur" value="5" onclick="changeBlurAmount(5)" style="--input-content:'中';">
-                            <input type="radio" name="blur" value="10" onclick="changeBlurAmount(10)" style="--input-content:'强';">
+                            <input type="radio" name="b" value="0px" onclick="changeB('0px')" style="--input-content:'无';">
+                            <input type="radio" name="b" value="5px" onclick="changeB('5px')" style="--input-content:'中';">
+                            <input type="radio" name="b" value="10px" onclick="changeB('10px')" style="--input-content:'强';">
                         </label>
                     </div>
                     <div class="atmosphere-settings">
                         <p>全屏显示</p>
                         <label>
-                            <input type="radio" name="fullscreen" value="yes" onclick="changeFullscreenMode('yes')" style="--input-content:'是';">
-                            <input type="radio" name="fullscreen" value="no" onclick="changeFullscreenMode('no')" style="--input-content:'否';">
+                            <input type="radio" name="f" value="yes" onclick="changeF('yes')" style="--input-content:'是';">
+                            <input type="radio" name="f" value="no" onclick="changeF('no')" style="--input-content:'否';">
                         </label>
                     </div>
                 </section>
@@ -891,37 +904,28 @@ setInterval(rotateText,1000);
                     <div class="brief-settings">
                         <p>边距</p>
                         <label>
-                            <input type="radio" name="navmargin" value="yes" onclick="changeNavMargin('yes')" style="--input-content:'有';">
-                            <input type="radio" name="navmargin" value="no" onclick="changeNavMargin('no')" style="--input-content:'无';">
+                            <input type="radio" name="nm" value="yes" onclick="changeNM('yes')" style="--input-content:'有';">
+                            <input type="radio" name="nm" value="no" onclick="changeNM('no')" style="--input-content:'无';">
                         </label>
                     </div>
                     <div>
                         <p>项目对齐</p>
                         <label>
-                            <input type="radio" name="navalign" value="left" onclick="changeNavAlign('left')" style="--input-content:'左';">
-                            <input type="radio" name="navalign" value="center" onclick="changeNavAlign('center')" style="--input-content:'中';">
-                            <input type="radio" name="navalign" value="right" onclick="changeNavAlign('right')" style="--input-content:'右';">
+                            <input type="radio" name="na" value="left" onclick="changeNA('left')" style="--input-content:'左';">
+                            <input type="radio" name="na" value="center" onclick="changeNA('center')" style="--input-content:'中';">
+                            <input type="radio" name="na" value="right" onclick="changeNA('right')" style="--input-content:'右';">
                         </label>
-                    </div>
-                    <div>
-                        <p>显示项目</p>
-                        <label><input type="checkbox" name="navitems" value="home" checked disabled onclick="toggleNavItem('home')">回首页</label>
-                        <label><input type="checkbox" name="navitems" value="top" checked onclick="toggleNavItem('top')">回顶部</label>
-                        <label><input type="checkbox" name="navitems" value="bottom" checked onclick="toggleNavItem('bottom')">回底部</label>
-                        <label><input type="checkbox" name="navitems" value="settings" checked disabled onclick="toggleNavItem('settings')">设置</label>
-                        <label><input type="checkbox" name="navitems" value="menu" checked disabled onclick="toggleNavItem('menu')">菜单</label>
-                        <label><input type="checkbox" name="navitems" value="search" checked onclick="toggleNavItem('search')">搜索</label>
                     </div>
                 </section>
                 <section>
                     <h2>正文</h2>
                     <div>
-                        <p>过滤敏感内容等级</p>
+                        <p>内容过滤</p>
                         <label>
-                           <input type="radio" name="contentfilter" value="0" onclick="changeContentFilter('0')" style="--input-content:'无';">
-                            <input type="radio" name="contentfilter" value="1" onclick="changeContentFilter('1')" style="--input-content:'一';">
-                            <input type="radio" name="contentfilter" value="2" onclick="changeContentFilter('2')" style="--input-content:'二';">
-                            <input type="radio" name="contentfilter" value="3" onclick="changeContentFilter('3')" style="--input-content:'三';">
+                           <input type="radio" name="cf" value="0" onclick="changeCF('0')" style="--input-content:'无';">
+                            <input type="radio" name="cf" value="1" onclick="changeCF('1')" style="--input-content:'一';">
+                            <input type="radio" name="cf" value="2" onclick="changeCF('2')" style="--input-content:'二';">
+                            <input type="radio" name="cf" value="3" onclick="changeCF('3')" style="--input-content:'三';">
                         </label>
                     </div>
                 </section>
@@ -957,7 +961,7 @@ setInterval(rotateText,1000);
                 <h1>欢迎来到首页</h1>
                 <p>页面开发中，敬请期待。</p>
                 <hr/>
-                <p>这是一段测试文本。<span data-f="1">隐藏文本</span><a href="#">链接文本</a>角标<sup class="fa fa-external-link" onclick="showPage('event');document.location='#event-d2409';"></sup></p>
+                <p>这是一段测试文本。<span data-tf="1">隐藏文本</span><a href="#">链接文本</a>角标<sup class="fa fa-external-link" onclick="showPage('event');document.location='#event-d2409';"></sup></p>
             </header>
             <main><!--
                 <section>
@@ -999,10 +1003,10 @@ setInterval(rotateText,1000);
                     <time>1</time>
                     <p>文本1</p>
                     <p>文本2</p>
-                    <p data-f>隐藏文本</p>
+                    <p data-tf="1">隐藏文本</p>
                     <ul>
                         <li>无序列表项</li>
-                        <li data-f="2">隐藏无序列表项</li>
+                        <li data-tf="2">隐藏无序列表项</li>
                         <li>很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的无序列表项</li>
                     </ul>
                     <p>长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长文本</p>
@@ -1041,9 +1045,9 @@ setInterval(rotateText,1000);
                     <img src="cottage.webp"/>
                     <p>描述文本</p>
                 </div>
-                <p data-f="1">1级隐藏文本</p>
-                <p data-f="2">2级隐藏文本</p>
-                <p data-f="3">3级隐藏文本</p>
+                <p data-tf="1">1级隐藏文本</p>
+                <p data-tf="2">2级隐藏文本</p>
+                <p data-tf="3">3级隐藏文本</p>
                 <blockquote>
                     <p>长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本</p>
                     <p>长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本长引用文本</p>
@@ -1074,239 +1078,102 @@ setInterval(rotateText,1000);
         //阅读指示器
         function updateScrollProgress(){var e,o,r=document.querySelector("nav");r&&(e=document.querySelector('#content>div[style*="display: block"]'))&&(o=e.scrollHeight-e.clientHeight,r.style.setProperty("--scroll-progress",e.scrollTop/o*100+"%"))}document.querySelectorAll("#content>div").forEach(e=>{e.addEventListener("scroll",updateScrollProgress)}),window.addEventListener("DOMContentLoaded",updateScrollProgress);
         //设置
-        function changeContentFilter(level) {
-            const filteredElements = document.querySelectorAll('[data-f]');
-            filteredElements.forEach(el => {
-                const filterLevel = el.getAttribute('data-f');
-                el.style.display = (level === '0' || !filterLevel) ? '' : 
-                                 (filterLevel <= level) ? 'none' : '';
-            });
-            localStorage.setItem('contentFilter', level);
-        }
-        
-        function initContentFilter() {
-            const savedFilter = localStorage.getItem('contentFilter') || '0';
-            changeContentFilter(savedFilter);
-            updateFilterRadios();
-        }
-        
-        function updateFilterRadios() {
-            const savedFilter = localStorage.getItem('contentFilter') || '0';
-            document.querySelector(`input[name="contentfilter"][value="${savedFilter}"]`).checked = true;
-        }
-        function changeTheme(theme) {
-            const content = document.body;
-            content.removeAttribute('data-mode');
-            if (theme && theme !== 'system') {
-                content.setAttribute('data-mode', theme);
-                if (theme === 'brief-timeline') {
-                    updateTimelineTheme();
-                    setInterval(updateTimelineTheme, 60000);
-                }
-            } else if (theme === 'system') {
-                const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'brief-dark' : 'brief-light';
-                content.setAttribute('data-mode', systemTheme);
-            }
-            localStorage.setItem('selectedTheme', theme);
-            updateBlurControlVisibility();
-                }
-        function updateTimelineTheme() {
-            const now = new Date();
-            const hours = now.getHours();
-            let timePeriod;
-            if (hours >= 5 && hours < 12) {
-                timePeriod = 'morning';
-            } else if (hours >= 12 && hours < 17) {
-                timePeriod = 'afternoon';
-            } else if (hours >= 17 && hours < 20) {
-                timePeriod = 'evening';
-            } else {
-                timePeriod = 'night';
-            }
-            document.body.setAttribute('data-time-period', timePeriod);
-        }
+        function changeTheme(theme){const content=document.body;content.removeAttribute('data-mode');if(theme&&theme!=='system'){content.setAttribute('data-mode',theme);if(theme==='brief-timeline'){updateTimelineTheme();setInterval(updateTimelineTheme,60000)}}else if(theme==='system'){const systemTheme=window.matchMedia('(prefers-color-scheme: dark)').matches?'brief-dark':'brief-light';content.setAttribute('data-mode',systemTheme)}localStorage.setItem('selectedTheme',theme)}
+        function updateTimelineTheme(){const now=new Date();const hours=now.getHours();let t;if(hours>=5&&hours<12){t='morning'}else if(hours>=12&&hours<17){t='afternoon'}else if(hours>=17&&hours<20){t='evening'}else{t='night'}document.body.setAttribute('data-time-period',t)}
         updateTimelineTheme();
-        setInterval(updateTimelineTheme, 60000);
-        function updateBlurControlVisibility() {
-            const content = document.body;
-            const isAtmosphereMode = content.getAttribute('data-mode')?.startsWith('atmosphere');
-            const blurControl = document.querySelector('.atmosphere-settings');
-            if (blurControl) {
-                blurControl.style.display = isAtmosphereMode ? 'block' : 'none';
-            }
-        }
-        function initBlurAmount() {
-            const savedBlur = localStorage.getItem('blurAmount');
-            if (savedBlur) {
-                changeBlurAmount(savedBlur);
-            } else {
-                changeBlurAmount(5);
-            }
-        }
-        function changeFontSize(e){document.body.setAttribute("data-font-size",e),localStorage.setItem("selectedFontSize",e)}
-        function changeRadius(e){document.body.setAttribute("data-radius",e),localStorage.setItem("selectedRadius",e)}
-        function changeLineSpacing(e){document.body.setAttribute("data-line-spacing",e),localStorage.setItem("selectedLineSpacing",e)}
-        function changeFontWeight(e){document.body.setAttribute("data-font-weight",e),localStorage.setItem("selectedFontWeight",e)}
-        function changeShadow(e){document.body.setAttribute("data-shadow",e),localStorage.setItem("selectedShadow",e)}
-        function changeBlurAmount(e){document.documentElement.style.setProperty("--blur-amount",e+"px"),localStorage.setItem("blurAmount",e),updateBlurRadios()}
-        function updateBlurRadios(){const t=localStorage.getItem("blurAmount")||"5";document.querySelectorAll('input[name="blur"]').forEach(e=>{e.checked=e.value===t})}
-        function changeFullscreenMode(e){document.body.setAttribute("data-fullscreen",e),localStorage.setItem("fullscreenMode",e)}
-        function initFullscreenMode(){changeFullscreenMode(localStorage.getItem("fullscreenMode")||"no"),updateFullscreenRadios()}
-        function updateFullscreenRadios(){var e=localStorage.getItem("fullscreenMode")||"no";document.querySelector(`input[name="fullscreen"][value="${e}"]`).checked=!0}
-        function changeNavMargin(e){document.body.setAttribute("data-nav-margin",e),localStorage.setItem("navMargin",e)}
-        function initNavMargin(){changeNavMargin(localStorage.getItem("navMargin")||"no"),updateNavMarginRadios()}
-        function updateNavMarginRadios(){var e=localStorage.getItem("navMargin")||"no";document.querySelector(`input[name="navmargin"][value="${e}"]`).checked=!0}
-        function changeNavAlign(e){document.body.setAttribute("data-align",e),localStorage.setItem("navAlign",e)}
-        function initNavAlign(){changeNavAlign(localStorage.getItem("navAlign")||"left"),updateNavAlignRadios()}
-        function updateNavAlignRadios(){var e=localStorage.getItem("navAlign")||"left";document.querySelector(`input[name="navalign"][value="${e}"]`).checked=!0}
-        function toggleNavItem(item) {
-            const button = document.querySelector(`nav>div:first-child>button[data-navitem="${item}"]`);
-            if (!button) return;
-            const isChecked = document.querySelector(`input[name="navitems"][value="${item}"]`).checked;
-            button.style.display = isChecked ? 'inline-block' : 'none';
-            const navItems = JSON.parse(localStorage.getItem('navItems') || '{}');
-            navItems[item] = isChecked;
-            localStorage.setItem('navItems', JSON.stringify(navItems));
-        }
-        function initNavItems() {
-            const navItems = JSON.parse(localStorage.getItem('navItems') || '{}');
-            const defaults = {
-                home: true,
-                top: true,
-                bottom: true,
-                settings: true,
-                menu: true,
-                search: true
-            };
-            const settings = {...defaults, ...navItems};
-            for (const [item, isChecked] of Object.entries(settings)) {
-                const checkbox = document.querySelector(`input[name="navitems"][value="${item}"]`);
-                if (checkbox) {
-                    checkbox.checked = isChecked;
-                }
-            }
-            updateNavButtonsVisibility();
-        }
-        
-        function updateNavButtonsVisibility() {
-            const navItems = JSON.parse(localStorage.getItem('navItems') || '{}');
-            const buttons = document.querySelectorAll('nav>div:first-child>button');
-            buttons.forEach(button => {
-                const icon = button.querySelector('i');
-                if (icon) {
-                    if (icon.classList.contains('fa-home')) button.setAttribute('data-navitem', 'home');
-                    if (icon.classList.contains('fa-arrow-circle-up')) button.setAttribute('data-navitem', 'top');
-                    if (icon.classList.contains('fa-arrow-circle-down')) button.setAttribute('data-navitem', 'bottom');
-                    if (icon.classList.contains('fa-gear')) button.setAttribute('data-navitem', 'settings');
-                    if (icon.classList.contains('fa-navicon')) button.setAttribute('data-navitem', 'menu');
-                    if (icon.classList.contains('fa-search')) button.setAttribute('data-navitem', 'search');
-                }
-            });
-            for (const [item, isChecked] of Object.entries(navItems)) {
-                const button = document.querySelector(`nav>div:first-child>button[data-navitem="${item}"]`);
-                if (button) {
-                    button.style.width = isChecked ? '35px' : '0';
-                }
-            }
-        }
-        function initSettings() {
-            const savedTheme = localStorage.getItem('selectedTheme');
-            const savedFontSize = localStorage.getItem('selectedFontSize');
-            const savedRadius = localStorage.getItem('selectedRadius');
-            const savedLineSpacing = localStorage.getItem('selectedLineSpacing');
-            const savedFontWeight = localStorage.getItem('selectedFontWeight');
-            const savedShadow = localStorage.getItem('selectedShadow');
-            if (savedTheme === 'system') {const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');systemTheme.addListener(handleSystemThemeChange);handleSystemThemeChange(systemTheme);}
-            else if (savedTheme) {changeTheme(savedTheme);}
-            if (savedFontSize) changeFontSize(savedFontSize);
-            if (savedRadius) changeRadius(savedRadius);
-            if (savedLineSpacing) changeLineSpacing(savedLineSpacing);
-            if (savedFontWeight) changeFontWeight(savedFontWeight);
-            if (savedShadow) changeShadow(savedShadow);
-            updateSettingRadios();
-            const savedBlur = localStorage.getItem('blurAmount');
-            if (savedBlur) {changeBlurAmount(savedBlur);}
-            updateBlurRadios();
-            initContentFilter();
-            initFullscreenMode();
-            initNavMargin();
-            const settingDialog = document.getElementById('settingdialog');
-            settingDialog.addEventListener('click', function(e) {if (e.target === this) {this.close();}});
-            initNavAlign();
-            initNavItems();
-            updateNavButtonsVisibility();
-        }
-        window.addEventListener('DOMContentLoaded', function() {
-            showPage('home');
-            toggleSubMenu(false);
-            initSettings();
-            initBlurAmount();
-            updateBlurControlVisibility();
-            initFullscreenMode();
-            initNavAlign();
-            initNavItems();
-            updateNavButtonsVisibility();
-        });
-        function handleSystemThemeChange(e) {
-            const content = document.body;
-            const theme = e.matches ? 'brief-dark' : 'brief-light';
-            content.setAttribute('data-mode', theme);
-        }
+        setInterval(updateTimelineTheme,60000);
+        function handleSystemThemeChange(e){const content=document.body;const theme=e.matches?'brief-dark':'brief-light';content.setAttribute('data-mode',theme)}
+        function changeFS(e){document.body.setAttribute("data-fs",e),localStorage.setItem("seFS",e)}
+        function changeR(e){document.body.setAttribute("data-r",e),localStorage.setItem("seR",e)}
+        function changeLS(e){document.body.setAttribute("data-ls",e),localStorage.setItem("seLS",e)}
+        function changeFW(e){document.body.setAttribute("data-fw",e),localStorage.setItem("seFW",e)}
+        function changeS(e){document.body.setAttribute("data-s",e),localStorage.setItem("seS",e)}
+        function changeB(e){document.body.setAttribute("data-b",e),localStorage.setItem("seB",e)}
+        function changeF(e){document.body.setAttribute("data-f",e),localStorage.setItem("seF",e)}
+        function changeNM(e){document.body.setAttribute("data-nm",e),localStorage.setItem("seNM",e)}
+        function changeNA(e){document.body.setAttribute("data-na",e),localStorage.setItem("seNA",e)}
+        function changeCF(e){document.body.setAttribute("data-cf",e),localStorage.setItem("seCF",e);}
+        const savedTheme = localStorage.getItem('selectedTheme');
+        if (savedTheme === 'system') {const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');systemTheme.addListener(handleSystemThemeChange);handleSystemThemeChange(systemTheme);}
+        else if (savedTheme) {changeTheme(savedTheme);}
+        const saFS = localStorage.getItem('seFS');
+        const saR = localStorage.getItem('seR');
+        const saLS = localStorage.getItem('seLS');
+        const saFW = localStorage.getItem('seFW');
+        const saS = localStorage.getItem('seS');
+        const saB = localStorage.getItem('seB');
+        const saF = localStorage.getItem('seF');
+        const saNM = localStorage.getItem('seNM');
+        const saNA = localStorage.getItem('seNA');
+        const saCF = localStorage.getItem('seCF');
+        if (saFS) changeFS(saFS);
+        if (saR) changeR(saR);
+        if (saLS) changeLS(saLS);
+        if (saFW) changeFW(saFW);
+        if (saS) changeS(saS);
+        if (saB) changeB(saB);
+        if (saF) changeF(saF);
+        if (saNM) changeNM(saNM);
+        if (saNA) changeNA(saNA);
+        if (saCF) changeCF(saCF);
+        const settingDialog = document.getElementById('settingdialog');
+        settingDialog.addEventListener('click', function(e) {if (e.target === this) {this.close();}});
         function updateSettingRadios() {
-            const content = document.body;
             const savedTheme = localStorage.getItem('selectedTheme') || 'system';
             document.querySelector(`input[name="theme"][value="${savedTheme}"]`).checked = true;
             const currentTheme = content.getAttribute('data-mode') || 'brief-light';
             document.querySelector(`input[name="theme"][value="${currentTheme}"]`).checked = true;
-            const currentFontSize = content.getAttribute('data-font-size') || 'normal';
-            document.querySelector(`input[name="fontsize"][value="${currentFontSize}"]`).checked = true;
-            const currentRadius = content.getAttribute('data-radius') || 'large';
-            document.querySelector(`input[name="radius"][value="${currentRadius}"]`).checked = true;
-            const currentLineSpacing = content.getAttribute('data-line-spacing') || 'loose';
-            document.querySelector(`input[name="linespacing"][value="${currentLineSpacing}"]`).checked = true;
-            const currentFontWeight = content.getAttribute('data-font-weight') || 'normal';
-            document.querySelector(`input[name="fontweight"][value="${currentFontWeight}"]`).checked = true;
-            const currentShadow = content.getAttribute('data-shadow') || 'subtle';
-            document.querySelector(`input[name="shadow"][value="${currentShadow}"]`).checked = true;
+            const currentFS = content.getAttribute('data-fs') || 'normal';
+            document.querySelector(`input[name="fs"][value="${currentFS}"]`).checked = true;
+            const currentR = content.getAttribute('data-r') || 'large';
+            document.querySelector(`input[name="r"][value="${currentR}"]`).checked = true;
+            const currentLS = content.getAttribute('data-ls') || 'loose';
+            document.querySelector(`input[name="ls"][value="${currentLS}"]`).checked = true;
+            const currentFW = content.getAttribute('data-fw') || 'normal';
+            document.querySelector(`input[name="fw"][value="${currentFW}"]`).checked = true;
+            const currentS = content.getAttribute('data-s') || 'subtle';
+            document.querySelector(`input[name="s"][value="${currentS}"]`).checked = true;
+            const currentB = content.getAttribute('data-b') || '5px';
+            document.querySelector(`input[name="b"][value="${currentB}"]`).checked = true;
+            const currentF = content.getAttribute('data-f') || 'no';
+            document.querySelector(`input[name="f"][value="${currentF}"]`).checked = true;
+            const currentNM = content.getAttribute('data-nm') || 'no';
+            document.querySelector(`input[name="nm"][value="${currentNM}"]`).checked = true;
+            const currentNA = content.getAttribute('data-na') || 'left';
+            document.querySelector(`input[name="na"][value="${currentNA}"]`).checked = true;
+            const currentCF = content.getAttribute('data-cf') || '3';
+            document.querySelector(`input[name="cf"][value="${currentCF}"]`).checked = true;
         }
-        window.addEventListener('DOMContentLoaded', initSettings);
-        
+        window.addEventListener('DOMContentLoaded', function() {
+            showPage('home');
+            toggleSubMenu(false);
+            updateSettingRadios();
+        });
         function resetToDefault() {
             localStorage.removeItem('selectedTheme');
-            localStorage.removeItem('selectedFontSize');
-            localStorage.removeItem('selectedRadius');
-            localStorage.removeItem('selectedLineSpacing');
-            localStorage.removeItem('selectedFontWeight');
-            localStorage.removeItem('selectedShadow');
+            localStorage.removeItem('seFS');
+            localStorage.removeItem('seR');
+            localStorage.removeItem('seLS');
+            localStorage.removeItem('seFW');
+            localStorage.removeItem('seS');
+            localStorage.removeItem('seB');
+            localStorage.removeItem('seF');
+            localStorage.removeItem('seNM');
+            localStorage.removeItem('seNA');
+            localStorage.removeItem('seCF');
             changeTheme('system');
-            changeFontSize('normal');
-            changeRadius('large');
-            changeLineSpacing('loose');
-            changeFontWeight('normal');
-            changeShadow('subtle');
+            changeFS('normal');
+            changeR('large');
+            changeLS('loose');
+            changeFW('normal');
+            changeS('subtle');
+            changeB('5px');
+            changeF('no');
+            changeNM('no');
+            changeNA('left');
+            changeCF('3');
             updateSettingRadios();
-            localStorage.removeItem('blurAmount');
-            changeBlurAmount(5);
-            updateBlurRadios();
-            localStorage.removeItem('contentFilter');
-            changeContentFilter('0');
-            updateFilterRadios();
-            localStorage.removeItem('fullscreenMode');
-            changeFullscreenMode('no');
-            localStorage.removeItem('navMargin');
-            changeNavMargin('no');
-            updateNavMarginRadios();
-            localStorage.removeItem('navAlign');
-            changeNavAlign('left');
-            updateNavAlignRadios();
-            localStorage.removeItem('navItems');
-            const checkboxes = document.querySelectorAll('input[name="navitems"]');
-            checkboxes.forEach(checkbox => {
-                checkbox.checked = true;
-            });
-            updateNavButtonsVisibility();
         }
-        
         //搜索
         let searchActive = false;
         function toggleSearch() {
@@ -1376,7 +1243,6 @@ setInterval(rotateText,1000);
                     if (i % 2 === 1) {
                         const mark = document.createElement('mark');
                         mark.textContent = part;
-                        mark.style.backgroundColor = 'rgba(255, 255, 0, 0.5)';
                         fragment.appendChild(mark);
                     } else if (part) {
                         fragment.appendChild(document.createTextNode(part));
