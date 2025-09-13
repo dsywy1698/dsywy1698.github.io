@@ -7,6 +7,7 @@
 边缘渐变透明
 按标签搜索
 滚动到上一个/下一个搜索结果
+密码css代码使用light-dark()
 bug:
 1.无法应用图片
 -->
@@ -108,32 +109,32 @@ bug:
             --endflashing:#87f2f8;
             --nav-bg:#ccffffaa;
             --nav-btn:#36c;
-            --dialogbg:#9cf;
+            --dialogbg:#99ccff99;
             --settingbg:#3399ff11;
             --radiobg:#3399ff55;
             --gallerybg:#09c;
             --blockquote:#8019b6;
         }
         body[data-mode="brief-pink"]{
-            background:#e619e6;
+            background:#d926d9;
             color:#fff;
-            --a:;
-            --ah:;
-            --hr:;
-            --selection:;
-            --shadow:;
+            --a:#fccfcf;
+            --ah:#fab7b7;
+            --hr:#f9c;
+            --selection:#f042c488;
+            --shadow:#66006688;
             --article:;
             --q:;
             --quot:;
-            --loaderbg:;
-            --loadercolor:;
+            --loaderbg:#ffb3ff;
+            --loadercolor:#303;
             --startflashing:;
             --endflashing:;
-            --nav-bg:;
-            --nav-btn:;
-            --dialogbg:;
-            --settingbg:;
-            --radiobg:;
+            --nav-bg:#c96ef7aa;
+            --nav-btn:#fff;
+            --dialogbg:#f76eb399;
+            --settingbg:#f53d9911;
+            --radiobg:#f53d9955;
             --gallerybg:;
         }
         body[data-mode="brief-light-blue"]{
@@ -314,95 +315,9 @@ bug:
             --radiobg:var(--timeline-radiobg);
             --gallerybg:var(--timeline-gallerybg);
         }
-        body[data-mode^="atmosphere"]{background-position:50% 50%;background-repeat:no-repeat;background-size:cover;background-attachment:fixed;}
-        body[data-mode^="atmosphere-dark"] #content>div,body[data-mode^="atmosphere-dark"] #content dialog{color:#fff;}
-        body[data-mode^="atmosphere-light"] #content>div{background:#ffffff55;}
-        body[data-mode^="atmosphere-dark"] #content>div{background:#00000066;}
-        body[data-mode="atmosphere-light-cottage"]{
-            background-image:url("cottage.webp");
-            --selection:#ffbf0088;
-            --shadow:#66330022;
-            --loaderbg:#ecd9c6;
-            --loadercolor:#331a00;
-            --startflashing:#cc6600;
-            --endflashing:#996633;
-            --nav-bg:#cc996688;
-            --nav-btn:#4d3319;
-            --dialogbg:#ffcc6666;
-            --settingbg:#ffaa0011;
-            --radiobg:#ffaa0055;
-        }
-        body[data-mode="atmosphere-dark-cottage"]{
-            background-image:url("cottage.webp");
-            --selection:#80600088;
-            --shadow:#ffeecc22;
-            --loaderbg:#331a00;
-            --loadercolor:#fc9;
-            --startflashing:#cc9966;
-            --endflashing:#996633;
-            --nav-bg:#994d0088;
-            --nav-btn:#fc9;
-            --dialogbg:#66330066;
-            --settingbg:#994d0011;
-            --radiobg:#994d0055;
-        }
-        body[data-mode="atmosphere-light-seaside"]{
-            background-image:url("seaside.webp");
-            --selection:#00ccff88;
-            --shadow:#00336622;
-            --loaderbg:#ccf2ff;
-            --loadercolor:#002080;
-            --startflashing:#0066cc;
-            --endflashing:#0099cc;
-            --nav-bg:#99bbff88;
-            --nav-btn:#002080cc;
-            --dialogbg:#66ffff66;
-            --settingbg:#00eeee11;
-            --radiobg:#00eeee55;
-        }
-        body[data-mode="atmosphere-dark-seaside"]{
-            background-image:url("seaside.webp");
-            --selection:#10336688;
-            --shadow:#cceeff22;
-            --loaderbg:#004080;
-            --loadercolor:#e6ffff;
-            --startflashing:#66b3ff;
-            --endflashing:#3399ff;
-            --nav-bg:#00666688;
-            --nav-btn:#e6ffffcc;
-            --dialogbg:#0066cc66;
-            --settingbg:#66b3ff11;
-            --radiobg:#66b3ff55;
-        }
-        body[data-mode="atmosphere-light-valley"]{
-            background-image:url("valley.webp");
-            --selection:#aaff0088;
-            --shadow:#00330022;
-            --loaderbg:#ccffcc;
-            --loadercolor:#206040;
-            --startflashing:#009900;
-            --endflashing:#00cc00;
-            --nav-bg:#99e60088;
-            --nav-btn:#206040;
-            --dialogbg:#00ff9999;
-            --settingbg:#00cc0011;
-            --radiobg:#00cc0055;
-        }
-        body[data-mode="atmosphere-dark-valley"]{
-            background-image:url("valley.webp");
-            --selection:#33cccc88;
-            --shadow:#ccffcc22;
-            --loaderbg:#360;
-            --loadercolor:#adebeb;
-            --startflashing:#00cc66;
-            --endflashing:#009966;
-            --nav-bg:#19666688;
-            --nav-btn:#adebeb;
-            --dialogbg:#00663399;
-            --settingbg:#00cc6611;
-            --radiobg:#00cc6655;
-        }
-        body[data-mode="atmosphere-light-custom"]{
+        body[data-mode^="custom"]{background-position:50% 50%;background-repeat:no-repeat;background-size:cover;background-attachment:fixed;}
+        body[data-mode="custom-light"]{
+            background:#fff;
             background-image:var(--custom-bg-image);
             --selection:#8585ad88;
             --shadow:#1a1a1a22;
@@ -415,8 +330,10 @@ bug:
             --dialogbg:#ffffff99;
             --settingbg:#00000011;
             --radiobg:#00000055;
+            #content>div{background:#ffffff55;}
         }
-        body[data-mode="atmosphere-dark-custom"]{
+        body[data-mode="custom-dark"]{
+            background:#000;
             background-image:var(--custom-bg-image);
             --selection:#8585ad88;
             --shadow:#e6e6e622;
@@ -429,6 +346,8 @@ bug:
             --dialogbg:#00000099;
             --settingbg:#ffffff11;
             --radiobg:#ffffff55;
+            #content>div{background:#00000066;}
+            #content>div,#content dialog{color:#fff;}
         }
         body[data-s="subtle"]{
             --shadow-so-x:0 0 5px var(--shadow);
@@ -489,20 +408,12 @@ bug:
         body[data-b^="0px"] #content>div{backdrop-filter:blur(0px);}
         body[data-b^="5px"] #content>div{backdrop-filter:blur(5px);}
         body[data-b^="10px"] #content>div{backdrop-filter:blur(10px);}
-        body[data-mode^="atmosphere"][data-f="no"] #content>div{max-width:900px;margin:auto;width:calc(100dvw - 20px);height:calc(100dvh - 20px);border-radius:var(--radius-8x);position:fixed;top:10px;left:calc((100dvw - clamp(300px,calc(100dvw - 20px),900px)) / 2)}
-        body[data-mode^="atmosphere"][data-f="yes"] #content>div{}
-        body[data-mode^="atmosphere"][data-f="no"] #content nav{top:15px;left:calc((100dvw - clamp(290px,calc(100dvw - 30px),890px)) / 2);width:calc(100dvw - 30px);max-width:890px;}
-        body[data-mode^="atmosphere"][data-f="yes"] #content nav{width:100dvw;left:0;top:0;border-radius:0;
-            >div:nth-of-type(3){border-radius:0;}
-            &:before{border-radius:0;}}
-        body[data-mode^="brief"][data-nm="no"] nav{
-            width:100dvw;left:0;top:0;border-radius:0;
-            >div:nth-of-type(3){border-radius:0;}
-            &:before{border-radius:0;}
-        }
-        body[data-mode^="brief"][data-nm="yes"] nav{
-            top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc(100dvw - clamp(2px,1dvw,10px) * 2);
-        }
+        body[data-mode^="custom"][data-f="no"] #content>div{max-width:900px;margin:auto;width:calc(100dvw - 20px);height:calc(100dvh - 20px);border-radius:var(--radius-8x);position:fixed;top:10px;left:calc((100dvw - clamp(300px,calc(100dvw - 20px),900px)) / 2)}
+        body[data-mode^="custom"][data-f="yes"] #content>div{}
+        body[data-mode^="custom"][data-f="no"] #content nav{top:15px;left:calc((100dvw - clamp(290px,calc(100dvw - 30px),890px)) / 2);width:calc(100dvw - 30px);max-width:890px;}
+        body[data-mode^="custom"][data-f="yes"] #content nav{width:100dvw;left:0;top:0;border-radius:0;>div:nth-of-type(3){border-radius:0;}&:before{border-radius:0;}}
+        body[data-mode^="brief"][data-nm="no"] nav{width:100dvw;left:0;top:0;border-radius:0;>div:nth-of-type(3){border-radius:0;}&:before{border-radius:0;}}
+        body[data-mode^="brief"][data-nm="yes"] nav{top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc(100dvw - clamp(2px,1dvw,10px) * 2);}
         body[data-na="left"] nav>div:first-child{justify-content:flex-start;}
         body[data-na="center"] nav>div:first-child{justify-content:space-around;}
         body[data-na="right"] nav>div:first-child{justify-content:flex-end;}
@@ -511,35 +422,43 @@ bug:
         body[data-cf="3"] *[data-tf]{display:none;}
         
         /*缩小/放大窗口*/
-        #bigger,#smaller{display:none;justify-content:center;align-items:center;color:var(--loadercolor);padding:20px 5px;text-align:center;width:100ddvw;height:100dvh;top:0;left:0;backdrop-filter:blur(20px);}
+        #bigger,#smaller{display:none;justify-content:center;align-items:center;color:var(--loadercolor);padding:20px 5px;text-align:center;width:100dvw;height:100dvh;top:0;left:0;backdrop-filter:blur(20px);}
         #bigger{font-size:5rem;}
         #smaller{font-size:1.2rem;}
         /*无js窗口*/
         noscript{display:block;width:100dvw;height:100dvh;background:#fcc;color:#c00;text-align:center;font-weight:800;font-size:1.25rem;}
         /*密码*/
-        #passwordOverlay {position:fixed;top:0;left:0;width:100dvw;height:100dvh;background:var(--dialogbg);backdrop-filter:blur(30px);z-index:9999;display:flex;justify-content:center;align-items:center;flex-direction:column;color:var(--nav-btn);}
-        #passwordOverlay>div{background:var(--nav-bg);padding:30px;border-radius:var(--radius-8x);box-shadow:var(--shadow-so-4x);max-width:400px;width:90%;}
-        #passwordOverlay>div>h2 {margin-bottom:20px;text-align:center;}
-        #passwordOverlay>div>div{display:flex;margin:5px;}
-        #passwordOverlay>div>div>input{width:100%;padding:10px;border-radius:var(--radius-4x) 0 0 var(--radius-4x);border:1px solid var(--nav-btn);background:var(--dialogbg);color:var(--nav-btn);font-size:1rem;}
-        #passwordOverlay>div>div>input:focus{outline:none;background:var(--settingbg);}
-        #passwordOverlay>div>div>input::placeholder{color:#ffffff44;opacity:1;}
-        #passwordOverlay>div>div>input::-ms-input-placeholder{color:#ffffff44;}
-        #passwordOverlay>div>div>button{background:var(--nav-btn);color:var(--nav-bg);border:1px solid var(--nav-btn);padding:10px 20px;border-radius:0 var(--radius-4x) var(--radius-4x) 0;cursor:pointer;font-size:1rem;transition:all 0.3s ease;flex-basis:90px;}
-        #passwordOverlay>div>div>button:hover{opacity:0.8;}
+        #password{
+            position:fixed;top:0;left:0;width:100dvw;height:100dvh;background:#66666688;backdrop-filter:blur(30px);z-index:9999;display:flex;justify-content:center;align-items:center;flex-direction:column;color:#333;
+            >div{
+            background:#ccc;padding:30px;border-radius:15px;box-shadow:0 0 20px #999;max-width:400px;width:90%;
+                >h2{margin-bottom:20px;text-align:center;}
+                >div{
+                display:flex;margin:5px;
+                    >input{width:100%;padding:10px;border-radius:10px 0 0 10px;border:1px solid #404040;background:#ffffff99;color:#404040;font-size:1rem;&:focus{outline:none;background:#00000011;}&::placeholder{color:#ffffff44;opacity:1;}&::-ms-input-placeholder{color:#ffffff44;}}
+                    >button{background:#404040;color:#ddddddbb;border:1px solid #404040;padding:10px 20px;border-radius:0 10px 10px 0;cursor:pointer;font-size:1rem;transition:all 0.3s ease;flex-basis:90px;&:hover{opacity:0.8;}}
+                }
+            }
+        }
         /*旧版浏览器*/
         #oldbrowser {display:none;position:fixed;top:0;left:0;width:100dvw;height:100dvh;background:#fff;color:#000;z-index:9999;padding:20px;font-size:20px;}
         /*加载页面*/
-        #loader{background:var(--loaderbg);width:100dvw;height:100dvh;z-index:2;overflow:hidden;position:fixed;top:0;left:0;text-align:center;display:flex;justify-content:center;align-items:center;transition:none;}
+        #loader{
+            background:var(--loaderbg);width:100dvw;height:100dvh;z-index:2;overflow:hidden;position:fixed;top:0;left:0;text-align:center;display:flex;justify-content:center;align-items:center;transition:none;
+            >div{
+                position:relative;width:calc(100dvw - 20px);max-width:700px;
+                >p{color:var(--loadercolor);transition:opacity 0.2s;margin:10px 0;padding:0;font-weight:200;font-size:1.25rem;}
+                >div{
+                    position:relative;width:60px;height:20px;margin:10px auto;
+                &::before,&::after,& span{content:'';position:absolute;top:0;width:20px;height:20px;border-radius:50%;animation:dotFlashing 1s infinite alternate;}
+                &::before{left:-10px;anmation-delay:0s;}
+                & span{left:20px;animation-delay:0.2s;}
+                &::after{left:50px;animation-delay:0.4s;}
+                }
+            }
+            button{background:var(--nav-bg);font-size:1.125rem;padding:2.5px 15px;line-height:30px;border-radius:var(--radius-7x);}
+        }
         @keyframes out{0%{opacity:1;}99%{opacity:0;}100%{opacity:0;display:none;}}
-        #loader>div>p{color:var(--loadercolor);transition:opacity 0.2s;margin:10px 0;padding:0;font-weight:200;font-size:1.25rem;}
-        #loader>div{position:relative;width:calc(100dvw - 20px);max-width:700px;}
-        #loader>div>div{position:relative;width:60px;height:20px;margin:10px auto;}
-        #loader>div>div::before,#loader>div>div::after,#loader>div>div span{content:'';position:absolute;top:0;width:20px;height:20px;border-radius:50%;animation:dotFlashing 1s infinite alternate;}
-        #loader>div>div::before{left:-10px;animation-delay:0s;}
-        #loader>div>div span{left:20px;animation-delay:0.2s;}
-        #loader>div>div::after{left:50px;animation-delay:0.4s;}
-        #loader button{background:var(--nav-bg);font-size:1.125rem;padding:2.5px 15px;line-height:30px;border-radius:var(--radius-7x);}
         @keyframes dotFlashing{0%{background-color:var(--startflashing);transform:scale(1);}50%,100%{background-color:var(--endflashing);transform:scale(0.8);}}
         /*页面*/
         /*导航栏*/
@@ -576,11 +495,7 @@ bug:
         nav>div:nth-of-type(3){
             position:absolute;top:0;left:0;width:100%;height:100%;background:color-mix(in oklch,var(--nav-bg),#888888dd);align-items:center;padding:0 10px;border-radius:var(--radius-8x);display:flex;opacity:0;visibility:hidden;transition:opacity 0.3s ease,transform 0.3s ease;transform:translateY(-10px);
             &.active{opacity:1;visibility:visible;transform:translateY(0);}
-            >input{
-                flex-grow:1;background:transparent;border:none;outline:none;color:inherit;font-size:1rem;padding:5px;
-                &::placeholder{color:inherit;opacity:0.6;}
-                &::-ms-input-placeholder{color:#a3b8c2;}
-            }
+            >input{flex-grow:1;background:transparent;border:none;outline:none;color:inherit;font-size:1rem;padding:5px;&::placeholder{color:inherit;opacity:0.6;}&::-ms-input-placeholder{color:#a3b8c2;}}
             >span{margin:0 10px;}
             >button{
                 background:transparent;border:none;color:inherit;font-size:1.2rem;cursor:pointer;width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:50%;
@@ -608,10 +523,7 @@ bug:
                             >input[type="radio"]{
                                 -webkit-appearance:none;-moz-appearance:none;appearance:none;width:25px;height:25px;border-radius:12.5px;position:relative;transition:background 0.3s ease,color 0.3s ease;
                                 &::before{content:var(--input-content);font-size:19px;width:25px;height:25px;line-height:25px;margin:3px;color:#ffffff44;}
-                                &:checked{
-                                    background:#ffffff22;
-                                    &::before{color:unset;}
-                                }
+                                &:checked{background:#ffffff22;&::before{color:unset;}}
                             }
                         }
                     }
@@ -626,17 +538,14 @@ bug:
                         }
                     }
                 }
-                h2{
-                    margin:10px;position:relative;padding-left:12.5px;
-                    &::before{width:5px;content:"";background:var(--radiobg);position:absolute;top:7.5px;bottom:7.5px;left:0;border-radius:2.5px;}
-                }
+                h2{margin:10px;position:relative;padding-left:12.5px;&::before{width:5px;content:"";background:var(--radiobg);position:absolute;top:7.5px;bottom:7.5px;left:0;border-radius:2.5px;}}
             }
             >div:nth-of-type(3){display:none;position:fixed;transform:translate(-50%,-50%);left:50%;top:50%;background:#ff4444aa;color:#fff;padding:8px 20px;border-radius:var(--radius-5x);transition:opacity 0.3s ease;}
         }
-        body[data-mode^="brief"] .atmosphere-settings{display:none;}
-        body[data-mode^="atmosphere"] .atmosphere-settings{display:block;flex-basis:100%;}
+        body[data-mode^="brief"] .custom-settings{display:none;}
+        body[data-mode^="custom"] .custom-settings{display:block;flex-basis:100%;}
         body[data-mode^="brief"] .brief-settings{display:block;flex-basis:100%;}
-        body[data-mode^="atmosphere"] .brief-settings{display:none;}
+        body[data-mode^="custom"] .brief-settings{display:none;}
         #mode-setting{
             display:flex;flex-wrap:wrap;justify-content:center;
             >h2{flex-basis:100%;}
@@ -749,12 +658,12 @@ bug:
     </style>
 </head>
 <body onload="loading()" data-mode="system" data-s="subtle" data-r="large" data-fs="normal" data-ls="loose" data-fw="normal" data-b="5px" data-f="no" data-nm="no" data-na="left" data-cf="3">
-    <div id="passwordOverlay">
-        <div id="passwordForm">
+    <div id="password">
+        <div>
             <h2>输入密码</h2>
             <div>
-                <input type="password" id="passwordInput" placeholder="输入密码"/>
-                <button id="passwordSubmit">OK</button>
+                <input type="password" placeholder="输入密码"/>
+                <button>OK</button>
             </div>
             <small><strong>注意：</strong>此页面仅为……提供。</small>
         </div>
@@ -811,28 +720,18 @@ setInterval(rotateText,1000);
                     <label style="flex-basis:100%;"><input type="radio" name="theme" value="system" onclick="changeTheme('system')">跟随系统</label>
                     <label><input type="radio" name="theme" value="brief-orangegreen" onclick="changeTheme('brief-orangegreen')"><span style="color:#0f0">橙</span><span style="color:#ff8000">绿</span></label>
                     <label><input type="radio" name="theme" value="brief-timeline" onclick="changeTheme('brief-timeline')">时间线</label>
-                    <h3 style="flex-basis:100%;margin:5px;text-align:center;">简洁</h3>
                     <label><input type="radio" name="theme" value="brief-light" onclick="changeTheme('brief-light')">浅</label>
                     <label><input type="radio" name="theme" value="brief-dark" onclick="changeTheme('brief-dark')">深</label>
                     <label><input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-pink')">粉</label>
                     <label><input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-blue')">蓝</label>
                     <label><input type="radio" name="theme" value="brief-light-blue" onclick="changeTheme('brief-light-blue')">浅蓝</label>
                     <label><input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-dark-blue')">深蓝</label>
-                    <h3 style="flex-basis:100%;margin:5px;text-align:center;">氛围</h3>
-                    <label><input type="radio" name="theme" value="atmosphere-light-cottage" onclick="changeTheme('atmosphere-light-cottage')">浅-小屋</label>
-                    <label><input type="radio" name="theme" value="atmosphere-dark-cottage" onclick="changeTheme('atmosphere-dark-cottage')">深-小屋</label>
-                    <label><input type="radio" name="theme" value="atmosphere-light-seaside" onclick="changeTheme('atmosphere-light-seaside')">浅-海边</label>
-                    <label><input type="radio" name="theme" value="atmosphere-dark-seaside" onclick="changeTheme('atmosphere-dark-seaside')">深-海边</label>
-                    <label><input type="radio" name="theme" value="atmosphere-light-valley" onclick="changeTheme('atmosphere-light-valley')">浅-山谷</label>
-                    <label><input type="radio" name="theme" value="atmosphere-dark-valley" onclick="changeTheme('atmosphere-dark-valley')">深-山谷</label>
+                    <label><input type="radio" name="theme" value="custom-light" onclick="changeTheme('custom-light')">浅-自定义</label>
+                    <label><input type="radio" name="theme" value="custom-dark" onclick="changeTheme('custom-dark')">深-自定义</label>
+                    <label><input type="radio" name="theme" value="" onclick="changeTheme('')">自定义色调</label>
                     <!--
-                    <label><input type="radio" name="theme" value="atmosphere-light-sky" onclick="changeTheme('atmosphere-light-sky')">浅-星空</label>
-                    <label><input type="radio" name="theme" value="atmosphere-dark-sky" onclick="changeTheme('atmosphere-dark-sky')">深-星空</label>
-                    -->
-                    <label><input type="radio" name="theme" value="atmosphere-light-custom" onclick="changeTheme('atmosphere-light-custom')">浅-自定义</label>
-                    <label><input type="radio" name="theme" value="atmosphere-dark-custom" onclick="changeTheme('atmosphere-dark-custom')">深-自定义</label><!--
-                    <div class="atmosphere-settings">
-                        <p>自定义背景图片</p>
+                    <div class="custom-settings">
+                        <p>背景</p>
                         <input type="file" style="display:none;">
                             <button style="float:right;" onclick="">上传</button>
                             <button style="float:right;" onclick="">清除</button>
@@ -880,7 +779,7 @@ setInterval(rotateText,1000);
                             <input type="radio" name="s" value="none" onclick="changeS('none')" style="--input-content:'无';">
                         </label>
                     </div>
-                    <div class="atmosphere-settings">
+                    <div class="custom-settings">
                         <p>遮罩模糊度</p>
                         <label>
                             <input type="radio" name="b" value="0px" onclick="changeB('0px')" style="--input-content:'无';">
@@ -888,7 +787,7 @@ setInterval(rotateText,1000);
                             <input type="radio" name="b" value="10px" onclick="changeB('10px')" style="--input-content:'强';">
                         </label>
                     </div>
-                    <div class="atmosphere-settings">
+                    <div class="custom-settings">
                         <p>全屏显示</p>
                         <label>
                             <input type="radio" name="f" value="yes" onclick="changeF('yes')" style="--input-content:'是';">
@@ -928,6 +827,7 @@ setInterval(rotateText,1000);
                 </section>
                 <section>
                     <button onclick="resetToDefault()">恢复默认</button>
+                    <button onclick="resetToDefault();localStorage.removeItem('passwordVerified');location.reload(true);" style="background:#b8141488;color:#fff;">重置</button>
                 </section>
             </div>
             <div>图片上传失败，请重试</div>
@@ -1063,7 +963,7 @@ setInterval(rotateText,1000);
         //旧版浏览器
         function checkBrowserCompatibility(){var e,t;const n=document.createElement("div");document.body.appendChild(n);let d=[];["color-scheme","backdrop-filter","scroll-behavior","scroll-snap-type","gap","aspect-ratio","container","has"].forEach(t=>{try{var e,o;"has"===t?(n.innerHTML='<div id="test-has"><p></p></div>',(e=document.createElement("style")).textContent="#test-has:has(p){display:block;}",document.head.appendChild(e),o="block"===getComputedStyle(n.querySelector("#test-has")).display,document.head.removeChild(e),o||d.push(":has() selector")):(n.style[t]="initial",n.style[t]||d.push(t))}catch(e){d.push(t)}}),document.body.removeChild(n),0<d.length&&(e=document.getElementById("oldbrowser"),(t=document.createElement("p")).textContent="不支持的特性: "+d.join(", "),e.appendChild(t),e.style.display="flex",document.getElementById("content").style.display="none",document.getElementById("loader").style.display="none")}window.addEventListener("DOMContentLoaded",checkBrowserCompatibility);
         //密码（orangemumu）
-        async function checkPassword(){var e=document.querySelector("#passwordOverlay>div>div>input").value,t=document.querySelector("#passwordOverlay>div>div>input"),e=(new TextEncoder).encode(e),e=await crypto.subtle.digest("SHA-256",e);"ddec4e6a6e296862618bf9fd0f8a1f6cc62de71d6c4d8a2ea366e13a8c0f9174"===Array.from(new Uint8Array(e)).map(e=>e.toString(16).padStart(2,"0")).join("")?(document.getElementById("passwordOverlay").style.display="none",localStorage.setItem("passwordVerified","true")):t.style.background="#ff000044"}function initPasswordProtection(){"true"===localStorage.getItem("passwordVerified")?document.getElementById("passwordOverlay").style.display="none":(document.querySelector("#passwordOverlay>div>div>button").addEventListener("click",checkPassword),document.querySelector("#passwordOverlay>div>div>input").addEventListener("keypress",function(e){"Enter"===e.key&&checkPassword()}))}document.addEventListener("DOMContentLoaded",function(){initPasswordProtection()});
+        async function checkPassword(){var e=document.querySelector("#password>div>div>input").value,t=document.querySelector("#password>div>div>input"),e=(new TextEncoder).encode(e),e=await crypto.subtle.digest("SHA-256",e);"ddec4e6a6e296862618bf9fd0f8a1f6cc62de71d6c4d8a2ea366e13a8c0f9174"===Array.from(new Uint8Array(e)).map(e=>e.toString(16).padStart(2,"0")).join("")?(document.getElementById("password").style.display="none",localStorage.setItem("passwordVerified","true")):t.style.background="#ff000044"}function initPasswordProtection(){"true"===localStorage.getItem("passwordVerified")?document.getElementById("password").style.display="none":(document.querySelector("#password>div>div>button").addEventListener("click",checkPassword),document.querySelector("#password>div>div>input").addEventListener("keypress",function(e){"Enter"===e.key&&checkPassword()}))}document.addEventListener("DOMContentLoaded",function(){initPasswordProtection()});
         // 动态修改页面标题
         function updatePageTitle(){var e=document.querySelector('#content>div[style*="display: block"]');e&&(e=e.querySelector("header h1"),document.title=e?"标题-"+e.textContent:baseTitle)}
         //页面切换
@@ -1118,34 +1018,23 @@ setInterval(rotateText,1000);
         function updateSettingRadios() {
             const savedTheme = localStorage.getItem('selectedTheme') || 'system';
             document.querySelector(`input[name="theme"][value="${savedTheme}"]`).checked = true;
-            const currentTheme = content.getAttribute('data-mode') || 'brief-light';
-            document.querySelector(`input[name="theme"][value="${currentTheme}"]`).checked = true;
-            const currentFS = content.getAttribute('data-fs') || 'normal';
-            document.querySelector(`input[name="fs"][value="${currentFS}"]`).checked = true;
-            const currentR = content.getAttribute('data-r') || 'large';
-            document.querySelector(`input[name="r"][value="${currentR}"]`).checked = true;
-            const currentLS = content.getAttribute('data-ls') || 'loose';
-            document.querySelector(`input[name="ls"][value="${currentLS}"]`).checked = true;
-            const currentFW = content.getAttribute('data-fw') || 'normal';
-            document.querySelector(`input[name="fw"][value="${currentFW}"]`).checked = true;
-            const currentS = content.getAttribute('data-s') || 'subtle';
-            document.querySelector(`input[name="s"][value="${currentS}"]`).checked = true;
-            const currentB = content.getAttribute('data-b') || '5px';
-            document.querySelector(`input[name="b"][value="${currentB}"]`).checked = true;
-            const currentF = content.getAttribute('data-f') || 'no';
-            document.querySelector(`input[name="f"][value="${currentF}"]`).checked = true;
-            const currentNM = content.getAttribute('data-nm') || 'no';
-            document.querySelector(`input[name="nm"][value="${currentNM}"]`).checked = true;
-            const currentNA = content.getAttribute('data-na') || 'left';
-            document.querySelector(`input[name="na"][value="${currentNA}"]`).checked = true;
-            const currentCF = content.getAttribute('data-cf') || '3';
-            document.querySelector(`input[name="cf"][value="${currentCF}"]`).checked = true;
+            const settings = {
+                'fs': 'normal',
+                'r': 'large',
+                'ls': 'loose',
+                'fw': 'normal',
+                's': 'subtle',
+                'b': '5px',
+                'f': 'no',
+                'nm': 'no',
+                'na': 'left',
+                'cf': '3'
+            };
+            for (const [key, defaultValue] of Object.entries(settings)) {
+                const savedValue = localStorage.getItem(`se${key.toUpperCase()}`) || defaultValue;
+                document.querySelector(`input[name="${key}"][value="${savedValue}"]`).checked = true;
+            }
         }
-        window.addEventListener('DOMContentLoaded', function() {
-            showPage('home');
-            toggleSubMenu(false);
-            updateSettingRadios();
-        });
         function resetToDefault() {
             localStorage.removeItem('selectedTheme');
             localStorage.removeItem('seFS');
@@ -1171,6 +1060,11 @@ setInterval(rotateText,1000);
             changeCF('3');
             updateSettingRadios();
         }
+        window.addEventListener('DOMContentLoaded', function() {
+            updateSettingRadios();
+            showPage('home');
+            toggleSubMenu(false);
+        });
         //搜索
         let searchActive = false;
         function toggleSearch() {
