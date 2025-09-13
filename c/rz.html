@@ -1,11 +1,9 @@
 <!DOCTYPE html><html lang="zh-CN"><head><title>八卦</title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><meta name="robots" content="noindex,nofollow"/><link rel="stylesheet" href="fa.css"/>
-<style>@font-face{font-family:'icons';src:url('fa.woff2') format('woff2');font-display:swap}:root{color-scheme:light dark;--blur-amount:5px;--custom-bg-image:none}*{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;transition:border-radius 0.3s ease,box-shadow 0.3s ease;color:inherit}a,body,selection,hr,q,article,nav,nav i,dialog,.gallery,blockquote,label,radio{transition:background 0.3s ease,color 0.3s ease}p,h1,h2,h3,h4,h5,h6,li{transition:line-height 0.3s ease,letter-spacing 0.3s ease}*::-webkit-scrollbar{display:none!important}::selection{background:var(--selection)}html{font-size:100%;height:100dvh}body{font-family:"微软雅黑",sans-serif}#content>div{padding:50px 10px 10px 10px;overflow-y:auto;scroll-behavior:smooth;height:100dvh;backdrop-filter:blur(var(--blur-amount));transition:backdrop-filter 0.3s ease}hr{border:1px solid var(--hr);border-radius:100px;margin:5px 10px}a{color:var(--a);text-decoration-style:dotted}a:hover{color:var(--ah)}h1,h2,h3,h4,h5,h6{}sup[class="fa fa-external-link"]{font-size:0.7em;opacity:0.8;line-height:0;color:var(--a);vertical-align:super;position:relative;top:0}sup[class="fa fa-external-link"]:hover{opacity:0.7}img,svg,canvas,audio,video{max-width:100%}button{border:none}#content>div *[id]{scroll-margin-top:55px}header{font-size:1.875rem;text-align:center;padding:35px 0;}
-body[data-mode="brief-light"]{background:#fff;color:#000;--a:#03c;--ah:#06c;--hr:#888;--selection:#9494b888;--shadow:#00000022;--article:#e9e9e288;--q:#d5dbdd88;--quot:#80939988;--loaderbg:#e6e6e6;--loadercolor:#000;--startflashing:#999;--endflashing:#666;--nav-bg:#ddddddbb;--nav-btn:#404040;--dialogbg:#ffffff99;--settingbg:#00000011;--radiobg:#00000055;--gallerybg:#b894a6}body[data-mode="brief-dark"]{background:#000;color:#fff;--a:#9cf;--ah:#69f;--hr:#999;--selection:#8585ad88;--shadow:#ffffff22;--article:#29363d88;--q:#283e2888;--quot:#466d4688;--loaderbg:#1a1a1a;--loadercolor:#fff;--startflashing:#ccc;--endflashing:#999;--nav-bg:#595959bb;--nav-btn:#e6e6e6;--dialogbg:#00000099;--settingbg:#ffffff11;--radiobg:#ffffff55;--gallerybg:#806699}body[data-mode="brief-light-blue"]{background:#e6ffff;color:#001a1a;--a:#0040ff;--ah:#0080ff;--hr:#09f;--selection:#0099cc88;--shadow:#00339922;--article:#cceeff88;--q:#adebeb88;--quot:#0099cc88;--loaderbg:#cff;--loadercolor:#001a1a;--startflashing:#0066cc;--endflashing:#0099cc;--nav-bg:#33ccffbb;--nav-btn:#046;--dialogbg:#99ddff99;--settingbg:#0088cc11;--radiobg:#0088cc55;--gallerybg:}body[data-mode="brief-dark-blue"]{background:#001a33;color:#e6f3ff;--a:#66b3ff;--ah:#99ccff;--hr:#3399ff;--selection:#3399ff88;--shadow:#66b3ff22;--article:#00336688;--q:#00264d88;--quot:#00408088;--loaderbg:#00264d;--loadercolor:#cce6ff;--startflashing:#66b3ff;--endflashing:#3399ff;--nav-bg:#004080bb;--nav-btn:#cce6ff;--dialogbg:#00264dee;--settingbg:#3399ff15;--radiobg:#3399ff30;--gallerybg:#004080;--markbg:#ffff0088;--blockquote:#00264d}body[data-mode="brief-orangegreen"]{background:linear-gradient(45deg,#ccffe6,#ffebcc);color:#000;--a:#090;--ah:#99c500;--hr:#c90;--selection:#ff993388;--shadow:#cc000022;--article:#ccff3388;--q:linear-gradient(45deg,#ff990088,#33cc3388);--quot:#99993388;--loaderbg:linear-gradient(45deg,#cfc,#ffe0b3);--loadercolor:#000;--startflashing:#f90;--endflashing:#3c3;--nav-bg:linear-gradient(90deg,#ff8800bb,#00cc00bb);--nav-btn:#331a00;--dialogbg:#ffb36699;--settingbg:#995c0011;--radiobg:#5cd65c55;--gallerybg:}body[data-time-period="morning"]{--timeline-bg:#fff8e6;--timeline-color:#3a2e00;--timeline-a:#d4a800;--timeline-ah:#ffcc00;--timeline-hr:#ffd700;--timeline-selection:#ffd70088;--timeline-shadow:#ffd70022;--timeline-article:#fff0b388;--timeline-q:#fff5cc88;--timeline-quot:#ffcc0088;--timeline-loaderbg:#fff5cc;--timeline-loadercolor:#8c6d00;--timeline-startflashing:#ffd700;--timeline-endflashing:#ffb700;--timeline-nav-bg:#ffd900bb;--timeline-nav-btn:#5c4a00;--timeline-dialogbg:#fff0b399;--timeline-settingbg:#ffcc0011;--timeline-radiobg:#ffcc0055;--timeline-gallerybg:#ffd700}body[data-time-period="afternoon"]{--timeline-bg:#fff5f0;--timeline-color:#3a2e1a;--timeline-a:#8fbc8f;--timeline-ah:#98fb98;--timeline-hr:#d2b48c;--timeline-selection:#98fb9888;--timeline-shadow:#d2b48c22;--timeline-article:#f0e0d088;--timeline-q:#e6f0e688;--timeline-quot:#8fbc8f88;--timeline-loaderbg:#f5f5dc;--timeline-loadercolor:#5a4a32;--timeline-startflashing:#d2b48c;--timeline-endflashing:#8fbc8f;--timeline-nav-bg:#d2b48cbb;--timeline-nav-btn:#5a4a32;--timeline-dialogbg:#f5f5dc99;--timeline-settingbg:#d2b48c11;--timeline-radiobg:#d2b48c55;--timeline-gallerybg:#d2b48c}body[data-time-period="evening"]{--timeline-bg:#ffebcc;--timeline-color:#4a2e00;--timeline-a:#ff8c00;--timeline-ah:#ffa500;--timeline-hr:#ff8c00;--timeline-selection:#ff8c0088;--timeline-shadow:#ff8c0022;--timeline-article:#ffd69988;--timeline-q:#ffcc9988;--timeline-quot:#ff993388;--timeline-loaderbg:#ffcc99;--timeline-loadercolor:#8c4a00;--timeline-startflashing:#ff9933;--timeline-endflashing:#ff6600;--timeline-nav-bg:#ff9933bb;--timeline-nav-btn:#8c4a00;--timeline-dialogbg:#ffcc9999;--timeline-settingbg:#ff8c0011;--timeline-radiobg:#ff8c0055;--timeline-gallerybg:#ff9933}body[data-time-period="night"]{--timeline-bg:#000033;--timeline-color:#e6e6ff;--timeline-a:#ffff99;--timeline-ah:#d9b3ff;--timeline-hr:#9966ff;--timeline-selection:#9966ff88;--timeline-shadow:#e6e6ff22;--timeline-article:#00006688;--timeline-q:#33336688;--timeline-quot:#6666cc88;--timeline-loaderbg:#000066;--timeline-loadercolor:#e6e6ff;--timeline-startflashing:#9966ff;--timeline-endflashing:#cc99ff;--timeline-nav-bg:#999900bb;--timeline-nav-btn:#ffffcc;--timeline-dialogbg:#00006699;--timeline-settingbg:#9966ff11;--timeline-radiobg:#9966ff55;--timeline-gallerybg:#333366}body[data-mode="brief-timeline"]{background:var(--timeline-bg);color:var(--timeline-color);--a:var(--timeline-a);--ah:var(--timeline-ah);--hr:var(--timeline-hr);--selection:var(--timeline-selection);--shadow:var(--timeline-shadow);--article:var(--timeline-article);--q:var(--timeline-q);--quot:var(--timeline-quot);--loaderbg:var(--timeline-loaderbg);--loadercolor:var(--timeline-loadercolor);--startflashing:var(--timeline-startflashing);--endflashing:var(--timeline-endflashing);--nav-bg:var(--timeline-nav-bg);--nav-btn:var(--timeline-nav-btn);--dialogbg:var(--timeline-dialogbg);--settingbg:var(--timeline-settingbg);--radiobg:var(--timeline-radiobg);--gallerybg:var(--timeline-gallerybg)}body[data-shadow="subtle"]{--shadow-so-x:0 0 5px var(--shadow);--shadow-so-2x:0 0 10px var(--shadow);--shadow-so-3x:0 0 25px var(--shadow);--shadow-so-4x:0 0 20px var(--shadow);--shadow-so-5x:0 0 30px var(--shadow);--shadow-so-6x:0 0 50px var(--shadow);--shadow-si-x:inset 0 0 10px var(--shadow);--shadow-si-2x:inset 0 0 20px var(--shadow);--shadow-si-3x:inset 0 0 40px var(--shadow);--shadow-ho-x:0 0 5px 2.5px var(--shadow);--shadow-ho-2x:0 0 5px 5px var(--shadow);--shadow-ho-3x:0 0 10px 10px var(--shadow);--shadow-nf-x:5px 5px 10px var(--shadow);--shadow-nf-2x:5px 5px 20px var(--shadow);--shadow-nf-3x:7.5px 7.5px 20px var(--shadow);--shadow-nf-4x:15px 15px 40px var(--shadow);--shadow-hf-x:2.5px 2.5px 5px var(--shadow);--shadow-hf-2x:5px 5px 5px var(--shadow);--shadow-hd-x:0 5px 5px var(--shadow);--shadow-hd-2x:0 10px 10px var(--shadow);--shadow-hd-3x:0 15px 15px var(--shadow)}body[data-shadow="none"]{--shadow-x:0}body[data-radius="large"]{--radius-x:2.5px;--radius-2x:5px;--radius-3x:7.5px;--radius-4x:10px;--radius-5x:12.5px;--radius-6x:15px;--radius-7x:17.5px;--radius-8x:20px;--radius-9x:22.5px;--radius-10x:25px}body[data-radius="small"]{--radius-x:1px;--radius-2x:2px;--radius-3x:3px;--radius-4x:4px;--radius-5x:5px;--radius-6x:6px;--radius-7x:7px;--radius-8x:8px;--radius-9x:9px;--radius-10x:10px;--radius-11x:11px;--radius-12x:12px;--radius-13x:13px;--radius-14x:14px;--radius-15x:15px;--radius-16x:16px;--radius-17x:17px;--radius-18x:18px;--radius-19x:19px;--radius-20x:20px}body[data-font-size="large"]{font-size:112.5%}body[data-font-size="normal"]{font-size:100%}body[data-font-size="small"]{font-size:87.5%}body[data-line-spacing="loose"] p,body[data-line-spacing="loose"] li{line-height:1.7em;letter-spacing:0.15em}body[data-line-spacing="tight"] p,body[data-line-spacing="tight"] li{line-height:1.3em;letter-spacing:0.05em}body[data-font-weight="thin"]{font-weight:200}body[data-font-weight="normal"]{font-weight:400}body[data-font-weight="bold"]{font-weight:600}
-nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc(100dvw - clamp(2px,1dvw,10px) * 2);background:var(--nav-bg);padding:2.5px;border-radius:var(--radius-8x);backdrop-filter:blur(20px);z-index:1;box-shadow:var(--shadow-so-5x);user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none}nav::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right,var(--nav-btn) var(--scroll-progress,0%),transparent 0);opacity:0.1;pointer-events:none;z-index:-1;border-radius:var(--radius-8x);height:40px}body[data-mode^="atmosphere"][data-fullscreen="no"] #content nav{top:15px;left:calc((100dvw - clamp(290px,calc(100dvw - 30px),890px)) / 2);width:calc(100dvw - 30px);max-width:890px}body[data-mode^="brief"][data-nav-margin="no"] nav{width:100dvw;left:0;top:0;border-radius:0;>div:nth-of-type(3){border-radius:0}&:before{border-radius:0}}nav>div:first-child{display:flex;>button{transition:background 0.3s ease;width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;border-radius:var(--radius-8x);margin:0 2.5px;&:hover{background:#00000033}>i{color:var(--nav-btn)}}}body[data-align="left"] nav>div:first-child{justify-content:flex-start}body[data-align="center"] nav>div:first-child{justify-content:space-around}body[data-align="right"] nav>div:first-child{justify-content:flex-end}#mainNavButton{transition:width 0.3s ease,opacity 0.3s ease,margin 0.3s ease,opacity 0.3s ease;opacity:1;&[style*="display:none"]{display:inline-block!important;width:0;opacity:0;pointer-events:none}}nav:has(>div:nth-of-type(2).active)>div:first-child>button:last-child{opacity:0.3;pointer-events:none}nav>div:nth-of-type(2){background:#ffffff08;transform-origin:top;border-radius:var(--radius-7x);height:0;max-height:0;opacity:0;overflow:auto;padding:0 2.5px;transition:all 0.3s cubic-bezier(0.68,-0.6,0.32,1.6);interpolate-size:allow-keywords;&.active{height:auto;opacity:1;max-height:clamp(200px,40dvh,400px);padding:0 2.5px;margin-top:5px}>button{display:block;width:100%;background:transparent;transition:background 0.3s ease,color 0.3s ease;font-size:1.125rem;text-align:left;margin:2.5px 0;border-radius:var(--radius-7x);padding:2.5px 10px;line-height:30px;font-weight:unset;&:hover{background:#00000033}}>div{position:relative;padding-left:7.5px;margin-left:5px;&::before{content:'';position:absolute;left:0;top:5px;bottom:5px;width:3px;background:var(--nav-btn);opacity:0.5;border-radius:1.5px}>a{display:block;width:100%;text-decoration:none;transition:background 0.3s ease,color 0.3s ease;color:unset;margin:2.5px;padding:5px 10px;line-height:25px;border-radius:var(--radius-6x);&:hover{background:#00000033}}}}nav>div:nth-of-type(3){position:absolute;top:0;left:0;width:100%;height:100%;background:color-mix(in oklch,var(--nav-bg),#888888dd);align-items:center;padding:0 10px;border-radius:var(--radius-8x);display:flex;opacity:0;visibility:hidden;transition:opacity 0.3s ease,transform 0.3s ease;transform:translateY(-10px);&.active{opacity:1;visibility:visible;transform:translateY(0)}>input{flex-grow:1;background:transparent;border:none;outline:none;color:inherit;font-size:1rem;padding:5px;&::placeholder{color:inherit;opacity:0.6}&::-ms-input-placeholder{color:#a3b8c2}}>span{margin:0 10px}>button{background:transparent;border:none;color:inherit;font-size:1.2rem;cursor:pointer;width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:50%;&:hover{background:#00000033}}}mark{background:var(--markbg,#ff0);color:inherit;padding:0 2px;border-radius:var(--radius-2x)}dialog::backdrop{background:#00000055;backdrop-filter:blur(1px);transition:backdrop-filter 0.3s ease,background 0.3s ease}
-#settingdialog{width:clamp(300px,80dvw,600px);height:clamp(350px,60dvh,800px);border:none;border-radius:var(--radius-6x);background:var(--dialogbg);backdrop-filter:blur(20px);position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);overflow:hidden;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;will-change:transform,opacity;>div:nth-of-type(1){position:sticky;top:0;background:var(--settingbg);width:100%;padding:8px 15px;line-height:24px;>span{float:right}}>div:nth-of-type(2){height:calc(100% - 40px);padding:10px;overflow-y:auto;>section{button{color:var(--root-color);padding:1px 8px;line-height:23px;background:var(--settingbg);border-radius:var(--radius-5x);margin:2.5px}>div{height:35px;background:var(--settingbg);padding:2.5px 2.5px 2.5px 7.5px;border-radius:var(--radius-7x);margin:2.5px 0;>p{display:inline;line-height:30px}>label{height:30px;padding:2.5px;background:var(--radiobg);border-radius:15px;float:right;>input[type="radio"]{-webkit-appearance:none;-moz-appearance:none;appearance:none;width:25px;height:25px;border-radius:12.5px;position:relative;transition:background 0.3s ease,color 0.3s ease;&::before{content:var(--input-content);font-size:19px;width:25px;height:25px;line-height:25px;margin:3px;color:#ffffff44}&:checked{background:#ffffff22;&::before{color:unset}}}}}>div:has(>label>input[type="checkbox"]){height:initial;display:flex;flex-wrap:wrap;justify-content:center;>p{flex-basis:100%}>label{margin:2.5px;display:block;border-radius:var(--radius-5x);padding:5px;flex-basis:calc(50% - 5px);text-align:center;background:var(--nav-bg);color:var(--nav-btn);>input{-webkit-appearance:none;-moz-appearance:none;appearance:none}&:has(input:checked){background:var(--settingbg)}&:has(input:disabled){opacity:0.5}}}}h2{margin:10px;position:relative;padding-left:12.5px;&::before{width:5px;content:"";background:var(--radiobg);position:absolute;top:7.5px;bottom:7.5px;left:0;border-radius:2.5px}}}>div:nth-of-type(3){display:none;position:fixed;transform:translate(-50%,-50%);left:50%;top:50%;background:#ff4444aa;color:#fff;padding:8px 20px;border-radius:var(--radius-5x);transition:opacity 0.3s ease}}body[data-mode^="brief"] .atmosphere-settings{display:none}body[data-mode^="atmosphere"] .atmosphere-settings{display:block;flex-basis:100%}body[data-mode^="brief"] .brief-settings{display:block;flex-basis:100%}body[data-mode^="atmosphere"] .brief-settings{display:none}#mode-setting{display:flex;flex-wrap:wrap;justify-content:center;>h2{flex-basis:100%}>label{margin:2.5px;display:block;background:var(--settingbg);border-radius:var(--radius-5x);padding:5px;flex-basis:calc(50% - 5px);text-align:center;>input{-webkit-appearance:none;-moz-appearance:none;appearance:none}&:has(input:checked){background:var(--nav-bg);color:var(--nav-btn)}}}#settingdialog[open]{animation:dialogFadeIn 0.3s ease-out forwards}@keyframes dialogFadeIn{from{opacity:0;transform:translate(-50%,calc(-50% - 20px))}to{opacity:1;transform:translate(-50%,-50%)}}#settingdialog[open]::backdrop{animation:backdropFadeIn 0.3s ease-out forwards}@keyframes backdropFadeIn{from{background:transparent}to{background:#00000055}}
-#event>main{>h1{background:#00999988;text-align:center;border-radius:100dvw;margin:25px 15px 5px 15px;padding:10px;color:#fff}>div{margin:10px 0;padding:20px 8px 10px 8px;border-radius:var(--radius-4x);width:100%;background:#99ddff55;box-shadow:var(--shadow-hd-x);>time{position:relative;top:-15px;left:-3px;float:left;margin-right:-9999px;text-align:center;padding:5px 0;min-width:1.9em;border-radius:var(--radius-4x);font-weight:700;background:#6cf;box-shadow:var(--shadow-ho-x);color:#000}>p{padding:2.5px 0;text-indent:2em}>ul,>ul>ul{margin:3px 3px 3px 13px;padding:5px;background:#ffffff44;border-radius:var(--radius-6x);>li,>ul>li{text-indent:2em;list-style-type:none;&::before{position:relative;content:"●";color:#00000088;margin-right:5px}}}&.sp1{background:#ccffcc55;>time{background:#9f9}}&.sp2{background:#ffeecc55;>time{background:#fd9}}&.sp3{background:#ffccee55;>time{background:#f9d}}}}
-</style></head><body data-mode="system" data-shadow="subtle" data-radius="large" data-font-size="normal" data-line-spacing="loose" data-font-weight="normal" data-nav-margin="no" data-align="left">
-<div id="content"><nav><div><button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button><button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button><button onclick="document.getElementById('settingdialog').showModal()"><i class="fa fa-gear"></i></button><button onclick="toggleSubMenu()"><i class="fa fa-navicon"></i></button><button onclick="toggleSearch()"><i class="fa fa-search"></i></button></div><div><div>
+<style>@font-face{font-family:'icons';src:url('fa.woff2') format('woff2');font-display:swap}:root{color-scheme:light dark;--blur-amount:5px;--custom-bg-image:none}*{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;transition:border-radius 0.3s ease,box-shadow 0.3s ease;color:inherit}a,body,selection,hr,q,article,nav,nav i,dialog,.gallery,blockquote,label,radio{transition:background 0.3s ease,color 0.3s ease}p,h1,h2,h3,h4,h5,h6,li{transition:line-height 0.3s ease,letter-spacing 0.3s ease}*::-webkit-scrollbar{display:none!important}::selection{background:var(--selection)}html{font-size:100%;height:100dvh}body{font-family:"微软雅黑",sans-serif}#content>div{padding:50px 10px 10px 10px;overflow-y:auto;scroll-behavior:smooth;height:100dvh;backdrop-filter:blur(var(--blur-amount));transition:backdrop-filter 0.3s ease}hr{border:1px solid var(--hr);border-radius:100px;margin:5px 10px}a{color:var(--a);text-decoration-style:dotted}a:hover{color:var(--ah)}h1,h2,h3,h4,h5,h6{}sup[class="fa fa-external-link"]{font-size:0.7em;opacity:0.8;line-height:0;color:var(--a);vertical-align:super;position:relative;top:0}sup[class="fa fa-external-link"]:hover{opacity:0.7}img,svg,canvas,audio,video{max-width:100%}button{border:none}#content>div *[id]{scroll-margin-top:55px}
+body[data-mode="brief-light"]{background:#fff;color:#000;--a:#03c;--ah:#06c;--hr:#888;--selection:#9494b888;--shadow:#00000022;--article:#e9e9e288;--q:#d5dbdd88;--quot:#80939988;--loaderbg:#e6e6e6;--loadercolor:#000;--startflashing:#999;--endflashing:#666;--nav-bg:#ddddddbb;--nav-btn:#404040;--dialogbg:#ffffff99;--settingbg:#00000011;--radiobg:#00000055;--gallerybg:#b894a6}body[data-mode="brief-dark"]{background:#000;color:#fff;--a:#9cf;--ah:#69f;--hr:#999;--selection:#8585ad88;--shadow:#ffffff22;--article:#29363d88;--q:#283e2888;--quot:#466d4688;--loaderbg:#1a1a1a;--loadercolor:#fff;--startflashing:#ccc;--endflashing:#999;--nav-bg:#595959bb;--nav-btn:#e6e6e6;--dialogbg:#00000099;--settingbg:#ffffff11;--radiobg:#ffffff55;--gallerybg:#806699}body[data-mode="brief-blue"]{background:#06f;color:#fff;--a:#ff6;--ah:#ff0;--hr:#cff;--selection:#ccffff88;--shadow:#00999988;--article:#09f;--q:#d580ff;--quot:#f39;--loaderbg:#e6ffff;--loadercolor:#39f;--startflashing:#4285f4;--endflashing:#87f2f8;--nav-bg:#ccffffaa;--nav-btn:#36c;--dialogbg:#9cf;--settingbg:#3399ff11;--radiobg:#3399ff55;--gallerybg:#09c;--blockquote:#8019b6}body[data-mode="brief-pink"]{background:#e619e6;color:#fff;--a:;--ah:;--hr:;--selection:;--shadow:;--article:;--q:;--quot:;--loaderbg:;--loadercolor:;--startflashing:;--endflashing:;--nav-bg:;--nav-btn:;--dialogbg:;--settingbg:;--radiobg:;--gallerybg:}body[data-mode="brief-light-blue"]{background:#e6ffff;color:#001a1a;--a:#0040ff;--ah:#0080ff;--hr:#09f;--selection:#0099cc88;--shadow:#00339922;--article:#cceeff88;--q:#adebeb88;--quot:#0099cc88;--loaderbg:#cff;--loadercolor:#001a1a;--startflashing:#0066cc;--endflashing:#0099cc;--nav-bg:#33ccffbb;--nav-btn:#046;--dialogbg:#99ddff99;--settingbg:#0088cc11;--radiobg:#0088cc55;--gallerybg:}body[data-mode="brief-dark-blue"]{background:#001a33;color:#e6f3ff;--a:#66b3ff;--ah:#99ccff;--hr:#3399ff;--selection:#3399ff88;--shadow:#66b3ff22;--article:#00336688;--q:#00264d88;--quot:#00408088;--loaderbg:#00264d;--loadercolor:#cce6ff;--startflashing:#66b3ff;--endflashing:#3399ff;--nav-bg:#004080bb;--nav-btn:#cce6ff;--dialogbg:#00264dee;--settingbg:#3399ff15;--radiobg:#3399ff30;--gallerybg:#004080;--markbg:#ffff0088;--blockquote:#00264d}body[data-mode="brief-orangegreen"]{background:linear-gradient(45deg,#ccffe6,#ffebcc);color:#000;--a:#090;--ah:#99c500;--hr:#c90;--selection:#ff993388;--shadow:#cc000022;--article:#ccff3388;--q:linear-gradient(45deg,#ff990088,#33cc3388);--quot:#99993388;--loaderbg:linear-gradient(45deg,#cfc,#ffe0b3);--loadercolor:#000;--startflashing:#f90;--endflashing:#3c3;--nav-bg:linear-gradient(90deg,#ff8800bb,#00cc00bb);--nav-btn:#331a00;--dialogbg:#ffb36699;--settingbg:#995c0011;--radiobg:#5cd65c55;--gallerybg:}body[data-time-period="morning"]{--timeline-bg:#fff8e6;--timeline-color:#3a2e00;--timeline-a:#d4a800;--timeline-ah:#ffcc00;--timeline-hr:#ffd700;--timeline-selection:#ffd70088;--timeline-shadow:#ffd70022;--timeline-article:#fff0b388;--timeline-q:#fff5cc88;--timeline-quot:#ffcc0088;--timeline-loaderbg:#fff5cc;--timeline-loadercolor:#8c6d00;--timeline-startflashing:#ffd700;--timeline-endflashing:#ffb700;--timeline-nav-bg:#ffd900bb;--timeline-nav-btn:#5c4a00;--timeline-dialogbg:#fff0b399;--timeline-settingbg:#ffcc0011;--timeline-radiobg:#ffcc0055;--timeline-gallerybg:#ffd700}body[data-time-period="afternoon"]{--timeline-bg:#fff5f0;--timeline-color:#3a2e1a;--timeline-a:#8fbc8f;--timeline-ah:#98fb98;--timeline-hr:#d2b48c;--timeline-selection:#98fb9888;--timeline-shadow:#d2b48c22;--timeline-article:#f0e0d088;--timeline-q:#e6f0e688;--timeline-quot:#8fbc8f88;--timeline-loaderbg:#f5f5dc;--timeline-loadercolor:#5a4a32;--timeline-startflashing:#d2b48c;--timeline-endflashing:#8fbc8f;--timeline-nav-bg:#d2b48cbb;--timeline-nav-btn:#5a4a32;--timeline-dialogbg:#f5f5dc99;--timeline-settingbg:#d2b48c11;--timeline-radiobg:#d2b48c55;--timeline-gallerybg:#d2b48c}body[data-time-period="evening"]{--timeline-bg:#ffebcc;--timeline-color:#4a2e00;--timeline-a:#ff8c00;--timeline-ah:#ffa500;--timeline-hr:#ff8c00;--timeline-selection:#ff8c0088;--timeline-shadow:#ff8c0022;--timeline-article:#ffd69988;--timeline-q:#ffcc9988;--timeline-quot:#ff993388;--timeline-loaderbg:#ffcc99;--timeline-loadercolor:#8c4a00;--timeline-startflashing:#ff9933;--timeline-endflashing:#ff6600;--timeline-nav-bg:#ff9933bb;--timeline-nav-btn:#8c4a00;--timeline-dialogbg:#ffcc9999;--timeline-settingbg:#ff8c0011;--timeline-radiobg:#ff8c0055;--timeline-gallerybg:#ff9933}body[data-time-period="night"]{--timeline-bg:#000033;--timeline-color:#e6e6ff;--timeline-a:#ffff99;--timeline-ah:#d9b3ff;--timeline-hr:#9966ff;--timeline-selection:#9966ff88;--timeline-shadow:#e6e6ff22;--timeline-article:#00006688;--timeline-q:#33336688;--timeline-quot:#6666cc88;--timeline-loaderbg:#000066;--timeline-loadercolor:#e6e6ff;--timeline-startflashing:#9966ff;--timeline-endflashing:#cc99ff;--timeline-nav-bg:#999900bb;--timeline-nav-btn:#ffffcc;--timeline-dialogbg:#00006699;--timeline-settingbg:#9966ff11;--timeline-radiobg:#9966ff55;--timeline-gallerybg:#333366}body[data-mode="brief-timeline"]{background:var(--timeline-bg);color:var(--timeline-color);--a:var(--timeline-a);--ah:var(--timeline-ah);--hr:var(--timeline-hr);--selection:var(--timeline-selection);--shadow:var(--timeline-shadow);--article:var(--timeline-article);--q:var(--timeline-q);--quot:var(--timeline-quot);--loaderbg:var(--timeline-loaderbg);--loadercolor:var(--timeline-loadercolor);--startflashing:var(--timeline-startflashing);--endflashing:var(--timeline-endflashing);--nav-bg:var(--timeline-nav-bg);--nav-btn:var(--timeline-nav-btn);--dialogbg:var(--timeline-dialogbg);--settingbg:var(--timeline-settingbg);--radiobg:var(--timeline-radiobg);--gallerybg:var(--timeline-gallerybg)}body[data-s="subtle"]{--shadow-so-x:0 0 5px var(--shadow);--shadow-so-2x:0 0 10px var(--shadow);--shadow-so-3x:0 0 25px var(--shadow);--shadow-so-4x:0 0 20px var(--shadow);--shadow-so-5x:0 0 30px var(--shadow);--shadow-so-6x:0 0 50px var(--shadow);--shadow-si-x:inset 0 0 10px var(--shadow);--shadow-si-2x:inset 0 0 20px var(--shadow);--shadow-si-3x:inset 0 0 40px var(--shadow);--shadow-ho-x:0 0 5px 2.5px var(--shadow);--shadow-ho-2x:0 0 5px 5px var(--shadow);--shadow-ho-3x:0 0 10px 10px var(--shadow);--shadow-nf-x:5px 5px 10px var(--shadow);--shadow-nf-2x:5px 5px 20px var(--shadow);--shadow-nf-3x:7.5px 7.5px 20px var(--shadow);--shadow-nf-4x:15px 15px 40px var(--shadow);--shadow-hf-x:2.5px 2.5px 5px var(--shadow);--shadow-hf-2x:5px 5px 5px var(--shadow);--shadow-hd-x:0 5px 5px var(--shadow);--shadow-hd-2x:0 10px 10px var(--shadow);--shadow-hd-3x:0 15px 15px var(--shadow)}body[data-s="none"]{--shadow-x:0}body[data-r="large"]{--radius-x:2.5px;--radius-2x:5px;--radius-3x:7.5px;--radius-4x:10px;--radius-5x:12.5px;--radius-6x:15px;--radius-7x:17.5px;--radius-8x:20px;--radius-9x:22.5px;--radius-10x:25px}body[data-r="small"]{--radius-x:1px;--radius-2x:2px;--radius-3x:3px;--radius-4x:4px;--radius-5x:5px;--radius-6x:6px;--radius-7x:7px;--radius-8x:8px;--radius-9x:9px;--radius-10x:10px}body[data-fs="large"]{font-size:112.5%}body[data-fs="normal"]{font-size:100%}body[data-fs="small"]{font-size:87.5%}body[data-ls="loose"] p,body[data-ls="loose"] li{line-height:1.7em;letter-spacing:0.15em}body[data-ls="tight"] p,body[data-ls="tight"] li{line-height:initial;letter-spacing:initial}body[data-fw="thin"]{font-weight:200}body[data-fw="normal"]{font-weight:normal}body[data-fw="bold"]{font-weight:bold}body[data-b^="0px"] #content>div{backdrop-filter:blur(0px)}body[data-b^="5px"] #content>div{backdrop-filter:blur(5px)}body[data-b^="10px"] #content>div{backdrop-filter:blur(10px)}body[data-mode^="atmosphere"][data-f="no"] #content>div{max-width:900px;margin:auto;width:calc(100dvw - 20px);height:calc(100dvh - 20px);border-radius:var(--radius-8x);position:fixed;top:10px;left:calc((100dvw - clamp(300px,calc(100dvw - 20px),900px)) / 2)}body[data-mode^="atmosphere"][data-f="yes"] #content>div{}body[data-mode^="atmosphere"][data-f="no"] #content nav{top:15px;left:calc((100dvw - clamp(290px,calc(100dvw - 30px),890px)) / 2);width:calc(100dvw - 30px);max-width:890px}body[data-mode^="atmosphere"][data-f="yes"] #content nav{width:100dvw;left:0;top:0;border-radius:0;>div:nth-of-type(3){border-radius:0}&:before{border-radius:0}}body[data-mode^="brief"][data-nm="no"] nav{width:100dvw;left:0;top:0;border-radius:0;>div:nth-of-type(3){border-radius:0}&:before{border-radius:0}}body[data-mode^="brief"][data-nm="yes"] nav{top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc(100dvw - clamp(2px,1dvw,10px) * 2)}body[data-na="left"] nav>div:first-child{justify-content:flex-start}body[data-na="center"] nav>div:first-child{justify-content:space-around}body[data-na="right"] nav>div:first-child{justify-content:flex-end}body[data-cf="1"] *[data-tf="3"]{display:none}body[data-cf="2"] *[data-tf="3"],body[data-cf="2"] *[data-tf="2"]{display:none}body[data-cf="3"] *[data-tf]{display:none}
+nav{position:fixed;background:var(--nav-bg);padding:2.5px;border-radius:var(--radius-8x);backdrop-filter:blur(20px);z-index:1;box-shadow:var(--shadow-so-5x);user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none}nav::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right,var(--nav-btn) var(--scroll-progress,0%),transparent 0);opacity:0.1;pointer-events:none;z-index:-1;border-radius:var(--radius-8x);height:40px}nav>div:first-child{display:flex;>button{transition:background 0.3s ease;width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;border-radius:var(--radius-8x);margin:0 2.5px;&:hover{background:#00000033}>i{color:var(--nav-btn)}}}#mainNavButton{transition:width 0.3s ease,opacity 0.3s ease,margin 0.3s ease,opacity 0.3s ease;opacity:1;&[style*="display:none"]{display:inline-block!important;width:0;opacity:0;pointer-events:none}}nav:has(>div:nth-of-type(2).active)>div:first-child>button:last-child{opacity:0.3;pointer-events:none}nav>div:nth-of-type(2){background:#ffffff08;transform-origin:top;border-radius:var(--radius-7x);height:0;max-height:0;opacity:0;overflow:auto;padding:0 2.5px;transition:all 0.3s cubic-bezier(0.68,-0.6,0.32,1.6);interpolate-size:allow-keywords;&.active{height:auto;opacity:1;max-height:clamp(200px,40dvh,400px);padding:0 2.5px;margin-top:5px}>button{display:block;width:100%;background:transparent;transition:background 0.3s ease,color 0.3s ease;font-size:1.125rem;text-align:left;margin:2.5px 0;border-radius:var(--radius-7x);padding:2.5px 10px;line-height:30px;font-weight:unset;&:hover{background:#00000033}}>div{position:relative;padding-left:7.5px;margin-left:5px;&::before{content:'';position:absolute;left:0;top:5px;bottom:5px;width:3px;background:var(--nav-btn);opacity:0.5;border-radius:1.5px}>a{display:block;width:100%;text-decoration:none;transition:background 0.3s ease,color 0.3s ease;color:unset;margin:2.5px;padding:5px 10px;line-height:25px;border-radius:var(--radius-6x);&:hover{background:#00000033}}}}mark{background:var(--markbg,#ff0);color:inherit;padding:0 2px;border-radius:var(--radius-2x)}dialog::backdrop{background:#00000055;backdrop-filter:blur(1px);transition:backdrop-filter 0.3s ease,background 0.3s ease}#settingdialog{width:clamp(300px,80dvw,600px);height:clamp(350px,60dvh,800px);border:none;border-radius:var(--radius-6x);background:var(--dialogbg);backdrop-filter:blur(20px);position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);overflow:hidden;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;will-change:transform,opacity;>div:nth-of-type(1){position:sticky;top:0;background:var(--settingbg);width:100%;padding:8px 15px;line-height:24px;>span{float:right}}>div:nth-of-type(2){height:calc(100% - 40px);padding:10px;overflow-y:auto;>section{button{color:var(--root-color);padding:1px 8px;line-height:23px;background:var(--settingbg);border-radius:var(--radius-5x);margin:2.5px}>div{height:35px;background:var(--settingbg);padding:2.5px 2.5px 2.5px 7.5px;border-radius:var(--radius-7x);margin:2.5px 0;>p{display:inline;line-height:30px}>label{height:30px;padding:2.5px;background:var(--radiobg);border-radius:15px;float:right;>input[type="radio"]{-webkit-appearance:none;-moz-appearance:none;appearance:none;width:25px;height:25px;border-radius:12.5px;position:relative;transition:background 0.3s ease,color 0.3s ease;&::before{content:var(--input-content);font-size:19px;width:25px;height:25px;line-height:25px;margin:3px;color:#ffffff44}&:checked{background:#ffffff22;&::before{color:unset}}}}}>div:has(>label>input[type="checkbox"]){height:initial;display:flex;flex-wrap:wrap;justify-content:center;>p{flex-basis:100%}>label{margin:2.5px;display:block;border-radius:var(--radius-5x);padding:5px;flex-basis:calc(50% - 5px);text-align:center;background:var(--nav-bg);color:var(--nav-btn);>input{-webkit-appearance:none;-moz-appearance:none;appearance:none}&:has(input:checked){background:var(--settingbg)}&:has(input:disabled){opacity:0.5}}}}h2{margin:10px;position:relative;padding-left:12.5px;&::before{width:5px;content:"";background:var(--radiobg);position:absolute;top:7.5px;bottom:7.5px;left:0;border-radius:2.5px}}}>div:nth-of-type(3){display:none;position:fixed;transform:translate(-50%,-50%);left:50%;top:50%;background:#ff4444aa;color:#fff;padding:8px 20px;border-radius:var(--radius-5x);transition:opacity 0.3s ease}}body[data-mode^="brief"] .atmosphere-settings{display:none}body[data-mode^="atmosphere"] .atmosphere-settings{display:block;flex-basis:100%}body[data-mode^="brief"] .brief-settings{display:block;flex-basis:100%}body[data-mode^="atmosphere"] .brief-settings{display:none}#mode-setting{display:flex;flex-wrap:wrap;justify-content:center;>h2{flex-basis:100%}>label{margin:2.5px;display:block;background:var(--settingbg);border-radius:var(--radius-5x);padding:5px;flex-basis:calc(50% - 5px);text-align:center;>input{-webkit-appearance:none;-moz-appearance:none;appearance:none}&:has(input:checked){background:var(--nav-bg);color:var(--nav-btn)}}}#settingdialog[open]{animation:dialogFadeIn 0.3s ease-out forwards}@keyframes dialogFadeIn{from{opacity:0;transform:translate(-50%,calc(-50% - 20px))}to{opacity:1;transform:translate(-50%,-50%)}}#settingdialog[open]::backdrop{animation:backdropFadeIn 0.3s ease-out forwards}@keyframes backdropFadeIn{from{background:transparent}to{background:#00000055}}#content>div>header:not(#home>header){font-size:1.875rem;text-align:center;padding:35px 0}#content>div>main{}article{background:var(--article,#0066ff88);padding:12.5px;border-radius:var(--radius-6x);margin:5px 0}article>p{text-indent:2em}article>h1{text-align:center;margin:5px auto}q{background:var(--q,#0066ff88);font-size:1.5625rem;display:block;text-align:center;padding:8px;border-radius:var(--radius-4x);margin:5px 0}q::before{font-family:"icons";content:"\f10d";color:var(--quot);padding-right:10px}q::after{font-family:"icons";content:"\f10e";color:var(--quot);padding-left:10px}.gallery{background:linear-gradient(color-mix(in oklch,var(--gallerybg),rgba(112.5,112.5,112.5,0.7)),color-mix(in oklch,var(--gallerybg),rgba(112.5,112.5,112.5,0.1)));padding:15px;border-radius:var(--radius-6x);text-align:center;margin:5px 0;>img{max-width:600px;width:100%;border-radius:var(--radius-4x)}>p{color:var(--gallerycolor)}}blockquote{background:var(--blockquote);padding:20px;border-radius:var(--radius-4x);border-left:5px solid #88888888;margin:5px 0}#event>main{>h1{background:#00999988;text-align:center;border-radius:100dvw;margin:25px 15px 5px 15px;padding:10px;color:#fff}>div{margin:10px 0;padding:20px 8px 10px 8px;border-radius:var(--radius-4x);width:100%;background:#99ddff55;box-shadow:var(--shadow-hd-x);>time{position:relative;top:-15px;left:-3px;float:left;margin-right:-9999px;text-align:center;padding:5px 0;min-width:1.9em;border-radius:var(--radius-4x);font-weight:700;background:#6cf;box-shadow:var(--shadow-ho-x);color:#000}>p{padding:2.5px 0;text-indent:2em}>ul,>ul>ul{margin:3px 3px 3px 13px;padding:5px;background:#ffffff44;border-radius:var(--radius-6x);>li,>ul>li{text-indent:2em;list-style-type:none;&::before{position:relative;content:"●";color:#00000088;margin-right:5px}}&.sp1{background:#ccffcc55;>time{background:#9f9}}&.sp2{background:#ffeecc55;>time{background:#fd9}}&.sp3{background:#ffccee55;>time{background:#f9d}}}}
+</style></head><body data-mode="system" data-s="subtle" data-r="large" data-fs="normal" data-ls="loose" data-fw="normal" data-b="5px" data-f="no" data-nm="no" data-na="left" data-cf="3">
+<div id="content"><nav><div><button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button><button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button><button onclick="document.getElementById('settingdialog').showModal()"><i class="fa fa-gear"></i></button><button onclick="toggleSubMenu()"><i class="fa fa-navicon"></i></button></div><div><div>
     <h2>七上</h2>
     <a href="#event-d2409">2024年9月</a>
     <a href="#event-d2410">2024年10月</a>
@@ -22,9 +20,9 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <h2>八上</h2>
     <a href="#event-d2508">2025年8月</a>
     <a href="#event-d2509">2025年9月</a>
-</div></div><div><input type="text" placeholder="搜索..."><span>0</span><button onclick="toggleSearch()" class="fa fa-remove"></button></div></nav>
-<dialog id="settingdialog"><div><strong>设置</strong><span onclick="document.getElementById('settingdialog').close()">&times;</span></div><div><section id="mode-setting"><h2>主题</h2><label style="flex-basis:100%;"><input type="radio"name="theme"value="system"onclick="changeTheme('system')">跟随系统</label><label><input type="radio"name="theme"value="brief-orangegreen"onclick="changeTheme('brief-orangegreen')"><span style="color:#0f0">橙</span><span style="color:#ff8000">绿</span></label><label><input type="radio"name="theme"value="brief-timeline"onclick="changeTheme('brief-timeline')">时间线</label><label><input type="radio"name="theme"value="brief-light"onclick="changeTheme('brief-light')">浅</label><label><input type="radio"name="theme"value="brief-dark"onclick="changeTheme('brief-dark')">深</label><label><input type="radio"name="theme"value="brief-light-blue"onclick="changeTheme('brief-light-blue')">浅蓝</label><label><input type="radio"name="theme"value="brief-dark-blue"onclick="changeTheme('brief-dark-blue')">深蓝</label></section><section><h2>字体</h2><div><p>字号</p><label><input type="radio"name="fontsize"value="small"onclick="changeFontSize('small')"style="--input-content:'小';"><input type="radio"name="fontsize"value="normal"onclick="changeFontSize('normal')"style="--input-content:'中';"><input type="radio"name="fontsize"value="large"onclick="changeFontSize('large')"style="--input-content:'大';"></label></div><div><p>行距/字距</p><label><input type="radio"name="linespacing"value="tight"onclick="changeLineSpacing('tight')"style="--input-content:'小';"><input type="radio"name="linespacing"value="loose"onclick="changeLineSpacing('loose')"style="--input-content:'大';"></label></div><div><p>字重</p><label><input type="radio"name="fontweight"value="thin"onclick="changeFontWeight('thin')"style="--input-content:'细';"><input type="radio"name="fontweight"value="normal"onclick="changeFontWeight('normal')"style="--input-content:'中';"><input type="radio"name="fontweight"value="bold"onclick="changeFontWeight('bold')"style="--input-content:'粗';"></label></div></section><section><h2>样式</h2><div><p>圆角</p><label><input type="radio"name="radius"value="small"onclick="changeRadius('small')"style="--input-content:'小';"><input type="radio"name="radius"value="large"onclick="changeRadius('large')"style="--input-content:'大';"></label></div><div><p>阴影</p><label><input type="radio"name="shadow"value="subtle"onclick="changeShadow('subtle')"style="--input-content:'有';"><input type="radio"name="shadow"value="none"onclick="changeShadow('none')"style="--input-content:'无';"></label></div><div class="atmosphere-settings"><p>遮罩模糊度</p><label><input type="radio"name="blur"value="0"onclick="changeBlurAmount(0)"style="--input-content:'无';"><input type="radio"name="blur"value="5"onclick="changeBlurAmount(5)"style="--input-content:'中';"><input type="radio"name="blur"value="10"onclick="changeBlurAmount(10)"style="--input-content:'强';"></label></div><div class="atmosphere-settings"><p>全屏显示</p><label><input type="radio"name="fullscreen"value="yes"onclick="changeFullscreenMode('yes')"style="--input-content:'是';"><input type="radio"name="fullscreen"value="no"onclick="changeFullscreenMode('no')"style="--input-content:'否';"></label></div></section><section><h2>导航栏</h2><div class="brief-settings"><p>边距</p><label><input type="radio"name="navmargin"value="yes"onclick="changeNavMargin('yes')"style="--input-content:'有';"><input type="radio"name="navmargin"value="no"onclick="changeNavMargin('no')"style="--input-content:'无';"></label></div><div><p>项目对齐</p><label><input type="radio"name="navalign"value="left"onclick="changeNavAlign('left')"style="--input-content:'左';"><input type="radio"name="navalign"value="center"onclick="changeNavAlign('center')"style="--input-content:'中';"><input type="radio"name="navalign"value="right"onclick="changeNavAlign('right')"style="--input-content:'右';"></label></div><div><p>显示项目</p><label><input type="checkbox"name="navitems"value="home"checked disabled onclick="toggleNavItem('home')">回首页</label><label><input type="checkbox"name="navitems"value="top"checked onclick="toggleNavItem('top')">回顶部</label><label><input type="checkbox"name="navitems"value="bottom"checked onclick="toggleNavItem('bottom')">回底部</label><label><input type="checkbox"name="navitems"value="settings"checked disabled onclick="toggleNavItem('settings')">设置</label><label><input type="checkbox"name="navitems"value="menu"checked disabled onclick="toggleNavItem('menu')">菜单</label><label><input type="checkbox"name="navitems"value="search"checked onclick="toggleNavItem('search')">搜索</label></div></section><section><h2>正文</h2><div><p>过滤敏感内容等级</p><label><input type="radio"name="contentfilter"value="0"onclick="changeContentFilter('0')"style="--input-content:'无';"><input type="radio"name="contentfilter"value="1"onclick="changeContentFilter('1')"style="--input-content:'一';"><input type="radio"name="contentfilter"value="2"onclick="changeContentFilter('2')"style="--input-content:'二';"><input type="radio"name="contentfilter"value="3"onclick="changeContentFilter('3')"style="--input-content:'三';"></label></div></section><section><button onclick="resetToDefault()">恢复默认</button></section></div></dialog>
-<div id="event"><header><h1>日志</h1></header><main>
+</div></div></nav>
+<dialog id="settingdialog"><div><strong>设置</strong><span onclick="document.getElementById('settingdialog').close()">&times;</span></div><div><section id="mode-setting"><h2>主题</h2><label style="flex-basis:100%;"><input type="radio"name="theme"value="system"onclick="changeTheme('system')">跟随系统</label><label><input type="radio"name="theme"value="brief-orangegreen"onclick="changeTheme('brief-orangegreen')"><span style="color:#0f0">橙</span><span style="color:#ff8000">绿</span></label><label><input type="radio"name="theme"value="brief-timeline"onclick="changeTheme('brief-timeline')">时间线</label><h3 style="flex-basis:100%;margin:5px;text-align:center;">简洁</h3><label><input type="radio"name="theme"value="brief-light"onclick="changeTheme('brief-light')">浅</label><label><input type="radio"name="theme"value="brief-dark"onclick="changeTheme('brief-dark')">深</label><label><input type="radio"name="theme"value="brief-dark-blue"onclick="changeTheme('brief-pink')">粉</label><label><input type="radio"name="theme"value="brief-dark-blue"onclick="changeTheme('brief-blue')">蓝</label><label><input type="radio"name="theme"value="brief-light-blue"onclick="changeTheme('brief-light-blue')">浅蓝</label><label><input type="radio"name="theme"value="brief-dark-blue"onclick="changeTheme('brief-dark-blue')">深蓝</label></section><section><h2>字体</h2><div><p>字号</p><label><input type="radio"name="fs"value="small"onclick="changeFS('small')"style="--input-content:'小';"><input type="radio"name="fs"value="normal"onclick="changeFS('normal')"style="--input-content:'中';"><input type="radio"name="fs"value="large"onclick="changeFS('large')"style="--input-content:'大';"></label></div><div><p>行距/字距</p><label><input type="radio"name="ls"value="tight"onclick="changeLS('tight')"style="--input-content:'小';"><input type="radio"name="ls"value="loose"onclick="changeLS('loose')"style="--input-content:'大';"></label></div><div><p>字重</p><label><input type="radio"name="fw"value="thin"onclick="changeFW('thin')"style="--input-content:'细';"><input type="radio"name="fw"value="normal"onclick="changeFW('normal')"style="--input-content:'中';"><input type="radio"name="fw"value="bold"onclick="changeFW('bold')"style="--input-content:'粗';"></label></div></section><section><h2>样式</h2><div><p>圆角</p><label><input type="radio"name="r"value="small"onclick="changeR('small')"style="--input-content:'小';"><input type="radio"name="r"value="large"onclick="changeR('large')"style="--input-content:'大';"></label></div><div><p>阴影</p><label><input type="radio"name="s"value="subtle"onclick="changeS('subtle')"style="--input-content:'有';"><input type="radio"name="s"value="none"onclick="changeS('none')"style="--input-content:'无';"></label></div><div class="atmosphere-settings"><p>遮罩模糊度</p><label><input type="radio"name="b"value="0px"onclick="changeB('0px')"style="--input-content:'无';"><input type="radio"name="b"value="5px"onclick="changeB('5px')"style="--input-content:'中';"><input type="radio"name="b"value="10px"onclick="changeB('10px')"style="--input-content:'强';"></label></div><div class="atmosphere-settings"><p>全屏显示</p><label><input type="radio"name="f"value="yes"onclick="changeF('yes')"style="--input-content:'是';"><input type="radio"name="f"value="no"onclick="changeF('no')"style="--input-content:'否';"></label></div></section><section><h2>导航栏</h2><div class="brief-settings"><p>边距</p><label><input type="radio"name="nm"value="yes"onclick="changeNM('yes')"style="--input-content:'有';"><input type="radio"name="nm"value="no"onclick="changeNM('no')"style="--input-content:'无';"></label></div><div><p>项目对齐</p><label><input type="radio"name="na"value="left"onclick="changeNA('left')"style="--input-content:'左';"><input type="radio"name="na"value="center"onclick="changeNA('center')"style="--input-content:'中';"><input type="radio"name="na"value="right"onclick="changeNA('right')"style="--input-content:'右';"></label></div></section><section><h2>正文</h2><div><p>内容过滤</p><label><input type="radio"name="cf"value="0"onclick="changeCF('0')"style="--input-content:'无';"><input type="radio"name="cf"value="1"onclick="changeCF('1')"style="--input-content:'一';"><input type="radio"name="cf"value="2"onclick="changeCF('2')"style="--input-content:'二';"><input type="radio"name="cf"value="3"onclick="changeCF('3')"style="--input-content:'三';"></label></div></section><section><button onclick="resetToDefault()">恢复默认</button></section></div><div>图片上传失败，请重试</div></dialog><div id="event"><header><h1>日志</h1></header><main>
+
 <h1 id="event-d2409">2024年9月</h1>
 <div>
     <time>2</time>
@@ -42,7 +40,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <time>11</time>
     <p>林奕扬用夹子夹嘴、鼻子。</p>
 </div>
-<div data-f="1">
+<div data-tf="1">
     <time>15</time>
     <p>蒲林豪睡觉流口水。</p>
 </div>
@@ -50,7 +48,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <time>16</time>
     <p>王淮作文出现“福州首都北京”。</p>
 </div>
-<div data-f="1">
+<div data-tf="1">
     <time>20</time>
     <p>蒲林豪睡觉第二次流口水。</p>
 </div>
@@ -58,23 +56,23 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <time>23</time>
     <p>语文老师发明“防伪标志”。</p>
     <p>语文老师将“陈睿卓”念成“陈睿zhuo&#772;”；把“薛阅晨”念成“xia&#772;o阅晨”。</p>
-    <p data-f="3">午休时林奕扬将外套套在书包（书包放桌上）外面，并用语文书将帽子撑起，做成假人。随后给大家展示自己摸（还把拉链拉开摸）那个假人的胸部以及生殖器官（还去吻、扯），体育老师发现后将外套扯下来。</p>
-    <p data-f="1">教室门外贴着的考生名单中出现日本人名“中岛隆骏”被学生调侃“日本人考语文”。</p>
+    <p data-tf="3">午休时林奕扬将外套套在书包（书包放桌上）外面，并用语文书将帽子撑起，做成假人。随后给大家展示自己摸（还把拉链拉开摸）那个假人的胸部以及生殖器官（还去吻、扯），体育老师发现后将外套扯下来。</p>
+    <p data-tf="1">教室门外贴着的考生名单中出现日本人名“中岛隆骏”被学生调侃“日本人考语文”。</p>
 </div>
 <div>
     <time>24</time>
     <p>语文老师播放课文朗读时背景音是早读铃声。</p>
-    <p data-f="3">音乐老师课件中出现“脏乱差”图片时，学生：“蒲林豪家！”出现婚礼相关图片时，生：“林芷琪和郑致辰！”</p>
-    <p data-f="2">林奕扬被生物老师称“2B青年欢乐多”。</p>
+    <p data-tf="3">音乐老师课件中出现“脏乱差”图片时，学生：“蒲林豪家！”出现婚礼相关图片时，生：“林芷琪和郑致辰！”</p>
+    <p data-tf="2">林奕扬被生物老师称“2B青年欢乐多”。</p>
     <p>蒲林豪钻进装班服的纸箱。</p>
-    <p data-f="1">林芷琪抢林奕扬筷子被刘老师找。<p>
-    <p data-f="1">蒲林豪把刚发下来的班服当裤子穿，本人：“新时尚。”</p>
+    <p data-tf="1">林芷琪抢林奕扬筷子被刘老师找。<p>
+    <p data-tf="1">蒲林豪把刚发下来的班服当裤子穿，本人：“新时尚。”</p>
 </div>
 <div>
     <time>25</time>
-    <p data-f="1">郑炜换座后被女生围住，本人表示“很高兴”。</p>
+    <p data-tf="1">郑炜换座后被女生围住，本人表示“很高兴”。</p>
     <p>眼保健操时有人离开教室被扣26分，被刘老师留下并罚写说明。</p>
-    <p data-f="1">林芷琪表示：初三毕业请全班吃蛋糕。</p>
+    <p data-tf="1">林芷琪表示：初三毕业请全班吃蛋糕。</p>
 </div>
 <div>
     <time>26</time>
@@ -84,8 +82,8 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <li>蒲林豪玩勺子，师：“还，还照镜子啊？过来。”然后将蒲林豪双手各打一下并没收勺子。</li>
     <li>薛阅晨“喵喵喵”（唱《see you again》）。</li>
     </ul>
-    <p data-f="1">新梗：“金叵罗”。</p>
-    <p data-f="1">蒲林豪饭粒掉到凳子、桌布上。</p>
+    <p data-tf="1">新梗：“金叵罗”。</p>
+    <p data-tf="1">蒲林豪饭粒掉到凳子、桌布上。</p>
     <p>自习时外面操场有人打鼓，王淮：“谁在敲桌子？”</p>
 </div>
 <div>
@@ -134,82 +132,82 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <time>8</time>
     <p>刘老师在隔壁班讲话，声音通过麦克风被同学们听见。</p>
     <p>语文课上有人电子设备响铃，大课间班主任占用20分钟查明真相。</p>
-    <p data-f="1">林奕扬吃腰带（并表演杂技）、矿泉水瓶封圈。</p>
+    <p data-tf="1">林奕扬吃腰带（并表演杂技）、矿泉水瓶封圈。</p>
 </div>
 <div>
     <time>9</time>
     <p>地理老师将“学委”说成“zhe&#769;委”。</p>
     <p>郑诗语先后和蒲林豪（要单打独斗）和郑致辰（被其他人坑）上台答政治题。</p>
     <p>语文课代表把“从百草园到三味书屋”称为“三只松鼠”。</p>
-    <p data-f="2">蒲林豪将腿蜷缩到衣服里面，被调侃“巨乳”“怀孕”。</p>
+    <p data-tf="2">蒲林豪将腿蜷缩到衣服里面，被调侃“巨乳”“怀孕”。</p>
     <p>语文课上林奕扬用餐巾纸做“榴莲千层”（即把餐巾纸叠起来并在纸张间留出空隙）。</p>
 </div>
 <div>
     <time>10</time>
     <p>数学课件中出现“绿化队今年植树约2棵”、“某区在校中学生约75人”。</p>
-    <p data-f="2">美术老师被人称“跟地理老师一样是超雄……”。</p>
+    <p data-tf="2">美术老师被人称“跟地理老师一样是超雄……”。</p>
     <p>美术课前三分钟，郑致辰：“美术课代表上来领读！”</p>
-    <p>美术老师语录：</p><ul class="mt"><li data-f="1">有点变态。</li><li data-f="1">看（女生）够了没？</li><li>你也得了这个后视症啊！</li><li>他的眼睛看上去充满了期待。</li><li>（林奕扬画画难看）我看你不是做完了，你是人完了！</li><li data-f="1">我还以为你右边（女生）看腻了，开始看后面。</li><li>要是你们家婴儿哭的话，把这张作业（狮子）拿出来，立马就不哭了，还能避邪啊！</li><li>（林奕扬）不要创造新物种。</li></ul>
+    <p>美术老师语录：</p><ul class="mt"><li data-tf="1">有点变态。</li><li data-tf="1">看（女生）够了没？</li><li>你也得了这个后视症啊！</li><li>他的眼睛看上去充满了期待。</li><li>（林奕扬画画难看）我看你不是做完了，你是人完了！</li><li data-tf="1">我还以为你右边（女生）看腻了，开始看后面。</li><li>要是你们家婴儿哭的话，把这张作业（狮子）拿出来，立马就不哭了，还能避邪啊！</li><li>（林奕扬）不要创造新物种。</li></ul>
     <p>大课间被人告知要跑操，出去后发现只有初三要跑。</p>
     <p>林奕扬把“华威菜多多”保温箱上的密封条撕下来（创造9班撕密封条先例），发现“么么脆鸡排”。</p>
-    <p data-f="1">体育课上蒲林豪称自己很虚，要报跆拳道。</p>
+    <p data-tf="1">体育课上蒲林豪称自己很虚，要报跆拳道。</p>
 </div>
 <div>
     <time>11</time>
     <p>背《从百草园到三味书屋》时，学生：“……肥胖的黄丰（黄蜂）泽伏在蔡华（菜花）楷上……”</p>
-    <p data-f="1">林奕扬把纸涂黑贴到牙齿上。</p>
-    <p data-f="1">蒲林豪午休时第三次流口水并拉丝，学生将黑笔放到他的嘴下面、将红笔放在他耳朵上后惊醒蒲林豪。</p>
+    <p data-tf="1">林奕扬把纸涂黑贴到牙齿上。</p>
+    <p data-tf="1">蒲林豪午休时第三次流口水并拉丝，学生将黑笔放到他的嘴下面、将红笔放在他耳朵上后惊醒蒲林豪。</p>
 </div>
 <div>
     <time>12</time>
     <p>下课后刘老师检查未预习的人的记作业本，发现未抄后每人打5下左右。随后让全班回教室统一检查记作业本并不允许第三节下课。</p>
-    <p data-f="1">午休时林奕扬让人绑自己手，体育老师发现后没收带子。林奕扬就开始转圈，转完后倒地。后又从体育老师身后偷偷爬过去拿那条带子被打屁股、扣2分。</p>
+    <p data-tf="1">午休时林奕扬让人绑自己手，体育老师发现后没收带子。林奕扬就开始转圈，转完后倒地。后又从体育老师身后偷偷爬过去拿那条带子被打屁股、扣2分。</p>
     <p>午托时学生争吵背历史还是地理，林奕扬到办公室询问刘老师“今天背什么”，刘老师回答今天作业要背的单词，林奕扬回班相告，学生开始背英语，背了半个中午，刘老师进班时才发现背错了。</p>
     <p>蒲林豪坐讲台被称“葡萄老师”。</p>
     <p>叶弘毅打篮球时指甲断掉。</p>
-    <p data-f="1">蒲林豪饭粒粘在脸上被笑。</p>
-    <p data-f="1">音乐课有人问“送葬的是什么花”。</p>
-    <p data-f="1">体育课蒲林豪躺在跑道上，并将小学校服绑在腿上（辣眼睛）。</p>
+    <p data-tf="1">蒲林豪饭粒粘在脸上被笑。</p>
+    <p data-tf="1">音乐课有人问“送葬的是什么花”。</p>
+    <p data-tf="1">体育课蒲林豪躺在跑道上，并将小学校服绑在腿上（辣眼睛）。</p>
     <p>劳技老师课上教物理、历史知识，学生表示想学“水仙”。</p>
-    <p data-f="1">体锻课时段长音响回音明显，非常滑稽，学生都在笑。</p>
+    <p data-tf="1">体锻课时段长音响回音明显，非常滑稽，学生都在笑。</p>
 </div>
 <div>
     <time>14</time>
     <p>国旗下讲话主题为《食品安全》，学生：“国旗下讲话说是食品安全，但句句都在讲自己的午餐。”</p>
-    <p data-f="1">林奕扬裤子破。</p>
-    <p data-f="1">薛阅晨对体育老师说：“我去找下体育老师。”然后又说：“没找到体育老师。”</p>
-    <p data-f="1">薛阅晨：“体育老师看美女！”</p>
+    <p data-tf="1">林奕扬裤子破。</p>
+    <p data-tf="1">薛阅晨对体育老师说：“我去找下体育老师。”然后又说：“没找到体育老师。”</p>
+    <p data-tf="1">薛阅晨：“体育老师看美女！”</p>
 </div>
 <div>
     <time>15</time>
-    <p data-f="1">英语课谈到记忆“+es”的方法，唐家祺：“我知道一个记忆方法：‘傻叉吃屎’。”</p>
+    <p data-tf="1">英语课谈到记忆“+es”的方法，唐家祺：“我知道一个记忆方法：‘傻叉吃屎’。”</p>
     <p>刘老师：“唐家祺找不到女朋友。”</p>
     <p>刘老师说自己（以前）跳绳so easy，自己可以跳1000下；跳远可以跳2米；三级跳运动会第一；跑步满分。还说同学们“太菜了”以及自己数理化英最好。</p>
-    <p data-f="3">生物课，学生看人体八大系统视频时出现生殖系统（起哄、笑），看完后，师：“……男生猥琐地笑，女生不好意思地笑……我们下学期学生殖系统……”并开始说学生殖系统那些事。下课后，郑致辰：“黄恩亚的必修课？”薛阅晨：“七年级下册的生物！”</p>
-    <p data-f="1">林奕扬午休时照（刘天馨的）镜子。</p>
+    <p data-tf="3">生物课，学生看人体八大系统视频时出现生殖系统（起哄、笑），看完后，师：“……男生猥琐地笑，女生不好意思地笑……我们下学期学生殖系统……”并开始说学生殖系统那些事。下课后，郑致辰：“黄恩亚的必修课？”薛阅晨：“七年级下册的生物！”</p>
+    <p data-tf="1">林奕扬午休时照（刘天馨的）镜子。</p>
 </div>
 <div>
     <time>16</time>
     <p>地理老师：“李仁槿。”学生：“季仁槿！”师：“李仁什么？”学生：“季仁槿。”师：“什么槿……”</p>
-    <p data-f="1">地理老师对蒲林豪说：“福州有一个精神病院，专治精神科。”</p>
-    <p data-f="3">古诗学到“不知何处吹芦管”时，学生：“黄恩亚专场！”黄恩亚红温。</p>
+    <p data-tf="1">地理老师对蒲林豪说：“福州有一个精神病院，专治精神科。”</p>
+    <p data-tf="3">古诗学到“不知何处吹芦管”时，学生：“黄恩亚专场！”黄恩亚红温。</p>
     <p>政治老师问如何交朋友。林芷琪：“要说‘Nice to meet you.’”薛阅晨：“如果跟不务正业的精神小伙……”</p>
     <p>华威菜多多公司派人询问午餐情况，学生让关闭录像后疯狂吐槽饭菜，更是说“想吃帝王蟹、鲍鱼、海鲜”等。</p>
 </div>
 <div>
     <time>17</time>
     <p>美术课，临近下课时陈睿卓、林承钰被罚蹲，原因疑似乱画，后画被撕掉。下课后，同学们在讲台上“拼图”，拼完后发现画中有蜜蜂、鲨鱼、驴、蜘蛛以及两匹马（马嘉祺、马驾）。</p>
-    <p data-f="1">蒲林豪耍“杂技（腿架脖子上）”时一体育老师路过并顺手拍照。</p>
-    <p data-f="1">林奕扬用英语小测大象叫。</p>
+    <p data-tf="1">蒲林豪耍“杂技（腿架脖子上）”时一体育老师路过并顺手拍照。</p>
+    <p data-tf="1">林奕扬用英语小测大象叫。</p>
     <p>蒲林豪：“骨折不痛。”</p>
-    <p data-f="1">陈子岩称：自己10月要开演唱会，门票10亿元；自己要去西伯利亚挖土豆、去亚马逊雨林荒野求生。学生：“震惊！陈子岩进男厕所”；“陈子岩私生活紊乱”；“陈子岩粉丝全是黑粉”。</p>
+    <p data-tf="1">陈子岩称：自己10月要开演唱会，门票10亿元；自己要去西伯利亚挖土豆、去亚马逊雨林荒野求生。学生：“震惊！陈子岩进男厕所”；“陈子岩私生活紊乱”；“陈子岩粉丝全是黑粉”。</p>
     <p>刘老师进行思想教育时蚊子在屏幕上飞来飞去并点开文件夹等窗口。</p>
 </div>
 <div>
     <time>18</time>
     <p>刘老师：“那就短的长袖……”“林奕扬形象不太好……”</p>
     <p>最后一节课语文老师不来上课，刘老师让背历史（且必须在放学前背完），结果放学后几乎全班留下（要么背诵没过、要么小测没过、要么值日）。</p>
-    <p data-f="1">蒲林豪第四次流口水，起身时口水拉（很长的）丝。</p>
+    <p data-tf="1">蒲林豪第四次流口水，起身时口水拉（很长的）丝。</p>
     <p>地理老师让蒲林豪回答问题，蒲林豪起立后，地理老师：“他是从梁山来的，一般梁山的人都不敢问……”</p>
     <p>地理老师请女生回答问题，问：“刘天馨是女生还是林奕扬是女生？”</p>
     <p>陈子岩的“演唱会门票”被历史老师发现。</p>
@@ -236,12 +234,12 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>林奕扬上演“皇帝的新本”，交上去的周记没有一个字。</p>
     <p>语文老师检查《朝花夕拾》原著，郑致辰把开学时发的“四十中日常行为规范”封面改成“朝花夕拾”。</p>
     <p>刘老师：“这么热还开什么风扇？”</p>
-    <p data-f="1">蒲林豪汤泡饭并把擦过鼻涕的纸塞进汤里。</p>
+    <p data-tf="1">蒲林豪汤泡饭并把擦过鼻涕的纸塞进汤里。</p>
     <p>别班喝的海带汤里的海带中出现虫卵，汤杯放在水池边引发大量学生关注，相当一部分人说以后再也不喝海带汤。</p>
     <p>午休时刘老师在外面弄小测，蒲林豪、林梓颢、郑致辰、林奕扬“喵喵喵”，被刘老师叫去办公室罚站、打手。林芷琪在午休时跳舞却逃过一劫。</p>
     <p>王淮：“蔡华楷，你欠黄丰揍了是吧！”</p>
-    <p>美术老师语录：</p><ul class="mt"><li data-f="1">这么骚包！</li><li data-f="1">（对叶弘毅）看一个男生那么激动，你也是男的，公的！</li><li>（对林奕扬）这是人类的作业吗？</li><li data-f="1">你还好这口啊！</li></ul>
-    <p data-f="1">美术老师：“操作（zuo&#772;）”“尺（chi&#772;）子”“装饰（shi&#772;）”“青苔（ta&#772;i）”</p>
+    <p>美术老师语录：</p><ul class="mt"><li data-tf="1">这么骚包！</li><li data-tf="1">（对叶弘毅）看一个男生那么激动，你也是男的，公的！</li><li>（对林奕扬）这是人类的作业吗？</li><li data-tf="1">你还好这口啊！</li></ul>
+    <p data-tf="1">美术老师：“操作（zuo&#772;）”“尺（chi&#772;）子”“装饰（shi&#772;）”“青苔（ta&#772;i）”</p>
     </div>
 <div>
     <time>25</time>
@@ -252,31 +250,31 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 <div>
     <time>26</time>
     <p>抽背地理，蒲林豪拿历史书。</p>
-    <p data-f="1">薛阅晨对体育老师手机说：“小艺小艺！”</p>
+    <p data-tf="1">薛阅晨对体育老师手机说：“小艺小艺！”</p>
     <p>午休时陆梓豪将牛奶挤到后面桌上（受害人：郑熠菲、郭沁诗、林芷琪）。</p>
     <p>蚊子又在屏幕上点击（点开展台、IE）。</p>
 </div>
 <div>
     <time>29</time>
-    <p data-f="2">黄恩亚对刘老师说自己肾不好。</p>
+    <p data-tf="2">黄恩亚对刘老师说自己肾不好。</p>
     <p>谈论抽奖/抽罚内容时，唐家祺：“我要吃小零食的相反数！”刘老师：“就是唐家祺买零食。”</p>
     <p>刘老师：“我还是运动细胞非常发达的。”</p>
 </div>
 <div>
     <time>30</time>
     <p>数学老师打开课件时播放音乐。</p>
-    <p data-f="1">语文老师被车撞，手臂需手术。其他老师代课。</p>
+    <p data-tf="1">语文老师被车撞，手臂需手术。其他老师代课。</p>
     <p>上课时地理老师接到一个广告电话。</p>
     <p>地理老师将红色（巨）点叫做“红色的一坨”“黄色的一坨”。</p>
-    <p data-f="1">林奕扬讲话时流口水。</p>
+    <p data-tf="1">林奕扬讲话时流口水。</p>
 </div>
 <div>
     <time>31</time>
-    <p data-f="2">叶弘毅在教室门上玩单杠。</p>
+    <p data-tf="2">叶弘毅在教室门上玩单杠。</p>
     <p>因台风原因，来学校时没电。倪浩宇称刘老师打电话叫电工修电，不一会儿电力恢复。</p>
-    <p data-f="1">刮台风时崔宇臣从窗台抓到神秘生物（蜻蜓）。</p>
+    <p data-tf="1">刮台风时崔宇臣从窗台抓到神秘生物（蜻蜓）。</p>
     <p>学生争论蔡华楷课上是否讲话。</p>
-    <p>美术老师语录：</p><ul class="mt"><li>男生怎么有中国大妈的特色？</li><li>什么功夫这么高深啊！</li><li>我还以为你喝多了！</li><li data-f="1">我以为你死了！</li></ul>
+    <p>美术老师语录：</p><ul class="mt"><li>男生怎么有中国大妈的特色？</li><li>什么功夫这么高深啊！</li><li>我还以为你喝多了！</li><li data-tf="1">我以为你死了！</li></ul>
     <p>林奕扬画乱涂乱画，称：“这个是梵高的画……”</p>
 </div>
  <h1 id="event-d2411">2024年11月</h1>
@@ -293,8 +291,8 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>午托时得知李梦妍参加体锻课接力赛，学生表示“她跑得很‘快’”“输定了”。体锻课时四个班为一组接力，9班果然倒数第一。</p>
     <p>体育课上，薛阅晨：“（跑1km）慢28分钟……”</p>
     <p>体锻课时一飞机飞过，蒲林豪：“他肯定是来接应我的，我这么帅……”</p>
-    <p data-f="1">据悉，周末林奕扬理发理坏了，他的父母便将他剃成快要光头的程度。</p>
-    <p data-f="2">学生班级群败露，据悉有人在群中造谣，更有传言称有内奸混杂其中。</p>
+    <p data-tf="1">据悉，周末林奕扬理发理坏了，他的父母便将他剃成快要光头的程度。</p>
+    <p data-tf="2">学生班级群败露，据悉有人在群中造谣，更有传言称有内奸混杂其中。</p>
     <p>语文老师“开火车”复习：提问到黄恩亚时，老师让翻译“元方入门不顾”的“顾”，黄恩亚手指前方：“回头看！”成为经典。</p>
     <p>语文老师形容薛阅晨“帅气”，形容陆梓豪“高大威武”，形容郑锦熠“声音很有磁性”，形容蒲林豪“很不一般”，形容陈子岩“笑得很灿烂”，形容黄恩亚“很可爱”。</p>
 </div>
@@ -303,16 +301,16 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>林奕扬、蔡华楷数学课上玩（太阳）反光，林奕扬还把光斑投到数学老师身上。</p>
     <p>蔡华楷被叫回答问题，坐下时没坐到凳子上，于是“砰”的一声摔倒，数学老师追问是谁干的，蔡华楷表示自己刚刚站起来时把凳子向后推了一下。</p>
     <p>数学老师在拍郭沁诗试卷的前两页，同时郑致辰（值日班长）在记作业未完成的学生的名单，数学老师问：“在写什么？”郑致辰：“在记名单。”数学老师：“作业拿过来。”郑致辰以为老师检查，就递了过去，结果数学老师投影了他作业的3、4页。</p>
-    <p data-f="1">班会课上刘老师谈“班级群事件”。</p>
+    <p data-tf="1">班会课上刘老师谈“班级群事件”。</p>
     <p>刘老师：“为7班争光。”</p>
-    <p data-f="1">量化蒲林豪倒数，上来抽罚时口水不小心流到讲台上。</p>
+    <p data-tf="1">量化蒲林豪倒数，上来抽罚时口水不小心流到讲台上。</p>
     <p>林奕扬把800字量化倒数检讨写成800字月考检讨（白写了）。</p>
-    <p data-f="2">体育课时杨依诺不跑步，学生问，杨依诺说自己向体育老师请假并称自己“肾痛”。</p>
+    <p data-tf="2">体育课时杨依诺不跑步，学生问，杨依诺说自己向体育老师请假并称自己“肾痛”。</p>
     <p>班会课前发借书卡，下课时蔡华楷就去“尝鲜”随便借了一本，翻了2页后就说：“不好看，放学就去还。”</p>
 </div>
 <div>
     <time>6</time>
-    <p data-f="2">林芷琪领读单词时读到“铅笔”，学生模仿美术老师的读“铅bi&#772;”被刘老师骂，后刘老师让大家拿科作业纸写上刚才读“铅bi&#772;”的人并将他们叫到办公室。</p>
+    <p data-tf="2">林芷琪领读单词时读到“铅笔”，学生模仿美术老师的读“铅bi&#772;”被刘老师骂，后刘老师让大家拿科作业纸写上刚才读“铅bi&#772;”的人并将他们叫到办公室。</p>
     <p>地理老师对薛阅晨：“帅哥！……”对林奕扬：“（头发）还要剃得光一点……”</p>
     <p>地理老师将“王淮”读成“王浩”。</p>
 </div>
@@ -323,7 +321,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>抄作业时林奕扬说“So easy!”刘老师：“林奕扬这次期中考英语必须135分以上。”</p>
     <p>蒲林豪上课被罚站，结果站着睡着，刘老师：“站着都能睡着，是不是晚上做贼了？”</p>
     <p>林奕扬坐凳子时把笔盖压碎，美术老师：“这个屁股是怎么构造的？把屁股当钳子用啊！”</p>
-    <p data-f="2">刘老师看学生打羽毛球，转身后蔡华楷、陈子岩发现后作死去寻找她。</p>
+    <p data-tf="2">刘老师看学生打羽毛球，转身后蔡华楷、陈子岩发现后作死去寻找她。</p>
     <p>学生到电脑室选活动课。选完后，蒲林豪回到教室时怪叫被王淮扣2分。</p>
 </div>
 <div>
@@ -341,8 +339,8 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 <div>
     <time>11</time>
     <p>蔡华楷没带走英语笔记本，周一时刘老师在讲台发现并问是谁的。蔡华楷：“看一下侧面（名字）。”然后将其拿走。</p>
-    <p data-f="2">李梦妍剪“中分”被多人嘲笑。</p>
-    <p data-f="3">数学考试时初二（14）班考场一初二学生（林奕扬同桌）突然发疯，一边大吼一边摇桌子。考完试后林奕扬直接被整出心理阴影（哭了）。</p>
+    <p data-tf="2">李梦妍剪“中分”被多人嘲笑。</p>
+    <p data-tf="3">数学考试时初二（14）班考场一初二学生（林奕扬同桌）突然发疯，一边大吼一边摇桌子。考完试后林奕扬直接被整出心理阴影（哭了）。</p>
 </div>
 <div>
     <time>12</time>
@@ -351,9 +349,9 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>林奕扬、刘天馨复习时玩“斗书主”，即用七科的教材打“斗地主”。</p>
     <p>刘老师见林奕扬发呆，便问自己刚才讲了什么，林奕扬：“逗号前面要加逗号。”</p>
 </div>
-<div data-f="1">
+<div data-tf="1">
     <time>13</time>
-    <p data-f="2">男厕所地板上出现一条内裤，里面包裹着屎。</p>
+    <p data-tf="2">男厕所地板上出现一条内裤，里面包裹着屎。</p>
     <p>生物期中考，14班监考老师：“写上姓名和名字。”</p>
 </div>
 <div>
@@ -365,16 +363,16 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
         <li>别班（对面）透过窗户看，随后多个班级因外面太吵关上窗户。</li>
         <li>不久11班也来练，结果声音被拉爆。</li>
     </ul>
-    <p data-f="3">洪鑫洋期中语文、数学考试时与初二学生交谈被班级处分。</p>
+    <p data-tf="3">洪鑫洋期中语文、数学考试时与初二学生交谈被班级处分。</p>
     <p>刘老师：“……说明水泽的小测……”</p>
 </div>
 <div>
     <time>15</time>
     <p>李梦妍喷壶没带回家，结果当天值日生在黑板上写：“李梦妍防狼喷雾没拿”。</p>
-    <p data-f="1">廖成羲语文课上拆椅子。</p>
+    <p data-tf="1">廖成羲语文课上拆椅子。</p>
     <p>刘老师：“季仁槿一点绅士风度都没有。”</p>
     <p>军训文艺汇演9班要唱《少年中国说》。</p>
-    <p data-f="2">历史课学生吵闹被人告状，中午、晚上刘老师大讲此事，还特地去查监控。杨依诺在午休后找刘老师“理论”，语气不好被大骂。</p>
+    <p data-tf="2">历史课学生吵闹被人告状，中午、晚上刘老师大讲此事，还特地去查监控。杨依诺在午休后找刘老师“理论”，语气不好被大骂。</p>
     <p>语文课时刘老师神不知鬼不觉地在窗外出现，吓到多人。</p>
     <p>地理老师让估分，随后选地理大组长。林芷琪故意将自己估成不及格，地理老师就说：“如果成绩出来后及格了，我们两个人就一起‘打’你。”临近下课时还叫了一遍“林芷琪”以加深记忆。</p>
     <p>最后一节语文课看了半小时纪录片《何以中国》。</p>
@@ -383,9 +381,9 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <time>16</time>
     <p>数学老师投影郑致辰作业，结果一大片错误，数学老师：“这是故意给老师设陷阱是吧！”有学生说：“学委……”师：“还学委呀！”</p>
     <p>蒲林豪打瞌睡，数学老师：“天天打瞌睡，你是不是吸毒了哈，跟那个隐君子似的。……离得太近了，还有那个讲台作掩护啊！”</p>
-    <p data-f="1">小测让默课文，很多人不会，被罚抄10遍，午休时一堆人在抄。</p>
+    <p data-tf="1">小测让默课文，很多人不会，被罚抄10遍，午休时一堆人在抄。</p>
     <p>刘老师：“我们就说我们是‘凌云9班，凌云乐队’。”唐家祺：“韭（九）菜乐队！”</p>
-    <p data-f="1">体育课上蒲林豪用黄色垃圾袋把脚套起来跑步，还在跑道上模拟“穿短裙”并用垃圾袋当帽子。</p>
+    <p data-tf="1">体育课上蒲林豪用黄色垃圾袋把脚套起来跑步，还在跑道上模拟“穿短裙”并用垃圾袋当帽子。</p>
 </div>
 <div style="background:#ffeecc55;">
     <time style="background:#fd9;">19</time>
@@ -395,21 +393,21 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 <div style="background:#ffeecc55;">
     <time style="background:#fd9;">20</time>
     <p>消防演练时，学生吐槽龙翔道：“有120个项目！”“我都不知道龙翔怎么赚钱！”“玩得太开心了！”“饭菜健康又美味。”“两天就把120个项目都玩完了！”……</p>
-    <p data-f="1">崔宇臣体验VR时以为自己真的在坐过山车，于是两次抠并吃鼻屎。</p>
-    <p data-f="1">辅导员说“初中部/四十中/九班”时，别人答“到！”陈睿卓、唐家祺、郑锦熠等人大声答“操！”。</p>
+    <p data-tf="1">崔宇臣体验VR时以为自己真的在坐过山车，于是两次抠并吃鼻屎。</p>
+    <p data-tf="1">辅导员说“初中部/四十中/九班”时，别人答“到！”陈睿卓、唐家祺、郑锦熠等人大声答“操！”。</p>
 </div>
 <div style="background:#ffeecc55;">
     <time style="background:#fd9;">21</time>
     <p>辅导员给大家“惊喜”，也就是宿舍不合格的照片。</p>
     <p>朗诵时别班“严重抄袭”9班。</p>
-    <p data-f="1">福清一中一学生和陈睿卓搭讪。</p>
-    <p data-f="1">郑锦熠稍息时故意踢别人水杯。</p>
+    <p data-tf="1">福清一中一学生和陈睿卓搭讪。</p>
+    <p data-tf="1">郑锦熠稍息时故意踢别人水杯。</p>
     <p>辅导员对郑锦熠、陈睿卓说：“就你们两个10班的还在吵！”</p>
-    <p data-f="1">有人看到辅导员手机壁纸是美女。</p>
+    <p data-tf="1">有人看到辅导员手机壁纸是美女。</p>
 </div>
 <div style="background:#ffeecc55;">
     <time style="background:#fd9;">22</time>
-    <p data-f="1">辅导员被其他辅导员“轮奸”。</p>
+    <p data-tf="1">辅导员被其他辅导员“轮奸”。</p>
     <p>拉练时学生路过玉埔村，学生：“蒲林豪家！”结果蒲林豪真的走进去；唐家祺、林奕扬等人摘花并放耳朵上；电线杆上有“简普赛山庄”广告，学生：“到柬埔寨了！”“出国了！”；走路时遇见一小孩，学生挥手并大喊：“早——上——好——”“How do you do?”</p>
     <p>辅导员：“第二个科目：稍息立正、跨立……啊呸！”</p>
     <p>其他方阵声音不响亮，辅导员就喊：“声音声音！”</p>
@@ -424,7 +422,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 </div>
 <div>
     <time>25</time>
-    <p data-f="3">劳技课，陆梓豪：“把精子包进饺子里。”</p>
+    <p data-tf="3">劳技课，陆梓豪：“把精子包进饺子里。”</p>
     <p>郑永泽将自己名字写成“Zheny Yongze”。</p>
 </div>
 <div>
@@ -434,8 +432,8 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>班会课前突然换座引发热议，林芷琪“中奖”跟黄恩亚坐。</p>
     <p>生物老师说上完今天的课大家会吃不下午饭，结果讲到“猪肉绦虫”学生直呼恶心。当天午饭就有人说不要吃肉（有猪肉绦虫）。</p>
     <p>生物课玩游戏，“amazing，amazing！”限时回归。</p>
-    <p data-f="1">生物课时讲台的第三块黑板中间有人贴了一张午餐的密封条。</p>
-    <p data-f="3">黄恩亚咳嗽时：“我操！”。</p>
+    <p data-tf="1">生物课时讲台的第三块黑板中间有人贴了一张午餐的密封条。</p>
+    <p data-tf="3">黄恩亚咳嗽时：“我操！”。</p>
     <p>林奕扬数学课上写东西，数学老师：“在给英语老师写信是吧！”</p>
 </div>
 <div>
@@ -450,14 +448,14 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 <div>
     <time>28</time>
     <p>蒲林豪、林奕扬被刘老师称“笑得很猥琐”，蒲林豪跑操时还一直怪叫。</p>
-    <p data-f="1">林奕扬表演滑跪技巧。</p>
+    <p data-tf="1">林奕扬表演滑跪技巧。</p>
     <p>午休时郑永泽被刘老师表扬“睡觉很认真”，还加了一分量化分。</p>
-    <p data-f="3">陆梓豪：“脑筋就是脑的精液。”</p>
-    <p>美术老师语录：</p><ul class="mt"><li data-f="1">（多人上厕所）你们班集体肾亏啊！</li><li>这个（狮子）显然是做过手术啊！</li><li>你今天没有吃药吧！还是吃错药了？</li><li>我等下对你进行听力测试啊！</li><li data-f="1">拉一泡尿也这么高兴？</li></ul>
+    <p data-tf="3">陆梓豪：“脑筋就是脑的精液。”</p>
+    <p>美术老师语录：</p><ul class="mt"><li data-tf="1">（多人上厕所）你们班集体肾亏啊！</li><li>这个（狮子）显然是做过手术啊！</li><li>你今天没有吃药吧！还是吃错药了？</li><li>我等下对你进行听力测试啊！</li><li data-tf="1">拉一泡尿也这么高兴？</li></ul>
 </div>
 <div>
     <time>29</time>
-    <p data-f="3">语文老师：“今天上《诫子书》。”黄恩亚：“戒色书。”</p>
+    <p data-tf="3">语文老师：“今天上《诫子书》。”黄恩亚：“戒色书。”</p>
     <p>语文老师将“陈睿卓”念成“陈卓睿”。</p>
 </div>
 <h1 id="event-d2412">2024年12月</h1>
@@ -468,17 +466,17 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 </div>
 <div>
     <time>3</time>
-    <p data-f="1">林奕扬午休时在地上“爬行”、跳舞。</p>
-    <p data-f="1">跑操时上演“恩亚危机”，叶弘毅被黄恩亚碰到。</p>
-    <p data-f="1">薛阅晨：“误食大便。”</p>
+    <p data-tf="1">林奕扬午休时在地上“爬行”、跳舞。</p>
+    <p data-tf="1">跑操时上演“恩亚危机”，叶弘毅被黄恩亚碰到。</p>
+    <p data-tf="1">薛阅晨：“误食大便。”</p>
     <p>生物老师分享自己小时候上生物课经历：到生物实验室时，讲台上摆着一盆蛔虫（死的），要求每人都要解剖蛔虫。当天中午去到食堂发现有炒面条，结果大家一周不敢吃炒面条。</p>
     <p>分享学习经验时，蔡华楷讲了两句，说：“编不下去了。”郑致辰多次提及“语文方略”，还说：“我们可以参考《方略》的第86到105页……”叶弘毅甚至用上黑板。</p>
 </div>
 <div>
     <time>4</time>
     <p>地理老师：“阅晨宝宝，我爱你呦~”</p>
-    <p data-f="2">黄恩亚数学作业乱做，被罚起立时拍桌子。</p>
-    <p data-f="1">郑致辰和崔宇臣数学课牵手。</p>
+    <p data-tf="2">黄恩亚数学作业乱做，被罚起立时拍桌子。</p>
+    <p data-tf="1">郑致辰和崔宇臣数学课牵手。</p>
     <p>午托时有人感冒咳嗽，结果多人效仿，咳嗽声此起彼伏，结果被刘老师发现。</p>
 </div>
 <div>
@@ -502,7 +500,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
         <li>季仁槿、郑诗语在第一页用英语讲PPT，该PPT中还出现一堆动漫人物。</li>
         <li>薛阅晨：“我们小组的成员记得带饺子”“因为他（郑永泽）喜欢吃醋”。</li>
         <li>薛阅晨将“蒲林豪”打成“薄林豪”。</li>
-        <li data-f="1">洪鑫洋：“杨依ne&#768;”“美丽的饺子啦！”</li>
+        <li data-tf="1">洪鑫洋：“杨依ne&#768;”“美丽的饺子啦！”</li>
     </ul>
         <p>体锻课“跑操”，刘老师陪跑；学生玩龙翔的梗，如：“第一个科目，稍息立正跨立立正”“站10分钟军姿”等。</p>
 </div>
@@ -519,7 +517,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 <div>
     <time>12</time>
     <p>刘老师和学生谈“阅晨宝宝”。</p>
-    <p data-f="3">黄恩亚：“我喜欢高级玩家。”“我在戒色。”“立了（立体）图形。”</p>
+    <p data-tf="3">黄恩亚：“我喜欢高级玩家。”“我在戒色。”“立了（立体）图形。”</p>
 </div>
 <div>
     <time>13</time>
@@ -543,15 +541,15 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 </div>
 <div>
     <time>18</time>
-    <p data-f="2">郭沁诗、陈子岩聊天，地理老师罚他们一左一右站到后面并说：“一直在碰撞……”</p>
-    <p data-f="1">地理老师讲到“冬天用护肤品”时，林奕扬问“那你老婆呢？”结果被打4下。</p>
+    <p data-tf="2">郭沁诗、陈子岩聊天，地理老师罚他们一左一右站到后面并说：“一直在碰撞……”</p>
+    <p data-tf="1">地理老师讲到“冬天用护肤品”时，林奕扬问“那你老婆呢？”结果被打4下。</p>
     <p>语文课，第一组多人称卷子未发到，找了一会儿发现被黄恩亚塞进书包了，学生：“恩亚私藏卷子！”</p>
     <p>上课时洪鑫洋桌子突然被坐塌，他的同桌由于上厕所逃过一劫。</p>
 </div>
 <div>
     <time>19</time>
     <p>黄恩亚没戴口罩、手套包了三个饺子（据说形状似三角形、馅多）并被三位“幸运儿”吃到。</p>
-    <p data-f="1">蔡华楷把塑料包到饺子里。</p>
+    <p data-tf="1">蔡华楷把塑料包到饺子里。</p>
     <p>崔宇臣那组用面粉和<small style="opacity:0.7">（动词）</small>面团。</p>
     <p>唐家祺头靠在桌子上，在抽屉里玩面团被发现，美术老师走到他跟前好一会儿他才反应过来，被罚站到后面。</p>
     <p>郑致辰咳嗽声搞笑，被美术老师评价：“什么品种的人？”</p>
@@ -570,12 +568,12 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>数学老师评价蒲林豪：“白天梦游，晚上搬砖。”</p>
     <p>语文老师念小测满分名单。念到钱尚恩时，学生解锁新音效：“啊？”</p>
     <p>语文老师抽查《诫子书》、《狼》注释及翻译。抽到唐家祺时：师：“遂成枯落。枯落。”唐：“柴草！”师：“非学无以广才。广。”唐：“广泛！”抽到陈睿卓时，师：“遂成枯落。遂。”卓：“枯落。”</p>
-    <p data-f="1">最后一节课布置考场。校长广播催放学，同学们一边欢呼一边收书包，结果被刘老师狠批。剩下20分钟时段长上门催放学，学生欢呼被制止。然后就听到10班爆发一阵欢呼声。</p>
+    <p data-tf="1">最后一节课布置考场。校长广播催放学，同学们一边欢呼一边收书包，结果被刘老师狠批。剩下20分钟时段长上门催放学，学生欢呼被制止。然后就听到10班爆发一阵欢呼声。</p>
 </div>
 <div>
     <time>24</time>
     <p>唐家祺：“enjoy old people……”</p>
-    <p data-f="3">语文课上学生发现黄恩亚一直把手放在生殖器官上面，跑操时大家就议论此事，甚至有人说“别人射出来的是蝌蚪，黄恩亚射出来的是青蛙”“射穿地球”。跑操结束后有人让黄恩亚当场撸，黄恩亚：“现在不是时候。”</p>
+    <p data-tf="3">语文课上学生发现黄恩亚一直把手放在生殖器官上面，跑操时大家就议论此事，甚至有人说“别人射出来的是蝌蚪，黄恩亚射出来的是青蛙”“射穿地球”。跑操结束后有人让黄恩亚当场撸，黄恩亚：“现在不是时候。”</p>
     <p>数学午托时洪鑫洋桌子又倒。</p>
     <p>洪鑫洋讲脏话被罚刷牙，开创9班刷牙先例。</p>
 </div>
@@ -583,21 +581,21 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <time>25</time>
     <p>王淮英语月考卷中学校写“仓实小”。</p>
     <p>薛阅晨汤里喝出塑料。</p>
-    <p data-f="1">蔡华楷画“女苔藓”SSR卡被刘老师发现并谈话。</p>
+    <p data-tf="1">蔡华楷画“女苔藓”SSR卡被刘老师发现并谈话。</p>
     <p>最后一节课14个男生被叫去跑步，近一半学生被叫“直接回班！”。</p>
     <p>学生：“王维（王淮）！”师：“王维在哪里？”</p>
 </div>
 <div>
     <time>26</time>
     <p>阅读课上有人把借书卡从3楼栏杆（栏杆后面有窗户）扔下。</p>
-    <p data-f="1">有人中午（英语小测）重测时在屏幕上写“黄恩亚”。</p>
+    <p data-tf="1">有人中午（英语小测）重测时在屏幕上写“黄恩亚”。</p>
 </div>
 <div>
     <time>27</time>
     <p>师：“垂线的交点叫什么？”洪鑫洋：“垂点（垂足）！”</p>
-    <p data-f="1">黄恩亚午休后在背书的单子前跳舞。</p>
-    <p data-f="1">黄恩亚：“我身上有致癌物！”</p>
-    <p data-f="1">地理老师说“白种人几乎100%有体味……黄种人只有10%左右。”学生：“黄恩亚！”</p>
+    <p data-tf="1">黄恩亚午休后在背书的单子前跳舞。</p>
+    <p data-tf="1">黄恩亚：“我身上有致癌物！”</p>
+    <p data-tf="1">地理老师说“白种人几乎100%有体味……黄种人只有10%左右。”学生：“黄恩亚！”</p>
 </div>
 <div>
     <time>28</time>
@@ -610,7 +608,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 </div>
 <div>
     <time>31</time>
-    <p data-f="3">黄恩亚：“祝老师天天嫖娼。”</p>
+    <p data-tf="3">黄恩亚：“祝老师天天嫖娼。”</p>
     <p>陈睿卓月考段排250名。</p>
     <p>师：“瞬时记忆。”郑致辰：“逆时记忆。”</p>
     <p>洪鑫洋带读：“谢太傅集雪日内集……宋国有个人担忧天会崩塌……”</p>
@@ -620,7 +618,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 <div>
     <time>2</time>
     <p>上体育课时有人发现一只老鼠爬出来。</p>
-    <p data-f="3">语文老师：“社交。”郑致辰：“射和交。”</p>
+    <p data-tf="3">语文老师：“社交。”郑致辰：“射和交。”</p>
 </div>
 <div>
     <time>3</time>
@@ -629,7 +627,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>《皇帝的新装》课件中出现上半身裸体皇帝，但下半身被遮住。唐家祺：“为什么他还有穿衣服？”师：“家祺，你想看什么……”</p>
     <p>周末学生喜提8张卷子（英语1，语文2，生物2，历史1，数学2）。</p>
 </div>
-<div data-f="1">
+<div data-tf="1">
     <time>7</time>
     <p>黄恩亚放响屁。林芷琪：“黄恩亚放屁好响啊！”别人：“水仙说‘黄恩亚放屁好香啊’！”</p>
     <p>陆梓豪：“澳门独立制度……”</p>
@@ -638,7 +636,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <time>8</time>
     <p>数学老师讲课第二次不小心把自己手机的小艺唤起，师：“手机都听懂了是吧？”随后手机问：“是不是想让我帮助化简？”师：“手机是非常认真的。”</p>
     <p>历史试卷第四页选择题没选项，林奕扬选A。</p>
-    <p data-f="3">郑致辰：“饿得二弟都站不起来了……”</p>
+    <p data-tf="3">郑致辰：“饿得二弟都站不起来了……”</p>
 </div>
 <div>
     <time>9</time>
@@ -646,7 +644,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>跑操时林奕扬羽绒服爆掉。</p>
     <p>跑操结束后有高年级打篮球，被刘老师批斗（拍照发给他们班的班主任）。</p>
     <p>午休时李欢颜因背书舌战李映辰。</p>
-    <p data-f="3">蔡华楷抱来七下生物书，遭大批学生抢并翻看（人的生殖），并有人说“在58页！”黄恩亚：“我最爱的书来了。”</p>
+    <p data-tf="3">蔡华楷抱来七下生物书，遭大批学生抢并翻看（人的生殖），并有人说“在58页！”黄恩亚：“我最爱的书来了。”</p>
 </div>
 <div>
     <time>10</time>
@@ -657,44 +655,44 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <time>13</time>
     <p>升旗后老师通报有人把男厕所下水道堵住，导致初中楼男厕所用不了，要10000元疏通管道费。</p>
 </div>
-<div data-f="3">
+<div data-tf="3">
     <time>14</time>
     <p>学生拿饭时：“不要乱插……会生殖隔离！”</p>
 </div>
 <div>
     <time>15</time>
-    <p data-f="3">黄恩亚：“我周末在家里嫖娼。”</p>
+    <p data-tf="3">黄恩亚：“我周末在家里嫖娼。”</p>
     <p>陆梓豪进班时“Lady go,lady go……”被王淮注视。</p>
-    <p data-f="3">午休时黄恩亚说自己用加速器看91，还谈到“梯子”、“翻墙”、“外网”、“隐藏IP”等。</p>
-    <p data-f="1">黄恩亚：“我玩电脑玩了几十年。”</p>
+    <p data-tf="3">午休时黄恩亚说自己用加速器看91，还谈到“梯子”、“翻墙”、“外网”、“隐藏IP”等。</p>
+    <p data-tf="1">黄恩亚：“我玩电脑玩了几十年。”</p>
     <p>蔡华楷：“值日生的都出去！不是值日生的都进来！”</p>
     <p>地理课考试，地理老师就去教室外面和别的学生打羽毛球。</p>
 </div>
 <div>
     <time>16</time>
-    <p data-f="1">洪鑫洋把七下生物书扔给黄恩亚。</p>
+    <p data-tf="1">洪鑫洋把七下生物书扔给黄恩亚。</p>
     <p>郑炜作文一炮而红（十年后的我、我的动物朋友）。</p>
     <p>唐家祺：“梦妍比较狡猾，梦琪比较老实。”</p>
     <p>洪鑫洋：“东临碣石，以观沧海。树木丛生……”</p>
-    <p data-f="1">语文老师对郑致辰说：“不要对别人眉来眼去的。”郑致辰：“是他先对我抛媚的！”</p>
+    <p data-tf="1">语文老师对郑致辰说：“不要对别人眉来眼去的。”郑致辰：“是他先对我抛媚的！”</p>
 </div>
 <div>
     <time>17</time>
     <p>唐家祺写“k”笔画错误被“批斗”。</p>
     <p>李映辰被罚站后面。语文老师让她上台写字时同学们发现她用口水在后黑板画画。</p>
     <p>黄恩亚下台时夸张地小跑一阵，然后做出“开！”的动作。</p>
-    <p data-f="1">郑致辰：“我今晚要跟踪（语文）老师。”</p>
+    <p data-tf="1">郑致辰：“我今晚要跟踪（语文）老师。”</p>
     <p>唐家祺唱“宫商角徵羽~”</p>
     <p>语文老师送33、50、32号学生书签。</p>
 </div>
 <div>
     <time>20</time>
     <p>午休时林奕扬把崔宇臣的水杯放在地上摩擦，发出怪声。</p>
-    <p data-f="3">期末考时“神经病”和王淮坐。</p>
+    <p data-tf="3">期末考时“神经病”和王淮坐。</p>
 </div>
 <div>
     <time>21</time>
-    <p data-f="3">黄恩亚：“我喜欢我的生殖器官。”</p>
+    <p data-tf="3">黄恩亚：“我喜欢我的生殖器官。”</p>
     <p>英语听力卡到爆；“Duxing Building”和“Zhiyuan Building”成为经典。</p>
 </div>
 <div>
@@ -703,9 +701,9 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 </div>
 <div>
     <time>23</time>
-    <p data-f="3">生物老师给大家上七下“人的生殖”。看视频时黄恩亚坐得非常端正，专注认真地观看。唐家祺大声朗读：“睾丸是男性的主要生殖器官，它的功能是产生精子，分泌雄激素……”黄恩亚：“老师能不能把（人的生殖）课件发群里？”</p>
-    <p data-f="3">黄恩亚秀自己鼓起来的裤子。</p>
-    <p data-f="3">猜成语时，蒲林豪：“龟头……”</p>
+    <p data-tf="3">生物老师给大家上七下“人的生殖”。看视频时黄恩亚坐得非常端正，专注认真地观看。唐家祺大声朗读：“睾丸是男性的主要生殖器官，它的功能是产生精子，分泌雄激素……”黄恩亚：“老师能不能把（人的生殖）课件发群里？”</p>
+    <p data-tf="3">黄恩亚秀自己鼓起来的裤子。</p>
+    <p data-tf="3">猜成语时，蒲林豪：“龟头……”</p>
     <p>布置语文寒假作业时文档中多个字打错，如：万格纸（方格纸）、观代文（现代文）。</p>
     <p>四十中回执把“寒假”打成“赛假”。</p>
     <p>大扫除时电灯“爆炸”，随后停电，刘老师：“要低调。”（擦完电灯后，一人去开灯，结果听到“砰”的一声巨响，教室里的人看到一阵转瞬即逝的闪光，吓了大家一跳，然后灯也打不开了。）</p>
@@ -726,14 +724,14 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>数学老师对蒲林豪：“大麻抽多了。”</p>
     <p>朱奕辰的作业出现“M为中原（中点）”。</p>
     <p>刘老师：“永淮的作文……”</p>
-    <p data-f="1">杨依诺在（地理）活动课上硬要送地理老师一个千纸鹤。</p>
+    <p data-tf="1">杨依诺在（地理）活动课上硬要送地理老师一个千纸鹤。</p>
     <p>政治课观看<a href="https://www.bilibili.com/video/BV1NP411b71y/" about="_blank">小水滴</a>视频，背景音乐出现《孤勇者》。</p>
 </div>
 <h1 id="event-d2502">2025年2月</h1>
 <div>
     <time>13</time>
-    <p data-f="3">黄恩亚：“我在戒色”“性教育视频”</p>
-    <p data-f="1">郑欣甜历史0分。</p>
+    <p data-tf="3">黄恩亚：“我在戒色”“性教育视频”</p>
+    <p data-tf="1">郑欣甜历史0分。</p>
     <p>刘老师：“给黄恩亚一个任务。”唐家祺：“每天洗澡！”</p>
 </div>
 <div>
@@ -741,63 +739,63 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>数学老师：“语文英语（期末段排）都第一，文科班是吧！”</p>
     <p>刘老师早读前进班，离开时被门撞到。</p>
     <p>开学典礼上，校长演讲时引用《哪吒2》台词：“……我命由我不由天。若前方无路，我便踏出一条路；若天地不容，我便扭转这乾坤……”</p>
-    <p data-f="3">学生：“黄恩亚会打篮球！”黄恩亚：“我可以射出来，给那个球加速。”</p>
+    <p data-tf="3">学生：“黄恩亚会打篮球！”黄恩亚：“我可以射出来，给那个球加速。”</p>
     <p>唐家祺：“天网学（天学网）。”“资助50元给人刮彩票。”</p>
     <p>语文课讲到早上起床，唐家祺：“管家一早起来（准备帝王蟹）……”</p>
 </div>
 <div>
     <time>17</time>
-    <p data-f="3">黄恩亚：“操！操！操！”</p>
+    <p data-tf="3">黄恩亚：“操！操！操！”</p>
     <p>英语PPT上放食盐图片，唐家祺脱口而出：“Milk!”</p>
     <p>薛阅晨：“黄丰泽可能中暑了。”刘老师：“吓死我了，我听成‘中毒’了。”</p>
-    <p data-f="1">填空：“She wears a warm <u>&nbsp;&nbsp;&nbsp;&nbsp;</u>……”唐家祺：“Supermarket！因为郑炜作文就这么写的（一进门就感到一股温暖）……”</p>
+    <p data-tf="1">填空：“She wears a warm <u>&nbsp;&nbsp;&nbsp;&nbsp;</u>……”唐家祺：“Supermarket！因为郑炜作文就这么写的（一进门就感到一股温暖）……”</p>
     <p>黄恩亚小测积累本单词写对被表扬。</p>
     <p>刘老师：“10月上过去式。”</p>
 </div>
 <div>
     <time>18</time>
     <p>英语小测中出现：“她每天花费100元在（写）作业上。”</p>
-    <p data-f="3">刘老师在唐家祺英语本上写“包皮”（包书皮）。</p>
-    <p data-f="3">体育老师：“原地休息3分钟。”郑致辰：“原地撸30秒。”准备跑步时：“边跑边射。”</p>
-    <p data-f="3">黄恩亚：“精液思（静夜思）。”“同学之间用不雅语言交谈。”“（得知小测B-）我立了啊！”</p>
+    <p data-tf="3">刘老师在唐家祺英语本上写“包皮”（包书皮）。</p>
+    <p data-tf="3">体育老师：“原地休息3分钟。”郑致辰：“原地撸30秒。”准备跑步时：“边跑边射。”</p>
+    <p data-tf="3">黄恩亚：“精液思（静夜思）。”“同学之间用不雅语言交谈。”“（得知小测B-）我立了啊！”</p>
     <p>历史课，师：“王维来说一下。”“心诗（沁诗）同学……”“还有一个（郑欣甜）在睡觉就不念了哈。”</p>
 </div>
 <div>
     <time>19</time>
-    <p data-f="3">信息课，蒲林豪：“电脑玩不了玩睾丸。”</p>
-    <p data-f="3">信息老师：“91王维做好了。”</p>
+    <p data-tf="3">信息课，蒲林豪：“电脑玩不了玩睾丸。”</p>
+    <p data-tf="3">信息老师：“91王维做好了。”</p>
     <p>薛阅晨午休吃水果，刘老师：“……扣分。”郑致辰：“老师他在梦游！”</p>
     <p>方欣妍：“洪鑫洋你眼睛抽筋了？”</p>
-    <p data-f="3">唐家祺进班：“为什么还会有阴茎和乳头啊！”</p>
+    <p data-tf="3">唐家祺进班：“为什么还会有阴茎和乳头啊！”</p>
     <p>地理期末考就黄桂芳、林梓颢（同桌）不合格（未及格且未进步3分），被称“金童玉女”，需每节课抄知识点。</p>
     <p>数学老师展示黄恩亚作业。</p>
-    <p data-f="3">（数学）课前三分钟，唐家祺：“Penis!”</p>
+    <p data-tf="3">（数学）课前三分钟，唐家祺：“Penis!”</p>
 </div>
 <div>
     <time>20</time>
     <p>刘老师给“如来佛组”成员点（外卖）奶茶，备注：“不要香菜和芹菜，谢谢老板~~~”</p>
-    <p data-f="3">师：“在打游戏。”黄恩亚：“在看片。”师：“翘的部分。”黄恩亚：“立的部分。”</p>
-    <p>美术老师语录：</p><ul class="mt"><li>（讲述别班某学生没交美术纸）你交了，应该是烧焦了。</li><li>（郑锦熠趴着）你在练法轮功吗？……会出人命的！</li><li>（蒲林豪）你有些不适应人类的生活……还是森林里面好……那里有潺潺的溪水、茂密的森林……</li><li data-f="1">你们两个都是公的！……好歹对美女感点兴趣……</li><li>不是长期的智障，是临时智障……</li></ul>
+    <p data-tf="3">师：“在打游戏。”黄恩亚：“在看片。”师：“翘的部分。”黄恩亚：“立的部分。”</p>
+    <p>美术老师语录：</p><ul class="mt"><li>（讲述别班某学生没交美术纸）你交了，应该是烧焦了。</li><li>（郑锦熠趴着）你在练法轮功吗？……会出人命的！</li><li>（蒲林豪）你有些不适应人类的生活……还是森林里面好……那里有潺潺的溪水、茂密的森林……</li><li data-tf="1">你们两个都是公的！……好歹对美女感点兴趣……</li><li>不是长期的智障，是临时智障……</li></ul>
 </div>
 <div>
     <time>21</time>
     <p>历史老师把“华楷”念成“花开”，还说：“刚才你上课的样子就像一朵花开。”</p>
     <p>语文开门考9班段一，语文老师说只给前十加1分，唐家祺：“会引起地方势力，9班会灭亡的！”加分时，语文老师问薛阅晨座号，唐家祺：“46（自己的座号）！”</p>
-    <p data-f="3">语文课，师：“廖成羲你在干嘛？”生：“他说借张纸。”全班安静一会儿，突然哄堂大笑（想歪了）。随后，唐家祺举手：“去厕所（全班笑）。”别人：“要不要纸？”</p>
-    <p data-f="1">语文课，师：“访谈对象。”唐家祺：“水泽永远是我的对象！”</p>
+    <p data-tf="3">语文课，师：“廖成羲你在干嘛？”生：“他说借张纸。”全班安静一会儿，突然哄堂大笑（想歪了）。随后，唐家祺举手：“去厕所（全班笑）。”别人：“要不要纸？”</p>
+    <p data-tf="1">语文课，师：“访谈对象。”唐家祺：“水泽永远是我的对象！”</p>
 </div>
 <div>
     <time>24</time>
-    <p data-f="3">唐家祺：“撸（儒）学经典。”“He is teacher.（‘teacher’谐音‘老实’）”“校服都一个学期（没发）了，我家都没衣服穿了！”</p>
+    <p data-tf="3">唐家祺：“撸（儒）学经典。”“He is teacher.（‘teacher’谐音‘老实’）”“校服都一个学期（没发）了，我家都没衣服穿了！”</p>
     <p>第一节语文课，教室外广播：“喂？”生：“清校时间已到！”</p>
     <p>语文老师：“小红苏（小红书）。”</p>
-    <p data-f="3">黄恩亚：“听到精子就来劲。”“地球已经痿掉了。”</p>
+    <p data-tf="3">黄恩亚：“听到精子就来劲。”“地球已经痿掉了。”</p>
 </div>
 <div>
     <time>25</time>
     <p>唐家祺：“走进四十中，你是囚犯；走出四十中，你是劳改犯。”</p>
     <p>方欣妍聊天时饭撒掉。</p>
-    <p data-f="3">黄恩亚的笔漏墨，黄恩亚：“漏精。”</p>
+    <p data-tf="3">黄恩亚的笔漏墨，黄恩亚：“漏精。”</p>
 </div>
 <div>
     <time>26</time>
@@ -809,38 +807,38 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <time>27</time>
     <p>语文课写作文《对<u>&nbsp;&nbsp;&nbsp;&nbsp;</u>的一次访问》，语文老师看到崔宇臣的提纲，写着：“革命前辈你好”“你在战场上杀了那么多敌人”</p>
     <p>语文课写作文，语文老师谈到自己当志愿者的经历：“有人吐口水……”郑致辰：“让他蹲地上舔掉。”……师：“我就做了一天（志愿者）。”蔡华楷：“为什么第一天就有人吐口水？”念范文时，师：“林大哥。”唐家祺：“郑大姐。”</p>
-    <p data-f="3">黄恩亚：“一秒射出999米。”</p>
+    <p data-tf="3">黄恩亚：“一秒射出999米。”</p>
     <p>美术课画农村的房子。美术老师看到林奕扬的画时，林奕扬解释：“这个是排气的，这个是通风的，这个是落地窗……”
 </div>
     <div>
     <time>28</time> 
-    <p data-f="1">郑致辰生日，林芷琪晚上12点整给郑致辰发消息。</p>
-    <p data-f="3">黄恩亚：“受精过程是我最爱背的。”</p>
-    <p data-f="2">历史老师下课离开时微信未退出登录，结果中午电脑接到“何剑老婆”的视频通话。</p>
+    <p data-tf="1">郑致辰生日，林芷琪晚上12点整给郑致辰发消息。</p>
+    <p data-tf="3">黄恩亚：“受精过程是我最爱背的。”</p>
+    <p data-tf="2">历史老师下课离开时微信未退出登录，结果中午电脑接到“何剑老婆”的视频通话。</p>
     <p>音乐老师说季仁槿“笑得很猥琐”。</p>
-    <p data-f="3">午托，崔宇臣给黄恩亚看生物书中玉米花的图片，黄恩亚：“怎么又长又硬……这个比起我来都有点软的。”随后陆梓豪将桌布卷起：“这个是你吧！”黄恩亚：“上面加个圆的更像了。”</p>
-    <p data-f="2">体锻课跑操17圈，结束后段长称周四活动课在数学思维班有人做出不尊重老师行为（睡觉、骂脏话），让那人周一放学前主动承认。</p>
+    <p data-tf="3">午托，崔宇臣给黄恩亚看生物书中玉米花的图片，黄恩亚：“怎么又长又硬……这个比起我来都有点软的。”随后陆梓豪将桌布卷起：“这个是你吧！”黄恩亚：“上面加个圆的更像了。”</p>
+    <p data-tf="2">体锻课跑操17圈，结束后段长称周四活动课在数学思维班有人做出不尊重老师行为（睡觉、骂脏话），让那人周一放学前主动承认。</p>
     <p>下午第三节是郑老师最后一节语文课，生：“要煽情！”“为什么最后一节了还上课！”</p>
 </div>
 <h1 id="event-d2503">2025年3月</h1>
 <div>
     <time>3</time>
-    <p data-f="3">林芷琪：“刘天馨，有没有镜子？”陆梓豪（笑）：“有没有精子……”</p>
-    <p data-f="3">生物课，唐家祺：“（天气热）明天直接裸奔。”陆梓豪：“把59页撕下来贴到脸上！”</p>
+    <p data-tf="3">林芷琪：“刘天馨，有没有镜子？”陆梓豪（笑）：“有没有精子……”</p>
+    <p data-tf="3">生物课，唐家祺：“（天气热）明天直接裸奔。”陆梓豪：“把59页撕下来贴到脸上！”</p>
     <p>刘老师叫人做事，唐家祺举手。师：“叫一个女生。”唐家祺：“老师我就是女的！”</p>
-    <p data-f="3">生物课，讲到“导管”时有人笑，师：“我知道你们在想什么，笑的都是男生。”</p>
-    <p data-f="3">黄恩亚：“怎么戒撸啊！”</p>
+    <p data-tf="3">生物课，讲到“导管”时有人笑，师：“我知道你们在想什么，笑的都是男生。”</p>
+    <p data-tf="3">黄恩亚：“怎么戒撸啊！”</p>
     <p>英语课，讲到“ice”时，薛阅晨：“‘ice cream’的‘cream’什么意思？”生：“淇淋！”“School cream（校园欺凌）！”</p>
     <p>抽背时，蒲林豪：“寒冷气候（寒带气候）。”随后薛阅晨问：“热带沙漠气候（特征）？”蒲林豪：“严寒干燥。”</p>
-    <p data-f="3">上课时孔祥懿黑笔坏掉，黄丰泽、陈睿卓安慰她。后来二人被罚写反思（上课不要做不该做的事）。体育课时黄丰泽在跑道上“操”刘老师被叫家长。</p>
+    <p data-tf="3">上课时孔祥懿黑笔坏掉，黄丰泽、陈睿卓安慰她。后来二人被罚写反思（上课不要做不该做的事）。体育课时黄丰泽在跑道上“操”刘老师被叫家长。</p>
 </div>
 <div>
     <time>4</time>
     <p>早读李映辰被罚站，结果她脚踩在椅子上蹲着。</p>
-    <p data-f="3">黄恩亚：“又要跑操，他妈我立了啊！”</p>
-    <p data-f="3">唐家祺跑操时：“我左肾开始有点痛了，有点虚了，早知道昨天就不撸了。”郑致辰：“我也是。”</p>
+    <p data-tf="3">黄恩亚：“又要跑操，他妈我立了啊！”</p>
+    <p data-tf="3">唐家祺跑操时：“我左肾开始有点痛了，有点虚了，早知道昨天就不撸了。”郑致辰：“我也是。”</p>
     <p>黑板上写：“李响辰小测没带”、“叶泓毅排球没拿”。</p>
-    <p data-f="1">体育课，黄恩亚和陈子岩聊天。黄恩亚：“崔宇臣实在太萌了，心都快给他萌化了。”陈子岩问为什么黄恩亚现在不臭了，黄恩亚：“（把旧衣服拿去卖）……卖了十亿多，我家是卖劳斯莱斯的。”陈子岩问黄恩亚喜不喜欢崔宇臣、喜不喜欢讲黄话，黄恩亚：“半假半真。”陈子岩问黄恩亚认为的自己的人生转折点，黄恩亚：“我从期中考后就尝到生物的滋味。”陈子岩问黄恩亚为什么爱玩抽象，黄恩亚：“为了刷在班里的存在感。”</p>
+    <p data-tf="1">体育课，黄恩亚和陈子岩聊天。黄恩亚：“崔宇臣实在太萌了，心都快给他萌化了。”陈子岩问为什么黄恩亚现在不臭了，黄恩亚：“（把旧衣服拿去卖）……卖了十亿多，我家是卖劳斯莱斯的。”陈子岩问黄恩亚喜不喜欢崔宇臣、喜不喜欢讲黄话，黄恩亚：“半假半真。”陈子岩问黄恩亚认为的自己的人生转折点，黄恩亚：“我从期中考后就尝到生物的滋味。”陈子岩问黄恩亚为什么爱玩抽象，黄恩亚：“为了刷在班里的存在感。”</p>
 </div>
 <div>
     <time>5</time>
@@ -850,8 +848,8 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <time>6</time>
     <p>生物老师：“陈睿jue&#769;……”</p>
     <p>语文课，师：“有‘使’去‘使’。”薛阅晨：“没屎现拉。”</p>
-    <p data-f="3">蒲林豪：“人心中的成见是一个dick。”“别掏了别掏了。”</p>
-    <p data-f="3">黄恩亚：“包皮瘙痒。”</p>
+    <p data-tf="3">蒲林豪：“人心中的成见是一个dick。”“别掏了别掏了。”</p>
+    <p data-tf="3">黄恩亚：“包皮瘙痒。”</p>
     <p>语文老师：“俞辰昕（俞昕辰）。”</p>
     <p>活动课时学生在5号楼楼上发现郑炜排球，上面写着“6年6班”。</p>
 </div>
@@ -859,14 +857,14 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <time>7</time>
     <p>崔宇臣放学后在教室分享饼干，一人给刘老师“分享”（当时刘老师还在讲台上）被刘老师发现。</p>
     <p>地理课时突然停电，来电时薛阅晨一个人上讲台拍照，刚拍完一张书就掉到地上。这时陆梓豪发出莫名其妙的声音，地理老师用手中的笔敲他的头：“小老鼠~从哪里来~”</p>
-    <p data-f="1">地理课，师：“生一个孩子补贴几十万。”唐家祺：“几十万？我生20个！”师：“你生的是人类吗？”</p>
+    <p data-tf="1">地理课，师：“生一个孩子补贴几十万。”唐家祺：“几十万？我生20个！”师：“你生的是人类吗？”</p>
     <p>抽背时，陆梓豪跑进教室：“（刘老师）来了！”结果不一会儿，李映辰走了进来。</p>
     <p>政治老师：“我知道，那个学委叫郑致豪。”</p>
 </div>
 <div>
     <time>10</time>
     <p>林承钰翻译“get water from the underground”：“坐地铁取水……”</p>
-    <p data-f="3">蒲林豪：“恩亚穿得好性感。”</p>
+    <p data-tf="3">蒲林豪：“恩亚穿得好性感。”</p>
 </div>
 <div>
     <time>11</time>
@@ -879,11 +877,11 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 <div>
     <time>12</time>
     <p>李映辰上课时“躺”在椅子上。</p>
-    <p data-f="3">电脑课，老师让大家试着做二维码并打开网络，结果大家上网搜索各种东西（如91），还发现学长在360浏览器上的搜索记录：“女子把男子鸡割了”。</p>
+    <p data-tf="3">电脑课，老师让大家试着做二维码并打开网络，结果大家上网搜索各种东西（如91），还发现学长在360浏览器上的搜索记录：“女子把男子鸡割了”。</p>
 </div>
 <div>
     <time>14</time>
-    <p data-f="3">地理老师：“你们是小鬼头子。”</p>
+    <p data-tf="3">地理老师：“你们是小鬼头子。”</p>
     <p>地理老师对林奕扬：“黑人牙膏代言人。”</p>
     <p>地理老师：“福州也有很多小河。”林奕扬：“麦德龙臭水沟。”</p>
 </div>
@@ -897,7 +895,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <time>18</time>
     <p>郑熠菲：“唐居易（白居易）。”</p>
 </div>
-<div data-f="1">
+<div data-tf="1">
     <time>19</time>
     <p>数学课，数学老师说“写其他科作业就没收”。临近下课时，崔宇臣拿出自己和颜哲铭的英语小测被数学老师发现并撕成八片碎片，语文课时崔宇臣用双面胶“修复”。</p>
 </div>
@@ -906,12 +904,12 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>洪鑫洋“预测”英语小测的积累本单词并（赌一把）提前写上，结果小测不考积累本。</p>
     <p>刘老师：“一座猫。”</p>
     <p>美术老师：“薛岳ha&#768;o。”</p>
-    <p data-f="3">生物课，陈睿卓提问：“多吃菠萝（精液）会变甜吗？”</p>
+    <p data-tf="3">生物课，陈睿卓提问：“多吃菠萝（精液）会变甜吗？”</p>
 </div>
 <div>
     <time>21</time>
     <p>薛阅晨误关电闸，一些人以为停电。</p>
-    <p data-f="2">午托重测时有人在课件上弄出苹果图案。</p>
+    <p data-tf="2">午托重测时有人在课件上弄出苹果图案。</p>
     <p>生物课时郑致辰桌上的水杯打翻把书弄湿。</p>
 </div>
 <div>
@@ -919,7 +917,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>体育课自由活动，李映辰直接整个人趴在门口桌子上，随后又跪在桌子上，被送饭的大叔看见后批评。</p>
     <p>中午“重温”音标视频。</p>
     <p>廖成羲生物小测：（保存瓜果的方法）吃了。</p>
-    <p data-f="3">郑致辰、崔宇臣用外套做男性生殖器官。</p>
+    <p data-tf="3">郑致辰、崔宇臣用外套做男性生殖器官。</p>
     <p>廖成羲椅子四个螺丝全掉，上半部分被放在教室后面的桌子上。</p>
 </div>
 <div>
@@ -931,7 +929,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
         <li>PPT内容太多，她就说：“就这样，自己看吧。”</li>
         <li>最后一页出现：“汇报人：木木”。学生问木木是谁，林钰颖：“木木是我阿姨。”</li>
     </ul>
-    <p data-f="3">刘老师让大家用英语翻译：“唐家祺（年龄）太小了，不能搭飞机。”</p>
+    <p data-tf="3">刘老师让大家用英语翻译：“唐家祺（年龄）太小了，不能搭飞机。”</p>
     <p>洪鑫洋带读：“木兰诗，王维，起。”</p>
 </div>
 <div>
@@ -942,16 +940,16 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 </div>
 <div>
     <time>27</time>
-    <p data-f="3">生物课上到人的生殖：</p>
-    <ul data-f="3">
+    <p data-tf="3">生物课上到人的生殖：</p>
+    <ul data-tf="3">
         <li>唐家祺：“精液里有有机物吗？”师：“有。”唐：“吃了会有好处吗？”</li>
         <li>林奕扬：“为什么我姥姥2年能生7个？”</li>
     </ul>
-    <p>美术老师语录：</p><ul class="mt"><li data-f="1">（陆梓豪）三番五次地去骚扰他（郑致辰）……有兴趣吧！</li><li data-f="1">老师太小了？</li><li>（林奕扬）你突然间来到人间……</li></ul>
+    <p>美术老师语录：</p><ul class="mt"><li data-tf="1">（陆梓豪）三番五次地去骚扰他（郑致辰）……有兴趣吧！</li><li data-tf="1">老师太小了？</li><li>（林奕扬）你突然间来到人间……</li></ul>
 </div>
 <div>
     <time>28</time>
-    <p data-f="2">前几天英语月考多人不遵守考试纪律被刘老师制裁，惩罚卷面分-10、量化-10、写300字反思并家长签字。</p>
+    <p data-tf="2">前几天英语月考多人不遵守考试纪律被刘老师制裁，惩罚卷面分-10、量化-10、写300字反思并家长签字。</p>
     <p>语文老师：“廖成yi&#768;。”</p>
     <p>政治课，师：“那林俊卓（陈睿卓）你说一下什么是‘紫菜蛋花汤’。”“让那个世豪（曹世强）回答一下。”</p>
     <p>唐家祺：“我想‘调查’俞昕辰。”</p>
@@ -962,7 +960,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>语文老师念成绩：“郑成羲（廖成羲），74。”</p>
     <p>上课时陆梓豪靠近郑致辰，郑致辰：“这里有贞子！”</p>
     <p>廖成羲坐椅子时摔倒。</p>
-    <p data-f="3">郑致辰：“你怎么知道自慰？”林芷琪：“我看过（小学的人）。”郑致辰：“哇！……（笑）”</p>
+    <p data-tf="3">郑致辰：“你怎么知道自慰？”林芷琪：“我看过（小学的人）。”郑致辰：“哇！……（笑）”</p>
     <p>刘老师让大家猜小测上的“CTMO”是什么意思，蔡华楷：“中国高铁吗？”</p>
 </div>
 <h1 id="event-d2504">2025年4月</h1>
@@ -973,13 +971,13 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 </div>
 <div>
     <time>2</time>
-    <p data-f="1">地理课蒲林豪怪叫，师：“在泰国做了什么？”</p>
+    <p data-tf="1">地理课蒲林豪怪叫，师：“在泰国做了什么？”</p>
     <p>数学老师：“水鬼店（水果店）。”</p>
     <p>语文课到3楼阅览室看书。</p>
 </div>
 <div>
     <time>3</time>
-    <p data-f="1">美术老师手机声音不小心外放，学生听到“……迷路”。</p>
+    <p data-tf="1">美术老师手机声音不小心外放，学生听到“……迷路”。</p>
     <p>英语课请人对话：</p>
     <ul>
         <li>唐家祺：“I went to Zheng Zhichen's home.”……“I gave free medical service.”</li>
@@ -990,15 +988,15 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 <div>
     <time>7</time>
     <p>洪鑫洋带读：“暮宿黑河边（暮宿黄河边）……”“晚春，春夜洛城……”</p>
-    <p data-f="2">生物课时蒲林豪写黄文被生物老师发现，黄文被拿去看。</p>
-    <p data-f="2">语文课李梦妍补生物作业，叶弘毅：“唐家祺！”唐家祺：“哇你这个鸡鸡！”</p>
+    <p data-tf="2">生物课时蒲林豪写黄文被生物老师发现，黄文被拿去看。</p>
+    <p data-tf="2">语文课李梦妍补生物作业，叶弘毅：“唐家祺！”唐家祺：“哇你这个鸡鸡！”</p>
     <p>体育课，自由活动：</p>
     <ul>
         <li>李映辰整个人躺门口桌上。突然方欣妍跑来：“送饭的来了！”大批写作业的人连忙安静地坐在台阶上等着看笑话。不一会儿，送饭大叔来了：“哎！趴那里干嘛！这么没有女孩的样子……这是放饭的！……晚上没睡觉吗？做小偷吗？……要睡到教室里面睡！……现在的小孩精神那么好……”大叔离开后，李映辰背靠饭箱，蜷缩在桌子空着的地方继续睡觉。</li>
         <li>方欣妍对陈子岩说话，陈子岩突然把刚喝进去的水喷出来。</li>
         <li>门口水池里的“草履虫培养液”被抽干，一大爷赤脚踩在水池里打扫淤泥，上课前多人围观。</li>
         <ul>
-        <li data-f="1">洪鑫洋路过，大爷：“小伙子，要喝饮料吗？”（“饮料”就是清理到车上的淤泥）</li>
+        <li data-tf="1">洪鑫洋路过，大爷：“小伙子，要喝饮料吗？”（“饮料”就是清理到车上的淤泥）</li>
         <li>自由活动时，大爷抽烟，旁边的蔡华楷：“大爷你一天要抽几包烟？”大爷回答：“不能对胖的人开玩笑。”过了一会儿，蔡华楷又问：“你为什么不穿袜子？”结果被教育：“我买不起袜子啊……我没书读，我才读两年半，三年，三年级都没读完……饭都吃不起……你们现在条件好，什么都有。你们要好好学习，不好好学习就像我一样干脏活……有的人键盘敲敲敲，有的人——这里没东西了，给我拿东西，帮别人收银……”</li>
         </ul>
     </ul>
@@ -1049,8 +1047,8 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 <div>
     <time>14</time>
     <p>刘老师：“（how much is milk）提问什么？”蔡华楷：“提问牛奶。”</p>
-    <p data-f="3">午托时郑致辰泡（草莓味）药，陆梓豪拿杯盖请求郑致辰给他喝一口，郑致辰还真给陆梓豪1勺，并说：“治阳痿早泄的。”</p>
-    <p data-f="2">生物模拟考中王淮把“子宫”写成“子房”；李梦妍写：“产生‘我’（精子）的器官是【卵巢】。”“卵细胞则是由女性的主要生殖器官——【子宫】产生的。”“结合形成‘新的细胞’（受精卵）的过程叫做【卵子】。”“花的主要结构是【子宫】。”</p>
+    <p data-tf="3">午托时郑致辰泡（草莓味）药，陆梓豪拿杯盖请求郑致辰给他喝一口，郑致辰还真给陆梓豪1勺，并说：“治阳痿早泄的。”</p>
+    <p data-tf="2">生物模拟考中王淮把“子宫”写成“子房”；李梦妍写：“产生‘我’（精子）的器官是【卵巢】。”“卵细胞则是由女性的主要生殖器官——【子宫】产生的。”“结合形成‘新的细胞’（受精卵）的过程叫做【卵子】。”“花的主要结构是【子宫】。”</p>
 </div>
 <div>
     <time>15</time>
@@ -1065,11 +1063,11 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 </div>
 <div>
     <time>17</time>
-    <p data-f="3">黑板上：“水泽抽屉有特别多纸巾，不知道干嘛的。”</p>
-    <p data-f="1">黄恩亚一来校就用一张纸巾塞住鼻子（流鼻血），第三节课才拿掉。</p>
+    <p data-tf="3">黑板上：“水泽抽屉有特别多纸巾，不知道干嘛的。”</p>
+    <p data-tf="1">黄恩亚一来校就用一张纸巾塞住鼻子（流鼻血），第三节课才拿掉。</p>
     <p>陈子岩（学校）午餐的西红柿炒鸡蛋中吃出“指甲”（实为塑料）。刘老师拍照“取证”，多人围观。刘老师让陈子岩摸一下看是不是指甲，于是唐家祺就上手摸。午托时送饭大叔来收饭箱，刘老师出门沟通，让陈子岩出去寻找那盒饭，还为学生发声：“你们工作失误，为什么要骂学生？”“（学生在教室起哄）学生说得对。”最后陈子岩的下一餐饭免费。</p>
     <p>午托时刘老师表示洪鑫洋穿班服很好看，自己也想穿。学生说你本来就很好看。洪鑫洋又说：“老师本身就好看，怎么能用衣服衬托呢？”</p>
-    <p data-f="1">区里有领导检查，于是老师让大家不要带学校买的材料（方略/小绿/校本/导学案等）。</p>
+    <p data-tf="1">区里有领导检查，于是老师让大家不要带学校买的材料（方略/小绿/校本/导学案等）。</p>
     <p>生物课时老师发现被雕刻过的粉笔（顶端被雕成1个球），问了后发现是蔡华楷课前三分钟带读时弄的。下课后生物老师“收藏”该粉笔（给刘老师看），蔡华楷被叫去办公室。</p>
     <p>数学练习中间有“试用水印”。</p>
 </div>
@@ -1082,8 +1080,8 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>洪鑫洋饭里吃出头发。</p>
     <p>生物课：</p>
     <ul>
-       <li data-f="3">林奕扬：“我奶奶都会背59页的内容。”</li>
-       <li data-f="2">生物老师拿起讲台上的一本生物书，“生物”二字上面被贴上“小心同性恋”贴纸。</li>
+       <li data-tf="3">林奕扬：“我奶奶都会背59页的内容。”</li>
+       <li data-tf="2">生物老师拿起讲台上的一本生物书，“生物”二字上面被贴上“小心同性恋”贴纸。</li>
        <li>蒲林豪画“武器”（倒、剑、双刀、鞭、流星锤、锤子）被发现并投影。</li>
     </ul>
 </div>
@@ -1091,13 +1089,13 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <time>22</time>
     <p>早读课前林承钰老人机响起古老铃声。</p>
     <p>抽背课下课后郑致辰上台随机抽人，第一个就抽到自己。随后唐家祺等人给自己星星（遵守纪律、情绪稳定……）。</p>
-    <p data-f="3">下大雨，黄恩亚：“下雨了自慰有多爽啊！”</p>
+    <p data-tf="3">下大雨，黄恩亚：“下雨了自慰有多爽啊！”</p>
 </div>
 <div>
     <time>23</time>
-    <p data-f="1">数学老师让要做压轴题的人举手，结果李映辰举手。</p>
+    <p data-tf="1">数学老师让要做压轴题的人举手，结果李映辰举手。</p>
     <p>刘老师辅导李梦妍、林梓颢等人做数学题（解二元一次方程）。</p>
-    <p data-f="1">午托时男生到阶梯教室搬凳子，发现其中一把后面写着“初一9班 帅哥洪鑫洋”。</p>
+    <p data-tf="1">午托时男生到阶梯教室搬凳子，发现其中一把后面写着“初一9班 帅哥洪鑫洋”。</p>
 </div>
 <div>
     <time>24</time>
@@ -1108,7 +1106,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>郑永泽更新日期：“距离期中考还有-2天。”</p>
     <p>午托时：</p>
     <ul>
-       <li data-f="2">林芷琪看《青春期男孩成长手册》。</li>
+       <li data-tf="2">林芷琪看《青春期男孩成长手册》。</li>
        <li>讲话声变大，郑诗语突然喊：“声音又大了！”引起全班大笑。</li>
        <li>午休结束，林奕扬：“起床了皇上！”</li>
     </ul>
@@ -1120,14 +1118,14 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 <div>
     <time>28</time>
     <p>政治老师：“洪鑫jie&#769;……”发现说错后解释：“高中部有一个叫‘洪鑫jie&#769;’的。”</p>
-    <p data-f="2">午托时刘老师紧急收小绿、方略、导学案。不久2位领导进班检查监控。</p>
+    <p data-tf="2">午托时刘老师紧急收小绿、方略、导学案。不久2位领导进班检查监控。</p>
     <p>数学老师：“刘欣妍。”</p>
     <p>曾好当“史官”记录数学老师课上小动作，精确到分。</p>
 </div>
 <div>
     <time>29</time>
     <p>洪鑫洋极速带读，如：“昨夜见军帖，可汗大点兵。雄兔脚扑朔，雌兔眼迷离……”“独坐幽篁里，弹琴复长啸。此夜曲中闻折柳，何人不起故园情。”</p>
-    <p data-f="2">英语课上李梦妍模仿曾好记录黄恩亚被刘老师发现，下课后谈话并喜提反思表。</p>
+    <p data-tf="2">英语课上李梦妍模仿曾好记录黄恩亚被刘老师发现，下课后谈话并喜提反思表。</p>
     <p>数学课午休时崔宇臣偷坐到郑致辰座位上（此时郑致辰不在），数学老师发现后问：“宇臣在哪？”周围的人摇头（偷笑），崔宇臣假装睡觉，不久后抬头，数学老师罚他站一中午。</p>
     <p>午休结束后徐嘉明过小测，学生用他的外套、政治书、数学书、水杯、笔袋、书包、笔等模拟徐嘉明睡觉（笔模拟手指）。</p>
     <p>劳技课时郑锦熠带馒头（实物）上台演讲：“昨天生物课上讲过馒头细细地品尝会有甜味，这是因为馒头是由淀粉、水、酵母……”</p>
@@ -1144,22 +1142,22 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>李梦妍小测F-。</p>
     <p>劳技老师换回七上的（物理）老师。</p>
     <p>杨依诺转学。</p>
-    <p data-f="1">七年五班“林俊杰”的作文被9班学生翻看。标题为“对菜徐坤的一次访问”（“菜”是错别字）。</p>
+    <p data-tf="1">七年五班“林俊杰”的作文被9班学生翻看。标题为“对菜徐坤的一次访问”（“菜”是错别字）。</p>
 </div>
 <div>
     <time>7</time>
-    <p data-f="1">徐嘉明走路姿势古怪被刘老师教育。</p>
+    <p data-tf="1">徐嘉明走路姿势古怪被刘老师教育。</p>
     <p>周四要上公开课，刘老师让大家拍一张有人违反规则的照片：让李映辰睡觉、黄恩亚吃棒棒糖（刘老师让王淮去办公室拿棒棒糖，拿来后王淮不吃，刘老师让想吃的举手，黄恩亚举手）、让叶弘毅和孔祥懿打架……</p>
-    <p data-f="1">方欣妍把外面拿来的大理石块放到唐家祺桌上。</p>
-    <p data-f="1">王淮投影并拍照薛阅晨眼镜，数学课时被发现。</p>
+    <p data-tf="1">方欣妍把外面拿来的大理石块放到唐家祺桌上。</p>
+    <p data-tf="1">王淮投影并拍照薛阅晨眼镜，数学课时被发现。</p>
     <p>地理课：师对蒲林豪：“马戏团的吧？”林奕扬说“诗诗”，师：“叫得这么……有点猥琐。”林梓颢考38.5分，师：“梓颢你长这么帅才考这么一点？三八五，跳一个桑巴舞。……下一次考四八五，再下一次考五八五。”</p>
 </div>
 <div>
     <time>8</time>
-    <p data-f="1">黄恩亚戴新眼镜。</p>
-    <p data-f="1">林芷琪“没分手”成为经典。</p>
+    <p data-tf="1">黄恩亚戴新眼镜。</p>
+    <p data-tf="1">林芷琪“没分手”成为经典。</p>
     <p>生物老师给大家送种子作为期中考奖励（有波斯菊、满天星、虞美人等）。李映辰85，颜哲铭80震惊全班。生物老师：“刘熠菲。”</p>
-    <p> data-f="3"黄恩亚在活动课<!--*****，还-->说：“我都是直接射到被子里。”“我还射到嘴巴啊。很咸啊，喉咙还有点不适。”“一周20多次。”“第一次撸是四年级下半学期那会儿……我四年级的时候裸睡，然后想做点很爽的事情。”</p>
+    <p> data-tf="3"黄恩亚在活动课<!--*****，还-->说：“我都是直接射到被子里。”“我还射到嘴巴啊。很咸啊，喉咙还有点不适。”“一周20多次。”“第一次撸是四年级下半学期那会儿……我四年级的时候裸睡，然后想做点很爽的事情。”</p>
 </div>
 <div>
     <time>9</time>
@@ -1181,7 +1179,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 </div>
 <div>
     <time>12</time>
-    <p data-f="3">黄恩亚：“我昨天撸4发啊！”</p>
+    <p data-tf="3">黄恩亚：“我昨天撸4发啊！”</p>
     <p>生物老师：“俞辰昕。”</p>
     <p>蔡华楷下讲台时摔倒。</p>
     <p>生物老师辅导孔祥懿数学题。</p>
@@ -1197,10 +1195,10 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>语文课时陈睿卓凳子向后倒掉。</p>
     <p>林奕扬中午吃椰子。</p>
     <p>陈子岩、郑诗语“拍卖”班上12人的水杯。</p>
-    <p data-f="1">徐嘉明把垃圾袋灌满空气，然后捏垃圾袋让空气露出来，发出怪声。</p>
+    <p data-tf="1">徐嘉明把垃圾袋灌满空气，然后捏垃圾袋让空气露出来，发出怪声。</p>
     <p>下课时洪鑫洋把第二组最后一桌桌子推倒。</p>
-    <p data-f="1">蔡华楷吃江允儿水杯中的柠檬。</p>
-    <p data-f="3">班会课学生到操场进行期中考表彰，表彰后段长宣读初一第一张年段处分（屡次带手机+讲别人手机占为己有）。</p>
+    <p data-tf="1">蔡华楷吃江允儿水杯中的柠檬。</p>
+    <p data-tf="3">班会课学生到操场进行期中考表彰，表彰后段长宣读初一第一张年段处分（屡次带手机+讲别人手机占为己有）。</p>
     <p>数学老师改作业，找没写“∴不等式组解集”的人。洪鑫洋：“我都写了~”师：“永泽！”生（惊呼）：“下一个成羲。”师：“成羲！……（作业）草稿纸似的……鑫洋！”全班大笑。</p>
     <p>刘老师：“芷岩（子岩）……”</p>
 </div>
@@ -1208,7 +1206,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <time>14</time>
     <p>地理老师：“廖成yi&#768;……”</p>
     <p>蔡华楷数学作业被投影，讲评时发现最后一题第一小题没写（很简单），师：“偷懒吧……站十分钟！”</p>
-    <p data-f="3">抽背林奕扬，林奕扬：“生病了！不会背啊！头痛啊！”然后用外套包住头趴下。</p>
+    <p data-tf="3">抽背林奕扬，林奕扬：“生病了！不会背啊！头痛啊！”然后用外套包住头趴下。</p>
 </div>
 <div>
     <time>15</time>
@@ -1220,15 +1218,15 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <time>16</time>
     <p>地理课，蔡华楷“跳舞”被看见，师：“原来蔡华楷还会跳舞。”课上让大家做题：“做得最快的还是我们舞蹈最优美的蔡华楷。”另外还说出“洪ji&#772;洋”“刘炜”。</p>
     <p>李映辰在音乐教室抠墙皮并扔到林奕扬身上，历史课时又坐到后面桌子上（她迟到被罚站后面），历史老师：“这位同学怎么爬到桌子上了？……你（蒲林豪）叫下班主任吧。”蒲林豪：“确定？”师：“叫你去了就去了，还要确定？”然后刘老师过来找她谈话。谈话后李映辰又开始抠墙皮、坐桌子，陆梓豪（当时是值日班长）：“要不要去找刘老师？”结果李映辰主动走向办公室。</p>
-    <p data-f="1">徐嘉明骑生物园斑马；折“杀猪刀”被刘老师谈话。</p>
+    <p data-tf="1">徐嘉明骑生物园斑马；折“杀猪刀”被刘老师谈话。</p>
 </div>
 <div>
     <time>19</time>
-    <p data-f="2">（5月18日）刘天馨、李梦妍、郭沁诗、郑欣甜等人到中骏世界城恰好遇见朱奕辰他同学的生日会，于是郑欣甜怼脸拍（录视频）朱奕辰。</p>
+    <p data-tf="2">（5月18日）刘天馨、李梦妍、郭沁诗、郑欣甜等人到中骏世界城恰好遇见朱奕辰他同学的生日会，于是郑欣甜怼脸拍（录视频）朱奕辰。</p>
     <p>郑永泽回答数学题：“那就是一加二等于二只……”</p>
     <p>生物午托时薛阅晨、蔡华楷画背书黑板：在生物、地理两框之间画一条街，写上“生地友好大街”，后依次改为“91大运河”“P59大运河”“生地大运河”“生理大运河”。在地理、省区、历史、政治四框中间画“中央大街”。薛阅晨还画出青藏高原、帕米尔高原、太平洋……</p>
 </div>
-<div data-f="1">
+<div data-tf="1">
     <time>20</time>
     <p>班会课排练班班有歌声，李映辰带圆规和纸去玩，刘老师要求李映辰把东西放下，叫了几遍后李映辰把东西卡在墙上的瓷砖缝里，刘老师又让放地上，李映辰不放，方欣妍帮忙放，结果李映辰又捡起来。</p>
 </div>
@@ -1241,9 +1239,9 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <time>22</time>
     <p>生物课：</p>
     <ul>
-        <li data-f="3">生物老师说有人小测“小肠绒毛”写成“肠毛”，蔡华楷解释：“因为阴部的毛叫阴毛，所以肠部的毛叫肠毛。”</li>
+        <li data-tf="3">生物老师说有人小测“小肠绒毛”写成“肠毛”，蔡华楷解释：“因为阴部的毛叫阴毛，所以肠部的毛叫肠毛。”</li>
         <li>为让大家直观感受声带振动，生物老师让大家把手放脖子上“啊”一下，学生：“啊——四十中——”</li>
-        <li data-f="3">唐家祺：“（肺泡）长得像卵巢。”</li>
+        <li data-tf="3">唐家祺：“（肺泡）长得像卵巢。”</li>
     </ul>
     <p>美术老师语录：</p>
     <ul class="mt">
@@ -1264,18 +1262,18 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 </div>
 <div>
     <time>27</time>
-    <p data-f="1">午托数学老师让洪鑫洋、李欢颜上讲台：“（科作业）错这么离谱，还错得一样。”生：“哇——”</p>
-    <p>班班有歌声，刘老师：“管好你的水（嘴）。”<span data-f="1">候场时初二大扫除，三楼的水源源不断地流下来，生：“不要再射了！”</span></p>
+    <p data-tf="1">午托数学老师让洪鑫洋、李欢颜上讲台：“（科作业）错这么离谱，还错得一样。”生：“哇——”</p>
+    <p>班班有歌声，刘老师：“管好你的水（嘴）。”<span data-tf="1">候场时初二大扫除，三楼的水源源不断地流下来，生：“不要再射了！”</span></p>
 </div>
 <div>
     <time>28</time>
     <p>来校时学生发现电脑一晚上没关，还在显示着昨天的英语课件。</p>
     <p>语文老师：“林鑫洋……”</p>
-    <p data-f="2">地理课，唐家祺：“强行配种。”师：“Come on！趴桌子上，衣服掀开一点。”然后打屁股。</p>
+    <p data-tf="2">地理课，唐家祺：“强行配种。”师：“Come on！趴桌子上，衣服掀开一点。”然后打屁股。</p>
 </div>
 <div>
     <time>29</time>
-    <p data-f="2">陆梓豪午托放响屁。</p>
+    <p data-tf="2">陆梓豪午托放响屁。</p>
     <p>语文老师对李梦妍：“小妞啊，坐好啊！”</p>
     <p>刘老师点蜜雪冰城，蔡华楷把小票偷走，发现又有“不要香菜和芹菜，谢谢老板~~~”。</p>
     <p>美术老师语录：</p><ul class="mt"><li>减祺（家祺），回去做你的作业！</li><li>你不要乱放电啊，后排！</li><li>快点画你的画，木木顿挫！……画完了没有，木木顿挫！……</li></ul>
@@ -1307,7 +1305,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 <div>
     <time>10</time>
     <p>李映辰穿凉鞋。</p>
-    <p data-f="2">高考放假4天后全班大规模补英语作业。</p>
+    <p data-tf="2">高考放假4天后全班大规模补英语作业。</p>
     <p>曾好数学课上在桌上补生物提纲被发现，师：“……还这么从容……也不偷偷地写……”</p>
 </div>
 <div>
@@ -1325,8 +1323,8 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 </div>
 <div>
     <time>13</time>
-    <p data-f="3">洪鑫洋早上旷课睡觉。</p>
-    <p data-f="1">中午英语午托开“小班会”，讲到班上出现的“小团体”。刘老师让大家按照交作业的小组，在5分钟内每组讨论“你认为的正能量小团体和负能量小团体有什么特点”，每组请1人汇报，然后进行总结，并称“希望班上负能量的小团体有所收敛”。</p>
+    <p data-tf="3">洪鑫洋早上旷课睡觉。</p>
+    <p data-tf="1">中午英语午托开“小班会”，讲到班上出现的“小团体”。刘老师让大家按照交作业的小组，在5分钟内每组讨论“你认为的正能量小团体和负能量小团体有什么特点”，每组请1人汇报，然后进行总结，并称“希望班上负能量的小团体有所收敛”。</p>
     <p>大课间到操场训练初三中考加油的口号。（少年意气，志在朝阳！星夜逐梦，不负时光！挥毫洒墨，势不可挡！破釜沉舟，再铸辉煌！初三加油，中考必胜！初三加油，中考必胜！）</p>
 </div>
 <div>
@@ -1348,7 +1346,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 </div>
 <div>
     <time>24</time>
-    <p data-f="2">洪鑫洋带读时发骚。</p>
+    <p data-tf="2">洪鑫洋带读时发骚。</p>
     <p>林奕扬等人捉知了蜕的壳。</p>
     <p>数学老师讲评压轴题，需要给大家展示蛋糕盒丝带的系法。于是用蔡华楷红领巾模拟丝带，用粉笔盒模拟蛋糕盒。系完后，生：“哇——”师：“就送给你们班。”</p>
 </div>
@@ -1365,7 +1363,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>午托林奕扬脱鞋，学生起哄被刘老师批评。同时部分学生到办公室写“素质报告单”的分数，郑永泽分到洪鑫洋的，说：“洪鑫洋‘黄赌毒’必须0分……”</p>
     <p>政治老师：“郭浩宇……”</p>
     <p>地理课讲撒哈拉女人洗澡。</p>
-    <p data-f="2">政治考试，15班监考老师戴耳机。考试时初二一学姐举手并叫老师，但老师没听到，于是就走上去。师：“你为什么不举手？”生：“我举了呀！”师：“那你叫了吗？”生：“叫了呀！叫了很多遍。”师：“还不回去是吧！”生：“我要换答题卡，我题目写错了。”师：“哪里有答题卡？你知道换答题卡在中考会启动什么吗？……无理取闹！”（语言可能和现实有误差）</p>
+    <p data-tf="2">政治考试，15班监考老师戴耳机。考试时初二一学姐举手并叫老师，但老师没听到，于是就走上去。师：“你为什么不举手？”生：“我举了呀！”师：“那你叫了吗？”生：“叫了呀！叫了很多遍。”师：“还不回去是吧！”生：“我要换答题卡，我题目写错了。”师：“哪里有答题卡？你知道换答题卡在中考会启动什么吗？……无理取闹！”（语言可能和现实有误差）</p>
 </div>
 <div>
     <time>30</time>
@@ -1374,7 +1372,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 <h1 id="event-d2508">2025年8月</h1>
 <div>
     <time>31</time>
-    <p><span data-f="3">暑假时刘老师腿出现问题，到某医院检查后发现无问题，只需休息几天，但休息后疼痛加剧。到大医院才发现韧带断裂，需微创手术。于是</span>10班班主任进班代管：</p>
+    <p><span data-tf="3">暑假时刘老师腿出现问题，到某医院检查后发现无问题，只需休息几天，但休息后疼痛加剧。到大医院才发现韧带断裂，需微创手术。于是</span>10班班主任进班代管：</p>
     <ul>
         <li>学生询问时，师：“你们换班主任了……以后我教大家英语……”生：“那刘老师呢？”师（思考片刻）：“她去初一当段长了……”随后的时间里还不忘称“刘老师”为“初一段长”。</li>
         <li>王淮在过道检查，师：“王淮你那个测谎仪开一下。”</li>
@@ -1394,7 +1392,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>数学老师看座位表提问：“依诺？”</p>
     <p>师：“班主任让10个班委出去一下。”结果林梓颢也走出去。</p>
     <p>刘老师安排运动会名单：“欢颜跑步也快，跳远也快……”“男生想报都不够，要不男生穿裙子……”</p>
-    <p data-f="2">第二天起刘老师将请假2周。</p>
+    <p data-tf="2">第二天起刘老师将请假2周。</p>
 </div>
 <div>
     <time>3</time>
@@ -1402,15 +1400,15 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>物理老师：“钱尚思。”</p>
     <p>英语开门考第一题为听短文，主人公为“Li Ziqi”。</p>
     <p>学生在走廊偶遇上学期生物老师。</p>
-    <p data-f="3">洪鑫洋在走廊走的时候说：“鸡巴刘必艳。”被10班班主任听到并瞪一眼。</p>
+    <p data-tf="3">洪鑫洋在走廊走的时候说：“鸡巴刘必艳。”被10班班主任听到并瞪一眼。</p>
 </div>
 <div>
     <time>4</time>
     <p>语文作业有一本没名字，语文老师翻看后觉得像女生写的，于是问：“那个女生没发到？”季仁槿走上讲台，发现是自己的。</p>
     <p>地理老师讲解“省&gt;县&gt;乡”时比喻：省是校长、县是班主任、乡是班长。生：“王淮乡巴佬！”</p>
     <p>物理小测时郑致辰在“科作业纸”前面的横线上写“数学”。</p>
-    <p data-f="2">抽背时，有人：“还在看！”唐家祺：“我看你奶奶的鸡腿！”</p>
-    <p data-f="2">英语课时其他老师代课，郑永泽就开始写作业，并完成了积累本和语文金牌。下课后叶弘毅向大家“演示”：先把英语本放在英语书下偷偷写，写完后拿出金牌偷偷写，后面直接“不装了”，把金牌放在桌上光明正大地写。</p>
+    <p data-tf="2">抽背时，有人：“还在看！”唐家祺：“我看你奶奶的鸡腿！”</p>
+    <p data-tf="2">英语课时其他老师代课，郑永泽就开始写作业，并完成了积累本和语文金牌。下课后叶弘毅向大家“演示”：先把英语本放在英语书下偷偷写，写完后拿出金牌偷偷写，后面直接“不装了”，把金牌放在桌上光明正大地写。</p>
 </div>
 <div>
     <time>5</time>
@@ -1428,7 +1426,7 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
 <div>
     <time>8</time>
     <p>生物老师：“甜欣（欣甜）。”</p>
-    <p data-f="3">下午第三节下课黄丰泽、唐家祺吵架，晚托时被叫去办公室（无后续）。同时黄丰泽多个动作成为经典，如：手指太阳穴、拍一下手然后摊手等。</p>
+    <p data-tf="3">下午第三节下课黄丰泽、唐家祺吵架，晚托时被叫去办公室（无后续）。同时黄丰泽多个动作成为经典，如：手指太阳穴、拍一下手然后摊手等。</p>
     <p></p>
 </div>
 <div>
@@ -1452,13 +1450,21 @@ nav{position:fixed;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc
     <p>别班英语老师代课：</p>
     <ul>
         <li>倪浩宇翻译时语序混乱，师：“语文体育老师教的？……（开始比喻）虾吃一口、汤喝一下、蘸料再蘸一点……”随后翻译到“a pair of shoes”，倪浩宇：“……手套……”师：“鞋子不是手套。”</li>
-        <li data-f="1">请人时，师：“推荐一个？”生：“36（陈睿卓）！”陈睿卓：“我不会！”师：“那我@一下必艳，如果一直说不会就做练习。”</li>
+        <li data-tf="1">请人时，师：“推荐一个？”生：“36（陈睿卓）！”陈睿卓：“我不会！”师：“那我@一下必艳，如果一直说不会就做练习。”</li>
     </ul>
-    <p>物理老师念小测满分名单：“什么羲廖（廖成羲）……”“还有一个王we&#780;……字写漂亮点……”上课时，师：“你们两个，还有张炜（郑炜）……”</p>
-    <p data-f="3">前一天晚上8点左右洪鑫洋奶奶发语音，被学生调侃。（前情：刘老师在群里发作业缺交表格，随后洪鑫洋奶奶发语音：“洪鑫洋你作业没完成呢？啊？你今天作业没完成呢？那个里面都有你的名字，40号啊。你怎么变成作业都不会完成了？”）</p>
+    <p>物理老师念小测满分名单：“什么羲廖（廖成羲）……”“还有一个王we&#780;i……字写漂亮点……”上课时，师：“你们两个，还有张炜（郑炜）……”</p>
+    <p data-tf="3">前一天晚上8点左右洪鑫洋奶奶发语音，被学生调侃。（前情：刘老师在群里发作业缺交表格，随后洪鑫洋奶奶发语音：“洪鑫洋你作业没完成呢？啊？你今天作业没完成呢？那个里面都有你的名字，40号啊。你怎么变成作业都不会完成了？”）</p>
 </div>
-</main></div></div><script>
-let subMenuVisible=!1;function toggleSubMenu(e=null){var t=document.querySelector("nav>div:nth-of-type(2)");(subMenuVisible=null!==e?e:!subMenuVisible)?t.classList.add("active"):t.classList.remove("active")}function goTop(){document.querySelector("#content>div").scrollTo(0,0)}function goBottom(){document.querySelector("#content>div").scrollTo(0,document.querySelector("#content>div").scrollHeight)}function updateScrollProgress(){var e,t,o=document.querySelector("nav");o&&(e=document.querySelector("#content>div"))&&(t=e.scrollHeight-e.clientHeight,o.style.setProperty("--scroll-progress",e.scrollTop/t*100+"%"))}document.addEventListener("click",function(e){var t=document.querySelector("nav").contains(e.target),e=e.target.closest("nav>div:first-child>button:last-child");!subMenuVisible||t||e||toggleSubMenu(!1)}),document.querySelectorAll("#content>div").forEach(e=>{e.addEventListener("scroll",updateScrollProgress)}),window.addEventListener("DOMContentLoaded",updateScrollProgress);
-function changeContentFilter(a){document.querySelectorAll("[data-f]").forEach(e=>{var t=e.getAttribute("data-f");e.style.display="0"!==a&&t&&t<=a?"none":""}),localStorage.setItem("contentFilter",a)}function initContentFilter(){changeContentFilter(localStorage.getItem("contentFilter")||"0"),updateFilterRadios()}function updateFilterRadios(){var e=localStorage.getItem("contentFilter")||"0";document.querySelector(`input[name="contentfilter"][value="${e}"]`).checked=!0}function changeTheme(e){var t,a=document.body;a.removeAttribute("data-mode"),e&&"system"!==e?(a.setAttribute("data-mode",e),"brief-timeline"===e&&(updateTimelineTheme(),setInterval(updateTimelineTheme,6e4))):"system"===e&&(t=window.matchMedia("(prefers-color-scheme: dark)").matches?"brief-dark":"brief-light",a.setAttribute("data-mode",t)),localStorage.setItem("selectedTheme",e),updateBlurControlVisibility()}function updateTimelineTheme(){var e=(new Date).getHours();let t;t=5<=e&&e<12?"morning":12<=e&&e<17?"afternoon":17<=e&&e<20?"evening":"night",document.body.setAttribute("data-time-period",t)}function updateBlurControlVisibility(){var e=document.body.getAttribute("data-mode")?.startsWith("atmosphere"),t=document.querySelector(".atmosphere-settings");t&&(t.style.display=e?"block":"none")}function initBlurAmount(){var e=localStorage.getItem("blurAmount");changeBlurAmount(e||5)}function changeFontSize(e){document.body.setAttribute("data-font-size",e),localStorage.setItem("selectedFontSize",e)}function changeRadius(e){document.body.setAttribute("data-radius",e),localStorage.setItem("selectedRadius",e)}function changeLineSpacing(e){document.body.setAttribute("data-line-spacing",e),localStorage.setItem("selectedLineSpacing",e)}function changeFontWeight(e){document.body.setAttribute("data-font-weight",e),localStorage.setItem("selectedFontWeight",e)}function changeShadow(e){document.body.setAttribute("data-shadow",e),localStorage.setItem("selectedShadow",e)}function changeBlurAmount(e){document.documentElement.style.setProperty("--blur-amount",e+"px"),localStorage.setItem("blurAmount",e),updateBlurRadios()}function updateBlurRadios(){const t=localStorage.getItem("blurAmount")||"5";document.querySelectorAll('input[name="blur"]').forEach(e=>{e.checked=e.value===t})}function changeFullscreenMode(e){document.body.setAttribute("data-fullscreen",e),localStorage.setItem("fullscreenMode",e)}function initFullscreenMode(){changeFullscreenMode(localStorage.getItem("fullscreenMode")||"no"),updateFullscreenRadios()}function updateFullscreenRadios(){var e=localStorage.getItem("fullscreenMode")||"no";document.querySelector(`input[name="fullscreen"][value="${e}"]`).checked=!0}function changeNavMargin(e){document.body.setAttribute("data-nav-margin",e),localStorage.setItem("navMargin",e)}function initNavMargin(){changeNavMargin(localStorage.getItem("navMargin")||"no"),updateNavMarginRadios()}function updateNavMarginRadios(){var e=localStorage.getItem("navMargin")||"no";document.querySelector(`input[name="navmargin"][value="${e}"]`).checked=!0}function changeNavAlign(e){document.body.setAttribute("data-align",e),localStorage.setItem("navAlign",e)}function initNavAlign(){changeNavAlign(localStorage.getItem("navAlign")||"left"),updateNavAlignRadios()}function updateNavAlignRadios(){var e=localStorage.getItem("navAlign")||"left";document.querySelector(`input[name="navalign"][value="${e}"]`).checked=!0}function toggleNavItem(e){var t,a=document.querySelector(`nav>div:first-child>button[data-navitem="${e}"]`);a&&(t=document.querySelector(`input[name="navitems"][value="${e}"]`).checked,a.style.display=t?"inline-block":"none",(a=JSON.parse(localStorage.getItem("navItems")||"{}"))[e]=t,localStorage.setItem("navItems",JSON.stringify(a)))}function initNavItems(){var e,t,a={home:!0,top:!0,bottom:!0,settings:!0,menu:!0,search:!0,...JSON.parse(localStorage.getItem("navItems")||"{}")};for([e,t]of Object.entries(a)){var n=document.querySelector(`input[name="navitems"][value="${e}"]`);n&&(n.checked=t)}updateNavButtonsVisibility()}function updateNavButtonsVisibility(){var e,t,a=JSON.parse(localStorage.getItem("navItems")||"{}");document.querySelectorAll("nav>div:first-child>button").forEach(e=>{var t=e.querySelector("i");t&&(t.classList.contains("fa-home")&&e.setAttribute("data-navitem","home"),t.classList.contains("fa-arrow-circle-up")&&e.setAttribute("data-navitem","top"),t.classList.contains("fa-arrow-circle-down")&&e.setAttribute("data-navitem","bottom"),t.classList.contains("fa-gear")&&e.setAttribute("data-navitem","settings"),t.classList.contains("fa-navicon")&&e.setAttribute("data-navitem","menu"),t.classList.contains("fa-search"))&&e.setAttribute("data-navitem","search")});for([e,t]of Object.entries(a)){var n=document.querySelector(`nav>div:first-child>button[data-navitem="${e}"]`);n&&(n.style.width=t?"35px":"0")}}function initSettings(){var e=localStorage.getItem("selectedTheme"),t=localStorage.getItem("selectedFontSize"),a=localStorage.getItem("selectedRadius"),n=localStorage.getItem("selectedLineSpacing"),o=localStorage.getItem("selectedFontWeight"),i=localStorage.getItem("selectedShadow"),l=("system"===e?((l=window.matchMedia("(prefers-color-scheme: dark)")).addListener(handleSystemThemeChange),handleSystemThemeChange(l)):e&&changeTheme(e),t&&changeFontSize(t),a&&changeRadius(a),n&&changeLineSpacing(n),o&&changeFontWeight(o),i&&changeShadow(i),updateSettingRadios(),localStorage.getItem("blurAmount"));l&&changeBlurAmount(l),updateBlurRadios(),initContentFilter(),initFullscreenMode(),initNavMargin(),document.getElementById("settingdialog").addEventListener("click",function(e){e.target===this&&this.close()}),initNavAlign(),initNavItems(),updateNavButtonsVisibility()}function handleSystemThemeChange(e){var t=document.body,e=e.matches?"brief-dark":"brief-light";t.setAttribute("data-mode",e)}function updateSettingRadios(){var e=document.body,t=localStorage.getItem("selectedTheme")||"system",t=(document.querySelector(`input[name="theme"][value="${t}"]`).checked=!0,e.getAttribute("data-mode")||"brief-light"),t=(document.querySelector(`input[name="theme"][value="${t}"]`).checked=!0,e.getAttribute("data-font-size")||"normal"),t=(document.querySelector(`input[name="fontsize"][value="${t}"]`).checked=!0,e.getAttribute("data-radius")||"large"),t=(document.querySelector(`input[name="radius"][value="${t}"]`).checked=!0,e.getAttribute("data-line-spacing")||"loose"),t=(document.querySelector(`input[name="linespacing"][value="${t}"]`).checked=!0,e.getAttribute("data-font-weight")||"normal"),t=(document.querySelector(`input[name="fontweight"][value="${t}"]`).checked=!0,e.getAttribute("data-shadow")||"subtle");document.querySelector(`input[name="shadow"][value="${t}"]`).checked=!0}function resetToDefault(){localStorage.removeItem("selectedTheme"),localStorage.removeItem("selectedFontSize"),localStorage.removeItem("selectedRadius"),localStorage.removeItem("selectedLineSpacing"),localStorage.removeItem("selectedFontWeight"),localStorage.removeItem("selectedShadow"),changeTheme("system"),changeFontSize("normal"),changeRadius("large"),changeLineSpacing("loose"),changeFontWeight("normal"),changeShadow("subtle"),updateSettingRadios(),localStorage.removeItem("blurAmount"),changeBlurAmount(5),updateBlurRadios(),localStorage.removeItem("contentFilter"),changeContentFilter("0"),updateFilterRadios(),localStorage.removeItem("fullscreenMode"),changeFullscreenMode("no"),localStorage.removeItem("navMargin"),changeNavMargin("no"),updateNavMarginRadios(),localStorage.removeItem("navAlign"),changeNavAlign("left"),updateNavAlignRadios(),localStorage.removeItem("navItems"),document.querySelectorAll('input[name="navitems"]').forEach(e=>{e.checked=!0}),updateNavButtonsVisibility()}updateTimelineTheme(),setInterval(updateTimelineTheme,6e4),window.addEventListener("DOMContentLoaded",function(){showPage("home"),toggleSubMenu(!1),initSettings(),initBlurAmount(),updateBlurControlVisibility(),initFullscreenMode(),initNavAlign(),initNavItems(),updateNavButtonsVisibility()}),window.addEventListener("DOMContentLoaded",initSettings);
-let searchActive=!1;function toggleSearch(){if(!subMenuVisible){const e=document.querySelector("nav>div:nth-of-type(3)");(searchActive=!searchActive)?(e.style.display="flex",requestAnimationFrame(()=>{e.style.opacity="1",e.style.visibility="visible",e.style.transform="translateY(0)"}),e.querySelector("input").focus(),toggleSubMenu(!1)):(e.style.opacity="0",e.style.visibility="hidden",e.style.transform="translateY(-10px)",setTimeout(()=>{e.style.display="none"},300),clearSearch())}}function performSearch(){var t=document.querySelector("nav>div:nth-of-type(3) input"),n=document.querySelector("nav>div:nth-of-type(3) span");const r=t.value.trim().toLowerCase();if(r){var o,t=document.querySelector("#content>div"),a=(t.querySelectorAll("mark").forEach(e=>{var t=e.parentNode;t.replaceChild(document.createTextNode(e.textContent),e),t.normalize()}),[]),c=document.createTreeWalker(t,NodeFilter.SHOW_TEXT,null,!1);let e=0;for(;o=c.nextNode();)"SCRIPT"!==o.parentNode.nodeName&&"STYLE"!==o.parentNode.nodeName&&o.nodeValue.toLowerCase().includes(r)&&(a.push(o),e++);a.forEach(e=>{var t=e.nodeValue,n=e.parentNode,t=t.split(new RegExp(`(${r})`,"gi"));const o=document.createDocumentFragment();t.forEach((e,t)=>{t%2==1?((t=document.createElement("mark")).textContent=e,t.style.backgroundColor="rgba(255, 255, 0, 0.5)",o.appendChild(t)):e&&o.appendChild(document.createTextNode(e))}),n.replaceChild(o,e)}),n.textContent=""+e}else clearSearch()}function clearSearch(){document.querySelector("nav>div:nth-of-type(3) span").textContent="0",document.querySelector('#content>div').querySelectorAll("mark").forEach(e=>{var t=e.parentNode;t.replaceChild(document.createTextNode(e.textContent),e),t.normalize()}),document.querySelector("nav>div:nth-of-type(3) input").value=""}document.addEventListener("DOMContentLoaded",()=>{document.querySelector("nav>div:nth-of-type(3) input").addEventListener("input",performSearch),document.addEventListener("keydown",e=>{"Escape"===e.key&&searchActive&&toggleSearch()})});
-</script></body></html>
+<div>
+    <time>12</time>
+    <p>别班英语老师代课。师：“名字？”生：“水泽！”师：“水泽，好……”……生：“睿jue&#769;！”师：“哦，睿jue&#769;。”</p>
+    <p>午托结束后蒲林豪（坐讲台旁单桌）嫌自己桌子太矮，于是试图调节，结果左边桌腿拔出来了，右边纹丝不动，多人试图恢复无果。随后那些人把桌子搬到教室外并将桌面整个拔出来再安回去，变得更矮了。下午第一节语文课眼保健操时被语文老师发现，师：“你这是宝宝的桌子……”</p>
+    <p data-tf="3">语文老师：“……给我们什么感觉？”薛阅晨：“好黄啊。”</p>
+    <p>电脑课：</p>
+    <ul>
+        <li data-tf="2">师：“上课！”生（阴阳怪气、大声齐喊）：“起立！”然后笑场。师：“坐下，重来。”就这样重复多次才结束。随后师开始就此事发表长篇大论，主要内容有：这样子每节课都要整纪律。如果一节课有三分之一的时间在整纪律，你算算一个学期少上多少节课？少上多少天？……刷到一个视频：有一个名校毕业的人只能去当化学老师……要认真学习，不然只能送外卖或者当厨师……外卖一单才几块钱，每天至少要做40单，每单就算要爬两三层楼，那一天就要爬100层；厨师每天要动1000下锅……中国的高考是最公平的……外国靠钱、靠势……特朗普是学渣，就因为他家有钱……跨越阶级非常困难……一韩国总统原本家境贫寒，打工时左手残疾，但刻苦学习，有时为使自己专注学习用针刺手臂，多次试图自杀，最终逆袭成为总统。……学习是为数不多能改变命运的机会……一朋友问界M7，从潮汕开到福州，全程没碰一下方向盘……现在计算机算力18个月翻一番，现在的计算机算力是二零零几年的上万倍……就算啥都不会还有送外卖这条退路，未来会被机器人和AI替代……</li>
+        <li data-tf="1">讲话时突然来电话，铃声使全班笑出来，然后陈子岩突然摔倒。</li>
+        <li>师：“七十度的天气……”</li>
+    </ul>
+</div>
+</main></div></div><script>let subMenuVisible=!1;function toggleSubMenu(e=null){var t=document.querySelector("nav>div:nth-of-type(2)");(subMenuVisible=null!==e?e:!subMenuVisible)?t.classList.add("active"):t.classList.remove("active")}function goTop(){document.querySelector("#content>div").scrollTo(0,0)}function goBottom(){document.querySelector("#content>div").scrollTo(0,document.querySelector("#content>div").scrollHeight)}function updateScrollProgress(){var e,t,o=document.querySelector("nav");o&&(e=document.querySelector("#content>div"))&&(t=e.scrollHeight-e.clientHeight,o.style.setProperty("--scroll-progress",e.scrollTop/t*100+"%"))}document.addEventListener("click",function(e){var t=document.querySelector("nav").contains(e.target),e=e.target.closest("nav>div:first-child>button:last-child");!subMenuVisible||t||e||toggleSubMenu(!1)}),document.querySelectorAll("#content>div").forEach(e=>{e.addEventListener("scroll",updateScrollProgress)}),window.addEventListener("DOMContentLoaded",updateScrollProgress);function goTop(){document.querySelector('#content>div').scrollTo(0,0)}function goBottom(){document.querySelector('#content>div').scrollTo(0,document.querySelector('#content>div').scrollHeight)}function updateScrollProgress(){var e,o,r=document.querySelector("nav");r&&(e=document.querySelector('#content>div'))&&(o=e.scrollHeight-e.clientHeight,r.style.setProperty("--scroll-progress",e.scrollTop/o*100+"%"))}document.querySelectorAll("#content>div").forEach(e=>{e.addEventListener("scroll",updateScrollProgress)}),window.addEventListener("DOMContentLoaded",updateScrollProgress);function changeTheme(theme){const content=document.body;content.removeAttribute('data-mode');if(theme&&theme!=='system'){content.setAttribute('data-mode',theme);if(theme==='brief-timeline'){updateTimelineTheme();setInterval(updateTimelineTheme,60000)}}else if(theme==='system'){const systemTheme=window.matchMedia('(prefers-color-scheme: dark)').matches?'brief-dark':'brief-light';content.setAttribute('data-mode',systemTheme)}localStorage.setItem('selectedTheme',theme)}function updateTimelineTheme(){const now=new Date();const hours=now.getHours();let t;if(hours>=5&&hours<12){t='morning'}else if(hours>=12&&hours<17){t='afternoon'}else if(hours>=17&&hours<20){t='evening'}else{t='night'}document.body.setAttribute('data-time-period',t)}updateTimelineTheme();setInterval(updateTimelineTheme,60000);function handleSystemThemeChange(e){const content=document.body;const theme=e.matches?'brief-dark':'brief-light';content.setAttribute('data-mode',theme)}function changeFS(e){document.body.setAttribute("data-fs",e),localStorage.setItem("seFS",e)}function changeR(e){document.body.setAttribute("data-r",e),localStorage.setItem("seR",e)}function changeLS(e){document.body.setAttribute("data-ls",e),localStorage.setItem("seLS",e)}function changeFW(e){document.body.setAttribute("data-fw",e),localStorage.setItem("seFW",e)}function changeS(e){document.body.setAttribute("data-s",e),localStorage.setItem("seS",e)}function changeB(e){document.body.setAttribute("data-b",e),localStorage.setItem("seB",e)}function changeF(e){document.body.setAttribute("data-f",e),localStorage.setItem("seF",e)}function changeNM(e){document.body.setAttribute("data-nm",e),localStorage.setItem("seNM",e)}function changeNA(e){document.body.setAttribute("data-na",e),localStorage.setItem("seNA",e)}function changeCF(e){document.body.setAttribute("data-cf",e),localStorage.setItem("seCF",e)}const savedTheme=localStorage.getItem('selectedTheme');if(savedTheme==='system'){const systemTheme=window.matchMedia('(prefers-color-scheme: dark)');systemTheme.addListener(handleSystemThemeChange);handleSystemThemeChange(systemTheme)}else if(savedTheme){changeTheme(savedTheme)}const saFS=localStorage.getItem('seFS');const saR=localStorage.getItem('seR');const saLS=localStorage.getItem('seLS');const saFW=localStorage.getItem('seFW');const saS=localStorage.getItem('seS');const saB=localStorage.getItem('seB');const saF=localStorage.getItem('seF');const saNM=localStorage.getItem('seNM');const saNA=localStorage.getItem('seNA');const saCF=localStorage.getItem('seCF');if(saFS)changeFS(saFS);if(saR)changeR(saR);if(saLS)changeLS(saLS);if(saFW)changeFW(saFW);if(saS)changeS(saS);if(saB)changeB(saB);if(saF)changeF(saF);if(saNM)changeNM(saNM);if(saNA)changeNA(saNA);if(saCF)changeCF(saCF);const settingDialog=document.getElementById('settingdialog');settingDialog.addEventListener('click',function(e){if(e.target===this){this.close()}});function updateSettingRadios(){const savedTheme=localStorage.getItem('selectedTheme')||'system';document.querySelector(`input[name="theme"][value="${savedTheme}"]`).checked=true;const currentTheme=content.getAttribute('data-mode')||'brief-light';document.querySelector(`input[name="theme"][value="${currentTheme}"]`).checked=true;const currentFS=content.getAttribute('data-fs')||'normal';document.querySelector(`input[name="fs"][value="${currentFS}"]`).checked=true;const currentR=content.getAttribute('data-r')||'large';document.querySelector(`input[name="r"][value="${currentR}"]`).checked=true;const currentLS=content.getAttribute('data-ls')||'loose';document.querySelector(`input[name="ls"][value="${currentLS}"]`).checked=true;const currentFW=content.getAttribute('data-fw')||'normal';document.querySelector(`input[name="fw"][value="${currentFW}"]`).checked=true;const currentS=content.getAttribute('data-s')||'subtle';document.querySelector(`input[name="s"][value="${currentS}"]`).checked=true;const currentB=content.getAttribute('data-b')||'5px';document.querySelector(`input[name="b"][value="${currentB}"]`).checked=true;const currentF=content.getAttribute('data-f')||'no';document.querySelector(`input[name="f"][value="${currentF}"]`).checked=true;const currentNM=content.getAttribute('data-nm')||'no';document.querySelector(`input[name="nm"][value="${currentNM}"]`).checked=true;const currentNA=content.getAttribute('data-na')||'left';document.querySelector(`input[name="na"][value="${currentNA}"]`).checked=true;const currentCF=content.getAttribute('data-cf')||'3';document.querySelector(`input[name="cf"][value="${currentCF}"]`).checked=true}window.addEventListener('DOMContentLoaded',function(){showPage('home');toggleSubMenu(false);updateSettingRadios()});function resetToDefault(){localStorage.removeItem('selectedTheme');localStorage.removeItem('seFS');localStorage.removeItem('seR');localStorage.removeItem('seLS');localStorage.removeItem('seFW');localStorage.removeItem('seS');localStorage.removeItem('seB');localStorage.removeItem('seF');localStorage.removeItem('seNM');localStorage.removeItem('seNA');localStorage.removeItem('seCF');changeTheme('system');changeFS('normal');changeR('large');changeLS('loose');changeFW('normal');changeS('subtle');changeB('5px');changeF('no');changeNM('no');changeNA('left');changeCF('3');updateSettingRadios()}</script></body></html>
