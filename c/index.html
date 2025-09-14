@@ -7,7 +7,6 @@
 边缘渐变透明
 按标签搜索
 滚动到上一个/下一个搜索结果
-密码css代码使用light-dark()
 bug:
 1.无法应用图片
 -->
@@ -122,7 +121,7 @@ bug:
             --ah:#fab7b7;
             --hr:#f9c;
             --selection:#f042c488;
-            --shadow:#66006688;
+            --shadow:#cc00cc88;
             --article:;
             --q:;
             --quot:;
@@ -429,14 +428,14 @@ bug:
         noscript{display:block;width:100dvw;height:100dvh;background:#fcc;color:#c00;text-align:center;font-weight:800;font-size:1.25rem;}
         /*密码*/
         #password{
-            position:fixed;top:0;left:0;width:100dvw;height:100dvh;background:#66666688;backdrop-filter:blur(30px);z-index:9999;display:flex;justify-content:center;align-items:center;flex-direction:column;color:#333;
+            position:fixed;top:0;left:0;width:100dvw;height:100dvh;background:light-dark(#66666688,#44444488);backdrop-filter:blur(30px);z-index:9999;display:flex;justify-content:center;align-items:center;flex-direction:column;color:light-dark(#333,#fff);
             >div{
-            background:#ccc;padding:30px;border-radius:15px;box-shadow:0 0 20px #999;max-width:400px;width:90%;
+            background:light-dark(#ccc,#555);padding:30px;border-radius:15px;box-shadow:0 0 20px light-dark(#99999988,#33333388);max-width:400px;width:90%;
                 >h2{margin-bottom:20px;text-align:center;}
                 >div{
                 display:flex;margin:5px;
-                    >input{width:100%;padding:10px;border-radius:10px 0 0 10px;border:1px solid #404040;background:#ffffff99;color:#404040;font-size:1rem;&:focus{outline:none;background:#00000011;}&::placeholder{color:#ffffff44;opacity:1;}&::-ms-input-placeholder{color:#ffffff44;}}
-                    >button{background:#404040;color:#ddddddbb;border:1px solid #404040;padding:10px 20px;border-radius:0 10px 10px 0;cursor:pointer;font-size:1rem;transition:all 0.3s ease;flex-basis:90px;&:hover{opacity:0.8;}}
+                    >input{width:100%;padding:10px;border-radius:10px 0 0 10px;border:1px solid light-dark(#404040,#aaa);background:light-dark(#ffffff99,#00000099);color:light-dark(#404040,#aaa);font-size:1rem;&:focus{outline:none;background:light-dark(#00000011,#ffffff11);}&::placeholder{color:unset;opacity:0.3;}}
+                    >button{background:light-dark(#404040,#aaa);color:light-dark(#ddddddbb,#444444bb);border:1px solid light-dark(#404040,#aaa);padding:10px 20px;border-radius:0 10px 10px 0;cursor:pointer;font-size:1rem;transition:all 0.3s ease;flex-basis:90px;&:hover{opacity:0.8;}}
                 }
             }
         }
@@ -617,7 +616,7 @@ bug:
             >h1{background:#00999988;text-align:center;border-radius:100dvw;margin:25px 15px 5px 15px;padding:10px;color:#fff;}
             >div{
                 margin:10px 0;padding:20px 8px 10px 8px;border-radius:var(--radius-4x);width:100%;background:#99ddff55;box-shadow:var(--shadow-hd-x);
-                >time{position:relative;top:-15px;left:-3px;float:left;margin-right:-9999px;text-align:center;padding:5px 0;min-width:1.9em;border-radius:var(--radius-4x);font-weight:700;background:#6cf;box-shadow:var(--shadow-ho-x);color:#000;}
+                >time{position:relative;top:-15px;left:-3px;float:left;margin-right:-9999px;text-align:center;padding:5px 0;min-width:1.9em;border-radius:var(--radius-4x);font-weight:700;background:#6cf;box-shadow:var(--shadow-so-x);color:#000;}
                 >p{padding:2.5px 0;text-indent:2em;}
                 >ul,>ul>ul{
                     margin:3px 3px 3px 13px;padding:5px;background:#ffffff44;border-radius:var(--radius-6x);
