@@ -4,7 +4,6 @@
 增加：
 自定义色调
 自动生成导航
-边缘渐变透明
 按标签搜索
 滚动到上一个/下一个搜索结果
 bug:
@@ -25,7 +24,7 @@ bug:
     </script>
     <style>
         @font-face{font-family:'icons';src:url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'),url('fa.woff2') format('woff2');font-display:swap;}
-        :root{color-scheme:light dark;--blur-amount:5px;--custom-bg-image:none;}
+        :root{color-scheme:light dark;--custom-bg:none;}
         *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;transition:border-radius 0.3s ease,box-shadow 0.3s ease;color:inherit;}
         a,body,selection,hr,q,article,nav,nav i,dialog,.gallery,blockquote,label,radio{transition:background 0.3s ease,color 0.3s ease;}
         p,h1,h2,h3,h4,h5,h6,li{transition:line-height 0.3s ease,letter-spacing 0.3s ease;}
@@ -54,7 +53,7 @@ bug:
             --ah:#06c;
             --hr:#888;
             --selection:#9494b888;
-            --shadow:#00000022;
+            --shadow:#44444422;
             --article:#e9e9e288;
             --q:#d5dbdd88;
             --quot:#80939988;
@@ -98,7 +97,7 @@ bug:
             --ah:#ff0;
             --hr:#cff;
             --selection:#ccffff88;
-            --shadow:#00999988;
+            --shadow:#0052cc88;
             --article:#09f;
             --q:#d580ff;
             --quot:#f39;
@@ -314,10 +313,13 @@ bug:
             --radiobg:var(--timeline-radiobg);
             --gallerybg:var(--timeline-gallerybg);
         }
-        body[data-mode^="custom"]{background-position:50% 50%;background-repeat:no-repeat;background-size:cover;background-attachment:fixed;}
         body[data-mode="custom-light"]{
-            background:#fff;
-            background-image:var(--custom-bg-image);
+            background:#ddd;
+            background-image:var(--custom-bg);
+            background-position:50% 50%;
+            background-repeat:no-repeat;
+            background-size:cover;
+            background-attachment:fixed;
             --selection:#8585ad88;
             --shadow:#1a1a1a22;
             --loaderbg:#e6e6e6;
@@ -332,8 +334,12 @@ bug:
             #content>div{background:#ffffff55;}
         }
         body[data-mode="custom-dark"]{
-            background:#000;
-            background-image:var(--custom-bg-image);
+            background:#222;
+            background-image:var(--custom-bg);
+            background-position:50% 50%;
+            background-repeat:no-repeat;
+            background-size:cover;
+            background-attachment:fixed;
             --selection:#8585ad88;
             --shadow:#e6e6e622;
             --loaderbg:#1a1a1a;
@@ -347,6 +353,9 @@ bug:
             --radiobg:#ffffff55;
             #content>div{background:#00000066;}
             #content>div,#content dialog{color:#fff;}
+        }
+        body[data-mode="custom-color"]{
+            
         }
         body[data-s="subtle"]{
             --shadow-so-x:0 0 5px var(--shadow);
@@ -440,7 +449,8 @@ bug:
             }
         }
         /*旧版浏览器*/
-        #oldbrowser {display:none;position:fixed;top:0;left:0;width:100dvw;height:100dvh;background:#fff;color:#000;z-index:9999;padding:20px;font-size:20px;}
+        #oldbrowser{display:none;position:fixed;top:0;left:0;width:100dvw;height:100dvh;background:#fff;color:#000;z-index:9999;padding:20px;font-size:20px;}
+        @supports not (display:grid) or (color:light-dark(#fff,#000)) or (width:clamp(5px,5%,3px)) or (--color:#fff){#oldbrowser{display:block!important;}}
         /*加载页面*/
         #loader{
             background:var(--loaderbg);width:100dvw;height:100dvh;z-index:2;overflow:hidden;position:fixed;top:0;left:0;text-align:center;display:flex;justify-content:center;align-items:center;transition:none;
@@ -450,7 +460,7 @@ bug:
                 >div{
                     position:relative;width:60px;height:20px;margin:10px auto;
                 &::before,&::after,& span{content:'';position:absolute;top:0;width:20px;height:20px;border-radius:50%;animation:dotFlashing 1s infinite alternate;}
-                &::before{left:-10px;anmation-delay:0s;}
+                &::before{left:-10px;animation-delay:0s;}
                 & span{left:20px;animation-delay:0.2s;}
                 &::after{left:50px;animation-delay:0.4s;}
                 }
@@ -539,7 +549,6 @@ bug:
                 }
                 h2{margin:10px;position:relative;padding-left:12.5px;&::before{width:5px;content:"";background:var(--radiobg);position:absolute;top:7.5px;bottom:7.5px;left:0;border-radius:2.5px;}}
             }
-            >div:nth-of-type(3){display:none;position:fixed;transform:translate(-50%,-50%);left:50%;top:50%;background:#ff4444aa;color:#fff;padding:8px 20px;border-radius:var(--radius-5x);transition:opacity 0.3s ease;}
         }
         body[data-mode^="brief"] .custom-settings{display:none;}
         body[data-mode^="custom"] .custom-settings{display:block;flex-basis:100%;}
@@ -623,6 +632,7 @@ bug:
                     >li,>ul>li{
                         text-indent:2em;list-style-type:none;
                         &::before{position:relative;content:"●";color:#00000088;margin-right:5px}
+                    }
                 }
                 &.sp1{
                     background:#ccffcc55;
@@ -727,14 +737,16 @@ setInterval(rotateText,1000);
                     <label><input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-dark-blue')">深蓝</label>
                     <label><input type="radio" name="theme" value="custom-light" onclick="changeTheme('custom-light')">浅-自定义</label>
                     <label><input type="radio" name="theme" value="custom-dark" onclick="changeTheme('custom-dark')">深-自定义</label>
-                    <label><input type="radio" name="theme" value="" onclick="changeTheme('')">自定义色调</label>
-                    <!--
+                    <label><input type="radio" name="theme" value="custom-color" onclick="changeTheme('custom-color')">自定义色调</label>
                     <div class="custom-settings">
-                        <p>背景</p>
-                        <input type="file" style="display:none;">
-                            <button style="float:right;" onclick="">上传</button>
-                            <button style="float:right;" onclick="">清除</button>
-                    </div>-->
+                        <p>背景图片<small>(5MB)</small></p>
+                            <button style="float:right;" onclick="uploadBackgroundImage()">上传</button>
+                            <button style="float:right;" onclick="clearBackgroundImage()">清除</button>
+                    </div>
+                    <div class="custom-settings">
+                        <p>色调</p>
+                        <input type="text"/>
+                    </div>
                 </section>
                 <section>
                     <h2>字体</h2>
@@ -829,7 +841,6 @@ setInterval(rotateText,1000);
                     <button onclick="resetToDefault();localStorage.removeItem('passwordVerified');location.reload(true);" style="background:#b8141488;color:#fff;">重置</button>
                 </section>
             </div>
-            <div>图片上传失败，请重试</div>
         </dialog>
         <div id="home">
             <header>
@@ -959,8 +970,6 @@ setInterval(rotateText,1000);
     </noscript>
     <div id="oldbrowser">浏览器版本过旧，不支持显示。<br/>请下载最新浏览器或升级至最新浏览器后重试。</div>
     <script>
-        //旧版浏览器
-        function checkBrowserCompatibility(){var e,t;const n=document.createElement("div");document.body.appendChild(n);let d=[];["color-scheme","backdrop-filter","scroll-behavior","scroll-snap-type","gap","aspect-ratio","container","has"].forEach(t=>{try{var e,o;"has"===t?(n.innerHTML='<div id="test-has"><p></p></div>',(e=document.createElement("style")).textContent="#test-has:has(p){display:block;}",document.head.appendChild(e),o="block"===getComputedStyle(n.querySelector("#test-has")).display,document.head.removeChild(e),o||d.push(":has() selector")):(n.style[t]="initial",n.style[t]||d.push(t))}catch(e){d.push(t)}}),document.body.removeChild(n),0<d.length&&(e=document.getElementById("oldbrowser"),(t=document.createElement("p")).textContent="不支持的特性: "+d.join(", "),e.appendChild(t),e.style.display="flex",document.getElementById("content").style.display="none",document.getElementById("loader").style.display="none")}window.addEventListener("DOMContentLoaded",checkBrowserCompatibility);
         //密码（orangemumu）
         async function checkPassword(){var e=document.querySelector("#password>div>div>input").value,t=document.querySelector("#password>div>div>input"),e=(new TextEncoder).encode(e),e=await crypto.subtle.digest("SHA-256",e);"ddec4e6a6e296862618bf9fd0f8a1f6cc62de71d6c4d8a2ea366e13a8c0f9174"===Array.from(new Uint8Array(e)).map(e=>e.toString(16).padStart(2,"0")).join("")?(document.getElementById("password").style.display="none",localStorage.setItem("passwordVerified","true")):t.style.background="#ff000044"}function initPasswordProtection(){"true"===localStorage.getItem("passwordVerified")?document.getElementById("password").style.display="none":(document.querySelector("#password>div>div>button").addEventListener("click",checkPassword),document.querySelector("#password>div>div>input").addEventListener("keypress",function(e){"Enter"===e.key&&checkPassword()}))}document.addEventListener("DOMContentLoaded",function(){initPasswordProtection()});
         // 动态修改页面标题
@@ -1059,10 +1068,33 @@ setInterval(rotateText,1000);
             changeCF('3');
             updateSettingRadios();
         }
+        function uploadBackgroundImage() {
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = 'image/*';
+            fileInput.style.display = 'none';
+            fileInput.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        localStorage.setItem('customBackground', e.target.result);
+                        applyCustomBackground(e.target.result);
+                    };
+                    reader.readAsDataURL(this.files[0]);
+                }
+                document.body.removeChild(fileInput);
+            });
+            document.body.appendChild(fileInput);
+            fileInput.click();
+        }
+        function applyCustomBackground(imageData){document.body.style.setProperty('--custom-bg', `url(${imageData})`);}
+        function clearBackgroundImage() {localStorage.removeItem('customBackground');document.body.style.setProperty('--custom-bg', 'none');}
         window.addEventListener('DOMContentLoaded', function() {
             updateSettingRadios();
             showPage('home');
             toggleSubMenu(false);
+            const savedBackground = localStorage.getItem('customBackground');
+            if (savedBackground){applyCustomBackground(savedBackground);}
         });
         //搜索
         let searchActive = false;
