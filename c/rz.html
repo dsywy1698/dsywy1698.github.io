@@ -1,133 +1,60 @@
-<!DOCTYPE html><html lang="zh-CN"><head><title>八卦</title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><meta name="robots" content="noindex,nofollow"/><link rel="stylesheet" href="fa.css"/>
-<style>@font-face{font-family:'icons';src:url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'),url('fa.woff2') format('woff2');font-display:swap;}
-        :root{color-scheme:light dark;--custom-bg:none;}
-        *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;transition:border-radius 0.3s ease,box-shadow 0.3s ease;color:inherit;}
-        a,body,selection,hr,q,article,nav,nav i,dialog,.gallery,blockquote,label,radio{transition:background 0.3s ease,color 0.3s ease;}
-        p,h1,h2,h3,h4,h5,h6,li{transition:line-height 0.3s ease,letter-spacing 0.3s ease;}
-        *::-webkit-scrollbar{display:none!important;}
-        ::selection{background:var(--selection);}
-        html{font-size:100%;height:100dvh;}
-        body{font-family:"微软雅黑",sans-serif;}
-        #content>div{padding:50px 10px 10px 10px;overflow-y:auto;scroll-behavior:smooth;height:100dvh;backdrop-filter:blur(var(--blur-amount));transition:backdrop-filter 0.3s ease;}
-        /*基本样式*/
-        hr{border:1px solid var(--hr);border-radius:100px;margin:5px 10px;}
-        a{color:var(--a);text-decoration-style:dotted;}
-        a:hover{color:var(--ah);}
-        h1,h2,h3,h4,h5,h6{}
-        sup[class="fa fa-external-link"]{font-size:0.7em;opacity:0.8;line-height:0;color:var(--a);vertical-align:super;position:relative;top:0;}
-        sup[class="fa fa-external-link"]:hover{opacity:0.7;}
-        img,svg,canvas,audio,video{max-width:100%;}
-        button{border:none;}
-        #content>div *[id]{scroll-margin-top:55px;}
-        
-        body{
-            background:#001a33;
-            color:#e6f3ff;
-            --a:#66b3ff;
-            --ah:#99ccff;
-            --hr:#3399ff;
-            --selection:#3399ff88;
-            --shadow:#66b3ff22;
-            --nav-bg:#004080bb;
-            --nav-btn:#cce6ff;
-            --shadow-so-x:0 0 5px var(--shadow);
-            --shadow-so-2x:0 0 10px var(--shadow);
-            --shadow-so-3x:0 0 25px var(--shadow);
-            --shadow-so-4x:0 0 20px var(--shadow);
-            --shadow-so-5x:0 0 30px var(--shadow);
-            --shadow-so-6x:0 0 50px var(--shadow);
-            --shadow-si-x:inset 0 0 10px var(--shadow);
-            --shadow-si-2x:inset 0 0 20px var(--shadow);
-            --shadow-si-3x:inset 0 0 40px var(--shadow);
-            --shadow-ho-x:0 0 5px 2.5px var(--shadow);
-            --shadow-ho-2x:0 0 5px 5px var(--shadow);
-            --shadow-ho-3x:0 0 10px 10px var(--shadow);
-            --shadow-nf-x:5px 5px 10px var(--shadow);
-            --shadow-nf-2x:5px 5px 20px var(--shadow);
-            --shadow-nf-3x:7.5px 7.5px 20px var(--shadow);
-            --shadow-nf-4x:15px 15px 40px var(--shadow);
-            --shadow-hf-x:2.5px 2.5px 5px var(--shadow);
-            --shadow-hf-2x:5px 5px 5px var(--shadow);
-            --shadow-hd-x:0 5px 5px var(--shadow);
-            --shadow-hd-2x:0 10px 10px var(--shadow);
-            --shadow-hd-3x:0 15px 15px var(--shadow);
-            --radius-x:2.5px;
-            --radius-2x:5px;
-            --radius-3x:7.5px;
-            --radius-4x:10px;
-            --radius-5x:12.5px;
-            --radius-6x:15px;
-            --radius-7x:17.5px;
-            --radius-8x:20px;
-            --radius-9x:22.5px;
-            --radius-10x:25px;
-            font-size:100%;
-            font-weight:200;}
-        p,li{line-height:1.7em;letter-spacing:0.15em;}
-        body[data-cf="1"] *[data-tf="3"]{display:none;}
-        body[data-cf="2"] *[data-tf="3"],body[data-cf="2"] *[data-tf="2"]{display:none;}
-        body[data-cf="3"] *[data-tf]{display:none;}
-        
-        /*页面*/
-        /*导航栏*/
-        nav{position:fixed;background:var(--nav-bg);padding:2.5px;border-radius:var(--radius-8x);backdrop-filter:blur(20px);z-index:1;box-shadow:var(--shadow-so-5x);user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;width:100dvw;left:0;top:0;border-radius:0;>div:nth-of-type(3){border-radius:0;}&:before{border-radius:0;}}
-        nav::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right,var(--nav-btn) var(--scroll-progress,0%),transparent 0);opacity:0.1;pointer-events:none;z-index:-1;border-radius:var(--radius-8x);height:40px;}
-        nav>div:first-child{
-            display:flex;
-            >button{transition:background 0.3s ease;width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;border-radius:var(--radius-8x);margin:0 2.5px;
-            &:hover{background:#00000033;}
-            >i{color:var(--nav-btn);}
-            }
-        }
-        nav:has(>div:first-child>button:last-child:hover)>div:nth-of-type(2){height:auto;opacity:1;max-height:clamp(200px,40dvh,400px);padding:0 2.5px;margin-top:5px;}
-        nav>div:nth-of-type(2){
-            background:#ffffff08;transform-origin:top;border-radius:var(--radius-7x);height:0;max-height:0;opacity:0;overflow:auto;padding:0 2.5px;transition:all 0.3s cubic-bezier(0.68,-0.6,0.32,1.6);interpolate-size:allow-keywords;
-            &:hover{height:auto;opacity:1;max-height:clamp(200px,40dvh,400px);padding:0 2.5px;margin-top:5px;}
-            >button{
-                display:block;width:100%;background:transparent;transition:background 0.3s ease,color 0.3s ease;font-size:1.125rem;text-align:left;margin:2.5px 0;border-radius:var(--radius-7x);padding:2.5px 10px;line-height:30px;font-weight:unset;
-                &:hover{background:#00000033;}
-            }
-            >div{
-                position:relative;padding-left:7.5px;margin-left:5px;
-                &::before{content:'';position:absolute;left:0;top:5px;bottom:5px;width:3px;background:var(--nav-btn);opacity:0.5;border-radius:1.5px;}
-                >a{
-                    display:block;width:100%;text-decoration:none;transition:background 0.3s ease,color 0.3s ease;color:unset;margin:2.5px;padding:5px 10px;line-height:25px;border-radius:var(--radius-6x);
-                    &:hover{background:#00000033;}
-                }
-            }
-        }
-        /*页面样式*/
-        #content>div>header{font-size:1.875rem;text-align:center;padding:35px 0;}
-        #event>main{
-            >h1{background:#00999988;text-align:center;border-radius:100dvw;margin:25px 15px 5px 15px;padding:10px;color:#fff;}
-            >div{
-                margin:10px 0;padding:20px 8px 10px 8px;border-radius:var(--radius-4x);width:100%;background:#99ddff55;box-shadow:var(--shadow-hd-x);
-                >time{position:relative;top:-15px;left:-3px;float:left;margin-right:-9999px;text-align:center;padding:5px 0;min-width:1.9em;border-radius:var(--radius-4x);font-weight:700;background:#6cf;box-shadow:var(--shadow-so-x);color:#000;}
-                >p{padding:2.5px 0;text-indent:2em;}
-                >ul,>ul>ul{
-                    margin:3px 3px 3px 13px;padding:5px;background:#ffffff44;border-radius:var(--radius-6x);
-                    >li,>ul>li{
-                        text-indent:2em;list-style-type:none;
-                        &::before{position:relative;content:"●";color:#00000088;margin-right:5px}
-                    }
-                }
-                &.sp1{
-                    background:#ccffcc55;
-                    >time{background:#9f9;}
-                }
-                &.sp2{
-                    background:#ffeecc55;
-                    >time{background:#fd9;}
-                }
-                &.sp3{
-                    background:#ffccee55;
-                    >time{background:#f9d;}
-                }
-            }
-        }
-
-</style></head><body data-cf="3">
-<div id="content"><nav><div><button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button><button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button><button onclick="var s=document.body.getAttribute('data-cf')||'3';s=s==='3'?'0':(+s+1)+'';document.body.setAttribute('data-cf',s);this.textContent=s">3</button><button><i class="fa fa-navicon"></i></button></div><div><div>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>八卦-简化版</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="fa.css">
+<style>
+@font-face{font-family:'icons';src:url('fa.woff2') format('woff2');font-display:swap;}
+*{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;transition:border-radius 0.3s ease,box-shadow 0.3s ease;color:inherit;}
+*::-webkit-scrollbar{display:none!important;}
+::selection{background:#3399ff88;}
+html{font-size:100%;scroll-behavior:smooth;}
+body{font-family:"微软雅黑",sans-serif;background:#001a33;color:#e6f3ff;font-weight:200;}
+a{color:#66b3ff;text-decoration-style:dotted;}
+a:hover{color:#99ccff;}
+sup[class="fa fa-external-link"]{font-size:0.7em;opacity:0.8;line-height:0;color:#66b3ff;vertical-align:super;position:relative;top:0;}
+sup[class="fa fa-external-link"]:hover{opacity:0.7;}
+img,svg,canvas,audio,video{max-width:100%;}
+*[id]{scroll-margin-top:55px;}
+p,li{line-height:1.7em;letter-spacing:0.15em;}
+body[data-cf="1"] *[data-tf="3"]{display:none;}
+body[data-cf="2"] *[data-tf="3"],body[data-cf="2"] *[data-tf="2"]{display:none;}
+body[data-cf="3"] *[data-tf]{display:none;}
+nav{position:fixed;background:#004080bb;padding:2.5px;border-radius:20px;backdrop-filter:blur(20px);z-index:1;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;width:100dvw;left:0;top:0;border-radius:0;}
+nav>div:first-child{display:flex;>button{transition:background 0.3s ease;width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;border-radius:20px;margin:0 2.5px;&:hover{background:#00000033;}>i{color:#cce6ff;}}}
+nav:has(>div:first-child>button:last-child:hover)>div:nth-of-type(2){height:auto;opacity:1;max-height:clamp(200px,40dvh,400px);padding:10px;margin-top:5px;}
+nav>div:nth-of-type(2){
+    background:#ffffff08;transform-origin:top;border-radius:17.5px;height:0;max-height:0;opacity:0;overflow:auto;padding:0 10px;transition:all 0.3s cubic-bezier(0.68,-0.6,0.32,1.6);interpolate-size:allow-keywords;
+    &:hover{height:auto;opacity:1;max-height:clamp(200px,40dvh,400px);padding:10px;margin-top:5px;}
+    >a{display:block;width:100%;text-decoration:none;transition:background 0.3s ease,color 0.3s ease;color:unset;margin:2.5px;padding:5px 10px;line-height:25px;border-radius:15px;&:hover{background:#00000033;}}
+}
+main{
+    padding:50px 10px 10px 10px;
+    >h1{background:#00999988;text-align:center;border-radius:100dvw;margin:25px 15px 5px 15px;padding:10px;color:#fff;}
+    >div{
+        margin:10px 0;padding:20px 8px 10px 8px;border-radius:10px;width:100%;background:#99ddff55;
+        >time{position:relative;top:-15px;left:-3px;float:left;margin-right:-9999px;text-align:center;padding:5px 0;min-width:1.9em;border-radius:10px;font-weight:700;background:#6cf;color:#000;}
+        >p{padding:2.5px 0;text-indent:2em;}
+        >ul,>ul>ul{margin:3px 3px 3px 13px;padding:5px;background:#ffffff44;border-radius:15px;>li,>ul>li{text-indent:2em;list-style-type:none;&::before{position:relative;content:"●";color:#00000088;margin-right:5px}}}
+        &.sp1{background:#ccffcc55;>time{background:#9f9;}}
+        &.sp2{background:#ffeecc55;>time{background:#fd9;}}
+        &.sp3{background:#ffccee55;>time{background:#f9d;}}
+    }
+}
+</style>
+</head>
+<body data-cf="3">
+<nav>
+<div>
+    <button onclick="window.scrollTo(0,0)" class="fa fa-arrow-circle-up"></button>
+    <button onclick="window.scrollTo(0,document.documentElement.scrollHeight)" class="fa fa-arrow-circle-down"></button>
+    <button onclick="var s=document.body.getAttribute('data-cf')||'3';s=s==='3'?'0':    (+s+1)+'';document.body.setAttribute('data-cf',s);this.textContent=s">3</button>
+    <button class="fa fa-navicon"></button>
+</div>
+<div>
     <h2>七上</h2>
     <a href="#event-d2409">2024年9月</a>
     <a href="#event-d2410">2024年10月</a>
@@ -144,9 +71,9 @@
     <h2>八上</h2>
     <a href="#event-d2508">2025年8月</a>
     <a href="#event-d2509">2025年9月</a>
-</div></div></nav>
-<div id="event"><header><h1>日志</h1></header><main>
-
+</div>
+</nav>
+<main>
 <h1 id="event-d2409">2024年9月</h1>
 <div>
     <time>2</time>
@@ -216,8 +143,8 @@
     <p>蒲林豪玩垃圾袋。</p>
     <p>唐家祺因多嘴被刘老师打10下。</p>
 </div>
-<div style="background:#ccffcc55;">
-    <time style="background:#9f9;">29</time>
+<div class="sp1">
+    <time>29</time>
     <p>班级热搜榜中出现：“依诺：宝宝（林芷琪）好快！”后被杨依诺擦掉。</p>
     <div style="color:#f39;background:#ffc;padding:5px;border-radius:5px;">
     <strong style="color:red">#爆#&nbsp;&nbsp;</strong>郑锦熠100m竟跑了全年级第4<strong style="color:red">！！！</strong>
@@ -232,8 +159,8 @@
     <br/><span style="font-size:0.7rem;color:#96f;background:#ccf;display:block;padding:5px;margin:5px 0 5px 20px;border-radius:5px">诗语：我的妈呀！！！绝美！！<span style="color:#f90">（作者赞过）</span><br/>作者亲启：哈哈哈！！！</span>
     </div>
 </div>
-<div style="background:#ccffcc55;">
-    <time style="background:#9f9;">30</time>
+<div class="sp1">
+    <time>30</time>
     <p>快放学时蒲林豪因拿起书包被刘老师罚站。</p>
     <p>午托将近时刘老师让大家不要到处“要饭”，大家都说：“虽然没有提到‘林奕扬’三字，但句句都在说林奕扬。”</p>
     <p>闭幕式领导宣读国庆注意事项，同学们不耐烦时突然下大雨。</p>
@@ -509,19 +436,19 @@
     <p>刘老师：“我们就说我们是‘凌云9班，凌云乐队’。”唐家祺：“韭（九）菜乐队！”</p>
     <p data-tf="1">体育课上蒲林豪用黄色垃圾袋把脚套起来跑步，还在跑道上模拟“穿短裙”并用垃圾袋当帽子。</p>
 </div>
-<div style="background:#ffeecc55;">
-    <time style="background:#fd9;">19</time>
+<div class="sp2">
+    <time>19</time>
     <p>集合时崔宇臣仍在上厕所，于是辅导员全校通报：“初一（9）班的崔宇臣！”</p>
     <p>黄恩亚、蒲林豪同宿舍，该宿舍的人表示黄恩亚必须洗澡。</p>
 </div>
-<div style="background:#ffeecc55;">
-    <time style="background:#fd9;">20</time>
+<div class="sp2">
+    <time>20</time>
     <p>消防演练时，学生吐槽龙翔道：“有120个项目！”“我都不知道龙翔怎么赚钱！”“玩得太开心了！”“饭菜健康又美味。”“两天就把120个项目都玩完了！”……</p>
     <p data-tf="1">崔宇臣体验VR时以为自己真的在坐过山车，于是两次抠并吃鼻屎。</p>
     <p data-tf="1">辅导员说“初中部/四十中/九班”时，别人答“到！”陈睿卓、唐家祺、郑锦熠等人大声答“操！”。</p>
 </div>
-<div style="background:#ffeecc55;">
-    <time style="background:#fd9;">21</time>
+<div class="sp2">
+    <time>21</time>
     <p>辅导员给大家“惊喜”，也就是宿舍不合格的照片。</p>
     <p>朗诵时别班“严重抄袭”9班。</p>
     <p data-tf="1">福清一中一学生和陈睿卓搭讪。</p>
@@ -529,16 +456,16 @@
     <p>辅导员对郑锦熠、陈睿卓说：“就你们两个10班的还在吵！”</p>
     <p data-tf="1">有人看到辅导员手机壁纸是美女。</p>
 </div>
-<div style="background:#ffeecc55;">
-    <time style="background:#fd9;">22</time>
+<div class="sp2">
+    <time>22</time>
     <p data-tf="1">辅导员被其他辅导员“轮奸”。</p>
     <p>拉练时学生路过玉埔村，学生：“蒲林豪家！”结果蒲林豪真的走进去；唐家祺、林奕扬等人摘花并放耳朵上；电线杆上有“简普赛山庄”广告，学生：“到柬埔寨了！”“出国了！”；走路时遇见一小孩，学生挥手并大喊：“早——上——好——”“How do you do?”</p>
     <p>辅导员：“第二个科目：稍息立正、跨立……啊呸！”</p>
     <p>其他方阵声音不响亮，辅导员就喊：“声音声音！”</p>
     <p>辅导员：“向前对正！……我让你对正了吗？”</p>
 </div>
-<div style="background:#ffeecc55;">
-    <time style="background:#fd9;">23</time>
+<div class="sp2">
+    <time>23</time>
     <p>学生听见其他辅导员喊：“线粒体！”</p>
     <p>辅导员为让学生跺脚声音响亮，就说：“我教你一个办法：永远记住，你的左脚下是你本班的辅导员，踩死他……”</p>
     <p>有人发现操场会掉色。</p>
@@ -1600,4 +1527,12 @@
     <p data-tf="2">体育课跑圈后纪律太差，于是体育老师让大家站到太阳底下，然后啥事也没做，过了一会儿让大家向后转，继续站（让背面也晒晒），接着又到对面跑道（全是太阳）站了30分钟（自己则在操场随意走动，完全不管学生），到时间后让大家在操场坐下（没太阳）并进行“教育”（沾了半小时纪律没改善……这节课啥也没上……周三要还是纪律不好就和今天一样站完坐5分钟……），最后跑300米。</p>
     <p>最后一节课林芷琪上台将英语作业“背默P13课文”中的“默”擦掉，学生欢呼声陈睿卓突然：“欸！”</p>
 </div>
-</main></div></div><script>function goTop(){document.querySelector('#content>div').scrollTo(0,0)}function goBottom(){document.querySelector('#content>div').scrollTo(0,document.querySelector('#content>div').scrollHeight)}</script></body></html>
+<div>
+    <time>16</time>
+    <p>物理老师对陆梓豪、林梓颢：“上物理课干什么？摸来摸去的。”</p>
+    <p>物理课上孔祥懿不会看时钟；问：“6除以10等于多少？”</p>
+    <p>音乐课讲《哪吒2》（含哪吒1），下课后（吃饭）一个视频还没看完，于是继续看。看完后孔祥懿等人去看后面的内容，并依次播放（MV）《我乃哪吒三太子》（期间物理老师进班，露出疑惑的表情后离开）、《就是哪吒》、《在故事的最终》，然后又播放4次《我乃哪吒三太子》（3次完整、1次中断）（原因：跳舞那段很“唐”）和1次《就是哪吒》。</p>
+    <p>数学课时一实习老师亮相。</p>
+    <p>语文老师：“……在让我看到‘很忙’，别逼我使出杀手锏。”</p>
+</div>
+</main></body></html>
