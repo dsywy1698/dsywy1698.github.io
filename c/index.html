@@ -6,8 +6,9 @@
 自动生成导航
 按标签搜索
 滚动到上一个/下一个搜索结果
+背景图片改用indexDB
 bug:
-1.无法应用图片
+
 -->
 <head>
     <title>标题</title>
@@ -736,16 +737,17 @@ setInterval(rotateText,1000);
                     <label><input type="radio" name="theme" value="brief-light-blue" onclick="changeTheme('brief-light-blue')">浅蓝</label>
                     <label><input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-dark-blue')">深蓝</label>
                     <label><input type="radio" name="theme" value="custom-light" onclick="changeTheme('custom-light')">浅-自定义</label>
-                    <label><input type="radio" name="theme" value="custom-dark" onclick="changeTheme('custom-dark')">深-自定义</label>
-                    <label><input type="radio" name="theme" value="custom-color" onclick="changeTheme('custom-color')">自定义色调</label>
+                    <label><input type="radio" name="theme" value="custom-dark" onclick="changeTheme('custom-dark')">深-自定义</label><!--
+                    <label><input type="radio" name="theme" value="custom-dark" onclick="changeTheme('custom-dark')">自定义背景</label>
+                    <label><input type="radio" name="theme" value="custom-color" onclick="changeTheme('custom-color')">自定义色调</label>-->
                     <div class="custom-settings">
-                        <p>背景图片<small>(5MB)</small></p>
+                        <p>背景图片</p>
                             <button style="float:right;" onclick="uploadBackgroundImage()">上传</button>
                             <button style="float:right;" onclick="clearBackgroundImage()">清除</button>
                     </div>
                     <div class="custom-settings">
                         <p>色调</p>
-                        <input type="text"/>
+                        <input type="text" style="float:right;border:none;color:var(--root-color);padding:1px 8px;line-height:23px;background:var(--settingbg);border-radius:var(--radius-5x);margin:2.5px;"/>
                     </div>
                 </section>
                 <section>
