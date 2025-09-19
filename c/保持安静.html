@@ -5,18 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>文档标题</title>
     <style>
-        body{margin:0;padding:0;background:#000;display:flex;align-items:center;justify-content:center;height:100vh;width:100vw;}
+        body{margin:0;padding:0;background:#000;display:flex;align-items:center;justify-content:center;height:100vh;width:100vw;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}
         p{color:yellow;font-size:80px;letter-spacing:0.2em;}
         #hand{background:#ddd;width:48px;height:48px;border:1px solid #888;position:fixed;top:calc(100vh - 50px);left:calc(100vw - 50px);}
         #hand:hover{background:#d3d9ff;}
+        #animation{}
+        @keyframes pluse{
+            0%{color:#ff0;transform:;}
+            50%{color:#f0f;transform:;}
+            100%{color:#ff0;transform:;}
+        }
     </style>
 </head>
 <body>
     <p>保持安静</p>
-    <div id="hand" onclick=""></div>
-    <div></div>
+    <div id="hand"></div>
+    <div id="animation"></div>
     <script>
-    
+    document.getElementById("hand").onclick=function(){var t=document.querySelector("p"),e=document.querySelector("#animation");let n=parseInt(this.getAttribute("data-state")||"0");switch(n){case 0:t.textContent="保持吵闹";break;case 1:t.textContent="保持安静",t.style.animation="pulse 1s infinite";break;case 2:t.style.animation="",e.style.display="block";break;case 3:t.textContent="保持安静",t.style.animation="",e.style.display="none",n=-1}this.setAttribute("data-state",(n+1)%4)};
     </script>
 </body>
 </html>
