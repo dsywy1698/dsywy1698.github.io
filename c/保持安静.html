@@ -3,17 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文档标题</title>
+    <title>Keep Quiet</title>
     <style>
-        body{margin:0;padding:0;background:#000;display:flex;align-items:center;justify-content:center;height:100vh;width:100vw;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}
+        body{margin:0;padding:0;background:#000;display:flex;align-items:center;justify-content:center;height:100vh;width:100vw;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;overflow:hidden;}
         p{color:yellow;font-size:80px;letter-spacing:0.2em;}
-        #hand{background:#ddd;width:48px;height:48px;border:1px solid #888;position:fixed;top:calc(100vh - 50px);left:calc(100vw - 50px);}
+        #hand{background:#ddd;width:48px;height:48px;border:1px solid #888;position:fixed;top:calc(100vh - 50px);left:calc(100vw - 50px);z-index:9;}
         #hand:hover{background:#d3d9ff;}
-        #animation{}
-        @keyframes pluse{
-            0%{color:#ff0;transform:;}
-            50%{color:#f0f;transform:;}
-            100%{color:#ff0;transform:;}
+        #animation{background:#000;width:100vw;height:100vh;display:none;position:fixed;animation:mess 0.5s infinite linear;}
+        @keyframes pulse{
+            0%{color:#ff0;transform:rotate(0deg) scale(1,1);}
+            50%{color:#f0f;transform:rotate(180deg) scale(1.5,1.5);}
+            100%{color:#ff0;transform:rotate(360deg) scale(1,1);}
+        }
+        @keyframes mess{
+            0%{background:#f00;}
+            19%{background:#f00;}
+            20%{background:#0f0;}
+            39%{background:#0f0;}
+            40%{background:#00f;}
+            59%{background:#00f;}
+            60%{background:#ff0;}
+            79%{background:#ff0;}
+            80%{background:#f0f;}
+            99%{background:#f0f;}
+            100%{background:#0ff;}
         }
     </style>
 </head>
@@ -22,7 +35,7 @@
     <div id="hand"></div>
     <div id="animation"></div>
     <script>
-    document.getElementById("hand").onclick=function(){var t=document.querySelector("p"),e=document.querySelector("#animation");let n=parseInt(this.getAttribute("data-state")||"0");switch(n){case 0:t.textContent="保持吵闹";break;case 1:t.textContent="保持安静",t.style.animation="pulse 1s infinite";break;case 2:t.style.animation="",e.style.display="block";break;case 3:t.textContent="保持安静",t.style.animation="",e.style.display="none",n=-1}this.setAttribute("data-state",(n+1)%4)};
+    document.getElementById("hand").onclick=function(){var t=document.querySelector("p"),e=document.querySelector("#animation");let n=parseInt(this.getAttribute("data-state")||"0");switch(n){case 0:t.textContent="保持吵闹";break;case 1:t.textContent="保持安静",t.style.animation="pulse 2s infinite linear";break;case 2:t.style.animation="",e.style.display="block";break;case 3:t.textContent="保持安静",t.style.animation="",e.style.display="none",n=-1}this.setAttribute("data-state",(n+1)%4)};
     </script>
 </body>
 </html>
