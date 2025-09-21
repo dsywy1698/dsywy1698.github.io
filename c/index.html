@@ -6,7 +6,6 @@
 自动生成导航
 按标签搜索
 滚动到上一个/下一个搜索结果
-背景图片改用indexDB
 bug:
 
 -->
@@ -25,7 +24,7 @@ bug:
     </script>
     <style>
         @font-face{font-family:'icons';src:url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'),url('fa.woff2') format('woff2');font-display:swap;}
-        :root{color-scheme:light dark;--custom-bg:none;}
+        :root{color-scheme:light dark;--custom-bg:none;--custom-color:none;}
         *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;transition:border-radius 0.3s ease,box-shadow 0.3s ease;color:inherit;}
         a,body,selection,hr,q,article,nav,nav i,dialog,.gallery,blockquote,label,radio{transition:background 0.3s ease,color 0.3s ease;}
         p,h1,h2,h3,h4,h5,h6,li{transition:line-height 0.3s ease,letter-spacing 0.3s ease;}
@@ -45,6 +44,7 @@ bug:
         img,svg,canvas,audio,video{max-width:100%;}
         button{border:none;}
         #content>div *[id]{scroll-margin-top:55px;}
+        input:focus{outline:none;}
         
         /*主题*/
         body[data-mode="brief-light"]{
@@ -355,8 +355,49 @@ bug:
             #content>div{background:#00000066;}
             #content>div,#content dialog{color:#fff;}
         }
+        body[data-mode="custom"]{
+            background:#ddd;
+            background-image:var(--custom-bg);
+            background-position:50% 50%;
+            background-repeat:no-repeat;
+            background-size:cover;
+            background-attachment:fixed;
+            --selection:#8585ad88;
+            --shadow:#1a1a1a22;
+            --loaderbg:#e6e6e6;
+            --loadercolor:#404040;
+            --startflashing:#999;
+            --endflashing:#666;
+            --nav-bg:#ffffff88;
+            --nav-btn:#404040;
+            --dialogbg:#ffffff99;
+            --settingbg:#00000011;
+            --radiobg:#00000055;
+            #content>div{background:#ffffff55;}
+        }
         body[data-mode="custom-color"]{
-            
+            background:var(--custom-color);
+            color:#e6f3ff;
+            --a:#66b3ff;
+            --ah:#99ccff;
+            --hr:#3399ff;
+            --selection:#3399ff88;
+            --shadow:#66b3ff22;
+            --article:#00336688;
+            --q:#00264d88;
+            --quot:#00408088;
+            --loaderbg:#00264d;
+            --loadercolor:#cce6ff;
+            --startflashing:#66b3ff;
+            --endflashing:#3399ff;
+            --nav-bg:#004080bb;
+            --nav-btn:#cce6ff;
+            --dialogbg:#00264dee;
+            --settingbg:#3399ff15;
+            --radiobg:#3399ff30;
+            --gallerybg:#004080;
+            --markbg:#ffff0088;
+            --blockquote:#00264d;
         }
         body[data-s="subtle"]{
             --shadow-so-x:0 0 5px var(--shadow);
@@ -738,17 +779,18 @@ setInterval(rotateText,1000);
                     <label><input type="radio" name="theme" value="brief-dark-blue" onclick="changeTheme('brief-dark-blue')">深蓝</label>
                     <label><input type="radio" name="theme" value="custom-light" onclick="changeTheme('custom-light')">浅-自定义</label>
                     <label><input type="radio" name="theme" value="custom-dark" onclick="changeTheme('custom-dark')">深-自定义</label><!--
-                    <label><input type="radio" name="theme" value="custom-dark" onclick="changeTheme('custom-dark')">自定义背景</label>
+                    <label><input type="radio" name="theme" value="custom-dark" onclick="changeTheme('custom')">自定义背景</label>
                     <label><input type="radio" name="theme" value="custom-color" onclick="changeTheme('custom-color')">自定义色调</label>-->
                     <div class="custom-settings">
                         <p>背景图片</p>
-                            <button style="float:right;" onclick="uploadBackgroundImage()">上传</button>
                             <button style="float:right;" onclick="clearBackgroundImage()">清除</button>
-                    </div>
+                            <button style="float:right;" onclick="uploadBackgroundImage()">上传</button>
+                    </div><!--
                     <div class="custom-settings">
                         <p>色调</p>
-                        <input type="text" style="float:right;border:none;color:var(--root-color);padding:1px 8px;line-height:23px;background:var(--settingbg);border-radius:var(--radius-5x);margin:2.5px;"/>
-                    </div>
+                        <button style="float:right;" onclick="">确认</button>
+                        <input type="text" style="float:right;border:none;color:var(--root-color);padding:1px 8px;line-height:23px;background:var(--settingbg);border-radius:var(--radius-5x);margin:2.5px;width:130px;" maxlength="30" id="colorInput"/>
+                    </div>-->
                 </section>
                 <section>
                     <h2>字体</h2>
@@ -1070,17 +1112,88 @@ setInterval(rotateText,1000);
             changeCF('3');
             updateSettingRadios();
         }
+        const DB_NAME = 'BackgroundDB';
+        const DB_VERSION = 1;
+        const STORE_NAME = 'backgrounds';
+        function openDB() {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(DB_NAME, DB_VERSION);
+                request.onerror = () => reject(request.error);
+                request.onsuccess = () => resolve(request.result);
+                request.onupgradeneeded = (event) => {
+                    const db = event.target.result;
+                    if (!db.objectStoreNames.contains(STORE_NAME)) {
+                        db.createObjectStore(STORE_NAME, { keyPath: 'id' });
+                    }
+                };
+            });
+        }
+        async function storeBackgroundImage(imageData) {
+            try {
+                const db = await openDB();
+                const transaction = db.transaction([STORE_NAME], 'readwrite');
+                const store = transaction.objectStore(STORE_NAME);
+                const background = {
+                    id: 'customBackground',
+                    data: imageData,
+                    timestamp: Date.now()
+                };
+                store.put(background);
+                return new Promise((resolve, reject) => {
+                    transaction.oncomplete = () => resolve();
+                    transaction.onerror = () => reject(transaction.error);
+                });
+            } catch (error) {
+                console.error('存储背景图片失败:', error);
+                throw error;
+            }
+        }
+        async function getBackgroundImage() {
+            try {
+                const db = await openDB();
+                const transaction = db.transaction([STORE_NAME], 'readonly');
+                const store = transaction.objectStore(STORE_NAME);
+                const request = store.get('customBackground');
+                return new Promise((resolve, reject) => {
+                    request.onsuccess = () => resolve(request.result ? request.result.data : null);
+                    request.onerror = () => reject(request.error);
+                });
+            } catch (error) {
+                console.error('获取背景图片失败:', error);
+                return null;
+            }
+        }
+        async function deleteBackgroundImage() {
+            try {
+                const db = await openDB();
+                const transaction = db.transaction([STORE_NAME], 'readwrite');
+                const store = transaction.objectStore(STORE_NAME);
+                const request = store.delete('customBackground');
+                return new Promise((resolve, reject) => {
+                    transaction.oncomplete = () => resolve();
+                    transaction.onerror = () => reject(transaction.error);
+                });
+            } catch (error) {
+                console.error('删除背景图片失败:', error);
+                throw error;
+            }
+        }
         function uploadBackgroundImage() {
             const fileInput = document.createElement('input');
             fileInput.type = 'file';
             fileInput.accept = 'image/*';
             fileInput.style.display = 'none';
-            fileInput.addEventListener('change', function() {
+            fileInput.addEventListener('change', async function() {
                 if (this.files && this.files[0]) {
                     const reader = new FileReader();
-                    reader.onload = function(e) {
-                        localStorage.setItem('customBackground', e.target.result);
-                        applyCustomBackground(e.target.result);
+                    reader.onload = async function(e) {
+                        try {
+                            await storeBackgroundImage(e.target.result);
+                            applyCustomBackground(e.target.result);
+                        } catch (error) {
+                            console.error('上传背景图片失败:', error);
+                            alert('上传背景图片失败，请重试');
+                        }
                     };
                     reader.readAsDataURL(this.files[0]);
                 }
@@ -1089,15 +1202,33 @@ setInterval(rotateText,1000);
             document.body.appendChild(fileInput);
             fileInput.click();
         }
-        function applyCustomBackground(imageData){document.body.style.setProperty('--custom-bg', `url(${imageData})`);}
-        function clearBackgroundImage() {localStorage.removeItem('customBackground');document.body.style.setProperty('--custom-bg', 'none');}
-        window.addEventListener('DOMContentLoaded', function() {
+        function clearBackgroundImage() {
+            deleteBackgroundImage()
+                .then(() => {
+                    document.body.style.setProperty('--custom-bg', 'none');
+                })
+                .catch(error => {
+                    console.error('清除背景图片失败:', error);
+                    alert('清除背景图片失败，请重试');
+                });
+        }
+        function applyCustomBackground(imageData) {
+            document.body.style.setProperty('--custom-bg', `url(${imageData})`);
+        }
+        window.addEventListener('DOMContentLoaded', async function() {
             updateSettingRadios();
             showPage('home');
             toggleSubMenu(false);
-            const savedBackground = localStorage.getItem('customBackground');
-            if (savedBackground){applyCustomBackground(savedBackground);}
+            try {
+                const savedBackground = await getBackgroundImage();
+                if (savedBackground) {
+                    applyCustomBackground(savedBackground);
+                }
+            } catch (error) {
+                console.error('加载背景图片失败:', error);
+            }
         });
+
         //搜索
         let searchActive = false;
         function toggleSearch() {
