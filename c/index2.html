@@ -244,7 +244,11 @@ bug:
         body[data-b="s"] #content>div{backdrop-filter:blur(15px);}
         body[data-n="n"] nav{width:100dvw;left:0;top:0;border-radius:0;>div:nth-of-type(3){border-radius:0;}&:before{border-radius:0;}}
         body[data-n="c"] nav{top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc(100dvw - clamp(2px,1dvw,10px) * 2);}
-        body[data-n="s"] nav{}
+        body[data-n="s"] nav{
+            width:40px;height:40px;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);interpolate-size:allow-keywords;transition:0.3s;
+            &:has(>div:nth-of-type(2).active){width:calc(100dvw - clamp(2px,1dvw,10px) * 2);>div:first-child>button{display:inline!important;}}
+            >div:first-child>button{display:none!important;&:has(>i[class*="fa fa-navicon"]){display:inline!important;&:hover{background:unset;}}}
+        }
         body[data-a="l"] nav>div:first-child{justify-content:flex-start;}
         body[data-a="c"] nav>div:first-child{justify-content:space-around;}
         body[data-a="r"] nav>div:first-child{justify-content:flex-end;}
@@ -584,9 +588,9 @@ setInterval(rotateText,1000);
                     <div>
                         <p>导航栏显示</p>
                         <label>
-                            <input type="radio" name="n" onclick="chN('n')" style="--input-content:'经典';">
-                            <input type="radio" name="n" onclick="chN('c')" style="--input-content:'胶囊';">
-                            <input type="radio" name="n" onclick="chN('s')" style="--input-content:'迷你';">
+                            <input type="radio" name="n" onclick="chN('n')" style="--input-content:'一';">
+                            <input type="radio" name="n" onclick="chN('c')" style="--input-content:'二';">
+                            <input type="radio" name="n" onclick="chN('s')" style="--input-content:'三';">
                         </label>
                     </div>
                     <div>
