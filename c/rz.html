@@ -1,33 +1,28 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
-<title>八卦-简化版</title>
+<title>八卦</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
 <link rel="stylesheet" href="fa.css">
 <style>
 @font-face{font-family:'icons';src:url('fa.woff2') format('woff2');font-display:swap;}
-*{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;transition:border-radius 0.3s ease,box-shadow 0.3s ease;color:inherit;}
+*{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;color:inherit;}
 *::-webkit-scrollbar{display:none!important;}
 ::selection{background:#3399ff88;}
 html{font-size:100%;scroll-behavior:smooth;}
 body{font-family:"微软雅黑",sans-serif;background:#001a33;color:#e6f3ff;font-weight:200;}
-a{color:#66b3ff;text-decoration-style:dotted;}
-a:hover{color:#99ccff;}
-sup[class="fa fa-external-link"]{font-size:0.7em;opacity:0.8;line-height:0;color:#66b3ff;vertical-align:super;position:relative;top:0;}
-sup[class="fa fa-external-link"]:hover{opacity:0.7;}
-img,svg,canvas,audio,video{max-width:100%;}
 *[id]{scroll-margin-top:55px;}
 p,li{line-height:1.7em;letter-spacing:0.15em;}
 body[data-cf="1"] *[data-tf="3"]{display:none;}
 body[data-cf="2"] *[data-tf="3"],body[data-cf="2"] *[data-tf="2"]{display:none;}
 body[data-cf="3"] *[data-tf]{display:none;}
-nav{position:fixed;background:#004080bb;padding:2.5px;border-radius:20px;backdrop-filter:blur(20px);z-index:1;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;width:100dvw;left:0;top:0;border-radius:0;}
+nav{position:fixed;background:#004080bb;padding:2.5px;border-radius:20px;backdrop-filter:blur(20px);z-index:1;user-select:none;width:100dvw;left:0;top:0;border-radius:0;}
 nav>div:first-child{display:flex;>button{transition:background 0.3s ease;width:35px;height:35px;border:none;background:transparent;font-size:1.375rem;border-radius:20px;margin:0 2.5px;&:hover{background:#00000033;}>i{color:#cce6ff;}}}
 nav:has(>div:first-child>button:last-child:hover)>div:nth-of-type(2){height:auto;opacity:1;max-height:clamp(200px,40dvh,400px);padding:10px;margin-top:5px;}
 nav>div:nth-of-type(2){
-    background:#ffffff08;transform-origin:top;border-radius:17.5px;height:0;max-height:0;opacity:0;overflow:auto;padding:0 10px;transition:all 0.3s cubic-bezier(0.68,-0.6,0.32,1.6);interpolate-size:allow-keywords;
+    background:#ffffff08;transform-origin:top;border-radius:17.5px;height:0;max-height:0;opacity:0;overflow:auto;padding:0 10px;transition:all 0.3s ease;interpolate-size:allow-keywords;
     &:hover{height:auto;opacity:1;max-height:clamp(200px,40dvh,400px);padding:10px;margin-top:5px;}
     >a{display:block;width:100%;text-decoration:none;transition:background 0.3s ease,color 0.3s ease;color:unset;margin:2.5px;padding:5px 10px;line-height:25px;border-radius:15px;&:hover{background:#00000033;}}
 }
@@ -44,6 +39,7 @@ main{
         &.sp3{background:#ffccee55;>time{background:#f9d;}}
     }
 }
+.hot{background:#d9d98c88;color:#212121;li:before{content:"";}}
 </style>
 </head>
 <body data-cf="3">
@@ -130,8 +126,8 @@ main{
     <p>数学老师讲评作业时，展台上的计算题过程错、答案对，师：“你这是错错得对啊。”</p>
     <p>数学考试：</p>
     <ul>
-    <li>蒲林豪玩勺子，师：“还，还照镜子啊？过来。”然后将蒲林豪双手各打一下并没收勺子。</li>
-    <li>薛阅晨“喵喵喵”（唱《see you again》）。</li>
+        <li>蒲林豪玩勺子，师：“还，还照镜子啊？过来。”然后将蒲林豪双手各打一下并没收勺子。</li>
+        <li>薛阅晨“喵喵喵”（唱《see you again》）。</li>
     </ul>
     <p data-tf="1">新梗：“金叵罗”。</p>
     <p data-tf="1">蒲林豪饭粒掉到凳子、桌布上。</p>
@@ -147,7 +143,7 @@ main{
     <time>29</time>
     <p>班级热搜榜中出现：“依诺：宝宝（林芷琪）好快！”后被杨依诺擦掉。</p>
     <p>班级热搜榜：</p>
-    <ul style="background:#bfbf4088;color:#212121;">
+    <ul class="hot">
         <li><strong style="color:red">#爆#&nbsp;&nbsp;</strong>郑锦熠100m竟跑了全年级第4<strong style="color:red">！！！</strong></li>
         <ul>
             <li>我的天！好快呀！<span style="color:#039">（作者赞过）</span></li>
@@ -158,10 +154,10 @@ main{
         <li><strong style="color:red">#爆#&nbsp;&nbsp;</strong>陈睿卓跳高年级第4<strong style="color:red">！！！</strong></li>
         <li><strong style="color:red">#爆#&nbsp;&nbsp;</strong>班主任Miss.Liu竟亲自<strong style="color:red">陪跑！！</strong></li>
         <ul>
-            <li>啊！！！我爱您老师！！！<i class="fa fa-heart" style="color:red"></i><i class="fa fa-heart" style="color:red"></i><i class="fa fa-heart" style="color:red"></i><span style="color:#039">（作者赞过）</span></li>
+            <li>啊！！！我爱您老师！！！<span style="color:red">❤❤❤</span><span style="color:#039">（作者赞过）</span></li>
             <li>同上！！！</li>
             <li>老师超敬业的好吧！又是爱老师的一天<span style="color:#039">（作者赞过）</span></li>
-            <li>老师评论：爱你们<i class="fa fa-heart" style="color:red"></i><span style="color:#039">（作者赞过）</span></li>
+            <li>老师评论：爱你们<span style="color:red">❤</span><span style="color:#039">（作者赞过）</span></li>
         </ul>
         <li><strong style="color:red">#爆#&nbsp;&nbsp;</strong>震惊！林芷琪800m全组第三<strong style="color:red">！！！</strong></li>
         <ul>
@@ -183,7 +179,7 @@ main{
     <p>闭幕式领导宣读国庆注意事项，同学们不耐烦时突然下大雨。</p>
     <p>趣味运动会时学生表示想看地理老师玩。</p>
     <p>班级热搜榜：</p>
-    <ul style="background:#bfbf4088;color:#212121;">
+    <ul class="hot">
         <li><strong style="color:red">#爆&nbsp;&nbsp;</strong>郑锦熠400米本组第一<strong style="color:red">！！！</strong></li>
         <li><strong style="color:red">#爆&nbsp;&nbsp;</strong>林芷琪100米小组第一<strong style="color:red">！！！</strong></li>
         <li><strong style="color:red">#爆&nbsp;&nbsp;</strong>孔祥懿喜获金、铜双奖<strong style="color:red">！！！</strong></li>
@@ -191,8 +187,8 @@ main{
             <li>钰颖：真厉害！！！</li>
             <li>沁诗：好牛！！！</li>
             <li>诗语：天哪！！！<span style="color:#039">（作者赞过）</span></li>
-            <li>允儿：好棒啊<i class="fa fa-heart" style="color:red"></i><span style="color:#039">（作者赞过）</span></li>
-            <li>桂芳：好！！<i class="fa fa-heart" style="color:#fff"></i><span style="color:#3cf">作者亲启：啊哈哈哈</span></li>
+            <li>允儿：好棒啊<span style="color:red">❤</span><span style="color:#039">（作者赞过）</span></li>
+            <li>桂芳：好！！<span style="color:#fff">❤</span><span style="color:#b37519">作者亲启：啊哈哈哈</span></li>
         </ul>
         <li><strong style="color:red">#爆&nbsp;&nbsp;</strong><span style="color:#039">今日班级精神状态</span>be like：</li>
         <li><strong style="color:red">#爆&nbsp;&nbsp;</strong>季仁槿要吃免费冰淇淋！！！<small>（不要7.5，只要一个季仁槿）</small></li>
@@ -1507,7 +1503,7 @@ main{
 </div>
 <div>
     <time>2</time>
-    <p>语文课，蔡华楷被罚站语文老师询问名字，蔡华楷小声应答，师：“蔡晚来？”</p>
+    <p>语文课，蔡华楷被罚站语。文老师询问名字，蔡华楷小声应答，师：“蔡晚来？”</p>
     <p>数学老师看座位表提问：“依诺？”</p>
     <p>师：“班主任让10个班委出去一下。”结果林梓颢也走出去。</p>
     <p>刘老师安排运动会名单：“欢颜跑步也快，跳远也快……”“男生想报都不够，要不男生穿裙子……”</p>
@@ -1517,13 +1513,12 @@ main{
     <time>3</time>
     <p>数学课，老师让大家订正答案时，郑致辰：“噔噔噔噔噔噔噔~（旋律：| 5 4 3 2 | 1 5 2 - |）”师：“‘噔’什么？”</p>
     <p>物理老师：“钱尚思。”</p>
-    <p>英语开门考第一题为听短文，主人公为“Li Ziqi”。</p>
     <p>学生在走廊偶遇上学期生物老师。</p>
     <p data-tf="3">洪鑫洋在走廊走的时候说：“鸡巴刘必艳。”被10班班主任听到并瞪一眼。</p>
 </div>
 <div>
     <time>4</time>
-    <p>语文作业有一本没名字，语文老师翻看后觉得像女生写的，于是问：“那个女生没发到？”季仁槿走上讲台，发现是自己的。</p>
+    <p>语文作业有一本没名字，语文老师翻看后觉得像女生写的，于是问：“哪个女生没发到？”季仁槿走上讲台，发现是自己的。</p>
     <p>地理老师讲解“省&gt;县&gt;乡”时比喻：省是校长、县是班主任、乡是班长。生：“王淮乡巴佬！”</p>
     <p>物理小测时郑致辰在“科作业纸”前面的横线上写“数学”。</p>
     <p data-tf="2">抽背时，有人：“还在看！”唐家祺：“我看你奶奶的鸡腿！”</p>
@@ -1533,7 +1528,7 @@ main{
     <time>5</time>
     <p>电脑课：</p>
     <ul>
-        <li>进入桌面后会出现黑底黄字的“保持安静”全屏窗口，无法关闭，右下角有举手按钮。老师让大家手放背后，不要动键盘和鼠标。在讲要求时发现有人连续多次“举手”（有声音提示），让那人自觉站起来；发现没人站后去查记录：“42号（崔宇臣）！”</li>
+        <li>进入桌面后会出现黑底黄字的“保持安静”全屏窗口，无法关闭，右下角有举手按钮。老师让大家手放背后，不要动键盘和鼠标。在讲要求时发现有人连续多次“举手”（有声音提示），让那人自觉站起来，说电脑可以查到记录，如果自觉站起来罚得轻一点，但仍然没人站。于是他真去查记录：“42号（崔宇臣）！”</li>
         <li>陈睿卓跟人小声讲话被发现并罚起立，师：“说什么心情话……跟大家分享一下。”</li>
         <li>师讲解安全问题，包括静电（键盘坏了不要自己更换；地板是防静电的，防止“嘎”掉）、跳窗（有些人看着窗户离地面这么低就跳窗离开，但实际上电脑室地板高20公分，易受伤；容易弄坏轨道；膝盖着地会韧带损伤，需手术及术后拉伸；屁股着地会压迫坐骨神经，导致残疾）、电流（电脑室电流比家里大很多）和行为规范（损坏需政府统一报修，价格比网上的高，需要撬开地板布设电线；推凳子是为了防止把显示器弄倒；不要抠键盘，之前曾出现过鼠标滚轮一夜之间消失了多个）：</li>
         <ul>
@@ -1590,11 +1585,11 @@ main{
 <div>
     <time>15</time>
     <p>语文老师：“林奕扬（西湖）美吗？”林奕扬：“就那样，水很臭。”师：“……搞得我课件上的图片都是‘照骗’……”</p>
-    <p>黄恩亚用（很粗的）画笔写历史小测被批评。</p>
+    <p>黄恩亚用黑色马克笔写历史小测被批评。</p>
     <p>历史老师翻看小测：“这个仰（ya&#769;ng）还行，仰……”</p>
     <p data-tf="2">体育课前的下课时洪鑫洋、陈睿卓“打斗”时把第四组1、2桌桌子弄倒。</p>
     <p data-tf="2">体育课跑圈后纪律太差，于是体育老师让大家站到太阳底下，然后啥事也没做，过了一会儿让大家向后转，继续站（让背面也晒晒），接着又到对面跑道（全是太阳）站了30分钟（自己则在操场随意走动，完全不管学生），到时间后让大家在操场坐下（没太阳）并进行“教育”（站了半小时纪律没改善……这节课啥也没上……周三要还是纪律不好就和今天一样站完坐5分钟……），最后跑300米。</p>
-    <p>最后一节课林芷琪上台将英语作业“背默P13课文”中的“默”擦掉，学生欢呼时陈睿卓突然：“欸！”</p>
+    <p>最后一节课林芷琪上台将英语作业“背默P13课文”中的“默”擦掉，学生欢呼时陈睿卓突然：“欸！”（自己写完了）</p>
     <p>“福州第四十中学校花校草评选”投票走红。</p>
 </div>
 <div>
@@ -1617,18 +1612,18 @@ main{
     </ul>
     <p>数学午托时林奕扬扰乱纪律，师：“棍子去哪里了？”得知在刘老师办公室。于是师拿起讲台上的一盒图钉，取出一枚黄色图钉：“那这个可以吗？……我折两层（纸）扎？……给你5折？……”</p>
     <p data-tf="1">数学课快下课时前面有4桌聊天，被罚写数学题才能下课。写的时候林芷琪突然笑起来被发现，下课后数学老师询问林芷琪。林芷琪（起立、站军姿）：“郑致辰说哪吒的剧情……（笑）”师：“啥？”林芷琪：“电影里的台词！（‘台词’重读）”师：“是致辰吗？”林芷琪（肯定、大声地喊）：“对！”</p>
+    <p>数学课，叶弘毅：“信仰记笔记！”师：“讲什么？……什么记笔记？……记笔记怎么了？”生：“记笔记就是睡觉……”师：“鑫洋要做2题……（课件出现数学题）肯定要让鑫洋来……鑫洋上！”</p>
     <p>最后一节课原为体锻，语文老师决定半节上语文、半节练（运动会入场）队列。语文课时：</p>
     <ul>
         <li>师让倪浩宇背《渡荆门送别》，背到最后一联时倪浩宇把“仍怜故乡水”的“仍”读成“re&#772;ng”，生：“re&#772;ng怜？”师：“大家不要取笑……”结果自己笑了出来。</li>
         <li>师：“（小测本）翻开新的一页。”孔祥懿：“刚才（课前进来时）不是说没小测吗？”师：“我什么时候说了？我说的是‘今天还没有小测’……”</li>
         <li>师念小测满分学生：“张雨希……10班的？”然后放到一边。要开始新的小测前又看了一眼：“哦，难怪……（把10号看成10班了）”</li>
     </ul>
-    <p>数学课，叶弘毅：“信仰记笔记！”师：“讲什么？……什么记笔记？……记笔记怎么了？”生：“记笔记就是睡觉……”师：“鑫洋要做2题……（课件出现数学题）肯定要让鑫洋来……鑫洋上！”</p>
     <p>练队列时：</p>
     <ul>
         <li data-tf="1">师：“口号要喊出来。”结果有人故意喊“幺二幺”，很快更多的人也这样喊。王淮：“好好喊！”不久后又有人说“一九一”。</li>
         <li data-tf="2">操场右侧的天空中出现黑色浓烟，生：“着火了！”“要去我家救火。”“把40中烧了。”（着火地点位于天福村一鞋厂）</li>
-        <li data-tf="1">齐步走走到操场北部快到西北角弯道时，发现跑道上有足球，领队的三人（郑诗语、黄丰泽、王淮）都踢了一脚。停下后又有多个足球飞过。</li>
+        <li data-tf="1">齐步走走到操场北部快到西北角弯道时，发现跑道上有足球，领队的三人（郑诗语、黄丰泽、王淮）都踢了一脚。停下后又有多个足球飞过。有一个还差点砸到语文老师。</li>
         <li>走到操场东南角弯道时学生赶紧停下，发现老师不见了。生：“赶不上了……”</li>
         <li data-tf="1">齐步走时林奕扬、蒲林豪、郑致辰乱走，被称“皇军”。</li>
         <li>学生评价这次练队列：“刘老师看到后当场气晕……”</li>
@@ -1638,7 +1633,7 @@ main{
     <time>18</time>
     <p>地理课，下课铃响时，李梦妍：“哎，好累啊。”师（模仿）：“好累啊~”</p>
     <p>物理老师：“郑奕辰（郑锦熠）……（学生提醒后）郑zhe&#780;n熠……”不久后，师：“廖成……羲？”有的学生：“是廖成yi&#768;！”而有的学生：“‘羲’吧！”师：“廖某人，你叫什么？”另外还把“洪鑫洋”说成“林鑫洋”。</p>
-    <p data-tf="1">几天前有传言周四英语课段长要“one by one”小测（有人看到段长在刘老师的朋友圈下评论），当天数学早读时王淮特意让大家40分前复习英语。到了英语课前不少人慌忙地复习，结果发现完全没小测。课件出现10秒的芭蕾舞《天鹅湖》片段，段长播放了2遍，然后说：“如果周一的小测没过，就要跳这个舞……到时候我也会来看……”</p>
+    <p data-tf="1">几天前有传言周四英语课段长要“one by one”小测（有人看到段长在刘老师的朋友圈下评论），当天数学早读时王淮特意让大家40分前复习英语。到了英语课前不少人慌忙地复习，结果发现完全没小测。课件出现10秒的芭蕾舞《天鹅湖》片段，段长播放了2遍，然后说：“如果周一的小测没过，就要跳这个舞……到时候我也会来看……”（周一实际上没跳）</p>
     <p>学校午餐首次出现“黑糯米糕”，有人评价“非常好吃”。</p>
 </div>
 <div>
@@ -1647,7 +1642,7 @@ main{
     <p data-tf="2">政治课李映辰亮出“新睡姿”。当时她坐在第四组（右边有墙、后面是承重柱），椅子反过来，手架在承重柱上、双脚伸直，身体靠在椅背。</p>
     <p>语文课：</p>
     <ul>
-        <li>陈睿卓翻译“林寒涧肃”的“肃”：“xia&#772;杀（肃杀）。”</li>
+        <li>陈睿卓翻译“林寒涧肃”的“肃”：“xia&#772;o杀（肃杀）。”</li>
         <li>随机抽人，师（看一眼手机）：“北京时间24号（24分），24号。”</li>
         <li data-tf="3">讲评作业时译文出现“激扬喷射”，林奕扬发出奇怪的笑声，把语文老师也弄笑了。生：“把老师带坏了！”师：“我的天哪……”</li>
     </ul>
@@ -1708,7 +1703,7 @@ main{
     <ul>
         <li>体育老师：“‘1947’（1949）放回去，1946。”</li>
         <li data-tf="1">黄恩亚和郑炜挥旗时动作总是比别人慢（郑炜慢半拍，黄恩亚慢1拍）。</li>
-        <li>午托结束后刘老师让大家一排一排过关（挥旗），第一批（第五排）挥舞后刘老师又让人一个一个过关，期间孔祥懿的旗飞掉2次。看了2个人的动作后，刘老师无奈放弃该环节，换成上学期的简单动作。生：“平平淡淡才是真，我们模仿了1949年物资匮乏……”</li>
+        <li>午托结束后刘老师让大家一排一排过关（挥旗），第一批（第五排）挥舞后刘老师又让人一个一个过关，期间孔祥懿的旗飞掉2次。看了2个人的动作后，刘老师无奈放弃该环节，换成上学期挥舞拉花的动作。生：“平平淡淡才是真，我们模仿了1949年物资匮乏……”</li>
         <li>下午练习时发现横幅会看不见，但如果把横幅给后面的人举，衣服又太小。于是刘老师和实习老师一起想了个办法，原来是从矮到高排，现在反过来。执行时刘老师依次让第二到六排排站到最后，结果发现和刚才的队形几乎一样（相当于只有1排换了位置）。</li>
         <li data-tf="2">上午第四节体育课练习，并拖课10分钟；下午第四节体锻课更是拖了20分钟左右（回班时已经6点15分），但回班后刘老师并没跟上来，也没说放学，学生只好坐着。过了一会儿实在坐不下去，有人直接背上书包走人，表示“要扣几分就扣”。越来越多人响应，然后王淮进班，让大家直接走。</li>
     </ul>
@@ -1727,11 +1722,11 @@ main{
     <p data-tf="1">蔡华楷坐凳子时倒向过道，摔倒方式酷似廖成羲。</p>
     <p>刘老师占体育课抽背政治，看到表格中洪鑫洋某次政治背诵等级为“A++++”。</p>
     <p>刘老师加大对指甲的管理力度，声称今后每周二班会前进行检查，</p>
-    <p>午托后刘老师和班上围坐的一群人谈论“校花校草投票”，说有陈子岩、林梓颢、俞昕辰等人被“投稿”，还说：“（陈子岩的照片）是谁发的？还是子岩自己投的稿？”</p>
+    <p>午托后刘老师和班上围坐的一群人谈论“校花校草投票”，说有陈子岩、林梓颢、俞昕辰等人的照片，还说：“（陈子岩的照片）是谁发的？还是子岩自己投的稿？”</p>
     <p>语文课：</p>
     <ul>
         <li>师：“鑫洋来背一下《答谢中书书》。”洪鑫洋起立道：“答谢中书书，郦道元……”然后又：“夕阳欲颓……”“未复有能与其奇特。”</li>
-        <li data-tf="1">时：“读一下《与朱元思书》。”廖成羲：“与朱元璋书！”</li>
+        <li data-tf="1">师：“读一下《与朱元思书》。”廖成羲：“与朱元璋书！”</li>
         <li data-tf="2">师：“浅青色是什么样的颜色？”叶弘毅：“睿卓头上的颜色！”</li>
         <li>讲作业谈到参考答案的写法（第二种）还是另一种（第一种）好，师：“我个人认为第一种好。为了证明我的想法，我特地问了一下AI。”然后课件下一页出现了两张DeepSeek对话页面的截图。</li>
     </ul>

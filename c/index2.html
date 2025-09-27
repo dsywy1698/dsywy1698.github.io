@@ -1,14 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<!--
-增加：
-自定义色调
-自动生成导航
-按标签搜索
-滚动到上一个/下一个搜索结果
-bug:
-
--->
+<html>
 <head>
     <title>标题</title>
     <meta charset="UTF-8"/>
@@ -25,16 +16,14 @@ bug:
     <style>
         @font-face{font-family:'icons';src:url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'),url('fa.woff2') format('woff2');font-display:swap;}
         :root{color-scheme:light dark;--custom-bg:none;--custom-color:none;}
-        *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;transition:border-radius 0.3s ease,box-shadow 0.3s ease;color:inherit;}
+        *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;color:inherit;}
         a,body,selection,hr,q,article,nav,nav i,dialog,.gallery,blockquote,label,radio{transition:background 0.3s ease,color 0.3s ease;}
-        p,h1,h2,h3,h4,h5,h6,li{transition:line-height 0.3s ease,letter-spacing 0.3s ease;}
         *::-webkit-scrollbar{display:none!important;}
         ::selection{background:var(--selection);}
         html{font-size:100%;height:100dvh;}
         body{font-family:"微软雅黑",sans-serif;}
         #content>div{padding:50px 10px 10px 10px;overflow-y:auto;scroll-behavior:smooth;height:100dvh;backdrop-filter:blur(var(--blur-amount));transition:backdrop-filter 0.3s ease;}
         #content>div:not(#home){display:none;}
-        /*基本样式*/
         hr{border:1px solid var(--hr);border-radius:100px;margin:5px 10px;}
         a{color:var(--a);text-decoration-style:dotted;}
         a:hover{color:var(--ah);}
@@ -137,33 +126,31 @@ bug:
             --radiobg:#f53d9955;
             --gallerybg:;
         }
+        body[data-t="m"]{
+            background:#fff8e6;
+            color:#3a2e00;
+            --a:#d4a800;
+            --ah:#ffcc00;
+            --hr:#ffd700;
+            --selection:#ffd70088;
+            --shadow:#ffd70022;
+            --article:#fff0b388;
+            --q:#fff5cc88;
+            --quot:#ffcc0088;
+            --loaderbg:#fff5cc;
+            --loadercolor:#8c6d00;
+            --startflashing:#ffd700;
+            --endflashing:#ffb700;
+            --nav-bg:#ffd900bb;
+            --nav-btn:#5c4a00;
+            --dialogbg:#fff0b399;
+            --settingbg:#ffcc0011;
+            --radiobg:#ffcc0055;
+            --gallerybg:#ffd700;
+        }
         body[data-t="n"]{
             background:#001a33;
             color:#e6f3ff;
-            --a:#66b3ff;
-            --ah:#99ccff;
-            --hr:#3399ff;
-            --selection:#3399ff88;
-            --shadow:#66b3ff22;
-            --article:#00336688;
-            --q:#00264d88;
-            --quot:#00408088;
-            --loaderbg:#00264d;
-            --loadercolor:#cce6ff;
-            --startflashing:#66b3ff;
-            --endflashing:#3399ff;
-            --nav-bg:#004080bb;
-            --nav-btn:#cce6ff;
-            --dialogbg:#00264dee;
-            --settingbg:#3399ff15;
-            --radiobg:#3399ff30;
-            --gallerybg:#004080;
-            --markbg:#ffff0088;
-            --blockquote:#00264d;
-        }
-        body[data-t="m"]{
-            background:#000033;
-            color:#e6e6ff;
             --a:#ffff99;
             --ah:#d9b3ff;
             --hr:#9966ff;
@@ -246,7 +233,7 @@ bug:
         body[data-n="c"] nav{top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);width:calc(100dvw - clamp(2px,1dvw,10px) * 2);}
         body[data-n="s"] nav{
             width:40px;height:40px;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);interpolate-size:allow-keywords;transition:0.3s;
-            &:has(>div:nth-of-type(2).active){width:calc(100dvw - clamp(2px,1dvw,10px) * 2);>div:first-child>button{display:inline!important;}}
+            &:has(>div:nth-of-type(2).active){width:calc(100dvw - clamp(2px,1dvw,10px) * 2);height:auto;>div:first-child>button{display:inline!important;}}
             >div:first-child>button{display:none!important;&:has(>i[class*="fa fa-navicon"]){display:inline!important;&:hover{background:unset;}}}
         }
         body[data-a="l"] nav>div:first-child{justify-content:flex-start;}
