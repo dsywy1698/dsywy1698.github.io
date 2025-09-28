@@ -234,7 +234,7 @@
         body[data-n="s"] nav{
             width:40px;height:40px;top:clamp(2px,1dvw,10px);left:clamp(2px,1dvw,10px);interpolate-size:allow-keywords;transition:0.3s;
             &:has(>div:nth-of-type(2).active){width:calc(100dvw - clamp(2px,1dvw,10px) * 2);height:auto;>div:first-child>button{display:inline!important;}}
-            >div:first-child>button{display:none!important;&:has(>i[class*="fa fa-navicon"]){display:inline!important;&:hover{background:unset;}}}
+            >div:first-child{margin:0;>button{display:none!important;&:has(>i[class*="fa fa-navicon"]){display:inline!important;&:hover{background:unset;}}}}
         }
         body[data-a="l"] nav>div:first-child{justify-content:flex-start;}
         body[data-a="c"] nav>div:first-child{justify-content:space-around;}
@@ -298,7 +298,6 @@
             transition:width 0.3s ease,opacity 0.3s ease,margin 0.3s ease,opacity 0.3s ease;opacity:1;
             &[style*="display:none"]{display:inline-block!important;width:0;opacity:0;pointer-events:none;}
         }
-        nav:has(>div:nth-of-type(2).active)>div:first-child>button:last-child{opacity:0.3;pointer-events:none;}
         nav>div:nth-of-type(2){
             background:#ffffff08;transform-origin:top;border-radius:var(--radius-7x);height:0;max-height:0;opacity:0;overflow:auto;padding:0 2.5px;transition:all 0.3s cubic-bezier(0.68,-0.6,0.32,1.6);interpolate-size:allow-keywords;
             &.active{height:auto;opacity:1;max-height:clamp(200px,40dvh,400px);padding:0 2.5px;margin-top:5px;}
@@ -313,16 +312,6 @@
                     display:block;width:100%;text-decoration:none;transition:background 0.3s ease,color 0.3s ease;color:unset;margin:2.5px;padding:5px 10px;line-height:25px;border-radius:var(--radius-6x);
                     &:hover{background:#00000033;}
                 }
-            }
-        }
-        nav>div:nth-of-type(3){
-            position:absolute;top:0;left:0;width:100%;height:100%;background:color-mix(in oklch,var(--nav-bg),#888888dd);align-items:center;padding:0 10px;border-radius:var(--radius-8x);display:flex;opacity:0;visibility:hidden;transition:opacity 0.3s ease,transform 0.3s ease;transform:translateY(-10px);
-            &.active{opacity:1;visibility:visible;transform:translateY(0);}
-            >input{flex-grow:1;background:transparent;border:none;outline:none;color:inherit;font-size:1rem;padding:5px;&::placeholder{color:inherit;opacity:0.6;}&::-ms-input-placeholder{color:#a3b8c2;}}
-            >span{margin:0 10px;}
-            >button{
-                background:transparent;border:none;color:inherit;font-size:1.2rem;cursor:pointer;width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:50%;
-                &:hover{background:#00000033;}
             }
         }
         mark{background:var(--markbg,#ff0);color:inherit;padding:0 2px;border-radius:var(--radius-2x);}
@@ -510,7 +499,6 @@ setInterval(rotateText,1000);
                 <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
                 <button onclick="document.getElementById('settingdialog').showModal()"><i class="fa fa-gear"></i></button>
                 <button onclick="toggleSubMenu()"><i class="fa fa-navicon"></i></button>
-                <button onclick="toggleSearch()"><i class="fa fa-search"></i></button>
             </div>
             <div>
                 <div id="event-anchors">
@@ -524,13 +512,9 @@ setInterval(rotateText,1000);
                 <button onclick="showPage('event')">日志</button>
                 <button onclick="showPage('p2')">页面2</button>
             </div>
-            <div>
-                <input type="text" placeholder="搜索...">
-                <span>0</span><!--
-                <button onclick="" class="fa fa-clone"></button>
-                <button onclick="" class="fa fa-chevron-up"></button>
-                <button onclick="" class="fa fa-chevron-down"></button>-->
-                <button onclick="toggleSearch()" class="fa fa-remove"></button>
+            <div style="display:none;">
+                <input type="text" placeholder="关键词">
+                <span>0</span>
             </div>
         </nav>
         <dialog id="settingdialog">
@@ -925,105 +909,7 @@ setInterval(rotateText,1000);
         });
 
         //搜索
-        let searchActive = false;
-        function toggleSearch() {
-            if (subMenuVisible) return;
-            const searchContainer = document.querySelector('nav>div:nth-of-type(3)');
-            searchActive = !searchActive;
-            if (searchActive) {
-                searchContainer.style.display = 'flex';
-                requestAnimationFrame(() => {
-                    searchContainer.style.opacity = '1';
-                    searchContainer.style.visibility = 'visible';
-                    searchContainer.style.transform = 'translateY(0)';
-                });
-                searchContainer.querySelector('input').focus();
-                toggleSubMenu(false);
-            } else {
-                searchContainer.style.opacity = '0';
-                searchContainer.style.visibility = 'hidden';
-                searchContainer.style.transform = 'translateY(-10px)';
-                setTimeout(() => {
-                    searchContainer.style.display = 'none';
-                }, 300);
-                clearSearch();
-            }
-        }
-        function performSearch() {
-            const searchInput = document.querySelector('nav>div:nth-of-type(3) input');
-            const resultsCount = document.querySelector('nav>div:nth-of-type(3) span');
-            const query = searchInput.value.trim().toLowerCase();
-            if (!query) {
-                clearSearch();
-                return;
-            }
-            const currentPage = document.querySelector('#content>div[style*="display: block"]');
-            const marks = currentPage.querySelectorAll('mark');
-            marks.forEach(mark => {
-                const parent = mark.parentNode;
-                parent.replaceChild(document.createTextNode(mark.textContent), mark);
-                parent.normalize();
-            });
-            const textNodes = [];
-            const walker = document.createTreeWalker(
-                currentPage,
-                NodeFilter.SHOW_TEXT,
-                null,
-                false
-            );
-            let node;
-            let count = 0;
-            while (node = walker.nextNode()) {
-                if (node.parentNode.nodeName === 'SCRIPT' || node.parentNode.nodeName === 'STYLE') {
-                    continue;
-                }
-                const text = node.nodeValue;
-                if (text.toLowerCase().includes(query)) {
-                    textNodes.push(node);
-                    count++;
-                }
-            }
-            textNodes.forEach(textNode => {
-                const text = textNode.nodeValue;
-                const parent = textNode.parentNode;
-                const fragments = text.split(new RegExp(`(${query})`, 'gi'));
-                
-                const fragment = document.createDocumentFragment();
-                fragments.forEach((part, i) => {
-                    if (i % 2 === 1) {
-                        const mark = document.createElement('mark');
-                        mark.textContent = part;
-                        fragment.appendChild(mark);
-                    } else if (part) {
-                        fragment.appendChild(document.createTextNode(part));
-                    }
-                });
-                parent.replaceChild(fragment, textNode);
-            });
-            resultsCount.textContent = `${count}`;
-        }
-        function clearSearch() {
-            const resultsCount = document.querySelector('nav>div:nth-of-type(3) span');
-            resultsCount.textContent = '0';
-            const currentPage = document.querySelector('#content>div[style*="display: block"]');
-            const marks = currentPage.querySelectorAll('mark');
-            marks.forEach(mark => {
-                const parent = mark.parentNode;
-                parent.replaceChild(document.createTextNode(mark.textContent), mark);
-                parent.normalize();
-            });
-            const searchInput = document.querySelector('nav>div:nth-of-type(3) input');
-            searchInput.value = '';
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-            const searchInput = document.querySelector('nav>div:nth-of-type(3) input');
-            searchInput.addEventListener('input', performSearch);
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && searchActive) {
-                    toggleSearch();
-                }
-            });
-        });
+        
         
         //幻灯片
         let currentSlide=0,slideInterval;const slides=document.querySelectorAll("#slideshow>div:first-child>a"),slideContainer=document.querySelector("#slideshow>div:first-child"),dotsContainer=document.querySelector("#slideshow>div:last-child>div");function initSlideshow(){slides.forEach((e,t)=>{var l=document.createElement("span");l.classList.add("dot"),l.addEventListener("click",()=>goToSlide(t)),dotsContainer.appendChild(l)}),updateDots(),startAutoPlay();var e=document.querySelector("#slideshow");e.addEventListener("mouseenter",pauseAutoPlay),e.addEventListener("mouseleave",startAutoPlay)}function updateDots(){document.querySelectorAll(".dot").forEach((e,t)=>{e.classList.toggle("active",t===currentSlide)})}function goToSlide(e){currentSlide=(e+slides.length)%slides.length,slideContainer.style.transform=`translateX(-${100*currentSlide}%)`,updateDots()}function moveSlide(e){goToSlide(currentSlide+e)}function startAutoPlay(){pauseAutoPlay(),slideInterval=setInterval(()=>moveSlide(1),5e3)}function pauseAutoPlay(){clearInterval(slideInterval)}document.addEventListener("DOMContentLoaded",initSlideshow);
