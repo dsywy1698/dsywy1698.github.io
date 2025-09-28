@@ -318,52 +318,25 @@
         /*设置-模态框*/
         dialog::backdrop{background:#00000055;backdrop-filter:blur(1px);transition:backdrop-filter 0.3s ease,background 0.3s ease;}
         #settingdialog{
-            width:clamp(300px,80dvw,600px);height:clamp(350px,60dvh,800px);border:none;border-radius:var(--radius-6x);background:var(--dialogbg);backdrop-filter:blur(20px);position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);overflow:hidden;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;will-change:transform,opacity;
+            width:clamp(300px,80dvw,600px);border:none;border-radius:var(--radius-6x);background:var(--dialogbg);backdrop-filter:blur(20px);position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);overflow:hidden;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;will-change:transform,opacity;
             >div:nth-of-type(1){
                 position:sticky;top:0;background:var(--settingbg);width:100%;padding:8px 15px;line-height:24px;
                 >span{float:right;}
             }
             >div:nth-of-type(2){
-                height:calc(100% - 40px);padding:10px;overflow-y:auto;
-                >section{
-                    button{color:var(--root-color);padding:1px 8px;line-height:23px;background:var(--settingbg);border-radius:var(--radius-5x);margin:2.5px;}
-                    >div{
-                        height:35px;background:var(--settingbg);padding:2.5px 2.5px 2.5px 7.5px;border-radius:var(--radius-7x);margin:2.5px 0;
-                        >p{display:inline;line-height:30px;}
-                        >label{
-                            height:30px;padding:2.5px;background:var(--radiobg);border-radius:15px;float:right;
-                            >input[type="radio"]{
-                                -webkit-appearance:none;-moz-appearance:none;appearance:none;width:25px;height:25px;border-radius:12.5px;position:relative;transition:background 0.3s ease,color 0.3s ease;
-                                &::before{content:var(--input-content);font-size:19px;width:25px;height:25px;line-height:25px;margin:3px;color:#ffffff44;}
-                                &:checked{background:#ffffff22;&::before{color:unset;}}
-                            }
-                        }
-                    }
-                    >div:has(>label>input[type="checkbox"]){
-                        height:initial;display:flex;flex-wrap:wrap;justify-content:center;
-                        >p{flex-basis:100%;}
-                        >label{
-                            margin:2.5px;display:block;border-radius:var(--radius-5x);padding:5px;flex-basis:calc(50% - 5px);text-align:center;background:var(--nav-bg);color:var(--nav-btn);
-                            >input{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
-                            &:has(input:checked){background:var(--settingbg);}
-                            &:has(input:disabled){opacity:0.5;}
-                        }
-                    }
+                padding:10px;display:flex;flex-wrap:wrap;justify-content:center;
+                >label{
+                    margin:2.5px;display:block;background:var(--settingbg);border-radius:var(--radius-5x);padding:5px;flex-basis:calc(50% - 5px);text-align:center;
+                    >input{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
+                    &:has(input:checked){background:var(--nav-bg);color:var(--nav-btn);}
                 }
-                h2{margin:10px;position:relative;padding-left:12.5px;&::before{width:5px;content:"";background:var(--radiobg);position:absolute;top:7.5px;bottom:7.5px;left:0;border-radius:2.5px;}}
+                >button{flex-basis:100%;height:30px;background:var(--settingbg);border-radius:var(--radius-7x);margin:2.5px 0;line-height:30px;font-size:1.rem;}
+                }
+                h2{flex-basis:100%;margin:10px;position:relative;padding-left:12.5px;&::before{width:5px;content:"";background:var(--radiobg);position:absolute;top:7.5px;bottom:7.5px;left:0;border-radius:2.5px;}}
             }
         }
         .cs{display:none;}
         body[data-t="c"] .cs{display:block;flex-basis:100%;}
-        #mode-setting{
-            display:flex;flex-wrap:wrap;justify-content:center;
-            >h2{flex-basis:100%;}
-            >label{
-                margin:2.5px;display:block;background:var(--settingbg);border-radius:var(--radius-5x);padding:5px;flex-basis:calc(50% - 5px);text-align:center;
-                >input{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
-                &:has(input:checked){background:var(--nav-bg);color:var(--nav-btn);}
-            }
-        }
         #settingdialog[open]{animation:dialogFadeIn 0.3s ease-out forwards;}
         @keyframes dialogFadeIn{from{opacity:0;transform:translate(-50%,calc(-50% - 20px));}to{opacity:1;transform:translate(-50%,-50%);}}
         #settingdialog[open]::backdrop{animation:backdropFadeIn 0.3s ease-out forwards;}
@@ -520,71 +493,26 @@ setInterval(rotateText,1000);
         <dialog id="settingdialog">
             <div><strong>设置</strong><span onclick="document.getElementById('settingdialog').close()">&times;</span></div>
             <div>
-                <section id="mode-setting">
-                    <h2>主题</h2>
-                    <label><input type="radio" name="t" onclick="chT('d')">暗</label>
-                    <label><input type="radio" name="t" onclick="chT('l')">亮</label>
-                    <label><input type="radio" name="t" onclick="chT('b')">蓝</label>
-                    <label><input type="radio" name="t" onclick="chT('p')">粉</label>
-                    <label><input type="radio" name="t" onclick="checkTime()">跟随时间</label>
-                    <label><input type="radio" name="t" onclick="chT('c')">自定义</label>
-                    <div class="cs">
-                        <p>背景图片</p>
-                            <button style="float:right;" onclick="clearBackgroundImage()">清除</button>
-                            <button style="float:right;" onclick="uploadBackgroundImage()">上传</button>
-                    </div><!--
-                    <div class="custom-settings">
-                        <p>色调</p>
-                        <button style="float:right;" onclick="">确认</button>
-                        <input type="text" style="float:right;border:none;color:var(--root-color);padding:1px 8px;line-height:23px;background:var(--settingbg);border-radius:var(--radius-5x);margin:2.5px;width:130px;" maxlength="30" id="colorInput"/>
-                    </div>-->
-                </section>
-                <section>
-                    <h2>个性化</h2>
-                    <div>
-                        <p>字重</p>
-                        <label>
-                            <input type="radio" name="w" onclick="chW('l')" style="--input-content:'细';">
-                            <input type="radio" name="w" onclick="chW('n')" style="--input-content:'中';">
-                        </label>
-                    </div>
-                    <div class="cs">
-                        <p>遮罩模糊度</p>
-                        <label>
-                            <input type="radio" name="b" onclick="chB('f')" style="--input-content:'无';">
-                            <input type="radio" name="b" onclick="chB('n')" style="--input-content:'中';">
-                            <input type="radio" name="b" onclick="chB('s')" style="--input-content:'强';">
-                        </label>
-                    </div>
-                    <div>
-                        <p>导航栏显示</p>
-                        <label>
-                            <input type="radio" name="n" onclick="chN('n')" style="--input-content:'一';">
-                            <input type="radio" name="n" onclick="chN('c')" style="--input-content:'二';">
-                            <input type="radio" name="n" onclick="chN('s')" style="--input-content:'三';">
-                        </label>
-                    </div>
-                    <div>
-                        <p>导航栏项目对齐</p>
-                        <label>
-                            <input type="radio" name="a" onclick="chA('l')" style="--input-content:'左';">
-                            <input type="radio" name="a" onclick="chA('c')" style="--input-content:'中';">
-                            <input type="radio" name="a" onclick="chA('r')" style="--input-content:'右';">
-                        </label>
-                    </div>
-                    <div>
-                        <p>内容过滤</p>
-                        <label>
-                            <input type="radio" name="f" onclick="chF('0')" style="--input-content:'无';">
-                            <input type="radio" name="f" onclick="chF('1')" style="--input-content:'一';">
-                            <input type="radio" name="f" onclick="chF('2')" style="--input-content:'二';">
-                            <input type="radio" name="f" onclick="chF('3')" style="--input-content:'三';">
-                        </label>
-                    </div>
-                </section>
-                <section>
-                    <button onclick="localStorage.clear();;location.reload(true);" style="background:#b8141488;color:#fff;">重置</button>
-                </section>
+                <h2>主题</h2>
+                <label><input type="radio" name="t" onclick="chT('d')">暗</label>
+                <label><input type="radio" name="t" onclick="chT('l')">亮</label>
+                <label><input type="radio" name="t" onclick="chT('b')">蓝</label>
+                <label><input type="radio" name="t" onclick="chT('p')">粉</label>
+                <label><input type="radio" name="t" onclick="checkTime()">跟随时间</label>
+                <label><input type="radio" name="t" onclick="chT('c')">自定义</label>
+                <div class="cs" onclick="uploadBackgroundImage()">上传背景图片</div><!--
+                <div class="custom-settings">
+                    <p>色调</p>
+                    <button style="float:right;" onclick="">确认</button>
+                    <input type="text" style="float:right;border:none;color:var(--root-color);padding:1px 8px;line-height:23px;background:var(--settingbg);border-radius:var(--radius-5x);margin:2.5px;width:130px;" maxlength="30" id="colorInput"/>
+                </div>-->
+                <h2>个性化</h2>
+                <button onclick="chW()">字重：细</button>
+                <button class="cs" onclick="chB()">遮罩模糊度：中</button>
+                <button onclick="chN()">导航栏显示模式：经典</button>
+                <button onclick="chA()">导航栏项目对齐：左</button>
+                <button onclick="chF('0')">内容过滤：3级</button>
+                <button onclick="localStorage.clear();location.reload(true);" style="background:#b8141488;color:#fff;">重置</button>
             </div>
         </dialog>
         <div id="home">
@@ -736,60 +664,8 @@ setInterval(rotateText,1000);
                 document.body.setAttribute('data-t', isDark ? 'd' : 'l');
             }
         }
-        const settingKeys = ['t', 'w', 'b', 'n', 'a', 'f'];
-        function initSettings() {
-            settingKeys.forEach(key => {
-                const value = document.body.getAttribute(`data-${key}`);
-                localStorage.setItem(`setting-${key}`, value);
-                updateSettingRadios(key, value);
-            });
-        }
-        function updateSettingRadios(key = null, value = null) {
-            if (key && value) {
-                const radios = document.querySelectorAll(`input[name="${key}"]`);
-                radios.forEach(radio => {
-                    const radioValue = radio.getAttribute('onclick').match(/'(.*?)'/)[1];
-                    radio.checked = (radioValue === value);
-                });
-            } else {
-                settingKeys.forEach(k => {
-                    const savedValue = localStorage.getItem(`setting-${k}`) || document.body.getAttribute(`data-${k}`);
-                    const radios = document.querySelectorAll(`input[name="${k}"]`);
-                    radios.forEach(radio => {
-                        const radioValue = radio.getAttribute('onclick').match(/'(.*?)'/)[1];
-                        radio.checked = (radioValue === savedValue);
-                    });
-                });
-            }
-        }
-        function changeSetting(key, value) {
-            document.body.setAttribute(`data-${key}`, value);
-            localStorage.setItem(`setting-${key}`, value);
-            updateSettingRadios(key, value);
-        }
-        function applySavedSettings() {
-            settingKeys.forEach(key => {
-                const savedValue = localStorage.getItem(`setting-${key}`);
-                if (savedValue) {
-                    document.body.setAttribute(`data-${key}`, savedValue);
-                }
-            });
-            updateSettingRadios();
-        }
-        function chT(value) { changeSetting('t', value); }
-        function chW(value) { changeSetting('w', value); }
-        function chB(value) { changeSetting('b', value); }
-        function chN(value) { changeSetting('n', value); }
-        function chA(value) { changeSetting('a', value); }
-        function chF(value) { changeSetting('f', value); }
-        document.addEventListener('DOMContentLoaded', function() {
-            applySavedSettings();
-            initSettings();
-            applySystemTheme();
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-                applySystemTheme();
-            });
-        });
+        //增加代码处
+        
         //背景图片
         const DB_NAME = 'BackgroundDB';
         const DB_VERSION = 1;
