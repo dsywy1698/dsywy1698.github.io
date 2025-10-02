@@ -93,59 +93,41 @@ bug：从日志页转到其他页搜索框不隐藏
             --lb:#e6ffff;
             --lc:#39f;
         }
-        body[data-t="p"]{
-            background:;
-            color:;
-            --se:;
-            --nb:;
-            --nc:;
-            --hr:;
-            --ac:;
-            --ah:;
-            --db:;
-            --dl:;
-            --dr:;
-            --df:;
-            --ds:;
-            --dt:;
-            --lb:;
-            --lc:;
-        }
         body[data-t="m"]{
-            background:;
-            color:;
-            --se:;
-            --nb:;
-            --nc:;
+            background:#fff8e6;
+            color:#3a2e00;
+            --se:#ffd70088;
+            --nb:#ffd90088;
+            --nc:#5c4a00;
             --hr:;
-            --ac:;
-            --ah:;
-            --db:;
-            --dl:;
+            --ac:#d4a800;
+            --ah:#ffcc00;
+            --db:#fff0b388;
+            --dl:#ffe06688;
             --dr:;
             --df:;
             --ds:;
             --dt:;
-            --lb:;
-            --lc:;
+            --lb:#fff5cc;
+            --lc:#8c6d00;
         }
         body[data-t="n"]{
-            background:;
-            color:;
-            --se:;
-            --nb:;
-            --nc:;
+            background:#001a33;
+            color:#e6f3ff;
+            --se:#96f8;
+            --nb:#9908;
+            --nc:#ffc;
             --hr:;
-            --ac:;
-            --ah:;
-            --db:;
-            --dl:;
+            --ac:#ff9;
+            --ah:#d9b3ff;
+            --db:#0068;
+            --dl:#3098;
             --dr:;
             --df:;
             --ds:;
             --dt:;
-            --lb:;
-            --lc:;
+            --lb:#006;
+            --lc:#e6e6ff;
         }
         body[data-w="l"]{font-weight:200;}
         body[data-w="n"]{font-weight:normal;}
@@ -166,6 +148,7 @@ bug：从日志页转到其他页搜索框不隐藏
         
         nav{
             position:fixed;background:var(--nb);height:40px;padding:5px;backdrop-filter:blur(15px);z-index:1;margin:auto;box-shadow:;user-select:none;transition:height 0.3s;overflow:hidden;
+            &::before{content:'';position:absolute;top:0;left:0;width:var(--progress,0%);pointer-events:none;z-index:-1;height:40px;opacity:1;background:var(--nb);}
             &:has(>div:nth-of-type(2).active){height:400px;}
             >div:nth-of-type(1){
                 display:flex;justify-content:center;height:40px;
@@ -186,10 +169,10 @@ bug：从日志页转到其他页搜索框不隐藏
             }
         }
         body[data-n="1"] nav{width:100dvw;}
-        body[data-n="2"] nav{top:10px;left:10px;width:calc(100dvw - 20px);border-radius:20px;}
+        body[data-n="2"] nav{top:10px;left:10px;width:calc(100dvw - 20px);border-radius:20px;&::before{border-radius:20px;}}
         
         #sD{
-            width:clamp(500px,60dvw,300px);border-radius:20px;padding:10px;border:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--db);
+            width:clamp(500px,60dvw,300px);border-radius:20px;padding:10px;border:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--db);backdrop-filter:blur(3px);
             &::backdrop{background:#0006;backdrop-filter:blur(2px);}
             >div:first-child{font-weight:bold;font-size:1.25rem;padding:5px 10px 20px 10px;}
             >div:not(:first-child){
@@ -313,6 +296,7 @@ setInterval(rotateText,1000);
         </footer>
     </div>
     <script>
+//页面切换
 function showPage(e){
     const p=document.querySelectorAll('main'),
     t=document.getElementById(e),
@@ -323,9 +307,13 @@ function showPage(e){
     if(t){t.style.display="block";}
     document.getElementById(e+"-l").style.display="block"; 
     e=="EVENT"?s.style.display="inline-block":s.style.display="none";
+    console.log(s.style.display);
 }
-document.addEventListener("click",function(t){var e=document.querySelector("nav > div:nth-of-type(2)"),n=document.querySelector("nav>div:nth-of-type(1) button.fa-navicon");e.classList.contains("active")&&!e.contains(t.target)&&t.target!==n&&e.classList.remove("active")}),document.querySelectorAll("nav>div:nth-of-type(2) a,nav>div:nth-of-type(2) button").forEach(t=>{t.addEventListener("click",function(){document.querySelector("nav>div:nth-of-type(2)").classList.remove("active")})});
-
+//点击其他区域关闭菜单
+document.addEventListener("click",function(t){var e=document.querySelector("nav>div:nth-of-type(2)"),n=document.querySelector("nav>div:nth-of-type(1) button.fa-navicon");e.classList.contains("active")&&!e.contains(t.target)&&t.target!==n&&e.classList.remove("active")}),document.querySelectorAll("nav>div:nth-of-type(2) a,nav>div:nth-of-type(2) button").forEach(t=>{t.addEventListener("click",function(){document.querySelector("nav>div:nth-of-type(2)").classList.remove("active")})});
+//进度条
+window.addEventListener("scroll",()=>{var e=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100;document.querySelector("nav").style.setProperty("--progress",e+"%")});
+//主题切换
 function chT(e){document.body.setAttribute("data-t",e),localStorage.setItem("t",e);}
 function chW(e){document.body.setAttribute("data-w",e),localStorage.setItem("w",e);}
 function chN(e){document.body.setAttribute("data-n",e),localStorage.setItem("n",e);}
