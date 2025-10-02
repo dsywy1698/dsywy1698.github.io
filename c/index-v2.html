@@ -133,7 +133,8 @@ bug：从日志页转到其他页搜索框不隐藏
         body[data-w="n"]{font-weight:normal;}
         
         body[data-f="1"] *[data-tf="3"]{display:none;}
-        body[data-f="2"] *[data-tf="3"],body[data-cf="2"] *[data-tf="2"]{display:none;}
+        body[data-f="2"] *[data-tf="3"]{display:none;}
+        body[data-f="2"] *[data-tf="2"]{display:none;}
         body[data-f="3"] *[data-tf]{display:none;}
         
         #loader{
@@ -148,7 +149,7 @@ bug：从日志页转到其他页搜索框不隐藏
         
         nav{
             position:fixed;background:var(--nb);height:40px;padding:5px;backdrop-filter:blur(15px);z-index:1;margin:auto;box-shadow:;user-select:none;transition:height 0.3s;overflow:hidden;
-            &::before{content:'';position:absolute;top:0;left:0;width:var(--progress,0%);pointer-events:none;z-index:-1;height:40px;opacity:1;background:var(--nb);}
+            &::before{content:'';position:absolute;top:0;left:0;width:var(--progress,0%);pointer-events:none;z-index:-1;height:40px;opacity:0.4;background:var(--nb);}
             &:has(>div:nth-of-type(2).active){height:400px;}
             >div:nth-of-type(1){
                 display:flex;justify-content:center;height:40px;
@@ -202,6 +203,10 @@ bug：从日志页转到其他页搜索框不隐藏
         
         main{
             backdrop-filter:blur(var(--bl));background:color-mix(in oklch,var(--ma),var(--op));padding:60px 10px 10px 10px;
+            >header{font-size:2rem;text-align:center;padding:20px 0 50px 0;}
+        }
+        #EVENT{
+            
         }
         
         @media screen and (min-width:1600px),(min-height:900px){#bigger{display:flex;}#password,#main,#loader{display:none!important;}}
@@ -221,8 +226,8 @@ bug：从日志页转到其他页搜索框不隐藏
 setInterval(rotateText,1000);
         </script>
     </div>
-    <div id="bigger">请缩小窗口</div>
-    <div id="smaller">请放大窗口</div>
+    <div id="bigger">窗口过大</div>
+    <div id="smaller">窗口过小</div>
     <div id="main">
         <nav>
             <div>
@@ -281,15 +286,20 @@ setInterval(rotateText,1000);
             <button onclick="localStorage.clear();location.reload(true);">重置</button>
         </dialog>
         <main id="HOME">
-            <h1>title</h1>
-            <p>文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本</p>
-            <hr/>
+<header><h1>首页</h1></header>
+<hr/>
+<p>页面开发中，敬请期待。</p>
+<p data-tf="1">过滤1</p>
+<p data-tf="2">过滤2</p>
+<p data-tf="3">过滤3</p>
+<p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p>
+
         </main>
         <main id="INTRODUCTION">
-            <h1>inrtoduction</h1>
+<header><h1>介绍</h1></header>
         </main>
         <main id="EVENT">
-            <h1>evevt</h1>
+<header><h1>日志</h1></header>
         </main>
         <footer>
         
@@ -330,6 +340,8 @@ window.addEventListener('DOMContentLoaded',function(){
     s.forEach(e=>{var t=localStorage.getItem(e);t&&(e=document.querySelector(`input[name="${e}"][onclick*="${t}"]`))&&(e.checked=!0)});
     showPage('HOME');
 });
+//替代图像
+document.querySelectorAll("img").forEach(M=>{M.onerror=function(){this.src="data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+DQo8cGF0aCBkPSJNMzA0LjEyOCA0NTYuMTkyYzQ4LjY0IDAgODguMDY0LTM5LjQyNCA4OC4wNjQtODguMDY0cy0zOS40MjQtODguMDY0LTg4LjA2NC04OC4wNjQtODguMDY0IDM5LjQyNC04OC4wNjQgODguMDY0IDM5LjQyNCA4OC4wNjQgODguMDY0IDg4LjA2NHptMC0xMTYuMjI0YzE1LjM2IDAgMjguMTYgMTIuMjg4IDI4LjE2IDI4LjE2cy0xMi4yODggMjguMTYtMjguMTYgMjguMTYtMjguMTYtMTIuMjg4LTI4LjE2LTI4LjE2IDEyLjI4OC0yOC4xNiAyOC4xNi0yOC4xNnoiIGZpbGw9IiNjY2ZmZmZjYyIvPg0KPHBhdGggZD0iTTg4Ny4yOTYgMTU5Ljc0NEgxMzYuNzA0Qzk2Ljc2OCAxNTkuNzQ0IDY0IDE5MiA2NCAyMzIuNDQ4djU1OS4xMDRjMCAzOS45MzYgMzIuMjU2IDcyLjcwNCA3Mi43MDQgNzIuNzA0aDE5OC4xNDRMNTAwLjIyNCA2ODguNjRsLTM2LjM1Mi0yMjIuNzIgMTYyLjMwNC0xMzAuNTYtNjEuNDQgMTQzLjg3MiA5Mi42NzIgMjE0LjAxNi0xMDUuNDcyIDE3MS4wMDhoMzM1LjM2QzkyNy4yMzIgODY0LjI1NiA5NjAgODMyIDk2MCA3OTEuNTUyVjIzMi40NDhjMC0zOS45MzYtMzIuMjU2LTcyLjcwNC03Mi43MDQtNzIuNzA0em0tMTM4Ljc1MiA3MS42OHYuNTEySDg1Ny42YzE2LjM4NCAwIDMwLjIwOCAxMy4zMTIgMzAuMjA4IDMwLjIwOHYzOTkuODcyTDY3My4yOCA0MDguMDY0bDc1LjI2NC0xNzYuNjR6TTMwNC42NCA3OTIuMDY0SDE2NS44ODhjLTE2LjM4NCAwLTMwLjIwOC0xMy4zMTItMzAuMjA4LTMwLjIwOHYtOS43MjhsMTM4Ljc1Mi0xNjQuMzUyIDEwNC45NiAxMjQuNDE2LTc0Ljc1MiA3OS44NzJ6bTgxLjkyLTM1NS44NGwzNy4zNzYgMjI4Ljg2NC0uNTEyLjUxMi0xNDIuODQ4LTE2OS45ODRjLTMuMDcyLTMuNTg0LTkuMjE2LTMuNTg0LTEyLjI4OCAwTDEzNS42OCA2NTIuOFYyNjIuMTQ0YzAtMTYuMzg0IDEzLjMxMi0zMC4yMDggMzAuMjA4LTMwLjIwOGg0NzQuNjI0TDM4Ni41NiA0MzYuMjI0em01MDEuMjQ4IDMyNS42MzJjMCAxNi44OTYtMTMuMzEyIDMwLjIwOC0yOS42OTYgMzAuMjA4SDY4MC45Nmw1Ny4zNDQtOTMuMTg0LTg3LjU1Mi0yMDIuMjQgNy4xNjgtNy42OCAyMjkuODg4IDI3Mi44OTZ6IiBmaWxsPSIjY2NmZmZmY2MiLz4NCjwvc3ZnPg=="}});
     </script>
     <script>"serviceWorker"in navigator&&navigator.serviceWorker.register("/c/sw.js",{scope:"/c/"});</script>
 </body>
