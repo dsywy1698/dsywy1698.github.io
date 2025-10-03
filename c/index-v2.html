@@ -281,7 +281,7 @@ setInterval(rotateText,1000);
                 <button onclick="ubg()">清除</button>
                 <button onclick="cbg()">上传</button>
                 <div><span>透明度</span><input type="range" max="100" min="0" step="5" id="r1"/></div>
-                <div><span>虚化</span><input type="range" max="40" min="0" step="5" id="r2"/></div>
+                <div><span>虚化</span><input type="range" max="30" min="0" step="5" id="r2"/></div>
             </div>
             <button onclick="localStorage.clear();location.reload(true);">重置</button>
         </dialog>
@@ -335,7 +335,7 @@ document.getElementById('r2').addEventListener('input',function(){document.query
 let db;const request=indexedDB.open("backgroundDB",1);
 function loadBackground(){const e=db.transaction(["background"],"readonly").objectStore("background").get(1);e.onsuccess=function(){e.result&&(document.body.style.backgroundImage=`url(${e.result.image})`)}}
 function cbg(){var e=document.createElement("input");e.type="file",e.accept="image/*",e.onchange=function(e){var t,e=e.target.files[0];e&&((t=new FileReader).onload=function(e){db.transaction(["background"],"readwrite").objectStore("background").put({id:1,image:e.target.result}),document.body.style.backgroundImage=`url(${e.target.result})`},t.readAsDataURL(e))},e.click()}
-function ubg(){db.transaction(["background"],"readwrite").objectStore("background").delete(1),document.body.style.backgroundImage=""}request.onupgradeneeded=function(e){(db=e.target.result).objectStoreNames.contains("background")||db.createObjectStore("background",{keyPath:"id"})},request.onsuccess=function(e){db=e.target.result,loadBackground()};
+function ubg(){db.transaction(["background"],"readwrite").objectStore("background").delete(1),document.body.style.backgroundImage="";document.querySelector('body>#main').style.setProperty("--opacity","100%")}request.onupgradeneeded=function(e){(db=e.target.result).objectStoreNames.contains("background")||db.createObjectStore("background",{keyPath:"id"})},request.onsuccess=function(e){db=e.target.result,loadBackground()};
 
 window.addEventListener('DOMContentLoaded',function(){
     const t=localStorage.getItem('t');t?chT(t):(window.matchMedia("(prefers-color-scheme:dark)").matches?chT('d'):chT('l'));
