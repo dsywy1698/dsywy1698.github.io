@@ -41,6 +41,7 @@ bug：无
         
         body[data-t="l"]{
             >#main{background:rgba(241,243,244,var(--opacity,100%));}
+            background:#f1f3f4;
             color:#212121;
             --se:#32676788;
             --nb:#abb5ba88;
@@ -60,6 +61,7 @@ bug：无
         }
         body[data-t="d"]{
             >#main{background:rgba(20,31,31,var(--opacity,100%));}
+            background:#141f1f;
             color:#eff5f5;
             --se:#5959a688;
             --nb:#3d495c88;
@@ -78,6 +80,7 @@ bug：无
         }
         body[data-t="b"]{
             >#main{background:rgba(0,102,255,var(--opacity,100%));}
+            background:#06f;
             color:#fff;
             --se:#cff8;
             --nb:#cffa;
@@ -96,6 +99,7 @@ bug：无
         }
         body[data-t="m"]{
             >#main{background:rgba(255,248,230,var(--opacity,100%));}
+            background:#fff8e6;
             color:#3a2e00;
             --se:#ffd70088;
             --nb:#ffd90088;
@@ -114,6 +118,7 @@ bug：无
         }
         body[data-t="n"]{
             >#main{background:rgba(0,26,51,var(--opacity,100%));}
+            background:#001a33;
             color:#e6f3ff;
             --se:#96f8;
             --nb:#9908;
@@ -335,7 +340,7 @@ document.getElementById('r2').addEventListener('input',function(){document.query
 let db;const request=indexedDB.open("backgroundDB",1);
 function loadBackground(){const e=db.transaction(["background"],"readonly").objectStore("background").get(1);e.onsuccess=function(){e.result&&(document.body.style.backgroundImage=`url(${e.result.image})`)}}
 function cbg(){var e=document.createElement("input");e.type="file",e.accept="image/*",e.onchange=function(e){var t,e=e.target.files[0];e&&((t=new FileReader).onload=function(e){db.transaction(["background"],"readwrite").objectStore("background").put({id:1,image:e.target.result}),document.body.style.backgroundImage=`url(${e.target.result})`},t.readAsDataURL(e))},e.click()}
-function ubg(){db.transaction(["background"],"readwrite").objectStore("background").delete(1),document.body.style.backgroundImage="";document.querySelector('body>#main').style.setProperty("--opacity","100%")}request.onupgradeneeded=function(e){(db=e.target.result).objectStoreNames.contains("background")||db.createObjectStore("background",{keyPath:"id"})},request.onsuccess=function(e){db=e.target.result,loadBackground()};
+function ubg(){db.transaction(["background"],"readwrite").objectStore("background").delete(1),document.body.style.backgroundImage=""}request.onupgradeneeded=function(e){(db=e.target.result).objectStoreNames.contains("background")||db.createObjectStore("background",{keyPath:"id"})},request.onsuccess=function(e){db=e.target.result,loadBackground()};
 
 window.addEventListener('DOMContentLoaded',function(){
     const t=localStorage.getItem('t');t?chT(t):(window.matchMedia("(prefers-color-scheme:dark)").matches?chT('d'):chT('l'));
