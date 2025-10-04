@@ -221,9 +221,25 @@ bug：无
         main{
             padding:60px 10px 10px 10px;min-height:100dvh;
             >header{font-size:2rem;text-align:center;padding:20px 0 50px 0;}
+            article{}
+            q{}
+            blockquote{}
+            .gallery{}
         }
         #EVENT{
-            
+            >h1{background:#00999988;text-align:center;border-radius:100dvw;margin:25px 15px 5px 15px;padding:10px;color:#fff;}
+            >div{
+                margin:10px 0;padding:20px 8px 10px 8px;border-radius:10px;width:100%;background:#99ddff55;
+                >time{position:relative;top:-15px;left:-3px;float:left;margin-right:-9999px;text-align:center;padding:5px 0;min-width:1.9em;border-radius:10px;font-weight:700;background:#6cf;color:#000;}
+                >p{padding:2.5px 0;text-indent:2em;}
+                >ul,>ul>ul{margin:3px 3px 3px 13px;padding:5px;background:#ffffff44;border-radius:15px;>li,>ul>li{text-indent:2em;list-style-type:none;&::before{position:relative;content:"●";color:#00000088;margin-right:5px}}}
+                &.sp1{background:#ccffcc55;>time{background:#9f9;}}
+                &.sp2{background:#ffeecc55;>time{background:#fd9;}}
+                &.sp3{background:#ffccee55;>time{background:#f9d;}}
+                &.sp4{background:#ffcc9955;>time{background:#f93;}}
+            }/*颜色使用css变量*/
+            .hot{background:#d9d98c88;color:#212121;li:before{content:"";}}
+            .mt{background:#f9f8;color:#303;font-style:italic;li:before{content:"";}}
         }
         
         @media screen and (min-width:1600px),(min-height:900px){#bigger{display:flex;}#password,#main,#loader,nav{display:none!important;}}
@@ -322,9 +338,51 @@ setInterval(rotateText,1000);
         </main>
         <main id="INTRODUCTION">
 <header><h1>介绍</h1></header>
+<h1>副标题1</h1>
+<article>
+    <h1>文章标题</h1>
+    <p>文本文本文本文本文本文本文本文本文本文本文本文本。</p>
+    <p>文本文本文本文本文本文本文本文本文本文本文本文本。</p>
+</article>
+<h1>副标题2</h1>
+<q>引用文本</q>
+<div class="gallery">
+    <img src="error.jpg"/>
+    <p>描述文本</p>
+</div>
+<blockquote>
+    <p>长引用文本长引用文本</p>
+    <p>长引用文本长引用文本</p>
+</blockquote>
         </main>
         <main id="EVENT">
 <header><h1>日志</h1></header>
+<h1 id="event-d2409">2024年9月</h1>
+<div>
+    <time>1</time>
+    <p>文本</p>
+    <ul>
+        <li>无序列表项</li>
+        <li>无序列表项</li>
+    </ul>
+    <p>文本</p>
+</div>
+<div class="sp1">
+    <time>2</time>
+    <p>文本</p>
+</div>
+<div class="sp2">
+    <time>3</time>
+    <p>文本</p>
+</div>
+<div class="sp3">
+    <time>4</time>
+    <p>文本</p>
+</div>
+<div class="sp4">
+    <time>5</time>
+    <p>文本</p>
+</div>
         </main>
         <footer>
         
