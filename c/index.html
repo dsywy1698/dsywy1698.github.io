@@ -81,7 +81,7 @@ bug：无
             --se:#5959a688;
             --nb:#3d495c88;
             --nc:#b3bccc;
-            --np:;
+            --np:#8c8cc0;
             --hr:#e6d299;
             --ac:#8ca6f2;
             --ah:#5e82ed;
@@ -101,7 +101,7 @@ bug：无
             --se:#cff8;
             --nb:#cffa;
             --nc:#36c;
-            --np:;
+            --np:#6cf;
             --hr:#cff;
             --ac:#fafa9e;
             --ah:#f5f53d;
@@ -121,7 +121,7 @@ bug：无
             --se:#ffd70088;
             --nb:#ffd90088;
             --nc:#5c4a00;
-            --np:;
+            --np:#b8b87a;
             --hr:#9c0;
             --ac:#d4a800;
             --ah:#ffcc00;
@@ -141,7 +141,7 @@ bug：无
             --se:#96f8;
             --nb:#9908;
             --nc:#ffc;
-            --np:;
+            --np:#b8997a;
             --hr:#ad88f6;
             --ac:#ff9;
             --ah:#d9b3ff;
@@ -276,10 +276,7 @@ bug：无
     </dialog>
     <div id="loader">
         <div><p>文本1</p><button onclick="document.getElementById('loader').style.animation='out 0.7s 0.3s forwards'">跳过</button></div>
-        <script>
-        const texts=["文本1","文本2"];let currentIndex=0;const carouselText=document.querySelector('#loader>div>p');carouselText.textContent=texts[currentIndex];function rotateText(){currentIndex=(currentIndex+1)%texts.length;carouselText.style.opacity='0';setTimeout(()=>{carouselText.textContent=texts[currentIndex];carouselText.style.opacity='1';},200);}
-setInterval(rotateText,1000);
-        </script>
+        <script>const texts=["文本1","文本2"];let currentIndex=0;const carouselText=document.querySelector('#loader>div>p');carouselText.textContent=texts[currentIndex];function rotateText(){currentIndex=(currentIndex+1)%texts.length;carouselText.style.opacity='0';setTimeout(()=>{carouselText.textContent=texts[currentIndex];carouselText.style.opacity='1';},200);}setInterval(rotateText,1000);</script>
     </div>
     <div id="bigger">窗口过大</div>
     <div id="smaller">窗口过小</div>
@@ -346,7 +343,7 @@ setInterval(rotateText,1000);
                 <div><span>透明度</span><input type="range" max="100" min="0" step="10" id="r1"/></div>
                 <div><span>虚化</span><input type="range" max="30" min="0" step="3" id="r2"/></div>
             </div>
-            <button onclick="localStorage.clear();ubg();location.reload(true);">重置</button>
+            <button onclick="localStorage.clear();ubg();location.reload(true);">重置<small style="color:#f99;">（将清除密码和个性化设置）</small></button>
         </dialog>
         <main id="HOME">
 <header><h1>首页</h1></header>
@@ -411,7 +408,7 @@ setInterval(rotateText,1000);
         
         </footer>
     </div>
-    <script>
+<script>
 //密码（abc）
 function ep(){var e=document.querySelector("#password input").value;"YWJj"===btoa(e)?(localStorage.setItem("p","true"),document.getElementById("password").close()):document.querySelector("#password input").style.background="#f004"}
 //页面切换
@@ -459,7 +456,7 @@ window.addEventListener('DOMContentLoaded',function(){
 });
 //替代图像
 document.querySelectorAll("img").forEach(M=>{M.onerror=function(){this.src="data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+DQo8cGF0aCBkPSJNMzA0LjEyOCA0NTYuMTkyYzQ4LjY0IDAgODguMDY0LTM5LjQyNCA4OC4wNjQtODguMDY0cy0zOS40MjQtODguMDY0LTg4LjA2NC04OC4wNjQtODguMDY0IDM5LjQyNC04OC4wNjQgODguMDY0IDM5LjQyNCA4OC4wNjQgODguMDY0IDg4LjA2NHptMC0xMTYuMjI0YzE1LjM2IDAgMjguMTYgMTIuMjg4IDI4LjE2IDI4LjE2cy0xMi4yODggMjguMTYtMjguMTYgMjguMTYtMjguMTYtMTIuMjg4LTI4LjE2LTI4LjE2IDEyLjI4OC0yOC4xNiAyOC4xNi0yOC4xNnoiIGZpbGw9IiNjY2ZmZmZjYyIvPg0KPHBhdGggZD0iTTg4Ny4yOTYgMTU5Ljc0NEgxMzYuNzA0Qzk2Ljc2OCAxNTkuNzQ0IDY0IDE5MiA2NCAyMzIuNDQ4djU1OS4xMDRjMCAzOS45MzYgMzIuMjU2IDcyLjcwNCA3Mi43MDQgNzIuNzA0aDE5OC4xNDRMNTAwLjIyNCA2ODguNjRsLTM2LjM1Mi0yMjIuNzIgMTYyLjMwNC0xMzAuNTYtNjEuNDQgMTQzLjg3MiA5Mi42NzIgMjE0LjAxNi0xMDUuNDcyIDE3MS4wMDhoMzM1LjM2QzkyNy4yMzIgODY0LjI1NiA5NjAgODMyIDk2MCA3OTEuNTUyVjIzMi40NDhjMC0zOS45MzYtMzIuMjU2LTcyLjcwNC03Mi43MDQtNzIuNzA0em0tMTM4Ljc1MiA3MS42OHYuNTEySDg1Ny42YzE2LjM4NCAwIDMwLjIwOCAxMy4zMTIgMzAuMjA4IDMwLjIwOHYzOTkuODcyTDY3My4yOCA0MDguMDY0bDc1LjI2NC0xNzYuNjR6TTMwNC42NCA3OTIuMDY0SDE2NS44ODhjLTE2LjM4NCAwLTMwLjIwOC0xMy4zMTItMzAuMjA4LTMwLjIwOHYtOS43MjhsMTM4Ljc1Mi0xNjQuMzUyIDEwNC45NiAxMjQuNDE2LTc0Ljc1MiA3OS44NzJ6bTgxLjkyLTM1NS44NGwzNy4zNzYgMjI4Ljg2NC0uNTEyLjUxMi0xNDIuODQ4LTE2OS45ODRjLTMuMDcyLTMuNTg0LTkuMjE2LTMuNTg0LTEyLjI4OCAwTDEzNS42OCA2NTIuOFYyNjIuMTQ0YzAtMTYuMzg0IDEzLjMxMi0zMC4yMDggMzAuMjA4LTMwLjIwOGg0NzQuNjI0TDM4Ni41NiA0MzYuMjI0em01MDEuMjQ4IDMyNS42MzJjMCAxNi44OTYtMTMuMzEyIDMwLjIwOC0yOS42OTYgMzAuMjA4SDY4MC45Nmw1Ny4zNDQtOTMuMTg0LTg3LjU1Mi0yMDIuMjQgNy4xNjgtNy42OCAyMjkuODg4IDI3Mi44OTZ6IiBmaWxsPSIjY2NmZmZmY2MiLz4NCjwvc3ZnPg=="}});
-    </script>
-    <script>"serviceWorker"in navigator&&navigator.serviceWorker.register("/c/sw.js",{scope:"/c/"});</script>
+</script>
+<script>"serviceWorker"in navigator&&navigator.serviceWorker.register("/c/sw.js",{scope:"/c/"});</script>
 </body>
 </html>
