@@ -254,7 +254,7 @@ bug：无
                 margin:10px 0;padding:20px 8px 10px 8px;border-radius:10px;width:100%;background:var(--e1,#99ddff55);
                 >time{position:relative;top:-15px;left:-3px;float:left;margin-right:-9999px;text-align:center;padding:5px 0;min-width:1.9em;border-radius:10px;font-weight:700;background:var(--et1,#6cf);color:#000;}
                 >p{padding:2.5px 0;text-indent:2em;}
-                >ul,>ul>ul{margin:3px 3px 3px 13px;padding:5px;background:#ffffff44;border-radius:15px;>li,>ul>li{text-indent:2em;list-style-type:none;&::before{position:relative;content:"●";color:#00000088;margin-right:5px}}}
+                >ul,>ul>ul{margin:3px 3px 3px 13px;padding:5px;background:#ffffff44;border-radius:15px;>li,>ul>li{text-indent:2em;list-style-type:none;&::before{position:relative;content:"●";color:#00000088;margin-right:5px}}>li:first-child{font-weight:bold;&::before{all:unset}}}
                 &.sp1{background:var(--e2,#cfc5);>time{background:var(--et2,#9f9);}}
                 &.sp2{background:var(--e3,#fec5);>time{background:var(--et3,#fd9);}}
                 &.sp3{background:var(--e4,#fce5);>time{background:var(--et4,#f9d);}}
@@ -382,6 +382,7 @@ bug：无
     <time>1</time>
     <p>文本</p>
     <ul>
+        <li>无序列表项标题</li>
         <li>无序列表项</li>
         <li>无序列表项</li>
     </ul>
