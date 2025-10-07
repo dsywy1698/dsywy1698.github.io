@@ -17,7 +17,7 @@ bug：无
     <style>
         @font-face{font-family:'icons';src:url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'),url('fa.woff2') format('woff2');font-display:swap;}
         :root{color-scheme:light dark;}
-        *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;color:inherit;transition:background 0.3s ease,color 0.3s ease;}
+        *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;color:inherit;transition:background 0.1s ease,color 0.1s ease;}
         p,li{line-height:1.7em;letter-spacing:0.15em;}
         *::-webkit-scrollbar{display:none!important;}
         ::selection{background:var(--se);}
@@ -220,7 +220,7 @@ bug：无
                 }
             }
             >div:nth-of-type(2){
-                height:0;opacity:1;transition:0.3s;background:#fff3;pointer-events:none;padding:7.5px;border-radius:15px;
+                height:0;opacity:0;transition:0.3s;background:#fff3;pointer-events:none;padding:7.5px;border-radius:15px;
                 &.active{height:350px;opacity:1;pointer-events:auto;overflow-y:auto;}
                 >div{
                     position:relative;padding-left:7.5px;margin-left:5px;
@@ -276,7 +276,7 @@ bug：无
                 margin:10px 0;padding:20px 8px 10px 8px;border-radius:10px;width:100%;background:#9df5;
                 >time{position:relative;top:-15px;left:-3px;float:left;margin-right:-9999px;text-align:center;padding:5px 0;min-width:1.9em;border-radius:10px;font-weight:700;background:#6cf;color:#000;}
                 >p{padding:2.5px 0;text-indent:2em;}
-                >ul,>ul>ul{margin:3px 3px 3px 13px;padding:5px;background:#ffffff44;border-radius:15px;>li,>ul>li{text-indent:2em;list-style-type:none;&::before{position:relative;content:"●";color:#00000088;margin-right:5px}}>li:first-child{font-weight:bold;&::before{all:unset}}}
+                >ul,>ul>ul{margin:15px 3px 3px 15px;padding:5px;background:#ffffff44;border-radius:15px;>li,>ul>li{text-indent:2em;list-style-type:none;&::before{position:relative;content:"●";color:#00000088;margin-right:5px}}>li:first-child{font-weight:bold;&::before{all:unset}}}
                 &.sp1{background:#cfc5;>time{background:#9f9}}
                 &.sp2{background:#fec5;>time{background:#fd9}}
                 &.sp3{background:#fce5;>time{background:#f9d}}
@@ -285,7 +285,6 @@ bug：无
             .hot{background:#d9d98c88;color:#212121;li:before{content:"";}>ul>li:first-child{font-weight:unset;}}
             .mt{background:#f9f8;color:#303;font-style:italic;li:before{content:"";}}
             mark{background-color:#d9b3ff88;padding:0 5px;border-radius:15px;}
-            time+ul{margin-top:25px;}
             
         }
         
@@ -301,7 +300,7 @@ bug：无
     </dialog>
     <div id="loader">
         <div><p>木木是我姨姨。</p><button onclick="document.getElementById('loader').style.animation='out 0.7s 0.3s forwards'">跳过</button></div>
-        <script>const texts=["木木是我姨姨。","每节课都要爆胎。"];let currentIndex=0;const carouselText=document.querySelector('#loader>div>p');carouselText.textContent=texts[currentIndex];function rotateText(){currentIndex=(currentIndex+1)%texts.length;carouselText.style.opacity='0';setTimeout(()=>{carouselText.textContent=texts[currentIndex];carouselText.style.opacity='1';},200);}setInterval(rotateText,1000);</script>
+        <script>const texts=["木木是我姨姨。","每节课都要爆胎。","谢谢爷爷！","成志思汗"];let currentIndex=0;const carouselText=document.querySelector('#loader>div>p');carouselText.textContent=texts[currentIndex];function rotateText(){currentIndex=(currentIndex+1)%texts.length;carouselText.style.opacity='0';setTimeout(()=>{carouselText.textContent=texts[currentIndex];carouselText.style.opacity='1';},200);}setInterval(rotateText,1000);</script>
     </div>
     <div id="bigger">窗口过大</div>
     <div id="smaller">窗口过小</div>
@@ -485,7 +484,7 @@ bug：无
 </div>
 <div class="sp1">
     <time>29</time>
-    <p>班级热搜榜中出现：“依诺：宝宝（林芷琪）好快！”后被杨依诺擦掉。</p>
+    <p>班级热搜榜中出现：“依诺：宝宝好快！”后被杨依诺擦掉。</p>
     <ul class="hot">
         <li>班级热搜榜：</li>
         <li><strong style="color:red">#爆#&nbsp;&nbsp;</strong>郑锦熠100m竟跑了全年级第4<strong style="color:red">！！！</strong></li>
@@ -1941,7 +1940,7 @@ bug：无
     </ul>
     <p>物理老师：“还有一个女生叫什么槿的……”</p>
     <p>音乐课讲《长安的荔枝》。</p>
-    <p>班会课语文老师代课，讲完事情后让王淮（老师指定）、陆梓豪（自愿）讲一下班级最近的情况和问题。</p>
+    <p>班会课语文老师代课，讲完事情后让王淮（指定）、陆梓豪（自愿）讲一下班级最近的情况和问题。</p>
 </div>
 <div>
     <time>10</time>
@@ -1984,7 +1983,7 @@ bug：无
     <time>16</time>
     <p>物理老师对陆梓豪、林梓颢：“上物理课干什么？摸来摸去的。”</p>
     <p>物理课上孔祥懿不会看时钟；问：“6除以10等于多少？”</p>
-    <p>上午第四节音乐课讲《哪吒2》，下课时一个视频还没看完，于是午托继续看。看完后孔祥懿等人去看后面的内容，并依次播放（MV）《我乃哪吒三太子》（期间物理老师进班，露出疑惑的表情后离开）、《就是哪吒》、《在故事的最终》，然后陆梓豪播放4次《我乃哪吒三太子》（3次完整、1次中断）（原因：跳舞那段很“唐”）、孔祥懿播放1次《就是哪吒》。</p>
+    <p>上午第四节音乐课讲《哪吒2》，下课时一个视频还没看完，于是午托继续看。看完后孔祥懿等人去看后面的内容，并依次播放（MV）《我乃哪吒三太子》（期间物理老师进班，露出疑惑的表情后离开）、《就是哪吒》、《在故事的最终》，然后陆梓豪播放4次《我乃哪吒三太子》（3次完整、1次中断）（因为跳舞那段很“唐”）、孔祥懿播放1次《就是哪吒》。</p>
     <p>数学课时一实习老师亮相。</p>
     <p>地理老师：“第三组第一桌小黑（崔宇臣）……”</p>
     <p>语文老师：“……再让我看到‘很忙’，别逼我使出杀手锏。”</p>
@@ -2024,8 +2023,8 @@ bug：无
 <div>
     <time>18</time>
     <p>地理课，下课铃响时，李梦妍：“哎，好累啊。”师（模仿）：“好累啊~”</p>
-    <p>物理老师：“郑奕辰（郑锦熠）……（学生提醒后）郑zhe&#780;n熠……”不久后，师：“廖成……羲？”有的学生：“是廖成yi&#768;！”而有的学生：“‘羲’吧！”师：“廖某人，你叫什么？”另外还把“洪鑫洋”说成“林鑫洋”。</p>
-    <p data-tf="1">几天前有传言周四英语课段长要“one by one”小测（有人看到段长在刘老师的朋友圈下评论），当天数学早读时王淮特意让大家40分前复习英语。到了英语课前不少人慌忙地复习，结果发现完全没小测。课件出现10秒的芭蕾舞《天鹅湖》片段，段长播放了2遍，然后说：“如果周一的小测没过，就要跳这个舞……到时候我也会来看……”（周一实际上没跳）</p>
+    <p>物理老师：“郑奕辰（郑锦熠）……（学生提醒后）郑zhe&#780;n熠……”不久后，师：“廖成……羲？”有的学生：“是廖成yi&#768;！”而有的学生：“‘xi&#772;’吧！”师：“廖某人，你叫什么？”另外还把“洪鑫洋”说成“林鑫洋”。</p>
+    <p data-tf="1">几天前有传言周四英语课段长要“one by one”小测（有人看到段长在刘老师的朋友圈下评论），当天数学早读时王淮特意让大家40分前复习英语。到了英语课前不少人慌忙地复习，结果发现完全没小测。课件出现10秒的芭蕾舞《Swan Lake》（天鹅湖）片段，段长播放了2遍，然后说：“如果周一的小测没过，就要跳这个舞……到时候我也会来看……”（周一实际上没跳）</p>
     <p>学校午餐首次出现“黑糯米糕”，有人评价“非常好吃”。</p>
 </div>
 <div>
@@ -2241,33 +2240,34 @@ window.addEventListener('DOMContentLoaded',function(){
 //替代图像
 document.querySelectorAll("img").forEach(M=>{M.onerror=function(){this.src="data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+DQo8cGF0aCBkPSJNMzA0LjEyOCA0NTYuMTkyYzQ4LjY0IDAgODguMDY0LTM5LjQyNCA4OC4wNjQtODguMDY0cy0zOS40MjQtODguMDY0LTg4LjA2NC04OC4wNjQtODguMDY0IDM5LjQyNC04OC4wNjQgODguMDY0IDM5LjQyNCA4OC4wNjQgODguMDY0IDg4LjA2NHptMC0xMTYuMjI0YzE1LjM2IDAgMjguMTYgMTIuMjg4IDI4LjE2IDI4LjE2cy0xMi4yODggMjguMTYtMjguMTYgMjguMTYtMjguMTYtMTIuMjg4LTI4LjE2LTI4LjE2IDEyLjI4OC0yOC4xNiAyOC4xNi0yOC4xNnoiIGZpbGw9IiNjY2ZmZmZjYyIvPg0KPHBhdGggZD0iTTg4Ny4yOTYgMTU5Ljc0NEgxMzYuNzA0Qzk2Ljc2OCAxNTkuNzQ0IDY0IDE5MiA2NCAyMzIuNDQ4djU1OS4xMDRjMCAzOS45MzYgMzIuMjU2IDcyLjcwNCA3Mi43MDQgNzIuNzA0aDE5OC4xNDRMNTAwLjIyNCA2ODguNjRsLTM2LjM1Mi0yMjIuNzIgMTYyLjMwNC0xMzAuNTYtNjEuNDQgMTQzLjg3MiA5Mi42NzIgMjE0LjAxNi0xMDUuNDcyIDE3MS4wMDhoMzM1LjM2QzkyNy4yMzIgODY0LjI1NiA5NjAgODMyIDk2MCA3OTEuNTUyVjIzMi40NDhjMC0zOS45MzYtMzIuMjU2LTcyLjcwNC03Mi43MDQtNzIuNzA0em0tMTM4Ljc1MiA3MS42OHYuNTEySDg1Ny42YzE2LjM4NCAwIDMwLjIwOCAxMy4zMTIgMzAuMjA4IDMwLjIwOHYzOTkuODcyTDY3My4yOCA0MDguMDY0bDc1LjI2NC0xNzYuNjR6TTMwNC42NCA3OTIuMDY0SDE2NS44ODhjLTE2LjM4NCAwLTMwLjIwOC0xMy4zMTItMzAuMjA4LTMwLjIwOHYtOS43MjhsMTM4Ljc1Mi0xNjQuMzUyIDEwNC45NiAxMjQuNDE2LTc0Ljc1MiA3OS44NzJ6bTgxLjkyLTM1NS44NGwzNy4zNzYgMjI4Ljg2NC0uNTEyLjUxMi0xNDIuODQ4LTE2OS45ODRjLTMuMDcyLTMuNTg0LTkuMjE2LTMuNTg0LTEyLjI4OCAwTDEzNS42OCA2NTIuOFYyNjIuMTQ0YzAtMTYuMzg0IDEzLjMxMi0zMC4yMDggMzAuMjA4LTMwLjIwOGg0NzQuNjI0TDM4Ni41NiA0MzYuMjI0em01MDEuMjQ4IDMyNS42MzJjMCAxNi44OTYtMTMuMzEyIDMwLjIwOC0yOS42OTYgMzAuMjA4SDY4MC45Nmw1Ny4zNDQtOTMuMTg0LTg3LjU1Mi0yMDIuMjQgNy4xNjgtNy42OCAyMjkuODg4IDI3Mi44OTZ6IiBmaWxsPSIjY2NmZmZmY2MiLz4NCjwvc3ZnPg=="}});
 //搜索
-function search() {
-    const keyword = document.querySelector("nav input").value.trim();
-    const eventPage = document.getElementById("EVENT");
-    if (!eventPage || window.getComputedStyle(eventPage).display === "none") return;
-    const paragraphs = eventPage.querySelectorAll("p, li");
-    if (!keyword) {
-        paragraphs.forEach(el => {
-            el.style.display = "";
-            el.innerHTML = el.textContent;
-        });
-        heb();
-        return;
-    }
-    const regex = new RegExp(keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
-    let hasMatch = false;
-    paragraphs.forEach(el => {
-        const originalText = el.textContent;
-        if (regex.test(originalText)) {
-            hasMatch = true;
-            el.style.display = "";
-            el.innerHTML = originalText.replace(regex, match => `<mark>${match}</mark>`);
+function search(){
+    var e=document.querySelector("nav input").value.trim(),
+        t=document.getElementById("EVENT");
+    if(t&&"none"!==window.getComputedStyle(t).display){
+        t=t.querySelectorAll("p, li");
+        if(e){
+            const l=new RegExp(e.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"gi");
+            t.forEach(e=>{
+                if(!e.hasAttribute('data-original')) {
+                    e.setAttribute('data-original', e.innerHTML);
+                }
+                var t=e.getAttribute('data-original');
+                l.test(t) ? 
+                    (e.style.display="", e.innerHTML=t.replace(l,e=>`<mark>${e}</mark>`)) : 
+                    e.style.display="none";
+                l.lastIndex=0;
+            });
         } else {
-            el.style.display = "none";
+            t.forEach(e=>{
+                e.style.display="";
+                if(e.hasAttribute('data-original')) {
+                    e.innerHTML = e.getAttribute('data-original');
+                    e.removeAttribute('data-original');
+                }
+            });
         }
-        regex.lastIndex = 0;
-    });
-    heb();
+        heb();
+    }
 }
 //隐藏日志页空div
 function heb() {
