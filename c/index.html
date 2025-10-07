@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <!--
-增加：搜索、点击外部关闭设置框
+增加：搜索
 bug：无
 -->
 <head>
@@ -234,7 +234,7 @@ bug：无
         body[data-n="2"] nav{top:10px;left:10px;width:calc(100dvw - 20px);border-radius:20px;&::before{border-radius:20px;}}
         
         #sD{
-            width:clamp(500px,60dvw,300px);border-radius:20px;padding:10px;border:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--db);backdrop-filter:blur(3px);
+            width:clamp(500px,60dvw,300px);border-radius:20px;padding:10px;border:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--db);backdrop-filter:blur(3px);user-select:none;
             &::backdrop{background:#0006;backdrop-filter:blur(2px);}
             >div:first-child{font-weight:bold;font-size:1.25rem;padding:5px 10px 20px 10px;}
             >div:not(:first-child){
@@ -283,6 +283,7 @@ bug：无
             }
             .hot{background:#d9d98c88;color:#212121;li:before{content:"";}}
             .mt{background:#f9f8;color:#303;font-style:italic;li:before{content:"";}}
+            mark{background-color:#d9b3ff88;padding:0 5px;border-radius:15px;}
         }
         
         @media screen and (min-width:1600px),(min-height:900px){#bigger{display:flex;}#password,#main,#loader,nav{display:none!important;}}
@@ -311,14 +312,13 @@ bug：无
                 <button onclick="document.getElementById('sD').showModal()" class="fa fa-gear"></button>
             </div>
             <div>
-                <input type="text" placeholder="搜索关键词"/>
+                <input type="text" placeholder="搜索关键词" oninput="search()"/>
             </div>
         </div>
         <div>
             <div id="EVENT-l">
                 <a href="#event-d2409">2024年9月</a>
-                <a href="#">链接</a>
-                <a href="#">链接</a>
+                <a href="#event-d2410">2024年10月</a>
             </div>
             <div id="INTRODUCTION-l">
                 <a href="#">1链接</a>
@@ -366,7 +366,7 @@ bug：无
             </div>
             <button onclick="localStorage.clear();ubg();location.reload(true);">重置<small style="color:#f99;">（将清除密码和个性化设置）</small></button>
         </dialog>
-        <main id="HOME">
+<main id="HOME">
 <header><h1>首页</h1></header>
 <hr/>
 <p>页面开发中，敬请期待。</p>
@@ -375,9 +375,8 @@ bug：无
 <p data-tf="2">过滤2</p>
 <p data-tf="3">过滤3</p>
 <p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p><p>文本</p>
-
-        </main>
-        <main id="INTRODUCTION">
+</main>
+<main id="INTRODUCTION">
 <header><h1>介绍</h1></header>
 <h1>副标题1</h1>
 <article>
@@ -395,37 +394,42 @@ bug：无
     <p>长引用文本长引用文本</p>
     <p>长引用文本长引用文本</p>
 </blockquote>
-        </main>
-        <main id="EVENT">
+</main>
+<main id="EVENT">
 <header><h1>日志</h1></header>
 <h1 id="event-d2409">2024年9月</h1>
 <div>
     <time>1</time>
-    <p>文本</p>
+    <p>文本1</p>
     <ul>
         <li>无序列表项标题</li>
-        <li>无序列表项</li>
-        <li>无序列表项</li>
+        <li>无序列表项1</li>
+        <li>无序列表项2</li>
     </ul>
-    <p>文本</p>
+    <p>文本2</p>
 </div>
 <div class="sp1">
     <time>2</time>
-    <p>文本</p>
+    <p>文本3</p>
 </div>
 <div class="sp2">
     <time>3</time>
-    <p>文本</p>
+    <p>文本4，。：“”的了</p>
 </div>
 <div class="sp3">
     <time>4</time>
-    <p>文本</p>
+    <p>文本5</p>
 </div>
 <div class="sp4">
     <time>5</time>
-    <p>文本</p>
+    <p>文本6</p>
 </div>
-        </main>
+<h1 id="event-d2410">2024年10月</h1>
+<div>
+    <time>1</time>
+    <p>文本7</p>
+</div>
+</main>
         <footer>
         
         </footer>
@@ -447,13 +451,15 @@ function showPage(e){
 }
 //关闭菜单
 document.addEventListener("click",function(t){var e=document.querySelector("nav>div:nth-of-type(2)"),n=document.querySelector("nav>div:nth-of-type(1) button.fa-navicon");e.classList.contains("active")&&!e.contains(t.target)&&t.target!==n&&e.classList.remove("active")}),document.querySelectorAll("nav>div:nth-of-type(2) a,nav>div:nth-of-type(2) button").forEach(t=>{t.addEventListener("click",function(){document.querySelector("nav>div:nth-of-type(2)").classList.remove("active")})});
+//关闭模态框
+document.getElementById("sD").addEventListener("click",function(t){var e=this.getBoundingClientRect();(t.clientX<e.left||e.right<t.clientX||t.clientY<e.top||e.bottom<t.clientY)&&this.close()});
 //进度条
 window.addEventListener("scroll",()=>{var e=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100;document.querySelector("nav").style.setProperty("--progress",e+"%")});
 //主题切换
 function chT(e){document.body.setAttribute("data-t",e),localStorage.setItem("t",e);}
 function chW(e){document.body.setAttribute("data-w",e),localStorage.setItem("w",e);}
 function chN(e){document.body.setAttribute("data-n",e),localStorage.setItem("n",e);}
-function chF(e){document.body.setAttribute("data-f",e),localStorage.setItem("f",e);}
+function chF(e){document.body.setAttribute("data-f",e),localStorage.setItem("f",e);search();}
 document.getElementById('r1').addEventListener('input',function(){document.querySelector('body>#main').style.setProperty("--opacity",this.value+"%");localStorage.setItem("o",this.value);});
 document.getElementById('r2').addEventListener('input',function(){document.querySelector('body>#main').style.backdropFilter="blur("+this.value+"px)";localStorage.setItem("b",this.value);});
 // 背景图片
@@ -478,6 +484,68 @@ window.addEventListener('DOMContentLoaded',function(){
 });
 //替代图像
 document.querySelectorAll("img").forEach(M=>{M.onerror=function(){this.src="data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+DQo8cGF0aCBkPSJNMzA0LjEyOCA0NTYuMTkyYzQ4LjY0IDAgODguMDY0LTM5LjQyNCA4OC4wNjQtODguMDY0cy0zOS40MjQtODguMDY0LTg4LjA2NC04OC4wNjQtODguMDY0IDM5LjQyNC04OC4wNjQgODguMDY0IDM5LjQyNCA4OC4wNjQgODguMDY0IDg4LjA2NHptMC0xMTYuMjI0YzE1LjM2IDAgMjguMTYgMTIuMjg4IDI4LjE2IDI4LjE2cy0xMi4yODggMjguMTYtMjguMTYgMjguMTYtMjguMTYtMTIuMjg4LTI4LjE2LTI4LjE2IDEyLjI4OC0yOC4xNiAyOC4xNi0yOC4xNnoiIGZpbGw9IiNjY2ZmZmZjYyIvPg0KPHBhdGggZD0iTTg4Ny4yOTYgMTU5Ljc0NEgxMzYuNzA0Qzk2Ljc2OCAxNTkuNzQ0IDY0IDE5MiA2NCAyMzIuNDQ4djU1OS4xMDRjMCAzOS45MzYgMzIuMjU2IDcyLjcwNCA3Mi43MDQgNzIuNzA0aDE5OC4xNDRMNTAwLjIyNCA2ODguNjRsLTM2LjM1Mi0yMjIuNzIgMTYyLjMwNC0xMzAuNTYtNjEuNDQgMTQzLjg3MiA5Mi42NzIgMjE0LjAxNi0xMDUuNDcyIDE3MS4wMDhoMzM1LjM2QzkyNy4yMzIgODY0LjI1NiA5NjAgODMyIDk2MCA3OTEuNTUyVjIzMi40NDhjMC0zOS45MzYtMzIuMjU2LTcyLjcwNC03Mi43MDQtNzIuNzA0em0tMTM4Ljc1MiA3MS42OHYuNTEySDg1Ny42YzE2LjM4NCAwIDMwLjIwOCAxMy4zMTIgMzAuMjA4IDMwLjIwOHYzOTkuODcyTDY3My4yOCA0MDguMDY0bDc1LjI2NC0xNzYuNjR6TTMwNC42NCA3OTIuMDY0SDE2NS44ODhjLTE2LjM4NCAwLTMwLjIwOC0xMy4zMTItMzAuMjA4LTMwLjIwOHYtOS43MjhsMTM4Ljc1Mi0xNjQuMzUyIDEwNC45NiAxMjQuNDE2LTc0Ljc1MiA3OS44NzJ6bTgxLjkyLTM1NS44NGwzNy4zNzYgMjI4Ljg2NC0uNTEyLjUxMi0xNDIuODQ4LTE2OS45ODRjLTMuMDcyLTMuNTg0LTkuMjE2LTMuNTg0LTEyLjI4OCAwTDEzNS42OCA2NTIuOFYyNjIuMTQ0YzAtMTYuMzg0IDEzLjMxMi0zMC4yMDggMzAuMjA4LTMwLjIwOGg0NzQuNjI0TDM4Ni41NiA0MzYuMjI0em01MDEuMjQ4IDMyNS42MzJjMCAxNi44OTYtMTMuMzEyIDMwLjIwOC0yOS42OTYgMzAuMjA4SDY4MC45Nmw1Ny4zNDQtOTMuMTg0LTg3LjU1Mi0yMDIuMjQgNy4xNjgtNy42OCAyMjkuODg4IDI3Mi44OTZ6IiBmaWxsPSIjY2NmZmZmY2MiLz4NCjwvc3ZnPg=="}});
+//搜索
+function search() {
+    const keyword = document.querySelector("nav input").value.trim();
+    const eventPage = document.getElementById("EVENT");
+    if (!eventPage || window.getComputedStyle(eventPage).display === "none") return;
+    const paragraphs = eventPage.querySelectorAll("p, li");
+    if (!keyword) {
+        paragraphs.forEach(el => {
+            el.style.display = "";
+            el.innerHTML = el.textContent;
+        });
+        heb();
+        return;
+    }
+    const regex = new RegExp(keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+    let hasMatch = false;
+    paragraphs.forEach(el => {
+        const originalText = el.textContent;
+        if (regex.test(originalText)) {
+            hasMatch = true;
+            el.style.display = "";
+            el.innerHTML = originalText.replace(regex, match => `<mark>${match}</mark>`);
+        } else {
+            el.style.display = "none";
+        }
+        regex.lastIndex = 0;
+    });
+    heb();
+}
+//隐藏日志页空div
+function heb() {
+    document.querySelectorAll("#EVENT>div").forEach(e => {
+        var t = Array.from(e.children).some(e => "TIME" !== e.tagName && "none" !== window.getComputedStyle(e).display);
+        e.style.display = t ? "" : "none"
+    });
+    document.querySelectorAll("#EVENT ul").forEach(ul => {
+        const allHidden = Array.from(ul.querySelectorAll('li')).every(li => 
+            window.getComputedStyle(li).display === 'none'
+        );
+        ul.style.display = allHidden ? 'none' : '';
+    });
+    document.querySelectorAll("#EVENT>h1").forEach(e => {
+        let t = e.nextElementSibling,
+            n = !1;
+        for (; t && "H1" !== t.tagName;) {
+            if ("none" !== t.style.display) {
+                n = !0;
+                break
+            }
+            t = t.nextElementSibling
+        }
+        e.style.display = n ? "" : "none"
+    })
+}
+heb();
+const observer = new MutationObserver(heb);
+observer.observe(document.getElementById("EVENT"), {
+    childList: !0,
+    subtree: !0,
+    attributes: !0,
+    attributeFilter: ["style"]
+});
 </script>
 <script>"serviceWorker"in navigator&&navigator.serviceWorker.register("/c/sw.js",{scope:"/c/"});</script>
 </body>
