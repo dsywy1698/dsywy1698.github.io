@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <!--
-增加：<mark>样式、阴影
-bug：无
+增加：<mark>样式、阴影、日志页特殊词/hot快速匹配
+bug：搜索日志内容时会匹配属性值超链接的url、内联html元素
 -->
 <head>
     <title>标题</title>
@@ -284,6 +284,7 @@ bug：无
             .hot{background:#d9d98c88;color:#212121;li:before{content:"";}>ul>li:first-child{font-weight:unset;}}
             .mt{background:#f9f8;color:#303;font-style:italic;li:before{content:"";}}
             mark{background-color:#d9b3ff88;padding:0 5px;border-radius:15px;}
+            p[data-h]::before,li[data-h]::before{background:#f93b;content:"HOT";color:#310;font-weight:bold;padding:0 2.5px;border-radius:5px;margin-right:5px;}
         }
         
         @media screen and (min-width:1600px),(min-height:900px){#bigger{display:flex;}#password,#main,#loader,nav{display:none!important;}}
