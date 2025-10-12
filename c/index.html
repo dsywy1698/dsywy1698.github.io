@@ -43,7 +43,6 @@ bug：无
             --se:#32676788;
             --nb:#abb5ba88;
             --nc:#507c95cc;
-            --np:#859cad;
             --hr:#998033;
             --ac:#0a0ac2;
             --ah:#2525f4;
@@ -71,7 +70,6 @@ bug：无
             --se:#5959a688;
             --nb:#3d495c88;
             --nc:#b3bccc;
-            --np:#8c8cc0;
             --hr:#e6d299;
             --ac:#8ca6f2;
             --ah:#5e82ed;
@@ -99,7 +97,6 @@ bug：无
             --se:#cff8;
             --nb:#cffa;
             --nc:#36c;
-            --np:#6cf;
             --hr:#cff;
             --ac:#fafa9e;
             --ah:#f5f53d;
@@ -127,7 +124,6 @@ bug：无
             --se:#ffd70088;
             --nb:#ffd90088;
             --nc:#5c4a00;
-            --np:#b8b87a;
             --hr:#9c0;
             --ac:#d4a800;
             --ah:#ffcc00;
@@ -155,7 +151,6 @@ bug：无
             --se:#96f8;
             --nb:#9908;
             --nc:#ffc;
-            --np:#b8997a;
             --hr:#ad88f6;
             --ac:#ff9;
             --ah:#d9b3ff;
@@ -215,19 +210,19 @@ bug：无
                 }
                 >div:nth-of-type(2){
                     display:none;
-                    >input{height:30px;width:140px;background:#fff8;border:none;border-radius:15px;padding:0 10px;margin-left:15px;&::placeholder{color:var(--np);}}
+                    >input{height:30px;width:140px;background:#fff3;border:none;border-radius:15px;padding:0 10px;margin-left:15px;&::placeholder{color:var(--nc);opacity:0.5;}}
                     &::before{position:absolute;content:"";width:1px;height:20px;top:10px;background:var(--nc);margin:0 5px;border-radius:0.5px;}
                 }
             }
             >div:nth-of-type(2){
-                height:0;opacity:1;transition:0.3s;background:#fff3;pointer-events:none;padding:7.5px;border-radius:15px;
+                height:0;opacity:0;transition:0.3s;background:linear-gradient(#fff3,transparent);pointer-events:none;padding:7.5px;border-radius:15px;
                 &.active{height:350px;opacity:1;pointer-events:auto;overflow-y:auto;}
                 >div{
                     position:relative;padding-left:7.5px;margin-left:5px;
                     &::before{content:'';position:absolute;left:0;top:5px;bottom:5px;width:3px;background:var(--nb);opacity:0.5;border-radius:1.5px;}
                     >a{display:block;text-decoration:none;height:40px;padding:2.5px 10px;border-radius:22.5px;line-height:35px;background:transparent;margin:2.5px 0;color:inherit;&:hover{background:#fff5;}}
                 }
-                >button{display:block;width:100%;text-align:left;font-size:1.125rem;padding:5px 15px;border-radius:99px;margin-top:5px;background:transparent;transition:0.3s;&:hover{background:#fff5;}}
+                >button{display:block;width:100%;text-align:left;font-size:1.125rem;padding:5px 15px;border-radius:99px;margin-top:5px;background:transparent;transition:0.3s;&:hover{background:#fff2;}}
             }
         }
         body[data-n="1"] nav{top:0;left:0;width:100dvw;}
@@ -285,6 +280,9 @@ bug：无
             .mt{background:#f9f8;color:#303;font-style:italic;li:before{content:"";}}
             mark{background-color:#d9b3ff88;padding:0 5px;border-radius:15px;}
             p[data-h]::before,li[data-h]::before{background:#f93b;content:"HOT";color:#310;font-weight:bold;padding:0 2.5px;border-radius:5px;margin-right:5px;}
+        }
+        footer{
+            padding:30dvh 30px 50px 30px;background:linear-gradient(transparent 0,#0008 30dvh);color:#fffa;
         }
         
         @media screen and (min-width:1600px),(min-height:900px){#bigger{display:flex;}#password,#main,#loader,nav{display:none!important;}}
@@ -432,7 +430,7 @@ bug：无
 </div>
 </main>
         <footer>
-        
+            <h1>页面到底了！</h1>
         </footer>
     </div>
 <script>
