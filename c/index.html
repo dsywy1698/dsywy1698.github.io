@@ -190,14 +190,13 @@ bug：无
         }
         
         #loader{
-            background:var(--lb);width:100dvw;height:100dvh;z-index:2;overflow:hidden;position:fixed;top:0;left:0;display:flex;justify-content:center;align-items:center;transition:none;flex-wrap:wrap;
+            background:var(--lb);width:100dvw;height:100dvh;z-index:2;overflow:hidden;position:fixed;top:0;left:0;display:flex;justify-content:center;align-items:center;transition:none;flex-wrap:wrap;will-change:opacity;
             >div{
                 width:100vw;text-align:center;
                 >p{color:var(--lc);transition:opacity 0.2s;margin:10px 0;padding:0;font-size:1.25rem;}
                 >button{background:var(--nb);font-size:1.125rem;padding:2.5px 15px;line-height:30px;border-radius:15px;transition:none;}
             }
         }
-        @keyframes out{0%{opacity:1;}99%{opacity:0;}100%{opacity:0;display:none;}}
         
         nav{
             position:fixed;background:var(--nb);height:40px;padding:5px;backdrop-filter:blur(15px);z-index:1;margin:auto;box-shadow:;user-select:none;transition:height 0.3s;overflow:hidden;
@@ -266,11 +265,12 @@ bug：无
             .gallery{background:linear-gradient(var(--gs),var(--ge));padding:15px;border-radius:15px;text-align:center;margin:5px 0;>img{max-width:600px;width:100%;border-radius:10px;}>p{color:var(--ga);}}}
         #EVENT{
             >h1{background:var(--eh,#0998);text-align:center;border-radius:100dvw;margin:25px 15px 5px 15px;padding:10px;color:#fff;}
+            >h1[id="event-not"]+div>p>span{background:#f968;padding:0 5px;border-radius:5px;margin-right:10px;}
             >div{
                 margin:10px 0;padding:20px 8px 10px 8px;border-radius:10px;width:100%;background:#9df5;
                 >time{position:relative;top:-15px;left:-3px;float:left;margin-right:-9999px;text-align:center;padding:5px 0;min-width:1.9em;border-radius:10px;font-weight:700;background:#6cf;color:#000;}
                 >p{padding:2.5px 0;text-indent:2em;}
-                >ul,>ul>ul{margin:3px 3px 3px 13px;padding:5px;background:#ffffff44;border-radius:15px;>li,>ul>li{text-indent:2em;list-style-type:none;&::before{position:relative;content:"●";color:#00000088;margin-right:5px}}>li:first-child{font-weight:bold;&::before{all:unset}}}
+                >ul,>ul>ul{margin:15px 3px 3px 15px;padding:5px;background:#ffffff44;border-radius:15px;>li,>ul>li{text-indent:2em;list-style-type:none;&::before{position:relative;content:"●";color:#00000088;margin-right:5px}}>li:first-child{font-weight:bold;&::before{all:unset}}}
                 &.sp1{background:#cfc5;>time{background:#9f9}}
                 &.sp2{background:#fec5;>time{background:#fd9}}
                 &.sp3{background:#fce5;>time{background:#f9d}}
@@ -289,14 +289,14 @@ bug：无
         @media screen and (max-width:320px),(max-height:500px){#smaller{display:flex;}#password,#main,#loader,nav{display:none!important;}}
     </style>
 </head>
-<body onload="document.getElementById('loader').style.animation='out 0.7s 0.3s forwards'" data-t="l" data-w="n" data-n="2" data-f="3">
+<body data-t="l" data-w="n" data-n="2" data-f="3">
     <dialog id="password">
         <h1>输入密码</h1>
         <div><input type="password"/><button onclick="ep()">OK</button></div>
         <p><strong>提示：</strong>一些文本一些文本</p>
     </dialog>
     <div id="loader">
-        <div><p>文本1</p><button onclick="document.getElementById('loader').style.animation='out 0.7s 0.3s forwards'">跳过</button></div>
+        <div><p>文本1</p><button onclick="smoothFadeOut()">跳过</button></div>
         <script>const texts=["文本1","文本2"];let currentIndex=0;const carouselText=document.querySelector('#loader>div>p');carouselText.textContent=texts[currentIndex];function rotateText(){currentIndex=(currentIndex+1)%texts.length;carouselText.style.opacity='0';setTimeout(()=>{carouselText.textContent=texts[currentIndex];carouselText.style.opacity='1';},200);}setInterval(rotateText,1000);</script>
     </div>
     <div id="bigger">窗口过大</div>
@@ -473,6 +473,9 @@ function search(){var e=document.querySelector("nav input").value.trim(),t=docum
 function heb(){document.querySelectorAll("#EVENT>div").forEach(e=>{var t=Array.from(e.children).some(e=>"TIME"!==e.tagName&&"none"!==window.getComputedStyle(e).display);e.style.display=t?"":"none"}),document.querySelectorAll("#EVENT ul").forEach(e=>{var t=Array.from(e.querySelectorAll("li")).every(e=>"none"===window.getComputedStyle(e).display);e.style.display=t?"none":""}),document.querySelectorAll("#EVENT>h1").forEach(e=>{let t=e.nextElementSibling,l=!1;for(;t&&"H1"!==t.tagName;){if("none"!==t.style.display){l=!0;break}t=t.nextElementSibling}e.style.display=l?"":"none"})}heb();const observer=new MutationObserver(heb);observer.observe(document.getElementById("EVENT"),{childList:!0,subtree:!0,attributes:!0,attributeFilter:["style"]});
 //外部链接在新页面打开
 document.querySelectorAll('a[href^="http"]').forEach(link=>{link.setAttribute('target','_blank');});
+//加载动画
+function smoothFadeOut(){const n=document.getElementById("loader");let o=1;const a=performance.now();requestAnimationFrame(function t(e){e-=a,e=Math.min(e/300,1);o=1-e,n.style.opacity=o,e<1?requestAnimationFrame(t):n.style.display="none"})}
+window.addEventListener("load",function(){setTimeout(smoothFadeOut,300)});
 //初始化
 window.addEventListener('DOMContentLoaded',function(){
     const p=localStorage.getItem('p');p?document.getElementById('password').close():document.getElementById('password').showModal();
