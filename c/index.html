@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <!--
-增加：<mark>样式、阴影、history API
-bug：无
+增加：阴影
 -->
 <head>
     <title>标题</title>
@@ -10,6 +9,7 @@ bug：无
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <meta name="robots" content="noindex,nofollow"/>
     <meta name="referrer" content="no-referrer"/>
+    <meta name="theme-color" id="th" content="#c2d0d6">
     <link rel="stylesheet" href="fa.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="manifest" href="manifest.json"/>
@@ -62,6 +62,7 @@ bug：无
             --ge:#3995;
             --ga:#133939;
             --eh:#8f663d88;
+            --th:#c2d0d6;
         }
         body[data-t="d"]{
             >#main{background:rgba(0,0,26,var(--opacity,100%));}
@@ -89,6 +90,7 @@ bug：无
             --ge:;
             --ga:;
             --eh:;
+            --th:#242442;
         }
         body[data-t="b"]{
             >#main{background:rgba(0,102,255,var(--opacity,100%));}
@@ -116,6 +118,7 @@ bug：无
             --ge:#09c5;
             --ga:#e6f9ff;
             --eh:#3cf8;
+            --th:#0cf;
         }
         body[data-t="m"]{
             >#main{background:rgba(255,248,230,var(--opacity,100%));}
@@ -143,6 +146,7 @@ bug：无
             --ge:;
             --ga:;
             --eh:;
+            --th:#e8e87d;
         }
         body[data-t="n"]{
             >#main{background:rgba(13,13,63,var(--opacity,100%));}
@@ -170,6 +174,7 @@ bug：无
             --ge:#0f8a8a55;
             --ga:#baf7f7;
             --eh:#0998;
+            --th:#19194d;
         }
         body[data-w="l"]{font-weight:200;}
         body[data-w="n"]{font-weight:normal;}
@@ -476,6 +481,8 @@ document.querySelectorAll('a[href^="http"]').forEach(link=>{link.setAttribute('t
 //加载动画
 function smoothFadeOut(){const n=document.getElementById("loader");let o=1;const a=performance.now();requestAnimationFrame(function t(e){e-=a,e=Math.min(e/300,1);o=1-e,n.style.opacity=o,e<1?requestAnimationFrame(t):n.style.display="none"})}
 window.addEventListener("load",function(){setTimeout(smoothFadeOut,300)});
+//状态栏颜色
+const rootStyles=getComputedStyle(document.documentElement),primaryColor=rootStyles.getPropertyValue("--th").trim();document.getElementById("th").content=primaryColor;
 //初始化
 window.addEventListener('DOMContentLoaded',function(){
     const p=localStorage.getItem('p');p?document.getElementById('password').close():document.getElementById('password').showModal();
