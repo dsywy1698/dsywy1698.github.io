@@ -460,7 +460,7 @@ document.getElementById("sD").addEventListener("click",function(t){var e=this.ge
 //进度条
 window.addEventListener("scroll",()=>{var e=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100;document.querySelector("nav").style.setProperty("--progress",e+"%")});
 //主题切换
-function chT(e){document.body.setAttribute("data-t",e),localStorage.setItem("t",e);}
+function chT(e){document.body.setAttribute("data-t",e),localStorage.setItem("t",e);document.getElementById("th").content=getComputedStyle(document.body).getPropertyValue('--th');}
 function chW(e){document.body.setAttribute("data-w",e),localStorage.setItem("w",e);}
 function chN(e){document.body.setAttribute("data-n",e),localStorage.setItem("n",e);}
 function chF(e){document.body.setAttribute("data-f",e),localStorage.setItem("f",e);search();}
@@ -481,8 +481,6 @@ document.querySelectorAll('a[href^="http"]').forEach(link=>{link.setAttribute('t
 //加载动画
 function smoothFadeOut(){const n=document.getElementById("loader");let o=1;const a=performance.now();requestAnimationFrame(function t(e){e-=a,e=Math.min(e/300,1);o=1-e,n.style.opacity=o,e<1?requestAnimationFrame(t):n.style.display="none"})}
 window.addEventListener("load",function(){setTimeout(smoothFadeOut,300)});
-//状态栏颜色
-const rootStyles=getComputedStyle(document.documentElement),primaryColor=rootStyles.getPropertyValue("--th").trim();document.getElementById("th").content=primaryColor;
 //初始化
 window.addEventListener('DOMContentLoaded',function(){
     const p=localStorage.getItem('p');p?document.getElementById('password').close():document.getElementById('password').showModal();
