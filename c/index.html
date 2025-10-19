@@ -232,7 +232,9 @@
             >div:nth-of-type(1){
                 display:flex;justify-content:center;height:40px;
                 >div:nth-of-type(1){
+                    position:relative;top:-5px;
                     >button{width:30px;height:30px;border-radius:50%;background:transparent;transition:background 0.3s;&:hover{background:#73838c88;}&::before{color:var(--nc);font-size:20px;}}
+                    #logo{background-image:url("9.png");width:27.5px;height:27.5px;background-position:50% 50%;background-repeat:no-repeat;background-size:cover;position:relative;top:6.25px;}
                 }
                 >div:nth-of-type(2){
                     display:none;
@@ -288,7 +290,7 @@
             >header{font-size:2rem;text-align:center;padding:20px 0 50px 0;}
             article{background:var(--ar,#0066ff88);padding:12.5px;border-radius:15px;margin:5px 0;box-shadow:0 1px 1px var(--s1),0 2px 2px var(--s1),0 4px 4px var(--s1),0 8px 8px var(--s1);>p{text-indent:2em;}>h1{text-align:center;margin:5px auto;}}
             q{background:var(--qb,#06f8);font-size:1.5625rem;display:block;text-align:center;padding:8px;border-radius:10px;margin:5px 0;&::before{font-family:"icons";content:"\f10d";color:var(--qi);padding-right:10px;}&::after{font-family:"icons";content:"\f10e";color:var(--qi);padding-left:10px;}}
-            blockquote{background:var(--bl);padding:20px;border-radius:10px;border-left:5px solid #8884;margin:5px 0;}
+            blockquote{background:linear-gradient(to right,var(--bl),var(--bl),transparent);padding:20px;border-radius:10px;border-left:5px solid #8884;margin:5px 0;}
             .gallery{background:linear-gradient(var(--gs),var(--ge));padding:15px;border-radius:15px;text-align:center;margin:5px 0;>img{max-width:600px;width:100%;border-radius:10px;}>p{color:var(--ga);}}}
             .division{width:100%;box-shadow:0 15px 15px -14px #000;height:30px;margin:20px 0;}
             .box{background:#fff8;padding:20px;text-align:center;border-radius:15px;color:#000;font-size:110%;margin:5px;box-shadow:;>p{margin:0;}}
@@ -335,7 +337,7 @@
             <div>
                 <button onclick="document.querySelector('nav>div:nth-of-type(2)').classList.toggle('active')" class="fa fa-navicon"></button>
                 <button onclick="window.scrollTo(0,0)" class="fa fa-chevron-up"></button>
-                <button onclick="showPage('HOME')" class="fa fa-home"></button>
+                <button onclick="showPage('HOME')" id="logo"></button>
                 <button onclick="window.scrollTo(0,document.documentElement.scrollHeight)" class="fa fa-chevron-down"></button>
                 <button onclick="document.getElementById('sD').showModal()" class="fa fa-gear"></button>
             </div>
