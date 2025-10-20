@@ -1,5 +1,5 @@
 const CACHE_NAME = 'v1';
-const BASE_PATH = '/repo/c/';  // 子目录路径
+const BASE_PATH = '/c/';  // 子目录路径
 
 self.addEventListener('install', (e) => {
   e.waitUntil(
