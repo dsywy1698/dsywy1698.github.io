@@ -19,7 +19,7 @@
             p[data-h]::before,li[data-h]::before{background:#f93b;content:"HOT";color:#310;font-weight:bold;padding:0 2.5px;border-radius:5px;margin-right:5px;}
             .unsure{background:#f008;color:#fcc;padding:0 5px;margin-right:5px;border-radius:5px;&:before{content:"日期存疑";}}
         }
-        footer{padding:30dvh 30px 50px 30px;background:linear-gradient(transparent 0,#0008 30dvh);color:#fffa;}@media screen and (min-width:1600px),(min-height:900px){#bigger{display:flex;}#password,#main,#loader,nav{display:none!important;}}@media screen and (max-width:320px),(max-height:500px){#smaller{display:flex;}#password,#main,#loader,nav{display:none!important;}}</style></head><body data-t="l" data-w="n" data-n="2" data-f="3"><dialog id="password"><h1>输入密码</h1><div><input type="password"/><button onclick="ep()">OK</button></div><p><strong>提示：</strong>页面仅为9班提供，如有侵权将删除。</p></dialog><div id="loader"><div><p>文本1</p><button onclick="smoothFadeOut()">跳过</button></div><script>const texts=["文本1","文本2"];let currentIndex=0;const carouselText=document.querySelector('#loader>div>p');carouselText.textContent=texts[currentIndex];function rotateText(){currentIndex=(currentIndex+1)%texts.length;carouselText.style.opacity='0';setTimeout(()=>{carouselText.textContent=texts[currentIndex];carouselText.style.opacity='1'},200)}setInterval(rotateText,1000);</script></div><div id="bigger">窗口过大</div><div id="smaller">窗口过小</div>
+        footer{padding:30dvh 30px 50px 30px;background:linear-gradient(transparent 0,#0008 30dvh);color:#fffa;}@media screen and (min-width:1600px),(min-height:900px){#bigger{display:flex;}#password,#main,#loader,nav{display:none!important;}}@media screen and (max-width:320px),(max-height:300px){#smaller{display:flex;}#password,#main,#loader,nav{display:none!important;}}</style></head><body data-t="l" data-w="n" data-n="2" data-f="3"><dialog id="password"><h1>输入密码</h1><div><input type="password"/><button onclick="ep()">OK</button></div><p><strong>提示：</strong>页面仅为9班提供，如有侵权将删除。</p></dialog><div id="loader"><div><p>文本1</p><button onclick="smoothFadeOut()">跳过</button></div><script>const texts=["文本1","文本2"];let currentIndex=0;const carouselText=document.querySelector('#loader>div>p');carouselText.textContent=texts[currentIndex];function rotateText(){currentIndex=(currentIndex+1)%texts.length;carouselText.style.opacity='0';setTimeout(()=>{carouselText.textContent=texts[currentIndex];carouselText.style.opacity='1'},200)}setInterval(rotateText,1000);</script></div><div id="bigger">窗口过大</div><div id="smaller">窗口过小</div>
     <nav>
         <div>
             <div>
@@ -1813,7 +1813,11 @@
     <p>叶弘毅借记作业本，林芷琪把自己的本子扔过去，结果散成两半。</p>
     <p data-tf="2">陈子岩、蔡华楷、陆梓豪、林奕扬、林芷琪把冰袋里的物质挤进一个空的汤碗里，要做“史莱姆”（或“起泡胶”），随后陆梓豪又把芥末挤到里面“染色”，还有人往里面加水。</p>
     <p>地理老师：“广东省简称？”叶弘毅等：“广！”</p>
-    <p>英语课讲评那张有“哪吒”阅读题的卷子，师：“那一段有一个词组。”唐家祺：“魔丸！”讲到词组“be born with”，师：“……（译为）生来就。”生：“你生来就是魔丸！”</p>
+    <ul>
+        <li>英语课讲评练习：</li>
+        <li>讲到“哪吒”那题，师：“那一段有一个词组。”唐家祺：“魔丸！”文中有词组“be born with”，师：“……（译为）生来就。”生：“你生来就是魔丸！”</li>
+        <li><span class="unsure"></span>阅读题出现词组“green thumb”，师（疑惑）：“‘绿色大拇指’？”</li>
+    </ul>
     <ul>
         <li>物理课：</li>
         <li>讲“噪声控制”时徐嘉明捏矿泉水瓶发出声音被叫起立回答问题：“……（捏矿泉水瓶发出的噪声）应该怎么防治？”有人：“把徐嘉明抽真空！”“在徐嘉明身上植树。”徐嘉明则捂耳朵。</li>
@@ -1870,14 +1874,26 @@
     <ul class="hot">
         <li>班级热搜榜：</li>
         <li><strong style="color:red">Top1</strong>惊！刘老师竟要抽查全班英语单词！<span style="color:red">引发同学恐慌，现已陷入一片混乱！！！</span></li>
-        <ul><li>……</li></ul>
+        <ul>
+            <li>逗姐：不要啊！！！（害怕）（尖叫）</li>
+            <li>人机公主经纪人：求放过（抱头）</li>
+            <li>Flowey：*999</li>
+            <li>人机公主<small>回复</small>人机公主经纪人：装什么（翻白眼）（涂美甲）</li>
+        </ul>
         <li><strong style="color:red">Top2</strong>逗姐800m（a&#769;i me&#780;n）第六！</li>
         <ul><li>逗姐：<strong>谢谢爷爷！</strong></li><li>……</li></ul>
         <li><strong style="color:red">Top3</strong>九班“史铁生再现”随及出现的是“50位余华”，“史铁生”机甲变身，横扫9班！</li>
-        <ul><li>……</li></ul>
+        <ul>
+            <li>信仰：魔丸降世😈</li>
+            <li>鞋美<small>回复</small>信仰：根深蒂固！！！</li>
+            <li>湿纸巾嘉豪<small>回复</small>鞋美：智齿邪恶水蜜桃</li>
+        </ul>
         <li><strong style="color:red">4</strong>“Swan Lake”风波，9班差点上演“40小天鹅”</li>
         <li><strong style="color:red">5</strong>九班“两分钟”（睿猪）被抓拍！</li>
-        <ul><li>……</li></ul>
+        <ul>
+            <li>那艺娜真爱粉：我这辈子都不想跳小天鹅<span style="color:#900;">（小测常年得A）</span></li>
+            <li>（噔噔噔噔/噔噔/蹬噔）</li>
+        </ul>
     </ul>
 </div>
 <div class="sp1">
@@ -2014,6 +2030,26 @@
         <li>语文老师笑。唐家祺：“我感觉老师的笑点不是在奕扬笑了，而是薛阅晨笑。”师：“你说得对……”</li>
         <li data-tf="1">收小测，师：“交好同学……”林奕扬：“嘉豪同学！”师（笑）：“我的天哪……我说……”</li>
         <li>语文午托，午休时徐嘉明又制作“徐真明”被发现，语文老师走到后排，拉出蹲着的徐嘉明，和讲台上的洪鑫洋一起罚站。罚站时洪鑫洋多次笑得直不起腰，全班（包括语文老师）都被逗笑。</li>
+    </ul>
+</div>
+<div>
+    <time>24</time>
+    <p>电脑课师部分学生被物理老师留下，还有一些人参与布置班级；其余人上电脑课，整节课自由玩电脑。</p>
+    <ul>
+        <li>英语课：</li>
+        <li>蒲林豪睡觉，师：“门神，去（站门口）！……门神不要睡觉，要保护9班，看到门口有垃圾要捡起来……”</li>
+        <li data-tf="1">读书时，师：“再看！”黄丰泽：“再看，就把你喝掉！”师：“丰泽，你讲什么呢？”</li>
+        <li>生：“……王淮和叶弘毅抛弃了水泽。”师：“永泽是不是找到伙伴了？”有人：“16班的。”生：“哦……”唐家祺：“永泽见色忘义！”</li>
+    </ul>
+    <ul>
+        <li>语文课：</li>
+        <li data-tf="1">来电话，师：“喂您好。”然后走出教室。生（笑）：“喂林豪！”</li>
+        <li data-tf="1">李梦妍光明正大写英语作业。此时老师讲到居里夫人的坚持，叶弘毅：“其实她也是像李梦妍在语文课上写英语作业一样坚持！”</li>
+        <li>师：“就好像镭要跟居里夫人对着干啊！就像某一些人。”</li>
+        <li>师：“如果让你搅动几小时这样的材料，你会……”陆梓豪：“死不瞑目地睡着了！”</li>
+        <li>眼保健操时有人放屁，起初只有几个人在偷笑，结果老师也笑了（带动全班笑）：“不知道你们上课都在干嘛……我是看你们好多都在咧着嘴，我就……”</li>
+        <li data-tf="1">眼保健操时班上吵闹，师（多次）：“别吵我！”生：“好吵啊！”全班笑。</li>
+        <li data-tf="2">林奕扬模仿语文老师且不守纪律，眼保健操时被拉上讲台站；第二节下课后语文老师在秩序册上写林奕扬纪律不好，后面又补上“使眼色”等。</li>
     </ul>
 </div>
 </main><footer><h1>页面到底了！</h1></footer></div><script>function ep(){var e=document.querySelector("#password input").value;"YmFzaW4xOTg="===btoa(e)?(localStorage.setItem("p","true"),document.getElementById("password").close()):document.querySelector("#password input").style.background="#f004"}function showPage(e){var t=document.querySelectorAll("main"),o=document.getElementById(e),n=document.querySelectorAll("nav>div:nth-of-type(2)>div"),a=document.querySelector("nav>div:nth-of-type(1)>div:nth-of-type(2)");t.forEach(e=>{e.style.display="none"}),n.forEach(e=>{e.style.display="none"}),o&&(o.style.display="block"),a.style.display="EVENT"==e?"inline-block":"none",document.getElementById(e+"-l").style.display="block"}function chT(e){document.body.setAttribute("data-t",e),localStorage.setItem("t",e)}function chW(e){document.body.setAttribute("data-w",e),localStorage.setItem("w",e)}function chN(e){document.body.setAttribute("data-n",e),localStorage.setItem("n",e)}function chF(e){document.body.setAttribute("data-f",e),localStorage.setItem("f",e),search()}document.addEventListener("click",function(e){var t=document.querySelector("nav>div:nth-of-type(2)"),o=document.querySelector("nav>div:nth-of-type(1) button.fa-navicon");t.classList.contains("active")&&!t.contains(e.target)&&e.target!==o&&t.classList.remove("active")}),document.querySelectorAll("nav>div:nth-of-type(2) a,nav>div:nth-of-type(2) button").forEach(e=>{e.addEventListener("click",function(){document.querySelector("nav>div:nth-of-type(2)").classList.remove("active")})}),document.getElementById("sD").addEventListener("click",function(e){var t=this.getBoundingClientRect();(e.clientX<t.left||t.right<e.clientX||e.clientY<t.top||t.bottom<e.clientY)&&this.close()}),window.addEventListener("scroll",()=>{var e=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100;document.querySelector("nav").style.setProperty("--progress",e+"%")}),document.getElementById("r1").addEventListener("input",function(){document.querySelector("body>#main").style.setProperty("--opacity",this.value+"%"),localStorage.setItem("o",this.value)}),document.getElementById("r2").addEventListener("input",function(){document.querySelector("body>#main").style.backdropFilter="blur("+this.value+"px)",localStorage.setItem("b",this.value)});let db;const request=indexedDB.open("backgroundDB",1);function loadBackground(){const e=db.transaction(["background"],"readonly").objectStore("background").get(1);e.onsuccess=function(){e.result&&(document.body.style.backgroundImage=`url(${e.result.image})`)}}function cbg(){var e=document.createElement("input");e.type="file",e.accept="image/*",e.onchange=function(e){var t;(e=e.target.files[0])&&((t=new FileReader).onload=function(e){db.transaction(["background"],"readwrite").objectStore("background").put({id:1,image:e.target.result}),document.body.style.backgroundImage=`url(${e.target.result})`},t.readAsDataURL(e))},e.click()}function ubg(){db.transaction(["background"],"readwrite").objectStore("background").delete(1),document.body.style.backgroundImage=""}function search(){var e=document.querySelector("nav input").value.trim(),t=document.getElementById("EVENT");if(t&&"none"!==window.getComputedStyle(t).display){if(t=t.querySelectorAll("p, li"),e){const n=new RegExp(e.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"gi");t.forEach(e=>{e.hasAttribute("data-original")||e.setAttribute("data-original",e.innerHTML);var t=e.getAttribute("data-original");n.test(t.replace(/<[^>]*>/g,""))?(e.style.display="",e.innerHTML=t.replace(/([^<]*)(<[^>]*>)?/g,(e,t,o)=>t?t.replace(n,e=>`<mark>${e}</mark>`)+(o||""):o||"")):e.style.display="none",n.lastIndex=0})}else t.forEach(e=>{e.style.display="",e.hasAttribute("data-original")&&(e.innerHTML=e.getAttribute("data-original"),e.removeAttribute("data-original"))});heb()}}function heb(){document.querySelectorAll("#EVENT>div").forEach(e=>{var t=Array.from(e.children).some(e=>"TIME"!==e.tagName&&"none"!==window.getComputedStyle(e).display);e.style.display=t?"":"none"}),document.querySelectorAll("#EVENT ul").forEach(e=>{var t=Array.from(e.querySelectorAll("li")).every(e=>"none"===window.getComputedStyle(e).display);e.style.display=t?"none":""}),document.querySelectorAll("#EVENT>h1").forEach(e=>{let t=e.nextElementSibling,o=!1;for(;t&&"H1"!==t.tagName;){if("none"!==t.style.display){o=!0;break}t=t.nextElementSibling}e.style.display=o?"":"none"})}request.onupgradeneeded=function(e){(db=e.target.result).objectStoreNames.contains("background")||db.createObjectStore("background",{keyPath:"id"})},request.onsuccess=function(e){db=e.target.result,loadBackground()},document.querySelectorAll("img").forEach(e=>{e.onerror=function(){this.src="data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+DQo8cGF0aCBkPSJNMzA0LjEyOCA0NTYuMTkyYzQ4LjY0IDAgODguMDY0LTM5LjQyNCA4OC4wNjQtODguMDY0cy0zOS40MjQtODguMDY0LTg4LjA2NC04OC4wNjQtODguMDY0IDM5LjQyNC04OC4wNjQgODguMDY0IDM5LjQyNCA4OC4wNjQgODguMDY0IDg4LjA2NHptMC0xMTYuMjI0YzE1LjM2IDAgMjguMTYgMTIuMjg4IDI4LjE2IDI4LjE2cy0xMi4yODggMjguMTYtMjguMTYgMjguMTYtMjguMTYtMTIuMjg4LTI4LjE2LTI4LjE2IDEyLjI4OC0yOC4xNiAyOC4xNi0yOC4xNnoiIGZpbGw9IiNjY2ZmZmZjYyIvPg0KPHBhdGggZD0iTTg4Ny4yOTYgMTU5Ljc0NEgxMzYuNzA0Qzk2Ljc2OCAxNTkuNzQ0IDY0IDE5MiA2NCAyMzIuNDQ4djU1OS4xMDRjMCAzOS45MzYgMzIuMjU2IDcyLjcwNCA3Mi43MDQgNzIuNzA0aDE5OC4xNDRMNTAwLjIyNCA2ODguNjRsLTM2LjM1Mi0yMjIuNzIgMTYyLjMwNC0xMzAuNTYtNjEuNDQgMTQzLjg3MiA5Mi42NzIgMjE0LjAxNi0xMDUuNDcyIDE3MS4wMDhoMzM1LjM2QzkyNy4yMzIgODY0LjI1NiA5NjAgODMyIDk2MCA3OTEuNTUyVjIzMi40NDhjMC0zOS45MzYtMzIuMjU2LTcyLjcwNC03Mi43MDQtNzIuNzA0em0tMTM4Ljc1MiA3MS42OHYuNTEySDg1Ny42YzE2LjM4NCAwIDMwLjIwOCAxMy4zMTIgMzAuMjA4IDMwLjIwOHYzOTkuODcyTDY3My4yOCA0MDguMDY0bDc1LjI2NC0xNzYuNjR6TTMwNC42NCA3OTIuMDY0SDE2NS44ODhjLTE2LjM4NCAwLTMwLjIwOC0xMy4zMTItMzAuMjA4LTMwLjIwOHYtOS43MjhsMTM4Ljc1Mi0xNjQuMzUyIDEwNC45NiAxMjQuNDE2LTc0Ljc1MiA3OS44NzJ6bTgxLjkyLTM1NS44NGwzNy4zNzYgMjI4Ljg2NC0uNTEyLjUxMi0xNDIuODQ4LTE2OS45ODRjLTMuMDcyLTMuNTg0LTkuMjE2LTMuNTg0LTEyLjI4OCAwTDEzNS42OCA2NTIuOFYyNjIuMTQ0YzAtMTYuMzg0IDEzLjMxMi0zMC4yMDggMzAuMjA4LTMwLjIwOGg0NzQuNjI0TDM4Ni41NiA0MzYuMjI0em01MDEuMjQ4IDMyNS42MzJjMCAxNi44OTYtMTMuMzEyIDMwLjIwOC0yOS42OTYgMzAuMjA4SDY4MC45Nmw1Ny4zNDQtOTMuMTg0LTg3LjU1Mi0yMDIuMjQgNy4xNjgtNy42OCAyMjkuODg4IDI3Mi44OTZ6IiBmaWxsPSIjY2NmZmZmY2MiLz4NCjwvc3ZnPg=="}}),heb();const observer=new MutationObserver(heb);function smoothFadeOut(){const o=document.getElementById("loader");let n;const a=performance.now();requestAnimationFrame(function e(t){t-=a,t=Math.min(t/500,1),n=1-t,o.style.opacity=n,t<1?requestAnimationFrame(e):o.style.display="none"})}observer.observe(document.getElementById("EVENT"),{childList:!0,subtree:!0,attributes:!0,attributeFilter:["style"]}),document.querySelectorAll('a[href^="http"]').forEach(e=>{e.setAttribute("target","_blank")}),window.addEventListener("load",function(){setTimeout(smoothFadeOut,300)}),window.addEventListener("DOMContentLoaded",function(){localStorage.getItem("p")?document.getElementById("password").close():document.getElementById("password").showModal();var e=localStorage.getItem("t"),e=(e?chT(e):window.matchMedia("(prefers-color-scheme:dark)").matches?chT("d"):chT("l"),localStorage.getItem("w")),e=(e&&chW(e),localStorage.getItem("n")),e=(e&&chN(e),localStorage.getItem("f")),e=(e&&chF(e),localStorage.getItem("o")),e=(e&&(document.querySelector("body>#main").style.setProperty("--opacity",e+"%"),document.getElementById("r1").value=e),localStorage.getItem("b"));e&&(document.querySelector("body>#main").style.backdropFilter="blur("+e+"px)",document.getElementById("r2").value=e);["t","w","n","f"].forEach(e=>{var t=localStorage.getItem(e);t&&(e=document.querySelector(`input[name="${e}"][onclick*="${t}"]`))&&(e.checked=!0)}),showPage("EVENT")}),"serviceWorker"in navigator&&navigator.serviceWorker.register("/c/sw.js",{scope:"/c/"});</script></body></html>
