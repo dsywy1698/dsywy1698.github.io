@@ -15,7 +15,7 @@
         @font-face{font-family:'icons';src:url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'),url('fa.woff2') format('woff2');font-display:swap;}
         :root{color-scheme:light dark;}
         *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;color:inherit;transition:background 0.3s ease,color 0.3s ease;}
-        p,li{line-height:1.7em;letter-spacing:0.15em;}
+        p,dt,dd,li{line-height:1.7em;letter-spacing:0.15em;}
         *::-webkit-scrollbar{display:none!important;}
         ::selection{background:var(--se);}
         html{font-size:100%;scroll-behavior:smooth;}
@@ -308,16 +308,22 @@
                 margin:10px 0;padding:20px 8px 10px 8px;border-radius:10px;width:100%;background:#9df5;
                 >time{position:relative;top:-15px;left:-3px;float:left;margin-right:-9999px;text-align:center;padding:5px 0;min-width:1.9em;border-radius:10px;font-weight:700;background:#6cf;color:#000;}
                 >p{padding:2.5px 0;text-indent:2em;}
-                >ul,>ul>ul{margin:15px 3px 3px 15px;padding:5px;background:#ffffff44;border-radius:15px;>li,>ul>li{text-indent:2em;list-style-type:none;&::before{position:relative;content:"●";color:#00000088;margin-right:5px}}>li:first-child{font-weight:bold;&::before{all:unset}}}
+                >dl{
+                    margin:15px 3px 3px 15px;padding:5px 10px;background:#fff3;border-radius:15px;
+                    dd{text-indent:2em;}
+                    dt{text-indent:2em;font-weight:bold;}
+                    >dl{margin-left:1em;background:#0001;padding:5px 10px;border-radius:10px;}
+                }
                 &.sp1{background:#cfc5;>time{background:#9f9}}
                 &.sp2{background:#fec5;>time{background:#fd9}}
                 &.sp3{background:#fce5;>time{background:#f9d}}
                 &.sp4{background:#fc95;>time{background:#f93}}
             }
-            .hot{background:#d9d98c88;color:#212121;li:before{content:"";}>ul>li:first-child{font-weight:unset;}}
-            .mt{background:#f9f8;color:#303;font-style:italic;li:before{content:"";}}
+            .hot{background:#d9d98c88;color:#212121;>dd{text-indent:0;}}
+            .mt{background:#f9f8;color:#303;font-style:italic;}
             mark{background-color:#d9b3ff88;padding:0 5px;border-radius:15px;}
-            p[data-h]::before,li[data-h]::before{background:#f93b;content:"HOT";color:#310;font-weight:bold;padding:0 2.5px;border-radius:5px;margin-right:5px;}
+            p[data-h]::before,dd[data-h]::before{background:#f93b;content:"HOT";color:#310;font-weight:bold;padding:0 2.5px;border-radius:5px;margin-right:5px;}
+            .unsure{background:#f008;color:#fcc;padding:0 5px;margin-right:5px;border-radius:5px;&:before{content:"日期存疑";}}
         }
         footer{
             padding:30dvh 30px 50px 30px;background:linear-gradient(transparent 0,#0008 30dvh);color:#fffa;
@@ -438,11 +444,11 @@
 <div>
     <time>1</time>
     <p>文本1</p>
-    <ul>
-        <li>无序列表标题</li>
-        <li>无序列表项1</li>
-        <li>无序列表项2</li>
-    </ul>
+    <dl>
+        <dt>无序列表标题</dt>
+        <dd>无序列表项1</dd>
+        <dd>无序列表项2</dd>
+    </dl>
     <p>文本2</p>
 </div>
 <div class="sp1">
@@ -507,8 +513,8 @@ function ubg(){db.transaction(["background"],"readwrite").objectStore("backgroun
 //替代图像
 document.querySelectorAll("img").forEach(M=>{M.onerror=function(){this.src="data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+DQo8cGF0aCBkPSJNMzA0LjEyOCA0NTYuMTkyYzQ4LjY0IDAgODguMDY0LTM5LjQyNCA4OC4wNjQtODguMDY0cy0zOS40MjQtODguMDY0LTg4LjA2NC04OC4wNjQtODguMDY0IDM5LjQyNC04OC4wNjQgODguMDY0IDM5LjQyNCA4OC4wNjQgODguMDY0IDg4LjA2NHptMC0xMTYuMjI0YzE1LjM2IDAgMjguMTYgMTIuMjg4IDI4LjE2IDI4LjE2cy0xMi4yODggMjguMTYtMjguMTYgMjguMTYtMjguMTYtMTIuMjg4LTI4LjE2LTI4LjE2IDEyLjI4OC0yOC4xNiAyOC4xNi0yOC4xNnoiIGZpbGw9IiNjY2ZmZmZjYyIvPg0KPHBhdGggZD0iTTg4Ny4yOTYgMTU5Ljc0NEgxMzYuNzA0Qzk2Ljc2OCAxNTkuNzQ0IDY0IDE5MiA2NCAyMzIuNDQ4djU1OS4xMDRjMCAzOS45MzYgMzIuMjU2IDcyLjcwNCA3Mi43MDQgNzIuNzA0aDE5OC4xNDRMNTAwLjIyNCA2ODguNjRsLTM2LjM1Mi0yMjIuNzIgMTYyLjMwNC0xMzAuNTYtNjEuNDQgMTQzLjg3MiA5Mi42NzIgMjE0LjAxNi0xMDUuNDcyIDE3MS4wMDhoMzM1LjM2QzkyNy4yMzIgODY0LjI1NiA5NjAgODMyIDk2MCA3OTEuNTUyVjIzMi40NDhjMC0zOS45MzYtMzIuMjU2LTcyLjcwNC03Mi43MDQtNzIuNzA0em0tMTM4Ljc1MiA3MS42OHYuNTEySDg1Ny42YzE2LjM4NCAwIDMwLjIwOCAxMy4zMTIgMzAuMjA4IDMwLjIwOHYzOTkuODcyTDY3My4yOCA0MDguMDY0bDc1LjI2NC0xNzYuNjR6TTMwNC42NCA3OTIuMDY0SDE2NS44ODhjLTE2LjM4NCAwLTMwLjIwOC0xMy4zMTItMzAuMjA4LTMwLjIwOHYtOS43MjhsMTM4Ljc1Mi0xNjQuMzUyIDEwNC45NiAxMjQuNDE2LTc0Ljc1MiA3OS44NzJ6bTgxLjkyLTM1NS44NGwzNy4zNzYgMjI4Ljg2NC0uNTEyLjUxMi0xNDIuODQ4LTE2OS45ODRjLTMuMDcyLTMuNTg0LTkuMjE2LTMuNTg0LTEyLjI4OCAwTDEzNS42OCA2NTIuOFYyNjIuMTQ0YzAtMTYuMzg0IDEzLjMxMi0zMC4yMDggMzAuMjA4LTMwLjIwOGg0NzQuNjI0TDM4Ni41NiA0MzYuMjI0em01MDEuMjQ4IDMyNS42MzJjMCAxNi44OTYtMTMuMzEyIDMwLjIwOC0yOS42OTYgMzAuMjA4SDY4MC45Nmw1Ny4zNDQtOTMuMTg0LTg3LjU1Mi0yMDIuMjQgNy4xNjgtNy42OCAyMjkuODg4IDI3Mi44OTZ6IiBmaWxsPSIjY2NmZmZmY2MiLz4NCjwvc3ZnPg=="}});
 //搜索
-function search(){var e=document.querySelector("nav input").value.trim(),t=document.getElementById("EVENT");if(t&&"none"!==window.getComputedStyle(t).display){if(t=t.querySelectorAll("p, li"),e){const i=new RegExp(e.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"gi");t.forEach(e=>{e.hasAttribute("data-original")||e.setAttribute("data-original",e.innerHTML);var t=e.getAttribute("data-original");i.test(t.replace(/<[^>]*>/g,""))?(e.style.display="",e.innerHTML=t.replace(/([^<]*)(<[^>]*>)?/g,(e,t,a)=>t?t.replace(i,e=>`<mark>${e}</mark>`)+(a||""):a||"")):e.style.display="none",i.lastIndex=0})}else t.forEach(e=>{e.style.display="",e.hasAttribute("data-original")&&(e.innerHTML=e.getAttribute("data-original"),e.removeAttribute("data-original"))});heb()}}
-function heb(){document.querySelectorAll("#EVENT>div").forEach(e=>{var t=Array.from(e.children).some(e=>"TIME"!==e.tagName&&"none"!==window.getComputedStyle(e).display);e.style.display=t?"":"none"}),document.querySelectorAll("#EVENT ul").forEach(e=>{var t=Array.from(e.querySelectorAll("li")).every(e=>"none"===window.getComputedStyle(e).display);e.style.display=t?"none":""}),document.querySelectorAll("#EVENT>h1").forEach(e=>{let t=e.nextElementSibling,l=!1;for(;t&&"H1"!==t.tagName;){if("none"!==t.style.display){l=!0;break}t=t.nextElementSibling}e.style.display=l?"":"none"})}heb();const observer=new MutationObserver(heb);observer.observe(document.getElementById("EVENT"),{childList:!0,subtree:!0,attributes:!0,attributeFilter:["style"]});
+function search(){var e=document.querySelector("nav input").value.trim(),t=document.getElementById("EVENT");if(t&&"none"!==window.getComputedStyle(t).display){if(t=t.querySelectorAll("p, dd"),e){const i=new RegExp(e.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"gi");t.forEach(e=>{e.hasAttribute("data-original")||e.setAttribute("data-original",e.innerHTML);var t=e.getAttribute("data-original");i.test(t.replace(/<[^>]*>/g,""))?(e.style.display="",e.innerHTML=t.replace(/([^<]*)(<[^>]*>)?/g,(e,t,a)=>t?t.replace(i,e=>`<mark>${e}</mark>`)+(a||""):a||"")):e.style.display="none",i.lastIndex=0})}else t.forEach(e=>{e.style.display="",e.hasAttribute("data-original")&&(e.innerHTML=e.getAttribute("data-original"),e.removeAttribute("data-original"))});heb()}}
+function heb(){document.querySelectorAll("#EVENT>div").forEach(e=>{var t=Array.from(e.children).some(e=>"TIME"!==e.tagName&&"none"!==window.getComputedStyle(e).display);e.style.display=t?"":"none"}),document.querySelectorAll("#EVENT dl").forEach(e=>{var t=Array.from(e.querySelectorAll("dd")).every(e=>"none"===window.getComputedStyle(e).display);e.style.display=t?"none":""}),document.querySelectorAll("#EVENT>h1").forEach(e=>{let t=e.nextElementSibling,l=!1;for(;t&&"H1"!==t.tagName;){if("none"!==t.style.display){l=!0;break}t=t.nextElementSibling}e.style.display=l?"":"none"})}heb();const observer=new MutationObserver(heb);observer.observe(document.getElementById("EVENT"),{childList:!0,subtree:!0,attributes:!0,attributeFilter:["style"]});
 //外部链接在新页面打开
 document.querySelectorAll('a[href^="http"]').forEach(link=>{link.setAttribute('target','_blank');});
 //加载动画
