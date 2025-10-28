@@ -15,7 +15,6 @@
         button{border:none;}
         main *[id]{scroll-margin-top:55px;}
         input:focus{outline:none;}
-        ul,ol{margin-left:2em;li{opacity:0.8;}}
         
         #bigger,#smaller{display:none;justify-content:center;align-items:center;padding:20px 5px;text-align:center;width:100dvw;height:100dvh;top:0;left:0;backdrop-filter:blur(20px);}
         #bigger{font-size:5rem;}
@@ -317,6 +316,13 @@
             padding:30dvh 30px 50px 30px;background:linear-gradient(transparent 0,#0008 30dvh);color:#fffa;
         }
         
+        /*添加样式*/
+        ul,ol{margin:10px 0 10px 2em;li{color:var(--li);opacity:0.9;}p{color:var(--lp);font-size:0.875rem;opacity:0.8;}}
+        h1,h2,h3,h4,h5,h6{margin:10px 0 20px 2.5px;}
+        img,svg,canvas,video{border-radius:10px;display:block;margin:10px auto;}
+        .notes{opacity:0.6;font-size:0.75rem;margin-left:1em;}
+        :root{--li:#ffe5cc;--lp:#f4d7be;}
+        
         @media screen and (min-width:1600px),(min-height:900px){#bigger{display:flex;}#password,#main,#loader,nav{display:none!important;}}
         @media screen and (max-width:320px),(max-height:300px){#smaller{display:flex;}#password,#main,#loader,nav{display:none!important;}}
         </style></head><body data-t="l" data-w="n" data-n="2" data-f="3"><dialog id="password"><h1>输入密码</h1><div><input type="password"/><button onclick="ep()">OK</button></div><p><strong>提示：</strong>页面仅为9班提供，如有侵权将删除。</p></dialog><div id="loader"><div><p>文本1</p><button onclick="smoothFadeOut()">跳过</button></div><script>const texts=["文本1","文本2"];let currentIndex=0;const carouselText=document.querySelector('#loader>div>p');carouselText.textContent=texts[currentIndex];function rotateText(){currentIndex=(currentIndex+1)%texts.length;carouselText.style.opacity='0';setTimeout(()=>{carouselText.textContent=texts[currentIndex];carouselText.style.opacity='1'},200)}setInterval(rotateText,1000);</script></div><div id="bigger">窗口过大</div><div id="smaller">窗口过小</div>
@@ -614,7 +620,7 @@
 <h2>澡堂</h2>
 <p>龙翔的澡堂为公共浴室，直接降低了洗澡时的舒适性和隐私性。</p>
 <p>还有一点很糟糕，就是澡堂离宿舍很远，大概在食堂后面。每次洗澡需要走相当远的一段路。</p>
-<p>洗澡是自愿的，辅导员会不停用喇叭喊“要洗澡的同学，带上雨伞和洗澡工具，到楼下集合……”但刘老师要求每天都要洗澡，不洗澡还要扣量化分（实际没扣）。刘老师会去每间宿舍（包括男生宿舍）巡视，看到有9班的人就问有没有洗澡。</p>
+<p>洗澡是自愿的，辅导员会不停用喇叭喊“要洗澡的同学，带上雨伞和洗澡工具，到楼下集合……”但刘老师要求每天都要洗澡，不洗澡还要扣量化分（实际没扣）。刘老师会去每间宿舍（包括男生宿舍）巡视，看到有9班的人就问有没有洗澡，当然可以糊弄过去。</p>
 <p>前三天或多或少都有下雨，自然要带伞。但是这就会出现以下情况：</p>
 <div class="box">
     <p>下雨天 → 易淋雨</p>
@@ -625,17 +631,28 @@
 </div>
 <p>这么一来，洗澡的效果大打折扣，脚部更是重灾区。</p>
 <p>进入澡堂，里面热闹非凡。进门有放伞的地方，放完伞走进浴室门口，有放衣服的架子。再往里面——场面好不壮观！</p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
+<p>龙翔的澡堂共四排，对应着两个过道。每排分为若干隔间，隔间与隔间间使用铁板分隔。但隔板左右和下方都有空隙，下方的空隙尤其大。</p>
+<p>最糟心的是，每个隔间的帘子具有这些缺点：</p>
+<ul>
+    <li>单薄。似乎风一吹就会开始飘扬，一拉就开。</li>
+    <li>太小。在帘子拉上的情况下，从外面可以直接看到里面人的小腿。</li>
+    <li>脏。帘子是白色的，污渍自然清晰可见。</li>
+</ul>
+<p>每一项都是对舒适性和隐私性全面打压。</p>
+<p>人为的原因自然不必多言。洗澡时必须保持高度警惕，防止有人突然掀帘子。帘子外此起彼伏的笑声、喊声、谈话声使人倍感压力，只有迅速洗完，才能最大化降低风险。事实上，掀帘子的案例时常发生。外面晃悠的人可能正在寻找目标或找到目标准备下手，也可能聚在一起准备看笑话，但几乎不可能是心怀好意的。</p>
+<p>更有大型猎奇现场的出现，比如曾发生过四个人在男生澡堂的同一隔间洗澡。只有你想不到的，没有那些人做不到的。</p>
+<p>墙上贴有“冷水”和“热水”的标志；花洒是常规配置——手持的。在龙翔，花洒使用人数和水温成反比，且靠里面的隔间水温通常比外面的高<sup>[1]</sup>。</p>
+<p>当然也别指望把东西放到入口处架子上，那里可是非常乱的。</p>
+<p>总之，龙翔澡堂环境乱、场面乱、物品乱，一团乱。</p>
 <h2>小卖部、水池</h2>
-<p></p>
+<p>龙翔的小卖部就在尚武楼、自强楼楼下。</p>
 <h2>龙翔的传说</h2>
 <p></p>
 <h2>集合</h2>
 <h2>宿舍纪律</h2>
-
+<div class="notes">
+    <p>[1] 孔祥懿提供了相关资料。</p>
+</div>
 
 
 </main><footer><h1>页面到底了！</h1></footer></div><script>function ep(){var e=document.querySelector("#password input").value;"YmFzaW4xOTg="===btoa(e)?(localStorage.setItem("p","true"),document.getElementById("password").close()):document.querySelector("#password input").style.background="#f004"}function showPage(e){var t=document.querySelectorAll("main"),o=document.getElementById(e),n=document.querySelectorAll("nav>div:nth-of-type(2)>div"),a=document.querySelector("nav>div:nth-of-type(1)>div:nth-of-type(2)");t.forEach(e=>{e.style.display="none"}),n.forEach(e=>{e.style.display="none"}),o&&(o.style.display="block"),a.style.display="LITERATURE"==e?"inline-block":"none",document.getElementById(e+"-l").style.display="block"}function chT(e){document.body.setAttribute("data-t",e),localStorage.setItem("t",e)}function chW(e){document.body.setAttribute("data-w",e),localStorage.setItem("w",e)}function chN(e){document.body.setAttribute("data-n",e),localStorage.setItem("n",e)}function chF(e){document.body.setAttribute("data-f",e),localStorage.setItem("f",e),search()}document.addEventListener("click",function(e){var t=document.querySelector("nav>div:nth-of-type(2)"),o=document.querySelector("nav>div:nth-of-type(1) button.fa-navicon");t.classList.contains("active")&&!t.contains(e.target)&&e.target!==o&&t.classList.remove("active")}),document.querySelectorAll("nav>div:nth-of-type(2) a,nav>div:nth-of-type(2) button").forEach(e=>{e.addEventListener("click",function(){document.querySelector("nav>div:nth-of-type(2)").classList.remove("active")})}),document.getElementById("sD").addEventListener("click",function(e){var t=this.getBoundingClientRect();(e.clientX<t.left||t.right<e.clientX||e.clientY<t.top||t.bottom<e.clientY)&&this.close()}),window.addEventListener("scroll",()=>{var e=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100;document.querySelector("nav").style.setProperty("--progress",e+"%")}),document.getElementById("r1").addEventListener("input",function(){document.querySelector("body>#main").style.setProperty("--opacity",this.value+"%"),localStorage.setItem("o",this.value)}),document.getElementById("r2").addEventListener("input",function(){document.querySelector("body>#main").style.backdropFilter="blur("+this.value+"px)",localStorage.setItem("b",this.value)});let db;const request=indexedDB.open("backgroundDB",1);function loadBackground(){const e=db.transaction(["background"],"readonly").objectStore("background").get(1);e.onsuccess=function(){e.result&&(document.body.style.backgroundImage=`url(${e.result.image})`)}}function cbg(){var e=document.createElement("input");e.type="file",e.accept="image/*",e.onchange=function(e){var t;(e=e.target.files[0])&&((t=new FileReader).onload=function(e){db.transaction(["background"],"readwrite").objectStore("background").put({id:1,image:e.target.result}),document.body.style.backgroundImage=`url(${e.target.result})`},t.readAsDataURL(e))},e.click()}function ubg(){db.transaction(["background"],"readwrite").objectStore("background").delete(1),document.body.style.backgroundImage=""}function heb(){}request.onupgradeneeded=function(e){(db=e.target.result).objectStoreNames.contains("background")||db.createObjectStore("background",{keyPath:"id"})},request.onsuccess=function(e){db=e.target.result,loadBackground()},document.querySelectorAll("img").forEach(e=>{e.onerror=function(){this.src="data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+DQo8cGF0aCBkPSJNMzA0LjEyOCA0NTYuMTkyYzQ4LjY0IDAgODguMDY0LTM5LjQyNCA4OC4wNjQtODguMDY0cy0zOS40MjQtODguMDY0LTg4LjA2NC04OC4wNjQtODguMDY0IDM5LjQyNC04OC4wNjQgODguMDY0IDM5LjQyNCA4OC4wNjQgODguMDY0IDg4LjA2NHptMC0xMTYuMjI0YzE1LjM2IDAgMjguMTYgMTIuMjg4IDI4LjE2IDI4LjE2cy0xMi4yODggMjguMTYtMjguMTYgMjguMTYtMjguMTYtMTIuMjg4LTI4LjE2LTI4LjE2IDEyLjI4OC0yOC4xNiAyOC4xNi0yOC4xNnoiIGZpbGw9IiNjY2ZmZmZjYyIvPg0KPHBhdGggZD0iTTg4Ny4yOTYgMTU5Ljc0NEgxMzYuNzA0Qzk2Ljc2OCAxNTkuNzQ0IDY0IDE5MiA2NCAyMzIuNDQ4djU1OS4xMDRjMCAzOS45MzYgMzIuMjU2IDcyLjcwNCA3Mi43MDQgNzIuNzA0aDE5OC4xNDRMNTAwLjIyNCA2ODguNjRsLTM2LjM1Mi0yMjIuNzIgMTYyLjMwNC0xMzAuNTYtNjEuNDQgMTQzLjg3MiA5Mi42NzIgMjE0LjAxNi0xMDUuNDcyIDE3MS4wMDhoMzM1LjM2QzkyNy4yMzIgODY0LjI1NiA5NjAgODMyIDk2MCA3OTEuNTUyVjIzMi40NDhjMC0zOS45MzYtMzIuMjU2LTcyLjcwNC03Mi43MDQtNzIuNzA0em0tMTM4Ljc1MiA3MS42OHYuNTEySDg1Ny42YzE2LjM4NCAwIDMwLjIwOCAxMy4zMTIgMzAuMjA4IDMwLjIwOHYzOTkuODcyTDY3My4yOCA0MDguMDY0bDc1LjI2NC0xNzYuNjR6TTMwNC42NCA3OTIuMDY0SDE2NS44ODhjLTE2LjM4NCAwLTMwLjIwOC0xMy4zMTItMzAuMjA4LTMwLjIwOHYtOS43MjhsMTM4Ljc1Mi0xNjQuMzUyIDEwNC45NiAxMjQuNDE2LTc0Ljc1MiA3OS44NzJ6bTgxLjkyLTM1NS44NGwzNy4zNzYgMjI4Ljg2NC0uNTEyLjUxMi0xNDIuODQ4LTE2OS45ODRjLTMuMDcyLTMuNTg0LTkuMjE2LTMuNTg0LTEyLjI4OCAwTDEzNS42OCA2NTIuOFYyNjIuMTQ0YzAtMTYuMzg0IDEzLjMxMi0zMC4yMDggMzAuMjA4LTMwLjIwOGg0NzQuNjI0TDM4Ni41NiA0MzYuMjI0em01MDEuMjQ4IDMyNS42MzJjMCAxNi44OTYtMTMuMzEyIDMwLjIwOC0yOS42OTYgMzAuMjA4SDY4MC45Nmw1Ny4zNDQtOTMuMTg0LTg3LjU1Mi0yMDIuMjQgNy4xNjgtNy42OCAyMjkuODg4IDI3Mi44OTZ6IiBmaWxsPSIjY2NmZmZmY2MiLz4NCjwvc3ZnPg=="}}),heb();const observer=new MutationObserver(heb);function smoothFadeOut(){const o=document.getElementById("loader");let n;const a=performance.now();requestAnimationFrame(function e(t){t-=a,t=Math.min(t/500,1),n=1-t,o.style.opacity=n,t<1?requestAnimationFrame(e):o.style.display="none"})}observer.observe(document.getElementById("LONGXIANG"),{childList:!0,subtree:!0,attributes:!0,attributeFilter:["style"]}),document.querySelectorAll('a[href^="http"]').forEach(e=>{e.setAttribute("target","_blank")}),window.addEventListener("load",function(){setTimeout(smoothFadeOut,300)}),window.addEventListener("DOMContentLoaded",function(){localStorage.getItem("p")?document.getElementById("password").close():document.getElementById("password").showModal();var e=localStorage.getItem("t"),e=(e?chT(e):window.matchMedia("(prefers-color-scheme:dark)").matches?chT("d"):chT("l"),localStorage.getItem("w")),e=(e&&chW(e),localStorage.getItem("n")),e=(e&&chN(e),localStorage.getItem("f")),e=(e&&chF(e),localStorage.getItem("o")),e=(e&&(document.querySelector("body>#main").style.setProperty("--opacity",e+"%"),document.getElementById("r1").value=e),localStorage.getItem("b"));e&&(document.querySelector("body>#main").style.backdropFilter="blur("+e+"px)",document.getElementById("r2").value=e);["t","w","n","f"].forEach(e=>{var t=localStorage.getItem(e);t&&(e=document.querySelector(`input[name="${e}"][onclick*="${t}"]`))&&(e.checked=!0)}),showPage("LONGXIANG")}),"serviceWorker"in navigator&&navigator.serviceWorker.register("/c/sw.js",{scope:"/c/"});</script></body></html>
