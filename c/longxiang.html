@@ -280,7 +280,8 @@
         main{
             padding:60px 10px 10px 10px;min-height:100dvh;
             >header{font-size:2rem;text-align:center;padding:20px 0 50px 0;}
-            article{background:var(--ar,#0066ff88);padding:12.5px;border-radius:15px;margin:5px 0;box-shadow:0 1px 1px var(--s1),0 2px 2px var(--s1),0 4px 4px var(--s1),0 8px 8px var(--s1);>p{text-indent:2em;}>h1{text-align:center;margin:5px auto;}}
+            article{background:var(--ar,#0066ff88);padding:12.5px;border-radius:15px;margin:5px 0;box-shadow:0 1px 1px var(--s1),0 2px 2px var(--s1),0 4px 4px var(--s1),0 8px 8px var(--s1);>p{text-indent:2em;}>h2{text-align:center;margin:5px auto;}}
+            /*有改动！*/
             q{background:var(--qb,#06f8);font-size:1.5625rem;display:block;text-align:center;padding:8px;border-radius:10px;margin:5px 0;&::before{font-family:"icons";content:"\f10d";color:var(--qi);padding-right:10px;}&::after{font-family:"icons";content:"\f10e";color:var(--qi);padding-left:10px;}}
             blockquote{background:linear-gradient(to right,var(--bl),var(--bl),transparent);padding:20px;border-radius:10px;border-left:5px solid #8884;margin:5px 0;}
             .gallery{background:linear-gradient(var(--gs),var(--ge));padding:15px;border-radius:15px;text-align:center;margin:5px 0;>img{max-width:600px;width:100%;border-radius:10px;}>p{color:var(--ga);}}
@@ -331,7 +332,7 @@
             <div>
                 <button onclick="document.querySelector('nav>div:nth-of-type(2)').classList.toggle('active')" class="fa fa-navicon"></button>
                 <button onclick="window.scrollTo(0,0)" class="fa fa-chevron-up"></button>
-                <button onclick="showPage('HOME')" class="fa fa-home" style="pointer-events:none;opacity:0.6"></button>
+                <button onclick="showPage('HOME')" id="logo" style="pointer-events:none;opacity:0.6"></button>
                 <button onclick="window.scrollTo(0,document.documentElement.scrollHeight)" class="fa fa-chevron-down"></button>
                 <button onclick="document.getElementById('sD').showModal()" class="fa fa-gear"></button>
             </div>
@@ -360,13 +361,52 @@
     <p style="text-align:left">人物：福州第四十中学初一、高一学生</p>
     <p style="text-align:left">费用：515元/人</p>
 </div>
-<p>军训前，有传闻说龙翔的环境很差，比如“床单上有尿渍”、“饭里有头发丝”等，那么，真实的龙翔是怎样的呢？让我们走进真实的龙翔。</p>
+<p>军训前，有传闻说龙翔的环境很差，比如“床单上有尿渍”、“饭里有头发丝”等，那么，真实的龙翔是怎样的呢？让我们走进龙翔。</p>
+<p>在龙翔的五天中，前三天都有下雨，第四天是阴天，第五天转晴。气温比较舒适。</p>
+<p>在此之前，段长告知了此次军训的须知。其中说到，是否允许带零食由各班班主任决定。刘老师允许大家带少量零食，但绝不能当正餐。</p>
+<p>需携带的物品清单和须知如下。</p>
+<article>
+<h2>所有个人物品做好标记，写好班级+姓名</h2>
+<h2>不要带大量现金（50以内），更不能带贵重物品</h2>
+<p>下周二7:15分带上所有物品到班级集合。</p>
+<p>以下清单已经列的非常清楚，家长们让孩子们自己对照清单整理自己的物品，自己的事情自己做，社会实践的目的就是锻炼孩子独立自主的能力，家长们在孩子们整理完后帮忙确认即可。</p>
+<ul>
+    <li>1个塑料桶；6-8个衣架，几个晾衣夹</li>
+    <li>2条干净的毛巾</li>
+    <li>牙杯+牙膏+牙刷（塑料袋包好）</li>
+    <li>洗发水+沐浴乳；洗衣皂（塑料袋包好）</li>
+    <li>洗澡用的拖鞋（塑料袋包好）</li>
+    <li>带适合训练的运动鞋1-2双，要有1双白鞋</li>
+    <li>1-2卷垃圾袋</li>
+</ul>
+<p>以上物品统一放在水桶里。</p>
+<ul>
+    <li>红领巾*2</li>
+    <li>水杯（禁用玻璃杯）</li>
+    <li>雨伞；女生带上梳子</li>
+    <li>4-5个口罩（塑料袋包好）</li>
+    <li>笔记本和笔、爱看的书（不带小说漫画等不允许放在图书角的书）</li>
+    <li>朗诵稿*3，歌词*3</li>
+    <li>1个卷纸或者抽纸+ 手帕纸+湿巾</li>
+    <li>风油精或者花露水、防晒霜</li>
+    <li>个人药品（如晕车药。不要把药随便给别人吃)</li>
+    <li>女生用品</li>
+</ul>
+<p>以上物品统一放背包。</p>
+<ul>
+    <li>外衣：带够5天的量的衣服+班服+白衬衫黑裤子（班服和白衬衫黑裤子等通知再穿，其余衣服自行安排，雨希奕扬要带好朗诵服装，祥懿记得带横幅）。外套，看天气长袖或者短袖的T恤衫，卫衣、长裤等自行搭配。爱出汗的同学一定要多带衣服替换。</li>
+    <li>内穿：1套睡衣，多带袜子，短裤，女生内衣。</li>
+    <li>另外，可带台灯或者手电筒，行李箱够大的话可以自带枕头，睡袋等。可以带大塑料袋装穿完的脏衣服。</li>
+</ul>
+<p>以上物品统一放行李箱。</p>
+<p>社会实践期间不带电话手表，不要带太多零食和现金，让孩子接受一点磨砺是好事，学会自己的事情自己做，培养独立自主的能力。非必要不联系孩子，我会在群里分享孩子们的动态，确实有需要的话通过我联系孩子。</p>
+</article>
 <hr/>
 <h1 id="longxiang-entrance">入口</h1>
 <img src="https://tse2-mm.cn.bing.net/th/id/OIP-C.D-KAKKA3FuJx2JMt2l5eAwHaEJ?rs=1&pid=ImgDetMain"/>
 <p>这就是龙翔的入口。从主路右拐，驶进这条路，跨过一条小溪，军旅生活的气味扑面而来。作为“国防教育基地”，入口必须有创意。龙翔的入口以隐形战斗机为设计灵感，左右两侧是写着标语的旗帜。</p>
 <p>来到龙翔的大巴车停在大门右侧的空地上。下车之后就会发现教官已经等候已久。</p>
-<p>走进大门，就可以看到一架战斗机。龙翔的一大特点是园区内保存着各种退役装备，大炮、坦克、战斗机，一应俱全。上面都印有“中国人民解放军海军（空军/陆军）赠”。</p>
+<p>走进大门，就可以看到一架战斗机。龙翔的一大特点是园区内保存着各种退役装备，大炮、坦克、战斗机，一应俱全。上面都印有“中国人民解放军海军（空军/陆军）赠”。在很多地方都能看到这些东西，例如食堂出口的草坪上有坦克、航空航天馆外的大草坪有战斗机、龙翔入口左侧有大炮。</p>
 <p>其实大路旁还有一个看上去荒废的公交站，名为“龙翔站”，广告牌上还写着“期待您下次光临”。</p>
 <p>然后，就要认识龙翔的教官和设施。</p>
 <hr/>
@@ -499,8 +539,7 @@
     <li>炮排</li>
     <p>这个方阵主要是在闭营仪式时放炮，增添氛围感，同时也是唯一一个配有道具的方阵。</p>
 </ul>
-<p>后来，辅导员还让大家齐步走时喊：</p>
-<q>魔力青春，升华自我！</q>
+<p>有没有发现上面没有提到跑步？其实在龙翔几乎没有跑步这一项目。唯一的一次，高中的学生因为站不好而被罚跑了一两圈。</p>
 <hr/>
 <h1 id="longxiang-restaurant">食堂</h1>
 <h2>饭前</h2>
@@ -531,12 +570,14 @@
 <p>处理完毕，就要到指定位置集合。在所有学生到齐前允许进行装水、上厕所，到齐后就要开始接下来的活动。</p>
 <hr/>
 <h1 id="longxiang-activities">项目</h1>
-<p>辅导员声称“龙翔有60多个项目”。在军训期间，大家也看到不少场馆。讽刺的是，9班一个场馆都没去过。5天内，9班大概体验了这些项目：</p>
+<p>辅导员声称“龙翔有60多个项目”。在军训期间，大家也看到不少场馆，例如海军船舰馆、航天航空馆。</p>
+<p>辅导员“明确”了在龙翔的制度：五天内的活动分为训练和玩，两者相互穿插，玩的时间由训练的表现决定。练不好就别玩，练得好甚至可以整天都在玩。辅导员还说，进入场馆是需要门票的，门票在辅导员那里，视情况发放。</p>
+<p>讽刺的是，9班一个场馆都没去过，更没见过龙翔的什么“门票”。5天内，9班只体验了这些：</p>
 <h2>射击</h2>
 <p>龙翔有真正的射击项目，甚至有真人CS的场地。但同学们只能玩低级的射击——枪是看得见摸得着的，但设计的目标是电脑屏幕上显示的。游戏界面为10个瓶子和一个移动的屏风。有10次射击机会，目标是尽可能击碎更多瓶子。</p>
 <p>设备就几台，所以学生要排队体验，排队的人就坐一个塑料板凳。</p>
 <p>很多人实操后发现弹道偏左，甚至还有连发的现象。</p>
-<h2>VR</h2>
+<h2>VR及多功能大厅</h2>
 <p>实际上VR、射击、穿越火线都在一号食堂楼上，只不过用一面墙把射击和另外两项的场地隔开了。第二天晚上，辅导员让没体验的班级去体验VR，到达后照样坐着塑料凳排队体验。</p>
 <p>龙翔有两台设备，一台可同时供4人体验。9班到达时，两台是分别给两个班级体验的——因此一次体验的人数固定为4人。</p>
 <p>VR的场景有三款，都是“过山车”场景。王文浩让大家转过去不要看，防止大家看到画面失去新鲜感，但还是阻止不了同学们偷看。</p>
@@ -548,10 +589,11 @@
 <p>多功能大厅门口的空地是第二天上午的游戏场地之一。学生在这里体验了两个项目，但性质和“穿越火线”一样。</p>
 <h2>观影活动</h2>
 <p>军训前上映了一部《志愿军：存亡之战》，于是第一天晚上，全体学生就到①号多功能大厅观看了前作《志愿军：雄兵出击》。但看了一半就因为时间太晚而被暂停了，辅导员让大家“有兴趣回家看”。</p>
-<h2>消防演练</h2>
+<h2>消防演练及操场</h2>
 <p>第二天早上集合后，辅导员通知事项，然后大家就回到宿舍准备消防演练。警报声响起，学生用毛巾捂脸撤离宿舍。</p>
 <p>龙翔为此贴心地准备了烟雾（烟雾还很熏人），氛围感十足；当然学生是有在说笑的。撤离到楼下，立刻又辅导员让大家就近蹲下，撤离得差不多了就找到本班队伍排队，准备到大操场进行灭火器实操。</p>
-<p>之前的开营仪式等都是在那个普通操场上进行的，这个操场和学校的操场配置差不多，因此龙翔用一个“大”字区分两个操场。结果到了真正的“大操场”，发现中间是水泥地板，有的还是开裂的；跑道淡到基本看不见，上面还停着各种各样的车辆。也就是说，大操场其实等同于停车场！</p>
+<p>之前的开营仪式等都是在那个普通操场上进行的，这个操场和学校的操场配置差不多。但有一点令人无语：闭营仪式前，辅导员让大家先在操场坐一会儿，结果有人发现坐了一会儿裤子、鞋子被染绿了，就说“操场会掉色！”</p>
+<p>龙翔用一个“大”字区分两个操场。去“大操场”的路上要上一段坡。到达后，只见一片水泥地板，有的还是开裂的；跑道淡到基本看不见，跑道上面还停着各种各样的车辆。也就是说，大操场其实等同于停车场！不过确实，大操场是比另一个操场大的。</p>
 <p>然后的安排使学生对龙翔的音响更差了。所有班级的方阵围成一圈，前面摆着个铁桶，里面有燃烧的木柴。然后让每个班派一位代表体验灭火器，其他人就只能看着。于是学生第一次开始集体吐槽龙翔：</p>
 <q>有120个项目！</q>
 <q>我都不知道龙翔怎么赚钱！</q>
@@ -621,7 +663,7 @@
 <p>龙翔的澡堂为公共浴室，直接降低了洗澡时的舒适性和隐私性。</p>
 <p>还有一点很糟糕，就是澡堂离宿舍很远，大概在食堂后面。每次洗澡需要走相当远的一段路。</p>
 <p>洗澡是自愿的，辅导员会不停用喇叭喊“要洗澡的同学，带上雨伞和洗澡工具，到楼下集合……”但刘老师要求每天都要洗澡，不洗澡还要扣量化分（实际没扣）。刘老师会去每间宿舍（包括男生宿舍）巡视，看到有9班的人就问有没有洗澡，当然可以糊弄过去。</p>
-<p>前三天或多或少都有下雨，自然要带伞。但是这就会出现以下情况：</p>
+<p>前三天或多或少都有下雨，自然要带伞。这就会出现以下情况：</p>
 <div class="box">
     <p>下雨天 → 易淋雨</p>
     <p>路程长、路面坑洼 → 积水、泥泞路段多</p>
@@ -630,29 +672,57 @@
     <p>公共浴室 → 洗澡仓促</p>
 </div>
 <p>这么一来，洗澡的效果大打折扣，脚部更是重灾区。</p>
-<p>进入澡堂，里面热闹非凡。进门有放伞的地方，放完伞走进浴室门口，有放衣服的架子。再往里面——场面好不壮观！</p>
-<p>龙翔的澡堂共四排，对应着两个过道。每排分为若干隔间，隔间与隔间间使用铁板分隔。但隔板左右和下方都有空隙，下方的空隙尤其大。</p>
+<p>进入澡堂，里面热闹非凡。进门有放伞的地方，放完伞走进浴室门口，有放衣服的架子。最好别在那放东西，容易弄混。</p>
+<p>再往里面——场面好不壮观！</p>
+<p>龙翔的澡堂共四排，对应着两个过道。每排分为若干隔间，隔间与隔间间使用铁板分隔。但隔板左右和下方都有空隙，下方的空隙尤其大。女生澡堂和男生澡堂在布局、配置、环境上相差不多。</p>
 <p>最糟心的是，每个隔间的帘子具有这些缺点：</p>
 <ul>
     <li>单薄。似乎风一吹就会开始飘扬，一拉就开。</li>
     <li>太小。在帘子拉上的情况下，从外面可以直接看到里面人的小腿。</li>
     <li>脏。帘子是白色的，污渍自然清晰可见。</li>
 </ul>
-<p>每一项都是对舒适性和隐私性全面打压。</p>
+<p>每一项都是对舒适性和隐私性全面打压。有的帘子还是坏的。</p>
 <p>人为的原因自然不必多言。洗澡时必须保持高度警惕，防止有人突然掀帘子。帘子外此起彼伏的笑声、喊声、谈话声使人倍感压力，只有迅速洗完，才能最大化降低风险。事实上，掀帘子的案例时常发生。外面晃悠的人可能正在寻找目标或找到目标准备下手，也可能聚在一起准备看笑话，但几乎不可能是心怀好意的。</p>
-<p>更有大型猎奇现场的出现，比如曾发生过四个人在男生澡堂的同一隔间洗澡。只有你想不到的，没有那些人做不到的。</p>
-<p>墙上贴有“冷水”和“热水”的标志；花洒是常规配置——手持的。在龙翔，花洒使用人数和水温成反比，且靠里面的隔间水温通常比外面的高<sup>[1]</sup>。</p>
+<p>更有大型猎奇现场的出现，比如曾发生过：</p>
+<ul>
+    <li>四个人在男生澡堂的同一隔间洗澡。</li>
+    <li>有人边洗澡边拉屎<sup>[1]</sup>。</li>
+    <li>有人洗澡时发现蜘蛛<sup>[1]</sup>。</li>
+</ul>
+<p>只有你想不到的，没有那些人做不到的。</p>
+<p>墙上贴有“冷水”和“热水”的标志；花洒是手持的。在龙翔，花洒使用人数和水温、水量成反比，且靠里面的隔间水温通常比外面的高；花洒有好有坏，甚至有的直接装个水龙头<sup>[1]</sup>。</p>
 <p>当然也别指望把东西放到入口处架子上，那里可是非常乱的。</p>
 <p>总之，龙翔澡堂环境乱、场面乱、物品乱，一团乱。</p>
 <h2>小卖部、水池</h2>
-<p>龙翔的小卖部就在尚武楼、自强楼楼下。</p>
+<p>龙翔的小卖部就在尚武楼、自强楼楼下。因此去小卖部比去澡堂方便不知多少。</p>
+<p>辅导员说只有在晚上8:00-9:00才能去小卖部，其余时间段去的话就会被驻守在那的辅导员抓住。事实上，四个晚上被安排得满满当当，没有一晚能在8点之前回到宿舍。不过辅导员明面上这么说，实际上只要解散回宿舍，就可以去小卖部，只要在熄灯前一点时间回宿舍就行。</p>
+<p>这时，小卖部就会出现拥挤的现象。由于只有两个收银台，结账时一般要排很久队。这种热闹的场面在龙翔属实不多见。</p>
+<p>自然这里的物价高得离谱。下面列举一些物品的价格：</p>
+<div class="box">
+    <p>500ml矿泉水 → 3元/瓶</p>
+    <p>普通方便面 → 6元/桶<sup>[1]</sup></p>
+    <p>小面包（只有一小包） → 2元/小包<sup>[1]</sup></p>
+</div>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
 <h2>龙翔的传说</h2>
 <p></p>
-<h2>集合</h2>
-<h2>宿舍纪律</h2>
+<h2>纪律</h2>
+
+
+
+
+
+
 <div class="notes">
-    <p>[1] 孔祥懿提供了相关资料。</p>
-</div>
+    <p>[1] 孔祥懿、林芷琪提供了相关资料，阅读时请仔细甄别相关内容真实性。</p>
+</div><!--yi&#780; pa&#768;o mi&#769;ng zhi&#768;
 
-
+<p>后来，辅导员还让大家齐步走时喊：</p>
+<q>磨砺青春，升华自我！</q>-->
 </main><footer><h1>页面到底了！</h1></footer></div><script>function ep(){var e=document.querySelector("#password input").value;"YmFzaW4xOTg="===btoa(e)?(localStorage.setItem("p","true"),document.getElementById("password").close()):document.querySelector("#password input").style.background="#f004"}function showPage(e){var t=document.querySelectorAll("main"),o=document.getElementById(e),n=document.querySelectorAll("nav>div:nth-of-type(2)>div"),a=document.querySelector("nav>div:nth-of-type(1)>div:nth-of-type(2)");t.forEach(e=>{e.style.display="none"}),n.forEach(e=>{e.style.display="none"}),o&&(o.style.display="block"),a.style.display="LITERATURE"==e?"inline-block":"none",document.getElementById(e+"-l").style.display="block"}function chT(e){document.body.setAttribute("data-t",e),localStorage.setItem("t",e)}function chW(e){document.body.setAttribute("data-w",e),localStorage.setItem("w",e)}function chN(e){document.body.setAttribute("data-n",e),localStorage.setItem("n",e)}function chF(e){document.body.setAttribute("data-f",e),localStorage.setItem("f",e),search()}document.addEventListener("click",function(e){var t=document.querySelector("nav>div:nth-of-type(2)"),o=document.querySelector("nav>div:nth-of-type(1) button.fa-navicon");t.classList.contains("active")&&!t.contains(e.target)&&e.target!==o&&t.classList.remove("active")}),document.querySelectorAll("nav>div:nth-of-type(2) a,nav>div:nth-of-type(2) button").forEach(e=>{e.addEventListener("click",function(){document.querySelector("nav>div:nth-of-type(2)").classList.remove("active")})}),document.getElementById("sD").addEventListener("click",function(e){var t=this.getBoundingClientRect();(e.clientX<t.left||t.right<e.clientX||e.clientY<t.top||t.bottom<e.clientY)&&this.close()}),window.addEventListener("scroll",()=>{var e=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100;document.querySelector("nav").style.setProperty("--progress",e+"%")}),document.getElementById("r1").addEventListener("input",function(){document.querySelector("body>#main").style.setProperty("--opacity",this.value+"%"),localStorage.setItem("o",this.value)}),document.getElementById("r2").addEventListener("input",function(){document.querySelector("body>#main").style.backdropFilter="blur("+this.value+"px)",localStorage.setItem("b",this.value)});let db;const request=indexedDB.open("backgroundDB",1);function loadBackground(){const e=db.transaction(["background"],"readonly").objectStore("background").get(1);e.onsuccess=function(){e.result&&(document.body.style.backgroundImage=`url(${e.result.image})`)}}function cbg(){var e=document.createElement("input");e.type="file",e.accept="image/*",e.onchange=function(e){var t;(e=e.target.files[0])&&((t=new FileReader).onload=function(e){db.transaction(["background"],"readwrite").objectStore("background").put({id:1,image:e.target.result}),document.body.style.backgroundImage=`url(${e.target.result})`},t.readAsDataURL(e))},e.click()}function ubg(){db.transaction(["background"],"readwrite").objectStore("background").delete(1),document.body.style.backgroundImage=""}function heb(){}request.onupgradeneeded=function(e){(db=e.target.result).objectStoreNames.contains("background")||db.createObjectStore("background",{keyPath:"id"})},request.onsuccess=function(e){db=e.target.result,loadBackground()},document.querySelectorAll("img").forEach(e=>{e.onerror=function(){this.src="data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+DQo8cGF0aCBkPSJNMzA0LjEyOCA0NTYuMTkyYzQ4LjY0IDAgODguMDY0LTM5LjQyNCA4OC4wNjQtODguMDY0cy0zOS40MjQtODguMDY0LTg4LjA2NC04OC4wNjQtODguMDY0IDM5LjQyNC04OC4wNjQgODguMDY0IDM5LjQyNCA4OC4wNjQgODguMDY0IDg4LjA2NHptMC0xMTYuMjI0YzE1LjM2IDAgMjguMTYgMTIuMjg4IDI4LjE2IDI4LjE2cy0xMi4yODggMjguMTYtMjguMTYgMjguMTYtMjguMTYtMTIuMjg4LTI4LjE2LTI4LjE2IDEyLjI4OC0yOC4xNiAyOC4xNi0yOC4xNnoiIGZpbGw9IiNjY2ZmZmZjYyIvPg0KPHBhdGggZD0iTTg4Ny4yOTYgMTU5Ljc0NEgxMzYuNzA0Qzk2Ljc2OCAxNTkuNzQ0IDY0IDE5MiA2NCAyMzIuNDQ4djU1OS4xMDRjMCAzOS45MzYgMzIuMjU2IDcyLjcwNCA3Mi43MDQgNzIuNzA0aDE5OC4xNDRMNTAwLjIyNCA2ODguNjRsLTM2LjM1Mi0yMjIuNzIgMTYyLjMwNC0xMzAuNTYtNjEuNDQgMTQzLjg3MiA5Mi42NzIgMjE0LjAxNi0xMDUuNDcyIDE3MS4wMDhoMzM1LjM2QzkyNy4yMzIgODY0LjI1NiA5NjAgODMyIDk2MCA3OTEuNTUyVjIzMi40NDhjMC0zOS45MzYtMzIuMjU2LTcyLjcwNC03Mi43MDQtNzIuNzA0em0tMTM4Ljc1MiA3MS42OHYuNTEySDg1Ny42YzE2LjM4NCAwIDMwLjIwOCAxMy4zMTIgMzAuMjA4IDMwLjIwOHYzOTkuODcyTDY3My4yOCA0MDguMDY0bDc1LjI2NC0xNzYuNjR6TTMwNC42NCA3OTIuMDY0SDE2NS44ODhjLTE2LjM4NCAwLTMwLjIwOC0xMy4zMTItMzAuMjA4LTMwLjIwOHYtOS43MjhsMTM4Ljc1Mi0xNjQuMzUyIDEwNC45NiAxMjQuNDE2LTc0Ljc1MiA3OS44NzJ6bTgxLjkyLTM1NS44NGwzNy4zNzYgMjI4Ljg2NC0uNTEyLjUxMi0xNDIuODQ4LTE2OS45ODRjLTMuMDcyLTMuNTg0LTkuMjE2LTMuNTg0LTEyLjI4OCAwTDEzNS42OCA2NTIuOFYyNjIuMTQ0YzAtMTYuMzg0IDEzLjMxMi0zMC4yMDggMzAuMjA4LTMwLjIwOGg0NzQuNjI0TDM4Ni41NiA0MzYuMjI0em01MDEuMjQ4IDMyNS42MzJjMCAxNi44OTYtMTMuMzEyIDMwLjIwOC0yOS42OTYgMzAuMjA4SDY4MC45Nmw1Ny4zNDQtOTMuMTg0LTg3LjU1Mi0yMDIuMjQgNy4xNjgtNy42OCAyMjkuODg4IDI3Mi44OTZ6IiBmaWxsPSIjY2NmZmZmY2MiLz4NCjwvc3ZnPg=="}}),heb();const observer=new MutationObserver(heb);function smoothFadeOut(){const o=document.getElementById("loader");let n;const a=performance.now();requestAnimationFrame(function e(t){t-=a,t=Math.min(t/500,1),n=1-t,o.style.opacity=n,t<1?requestAnimationFrame(e):o.style.display="none"})}observer.observe(document.getElementById("LONGXIANG"),{childList:!0,subtree:!0,attributes:!0,attributeFilter:["style"]}),document.querySelectorAll('a[href^="http"]').forEach(e=>{e.setAttribute("target","_blank")}),window.addEventListener("load",function(){setTimeout(smoothFadeOut,300)}),window.addEventListener("DOMContentLoaded",function(){localStorage.getItem("p")?document.getElementById("password").close():document.getElementById("password").showModal();var e=localStorage.getItem("t"),e=(e?chT(e):window.matchMedia("(prefers-color-scheme:dark)").matches?chT("d"):chT("l"),localStorage.getItem("w")),e=(e&&chW(e),localStorage.getItem("n")),e=(e&&chN(e),localStorage.getItem("f")),e=(e&&chF(e),localStorage.getItem("o")),e=(e&&(document.querySelector("body>#main").style.setProperty("--opacity",e+"%"),document.getElementById("r1").value=e),localStorage.getItem("b"));e&&(document.querySelector("body>#main").style.backdropFilter="blur("+e+"px)",document.getElementById("r2").value=e);["t","w","n","f"].forEach(e=>{var t=localStorage.getItem(e);t&&(e=document.querySelector(`input[name="${e}"][onclick*="${t}"]`))&&(e.checked=!0)}),showPage("LONGXIANG")}),"serviceWorker"in navigator&&navigator.serviceWorker.register("/c/sw.js",{scope:"/c/"});</script></body></html>
