@@ -31,7 +31,7 @@
         <dialog id="sD"><div>设置<span onclick="document.getElementById('sD').close()"style="float:right;cursor:pointer;">×</span></div><div><span>主题</span><input type="radio"name="t"onclick="chT('l')"style="--rc:'浅'"><input type="radio"name="t"onclick="chT('d')"style="--rc:'深'"><input type="radio"name="t"onclick="chT('b')"style="--rc:'蓝'"><input type="radio"name="t"onclick="chT('m')"style="--rc:'晨'"><input type="radio"name="t"onclick="chT('n')"style="--rc:'夜'"></div><div><span>字重</span><input type="radio"name="w"onclick="chW('n')"style="--rc:'中'"checked><input type="radio"name="w"onclick="chW('l')"style="--rc:'细'"></div><div><span>导航栏</span><input type="radio"name="n"onclick="chN('1')"style="--rc:'经典'"><input type="radio"name="n"onclick="chN('2')"style="--rc:'胶囊'"checked></div><div><span>内容过滤</span><input type="radio"name="f"onclick="chF('0')"style="--rc:'无'"><input type="radio"name="f"onclick="chF('1')"style="--rc:'一'"><input type="radio"name="f"onclick="chF('2')"style="--rc:'二'"><input type="radio"name="f"onclick="chF('3')"style="--rc:'三'"checked></div><div><span>背景图片</span><button onclick="ubg()">清除</button><button onclick="cbg()">上传</button><div><span>透明度</span><input type="range"max="100"min="0"step="10"id="r1"/></div><div><span>虚化</span><input type="range"max="30"min="0"step="3"id="r2"/></div></div><button onclick="localStorage.clear();ubg();location.reload(true);">重置<small style="color:#f99;">（将清除密码和个性化设置）</small></button></dialog>
 <main id="LITERATURE">
 <header><h1>9班文学</h1></header>
-
+<!--添加名句高亮模块、错别字高亮模块（自定义元素）-->
 <div class="writing">
     <h1>周记</h1>
     <p>廖成羲</p>
@@ -39,6 +39,21 @@
     <p>这周十分的特别，特别之处在于它竟然没有什么特别的事。我现在终于知道了，原来我刚才什么也不知道。我们都应该互相恭喜一下，恭喜我们刚才被对方恭喜到了。</p>
     <p>我终于想起来了，想起来我其实什么都不记得了，一场狂风刮走了我的记忆，但我也不记得那场狂风是什么了。</p>
     <p>阳光明媚的晴天下着雨，淹死了很多鱼。我悲伤地开怀大笑，惊跑了一群刚死的鸟。</p>
+</div>
+<div class="writing">
+    <h1>周记2</h1>
+    <p>廖成羲</p>
+    <p>抬头的一片天，是一片天；脚下的一寸土，是一寸土。眼前的教室，是一个教育学生的地方。其实，我说白了，我白说了。</p>
+    <p>就告诉你吧，我刚才说了一句话：就告诉你吧，我刚才说了一句话。雨下整夜，整个夜晚都在下雨。浑浊的雨水里，我看不清，鱼都淹死了。</p>
+    <p>告诉你一个好消息，就是没有坏消息；告诉你个坏消息，明天是世界末日；再告诉你个好消息，刚才的消息是假的。</p>
+    <p>在能看到三个月亮的地方，大象的背上插着一把剑。大象发出了求救，但我被大象压住了，听不见。</p>
+</div>
+<div class="writing">
+    <h1>周记</h1>
+    <p>徐嘉明</p>
+    <p>岁月就像一把大砍刀，把我们的生活砍成了无数段，但每一段都值得珍惜。这一周也是一个好段，让我来描述一下。</p>
+    <p>在这一周发生了一件重大的事情，这件事为何重大呢，因为它重大到我都觉得它很重大。这件事的内容是我小学的“好兄弟”居然不跟我联系了。兄弟就像春天还未融化的积雪，你朝他尿尿，它立刻就消失了。我用尽一切方法想找到他，可依旧没有成功。我渐渐想要放弃了，老师<wrong-character>交</wrong-character>过我们遇到困难不能轻易放弃。所以我更加努力的寻找方法了。</p>
+    <p>在最后我终于联系到了他，这中间是个什么过程呢？听我来说。在漫长寻找的里程中，我又想到了老师的话，成功之路也许就在一些不容易发现的地方，于是我找了各种地方，终于发现，原来我忘记充话费了，一切都是一个误会。</p>
 </div>
 <div class="writing">
     <h1>十年后的我</h1>
