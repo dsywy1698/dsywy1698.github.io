@@ -6,527 +6,231 @@
   <title>自定义配色卡</title>
   <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <style>
-    :root {
-      --bg-color: #f8f9fa;
-      --text-color: #333;
-      --primary-color: #6366f1;
-      --secondary-color: #e5e7eb;
-      --accent-color: #f59e0b;
-      --danger-color: #ef4444;
-      --success-color: #10b981;
-      --modal-bg: rgba(0, 0, 0, 0.5);
-      --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      --transition: all 0.3s ease;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      min-height: 100vh;
-      padding-top: 80px;
-      line-height: 1.5;
-    }
+    :root{--bg-color:#f8f9fa;--text-color:#333;--primary-color:#6366f1;--secondary-color:#e5e7eb;--accent-color:#f59e0b;--danger-color:#ef4444;--success-color:#10b981;--warning-color:#f59e0b;--modal-bg:rgba(0,0,0,0.5);--card-shadow:0 4px 6px rgba(0,0,0,0.1);--transition:all 0.3s ease;}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;}
+    body{background-color:var(--bg-color);color:var(--text-color);min-height:100vh;padding-top:80px;line-height:1.5;}
+    input{background:#fff8;}
     /* 顶部工具栏 */
-    .toolbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 70px;
-      background-color: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      display: flex;
-      align-items: center;
-      justify-content:center;
-      padding: 0 20px;
-      gap: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      z-index: 100;
-    }
-    .color-input {
-      padding: 10px 15px;
-      border: 1px solid var(--secondary-color);
-      border-radius: 8px;
-      font-size: 16px;
-      transition: var(--transition);
-      outline: none;
-      max-width:200px;
-    }
-    .color-input:focus {
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
-    }
-    .btn {
-      padding: 10px 15px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      width:100px;
-    }
-    .btn-primary {
-      background-color: var(--primary-color);
-      color: white;
-    }
-    .btn-primary:hover {
-      background-color: #4f46e5;
-    }
-    .btn-secondary {
-      background-color: var(--secondary-color);
-      color: var(--text-color);
-    }
-    .btn-secondary:hover {
-      background-color: #d1d5db;
-    }
-    .btn-danger {
-      background-color: var(--danger-color);
-      color: white;
-    }
-    .btn-danger:hover {
-      background-color: #dc2626;
-    }
-    .btn-success {
-      background-color: var(--success-color);
-      color: white;
-    }
-    .btn-success:hover {
-      background-color: #059669;
-    }
+    header{position:fixed;top:0;left:0;right:0;height:70px;background-color:rgba(255,255,255,0.8);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:0 20px;gap:10px;box-shadow:0 2px 10px rgba(0,0,0,0.05);z-index:100;}
+    header input{padding:10px 15px;border:1px solid var(--secondary-color);border-radius:8px;font-size:16px;width:150px;transition:var(--transition);outline:none;}
+    header input:focus{border-color:var(--primary-color);box-shadow:0 0 0 2px rgba(99,102,241,0.2);}
+    button{padding:10px 15px;border:none;border-radius:8px;font-size:16px;cursor:pointer;transition:var(--transition);display:flex;align-items:center;justify-content:center;gap:6px;}
+    button.primary{background-color:var(--primary-color);color:white;}
+    button.primary:hover{background-color:#4f46e5;}
+    button.secondary{background-color:var(--secondary-color);color:var(--text-color);}
+    button.secondary:hover{background-color:#d1d5db;}
+    button.danger{background-color:var(--danger-color);color:white;}
+    button.danger:hover{background-color:#dc2626;}
+    button.success{background-color:var(--success-color);color:white;}
+    button.success:hover{background-color:#059669;}
     /* 主内容区 */
-    .main-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+    main{max-width:1200px;margin:0 auto;padding:20px;}
     /* 色卡区域 */
-    .color-cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content:center;
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-    .color-card {
-      width: 150px;
-      height: 150px;
-      border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 15px;
-      cursor: pointer;
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--card-shadow);
-    }
-    .color-card.selected {
-      box-shadow: 0 0 0 3px var(--primary-color), 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    .color-code {
-      font-weight: 600;
-      text-align: center;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    }
-    .color-name {
-      font-size: 14px;
-      text-align: center;
-      opacity: 0.9;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    }
+    .color-cards{display:flex;flex-wrap:wrap;gap:20px;margin-bottom:40px;}
+    .color-card{width:150px;height:150px;border-radius:12px;display:flex;flex-direction:column;justify-content:space-between;padding:15px;cursor:pointer;transition:var(--transition);position:relative;overflow:hidden;box-shadow:var(--card-shadow);}
+    .color-card.selected{box-shadow:0 0 0 3px var(--primary-color),0 4px 6px rgba(0,0,0,0.1);}
+    .color-card .code{font-weight:600;text-align:center;text-shadow:0 1px 2px rgba(0,0,0,0.1);}
+    .color-card .name{font-size:14px;text-align:center;opacity:0.9;text-shadow:0 1px 2px rgba(0,0,0,0.1);}
     /* 分组区域 */
-    .groups-container {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .color-group {
-      border-radius: 12px;
-      background-color: white;
-      box-shadow: var(--card-shadow);
-      overflow: hidden;
-      transition: var(--transition);
-    }
-    .group-header {
-      padding: 15px 20px;
-      background-color: #f3f4f6;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    .group-header:hover {
-      background-color: #e5e7eb;
-    }
-    .group-name {
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .group-actions {
-      display: flex;
-      gap: 10px;
-    }
-    .group-action-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #6b7280;
-      transition: var(--transition);
-      padding: 5px;
-      border-radius: 4px;
-    }
-    .group-action-btn:hover {
-      color: var(--text-color);
-      background-color: #e5e7eb;
-    }
-    .group-content {
-      padding: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      min-height: 80px;
-      justify-content:center;
-    }
-    .group-content.empty {
-      justify-content: center;
-      align-items: center;
-      color: #6b7280;
-      font-style: italic;
-    }
+    .groups-container{display:flex;flex-direction:column;gap:20px;}
+    .color-group{border-radius:12px;background-color:white;box-shadow:var(--card-shadow);overflow:hidden;transition:var(--transition);}
+    .color-group > div:first-child{padding:15px 20px;background-color:#f3f4f6;display:flex;justify-content:space-between;align-items:center;cursor:pointer;transition:var(--transition);}
+    .color-group > div:first-child:hover{background-color:#e5e7eb;}
+    .color-group > div:first-child > div:first-child{display:flex;align-items:center;gap:8px;font-weight:600;}
+    .color-group > div:first-child > div:last-child{display:flex;gap:10px;}
+    .color-group button{background:none;border:none;cursor:pointer;color:#6b7280;transition:var(--transition);padding:5px;border-radius:4px;}
+    .color-group button:hover{color:var(--primary-color);background-color:rgba(99,102,241,0.1);}
+    .color-group > div:last-child{padding:20px;display:flex;flex-wrap:wrap;gap:20px;min-height:100px;transition:var(--transition);justify-content:center;}
+    .color-group > div:last-child.empty{display:flex;align-items:center;justify-content:center;color:#9ca3af;font-style:italic;background-color:#f9fafb;}
+    .color-group > div:last-child.drag-over{background-color:rgba(99,102,241,0.05);}
+    /* 空状态 */
+    .empty-state{width:100%;text-align:center;padding:40px 20px;color:#9ca3af;font-size:16px;}
     /* 模态框 */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: var(--modal-bg);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-    }
-    .modal-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-    .modal {
-      background-color: white;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 500px;
-      padding: 25px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      transform: translateY(20px);
-      transition: var(--transition);
-    }
-    .modal-overlay.active .modal {
-      transform: translateY(0);
-    }
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-    .modal-title {
-      font-size: 20px;
-      font-weight: 600;
-    }
-    .close-modal {
-      background: none;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-      color: #6b7280;
-      transition: var(--transition);
-    }
-    .close-modal:hover {
-      color: var(--text-color);
-    }
-    .modal-body {
-      margin-bottom: 25px;
-    }
-    .modal-footer {
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-    }
+    .modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background-color:var(--modal-bg);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;visibility:hidden;transition:var(--transition);}
+    .modal-overlay.active{opacity:1;visibility:visible;}
+    .modal-overlay > div{background-color:#fffa;border-radius:12px;width:500px;max-width:90%;padding:25px;box-shadow:0 10px 25px rgba(0,0,0,0.1);transform:translateY(-20px);transition:var(--transition);}
+    .modal-overlay.active > div{transform:translateY(0);}
+    .modal-overlay > div > div:first-child{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+    .modal-overlay > div > div:first-child h3{font-size:20px;font-weight:600;}
+    .modal-overlay > div > div:first-child button{background:none;border:none;font-size:24px;cursor:pointer;color:#6b7280;transition:var(--transition);padding:5px;border-radius:4px;}
+    .modal-overlay > div > div:first-child button:hover{color:var(--danger-color);background-color:rgba(239,68,68,0.1);}
+    .modal-overlay > div > div:nth-child(2){margin-bottom:25px;}
+    .modal-overlay > div > div:last-child{display:flex;justify-content:flex-end;gap:10px;}
     /* 颜色信息模态框 */
-    .color-info-modal .color-preview {
-      width: 100%;
-      height: 80px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-    .color-info-grid {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-    .color-info-label {
-      font-weight: 500;
-      color: #6b7280;
-    }
-    .color-info-value {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .copy-btn {
-      background-color: #f3f4f6;
-      border: none;
-      border-radius: 4px;
-      padding: 5px 10px;
-      cursor: pointer;
-      font-size: 14px;
-      transition: var(--transition);
-    }
-    .copy-btn:hover {
-      background-color: #e5e7eb;
-    }
-    .color-name-input {
-      width: 100%;
-      padding: 10px 15px;
-      border: 1px solid var(--secondary-color);
-      border-radius: 8px;
-      font-size: 16px;
-      margin-top: 10px;
-    }
-    /* 新建分组模态框 */
-    .group-form-group {
-      margin-bottom: 20px;
-    }
-    .group-form-label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 500;
-    }
-    .group-form-input {
-      width: 100%;
-      padding: 10px 15px;
-      border: 1px solid var(--secondary-color);
-      border-radius: 8px;
-      font-size: 16px;
-    }
-    .initial-colors-container {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .initial-color-input {
-      display: flex;
-      gap: 10px;
-    }
-    .add-color-btn {
-      background-color: #f3f4f6;
-      border: 1px dashed #d1d5db;
-      border-radius: 8px;
-      padding: 10px;
-      text-align: center;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    .add-color-btn:hover {
-      background-color: #e5e7eb;
-    }
+    .color-info-modal{width:400px;}
+    .color-info-modal .color-preview{width:100%;height:150px;border-radius:8px;margin-bottom:20px;}
+    .color-info-modal .color-info-grid{display:grid;grid-template-columns:80px 1fr;gap:10px;margin-bottom:20px;}
+    .color-info-modal .color-info-grid > div:first-child{font-weight:600;color:#6b7280;}
+    .color-info-modal .color-info-grid > div:last-child{display:flex;align-items:center;gap:10px;}
+    .color-info-modal .copy-btn{padding:5px 10px;background-color:var(--secondary-color);border:none;border-radius:4px;cursor:pointer;transition:var(--transition);font-size:14px;display:inline;margin-left:10px;}
+    .color-info-modal .copy-btn:hover{background-color:var(--primary-color);color:white;}
+    .color-info-modal input{width:100%;padding:10px 15px;border:1px solid var(--secondary-color);border-radius:8px;font-size:16px;transition:var(--transition);outline:none;}
+    .color-info-modal input:focus{border-color:var(--primary-color);box-shadow:0 0 0 2px rgba(99,102,241,0.2);}
+    /* 新建分组表单 */
+    .group-form-group{margin-bottom:20px;}
+    .group-form-group label{display:block;margin-bottom:8px;font-weight:600;}
+    .group-form-group input{width:100%;padding:10px 15px;border:1px solid var(--secondary-color);border-radius:8px;font-size:16px;transition:var(--transition);outline:none;}
+    .group-form-group input:focus{border-color:var(--primary-color);box-shadow:0 0 0 2px rgba(99,102,241,0.2);}
+    .initial-colors-container{display:flex;flex-direction:column;gap:10px;margin-bottom:10px;}
+    .initial-colors-container > div{display:flex;gap:10px;}
+    .initial-colors-container > div input:first-child{flex:1;}
+    .initial-colors-container > div input:last-child{flex:1;}
+    .add-color-btn{background-color:transparent;padding:10px;text-align:center;cursor:pointer;transition:var(--transition);}
+    .add-color-btn:hover{color:var(--success-color);}
     /* 提示消息 */
-    .toast-container {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .toast {
-      background-color: white;
-      border-radius: 8px;
-      padding: 12px 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-    }
-    .toast.show {
-      transform: translateX(0);
-    }
-    .toast-success {
-      border-left: 4px solid var(--success-color);
-    }
-    .toast-error {
-      border-left: 4px solid var(--danger-color);
-    }
-    .toast-icon {
-      font-size: 20px;
-    }
-    .toast-success .toast-icon {
-      color: var(--success-color);
-    }
-    .toast-error .toast-icon {
-      color: var(--danger-color);
-    }
+    .toast-container{position:fixed;bottom:20px;right:20px;z-index:1000;display:flex;flex-direction:column;gap:10px;}
+    .toast-container > div{background-color:white;border-radius:8px;padding:12px 20px;box-shadow:0 4px 6px rgba(0,0,0,0.1);display:flex;align-items:center;gap:10px;transform:translateX(100%);transition:transform 0.3s ease;}
+    .toast-container > div.show{transform:translateX(0);}
+    .toast-container > div.success{border-left:4px solid var(--success-color);}
+    .toast-container > div.error{border-left:4px solid var(--danger-color);}
+    .toast-container .toast-icon{font-size:20px;}
+    .toast-container .success .toast-icon{color:var(--success-color);}
+    .toast-container .error .toast-icon{color:var(--danger-color);}
+    .text-warning{color:var(--warning-color);font-weight:bold;margin-top:10px;}
     /* 响应式设计 */
-    @media (max-width: 768px) {
-      .color-card {
-        width: calc(50% - 10px);
-        height: 120px;
-      }
-      .modal {
-        width: 95%;
-        padding: 20px;
-      }
+    @media (max-width:768px){
+      button{padding:8px 12px;font-size:14px;}
+      body{padding-top:120px;}
+      .color-card{width:calc(50% - 10px);height:120px;}
+      .modal-overlay > div{width:95%;padding:20px;}
     }
-    @media (max-width: 480px) {
-    .toolbar {
-        flex-wrap: wrap;
-        height: auto;
-        padding: 10px;
-        gap: 8px;
-      }
-      .color-input {
-        width: 100%;
-      }
-      .btn {
-        padding: 8px 12px;
-        font-size: 14px;
-      }
-      body {
-        padding-top: 120px;
-      }
-      .color-card {
-        width: 100%;
-      }
-      .color-info-grid {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width:480px){
+      header{flex-wrap:wrap;height:auto;padding:10px;gap:8px;}
+      header input{width:100%;}
+      .color-card{width:100%;}
+      .color-info-modal .color-info-grid{grid-template-columns:1fr;}
     }
   </style>
 </head>
 <body>
   <!-- 顶部工具栏 -->
-  <div class="toolbar">
-    <input type="text" class="color-input" id="colorInput" placeholder="颜色值" maxlength="7">
-    <button class="btn btn-primary" id="createColorBtn">创建</button>
-    <button class="btn btn-secondary" id="createGroupBtn">分组</button>
-    <button class="btn btn-danger" id="deleteBtn">删除</button>
-  </div>
+  <header>
+    <input type="text" placeholder="颜色值" maxlength="7">
+    <button class="primary" id="createColorBtn">创建</button>
+    <button class="secondary" id="createGroupBtn">新建分组</button>
+    <button class="danger" id="deleteBtn">删除</button>
+  </header>
+
   <!-- 主内容区 -->
-  <div class="main-content">
+  <main>
     <!-- 未分组色卡区域 -->
     <div class="color-cards" id="ungroupedColors">
       <!-- 未分组的色卡将在这里显示 -->
     </div>
+
     <!-- 分组区域 -->
     <div class="groups-container" id="groupsContainer">
       <!-- 颜色分组将在这里显示 -->
     </div>
-  </div>
+  </main>
+
   <!-- 颜色信息模态框 -->
   <div class="modal-overlay" id="colorInfoModal">
     <div class="modal color-info-modal">
       <div class="modal-header">
-        <h3 class="modal-title">颜色信息</h3>
-        <button class="close-modal" id="closeColorInfoModal">&times;</button>
+        <h3>颜色信息</h3>
+        <button>&times;</button>
       </div>
       <div class="modal-body">
-        <div class="color-preview" id="modalColorPreview"></div>
+        <div class="color-preview"></div>
         <div class="color-info-grid">
-          <div class="color-info-label">HEX:</div>
-          <div class="color-info-value">
+          <div>HEX:</div>
+          <div>
             <span id="modalHexValue"></span>
-            <button class="copy-btn" id="copyHexBtn">复制</button>
+            <button class="copy-btn">复制</button>
           </div>
-          <div class="color-info-label">RGB:</div>
-          <div class="color-info-value">
+          <div>RGB:</div>
+          <div>
             <span id="modalRgbValue"></span>
-            <button class="copy-btn" id="copyRgbBtn">复制</button>
+            <button class="copy-btn">复制</button>
           </div>
-          <div class="color-info-label">HSL:</div>
-          <div class="color-info-value">
+          <div>HSL:</div>
+          <div>
             <span id="modalHslValue"></span>
-            <button class="copy-btn" id="copyHslBtn">复制</button>
+            <button class="copy-btn">复制</button>
           </div>
         </div>
-        <input type="text" class="color-name-input" id="modalColorNameInput" placeholder="颜色名">
+        <input type="text" placeholder="输入颜色名称（可选）">
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" id="cancelColorInfoBtn">取消</button>
-        <button class="btn btn-primary" id="saveColorNameBtn">保存</button>
+        <button class="secondary">取消</button>
+        <button class="primary">保存</button>
       </div>
     </div>
   </div>
+
   <!-- 新建分组模态框 -->
   <div class="modal-overlay" id="createGroupModal">
     <div class="modal">
       <div class="modal-header">
-        <h3 class="modal-title">新建分组</h3>
-        <button class="close-modal" id="closeCreateGroupModal">&times;</button>
+        <h3>新建分组</h3>
+        <button>&times;</button>
       </div>
       <div class="modal-body">
         <div class="group-form-group">
-          <label class="group-form-label" for="groupNameInput">分组名称</label>
-          <input type="text" class="group-form-input" id="groupNameInput" placeholder="名称" required>
+          <label for="groupNameInput">分组名称</label>
+          <input type="text" id="groupNameInput" placeholder="输入分组名称" required>
         </div>
         <div class="group-form-group">
-          <label class="group-form-label">初始颜色（可选）</label>
+          <label>初始颜色（可选）</label>
           <div class="initial-colors-container" id="initialColorsContainer">
             <div class="initial-color-input">
-              <input type="text" class="group-form-input" placeholder="颜色值">
+              <input type="text" class="color-code-input" placeholder="颜色值">
+              <input type="text" class="color-name-input" placeholder="颜色名称（可选）">
             </div>
           </div>
-          <div class="add-color-btn" id="addInitialColorBtn">添加颜色</div>
+          <div class="add-color-btn" id="addInitialColorBtn">+ 添加颜色</div>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" id="cancelCreateGroupBtn">取消</button>
-        <button class="btn btn-primary" id="confirmCreateGroupBtn">创建</button>
+        <button class="secondary">取消</button>
+        <button class="primary">创建</button>
       </div>
     </div>
   </div>
+
   <!-- 编辑分组模态框 -->
   <div class="modal-overlay" id="editGroupModal">
     <div class="modal">
       <div class="modal-header">
-        <h3 class="modal-title">编辑分组</h3>
-        <button class="close-modal" id="closeEditGroupModal">&times;</button>
+        <h3>编辑分组</h3>
+        <button>&times;</button>
       </div>
       <div class="modal-body">
         <div class="group-form-group">
-          <label class="group-form-label" for="editGroupNameInput">分组名称</label>
-          <input type="text" class="group-form-input" id="editGroupNameInput" placeholder="名称" required>
+          <label for="editGroupNameInput">分组名称</label>
+          <input type="text" id="editGroupNameInput" placeholder="输入分组名称" required>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-danger" id="deleteGroupBtn">分组</button>
-        <button class="btn btn-secondary" id="cancelEditGroupBtn">取消</button>
-        <button class="btn btn-primary" id="saveGroupNameBtn">保存</button>
+        <button class="danger" id="deleteGroupBtn">删除分组</button>
+        <button class="secondary">取消</button>
+        <button class="primary">保存</button>
       </div>
     </div>
   </div>
+
+  <!-- 确认删除分组模态框 -->
+  <div class="modal-overlay" id="confirmDeleteModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>确认删除</h3>
+        <button>&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>确定要删除这个分组吗？分组内的所有色卡也将被删除。</p>
+        <p class="text-warning">此操作不可撤销！</p>
+      </div>
+      <div class="modal-footer">
+        <button class="secondary">取消</button>
+        <button class="danger">确认删除</button>
+      </div>
+    </div>
+  </div>
+
   <!-- 提示消息容器 -->
   <div class="toast-container" id="toastContainer"></div>
+
   <script>
     // 数据模型
     let colorCards = [];
@@ -537,38 +241,42 @@
     let currentEditingGroupId = null;
     let draggedColorId = null;
     // DOM 元素
-    const colorInput = document.getElementById('colorInput');
-    const createColorBtn = document.getElementById('createColorBtn');
-    const createGroupBtn = document.getElementById('createGroupBtn');
-    const deleteBtn = document.getElementById('deleteBtn');
+    const colorInput = document.querySelector('header input');
+    const createColorBtn = document.querySelector('header button.primary');
+    const createGroupBtn = document.querySelector('header button:nth-child(3)');
+    const deleteBtn = document.querySelector('header button.danger');
     const ungroupedColorsContainer = document.getElementById('ungroupedColors');
     const groupsContainer = document.getElementById('groupsContainer');
     const colorInfoModal = document.getElementById('colorInfoModal');
-    const closeColorInfoModal = document.getElementById('closeColorInfoModal');
-    const modalColorPreview = document.getElementById('modalColorPreview');
-    const modalHexValue = document.getElementById('modalHexValue');
-    const modalRgbValue = document.getElementById('modalRgbValue');
-    const modalHslValue = document.getElementById('modalHslValue');
-    const copyHexBtn = document.getElementById('copyHexBtn');
-    const copyRgbBtn = document.getElementById('copyRgbBtn');
-    const copyHslBtn = document.getElementById('copyHslBtn');
-    const modalColorNameInput = document.getElementById('modalColorNameInput');
-    const cancelColorInfoBtn = document.getElementById('cancelColorInfoBtn');
-    const saveColorNameBtn = document.getElementById('saveColorNameBtn');
+    const closeColorInfoModal = colorInfoModal.querySelector('.modal-header button');
+    const modalColorPreview = colorInfoModal.querySelector('.color-preview');
+    const modalHexValue = colorInfoModal.querySelector('.color-info-grid div:nth-child(2) span');
+    const modalRgbValue = colorInfoModal.querySelector('.color-info-grid div:nth-child(4) span');
+    const modalHslValue = colorInfoModal.querySelector('.color-info-grid div:nth-child(6) span');
+    const copyHexBtn = colorInfoModal.querySelector('.color-info-grid div:nth-child(2) button');
+    const copyRgbBtn = colorInfoModal.querySelector('.color-info-grid div:nth-child(4) button');
+    const copyHslBtn = colorInfoModal.querySelector('.color-info-grid div:nth-child(6) button');
+    const modalColorNameInput = colorInfoModal.querySelector('input');
+    const cancelColorInfoBtn = colorInfoModal.querySelector('.modal-footer button.secondary');
+    const saveColorNameBtn = colorInfoModal.querySelector('.modal-footer button.primary');
     const createGroupModal = document.getElementById('createGroupModal');
-    const closeCreateGroupModal = document.getElementById('closeCreateGroupModal');
+    const closeCreateGroupModal = createGroupModal.querySelector('.modal-header button');
     const groupNameInput = document.getElementById('groupNameInput');
     const initialColorsContainer = document.getElementById('initialColorsContainer');
     const addInitialColorBtn = document.getElementById('addInitialColorBtn');
-    const cancelCreateGroupBtn = document.getElementById('cancelCreateGroupBtn');
-    const confirmCreateGroupBtn = document.getElementById('confirmCreateGroupBtn');
+    const cancelCreateGroupBtn = createGroupModal.querySelector('.modal-footer button.secondary');
+    const confirmCreateGroupBtn = createGroupModal.querySelector('.modal-footer button.primary');
     const editGroupModal = document.getElementById('editGroupModal');
-    const closeEditGroupModal = document.getElementById('closeEditGroupModal');
+    const closeEditGroupModal = editGroupModal.querySelector('.modal-header button');
     const editGroupNameInput = document.getElementById('editGroupNameInput');
     const deleteGroupBtn = document.getElementById('deleteGroupBtn');
-    const cancelEditGroupBtn = document.getElementById('cancelEditGroupBtn');
-    const saveGroupNameBtn = document.getElementById('saveGroupNameBtn');
+    const cancelEditGroupBtn = editGroupModal.querySelector('.modal-footer button.secondary');
+    const saveGroupNameBtn = editGroupModal.querySelector('.modal-footer button.primary');
     const toastContainer = document.getElementById('toastContainer');
+    const confirmDeleteModal = document.getElementById('confirmDeleteModal');
+    const closeConfirmDeleteModal = confirmDeleteModal.querySelector('.modal-header button');
+    const cancelDeleteBtn = confirmDeleteModal.querySelector('.modal-footer button.secondary');
+    const confirmDeleteBtn = confirmDeleteModal.querySelector('.modal-footer button.danger');
     // 初始化
     function init() {
       loadData();
@@ -580,11 +288,9 @@
     function loadData() {
       const savedColors = localStorage.getItem('colorCards');
       const savedGroups = localStorage.getItem('colorGroups');
-      
       if (savedColors) {
         colorCards = JSON.parse(savedColors);
       }
-      
       if (savedGroups) {
         colorGroups = JSON.parse(savedGroups);
       }
@@ -599,7 +305,7 @@
       ungroupedColorsContainer.innerHTML = '';
       const ungroupedColors = colorCards.filter(card => !card.groupId);
       if (ungroupedColors.length === 0) {
-        ungroupedColorsContainer.innerHTML = '<div class="empty-state"></div>';
+        ungroupedColorsContainer.innerHTML = '<div class="empty-state">暂无未分组的色卡</div>';
         return;
       }
       ungroupedColors.forEach(card => {
@@ -615,29 +321,27 @@
         groupElement.className = 'color-group';
         groupElement.dataset.groupId = group.id;
         const groupHeader = document.createElement('div');
-        groupHeader.className = 'group-header';
         groupHeader.innerHTML = `
-          <div class="group-name">
+          <div>
             <i class="fa fa-folder-o"></i>
             <span>${group.name}</span>
           </div>
-          <div class="group-actions">
-            <button class="group-action-btn edit-group-btn" data-group-id="${group.id}">
+          <div>
+            <button data-group-id="${group.id}">
               <i class="fa fa-pencil"></i>
             </button>
-            <button class="group-action-btn export-group-btn" data-group-id="${group.id}">
+            <button data-group-id="${group.id}">
               <i class="fa fa-download"></i>
             </button>
           </div>
         `;
         const groupContent = document.createElement('div');
-        groupContent.className = 'group-content';
         groupContent.dataset.groupId = group.id;
         // 获取分组内的所有色卡
         const groupColors = colorCards.filter(card => card.groupId === group.id);
         if (groupColors.length === 0) {
-          groupContent.className = 'group-content empty';
-          groupContent.innerHTML = '拖拽色卡到此处';
+          groupContent.className = 'empty';
+          groupContent.textContent = '拖拽色卡到此处';
         } else {
           groupColors.forEach(card => {
             const colorCard = createColorCardElement(card);
@@ -660,8 +364,8 @@
       const textColor = getContrastColor(card.color);
       colorCard.style.color = textColor;
       colorCard.innerHTML = `
-        <div class="color-name">${card.name || '色卡'}</div>
-        <div class="color-code">${card.color}</div>
+        <div class="name">${card.name || '色卡'}</div>
+        <div class="code">${card.color}</div>
       `;
       // 添加点击事件
       colorCard.addEventListener('click', () => handleColorCardClick(card.id));
@@ -704,10 +408,20 @@
       confirmCreateGroupBtn.addEventListener('click', createColorGroup);
       addInitialColorBtn.addEventListener('click', addInitialColorInput);
       // 编辑分组模态框
-      closeEditGroupModal.addEventListener('click', () => editGroupModal.classList.remove('active'));
-      cancelEditGroupBtn.addEventListener('click', () => editGroupModal.classList.remove('active'));
+      closeEditGroupModal.addEventListener('click', () => {
+        editGroupModal.classList.remove('active');
+        currentEditingGroupId = null; // 清除当前编辑的分组ID
+      });
+      cancelEditGroupBtn.addEventListener('click', () => {
+        editGroupModal.classList.remove('active');
+        currentEditingGroupId = null; // 清除当前编辑的分组ID
+      });
       saveGroupNameBtn.addEventListener('click', saveGroupName);
-      deleteGroupBtn.addEventListener('click', deleteColorGroup);
+      deleteGroupBtn.addEventListener('click', openConfirmDeleteModal);
+      // 确认删除分组模态框
+      closeConfirmDeleteModal.addEventListener('click', () => confirmDeleteModal.classList.remove('active'));
+      cancelDeleteBtn.addEventListener('click', () => confirmDeleteModal.classList.remove('active'));
+      confirmDeleteBtn.addEventListener('click', confirmDeleteColorGroup);
       // 点击模态框外部关闭
       window.addEventListener('click', (e) => {
         if (e.target === colorInfoModal) {
@@ -719,25 +433,32 @@
         if (e.target === editGroupModal) {
           editGroupModal.classList.remove('active');
         }
+        if (e.target === confirmDeleteModal) {
+          confirmDeleteModal.classList.remove('active');
+        }
       });
       // 编辑分组按钮、导出按钮和分组标题点击事件委托
       groupsContainer.addEventListener('click', (e) => {
         // 点击铅笔图标图标编辑按钮
-        if (e.target.closest('.edit-group-btn')) {
-          const groupId = e.target.closest('.edit-group-btn').dataset.groupId;
+        if (e.target.closest('button') && e.target.closest('button').querySelector('.fa-pencil')) {
+          const groupId = e.target.closest('button').dataset.groupId;
           openEditGroupModal(groupId);
         }
         // 点击导出按钮
-        else if (e.target.closest('.export-group-btn')) {
-          const groupId = e.target.closest('.export-group-btn').dataset.groupId;
+        else if (e.target.closest('button') && e.target.closest('button').querySelector('.fa-download')) {
+          const groupId = e.target.closest('button').dataset.groupId;
           exportGroupColors(groupId);
         }
         // 点击分组标题（不包括操作按钮区域）
-        else if (e.target.closest('.group-header') && !e.target.closest('.group-actions')) {
-          const groupHeader = e.target.closest('.group-header');
+        else if (e.target.closest('.color-group > div:first-child') && !e.target.closest('button')) {
+          const groupHeader = e.target.closest('.color-group > div:first-child');
           const groupElement = groupHeader.parentElement;
           const groupId = groupElement.dataset.groupId;
-          openEditGroupModal(groupId);
+          if (groupId) {
+            openEditGroupModal(groupId);
+          } else {
+            showToast('无法获取分组信息', 'error');
+          }
         }
       });
     }
@@ -770,24 +491,26 @@
         return;
       }
       const normalizedColor = normalizeHexColor(colorValue);
+      // 检查颜色是否已存在
+      const colorExists = colorCards.some(card => card.color === normalizedColor);
+      if (colorExists) {
+        showToast('该颜色已存在', 'error');
+        return;
+      }
       const newCard = {
         id: generateUniqueId(),
         color: normalizedColor,
         name: '',
-        groupId: null,
         createdAt: new Date().toISOString()
       };
       colorCards.push(newCard);
       saveData();
       renderColorCards();
+      // 清空输入框
       colorInput.value = '';
       showToast('色卡创建成功', 'success');
-      // 自动打开颜色信息模态框
-      setTimeout(() => {
-        openColorInfoModal(newCard.id);
-      }, 300);
     }
-    // 处理色卡点击
+    // 处理色卡点击事件
     function handleColorCardClick(colorId) {
       if (isDeleteMode) {
         toggleColorSelection(colorId);
@@ -799,7 +522,7 @@
     function toggleDeleteMode() {
       isDeleteMode = !isDeleteMode;
       if (isDeleteMode) {
-        deleteBtn.textContent = '确认删除';
+        deleteBtn.textContent = '确认';
         deleteBtn.classList.add('active');
         selectedColorIds.clear();
       } else {
@@ -867,6 +590,7 @@
         showToast('请输入分组名称', 'error');
         return;
       }
+      console.log('分组名称:', groupName);
       const newGroup = {
         id: generateUniqueId(),
         name: groupName,
@@ -874,31 +598,40 @@
       };
       colorGroups.push(newGroup);
       // 添加初始颜色
-      const initialColorInputs = initialColorsContainer.querySelectorAll('input');
+      const initialColorContainers = initialColorsContainer.querySelectorAll('.initial-color-input');
       const validColors = [];
-      initialColorInputs.forEach(input => {
-        const colorValue = input.value.trim().toLowerCase();
-        if (isValidHexColor(colorValue)) {
-          validColors.push(normalizeHexColor(colorValue));
-        }
+      initialColorContainers.forEach((container, index) => {
+        const colorInput = container.querySelector('.color-code-input');
+        const nameInput = container.querySelector('.color-name-input');
+        if (colorInput && nameInput) {
+          const colorValue = colorInput.value.trim().toLowerCase();
+          const colorName = nameInput.value.trim();
+          if (isValidHexColor(colorValue)) {
+            validColors.push({
+              color: normalizeHexColor(colorValue),
+              name: colorName
+            });
+          } else {}
+        } else {}
       });
       if (validColors.length > 0) {
-        const newCards = validColors.map(color => ({
+        const newCards = validColors.map(item => ({
           id: generateUniqueId(),
-          color: color,
-          name: '',
+          color: item.color,
+          name: item.name,
           groupId: newGroup.id,
           createdAt: new Date().toISOString()
         }));
         colorCards.push(...newCards);
-      }
+      } else {}
       saveData();
       renderColorGroups();
       // 重置表单
       groupNameInput.value = '';
       initialColorsContainer.innerHTML = `
         <div class="initial-color-input">
-          <input type="text" class="group-form-input" placeholder="颜色值">
+          <input type="text" class="color-code-input" placeholder="颜色值">
+          <input type="text" class="color-name-input" placeholder="颜色名称（可选）">
         </div>
       `;
       createGroupModal.classList.remove('active');
@@ -909,15 +642,19 @@
       const inputContainer = document.createElement('div');
       inputContainer.className = 'initial-color-input';
       inputContainer.innerHTML = `
-        <input type="text" class="group-form-input" placeholder="#RRGGBB 或 RRGGBB">
+        <input type="text" class="color-code-input" placeholder="颜色值">
+        <input type="text" class="color-name-input" placeholder="颜色名称（可选）">
       `;
       initialColorsContainer.appendChild(inputContainer);
-      inputContainer.querySelector('input').focus();
+      inputContainer.querySelector('.color-code-input').focus();
     }
     // 打开编辑分组模态框
     function openEditGroupModal(groupId) {
       const group = colorGroups.find(g => g.id === groupId);
-      if (!group) return;
+      if (!group) {
+        showToast('未找到该分组', 'error');
+        return;
+      }
       currentEditingGroupId = groupId;
       editGroupNameInput.value = group.name;
       editGroupModal.classList.add('active');
@@ -926,34 +663,51 @@
     // 保存分组名称
     function saveGroupName() {
       if (!currentEditingGroupId) return;
-      const groupName = editGroupNameInput.value.trim();
-      if (!groupName) {
-        showToast('请输入分组名称', 'error');
-        return;
-      }
       const group = colorGroups.find(g => g.id === currentEditingGroupId);
       if (group) {
-        group.name = groupName;
+        const newName = editGroupNameInput.value.trim();
+        if (!newName) {
+          showToast('请输入分组名称', 'error');
+          return;
+        }
+        group.name = newName;
         saveData();
         renderColorGroups();
         editGroupModal.classList.remove('active');
+        currentEditingGroupId = null;
         showToast('分组名称已保存', 'success');
       }
     }
-    // 删除颜色分组
-    function deleteColorGroup() {
-      if (!currentEditingGroupId) return;
-      if (confirm('确定要删除这个分组吗？分组内的所有色卡也将被删除。')) {
-        // 删除分组内的所有色卡
-        colorCards = colorCards.filter(card => card.groupId !== currentEditingGroupId);
-        // 删除分组
-        colorGroups = colorGroups.filter(group => group.id !== currentEditingGroupId);
-        saveData();
-        renderColorCards();
-        renderColorGroups();
-        editGroupModal.classList.remove('active');
-        showToast('分组已删除', 'success');
+    // 打开确认删除模态框
+    function openConfirmDeleteModal() {
+      if (!currentEditingGroupId) {
+        showToast('无法获取分组信息', 'error');
+        return;
       }
+      // 显示确认删除模态框
+      confirmDeleteModal.classList.add('active');
+    }
+    // 确认删除颜色分组
+    function confirmDeleteColorGroup() {
+      if (!currentEditingGroupId) {
+        showToast('无法获取分组信息', 'error');
+        confirmDeleteModal.classList.remove('active');
+        return;
+      }
+      // 删除分组内的所有色卡
+      const initialCardCount = colorCards.length;
+      colorCards = colorCards.filter(card => card.groupId !== currentEditingGroupId);
+      // 删除分组
+      const initialGroupCount = colorGroups.length;
+      colorGroups = colorGroups.filter(group => group.id !== currentEditingGroupId);
+      // 清除当前编辑的分组ID
+      currentEditingGroupId = null;
+      saveData();
+      renderColorCards();
+      renderColorGroups();
+      editGroupModal.classList.remove('active');
+      confirmDeleteModal.classList.remove('active');
+      showToast('分组已删除成功', 'success');
     }
     // 移动色卡到分组
     function moveColorToGroup(colorId, groupId) {
@@ -980,20 +734,15 @@
     // 显示提示消息
     function showToast(message, type = 'success') {
       const toast = document.createElement('div');
-      toast.className = `toast toast-${type}`;
+      toast.className = `show ${type}`;
       const icon = document.createElement('div');
       icon.className = 'toast-icon';
       icon.innerHTML = type === 'success' ? '<i class="fa fa-check-circle"></i>' : '<i class="fa fa-exclamation-circle"></i>';
       const text = document.createElement('div');
-      text.className = 'toast-text';
       text.textContent = message;
       toast.appendChild(icon);
       toast.appendChild(text);
       toastContainer.appendChild(toast);
-      // 显示提示
-      setTimeout(() => {
-        toast.classList.add('show');
-      }, 10);
       // 自动隐藏
       setTimeout(() => {
         toast.classList.remove('show');
@@ -1074,7 +823,7 @@
         return;
       }
       // 生成HTML内容
-      let htmlContent = '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>色卡-' + group.name + '</title><style>body{margin:0;padding:20px;font-family:Arial,sans-serif;background-color:#f8f9fa;}.color-cards{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;}.color-card{width:120px;height:120px;border-radius:8px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:10px;}.color-name{font-size:14px;margin-bottom:5px;text-align:center;}.color-code{font-size:12px;font-weight:bold;text-align:center;}</style></head><body><div class="color-cards">';
+      let htmlContent = '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>' + group.name + '</title><style>body{margin:0;padding:20px;font-family:Arial,sans-serif;background-color:#f8f9fa;}.color-cards{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;width:100%;}.color-card{width:120px;height:120px;border-radius:10px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:10px;}.color-name{font-size:14px;margin-bottom:5px;text-align:center;}.color-code{font-size:12px;font-weight:bold;text-align:center;}</style></head><body><div class="color-cards">';
       // 添加所有色卡
       groupColors.forEach(card => {
         const textColor = getContrastColor(card.color);
