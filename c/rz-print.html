@@ -13,41 +13,80 @@
 html{font-size:100%;scroll-behavior:smooth;}
 body{font-family:"黑体";color:#000;}
 p,li,dt,dd{line-height:1.04em;}
+
 *[data-tf="1"]:before{content:"1";background:#6cf;border-radius:5px;padding:0 3px;margin-right:5px;display:inline;position:relative;}
 *[data-tf="2"]:before{content:"2";background:#6f6;border-radius:5px;padding:0 3px;margin-right:5px;display:inline;position:relative;}
 *[data-tf="3"]:before{content:"3";background:#f99;border-radius:5px;padding:0 3px;margin-right:5px;display:inline;position:relative;}
 
+*[data-tf="1"]{display:none;}
+*[data-tf="2"]{display:none;}
+*[data-tf="3"]{display:none;}
+
 main{
-    >h1{background:#00999988;text-align:center;border-radius:100dvw;margin:5px 40px 3px 40px;padding:2.5px;color:#fff;font-size:15pt;}
-    >div{
-        margin:1px 0;padding:5px;border-top:1px solid #99ddff;width:100%;
-        >time{padding:0;width:25px;border-radius:10px;font-weight:700;background:#ddd;color:#000;display:inline-block;text-align:center;+p{display:inline;}}
-        >dl,>dl>dl{padding:3px;border:1px solid #888;;border-radius:5px;>dt{font-weight:bold}}
-        &.sp1{border-top:1px solid #ccffcc;>time{background:#9f9;}}
-        &.sp2{border-top:1px solid #ffeecc;>time{background:#fd9;}}
-        &.sp3{border-top:1px solid #ffccee;>time{background:#f9d;}}
-        &.sp4{border-top:1px solid #ffcc99;>time{background:#f93;}}
+    >h1{
+        color:#099;
+        text-align:center;
+        border-radius:100dvw;
+        margin:5px 40px 3px 40px;
+        padding:2.5px;
+        font-size:15pt;
     }
-    p[data-h]::before,li[data-h]::before{background:#f93b;content:"H";color:#310;font-weight:bold;padding:0 2.5px;border-radius:5px;margin-right:5px;}
-    column-count: 3; /* 打印时固定为2栏 */
-    column-gap: 5px; /* 打印时使用绝对单位（如pt, cm）更可靠 */
-    column-rule: 1px solid #333; /* 使用深色和较粗的线 */
-    /* 确保布局使用标准盒模型，避免浮动等影响 */
-    box-sizing: border-box;
-    overflow: visible;
-}
-.mt{background:#f9f4;color:#303;font-style:italic;li:before{content:"";}}
+    >div{
+        margin:1px 0;
+        padding:0 5px;
+        width:100%;
+        >time{
+            width:25px;
+            font-weight:700;
+            color:#39f;/*
+            position:relative;
+            top:0;
+            left:0;
+            float:left;
+            margin-right:-9999px;
+            +p{text-indent:25px;}*/
+            +dl{margin-top:1.04em;}
+        }
+        >dl,>dl>dl{
+            padding:0 3px;
+            border-left:2px solid #888;
+            >dt{font-weight:bold}
+        }
+        &.sp1>time{color:#9f9;}
+        &.sp2>time{color:#fd9;}
+        &.sp3>time{color:#f9d;}
+        &.sp4>time{color:#f93;}
+    }/*
+    p[data-h]::before,dd[data-h]::before{
+        background:#f93b;
+        content:"H";
+        color:#310;
+        font-weight:bold;
+        padding:0 2.5px;
+        border-radius:5px;
+        margin-right:5px;
+    }*/
+    column-count:3;
+    column-gap:5px;
+    column-rule:1px solid #333;
+    box-sizing:border-box;
+    overflow:visible;
+}/*
+.mt{color:#303;font-style:italic;li:before{content:"";}}
 h1[id="event-not"]+div>p>span{background:#f968;padding:0 5px;border-radius:5px;margin-right:10px;}
-@media print{p,dt,dd,time{	
-font-size:10.8pt;}}
-@page {
+@media print{p,dt,dd,time{font-size:10.8pt;}}*/
+@media print{p,dt,dd,time{font-size:12.8pt;}}
+h1[id="event-not"],h1[id="event-not"]+div{display:none;}
+@page{
   padding:10px;
   margin:0 0.5cm;
   border:1px solid #000;
-}section{
-page-break-after: always; /* 在封面页后分页 */
-    height: auto;
-    min-height: 100vh;}
+}
+section{
+    page-break-after:always;
+    height:auto;
+    min-height:100vh;
+}
 </style>
 </head>
 <body data-cf="3">
@@ -129,6 +168,7 @@ page-break-after: always; /* 在封面页后分页 */
 <div>
     <time>25</time>
     <p>郑炜换座后被女生围住，本人表示“很高兴”。</p>
+    <p>政治辩论，林奕扬：“肃静！”“难道你是从石头里蹦出来的吗？”</p>
     <p data-tf="2">眼保健操时有人离开教室被扣26分，被刘老师留下并罚写说明。</p>
     <p data-tf="1">林芷琪表示：初三毕业请全班吃蛋糕。</p>
 </div>
@@ -147,6 +187,7 @@ page-break-after: always; /* 在封面页后分页 */
 <div>
     <time>27</time>
     <p>薛阅晨：“喝蜜蜂……”</p>
+    <p>排练队列时家委指导，随后发润喉糖。学生表示“味道像藿香正气水”。</p>
     <p>蒲林豪玩垃圾袋。</p>
     <p data-tf="1">唐家祺因多嘴被刘老师打10下。</p>
 </div>
@@ -473,6 +514,7 @@ page-break-after: always; /* 在封面页后分页 */
         <dd>王淮笑场。</dd>
         <dd>别班（对面）透过窗户看，随后多个班级因外面太吵关上窗户。</dd>
         <dd>不久11班也来练，结果声音被拉爆。</dd>
+        <dd>郑诗语犹豫是否要读下去：“探——月……（语速变慢，声音变小）”</dd>
     </dl>
     <p data-tf="3">洪鑫洋期中语文、数学考试时与初二学生交谈被班级处分。</p>
     <p>刘老师：“说明水泽的小测……”</p>
@@ -577,7 +619,7 @@ page-break-after: always; /* 在封面页后分页 */
 <div>
     <time>25</time>
     <p data-tf="3">劳技课，陆梓豪：“把精子包进饺子里。”</p>
-    <p>郑永泽将自己名字写成“Zheny Yongze”。</p>
+    <p>郑永泽小测A+。薛阅晨发现郑永泽小测中自己名字写成“Zheny Yongze”，说：“名字写错了！”然后郑永泽小测变成A-，薛阅晨加量化分。</p>
 </div>
 <div>
     <time>26</time>
@@ -654,6 +696,10 @@ page-break-after: always; /* 在封面页后分页 */
     <time>6</time>
     <p data-tf="1">早上唐家祺（主犯）、林奕扬（从犯）在门口吓人。</p>
     <p data-tf="1">林承钰中午喝奶茶引起关注。</p>
+</div>
+<div class="sp3">
+    <time>7</time>
+    <p>首次周六培优。</p>
 </div>
 <div>
     <time>9</time>
@@ -831,6 +877,7 @@ page-break-after: always; /* 在封面页后分页 */
 <div>
     <time>13</time>
     <p>升旗后领导通报有人把男厕所下水道堵住，导致初中楼男厕所用不了，要10000元疏通管道费。</p>
+    <p>别班学生在门口通知：“方欣甜去拿药！”</p>
 </div>
 <div>
     <time>14</time>
@@ -1279,6 +1326,7 @@ page-break-after: always; /* 在封面页后分页 */
         <dd data-tf="2">林芷琪看《青春期男孩成长手册》。</dd>
         <dd>讲话声变大，郑诗语突然喊：“声音又大了！”引起全班大笑。</dd>
         <dd>午休结束，林奕扬：“起床了皇上！”</dd>
+        <dd>崔宇臣对郑致辰（值日班长）：“报告值日班长，我要出去lia&#768;o lia&#768;o。”</dd>
     </dl>
 </div>
 <div>
@@ -1300,6 +1348,7 @@ page-break-after: always; /* 在封面页后分页 */
     <p>午休结束后徐嘉明去过小测，学生用他的外套、政治书、数学书、水杯、笔袋、书包、笔等模拟徐嘉明睡觉（笔模拟手指）。</p>
     <p>劳技课时郑锦熠带馒头（实物）上台演讲：“昨天生物课上讲过馒头细细地品尝会有甜味，这是因为馒头是由淀粉、水、酵母……”</p>
     <p>历史课，洪鑫洋：“为什么天上没有丝绸之路？”师：“有啊死掉的人就可以啊。”</p>
+    <p>刘老师让林芷琪在黑板上加一项“剪头发”作业，林芷琪写“剪头”。</p>
 </div>
 <div>
     <time>30</time>
@@ -1489,6 +1538,7 @@ page-break-after: always; /* 在封面页后分页 */
     <p>数学老师：“组长先起来收，其他同学坐在桌子上。”</p>
     <p>洪鑫洋语文月考写：“山穷水富疑无路。”</p>
     <p>地理老师对林奕扬：“这个花果山来的猴子要治一下。”</p>
+    <p data-tf="1">叶弘毅：“你知道陈睿卓前女友送的香水吗？”陈睿卓（走向叶弘毅）：“你最好！……”</p>
 </div>
 <div>
     <time>5</time>
@@ -1621,7 +1671,6 @@ page-break-after: always; /* 在封面页后分页 */
     <time>8</time>
     <p>生物老师：“甜欣（欣甜）。”</p>
     <p data-tf="3">下午第三节下课黄丰泽、唐家祺吵架，晚托时被叫去办公室（无后续）。同时黄丰泽多个动作成为经典，如：手指太阳穴、拍一下手然后摊手等。</p>
-    <p></p>
 </div>
 <div>
     <time>9</time>
@@ -2023,7 +2072,7 @@ page-break-after: always; /* 在封面页后分页 */
 </div>
 <div>
     <time>24</time>
-    <p>电脑课师部分学生被物理老师留下，还有一些人参与布置班级；其余人上电脑课，整节课自由玩电脑。</p>
+    <p>电脑课师部分学生被物理老师留下，还有一些人参与布置班级；其余人上电脑课，整节课自由玩电脑。同时最后一节课布置班级和考场，提前放学。</p>
     <dl>
         <dt>英语课：</dt>
         <dd>蒲林豪睡觉，师：“门神，去（站门口）！……门神不要睡觉，要保护9班，看到门口有垃圾要捡起来……”</dd>
@@ -2041,4 +2090,137 @@ page-break-after: always; /* 在封面页后分页 */
         <dd data-tf="2">林奕扬模仿语文老师且不守纪律，眼保健操时被拉上讲台站；第二节下课后语文老师在秩序册上写林奕扬纪律不好，后面又补上“使眼色”等。</dd>
     </dl>
 </div>
+<div>
+    <time>27</time>
+    <p data-tf="1">郑致辰早上踩到狗屎，第一节课时班上气味浓郁。</p>
+    <dl>
+        <dt data-tf="1">语文课：</dt>
+        <dd data-tf="3">洪鑫洋：“梓颢没有包（书）皮！”师：“洪鑫洋！”</dd>
+        <dd data-tf="1">陈子岩被叫回答问题，随后，师：“我来偷窥一下你在干嘛。”并走下去没收课课练。</dd>
+    </dl>
+    <p data-tf="1">物理课，师：“复述下我刚刚讲了什么。”廖成羲：“老师你刚刚讲‘复述下我刚刚讲了什么’。”（笑）师：“再上一句！”廖：“‘廖成羲复述下我刚刚讲了什么’。”师：“课本拿过来看一下！”看完后，师：“你这字啊，你亲妈来了也不认识。来，放学留下来等我！”</p>
+</div>
+<div>
+    <time>28</time>
+    <dl>
+        <dt>物理课：</dt>
+        <dd>师：“林永泽。”</dd>
+        <dd>崔宇臣侧着坐，师：“崔宇臣你是脊柱侧弯了吗……还是无脊椎动物？”</dd>
+    </dl>
+    <p>班会课刘老师说要讲“心灵鸡汤”，并讲到距离期中考就剩两周左右。她还说昨晚做了个噩梦：期中考英语成绩出来了，9班连1班都没考过，掉到年段第八以后，然后就被惊醒了。</p>
+    <dl>
+        <dt>地理课：</dt>
+        <dd>师：“阿廖同学（会不会）？”</dd>
+        <dd>上课后唐家祺去数卷子。询问是谁时，生：“马嘉祺！”师：“我们班有马嘉祺吗？”</dd>
+    </dl>
+</div>
+<div>
+    <time>29</time>
+    <p data-tf="3">黄恩亚：“我13发都不会虚啊！”</p>
+    <p>中午叶弘毅使用点歌卡放音乐，20分时软件突然卡住，界面变白、出现小弹窗，甚至连续自动切歌，关都关不掉。生：“被成都超人控制了！”</p>
+    <p>数学老师：“那个昕语过来一下。”生：“昕语？”师：“诗语。”</p>
+    <p>两节课前三分钟纪律都太差，于是放学后被刘老师留下。刘老师教育时提到学习小组近况，要求第二天学习小组可以回到七年级时的良好状态，下课后能看到大家背书。</p>
+    <p>物理老师：“黄恩亚，你的手指头都被你玩秃了，还在玩手指头。”</p>
+</div>
+<div>
+    <time>30</time>
+    <p>刘老师：“Eat more footballs……”</p>
+    <p>洪鑫洋：“心脏肺苏（心肺复苏）。”</p>
+    <p>刘老师奖励“如来佛组”吃肯德基。</p>
+</div>
+<div>
+    <time>31</time>
+    <p>英语老师发现廖成羲桌上摆着政治课课练：“廖成羲，为什么会有非英语练习在桌上呢？”生（笑）：“这是他的英语校本！”</p>
+    <p>英语老师：“很高冷啊，陈睿卓。都不回答问题。”</p>
+    <dl>
+        <dt>语文课：</dt>
+        <dd data-tf="1">请人回答问题：“林奕扬。”然后发现林奕扬正在换衣服。</dd>
+        <dd>郑永泽反映没发到小测本。师：“大家有没有看到永泽的小测本？”生：“应该在16班！”</dd>
+        <dd>师：“欸，我发现你们太坏了，好坏。”</dd>
+        <dd data-tf="1">薛阅晨：“比喻。”师：“哪里比喻啊，比喻个头啊比喻。”</dd>
+        <dd data-tf="1">洪鑫洋：“包的。”师：“不要说包的包的，要说‘使命必达’。”唐家祺：“以行践言！”</dd>
+    </dl>
+</div>
+<h1 id="event-d2511">2025年11月</h1>
+<div>
+    <time>3</time>
+    <p>语文老师自印练习，右上角有“留下你的闯关身份信息”（姓名），最后一题让写“朋友圈文案”，还允许配表情包。</p>
+    <p>语文老师请叶弘毅、王淮分别上台讲解《答谢中书书》和《记承天寺夜游》，王淮上台时学生很兴奋，王淮：“开始了啊，安静了！”</p>
+    <p>华威菜多多变成“融德时代”，餐盒变成绿色，但味道一成不变。</p>
+    <p>周末的卷子原有6面，但把3、4面和5、6面合到一面，压缩成了4页。为此数学老师解释：“因为我们学校……”洪鑫洋：“很穷！”叶弘毅：“没钱！”师：“你也知道……”</p>
+</div>
+<div>
+    <time>4</time>
+    <p>收作业制度更改，一组的两个小组长合为一个。</p>
+    <p data-tf="1">地理课，地理老师说要拿一节课考试，洪鑫洋表示可以拿体育课。唐家祺：“洪鑫洋你个大肥猪！”</p>
+    <p>英语午托时发一份听力练习，正面是U3，背面是期中。刘老师让当场做期中那一面，李梦妍写成U3那面（根本没去听听力），交卷时才发现。</p>
+    <p data-tf="1">班会课时学生发现电脑光标移动，大概是其他老师不慎远程操控了9班电脑。随后打开微信，并登录了语文老师的账号，刘老师紧急拉上黑板，“保护隐私”。语文课时，生：“你的‘隐私’都被我们看到了！”</p>
+    <dl>
+        <dt>语文课：</dt>
+        <dd>廖成羲：“表达了作者被贬官的鑫洋（凄凉）。”生：“鑫洋？”</dd>
+        <dd>林梓颢不会回答问题，于是请别人回答后让林梓颢复述。复述完后，师：“坐。（林梓颢坐下）我说错，不是叫你坐。”</dd>
+        <dd>唐家祺：“我抄陈子岩的，为什么给他打勾？”师：“我说你和陈婕坐那么远……”生：“陈子岩！”</dd>
+        <dd>展示郑永泽的“朋友圈文案”。只见郑永泽写“评论 161 赞 166”。</dd>
+    </dl>
+</div>
+<div>
+    <time>5</time>
+    <p>饭盒从绿色变成橙色（第二天又变回去了）。</p>
+    <p>数学老师检查作业：“课代表，薛阅晨最后几题都没写，先给他记下来。等考试考得不够好，家长会才有素材。”</p>
+    <p data-tf="1">物理课时郑炜睡着，物理老师走到他面前，用教鞭敲了七下桌子才醒。</p>
+</div>
+<div>
+    <time>6</time>
+    <p>生物课请人：“奕扬。”林奕扬：“Oh,no!”师：“Oh,yeah.”</p>
+    <p data-tf="1">语文午托时刘老师找语文老师谈事情，谈的过程中把语文老师的麦拨到旁边，放止声音通过扩音被听到。</p>
+    <p>某道语文题目前写“（2024·河南八年级）”，题目让写通过报道宣传诚信的形式。答案出来后，生：“这也不是四十中啊！”洪鑫洋：“是河南的学校。”师：“你的脑洞太大了，令人始料未及。”学生起哄。师解释：“什么叫始料未及啊？……”洪鑫洋：“屎和……”生笑。</p>
+    <p data-tf="2">语文午托时唐家祺多次模仿政治老师“啧”、“不说了不说了”，还模仿一次语文老师“严肃神态”，午托结束后被谈话。英语课时刘老师规定禁止模仿老师。</p>
+</div>
+<div>
+    <time>7</time>
+    <p data-tf="1">政治课前林奕扬在地上发现一只黑色袜子，还是耐克的。</p>
+    <p>午托时刘老师安装“带对讲机的监控”。</p>
+    <p>李梦妍过完小测说：“有点冷~”成为经典。</p>
+    <p data-tf="1">叶弘毅：“其实‘院中站人’不是囚，上英语课才是囚。”</p>
+    <dl>
+        <dt>语文课讲评传记作文：</dt>
+        <dd>徐嘉明写“欧布奥特曼”。</dd>
+        <dd data-tf="2">郑永泽写“王机长”（王淮）。文中出现成绩166分、小时候数学叶老师在晚上把他拉近房间、1978年、1991年、乳白色机身、以飞13次的洪机长为榜样、娶小萱……下课后郑永泽被多人“制裁”。</dd>
+    </dl>
+</div>
+<div class="sp4">
+    <time>10</time>
+    <p>生物老师：“季能槿。”</p>
+    <p>饭盒又变成华威菜多多样式的方形橙盒（公司没变）。</p>
+</div>
+<div class="sp4">
+    <time>11</time>
+    <p>刘老师：“有没有郑天馨？”</p>
+    <p>上午第四节音乐老师进班，学生进行复习。蔡华楷（坐在第一组）开窗把舀汤的勺子拿进来。师：“勺子都拿出来了？”</p>
+    <p>午托时刘老师让薛阅晨帮她拿一次性筷子，打开时发现拿到“幸运款”，里面有3根筷子。</p>
+    <p>物理考试结束后，洪鑫洋说他物理要考100，对答案时发现选择第二题就错，又说要考98。</p>
+    <p>王淮：“洪鑫洋，不要发出猪叫！”</p>
+    <p>刘老师对薛阅晨：“（英语）没考130（后改为120）差几分揍几下。”薛阅晨：“那我考135是不是能揍你5下？”</p>
+</div>
+<div class="sp4">
+    <time>12</time>
+    <p>中午吃“特色餐”（前几天黄丰泽妈妈有在群里预告），即卤肉盖浇饭。</p>
+    <p>王淮看管纪律时，方欣妍去上厕所。随后王淮：“郑永泽你手欠？想跟方欣妍进女厕所？”</p>
+    <p>社会实践回执下发。</p>
+    <p>午托结束后，陆梓豪对别人说：“我说一个神话故事，你在主人公前加个‘汪’字，比如我说‘夸父逐日’，你说‘我是汪夸父’。”然后说：“精卫填海。”孔祥懿不假思索地说：“我是汪精卫！”随后黄恩亚主动回应陆梓豪的“东临碣石”，说：“我是蒋碣石。”</p>
+</div>
+<div>
+    <time>13</time>
+    <p>生物老师：“刘欣妍。”</p>
+    <p>洪鑫洋午休时当“显眼包”，被语文老师录像。</p>
+    <p>前几天多人发现刘老师在调座位表；最后一节课正式换座位。</p>
+</div>
+<div>
+    <time>14</time>
+    <p>中午郑诗语用卡放歌，最后学生播放《大东北我的家乡》，全班齐唱，物理老师注视许久。电脑课，老师让自己玩，多人唱“大东北”。俞昕辰：“再唱死妈！”不一会儿那些人唱得更大声，俞：“好烦你们两个！”</p>
+    <p>政治课前三分钟，根本没几个人读书。王淮多次整顿无果后说：“不要讲话了。没事干了数学作业拿出来写。”</p>
+    <p>中午刘老师进班问最近要饭的现象，学生矛头直指蔡华楷，说他“全班性地要饭”。刘老师罚他下下周一给每人带一份水果。</p>
+</div>
+
+<script>function heb(){document.querySelectorAll("main>div").forEach(e=>{var t=Array.from(e.children).some(e=>"TIME"!==e.tagName&&"none"!==window.getComputedStyle(e).display);e.style.display=t?"":"none"}),document.querySelectorAll("main dl").forEach(e=>{var t=Array.from(e.querySelectorAll("dd")).every(e=>"none"===window.getComputedStyle(e).display);e.style.display=t?"none":""}),document.querySelectorAll("#main>h1").forEach(e=>{let t=e.nextElementSibling,l=!1;for(;t&&"H1"!==t.tagName;){if("none"!==t.style.display){l=!0;break}t=t.nextElementSibling}e.style.display=l?"":"none"})}heb();const observer=new MutationObserver(heb);observer.observe(document.getElementById("main"),{childList:!0,subtree:!0,attributes:!0,attributeFilter:["style"]});</script>
 </main></body></html>
