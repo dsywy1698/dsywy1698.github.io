@@ -11,6 +11,7 @@
         h1,h2,h3,h4,h5,h6{margin:10px 0 20px 2.5px;}
         sup[class="fa fa-external-link"]{font-size:0.7em;opacity:0.8;line-height:0;color:var(--ac);vertical-align:super;position:relative;top:0;&:hover{opacity:0.7;}}
         img,svg,canvas,audio,video{max-width:100%;border-radius:10px;display:block;margin:10px auto;}
+        sup,sub{font-size:0.7em;}
         ul,ol{margin:10px 0 10px 2em;li{color:var(--li);opacity:0.9;}p{color:var(--lp);font-size:0.875rem;opacity:0.8;}}
         p:not(#EVENT p){margin:10px 0;}
         button{border:none;}
@@ -237,7 +238,7 @@
             blockquote{background:linear-gradient(to right,var(--bl),var(--bl),transparent);padding:20px;border-radius:10px;border-left:10px solid #8884;margin:5px 0;}
             .gallery{background:linear-gradient(var(--gs),var(--ge));padding:15px;border-radius:15px;text-align:center;margin:5px 0;>img{max-width:600px;width:100%;border-radius:10px;}>p{color:var(--ga);}}
             .division{width:100%;box-shadow:0 15px 15px -14px #000;height:30px;margin:20px 0;}
-            .box{background:#fff8;padding:20px;text-align:center;border-radius:15px;color:#000;font-size:110%;margin:5px;box-shadow:;>p{margin:0;}}
+            .box{background:#fff8;padding:20px;text-align:center;border-radius:15px;color:#000;font-size:110%;margin:5px;>p{margin:0;}}
             .writing{background:var(--wr);padding:20px;border-radius:20px;margin:5px;>h1{text-align:center;font-size:2.5rem;margin:15px 0;+p{text-align:center;font-weight:bold;margin:5px 0;text-indent:0;}}p{font-size:1.125rem;text-indent:2em;}}
             .timeline{background:linear-gradient(135deg,color-mix(in oklch,var(--tl),#88888808),color-mix(in oklch,var(--tl) 20%,transparent 80%));padding:15px;border-radius:15px;display:block;position:relative;&::before{content:'';position:absolute;left:25px;top:10px;bottom:10px;width:5px;background:color-mix(in oklch,var(--tl),#fff5);border-radius:1.5px;border-radius:2px;}>dt{background:#0002;padding:0 30px 0 20px;line-height:50px;font-size:1.25rem;margin:0 15px;border-radius:0 25px 25px 0;display:inline-block;width:auto;}>dd{background:#fff2;padding:0 7.5px;margin:15px 5px 15px 30px;line-height:30px;border-radius:10px;&::before{content:'';position:relative;display:inline-block;width:20px;height:20px;border-radius:50%;background:var(--tl);left:-35px;margin-top:5px;}}}
         }
