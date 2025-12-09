@@ -2311,6 +2311,25 @@
         <dd>请崔宇臣回答问题：“调零第一步要干嘛？”然后崔宇臣椅子倒掉。</dd>
     </dl>
 </div>
+<div>
+    <time>9</time>
+    <dl>
+        <dt>中文陆梓豪点歌：</dt>
+        <dd data-tf="3">学生播放《戒色》，但怕刘老师控制电脑时看到，于是断开连接，不久右下角就弹出连接的请求，学生匆忙最小化歌词界面，同意后又被不小心放大、全屏。随后蔡华楷去办公室抱蓝本时问刘老师看到没，刘老师说看到了，但没再说什么。</dd>
+        <dd>刘老师控制电脑，在搜索框中打字：“叫蔡发小测！”</dd>
+    </dl>
+    <dl>
+        <dt data-tf="3">语文课：</dt>
+        <dd>12班某学生来借拖把，老师允许后林钰颖提醒：“在冰箱（空调）后面！”</dd>
+        <dd>师：“如果要你选择一个物，来表达自己的志向……”洪鑫洋：“飞机！”</dd>
+    </dl>
+    <dl>
+        <dt>地理课：</dt>
+        <dd>请李梦妍回答问题：“那种土地类型对人类最重要？”李梦妍思考片刻：“盆地。”师：“盆地？”</dd>
+        <dd>唐家祺：“每天晒太阳会不会老得更快？”师：“有可能。”唐家祺：“完蛋了林奕扬！林奕扬完蛋了。”师：“干什么？”</dd>
+    </dl>
+    <p>数学课，师：“致辰你跟梦妍也能讲话？椅子都移过去了。”郑致辰：“它自己动的。”师：“（值日班长）把‘致辰椅子会动到梦妍那边’记下来。”班会课时刘老师让去找数学老师道歉。道歉时，数学老师：“致辰，你是不是调皮习惯了？”</p>
+</div>
 </main><footer><h1>页面到底了！</h1></footer></div><script>function ep(){var e=document.querySelector("#password input").value;"YmFzaW4xOTg="===btoa(e)?(localStorage.setItem("p","true"),document.getElementById("password").close()):document.querySelector("#password input").style.background="#f004"}function showPage(e){var t=document.querySelectorAll("main"),o=document.getElementById(e),n=document.querySelectorAll("nav>div:nth-of-type(2)>div"),a=document.querySelector("nav>div:nth-of-type(1)>div:nth-of-type(2)");t.forEach(e=>{e.style.display="none"}),n.forEach(e=>{e.style.display="none"}),o&&(o.style.display="block"),a.style.display="EVENT"==e?"inline-block":"none",document.getElementById(e+"-l").style.display="block"}function chT(e){document.body.setAttribute("data-t",e),localStorage.setItem("t",e)}function chW(e){document.body.setAttribute("data-w",e),localStorage.setItem("w",e)}function chN(e){document.body.setAttribute("data-n",e),localStorage.setItem("n",e)}function chF(e){document.body.setAttribute("data-f",e),localStorage.setItem("f",e),search()}document.addEventListener("click",function(e){var t=document.querySelector("nav>div:nth-of-type(2)"),o=document.querySelector("nav>div:nth-of-type(1) button.fa-navicon");t.classList.contains("active")&&!t.contains(e.target)&&e.target!==o&&t.classList.remove("active")}),document.querySelectorAll("nav>div:nth-of-type(2) a,nav>div:nth-of-type(2) button").forEach(e=>{e.addEventListener("click",function(){document.querySelector("nav>div:nth-of-type(2)").classList.remove("active")})}),document.getElementById("sD").addEventListener("click",function(e){var t=this.getBoundingClientRect();(e.clientX<t.left||t.right<e.clientX||e.clientY<t.top||t.bottom<e.clientY)&&this.close()}),window.addEventListener("scroll",()=>{var e=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100;document.querySelector("nav").style.setProperty("--progress",e+"%")}),document.getElementById("r1").addEventListener("input",function(){document.querySelector("body>#main").style.setProperty("--opacity",this.value+"%"),localStorage.setItem("o",this.value)}),document.getElementById("r2").addEventListener("input",function(){document.querySelector("body>#main").style.backdropFilter="blur("+this.value+"px)",localStorage.setItem("b",this.value)});let db;const request=indexedDB.open("backgroundDB",1);
 function loadBackground(){const e=db.transaction(["background"],"readonly").objectStore("background").get(1);e.onsuccess=function(){e.result&&(document.body.style.backgroundImage=`url(${e.result.image})`)}}
 function cbg(){var e=document.createElement("input");e.type="file",e.accept="image/*",e.onchange=function(e){var t,e=e.target.files[0];e&&((t=new FileReader).onload=function(e){db.transaction(["background"],"readwrite").objectStore("background").put({id:1,image:e.target.result}),document.body.style.backgroundImage=`url(${e.target.result})`},t.readAsDataURL(e))},e.click()}
