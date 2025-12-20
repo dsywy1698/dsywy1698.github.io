@@ -1,6 +1,6 @@
 @font-face{font-family:'icons';src:url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'),url('fa.woff2') format('woff2');font-display:swap;}
 :root{color-scheme:light dark;}
-*{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;color:inherit;transition:background 0.3s ease,color 0.3s ease;}
+*{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;color:inherit;}
 p,dt,dd,li,small{line-height:1.7em;letter-spacing:0.15em;}
 *::-webkit-scrollbar{display:none!important;}
 ::selection{background:var(--section);}
@@ -114,6 +114,7 @@ body[data-t="n"]{
     --lc:#e6e6ff;
     --ar:#80339988;
     --qb:#66841588;
+    --qi:#a3cb3488;
     --bl:#981b5988;
     --ga:#0f8a8a;
     --eh:#0998;
