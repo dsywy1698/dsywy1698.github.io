@@ -97,7 +97,7 @@ body[data-t="b"]{
     --wr:#369;
     --tl:#5aa4ae;
     --ta:#4747eb;
-    --co:var(--ar);
+    --co:#bd0f6688;
 }
 body[data-t="n"]{
     >#main{background:rgba(13,13,63,var(--opacity,100%));}
@@ -122,7 +122,7 @@ body[data-t="n"]{
     --wr:#06c;
     --tl:#1f42ad;
     --ta:#7a5c1f;
-    --co:var(--ar);
+    --co:#4db39988;
 }
 body[data-w="l"]{font-weight:200;}
 body[data-w="n"]{font-weight:normal;}
