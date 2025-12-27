@@ -240,6 +240,12 @@ main{
     }
     var{all:unset;background:color-mix(in oklch,var(--dr) 50%,var(--color) 50%);font-weight:normal;color:var(--dr);padding:1.5px 2.5px;border-radius:5px;margin:0 2.5px;font-family:Consolas;}
     code{all:unset;background:color-mix(in oklch,var(--co) 50%,transparent 50%);box-shadow:5px -5px color-mix(in oklch,var(--co) 30%,transparent 70%);display:block;border-radius:10px;padding:10px;text-align:center;margin:5px;}
+    .page{
+        display:flex;width:calc(100% - 40px);margin:20px;justify-content:center;
+        .next,.back{display:block;border:none;color:color-mix(in oklch,var(--color) 80%,var(--db) 20%);padding:10px 25px;font-size:1.125rem;border-radius:20px;width:50%;margin:10px;}
+        .next{background:linear-gradient(to right,color-mix(in oklch,var(--dr) 40%,transparent 60%),color-mix(in oklch,var(--dr) 10%,transparent 90%));text-align:left;&::after{font-family:"icons";content:"\f101";font-size:1.5rem;opacity:0.6;float:right;}}
+        .back{background:linear-gradient(to left,color-mix(in oklch,var(--dr) 40%,transparent 60%),color-mix(in oklch,var(--dr) 10%,transparent 90%));text-align:right;&::before{font-family:"icons";content:"\f100";font-size:1.5rem;opacity:0.6;float:left;}}
+    }
 }
 #EVENT{
     >h1{background:var(--eh,#0998);text-align:center;border-radius:100dvw;margin:25px 15px 5px 15px;padding:10px;color:#fff;}
