@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>标题</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="robots" content="noindex,nofollow"/>
+    <meta name="referrer" content="no-referrer"/>
+    <meta name="theme-color" id="th" content="#c2d0d6">
+    <link rel="stylesheet" href="fa.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="manifest" href="manifest.json"/>
+    <link rel="icon" href="9.png"/>
+    <style>
 @font-face{font-family:'icons';src:url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'),url('fa.woff2') format('woff2');font-display:swap;}
 :root{color-scheme:light dark;}
 *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;color:inherit;}
@@ -8,9 +22,8 @@ html{font-size:100%;scroll-behavior:smooth;}
 body{font-family:"微软雅黑",sans-serif;background-position:50% 50%!important;background-repeat:no-repeat!important;background-size:cover!important;background-attachment:fixed!important;background:var(--background);color:var(--color);}
 hr{border:0px;border-radius:1px;margin:15px 10px;padding:1px;background:linear-gradient(to right,transparent 0%,var(--hr) 30%,var(--hr) 70%,transparent 100%);}
 a{color:var(--ac);text-decoration-style:dotted;&:hover{color:color-mix(in oklch,var(--ac) 80%,transparent 20%);}}
-h1,h4,h5,h6{margin:10px 0 20px 2.5px;}
+h1,h3,h4,h5,h6{margin:10px 0 20px 2.5px;}
 h2{font-size:1.5rem;margin:15px 0;letter-spacing:0.1em;}
-h3{position:relative;display:inline-block;width:auto;color:color-mix(in oklch,var(--qi) 50%,var(--color) 50%);margin:8px 5px;&::after{background:color-mix(in oklch,var(--qi) 40%,transparent 60%);content:'';position:absolute;left:-5px;top:1.7ex;right:-5px;height:10px;border-radius:5px;}}
 sup[class="fa fa-external-link"]{font-size:0.7em;opacity:0.8;line-height:0;color:var(--ac);vertical-align:super;position:relative;top:0;&:hover{opacity:0.7;}}
 img,svg,canvas,audio,video{max-width:100%;border-radius:10px;display:block;margin:10px auto;}
 sup,sub{font-size:0.7em;}
@@ -275,8 +288,233 @@ main{
 footer{
     padding:30dvh 30px 50px 30px;background:linear-gradient(transparent 0,#0008 30dvh);color:#fffa;
 }
-@media screen and (max-width:600px){
-    .page{flex-wrap:wrap;width:calc(100% - 20px);margin:10px;.next,.back{width:100%;}}
-}
+
 @media screen and (min-width:1600px),(min-height:900px){#bigger{display:flex;}#password,#main,#loader,nav{display:none!important;}}
 @media screen and (max-width:320px),(max-height:300px){#smaller{display:flex;}#password,#main,#loader,nav{display:none!important;}}
+    </style>
+</head>
+<body data-t="l" data-w="n" data-n="2" data-f="3">
+    <dialog id="password">
+        <h1>输入密码</h1>
+        <div><input type="password"/><button onclick="ep()">OK</button></div>
+        <p><strong>提示：</strong>一些文本一些文本</p>
+    </dialog>
+    <div id="loader">
+        <div><p>文本1</p><button onclick="smoothFadeOut()">跳过</button></div>
+        <script>const texts=["文本1","文本2"];let currentIndex=0;const carouselText=document.querySelector('#loader>div>p');carouselText.textContent=texts[currentIndex];function rotateText(){currentIndex=(currentIndex+1)%texts.length;carouselText.style.opacity='0';setTimeout(()=>{carouselText.textContent=texts[currentIndex];carouselText.style.opacity='1';},200);}setInterval(rotateText,1000);</script>
+    </div>
+    <div id="bigger">窗口过大</div>
+    <div id="smaller">窗口过小</div>
+    <nav>
+        <div>
+            <div>
+                <button onclick="document.querySelector('nav>div:nth-of-type(2)').classList.toggle('active')" class="fa fa-navicon"></button>
+                <button onclick="window.scrollTo(0,0)" class="fa fa-chevron-up"></button>
+                <button onclick="showPage('HOME')" id="logo"></button>
+                <button onclick="window.scrollTo(0,document.documentElement.scrollHeight)" class="fa fa-chevron-down"></button>
+                <button onclick="document.getElementById('sD').showModal()" class="fa fa-gear"></button>
+            </div>
+            <div>
+                <input type="text" placeholder="搜索关键词" oninput="search()"/>
+            </div>
+        </div>
+        <div>
+            <div id="EVENT-l">
+                <a href="#event-d2409">2024年9月</a>
+            </div>
+            <div id="INTRODUCTION-l">
+                <a href="#">链接</a>
+                <a href="#">链接</a>
+                <a href="#">链接</a>
+            </div>
+            <button onclick="showPage('EVENT')">日志</button>
+            <button onclick="showPage('INTRODUCTION')">介绍</button>
+        </div>
+    </nav>
+    <div id="main">
+        <dialog id="sD">
+            <div>设置<span onclick="document.getElementById('sD').close()" style="float:right;cursor:pointer;">×</span></div>
+            <div>
+                <span>主题</span>
+                <input type="radio" name="t" onclick="chT('l')" style="--rc:'浅'">
+                <input type="radio" name="t" onclick="chT('d')" style="--rc:'深'">
+                <input type="radio" name="t" onclick="chT('b')" style="--rc:'蓝'">
+                <input type="radio" name="t" onclick="chT('n')" style="--rc:'夜'">
+            </div>
+            <div>
+                <span>字重</span>
+                <input type="radio" name="w" onclick="chW('n')" style="--rc:'中'" checked>
+                <input type="radio" name="w" onclick="chW('l')" style="--rc:'细'">
+            </div>
+            <div>
+                <span>导航栏</span>
+                <input type="radio" name="n" onclick="chN('1')" style="--rc:'经典'">
+                <input type="radio" name="n" onclick="chN('2')" style="--rc:'胶囊'" checked>
+            </div>
+            <div>
+                <span>内容过滤</span>
+                <input type="radio" name="f" onclick="chF('0')" style="--rc:'无'">
+                <input type="radio" name="f" onclick="chF('1')" style="--rc:'一'">
+                <input type="radio" name="f" onclick="chF('2')" style="--rc:'二'">
+                <input type="radio" name="f" onclick="chF('3')" style="--rc:'三'" checked>
+            </div>
+            <div>
+                <span>背景图片</span>
+                <button onclick="ubg()">清除</button>
+                <button onclick="cbg()">上传</button>
+                <div><span>透明度</span><input type="range" max="100" min="0" step="10" id="r1"/></div>
+                <div><span>虚化</span><input type="range" max="30" min="0" step="3" id="r2"/></div>
+            </div>
+            <button onclick="localStorage.clear();ubg();location.reload(true);">重置<small style="color:#f99;">（将清除密码和个性化设置）</small></button>
+        </dialog>
+<main id="HOME">
+<header><h1>首页</h1></header>
+<hr/>
+<p>页面开发中，敬请期待。</p>
+    <a href="#event-d2409">123</a>
+</main>
+<main id="INTRODUCTION">
+<header><h1>介绍</h1></header>
+<h1>标题</h1>
+<article>
+    <h1>文章标题</h1>
+    <p>文本。</p>
+</article>
+<q>引用文本</q>
+<div class="gallery">
+    <img src="error.jpg"/>
+    <p>描述文本</p>
+</div>
+<blockquote>
+    <p>长引用文本</p>
+</blockquote>
+<div class="division"></div>
+<div class="box">
+    <p>文本。</p>
+</div>
+<div class="writing">
+    <h1>标题</h1>
+    <p>文本。</p>
+</div>
+<dl class="timeline">
+    <dt>时间轴标题</dt>
+    <dd>项目</dd>
+    <dd>项目</dd>
+</dl>
+<div class="page">
+    <button onclick="showPage('EVENT')" class="back">上一页-内容</button>
+    <button onclick="showPage('INDEX')" class="next">下一页-内容</button>
+</div>
+</main>
+<main id="EVENT">
+<header><h1>日志</h1></header>
+<h1 id="event-d2409">2024年9月</h1>
+<div>
+    <time>1</time>
+    <p>文本1</p>
+    <dl>
+        <dt>无序列表标题</dt>
+        <dd>无序列表项1</dd>
+        <dd>无序列表项2</dd>
+    </dl>
+    <p>文本2</p>
+</div>
+<div class="sp1">
+    <time>2</time>
+    <p>文本3</p>
+</div>
+<div class="sp2">
+    <time>3</time>
+    <p>文本4</p>
+</div>
+<div class="sp3">
+    <time>4</time>
+    <p>文本5<span>12345</span></p>
+</div>
+<div class="sp4">
+    <time>5</time>
+    <p>文本6</p>
+</div>
+<h1 id="event-d2410">2024年10月</h1>
+<div>
+    <time>1</time>
+    <p>文本7</p>
+</div>
+</main>
+        <footer>
+            <h1>页面到底了！</h1>
+        </footer>
+    </div>
+<script>
+//密码（abc）
+function ep(){var e=document.querySelector("#password input").value;"YWJj"===btoa(e)?(localStorage.setItem("p","true"),document.getElementById("password").close()):document.querySelector("#password input").style.background="#f004"}
+//页面切换
+function showPage(){
+    window.location.hash="#event-d2409";
+        console.log("showpage5");
+    const p=document.querySelectorAll('main'),
+    n=document.querySelectorAll("nav>div:nth-of-type(2)>div"),
+    s=document.querySelector("nav>div:nth-of-type(1)>div:nth-of-type(2)"),
+    w=window.location.hash.substring(1),
+    h=w==true?w.match(/^([^-]+)-/).toUpperCase():"HOME";
+    p.forEach(p=>{p.style.display="none";});
+    n.forEach(n=>{n.style.display="none";});
+    document.getElementById(h).style.display="block";
+        var x=document.getElementById(h).style.display;
+        console.log("X",x);
+    document.getElementById(h+"-l").style.display="block";
+    t=="EVENT"?s.style.display="inline-block":s.style.display="none";
+        window.location.hash=w;
+        console.log("w2="+w);
+    }
+    
+    
+    window.addEventListener('hashchange',showPage);
+    
+//关闭菜单
+document.addEventListener("click",function(t){var e=document.querySelector("nav>div:nth-of-type(2)"),n=document.querySelector("nav>div:nth-of-type(1) button.fa-navicon");e.classList.contains("active")&&!e.contains(t.target)&&t.target!==n&&e.classList.remove("active")}),document.querySelectorAll("nav>div:nth-of-type(2) a,nav>div:nth-of-type(2) button").forEach(t=>{t.addEventListener("click",function(){document.querySelector("nav>div:nth-of-type(2)").classList.remove("active")})});
+//关闭模态框
+document.getElementById("sD").addEventListener("click",function(t){var e=this.getBoundingClientRect();(t.clientX<e.left||e.right<t.clientX||t.clientY<e.top||e.bottom<t.clientY)&&this.close()});
+//进度条
+window.addEventListener("scroll",()=>{var e=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100;document.querySelector("nav").style.setProperty("--progress",e+"%")});
+//主题切换
+function chT(e){document.body.setAttribute("data-t",e),localStorage.setItem("t",e);document.getElementById("th").content=getComputedStyle(document.body).getPropertyValue('--th');}
+function chW(e){document.body.setAttribute("data-w",e),localStorage.setItem("w",e);}
+function chN(e){document.body.setAttribute("data-n",e),localStorage.setItem("n",e);}
+function chF(e){document.body.setAttribute("data-f",e),localStorage.setItem("f",e);search();}
+document.getElementById('r1').addEventListener('input',function(){document.querySelector('body>#main').style.setProperty("--opacity",this.value+"%");localStorage.setItem("o",this.value);});
+document.getElementById('r2').addEventListener('input',function(){document.querySelector('body>#main').style.backdropFilter="blur("+this.value+"px)";localStorage.setItem("b",this.value);});
+//背景图片
+let db;const request=indexedDB.open("backgroundDB",1);
+function loadBackground(){const e=db.transaction(["background"],"readonly").objectStore("background").get(1);e.onsuccess=function(){e.result&&(document.body.style.backgroundImage=`url(${e.result.image})`)}}
+function cbg(){var e=document.createElement("input");e.type="file",e.accept="image/*",e.onchange=function(e){var t,e=e.target.files[0];e&&((t=new FileReader).onload=function(e){db.transaction(["background"],"readwrite").objectStore("background").put({id:1,image:e.target.result}),document.body.style.backgroundImage=`url(${e.target.result})`},t.readAsDataURL(e))},e.click()}
+function ubg(){db.transaction(["background"],"readwrite").objectStore("background").delete(1),document.body.style.backgroundImage=""}request.onupgradeneeded=function(e){(db=e.target.result).objectStoreNames.contains("background")||db.createObjectStore("background",{keyPath:"id"})},request.onsuccess=function(e){db=e.target.result,loadBackground()};
+//替代图像
+document.querySelectorAll("img").forEach(M=>{M.onerror=function(){this.src="data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+DQo8cGF0aCBkPSJNMzA0LjEyOCA0NTYuMTkyYzQ4LjY0IDAgODguMDY0LTM5LjQyNCA4OC4wNjQtODguMDY0cy0zOS40MjQtODguMDY0LTg4LjA2NC04OC4wNjQtODguMDY0IDM5LjQyNC04OC4wNjQgODguMDY0IDM5LjQyNCA4OC4wNjQgODguMDY0IDg4LjA2NHptMC0xMTYuMjI0YzE1LjM2IDAgMjguMTYgMTIuMjg4IDI4LjE2IDI4LjE2cy0xMi4yODggMjguMTYtMjguMTYgMjguMTYtMjguMTYtMTIuMjg4LTI4LjE2LTI4LjE2IDEyLjI4OC0yOC4xNiAyOC4xNi0yOC4xNnoiIGZpbGw9IiNjY2ZmZmZjYyIvPg0KPHBhdGggZD0iTTg4Ny4yOTYgMTU5Ljc0NEgxMzYuNzA0Qzk2Ljc2OCAxNTkuNzQ0IDY0IDE5MiA2NCAyMzIuNDQ4djU1OS4xMDRjMCAzOS45MzYgMzIuMjU2IDcyLjcwNCA3Mi43MDQgNzIuNzA0aDE5OC4xNDRMNTAwLjIyNCA2ODguNjRsLTM2LjM1Mi0yMjIuNzIgMTYyLjMwNC0xMzAuNTYtNjEuNDQgMTQzLjg3MiA5Mi42NzIgMjE0LjAxNi0xMDUuNDcyIDE3MS4wMDhoMzM1LjM2QzkyNy4yMzIgODY0LjI1NiA5NjAgODMyIDk2MCA3OTEuNTUyVjIzMi40NDhjMC0zOS45MzYtMzIuMjU2LTcyLjcwNC03Mi43MDQtNzIuNzA0em0tMTM4Ljc1MiA3MS42OHYuNTEySDg1Ny42YzE2LjM4NCAwIDMwLjIwOCAxMy4zMTIgMzAuMjA4IDMwLjIwOHYzOTkuODcyTDY3My4yOCA0MDguMDY0bDc1LjI2NC0xNzYuNjR6TTMwNC42NCA3OTIuMDY0SDE2NS44ODhjLTE2LjM4NCAwLTMwLjIwOC0xMy4zMTItMzAuMjA4LTMwLjIwOHYtOS43MjhsMTM4Ljc1Mi0xNjQuMzUyIDEwNC45NiAxMjQuNDE2LTc0Ljc1MiA3OS44NzJ6bTgxLjkyLTM1NS44NGwzNy4zNzYgMjI4Ljg2NC0uNTEyLjUxMi0xNDIuODQ4LTE2OS45ODRjLTMuMDcyLTMuNTg0LTkuMjE2LTMuNTg0LTEyLjI4OCAwTDEzNS42OCA2NTIuOFYyNjIuMTQ0YzAtMTYuMzg0IDEzLjMxMi0zMC4yMDggMzAuMjA4LTMwLjIwOGg0NzQuNjI0TDM4Ni41NiA0MzYuMjI0em01MDEuMjQ4IDMyNS42MzJjMCAxNi44OTYtMTMuMzEyIDMwLjIwOC0yOS42OTYgMzAuMjA4SDY4MC45Nmw1Ny4zNDQtOTMuMTg0LTg3LjU1Mi0yMDIuMjQgNy4xNjgtNy42OCAyMjkuODg4IDI3Mi44OTZ6IiBmaWxsPSIjY2NmZmZmY2MiLz4NCjwvc3ZnPg=="}});
+//搜索
+function search(){var e=document.querySelector("nav input").value.trim(),t=document.getElementById("EVENT");if(t&&"none"!==window.getComputedStyle(t).display){if(t=t.querySelectorAll("p, dd"),e){const i=new RegExp(e.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"gi");t.forEach(e=>{e.hasAttribute("data-original")||e.setAttribute("data-original",e.innerHTML);var t=e.getAttribute("data-original");i.test(t.replace(/<[^>]*>/g,""))?(e.style.display="",e.innerHTML=t.replace(/([^<]*)(<[^>]*>)?/g,(e,t,a)=>t?t.replace(i,e=>`<mark>${e}</mark>`)+(a||""):a||"")):e.style.display="none",i.lastIndex=0})}else t.forEach(e=>{e.style.display="",e.hasAttribute("data-original")&&(e.innerHTML=e.getAttribute("data-original"),e.removeAttribute("data-original"))});heb()}}
+function heb(){document.querySelectorAll("#EVENT>div").forEach(e=>{var t=Array.from(e.children).some(e=>"TIME"!==e.tagName&&"none"!==window.getComputedStyle(e).display);e.style.display=t?"":"none"}),document.querySelectorAll("#EVENT dl").forEach(e=>{var t=Array.from(e.querySelectorAll("dd")).every(e=>"none"===window.getComputedStyle(e).display);e.style.display=t?"none":""}),document.querySelectorAll("#EVENT>h1").forEach(e=>{let t=e.nextElementSibling,l=!1;for(;t&&"H1"!==t.tagName;){if("none"!==t.style.display){l=!0;break}t=t.nextElementSibling}e.style.display=l?"":"none"})}heb();const observer=new MutationObserver(heb);observer.observe(document.getElementById("EVENT"),{childList:!0,subtree:!0,attributes:!0,attributeFilter:["style"]});
+//外部链接在新页面打开
+document.querySelectorAll('a[href^="http"]').forEach(link=>{link.setAttribute('target','_blank');});
+//加载动画
+function smoothFadeOut(){const n=document.getElementById("loader");let o=1;const a=performance.now();requestAnimationFrame(function t(e){e-=a,e=Math.min(e/300,1);o=1-e,n.style.opacity=o,e<1?requestAnimationFrame(t):n.style.display="none"})}
+window.addEventListener("load",function(){setTimeout(smoothFadeOut,300)});
+//初始化
+window.addEventListener('DOMContentLoaded',function(){
+    const p=localStorage.getItem('p');p?document.getElementById('password').close():document.getElementById('password').showModal();
+    const t=localStorage.getItem('t');t?chT(t):(window.matchMedia("(prefers-color-scheme:dark)").matches?chT('d'):chT('l'));
+    const w=localStorage.getItem('w');w&&chW(w);
+    const n=localStorage.getItem('n');n&&chN(n);
+    const f=localStorage.getItem('f');f&&chF(f);
+    const o=localStorage.getItem('o');
+    if(o){document.querySelector('body>#main').style.setProperty("--opacity",o+"%");document.getElementById('r1').value=o;}
+    const b=localStorage.getItem('b');
+    if(b){document.querySelector('body>#main').style.backdropFilter="blur("+b+"px)";document.getElementById('r2').value=b;}
+    const s=["t","w","n","f"];
+    s.forEach(e=>{var t=localStorage.getItem(e);t&&(e=document.querySelector(`input[name="${e}"][onclick*="${t}"]`))&&(e.checked=!0)});
+    showPage();
+});
+</script>
+<script>"serviceWorker"in navigator&&navigator.serviceWorker.register("/c/sw.js",{scope:"/c/"});</script>
+</body>
+</html>
