@@ -274,6 +274,8 @@ main{
 footer{
     padding:30dvh 30px 50px 30px;background:linear-gradient(transparent 0,#0008 30dvh);color:#fffa;
 }
-
+@media screen and (max-width:600px){
+    .page{flex-wrap:wrap;width:calc(100% - 20px);margin:10px;.next,.back{width:100%;}}
+}
 @media screen and (min-width:1600px),(min-height:900px){#bigger{display:flex;}#password,#main,#loader,nav{display:none!important;}}
 @media screen and (max-width:320px),(max-height:300px){#smaller{display:flex;}#password,#main,#loader,nav{display:none!important;}}
