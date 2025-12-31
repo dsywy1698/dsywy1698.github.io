@@ -2468,6 +2468,27 @@
         <dd>师：“有没有人主动来？”生：“鑫洋！小宝！”师：“那有没有大宝呢？”</dd>
     </dl>
 </div>
+<div>
+    <time>31</time>
+    <p data-tf="2">洪鑫洋用换座位卡换1天座位，和江允儿坐；政治课上靠在江允儿手臂上，全班起哄。</p>
+    <p data-tf="1">早读英语，王淮：“全班站起来。”林芷琪：“都坐下，保持安静！”陈睿卓：“就说这个王淮真的是！”（笑）</p>
+    <p data-tf="1">刘老师念生物蓝本不合格学生，林奕扬笑。师：“谁笑得这么恶心。”</p>
+    <dl>
+        <dt>元旦汇演：</dt>
+        <dd>校长：“我喊‘40中！’，你们喊‘到！’。”</dd>
+        <dd>小品《手机的诱惑》出现《最长的电影》、印度阿三、《大东北我的家乡》。</dd>
+        <dd>唱《当那一天来临》。</dd>
+        <dd data-tf="2">洪鑫洋和江允儿坐；蔡华楷和江雨晴坐；郑诗语和季仁槿坐。</dd>
+        <dd>回班后全班自发齐唱《最长的电影》。</dd>
+    </dl>
+    <dl>
+        <dt>游戏：</dt>
+        <dd>王淮喊口令：“拍腿！拍讲台！打蔡华楷（蔡华楷参与游戏）一下！”蔡华楷喊口令：“摸头！摸鼻子！军体拳！”</dd>
+        <dd>课件中出现“游戏06 听歌识曲”，学生立刻齐声唱道：“再给我两分钟，让我把记忆结成冰……”</dd>
+        <dd>刘老师让座号逢“1”的学生玩游戏，淘汰后剩季仁槿和郑诗语，师：“就这两个PK了。”</dd>
+        <dd>看emoji猜成语时，第一个标签有“冻”的意思。师：“到底什么东西？”生：“记忆结成冰。”</dd>
+    </dl>
+</div>
 </main><footer><h1>页面到底了！</h1></footer></div><script>function ep(){var e=document.querySelector("#password input").value;"YmFzaW4xOTg="===btoa(e)?(localStorage.setItem("p","true"),document.getElementById("password").close()):document.querySelector("#password input").style.background="#f004"}function showPage(e){var t=document.querySelectorAll("main"),o=document.getElementById(e),n=document.querySelectorAll("nav>div:nth-of-type(2)>div"),a=document.querySelector("nav>div:nth-of-type(1)>div:nth-of-type(2)");t.forEach(e=>{e.style.display="none"}),n.forEach(e=>{e.style.display="none"}),o&&(o.style.display="block"),a.style.display="EVENT"==e?"inline-block":"none",document.getElementById(e+"-l").style.display="block"}function chT(e){document.body.setAttribute("data-t",e),localStorage.setItem("t",e)}function chW(e){document.body.setAttribute("data-w",e),localStorage.setItem("w",e)}function chN(e){document.body.setAttribute("data-n",e),localStorage.setItem("n",e)}function chF(e){document.body.setAttribute("data-f",e),localStorage.setItem("f",e),search()}document.addEventListener("click",function(e){var t=document.querySelector("nav>div:nth-of-type(2)"),o=document.querySelector("nav>div:nth-of-type(1) button.fa-navicon");t.classList.contains("active")&&!t.contains(e.target)&&e.target!==o&&t.classList.remove("active")}),document.querySelectorAll("nav>div:nth-of-type(2) a,nav>div:nth-of-type(2) button").forEach(e=>{e.addEventListener("click",function(){document.querySelector("nav>div:nth-of-type(2)").classList.remove("active")})}),document.getElementById("sD").addEventListener("click",function(e){var t=this.getBoundingClientRect();(e.clientX<t.left||t.right<e.clientX||e.clientY<t.top||t.bottom<e.clientY)&&this.close()}),window.addEventListener("scroll",()=>{var e=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100;document.querySelector("nav").style.setProperty("--progress",e+"%")}),document.getElementById("r1").addEventListener("input",function(){document.querySelector("body>#main").style.setProperty("--opacity",this.value+"%"),localStorage.setItem("o",this.value)}),document.getElementById("r2").addEventListener("input",function(){document.querySelector("body>#main").style.backdropFilter="blur("+this.value+"px)",localStorage.setItem("b",this.value)});let db;const request=indexedDB.open("backgroundDB",1);
 function loadBackground(){const e=db.transaction(["background"],"readonly").objectStore("background").get(1);e.onsuccess=function(){e.result&&(document.body.style.backgroundImage=`url(${e.result.image})`)}}
 function cbg(){var e=document.createElement("input");e.type="file",e.accept="image/*",e.onchange=function(e){var t,e=e.target.files[0];e&&((t=new FileReader).onload=function(e){db.transaction(["background"],"readwrite").objectStore("background").put({id:1,image:e.target.result}),document.body.style.backgroundImage=`url(${e.target.result})`},t.readAsDataURL(e))},e.click()}
