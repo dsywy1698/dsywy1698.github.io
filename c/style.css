@@ -625,7 +625,7 @@ main{
         p{font-size:1.125rem;text-indent:2.3em;}
     }
     .timeline{
-        background:linear-gradient(135deg,color-mix(in oklab,var(--timeline)),color-mix(in oklab,var(--timeline) 20%,transparent 80%));
+        background:linear-gradient(135deg,color-mix(in oklab,var(--timeline),transparent),color-mix(in oklab,var(--timeline) 20%,transparent 80%));
         padding:15px;
         border-radius:15px;
         display:block;
