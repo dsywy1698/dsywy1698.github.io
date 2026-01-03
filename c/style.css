@@ -719,6 +719,18 @@ main{
         font-size:1.125rem;
         color:color-mix(in oklab,var(--color) 70%,var(--q-bg) 30%);
     }
+    ruby{
+        font-size:1.75rem;
+        >rt{
+            background:color-mix(in oklab,color-mix(in oklab,var(--q-icon),var(--color)) 10%,transparent 90%);
+            border-radius:10px;
+            font-size:1rem;
+            margin:2.5px;
+            padding:2.5px 5px;
+            text-align:center;
+            letter-spacing:normal;
+        }
+    }
     .page{
         display:flex;
         width:calc(100% - 40px);
