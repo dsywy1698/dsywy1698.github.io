@@ -8,304 +8,11 @@
     <meta name="referrer" content="no-referrer"/>
     <meta name="theme-color" id="th" content="#c2d0d6">
     <link rel="stylesheet" href="fa.css"/>
+    <!--临时--><link rel="stylesheet" href="style.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="manifest" href="manifest.json"/>
     <link rel="icon" href="9.png"/>
     <style>
-        @font-face{font-family:'icons';src:url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'),url('fa.woff2') format('woff2');font-display:swap;}
-:root{color-scheme:light dark;}
-*{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none!important;scrollbar-width:none!important;color:inherit;transition:background 0.3s ease,color 0.3s ease;}
-p,dt,dd,li,small{line-height:1.7em;letter-spacing:0.15em;}
-*::-webkit-scrollbar{display:none!important;}
-::selection{background:var(--section);}
-html{font-size:100%;scroll-behavior:smooth;}
-body{font-family:"微软雅黑",sans-serif;background-position:50% 50%!important;background-repeat:no-repeat!important;background-size:cover!important;background-attachment:fixed!important;}
-hr{border:0px;border-radius:1px;margin:15px 10px;padding:1px;background:linear-gradient(to right,transparent 0%,var(--hr) 30%,var(--hr) 70%,transparent 100%);}
-a{color:var(--ac);text-decoration-style:dotted;&:hover{color:var(--ah);}}
-h1,h2,h3,h4,h5,h6{margin:10px 0 20px 2.5px;}
-sup[class="fa fa-external-link"]{font-size:0.7em;opacity:0.8;line-height:0;color:var(--ac);vertical-align:super;position:relative;top:0;&:hover{opacity:0.7;}}
-img,svg,canvas,audio,video{max-width:100%;border-radius:10px;display:block;margin:10px auto;}
-sup,sub{font-size:0.7em;}
-ul,ol{margin:10px 0 10px 2em;li{color:var(--li);opacity:0.9;}p{color:var(--lp);font-size:0.875rem;opacity:0.8;}}
-p:not(#EVENT p){margin:10px 0;}
-small{opacity:0.7;}
-button{border:none;}
-main *[id]{scroll-margin-top:55px;}
-input:focus{outline:none;}
-
-#bigger,#smaller{display:none;justify-content:center;align-items:center;padding:20px 5px;text-align:center;width:100dvw;height:100dvh;top:0;left:0;backdrop-filter:blur(20px);}
-#bigger{font-size:5rem;}
-#smaller{font-size:1.2rem;}
-
-body[data-t="l"]{
-    >#main{background:rgba(241,243,244,var(--opacity,100%));}
-    background:#f1f3f4;
-    color:#212121;
-    --section:#32676788;
-    --nb:#abb5ba88;
-    --nc:#507c95cc;
-    --hr:#af9c6a;
-    --ac:#0a0ac2;
-    --ah:#2525f4;
-    --db:#dddad588;
-    --dl:#cbc3b388;
-    --dr:#bcae8f88;
-    --df:#403826;
-    --ds:#a8b87a88;
-    --dt:#849550;
-    --lb:#d5ddda;
-    --lc:#2c3a2c;
-    --ar:#7979d288;
-    --qb:#d1c29488;
-    --qi:#6b7d3688;
-    --bl:#bc8fa188;
-    --gs:#399a;
-    --ge:#3995;
-    --ga:#133939;
-    --eh:#8f663d88;
-    --th:#c2d0d6;
-    --wr:linear-gradient(to bottom,#abc25688,#abc25644);
-    --tl:#b2bfc3;
-    --ta:#d8d8a6;
-}
-body[data-t="d"]{
-    >#main{background:rgba(0,0,26,var(--opacity,100%));}
-    background:#00001a;
-    color:#eff5f5;
-    --section:#5959a688;
-    --nb:#3d495c88;
-    --nc:#b3bccc;
-    --hr:#e6d299;
-    --ac:#8ca6f2;
-    --ah:#5e82ed;
-    --db:#38352e88;
-    --dl:#4d453388;
-    --dr:#6b624788;
-    --df:#d6d1c2;
-    --ds:#51544588;
-    --dt:#636b47;
-    --lb:#1d301d;
-    --lc:#b6c8b6;
-    --ar:#36636388;
-    --qb:#6b4d2e88;
-    --qi:#a2842a88;
-    --bl:#5c5c3d88;
-    --gs:#2847a4aa;
-    --ge:#2847a455;
-    --ga:#c1cdf088;
-    --eh:#783a6988;
-    --th:#242442;
-    --wr:linear-gradient(to bottom,#673e7488,#673e7444);
-    --tl:#19384d;
-    --ta:#343419;
-}
-body[data-t="b"]{
-    >#main{background:rgba(0,102,255,var(--opacity,100%));}
-    background:#06f;
-    color:#fff;
-    --section:#cff8;
-    --nb:#cffa;
-    --nc:#36c;
-    --hr:#cff;
-    --ac:#fafa9e;
-    --ah:#f5f53d;
-    --db:#9cf8;
-    --dl:#39f8;
-    --dr:#198cb388;
-    --df:#e6ffff;
-    --ds:#0d7fa588;
-    --dt:#52bde0;
-    --lb:#e6ffff;
-    --lc:#39f;
-    --ar:#66c2ff88;
-    --qb:#ffb3ff88;
-    --qi:#f398;
-    --bl:#b366ff88;
-    --gs:#09ca;
-    --ge:#09c5;
-    --ga:#e6f9ff;
-    --eh:#3cf8;
-    --th:#0cf;
-    --wr:linear-gradient(to bottom,#3698,#3694);
-    --tl:#5aa4ae;
-    --ta:#4747eb;
-}
-body[data-t="n"]{
-    >#main{background:rgba(13,13,63,var(--opacity,100%));}
-    background:#0d0d3f;
-    color:#ecf2f9;
-    --section:#96f8;
-    --nb:#9908;
-    --nc:#ffc;
-    --hr:#ad88f6;
-    --ac:#ff9;
-    --ah:#d9b3ff;
-    --db:#0068;
-    --dl:#3098;
-    --dr:#5b2aef88;
-    --df:#c8b8fa;
-    --ds:#7317cf88;
-    --dt:#9947eb;
-    --lb:#006;
-    --lc:#e6e6ff;
-    --ar:#80339988;
-    --qb:#66841588;
-    --qi:#a3cb3488;
-    --bl:#981b5988;
-    --gs:#0f8a8aaa;
-    --ge:#0f8a8a55;
-    --ga:#baf7f7;
-    --eh:#0998;
-    --th:#19194d;
-    --wr:linear-gradient(to bottom,#39f4,#39f2);
-    --tl:#1f42ad;
-    --ta:#7a5c1f;
-}
-body[data-w="l"]{font-weight:200;}
-body[data-w="n"]{font-weight:normal;}
-body[data-f="1"] *[data-tf="3"]{display:none;}
-body[data-f="2"] *[data-tf="3"]{display:none;}
-body[data-f="2"] *[data-tf="2"]{display:none;}
-body[data-f="3"] *[data-tf]{display:none;}
-
-#password{
-    &::backdrop{background:light-dark(#0008,#fff8);backdrop-filter:blur(20px);}
-    border-radius:20px;padding:22.5px 35px;border:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:light-dark(#fffa,#000a);text-align:center;color:light-dark(#333,#ccc);z-index:3;
-    >h1{font-size:1.875rem;margin:10px;}
-    >div{
-        display:flex;justify-content:center;margin:10px 0;
-        >input{width:200px;height:40px;border:1px solid #888;border-radius:10px 0 0 10px;font-size:1.125rem;padding:0 10px;}
-        >button{width:60px;height:40px;border:1px solid #888;border-radius:0 10px 10px 0;font-size:1.125rem;background:#888;color:light-dark(#fff,#000);}
-    }
-}
-
-#loader{
-    background:var(--lb);width:100dvw;height:100dvh;z-index:2;overflow:hidden;position:fixed;top:0;left:0;display:flex;justify-content:center;align-items:center;transition:none;flex-wrap:wrap;will-change:opacity;
-    >div{
-        width:100vw;text-align:center;
-        >p{color:var(--lc);transition:opacity 0.2s;margin:10px 0;padding:0;font-size:1.25rem;}
-        >button{background:var(--nb);font-size:1.125rem;padding:2.5px 15px;line-height:30px;border-radius:15px;transition:none;}
-    }
-}
-
-nav{
-    position:fixed;background:var(--nb);height:40px;padding:5px;backdrop-filter:blur(15px);z-index:1;margin:auto;user-select:none;transition:height 0.3s;overflow:hidden;
-    &::before{content:'';position:absolute;top:0;left:0;width:var(--progress,0%);pointer-events:none;z-index:-1;height:40px;opacity:0.4;background:var(--nb);}
-    &:has(>div:nth-of-type(2).active){height:400px;}
-    >div:nth-of-type(1){
-        display:flex;justify-content:center;height:40px;
-        >div:nth-of-type(1){
-            position:relative;top:-5px;
-            >button{width:30px;height:30px;border-radius:50%;background:transparent;transition:background 0.3s;&:hover{background:#73838c88;}&::before{color:var(--nc);font-size:20px;}}
-            #logo{background-image:url("9.png");width:27.5px;height:27.5px;background-position:50% 50%;background-repeat:no-repeat;background-size:cover;position:relative;top:6.25px;}
-        }
-        >div:nth-of-type(2){
-            display:none;
-            >input{height:30px;width:140px;background:#fff3;border:none;border-radius:15px;padding:0 10px;margin-left:15px;&::placeholder{color:var(--nc);opacity:0.5;}}
-            &::before{position:absolute;content:"";width:1px;height:20px;top:10px;background:var(--nc);margin:0 5px;border-radius:0.5px;}
-        }
-    }
-    >div:nth-of-type(2){
-        height:0;opacity:0;transition:0.3s;background:linear-gradient(#fff3,transparent);pointer-events:none;padding:7.5px;border-radius:15px;
-        &.active{height:350px;opacity:1;pointer-events:auto;overflow-y:auto;}
-        >div{
-            position:relative;padding-left:7.5px;margin-left:5px;
-            &::before{content:'';position:absolute;left:0;top:5px;bottom:5px;width:3px;background:var(--nb);opacity:0.5;border-radius:1.5px;}
-            >a{display:block;text-decoration:none;height:40px;padding:2.5px 10px;border-radius:22.5px;line-height:35px;background:transparent;margin:2.5px 0;color:inherit;&:hover{background:#fff5;}}
-        }
-        >button{display:block;width:100%;text-align:left;font-size:1.125rem;padding:5px 15px;border-radius:99px;margin-top:5px;background:transparent;transition:0.3s;&:hover{background:#fff2;}}
-    }
-}
-body[data-n="1"] nav{top:0;left:0;width:100dvw;}
-body[data-n="2"] nav{top:7px;left:7px;width:calc(100dvw - 14px);border-radius:20px;&::before{border-radius:20px;}}
-
-#sD{
-    width:clamp(500px,60dvw,300px);border-radius:20px;padding:10px;border:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--db);backdrop-filter:blur(3px);user-select:none;
-    &::backdrop{background:#0006;backdrop-filter:blur(2px);}
-    >div:first-child{font-weight:bold;font-size:1.25rem;padding:5px 10px 20px 10px;}
-    >div:not(:first-child){
-        height:40px;padding:5px;background:var(--dl);border-radius:20px;margin:5px 0;text-align:right;clear:both;content:"";display:table;width:100%;
-        >span{line-height:30px;margin-left:10px;float:left;}
-        >input[type="radio"]{
-            -webkit-appearance:none;-moz-appearance:none;appearance:none;height:30px;min-width:30px;border-radius:15px;position:relative;transition:opacity 0.3s;background:var(--dr);margin:0 2.5px;opacity:0.4;
-            &::before{content:var(--rc);font-size:18px;width:30px;height:30px;line-height:30px;margin:0 6px;color:var(--df);}
-            &:checked{opacity:1;}
-        }
-        >button{height:30px;background:var(--dl);color:var(--df);border-radius:15px;padding:0 10px;line-height:30px;font-size:16px;margin-left:2.5px;}
-        >div{
-            width:100%;background:var(--dl);height:35px;padding:2.5px;border-radius:17.5px;margin-top:5px;
-            >span{line-height:30px;margin-left:10px;float:left;}
-            >input{
-                -webkit-appearance:none;-moz-appearance:none;appearance:none;width:100px;height:20px;border-radius:10px;background:var(--ds);outline:none;opacity:0.7;transition:opacity 0.2s;margin:5px 7.5px 5px 0;
-                &:hover{opacity:1;}
-                &::-webkit-slider-track{height:10px;border-radius:5px;}
-                &::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;background:var(--dt);border-radius:50%;cursor:pointer;}
-                &::-moz-range-track{height:10px;border-radius:5px;}
-                &::-moz-range-thumb{width:20px;height:20px;background:var(--dt);border-radius:50%;cursor:pointer;}
-            }
-        }
-    }
-    >button{background:#b8141488;color:#fff;width:100%;font-size:1.1125rem;padding:5px;text-align:center;border-radius:99px;}
-}
-
-main{
-    padding:60px 10px 10px 10px;min-height:100dvh;
-    >header{font-size:2rem;text-align:center;padding:20px 0 50px 0;}
-    article{background:var(--ar);padding:12.5px;border-radius:15px;margin:5px 0;>p{text-indent:2.3em;}>h1{text-align:center;margin:5px auto;}}
-    q{background:var(--qb);font-size:1.5625rem;display:block;text-align:center;padding:8px;border-radius:10px;margin:5px 0;&::before{font-family:"icons";content:"\f10d";color:var(--qi);padding-right:10px;}&::after{font-family:"icons";content:"\f10e";color:var(--qi);padding-left:10px;}}
-    blockquote{background:linear-gradient(to right,var(--bl),var(--bl),transparent);padding:20px;border-radius:10px;border-left:10px solid #8884;margin:5px 0;}
-    .gallery{background:linear-gradient(var(--gs),var(--ge));padding:15px;border-radius:15px;text-align:center;margin:5px 0;>img{max-width:600px;width:100%;border-radius:10px;}>p{color:var(--ga);}}
-    .division{width:100%;box-shadow:0 15px 15px -14px #000;height:30px;margin:20px 0;}
-    .box{background:#fff6;padding:20px;text-align:center;border-radius:15px;color:#000;font-size:110%;margin:5px;>p{margin:0;}}
-    .writing{background:var(--wr);padding:20px;border-radius:20px;margin:5px;>h1{text-align:center;font-size:2.5rem;margin:15px 0;+p{text-align:center;font-weight:bold;margin:5px 0;text-indent:0;}}p{font-size:1.125rem;text-indent:2.3em;}}
-    .timeline{
-        background:linear-gradient(135deg,color-mix(in oklch,var(--tl),#88888808),color-mix(in oklch,var(--tl) 20%,transparent 80%));padding:15px;border-radius:15px;display:block;position:relative;
-        &::before{content:'';position:absolute;left:25px;top:10px;bottom:10px;width:5px;background:color-mix(in oklch,var(--tl),#fff5);border-radius:1.5px;border-radius:2px;}
-        >dt{background:#0002;padding:0 30px 0 20px;line-height:50px;font-size:1.25rem;margin:0 15px;border-radius:0 25px 25px 0;display:inline-block;width:auto;}
-        >dd{
-            background:#fff2;padding:0 7.5px;margin:15px 5px 15px 30px;line-height:30px;border-radius:10px;
-            &::before{content:'';position:relative;display:inline-block;width:20px;height:20px;border-radius:50%;background:var(--tl);left:-35px;margin-top:5px;}
-        }
-    }
-    .notes{padding:10px;opacity:0.6;font-size:0.875rem;}
-    table{
-        width:100%;overflow-x:auto;border-radius:12px;border-collapse:collapse;background:color-mix(in oklch,var(--ta) 30%,transparent 70%);
-        td{border-top:1px solid color-mix(in oklch,var(--ta) 70%,transparent 30%);text-align:center;}
-        th{font-size:1.125rem;background:color-mix(in oklch,var(--ta) 40%,transparent 60%);&:first-child{border-top-left-radius:15px;}&:last-child{border-top-right-radius:15px;}}
-        tr>td+td:last-child,tr>th:last-child{border-right:none;}
-        td,th{border-right:1px solid color-mix(in oklch,var(--ta) 50%,transparent 50%);padding:12px 8px;min-width:3em;}
-    }
-}
-#EVENT{
-    >h1{background:var(--eh,#0998);text-align:center;border-radius:100dvw;margin:25px 15px 5px 15px;padding:10px;color:#fff;}
-    >h1[id="event-not"]+div>p>span{background:#f968;padding:0 5px;border-radius:5px;margin-right:10px;}
-    >div{
-        margin:10px 0;padding:20px 8px 10px 8px;border-radius:10px;width:100%;background:#9df5;
-        >time{position:relative;top:-15px;left:-3px;float:left;margin-right:-9999px;text-align:center;padding:5px 0;min-width:1.9em;border-radius:10px;font-weight:700;background:#6cf;color:#000;}
-        >p{padding:2.5px 0;text-indent:2em;}
-        >dl{
-            margin:15px 3px 3px 15px;padding:5px 10px;background:#fff3;border-radius:15px;
-            dd{text-indent:2em;}
-            dt{text-indent:2em;font-weight:bold;}
-            >dl{margin-left:1em;background:#0001;padding:5px 10px;border-radius:10px;}
-        }
-        &.sp1{background:#cfc5;>time{background:#9f9}}
-        &.sp2{background:#fec5;>time{background:#fd9}}
-        &.sp3{background:#fce5;>time{background:#f9d}}
-        &.sp4{background:#fc95;>time{background:#f93}}
-    }
-    .hot{background:#d9d98c88;color:#212121;>dd{text-indent:0;}}
-    .mt{background:#f9f8;color:#303;font-style:italic;}
-    mark{background-color:#d9b3ff88;padding:0 5px;border-radius:15px;}
-    p[data-h]::before,dd[data-h]::before{background:#f93b;content:"HOT";color:#310;font-weight:bold;padding:0 2.5px;border-radius:5px;margin-right:5px;}
-    .unsure{background:#f008;color:#fcc;padding:0 5px;margin-right:5px;border-radius:5px;&:before{content:"日期存疑";}}
-}
-footer{
-    padding:30dvh 30px 50px 30px;background:linear-gradient(transparent 0,#0008 30dvh);color:#fffa;
-}
-
-@media screen and (min-width:1600px),(min-height:900px){#bigger{display:flex;}#password,#main,#loader,nav{display:none!important;}}
-@media screen and (max-width:320px),(max-height:300px){#smaller{display:flex;}#password,#main,#loader,nav{display:none!important;}}
     </style>
 </head>
 <body data-t="l" data-w="n" data-n="2" data-f="3">
@@ -355,8 +62,7 @@ footer{
                 <a href="#event-d2510">2025年10月</a>
                 <a href="#event-d2511">2025年11月</a>
                 <a href="#event-d2512">2025年12月</a>
-            </div><div id="LITERATURE-l">
-                <a href="#literature-"></a>
+                <a href="#event-d2601">2026年1月</a>
             </div>
             <div id="LONGXIANG-l">
                 <a href="#longxiang-condition">概况</a>
@@ -381,10 +87,163 @@ footer{
                 <a href="#aiguoyoufang-humanity">人文</a>
                 <a href="#aiguoyoufang-leaving">离开</a>
             </div>
+            <div id="LITERATURE-l">
+                <a href="#literature-"></a>
+            </div>
+            <div id="ACTIVITIES-l">
+                <a href="#activities-"></a>
+            </div>
+            <div id="CHINESE-l">
+                <h2>方翔</h2>
+                <a href="#chinese-1-">新课</a>
+                <a href="#chinese-1-">小测</a>
+                <a href="#chinese-1-">作业</a>
+                <a href="#chinese-1-">突如其来的意外</a>
+                <h2>郑慧敏</h2>
+                <a href="#chinese-2-">出口就是金句</a>
+                <a href="#chinese-2-">抽背</a>
+                <a href="#chinese-2-">作业的审判</a>
+                <a href="#chinese-2-">课件</a>
+                <a href="#chinese-2-">离别</a>
+                <h2>陈文慧</h2>
+                <a href="#chinese-3-"></a>
+                <a href="#chinese-3-"></a>
+                <a href="#chinese-3-"></a>
+                <a href="#chinese-3-"></a>
+            </div>
+            <div id="MATH-l">
+                <h2>严伟胜</h2>
+                <a href="#math-">肢体的奥秘</a>
+                <a href="#math-">新课</a>
+                <a href="#math-">作业</a>
+                <a href="#math-">测验</a>
+                <a href="#math-"></a>
+            </div>
+            <div id="ENGLISH-l">
+                <h2>刘必艳</h2>
+                <a href="#english-start">从零开始</a>
+                <h2>教学风格</h2>
+                <a href="#english-class">惊心动魄的一堂课</a>
+                <a href="#english-test">OK,test.</a>
+                <a href="#english-homework">作业</a>
+                <a href="#english-mark">做题的标记</a>
+                <a href="#english-life">生活中的英语</a>
+                <a href="#english-student">上中下等人</a>
+                <h2>班级制度</h2>
+                <a href="#english-">收作业小组</a>
+                <a href="#english-">学习小组</a>
+                <a href="#english-">量化</a>
+                <a href="#english-">九班的“阶级”</a>
+                <a href="#english-">换座位</a>
+                <h2>管理方针</h2>
+                <a href="#english-">占课</a>
+                <a href="#english-">严管手机！</a>
+                <a href="#english-">舌尖上的九班</a>
+                <a href="#english-">放学后的风波</a>
+                <a href="#english-">监视无处不在</a>
+                <a href="#english-">营造霉好班级</a>
+                <a href="#english-">待人之道</a>
+                <a href="#english-">班级群中</a>
+                <a href="#english-">公共设施的情况与管理</a>
+                <a href="#english-">学生的态度</a>
+                <a href="#english-">其他课上的刘老师</a>
+                <a href="#english-">办公室</a>
+                <h2>学习之外</h2>
+                <a href="#english-">大脚</a>
+                <a href="#english-">羽毛球</a>
+                <a href="#english-">四十中关系链</a>
+                <a href="#english-">其他</a>
+            </div>
+            <div id="PHYSICS-l">
+                <h2>陈淑霞</h2>
+                <a href="physics-"></a>
+                <a href="physics-"></a>
+                <a href="physics-"></a>
+                <a href="physics-"></a>
+                <a href="physics-"></a>
+            </div>
+            <div id="CHEMISTRY-l">
+                <a href="chemistry-"></a>
+                <a href="chemistry-"></a>
+                <a href="chemistry-"></a>
+                <a href="chemistry-"></a>
+                <a href="chemistry-"></a>
+            </div>
+            <div id="POLITICS-l">
+                <h2>A</h2>
+                <h2>B</h2>
+                <h2>C</h2>
+                <a href="pilitics--"></a>
+                <a href="pilitics--"></a>
+                <a href="pilitics--"></a>
+                <a href="pilitics--"></a>
+                <a href="pilitics--"></a>
+            </div>
+            <div id="HISTORY-l">
+                <h2>A</h2>
+                <a href="history-1-">上课与电脑</a>
+                <a href="history-1-">语言与讲解</a>
+                <a href="history-1-">联系与小测</a>
+                <h2>冯越</h2>
+                <a href="history-2-"></a>
+                <a href="history-2-"></a>
+            </div>
+            <div id="GEOGRAPHY-l">
+                <h2>张则斌</h2>
+                <a href="geography-1-">初见</a>
+                <a href="geography-1-">上课流程</a>
+                <a href="geography-1-">作业与讲评</a>
+                <h2>B</h2>
+                <a href="geography-2-"></a>
+                <a href="geography-2-"></a>
+            </div>
+            <div id="BIOLOGY-l">
+                <h2>A</h2>
+                <h2>毛俊文</h2>
+                <h2>c</h2>
+                <a href="biology--"></a>
+                <a href="biology--"></a>
+                <a href="biology--"></a>
+                <a href="biology--"></a>
+                <a href="biology--"></a>
+            </div>
+            <div id="OTHERS-l">
+                <h2>体育-张榕杰</h2>
+                <h2>美术A</h2>
+                <h2>美术B</h2>
+                <h2>音乐</h2>
+                <h2>信息A</h2>
+                <h2>信息B</h2>
+                <h2>劳技A</h2>
+                <h2>劳技B</h2>
+                <a href=""></a>
+                <a href=""></a>
+                <a href=""></a>
+                <a href=""></a>
+                <a href=""></a>
+            </div>
+            <button onclick="showPage('')">开始</button>
             <button onclick="showPage('EVENT')">日志</button>
-            <button onclick="showPage('LITERATURE')">文学</button>
             <button onclick="showPage('LONGXIANG')">龙翔</button>
             <button onclick="showPage('AIGUOYOUFANG')">爱国有方</button>
+            <button onclick="showPage('LITERATURE')">文学</button>
+            <button onclick="showPage('SCHOOL')">四十中</button>
+            <button onclick="showPage('ACTIVITIES')">活动</button>
+            <button onclick="showPage('CHINESE')">老师-语文</button>
+            <button onclick="showPage('MATH')">老师-数学</button>
+            <button onclick="showPage('ENGLISH')">老师-英语</button>
+            <button onclick="showPage('PHYSICS')">老师-物理</button>
+            <button onclick="showPage('CHEMISTRY')">老师-化学</button>
+            <button onclick="showPage('POLITICS')">老师-政治</button>
+            <button onclick="showPage('HISTORY')">老师-历史</button>
+            <button onclick="showPage('GEOGRAPHY')">老师-地理</button>
+            <button onclick="showPage('BIOLOGY')">老师-生物</button>
+            <button onclick="showPage('OTHERS')">老师-其他科目</button>
+            <button onclick="showPage('STUDENTS1')">学生（上）</button>
+            <button onclick="showPage('STUDENTS2')">学生（中）</button>
+            <button onclick="showPage('STUDENTS3')">学生（下）</button>
+            <button onclick="showPage('')">人文</button>
+            <button onclick="showPage('')">毕业</button>
         </div>
     </nav>
     <div id="main">
@@ -2625,14 +2484,14 @@ footer{
     <p>生物老师：“40号黄鑫……”</p>
 </div>
 <div>
+    <time>26</time>
+    <p data-tf="3">段长宣读第二张年段处分。</p>
+</div>
+<div>
     <time>27</time>
     <p data-tf="1">郑永泽早抄被抓到并谈话。</p>
     <p>崔宇臣在前、洪鑫洋在后，刚要进入教室，洪鑫洋突然拽开崔宇臣，自己先进班。</p>
-    <p>洪鑫洋自己写的“期中考反思”走红。</p>
-</div>
-<div>
-    <time>28</time>
-    <p>第二次“特色餐”。</p>
+    <p>洪鑫洋自己写的“期中考反思”走红，产生“未来是你们的，但现在未必”、“我老了”等名句。</p>
 </div>
 <h1 id="event-d2512">2025年12月</h1>
 <div>
@@ -2716,226 +2575,195 @@ footer{
     <p>刘老师：“林奕扬这只狗呢？”“手托着干嘛？准备开花是吧。”</p>
     <p data-tf="3">体育课时没带排球的人跑多趟400米，某趟跑完后黄恩亚瘫坐在台阶上，双腿打开，当众抓挠裆部。</p>
     <p>午餐吃特色餐，但有2人没拿到。午托时刘老师调查，学生表示一个阿姨将三盒没吃的饭拿出来置于旁边，另一个阿姨收走。随后一阿姨来收饭，刘老师询问，阿姨：“收走了……要不要拿来？”刘老师：“都结束了还拿来……”阿姨离开后不久一大叔提着两个装有饭盒的塑料袋进班：“谁没有？……哪个小孩没吃举手！”学生指蔡华楷。蔡华楷：“我不吃。”大叔执意要给他，将一盒饭放到他桌上：“拿走啊，没事等下吃。”然后离开。午休时廖成羲、徐嘉眀主动将两份饭拿去吃。</p>
+    <p>物理老师评价廖成羲的字：“比医生开的药方还看不懂。”</p>
+    <p>讲台上出现没名字的物理卷子。刘老师：“像是阅晨的，上面写‘物理老师开桂了’，开挂的挂还写错了。”</p>
+</div>
+<div>
+    <time>15</time>
+    <p>语文课问“城春草木深”景象，洪鑫洋：“土地肥沃。因为死的人多了分解后……”</p>
+</div>
+<div>
+    <time>16</time>
+    <dl>
+        <dt>语文课：</dt>
+        <dd>师：“先听一遍范读。”然后课件中出现手机中抖音朗读视频的录屏，评论数为16。视频中没有点红心，生：“老师没点赞！”师选择“笔”，把爱心的区域手动涂红。</dd>
+        <dd data-tf="1">念作文优秀名单：“孔祥懿，49（分）。”生：“咦——”孔祥懿把林奕扬（同桌，喊得很大声）往外推，把林奕扬推离凳子。</dd>
+        <dd>作文统计表格中出现“抽象类 2”（题目《你的馈赠，点燃了我》，表中数据意为有2人写的是抽象类的事物）。学生非常好奇，多次询问。师：“我跟你讲，所谓抽象，就是真点燃……”</dd>
+        <dd>王淮作文出现“她”。</dd>
+        <dd>展示郑永泽作文。师：“让我想起了什么？汪曾祺的……”</dd>
+    </dl>
+</div>
+<div>
+    <time>17</time>
+    <p>政治老师用上课件。打开文件列表时，生：“老师居然用课件了！”然后鼓掌。打开课件后，生：“哇——（鼓掌）”叶弘毅：“方翔的配方！”</p>
+    <dl>
+        <dt data-tf="1">物理课：</dt>
+        <dd data-tf="2">讲题目，师：“也就是这个大角，是100°……”</dd>
+        <dd data-tf="1">洪鑫洋睡觉，学生提醒物理老师拍照，拿起手机后洪鑫洋抬起头。师：“睡得很爽啊。”洪鑫洋：“还行。”</dd>
+    </dl>
+    <p data-tf="3">唐家祺小测F+时多次让林芷琪登记B-或B被刘老师发现并谈话，唐家祺将林奕扬的小测改为自己名字给刘老师检查被识破，唐家祺拒不承认，被撤销数学科代表职位，改为江允儿担任。随后多人在英语小测时的作弊行为被揭露，当晚留下大量学生并要求写检讨（2、3、5、8、11、17、20、26、29、35、36、38、40、46、48、49）。</p>
+</div>
+<div>
+    <time>18</time>
+    <p data-tf="2">早读时刘老师强调小测诚信问题，说“从今天开始可以不小测”等。当天的小测仅部分人有等级，无等级者全部需要去找刘老师过小测。</p>
+    <p data-tf="1">数学老师：“家祺，作业发一下。”生：“科代表换了！”师：“为什么？（解释原因后）只是英语没交吗？那为什么撤数学科代表？”</p>
+    <p>廖成羲写背书内容时写出非常工整的“印刷体”：“P101抗日战争思维导图。”写到最后三个字时上课了，廖成羲直接潦草地写完后三个字。</p>
+    <p>洪鑫洋活动课原是去数学培优班，他主动换成物理培优班，原因是数学都听不懂。</p>
+    <p>物理老师在黑板上写公式时有人笑。师：“笑什么？”生：“‘ρ<sub>水</sub>’写得像‘尿’。”</p>
+    <p>孔祥懿又带仓鼠，被别班班主任发现，后被刘老师知道并扣分。</p>
+    <p>数学课林奕扬睡觉。数学老师走到面前：“谁啊？画画啦。”然后将手上红笔靠近林奕扬脖子后面，林奕扬醒来。</p>
+    <dl>
+        <dt>抽背历史：</dt>
+        <dd>刘老师未进班，美术老师进班。生：“老师你开奔驰吗？”师：“没有我开宝马。”</dd>
+        <dd>廖成羲抽孔祥懿（自己组员）背诵，孔祥懿不会。廖成羲：“孔祥懿扣一分，廖成羲扣两分。”</dd>
+    </dl>
+    <dl>
+        <dt>生物课：</dt>
+        <dd>提问林梓颢：“有两条食物链，哪两条？”洪鑫洋：“为什么只有两条呢？”师：“叫什么？”生：“洪鑫洋。”师：“下一个（回答问题）做好准备。”</dd>
+        <dd>师要打林奕扬，林奕扬急忙说：“老师我左手受伤，右手骨折！”</dd>
+    </dl>
+    <dl>
+        <dt>语文课：</dt>
+        <dd>讲练习时，师顺手拿走洪鑫洋的练习看题。洪鑫洋：“老师不要拿我的，拿我的就没人回答了。”</dd>
+        <dd data-tf="1">小测时，洪鑫洋：“什么时候上《如梦令》？”生：“什么‘如梦玲’？”</dd>
+        <dd>师：“后面有黑板还是前面有黑板啊？”生：“后面！”师：“但是后面没有我啊！”生：“哇——（笑）”</dd>
+        <dd data-tf="1">洪鑫洋：“像你这么优秀的教师一个月多少薪资啊？”</dd>
+        <dl>
+            <dt>午休：</dt>
+            <dd>楼下有“哈！”的喊声。生：“军体拳！”</dd>
+            <dd>过完小测后多人同时进班。陆梓豪：“哇非洲动物大迁徙。”</dd>
+        </dl>
+    </dl>
+</div>
+<div>
+    <time>19</time>
+    <p data-tf="1">课前陈睿卓玩排球，王淮：“陈睿卓，我要不要收了？”卓：“我找江乐萱借的！”淮：“你喜欢泰坦是吧！”</p>
+    <p>谈到政治老师用课件，刘老师：“政治老师已经进步了。”</p>
+    <p data-tf="3">唐家祺因小测事件被班级处分。</p>
+    <dl>
+        <dt>语文课：</dt>
+        <dd>下课时薛阅晨离开，师：“回去，仪式还没做！”有人：“邪教组织！”回到座位后，师：“下课！”生：“起立！”师：“同学们好！”</dd>
+        <dd>师：“说白了。”生：“白说了！”</dd>
+        <dd data-tf="1">洪鑫洋睡觉，师走到面前摇手臂，醒来后不久又睡下去，老师提醒后自觉站到后面。</dd>
+        <dd data-tf="1">洪鑫洋被叫去办公室，上课不久后回来，跑到后排时差点摔倒。</dd>
+    </dl>
+    <p>英语课讲练习。讲到第一大题第七小题，师让廖成羲回答。廖成羲起立翻译：“做一名科学家像他的父亲是他的梦想。（第二大题第一小题）”学生笑。……师：“还笑！哈哈，很好笑（自己笑出来）……”</p>
+</div>
+<div>
+    <time>23</time>
+    <p>刘老师：“这——么——脏的（地板）鑫洋！”</p>
+    <p>物理老师：“快点徐大爷！”</p>
+    <p>上节音乐课请薛阅晨、郑炜回答问题时不会，这节课需表演节目。学生三次自发鼓掌，薛阅晨仍不上台，浪费10分钟。生：“表演军体拳！”师：“也不是不行，上次有一个班也是表演了军体拳。”然后开始叫郑炜。三分钟后薛阅晨主动上台，搜索《花海》并播放伴奏。然后开始唱前半部分，音乐老师录像。唱完后音乐老师评价薛阅晨唱得十分不错。郑炜上台，搜索《晴天》，唱歌时声音很小，音调高。</p>
+    <dl>
+        <dt>语文课：</dt>
+        <dd>早读后，师突发奇想，展示跟着《一人我饮酒醉》的节奏朗读《得道多助，失道寡助》。</dd>
+        <dd>谈到毛泽东求学并撰写作品，洪鑫洋：“《论游击战》（论持久战）。”</dd>
+        <dd>分享“我为什么而活着”的优秀回答时，师放出自己剪辑的视频（背景画面+背景音乐+中间文字+声音）。</dd>
+    </dl>
+</div>
+<div>
+    <time>24</time>
+    <p data-tf="3">数学考试时，监考老师：“谁再趴下去，我用棍子敲了，这刘必艳这个挺好使的。”</p>
+    <p>英语听力：“It could be cloud……”然后突然停下，接着开始播放眼保健操音乐。</p>
+    <p>刘老师让洪鑫洋、郑炜、蔡华楷换位置，然后评价洪鑫洋：“很善良还帮他拿。看，这就是劳动委员。爱劳动，爱帮助他人……”</p>
+</div>
+<div>
+    <time>25</time>
+    <p>刘老师请“我的未来我做组”吃肯德基。</p>
+    <p>洪鑫洋称“地理生物（月考）没有满分的都回家种地”，对答案时发现自己错很多。语文小测时，洪鑫洋：“完蛋了，没关系，两分就两分。”</p>
+    <p data-tf="1">地理老师在哔哩哔哩（网页版）上搜索青藏铁路的热棒和“台湾男子”视频，下课后学生在首页找视频，并点开“慢脚这一块”、“2025年12月22日信息差”（上面两个均关于快手被攻击）、“晓艳妙妙屋”等视频。</p>
+    <p data-tf="1">晚上郑炜奶奶在班级群连发三个：“老师，这两天先座原来位置？我周末带他去配眼镜？谢谢”次日郑炜位置被临时调到讲台旁；第二周郑炜戴上眼镜。</p>
+    <dl>
+        <dt>语文课：</dt>
+        <dd>师：“鑫洋，我还是喜欢你冷酷的样子。”</dd>
+        <dd>午托时语文老师将一个精美的纸袋放在讲台上。唐家祺：“这老师给的什么礼物。”然后上去看，“卷子啊！”师（笑）：“我真是佩服你们……”</dd>
+        <dd data-tf="3">午托时便对练习答案边抽背。师：“我们今天双管齐下。”洪鑫洋：“老师玩这么热烈的！”</dd>
+        <dd data-tf="1">师：“……要配合……”洪鑫洋：“不应该你先配合我吗？”</dd>
+        <dd>师：“小测的第一个原则：安静。”</dd>
+        <dd data-tf="1">提问蔡华楷古诗的特点，蔡：“我发现古诗有一个题目，下面跟一个作者的名字。”不久后有人讲话，师：“站起来！”然后问叶弘毅问题。转过头发现洪鑫洋起立。师：“你站起来干嘛？坐下坐下！我的天哪！”</dd>
+    </dl>
+</div>
+<div>
+    <time>26</time>
+    <p data-tf="1">跑操结束后郑永泽走路撞到墙。</p>
+    <p data-tf="2">眼保健操刘老师叫洪鑫洋等人去数卷子，走后，蔡华楷：“洪鑫洋（政治）卷子上写了两个江允儿的名字！”下课后洪鑫洋称“林芷琪写的”。</p>
+    <p data-tf="1">英语月考洪鑫洋准考证号填成4班，陈睿卓没填数字，俞昕辰座号填成19号。</p>
+    <dl>
+        <dt data-tf="1">体育课：</dt>
+        <dd data-tf="1">李映辰不下来，绕着班门口的柱子转圈。俞昕辰上去叫。</dd>
+        <dd data-tf="1">郑炜踩到跑道上别人吐的痰。</dd>
+    </dl>
+    <dl>
+        <dt>语文课：</dt>
+        <dd data-tf="3">上《周亚夫军细柳》时，师：“能不能抓到他（亚夫）侵犯他？”全班笑，师：“（笑）我一看到你们笑就意识到……我们采用直译的方法，你（笑）你想要（笑）……我们想要侵犯一个人（笑）……你要接近，然后把他侵犯（笑）。说简单粗暴一点，你把他抓过来，然后（笑）……不说这个话题了。”唐家祺：“老师都把教程给我们了！”（笑）。</dd>
+        <dd data-tf="3">有人：“司马迁怎么进军营的？”学生讨论：“被阉了！”“他有儿子吗？”“他有一个女儿。”“怎么生的？”“被割之前生的！”……师：“你们都在想（笑）……”叶弘毅：“这节课要是公开课，老师天都塌了！”（笑）。</dd>
+        <dd data-tf="1">小测时，林奕扬用福州话骂脏话被批评。生：“老师（口音）是山东的！”有人：“没到9月9日，孔祥懿就会伤心。”师：“为什么？”生：“因为《九月九日忆山东兄弟》！”“济南闺蜜！”孔祥懿：“上学期的梗了！……（济南闺蜜）把我新买的杯子磕了一个大角……”</dd>
+        <dd>生：“最后一节（英语）能不能‘拼好课’啊？”师表示会去跟刘老师讲。最后一节果真上了“拼好课”。</dd>
+    </dl>
+</div>
+<div>
+    <time>29</time>
+    <p>语文课提问崔宇臣，发现不会：“你，（坐在）第四组最后面。”然后发现第四组最后面的廖成羲站了起来。师（笑）：“廖成羲你站起来干嘛？”</p>
+    <p>写英语句子：“叶弘毅学习比唐家祺认真。”发现名字不好写后换成“他学习比她认真。”</p>
+</div>
+<div>
+    <time>30</time>
+    <p data-tf="2">黄恩亚中午吃意面被多人抢夺。</p>
+    <dl>
+        <dt>语文课：</dt>
+        <dd>早读，师进班后：“前面《孟子三章》读了没？（没读）好，翻倒《孟子三章》。我们把《得道多助，失道寡助》读一遍。”然后离开教室，学生自发按上次的节奏读：“天时不如地利！地利不如人和！……”</dd>
+        <dd data-tf="1">师被绊到，林奕扬嘲笑。师（笑）走到他旁边：“你在干嘛啊！”林奕扬脸红，然后说：“很热啊！”然后开始脱外套。师（笑）：“我的天哪！”</dd>
+        <dd>师：“有没有人主动来？”生：“鑫洋！小宝！”师：“那有没有大宝呢？”</dd>
+    </dl>
+</div>
+<div>
+    <time>31</time>
+    <p data-tf="2">洪鑫洋用换座位卡换1天座位，和江允儿坐；政治课上靠在江允儿手臂上，全班起哄。</p>
+    <p data-tf="1">早读英语，王淮：“全班站起来。”林芷琪：“都坐下，保持安静！”陈睿卓：“就说这个王淮真的是！”（笑）</p>
+    <p data-tf="1">刘老师念生物蓝本不合格学生，林奕扬笑。师：“谁笑得这么恶心。”</p>
+    <dl>
+        <dt>元旦汇演：</dt>
+        <dd>校长：“我喊‘40中！’，你们喊‘到！’。”</dd>
+        <dd>小品《手机的诱惑》出现《最长的电影》、印度阿三、《大东北我的家乡》。</dd>
+        <dd>唱《当那一天来临》。</dd>
+        <dd data-tf="2">洪鑫洋和江允儿坐；蔡华楷和江雨晴坐；郑诗语和季仁槿坐。</dd>
+        <dd>回班后全班自发齐唱《最长的电影》。</dd>
+    </dl>
+    <dl>
+        <dt>游戏：</dt>
+        <dd>王淮喊口令：“拍腿！拍讲台！打蔡华楷（蔡华楷参与游戏）一下！”蔡华楷喊口令：“摸头！摸鼻子！军体拳！”</dd>
+        <dd>课件中出现“游戏06 听歌识曲”，学生立刻齐声唱道：“再给我两分钟，让我把记忆结成冰……”</dd>
+        <dd>刘老师让座号逢“1”的学生玩游戏，淘汰后剩季仁槿和郑诗语，师：“就这两个PK了。”</dd>
+        <dd>看emoji猜成语时，第一个标签有“冻”的意思。师：“到底什么东西？”生：“记忆结成冰。”</dd>
+    </dl>
+</div>
+<h1 id="event-d2601">2026年1月</h1>
+<div>
+    <time>4</time>
+    <p>跑操后领导称三楼以上已装上隐形防盗网，高中楼也会陆续装上，还说希望大家珍爱自己的生命。</p>
+    <p data-tf="3">小测40人不过关。唐家祺偷看被发现，刘老师让直接写上F。</p>
+    <dl>
+        <dt>语文课：</dt>
+        <dd>上《苏州园林》。陈睿卓：“我都去过了，不好玩。”被叫回答问题后，生：“不愧是去过的人！”陈睿卓：“真不好玩！”</dd>
+        <dd>师：“逻辑（顺序）啊！逻子啊！……（笑）好无奈，我都嘴瓢了。”</dd>
+        <dd>朗读时，师：“……的各式镂空图案，良子（廊子）……（笑）……我们继续，良子，开始！”生：“良子……”师：“廊子不是良子。”</dd>
+        <dd data-tf="1">师：“不说了不说了……（笑）我现在就是被你们影响了，导致我经常说‘不说了不说了’……我以前在认识你们之前，从来不说‘不说了不说了’……”</dd>
+    </dl>
+</div>
+<div>
+    <time>5</time>
+    <p data-tf="1">语文早读时刘老师进班，听到廖成羲大声朗读：“东风不与周郎便！……”被谈话。</p>
+    <dl>
+        <dt>语文课：</dt>
+        <dd data-tf="1">提问蔡华楷：“《孟子三章》的论证有什么特点？”蔡华楷：“采用文言文为主的格式……竹子或木头为材料做的书籍。”</dd>
+        <dd>师：“好，不说了。哦。”</dd>
+    </dl>
+    <p data-tf="1">历史课前廖成羲用不同风格的字体抄写历史论述题，原因是怕有人论述题没写，自己帮忙准备。</p>
+    <p data-tf="3">体育课下雨，学生在班自习。课上洪鑫洋给江允儿传纸条，唐家祺向江允儿要去并“帮忙”回复。纸条上写“你在干嘛”，唐家祺回“干嘛”。纸条第二次传过来时，上面写“没干嘛，想你了”。</p>
+    <p>挂背书表格的左侧一块板在英语课时掉落，发现背后只贴了一点双面胶。刘老师：“为什么双面胶这么省啊？江允儿？”江允儿：“洪鑫洋说‘赶紧做卫生，不要在这里（贴）……’。”</p>
 </div>
 </main>
-<main id="LITERATURE">
-<header><h1>9班文学</h1></header>
-<!--添加名句高亮模块、错别字高亮模块（自定义元素）-->
-<div class="writing">
-    <h1>周记</h1>
-    <p>廖成羲</p>
-    <p>一周过去了，象征着又是七天过去了。时间似手里的沙，一点点地流去。</p>
-    <p>这周十分的特别，特别之处在于它竟然没有什么特别的事。我现在终于知道了，原来我刚才什么也不知道。我们都应该互相恭喜一下，恭喜我们刚才被对方恭喜到了。</p>
-    <p>我终于想起来了，想起来我其实什么都不记得了，一场狂风刮走了我的记忆，但我也不记得那场狂风是什么了。</p>
-    <p>阳光明媚的晴天下着雨，淹死了很多鱼。我悲伤地开怀大笑，惊跑了一群刚死的鸟。</p>
-</div>
-<div class="writing">
-    <h1>周记2</h1>
-    <p>廖成羲</p>
-    <p>抬头的一片天，是一片天；脚下的一寸土，是一寸土。眼前的教室，是一个教育学生的地方。其实，我说白了，我白说了。</p>
-    <p>就告诉你吧，我刚才说了一句话：就告诉你吧，我刚才说了一句话。雨下整夜，整个夜晚都在下雨。浑浊的雨水里，我看不清，鱼都淹死了。</p>
-    <p>告诉你一个好消息，就是没有坏消息；告诉你个坏消息，明天是世界末日；再告诉你个好消息，刚才的消息是假的。</p>
-    <p>在能看到三个月亮的地方，大象的背上插着一把剑。大象发出了求救，但我被大象压住了，听不见。</p>
-</div>
-<div class="writing">
-    <h1>周记</h1>
-    <p>徐嘉明</p>
-    <p>岁月就像一把大砍刀，把我们的生活砍成了无数段，但每一段都值得珍惜。这一周也是一个好段，让我来描述一下。</p>
-    <p>在这一周发生了一件重大的事情，这件事为何重大呢，因为它重大到我都觉得它很重大。这件事的内容是我小学的“好兄弟”居然不跟我联系了。兄弟就像春天还未融化的积雪，你朝他尿尿，它立刻就消失了。我用尽一切方法想找到他，可依旧没有成功。我渐渐想要放弃了，老师<wrong-character>交</wrong-character>过我们遇到困难不能轻易放弃。所以我更加努力的寻找方法了。</p>
-    <p>在最后我终于联系到了他，这中间是个什么过程呢？听我来说。在漫长寻找的里程中，我又想到了老师的话，成功之路也许就在一些不容易发现的地方，于是我找了各种地方，终于发现，原来我忘记充话费了，一切都是一个误会。</p>
-</div>
-<div class="writing">
-    <h1>十年后的我</h1>
-    <p>郑炜</p>
-    <p>“咦？这是谁？给我让开。”我猛抬起头，看到了一个身材高大的，身穿黑西服的老板——是十年后的我，全国500强的著名企业家。
-    <p>我愣住了，说：“您是……”十年后的我说：“别怕小朋友，我并不是坏人，我就十年后的你。”“那你能带我去现在的城市吗？”他说：“行，我背你。”过了一会儿，我们就坐上了去城市的豪车。</p>
-    <p>不一会儿，我们到了超市，我一进去就感到了一股温暖，看到货架上的零食都是我没见过的，真想拿一个来尝尝鲜，就拿了一个烤肠，躲在了货架旁尽情品尝，不一会儿，还没有吃，监控就朝向了我，我又去监控室里发现监控都开起了热成像，简直是隔空侦察啊！我又拿了一瓶矿泉水说：“这是啥，长得像矿泉水似的。”他却说：“这虽然是矿泉水，但它可不是一般的矿泉水，只要喝一口你的嘴24小时全是香气，并且吃了味道重的也不影响，我听完，立马掏钱，但他说：“哎呦！现在都不用实币了，现在都用电子钱啦！你只要有一个蜜蜂大小的电子钱包，在其它地方，然后有专门付钱的指纹感应器，轻触就支付完成了。”</p>
-    <p>过了一会儿，又开往了公园，发现了公园里有个不可思议的垃圾桶，为什么上面有一层绿绿的东西。他听到我对垃圾桶有疑问，便说：“这是酼酸垃圾桶，别看它长得像普通的垃圾桶，上面是酼酸层，用来腐蚀垃圾，下面是二氧化碳，专门把垃圾中的无机物转化为二氧化碳，提供了很好的资源。</p>
-    <p>等我知道时，我出现在了床上，才发现是一场梦。</p>
-</div>
-<div class="writing">
-    <h1>“舌战群儒”</h1>
-    <p>黄恩亚爸爸、刘老师</p>
-    <p>黄恩亚爸爸：@班主任-刘老师 13646014074 今天恩亚肚子疼，本想请假一节课，但他还是坚持赶去上课了，到校门口是7点25分，我是鼓励他了，并且最近我都有把关到校时间没有迟到的，多次迟到是什么意思？</p>
-    <p>刘老师：昨天早上也是迟到，累记很多次</p>
-    <p>刘老师：有特殊情况请提前私聊我告知</p>
-    <p>黄恩亚爸爸：昨天到校门口19分钟呀，什么情况？</p>
-    <p>刘老师：您要问他，到班过了25了</p>
-    <p>黄恩亚爸爸：每天到校门口，恩亚都叫我看看时间的，不要没迟到也给记迟到，孩子还是尊守纪律的。</p>
-    <p>刘老师：每天班长都认真记录迟到情况，不存在您说的没迟到记录迟到的情况</p>
-    <p>刘老师：刚才是记错时间了，去查记录已经告诉您具体时间。以及他的累计迟到次数，快10次。</p>
-    <p>黄恩亚爸爸：有几次22到校门口的，走到班上超过25分？建议上下浮动一两分钟吧</p>
-    <p>刘老师：大家都做得到，相信恩亚也做得到。去浮动或者踩点，会有很多问题</p>
-    <p>黄恩亚爸爸：以后跟你确认时间</p>
-    <p>刘老师：正常到班不用确认，提前几分钟出门就不会出现这种情况了</p>
-    <p>刘老师：我一直和他们说，做任何事情要留有余地，防止意外情况</p>
-    <p>黄恩亚爸爸：这是意外情况下赶在时间前到校为的就是不被记迟到，是努力的结果，所以到校门口都检查了时间，有没有迟到都是清楚的。</p>
-    <p>刘老师：所以您得提前告诉我，我才能知道是意外情况</p>
-    <p>刘老师：而不是已经迟到了，我问了，您跟我说什么原因</p>
-    <p>刘老师：这样对其他孩子也不公平</p>
-    <p>黄恩亚爸爸：都说了我是反映我到校的时间没有迟到，没有太复杂。</p>
-    <p>刘老师：确实很简单，恩亚只要25分之前到班就可以。特殊情况请提前告诉我，我会判定是否酌情处理。</p>
-    <p>黄恩亚爸爸：所以19分，20分，22分到校门口不存在迟到</p>
-    <p>黄恩亚爸爸：明天到校门口向你核实一下班上时间</p>
-</div>
-<div class="writing">
-    <h1>令我难忘的陌生人</h1>
-    <p>李梦妍</p>
-    <p>在生活中，我们会遇到许多形形色色的人们，但大多数都只是擦肩而过，没有在我们心中留下什么痕迹。但是就有一个陌生人，却让我难忘——一位环卫工人。</p>
-    <p>那是一天晚上我去“万达广场”，冰冷刺骨，风一阵阵吹过来，好似在说：“晚上好呀！”“万达广场”有很多人，大多数年轻们，买奶茶，逛商场，买物品，有很多人嘛，毕然垃圾会有很多，买的串串香吃完的签子，到处丢掉，喝完的瓶子也有几个，树叶枯黄掉了下来也非常的多，我的心理暗想：“这么多的垃圾，何时才会收完呢？”好奇的我回了家。</p>
-    <p>第二天，一大早我去了“万达广场”而这时地面上干干净净的，只有几片树叶，垃圾桶也非常干净，没有垃圾，这让我更加好奇了，怎样一夜之间变得这么干净，太不可思议了，而且这时才7点半不到！</p>
-    <p>第三天，我更早就起来了，5点钟我就出门了，外面才蒙蒙亮亮的，空气也很清析，江边还有晨跑“大爷”我还根他们打了招呼，这位爷爷平时有什么好吃的，会送给我，所以我对他很亲。还有别的大爷大奶正在锻炼，原来在我们还在睡觉时别人还在做事情了，来到万达广场，我看一个个环卫工人在扫地，原来每天这么干净是每个人睡觉，我跑去便利店，买了好几瓶矿泉水给环卫工人们，我跑去给每个环卫工人水，都说一句：“辛苦了！”这些真是令我难忘的陌生人！在我们睡觉或玩耍，他们却在大早上扫人，真令我难忘！</p>
-</div>
-<div class="writing">
-    <h1>-</h1>
-    <p>陈睿卓</p>
-    <p>一个帅气的男孩，手拿水杯，爱航天类的东西，所以我们给取了个外号——“机长”。</p>
-    <p>机长成绩不好，一头光头像个土豆，一身健硕的“键子”肉使他看起来很强壮，很帅，身旁时不时有道美丽的风景，使他看起来十分有魅力。</p>
-    <p>有一次，我跟他去玩，突然一架飞机飞过，他说，开飞机是他的一个梦想。于是他闭上眼睛，开始幻想自己在开飞机。幻想自己有一架真实的飞机，可以当机长，自己的飞机一次可以乘几十亿人。于是，想着想着，哭了，因为他想着自己感觉成绩不好，没希望，我连忙安慰他说：“别哭”，阿妈特拉斯。</p>
-</div>
-<div class="writing">
-    <h1>霸总文学追小娇妻</h1>
-    <p>李梦妍</p>
-    <p>月黑风高的晚上，霸总恩亚喝粹了，把女苔藓强吻了，在床上霸总恩亚亲着女苔藓。过了一个晚上，女苔藓她跑掉了，她跑出国，而霸总恩亚苦苦找了她三年！翻遍了整个A市都看到女苔藓，这天一个亮立的女人手中抓着三个萌娃的手，走出机场大门，所有人看着他们，这时霸总恩亚听到消息连忘回国，他的项目全部推到，到找到他的女人，女苔藓回到别垫。霸总恩亚，回到国后，连忙找他的女人。霸总坐着他的私人豪华飞机，稳当着陆，与女人擦肩而过，突然他停住了，那个女人的味道正是三年前那肥而不苔藓的香味，那股回忆的味道直传到他的鼻孔里，“等等”霸总恩亚直往苔藓处走去，但苔藓依然没有停留的样子向前走去，是的，霸总急了，他直用他180cm的大长腿向苔藓走去，把女苔藓在怀里待到一天34小时，直到女苔藓睡了，霸总才把苔藓抱回三年前他们一起睡的1亿m²大床上。霸总恩亚在女苔藓耳朵边说：“女人你永远都逃不出我的手掌心的！”霸总享受的闻着那肥而不苔藓的香味，摸着苔藓般肌肤，吹弹可破。霸总恩亚抱着女苔藓睡觉了！第二天早晨女苔藓从从1m²的霸总身上苏醒。听着那呼噜如天地之阵动，是多美妙啊——女苔藓欣赏着恩亚的呼噜声，而霸总却苏醒了，霸总看着小娇妻说：“宝贝——气泡声着叫着。走下吃早饭吧~！”到了楼下吃着米奇林八星的饭菜，女苔藓吃了三口就饱了。霸总恩亚问：“宝贝吃这么一点就饱了。”女苔藓说道：“因为我是小鸟胃~我只能吃三口~啧啧啧。”而这时苔藓打了一个小奶嗝，霸总让所有下人们来闻女苔藓的小奶嗝。女苔藓说道：“讨厌~我要用小拳头拳你的胸口！”霸总一脸宠溺的看着她~，撩起了女苔藓那一丝仅存的0.01cm的长发，闻了闻专属苔藓的清香，突然，霸总不语，只是一谓地把苔藓抱入浴室，他的双手触摸着苔藓柔软的小峦腰，正当霸总恩芽的唇要贴到苔藓的腰间时，三个萌娃也来到浴室，疑惑的眼神盯着恩芽和苔藓，两人收住动作，三个萌娃一口同声的说：“叔叔你为什么要欺负妈咪？”霸总恩亚说到：“你出国三年都有孩子！”霸总生气出门，坐着他私人飞机出门了。“陈特助给你3秒找出这女人在国外干了什么，女人你永远只能是我的！第二天霸总为了让苔藓为他吃醋，找了一个美吕，带回了家，霸总搂着大月亮进了门。苔藓看到后霸总搂着别的女人，生气的上楼，到了晚上，大月亮站在阳台上唱着歌：“月亮！月亮！你慔睡~”，苔藓走了过来。大月亮看到后说：“你别根我斗了，你比不过我的！霸总只love me，不会love you你的，啍！霸总这时走了过来。大月亮称这时机，造出苔藓推大月亮，让大月亮摔到楼下。大月亮发出啊——的声音。思芽跑了过来推开苔藓，看到月亮摔下楼下去。思芽生气的说：“月亮有什么三长两短，我不会放过你的！”霸总跑下楼，月亮说：“都是我不好，让姐姐生气了~！”霸总恩芽拿出了全A市唯一的价值80亿的手机，用了练习两年半的气泡音对他的私人特助说：“1秒内让全国最好的医院来治好我的爱人。”一听到恩芽用他专属的气泡音说月亮是他的爱人时，苔藓头脑发晕，一个劲地从阳台上摔下去，皎洁的月光照在了苔藓的仅存的0.01mm的长发上，然而霸总却已经抱起他的爱人坐上他的私人飞机飞走了。</p>
-</div>
-<div class="writing">
-    <h1>人机公主将站上娱乐圈顶流</h1>
-    <p></p>
-    <p>众所周知，人机公主是我班最有名的天才公主，打小就会琴骑书画。他人见人爱，花见花开，见到他的人都会马上花开富贵，打破了最美公主的记录，成为史上的最美公主。</p>
-    <p>我们的人机公主人美心善，曾骑着老奶奶横穿马路，但后来……因为有女苔藓的出现，让世界不得安宁，她故意拌倒老奶奶，让老奶奶受伤，还随意踩踏草坪，看到路边的花开，也要上前踩两脚。</p>
-    <p>再说经济上，人机公主每天都会送大家免费冰淇淋，即free也好吃，而苔藓则相反。</p>
-</div>
-<div class="writing">
-    <h1>晒晒我们班的牛人</h1>
-    <p>郑致辰</p>
-    <p>自从踏入九班的那一刻起，班级中各个人的优点与本领都渐渐显露出来，我们不妨将其称为“牛人”。今天，我要介绍一位真正的大牛人，他姓洪，名鑫洋。</p>
-    <p>洪鑫洋是一位语文课代表，他每天早上都早早到校，以惊人的速度收好了作业，整个过程只需三分钟。有时老师还没到校，他就将五十本作业整整齐齐地摆放在老师的办公桌上，不留一丝马虎。而他作为一个语文课代表，语文成绩也是遥遥领先。</p>
-    <p>或许你们会说：“这有什么牛的呀，很多人也可以做到这样呀，也就那样。”那么好，我就来讲讲他真正牛的地方，也就是他的梦想——当一位机长。</p>
-    <p>正是它那健壮的身材与强壮的臂膀才让他有了这个想法。他看完电影《中国机长》后，更加坚定了这个梦想，也从内心发出了对机长这一行业的赞美。心动不如行动，他在网上搜索了很多关于飞机与机长的资料与视频，花了大量的时间，听说他有时直到深夜还在了解这些知识，他家有不可记数的飞机模型。有一次，几位同学围住他，希望他能科普一些飞行知识，这可问对了人，只见他挺直了身子，使圆滚肚子的轮廓呈露了出来：</p>
-    <p>“飞机的知识其实很简单，对于目前战斗机类型，P91号战斗机是我最喜欢的，它的最高飞行高度为7800米，最快速度达到了1300千米每小时，可同时装下13发空际导弹……”</p>
-    <p>同学们听着他的话，不由瞪大了双眼，张大了嘴，他对这方面的知识已经了如指掌，一位同学不禁向他竖起了大拇指，鑫洋开心地绽放出了微笑，他的身影衬托着夕阳的余晖，我仿佛看到未来的他，成为了一位顶天立地的机长……</p>
-    <p>这位可爱可亲的少年，正朝着自己的目标不断前进，他的牛不仅仅体现在他到飞机的着迷与了解，他的负责与努力，更体现在他为梦想不断拼搏的精神与毅力，他是九班的传奇，是真正的牛人！</p>
-</div>
-<div class="writing">
-    <h1>班主任眼中完美的一天</h1>
-    <p></p>
-    <p>走进教室发现班级井然有序，干净整洁</p>
-    <p>班委积极负责，科代表作业及时收齐</p>
-    <p>课前已经做好准备，大声读书</p>
-    <p>科任老师跟我夸学生上课认真、积极互动、氛围良好</p>
-    <p>自习课学生专注写作业，无人聊天、玩闹</p>
-    <p>班级同学团结合作，背书任务认真完成</p>
-    <p>同学们一天都很充实，收获满满，没有扣分</p>
-</div>
-<div class="writing">
-    <h1>我想带您看盛世中国</h1>
-    <p></p>
-    <p>奕扬：姐姐，你是从哪里来的？</p>
-    <p>雨希：我来自新中国</p>
-    <p>奕扬：那 我们胜利了吗？</p>
-    <p>雨希：胜利了</p>
-    <p>奕扬：太好了 我真想看看 新中国是什么样的</p>
-    <p>雨希：来 我带你去看看我们的新中国</p>
-    <p>允儿：五星红旗迎风飘扬 胜利歌声多么响亮 歌唱我们亲爱的祖国 从今走向繁荣富强</p>
-    <p>（永泽：挥舞国旗）</p>
-    <hr/>
-    <p>祥懿：为实现中华民族的伟大复兴 我们</p>
-    <p>全体：准备着 时刻准备着</p>
-    <p>祥懿&amp;诗语：您看 清澈的爱只为中国的民族精神</p>
-    <p>王淮&amp;浩宇：您看 犯我中华者虽远必诛的民族气节</p>
-    <p>祥懿：您看 脱贫攻坚 全面小康 千年梦想 今朝实现</p>
-    <p>诗语：您看 嫦娥探月 蛟龙深潜 大国正气 世人惊艳</p>
-    <p>王淮：您看 生态文明 绿色低碳 美丽中国 展开画卷</p>
-    <p>浩宇：您看 一带一路 互通互联 和平发展 合作共赢</p>
-    <p>全体：您看 人民幸福 民族振兴</p>
-    <p>祥懿&amp;诗语：这民族如您所愿</p>
-    <p>全体：潜龙腾渊 鳞爪飞扬 乳虎啸谷 百兽震惶</p>
-    <p>王淮&amp;浩宇：这国家如您所愿</p>
-    <p>全体：奇花初开 矞矞皇皇</p>
-    <p>祥懿&amp;诗语&amp;王淮&amp;浩宇：这盛世如您所愿</p>
-    <p>全体：前途似海 来日方长</p>
-    <hr/>
-    <p>祥懿：我想带您行走在彩虹里</p>
-    <p>全体：那是北斗卫星 在指引我们前行</p>
-    <p>王淮：我想带您去新农村做客</p>
-    <p>全体：那里的土地 正翻种着时代新绿</p>
-    <p>诗语：我想带您走进新科技园区</p>
-    <p>全体：灿若繁星的 高科技让未来触手可及</p>
-    <p>浩宇：我还想带您去祖国各地 看锦绣河山 春光万里</p>
-    <p>左半：看万山红遍 层临尽染 漫江碧透 百舸争流</p>
-    <p>右半：看同学少年 风华正茂 书生意气 挥斥方遒</p>
-    <hr/>
-    <p>祥懿&amp;诗语：七十五年斗转星移 七十五年大江东去</p>
-    <p>左半：盛世中国 告诉您一个地球的惊喜；盛世中国 告诉您一个东方的奇迹</p>
-    <p>王淮&amp;浩宇：七十五年春华秋实 七十五年日新月异</p>
-    <p>右半：盛世中国 告诉您一个人间的传奇；盛世中国 告诉您一个时代的瑰丽</p>
-    <p>祥懿&amp;诗语&amp;王淮&amp;浩宇：七十五年波涛之上 七十五年征帆万里</p>
-    <p>全体：盛世中国 告诉您一个公开的秘密；盛世中国 告诉您一个永恒的真理：解放思想 实事求是 发展才是硬道理</p>
-    <p>祥懿：捧起地球村崭新的履历 盛世中国 一步跨进未来的行列里</p>
-    <p>王淮：这是十四亿颗心跳 迸发出的幸福奇迹；这是十四亿双脚步 追逐梦想的火炬接力</p>
-    <p>祥懿&amp;诗语：赞美你呀 辉煌七十五年</p>
-    <p>全体：盛世中国 蓬勃日出</p>
-    <p>王淮&amp;浩宇：讴歌你呀 奋进七十五年</p>
-    <p>全体：盛世中国 和平崛起</p>
-    <hr/>
-    <p>祥懿：七十五年沧海桑田 中华民族 正行走在 伟大复兴之路上</p>
-    <p>王淮：七十五年春潮不息 亿万中华儿女 正信心满怀 扬帆进击</p>
-    <p>祥懿&amp;诗语&amp;王淮&amp;浩宇：高歌迈向</p>
-    <p>全体：高歌迈向 高歌迈向 新的胜利</p>
-    <hr/>
-    <p>奕扬：姐姐，新中国真好啊</p>
-    <p>雨希：因为有你们的牺牲 才有我们现在的新中国</p>
-    <p>奕扬：不，不止我，还有很多很多人</p>
-    <p>雨希：我知道 我们不会忘 祖国不会忘</p>
-    <p>全体：我们不会忘 祖国不会忘</p>
-    <p>奕扬：真好啊 新中国的未来 就交给你们了</p>
-    <p>雨希：请您放心 山河已无恙 吾辈当自强</p>
-    <p>全体：请您放心 山河已无恙 吾辈当自强 当自强</p>
-</div>
-<div class="writing">
-    <h1>像你这样的朋友（凌云九班版）</h1>
-    <p></p>
-    <p>开始斗嘴是我 作对是我 最不爽你就是我</p>
-    <p>没想到我们会成为好朋友</p>
-    <p>现在爱你是我 懂你是我 并肩同行也是我</p>
-    <p>多幸运有像你这样的朋友</p>
-    <p>时光偷走遇见 转角送来错过</p>
-    <p>四季飞快像坐过山车</p>
-    <p>那些共度的 深刻的 专属我们的</p>
-    <p>如果这辈子做朋友你都不嫌多 下辈子够不够</p>
-    <p>我还想要像你这样的朋友</p>
-    <hr/>
-    <p>相信这天是我们梦寐以求的时刻</p>
-    <p>我喜欢老师家长以我为傲的神色</p>
-    <p>谁最懂我 全都在这</p>
-    <p>千千万万个迷茫困惑时刻 是你们伴着</p>
-    <p>终于到同学好友假日相聚的时刻</p>
-    <p>这次和同窗伙伴齐欢笑一个不落</p>
-    <p>心情不错 欢乐满桌</p>
-    <p>随时随地你想分享或探索 身边总有我</p>
-    <hr/>
-    <p>开始斗嘴是我 作对是我 最不爽你就是我</p>
-    <p>没想到我们会成为好朋友</p>
-    <p>现在爱你是我 懂你是我 并肩同行也是我</p>
-    <p>多幸运有像你这样的朋友</p>
-    <p>时光偷走遇见 转角送来错过</p>
-    <p>四季飞快像坐过山车</p>
-    <p>那些共度的 深刻的 专属我们的</p>
-    <p>如果这辈子做朋友你都不嫌多 下辈子够不够</p>
-    <p>我还想要像你这样的朋友</p>
-    <hr/>
-    <p>曾被欢呼淹没 也曾失落 脆弱也不知所措</p>
-    <p>成长难免受挫 都有你陪我</p>
-    <p>青春总有跌撞 有你同往 追求梦想不退让</p>
-    <p>年少并肩启航 未来不散场</p>
-    <hr/>
-    <p>时光偷走遇见 转角送来错过</p>
-    <p>四季飞快像坐过山车</p>
-    <p>那些共度的 深刻的 专属我们的</p>
-    <p>如果这辈子做朋友你都不嫌多 下辈子够不够</p>
-    <p>我还想要像你这样的朋友</p>
-</div>
-</main><main id="LONGXIANG">
+<main id="LONGXIANG">
 <header><h1>龙翔</h1></header>
 <p>2024年11月19号至23号，全体初一、高一学生到福建龙翔国防教育基地进行了为期5天的社会实践。这也是9班首次社会实践。</p>
 <hr/>
@@ -3036,7 +2864,7 @@ footer{
     <p>龙翔入口<sup>[4]</sup></p>
 </div>
 <p>作为“国防教育基地”，入口必须有创意。龙翔的入口以隐形战斗机为设计灵感，左右两侧是写着标语的旗帜。</p>
-<p>来到龙翔的大巴车停在大门右侧的空地上。下车之后就会发现教官已经等候已久。</p>
+<p>来到龙翔的大巴车停在大门右侧的空地上，下车之后发现教官已经等候已久。</p>
 <p>大门后面就是龙翔的“门面”——一架战斗机。龙翔的一大特点是园区内保存着各种退役装备，大炮、坦克、战斗机，一应俱全。上面都印有“中国人民解放军海军（空军/陆军）赠”。在很多地方都能看到这些东西，例如食堂出口的草坪上有坦克、航空航天馆外的大草坪有战斗机、龙翔入口左侧有大炮。</p>
 <p>其实大路旁还有一个看上去荒废的公交站，名为“龙翔站”，广告牌上还写着“期待您下次光临”。</p>
 <p>辅导员等候已久。踏入龙翔大门，5天的军旅生活正式开始。</p>
@@ -3060,7 +2888,7 @@ footer{
 <p>这还影响到过9班辅导员。一次同学们走在吃饭的路上，听那个辅导员喊“亚二一”，不久他也喊成了“亚二一”。</p>
 <p>还有一种通用口音，那就是喊“立定”时，辅导员会刻意加重其语气，喊成：</p>
 <q>列——丁！</q>
-<p>龙翔的辅导员还喜欢喊某个方阵的名字，例如“四十中”、“初中部”、“高中部”、“×班”。被叫到的集体需要喊“到！”回应，就比如下楼集合时，会出现以下情景：</p>
+    <p>龙翔的辅导员还喜欢喊某个方阵的名字，例如<var>四十中</var>、<var>初中部</var>、<var>高中部</var>、<var>×班</var>等。被叫到的集体需要喊<var>到！</var>回应，就比如下楼集合时，会出现以下情景：</p>
 <article>
     <p>辅导员：“四十中？”</p>
     <p>学生：“到！”</p>
@@ -3162,7 +2990,7 @@ footer{
 </article>
 <p>此外还有站军姿、向前对正和原地踏步走。</p>
 <p>站军姿是最频繁的项目，王文浩动不动就会让大家“军姿十分钟”，起初有一个人动就多站一分钟，后来一个人动直接加五到十分钟。当然这只是噱头，实际不会站这么久。</p>
-<p>军姿的要求也很经典：</p>
+<p>军姿的要求十分严格，比较经典的有这几个：</p>
 <ul>
     <li>脚跟并拢、脚尖分开约60度</li>
     <li>收腹挺胸、身体前倾</li>
@@ -3182,7 +3010,7 @@ footer{
     <p>辅导员：一二，三四！</p>
     <p>学生：一二，三四！</p>
 </article>
-<p>初到龙翔时辅导员就要求：凡是齐步走时经过老师，就要有一个带头的学生喊“老师好”，然后方阵中的学生跟着喊“老师好”；经过辅导员时则喊“辅导员好”。</p>
+<p>初到龙翔时辅导员就要求：凡是齐步走时经过老师，就要有一个带头的学生喊<var>老师好</var>，然后方阵中的学生跟着喊<var>老师好</var>；经过辅导员时则喊<var>辅导员好</var>。</p>
 <p>王文浩喜欢在①号多功能大厅外的棚子那里进行训练，这也是9班饭后集合的位置。</p>
 <p>当然，龙翔的特色还得是声音。</p>
 <p>凡是要动脚的动作（齐步走除外）跺脚声必须响亮、有气势——这也是评价学生表现的重要指标之一。</p>
@@ -3235,7 +3063,7 @@ footer{
 <p>许多人不大爱吃，他们的水果就会出现在其他学生或辅导员手上。</p>
 <p>终于可以进入食堂了。龙翔的食堂很大，进入后左侧是打饭窗口。打饭窗口很多，窗口前的地上贴着一米线，排队时需保持距离。还有两个打汤窗口，打汤是可选的。</p>
 <p>右侧是餐桌。龙翔的桌面是塑料的圆桌，一桌坐八人。辅导员要求一桌只能坐同一个班的学生，导致打完饭后时常发现前排的桌子被别班占领，只能端着餐盘走来走去，寻找座位，不大容易。</p>
-<p>龙翔有两个食堂，分别是“一号食堂”和“二号食堂”，学生都在二号食堂吃饭。二号食堂的出口前面就是一号食堂。大家除了在里面训练过一次外就没有再进去。而在一号食堂训练的期间，辅导员甚至踩在桌子上指挥训练，可见这个食堂已经不承担用餐的功能了。</p>
+<p>龙翔有两个食堂，分别是<var>一号食堂</var>和<var>二号食堂</var>，学生都在二号食堂吃饭。二号食堂的出口前面就是一号食堂。大家除了在里面训练过一次外就没有再进去。而在一号食堂训练的期间，辅导员甚至踩在桌子上指挥训练，可见这个食堂已经不承担用餐的功能了。</p>
 <h2>饭菜</h2>
 <p>饭菜的味道一言难尽。第一天午饭时，同学们都说米饭很黏，不好吃；第三天早饭时，同学们推测豆浆是用粉跑的，因为从汤桶最底下打的豆浆没有豆渣。</p>
 <p>这里的一些菜表面都裹了一层粘稠的汤汁；而午餐和晚餐时，会有一块饼，荤的素的都有可能。</p>
@@ -3259,11 +3087,11 @@ footer{
 <img src="image/longxiang-map.png"/>
 <p>这就是龙翔的俯视图<sup>[1]</sup>。右下角即为入口，入口右侧空地就是停车的地方。</p>
 <h2>操场</h2>
-<p>观察发现，龙翔有两个操场。小的就叫“操场”，大的则是“大操场”。为了区分，下文将小的那个操场称为“小操场”。</p>
+<p>观察发现，龙翔有两个操场。小的就叫<var>操场</var>，大的则是<var>大操场</var>。为了区分，下文将小的那个操场称为“小操场”。</p>
 <p>开营仪式、闭营仪式都在小操场举行。这个操场和学校的操场配置差不多，但旗杆是在篮球场靠近主席台一侧跑道的。还有一点令人无语：闭营仪式前，辅导员让大家先在操场坐一会儿，结果有人发现坐了一会儿裤子、鞋子被染绿了，就说“操场会掉色！”</p>
 <p>在消防演练时，学生首次到达大操场，当然也只去过这一次。去“大操场”的路上要上一段坡。到达后，只见一片水泥地板，有的还是开裂的；跑道淡到基本看不见，跑道上面还停着各种各样的车辆。也就是说，大操场其实等同于停车场！</p>
 <h2>多功能大厅</h2>
-<p>龙翔有两个大厅，分别为“①号多功能大厅”与“②号多功能大厅”,两个大厅位于同一个建筑中（图中靠近小操场的白色长条就是多功能大厅）。其中，“②号多功能大厅”里摆放着射击的相关道具，“①号多功能大厅”位于一号食堂前，是同学们常去的地方，用来进行文艺汇演、朗诵比赛等。两个大厅都有舞台，但②号多功能大厅的地板是人造的草皮；①号多功能大厅装修就精致很多，舞台上还有落地的屏幕以及聚光灯，配备了塑料椅。</p>
+<p>龙翔有两个大厅，分别为<var>①号多功能大厅</var>与<var>②号多功能大厅</var>,两个大厅位于同一个建筑中（图中靠近小操场的白色长条就是多功能大厅）。其中，“②号多功能大厅”里摆放着射击的相关道具，“①号多功能大厅”位于一号食堂前，是同学们常去的地方，用来进行文艺汇演、朗诵比赛等。两个大厅都有舞台，但②号多功能大厅的地板是人造的草皮；①号多功能大厅装修就精致很多，舞台上还有落地的屏幕以及聚光灯，配备了塑料椅。</p>
 <h2>其他</h2>
 <p>我们再认识一下龙翔的其他场所，这些场所在其他模块会一一介绍。</p>
 <p>多功能大厅左侧深灰色和浅灰色的楼分别为一号食堂和二号食堂；小操场上方四栋楼为宿舍楼，宿舍楼旁深蓝的东西就是小卖部。</p>
@@ -3298,7 +3126,6 @@ footer{
 <q>玩得太开心了！</q>
 <q>饭菜健康又美味。</q>
 <q>两天就把120个项目都玩完了！</q>
-<p>另外还有文艺汇演、徒步拉练、班班有朗诵等，就不一一介绍。</p>
 <p>我们再看一看四十中官网。官网记录了不仅写了初一、高一在龙翔的见闻，还有初二、高二在幸福庄园的活动。在初二、高二的活动介绍中，详细讲解了茶艺、农耕、香道、葱饼与豆浆制作、证券知识讲座、电工与木工实践、法政馆参观等项目。再看看对龙翔项目的介绍：</p>
 <blockquote>
     <p>研学期间，基地组织的消防演练、徒步拉练、真人CS活动、军事射击、观影等联欢活动丰富了学生的体验，给学生们留下了美好的回忆。</p>
@@ -3309,7 +3136,7 @@ footer{
 <p>一个基地的好坏，绝不是其荣誉的数量、项目的多少，而是在于它最根本的细节——住宿条件。</p>
 <h2>分布</h2>
 <p>要到达宿舍，首先得下几阶台阶（宿舍楼的地面是设计成下沉的）。下台阶后左右各两栋宿舍楼。</p>
-<p>学生住在下图的四栋楼中，其中：初一男生住振兴楼、女生住尚武楼；高一男生住崇军楼、女生住自强楼。</p>
+<p>学生住在下图的四栋楼中，其中：初一男生住<var>振兴楼</var>、女生住<var>尚武楼</var>；高一男生住<var>崇军楼</var>、女生住<var>自强楼</var>。</p>
 <svg width="400" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
     <rect x="30" y="30" width="100" height="200" fill="#ffaaaa"/>
     <rect x="270" y="30" width="100" height="200" fill="#ffaaaa"/>
@@ -3333,7 +3160,7 @@ footer{
 <p>一间宿舍有两扇窗，其中一扇是连接走廊的，这扇窗旁有晾衣架；空调、风扇齐全；左右各3个上下铺，共计12张床。</p>
 <p>辅导员曾经说：“不要再床上吃零食，不然会招惹小动物……”当然这种现象较为罕见，没有人公开反应宿舍有“小动物”。</p>
 <h2>床</h2>
-<p>初到龙翔时是没有床单、枕套和被套的，只有被芯和枕芯，需要在开营仪式后到一楼统一领取。它们合称“三件套”。</p>
+<p>初到龙翔时是没有床单、枕套和被套的，只有被芯和枕芯，需要在开营仪式后到一楼统一领取。它们合称<var>三件套</var>。</p>
 <p>传言中的床单尿渍不知真假。从外表上看，三件套是经典的军旅绿色，表面相对干净；但凑近看就发现不对劲了，举个例子：枕套使用魔术贴封口的，而魔术贴的表面看上去自然不咋地。</p>
 <p>到龙翔的第一天，辅导员带大家了解了内务相关要求，随后到台阶旁空地教学被子的叠法。龙翔的被子也因为其叠法的特色而被称为“三折被”。后来在四十中，就有一些人用眼镜布、餐巾纸等物品叠出迷你三折被，可见其非常经典。</p>
 <p>当时的场景是这样的：地上铺一草席，辅导员脱鞋站在草席上，一遍遍地向不同批次的学生讲解三折被叠法。周围学生围成一圈，水泄不通，不时传来起哄的声音。值得注意的是，有人发现被芯有黑点，大喊“发霉了！”然后就被辅导员“制裁”了。</p>
@@ -3433,7 +3260,7 @@ footer{
 <h2>小卖部、开水房</h2>
 <p>龙翔的小卖部就在尚武楼、自强楼楼下。因此去小卖部比去澡堂方便不知多少。</p>
 <p>辅导员说只有在晚上8:00-9:00才能去小卖部，其余时间段去的话就会被驻守在那的辅导员抓住。事实上，四个晚上被安排得满满当当，没有一晚能在8点之前回到宿舍。不过辅导员明面上这么说，实际上只要解散回宿舍，就可以去小卖部，只要在熄灯前一点时间回宿舍就行。</p>
-<p>这时，小卖部就会出现拥挤的现象。由于只有两个收银台，结账时一般要排很久队。这种热闹的场面在龙翔属实不多见。</p>
+<p>这时，小卖部就会出现拥挤的现象。由于只有两个收银台，结账时一般要排很久队。这种热闹的场面在龙翔属实不多见。由此还出现了一些问题。例如陆梓豪表示，自己结账时由于场面太乱，他不但没付成钱，甚至还顺走了2.5元。</p>
 <p>自然这里的物价高得离谱。下面列举一些物品的价格：</p>
 <table>
     <tr>
@@ -3483,7 +3310,7 @@ footer{
 <p>像这样的水池在其他地方也有分布，例如食堂出口左转就有一个水池，学生吃完饭或者训练完休息都会在这装水。</p>
 <p>龙翔的水质问题不大，没有出现异物。</p>
 <h2>龙翔的传说</h2>
-<p>9班流传的主要传说有二：508事件和辟邪馒头。</p>
+<p>9班流传的主要传说有二：<var>508</var>和<var>辟邪馒头</var>。</p>
 <p>龙翔的宿舍门上、床板上总会有学长学姐留下的提示，大家都乐此不疲地看着。在这些文字中，一个传说脱颖而出，火爆全班。</p>
 <p>某间女生宿舍的门上写了一件事：尚武楼的508宿舍曾死过三个人。详细来讲是这样的：</p>
 <article>
@@ -3501,8 +3328,8 @@ footer{
 <p>虽然这些传言流传得并不广，且不符合传说，但激发了大家的好奇心，有人就说回家的第一件事就是在百度上搜索508。</p>
 <p>另外，据说女生宿舍的窗外还能看到教堂。</p>
 <p>这件事如此匪夷所思，令人怀疑其真实性。果然离开龙翔后，这件事很快被辟谣，龙翔根本没发生过这些事，但这也成为龙翔的一大代名词。</p>
-<p>说到老虎，就不得不提到振兴楼306的馒头。大家刚进入宿舍时，就发现门后有一块馒头，据说可以预示老虎的到来：如果馒头变黑，就说明有老虎！在龙翔，“老虎”神出鬼没，说不定哪天就到了床下。于是这个馒头也被“重点保护”起来。</p>
-<p>结果第四天时馒头被辅导员发现了。辅导员表示，再四十中到来之前他们都有检查宿舍，压根没发现什么馒头，让直接扔掉。大家很着急。幸亏颜哲铭弄了一个铁钉，叫做“钉钉仙人”。如果钉子倒下，说明老虎来了，就这样“保住了全宿舍的安危”，这也是龙翔的代名词之一。</p>
+<p>说到老虎，就不得不提到振兴楼306的馒头。大家刚进入宿舍时，就发现门后有一块馒头，据说可以预示老虎的到来：如果馒头变黑，就说明有老虎！在龙翔，“老虎”神出鬼没，说不定哪天就到了床下。于是这个馒头也被“重点保护”起来，又名<var>馒头仙人</var>。</p>
+<p>结果第四天时馒头被辅导员发现了。辅导员表示，再四十中到来之前他们都有检查宿舍，压根没发现什么馒头，让直接扔掉。大家很着急。幸亏颜哲铭弄了一个铁钉，叫做<var>钉钉仙人</var>。如果钉子倒下，说明老虎来了，就这样“保住了全宿舍的安危”，这也是龙翔的代名词之一。</p>
 <p>临走前，振兴楼306宿舍又发生了一件事：大家这时才发现，门上写着“快跑，这里闹过鬼”等字样。刘老师来这里时还是不是9班学生写的。</p>
 <h2>集合</h2>
 <p>龙翔大概晚上十点熄灯，早上六点起床，因此睡眠时间是比较充足的。熄灯后，宿舍里的人总是会聊天甚至吃东西。辅导员就会来个“突击检查”。有一次振兴楼3楼的部分宿舍吵闹，还被辅导员罚站到走廊。除了晚休，龙翔还设置了午休；同时要求学生睡觉时必须盖被子。</p>
@@ -3826,7 +3653,8 @@ footer{
     <li>宿舍为八人间（一说六人间），床是木制的。</li>
     <li>宿舍虫子多，晚上会出现“闹虫灾”的奇观，因此基地被戏称“昆虫乐园”。</li>
 </ul>
-<p>当天最后一节课，段长和去年一样召开“动员大会”，宣布了基本的注意事项；尤其强调不能带电子产品，否则没收（中考后归还）加处分。刘老师把物品清单再次发到群里。</p>
+<p>当天最后一节课，段长和去年一样召开“动员大会”，宣布了基本的注意事项；尤其强调不能带电子产品，否则没收（中考后归还）加处分。刘老师把物品清单再次发到群里。会中，段长还说了一些初一实践出现的莫名其妙的问题，例如：文件里让带拖鞋，本是洗澡时可以穿的。段长告诉大家：</p>
+<q>上次社会实践有人带毛毛拖！……</q>
 <p>这里的一切都是全新的、未知的，等待着大家去探索……</p>
 <table>
     <tr>
@@ -3891,7 +3719,6 @@ footer{
 <p>但这里有个明显的缺点：太小。它根本容纳初二、高二的学生进行活动，因此联欢晚会、唱军歌的项目只好在其他地方进行。</p>
 <h2>食堂右侧楼房</h2>
 <p>共三层，每层功能如下：</p>
-
 <table>
     <tr>
         <th>层数</th>
@@ -3918,22 +3745,25 @@ footer{
 <hr/>
 <h1 id="aiguoyoufang-instructor">教官</h1>
 <p>爱国有方没有龙翔“辅导员”的称呼，官方名称就是“教官”，每个教官的衣服和龙翔一样。</p>
-<p>爱国有方的喇叭很少，一般教官讲话就是直接喊出来；但总教官是需要喇叭的，并且为使全体学生都能听见还要使用音箱扩音。</p>
+<p>爱国有方的喇叭很少，一般教官讲话就是直接喊出来；但总教官是需要喇叭的，并且为使全体学生都能听见还要使用音箱扩音。除此之外也有个别用喇叭的教官。</p>
 <h2>9班教官</h2>
 <p>学生的说法是：9班教官有一副“国”字脸。学生推测他的名字为“丁欧文”<sup>[8]</sup>，原因如下：</p>
 <ul>
     <li>一次集合，总教官说：“欧文过来一下。”</li>
     <li>某教官称9班教官为“丁教官”。</li>
 </ul>
-<p>集合完后，他经常就消失了，过一段时间才走过来；而且他不常搞那些繁琐的流程，例如“放凳子”和“向前对正”，直接就让大家坐下；而其他班在坐下之前会有这些环节。</p>
+<p>集合完后，他经常就消失了，过一段时间才走过来，带大家进行活动。有时前面的班级已经走完了，周围还是不见他的影儿，9、10班只好干等。</p>
+<p>其他班在坐下之前“放凳子”之类的环节，哪怕坐下也要快速、整齐；“向前对正”更是家常便饭。丁欧文则不常搞那些繁琐的流程。来到小操场后，通常刚站定就让大家直接坐下。</p>
 <p>因此学生纷纷表示这个教官非常好，比王文浩好不知多少倍。</p>
-<p>于是9班的纪律自然比较散，例如集合时总教官让保持安静，9班仍然会有零星的讲话声；总教官让站好军姿，9班也只有部分人有响应。但神奇的是9班自始至终没有总教官当众点名批评。</p>
+<p>在王文浩的“散养”策略之下，9班的纪律自然比较散。</p>
+<p>集合时总教官让保持安静，9班仍然会有零星的讲话声；总教官让站好军姿，9班也只有部分人有响应。甚至当总教官已经开始对全体学生进行“轰炸”，9班还会就此进行小声讨论和说笑。</p>
+<p>神奇的是，9班自始至终没有总教官当众点名批评，而这样的事却在另一些班级发生过。</p>
 <p>直到第四天晚上，9班男生因太吵被他留下。他这才告诉大家，不训大家是因为自己的一些特殊原因，否则就凭这种纪律，他能把大家往死里练。</p>
 <h2>语言</h2>
 <p>许多教官都有其独特的口音。</p>
 <p>2班教官声音特别滑稽，有人说像是唐老鸭。他经常批评学生，这种滑稽就更明显了。第一天时，他每批评一句，9班学生就会忍不住笑。</p>
 <p>甚至还有教官跟龙翔某辅导员一样，把“一二一”喊成“亚二一”。</p>
-<p>总教官喜欢在句子前面加“你”，举个例子：</p>
+<p>总教官的声音在扩音之后，鼻音会更加突出。他喜欢在句子前面加“你”，举个例子：</p>
 <q>你那边还在讲话的，等一下单独训练！</q>
 <p>他喊“向右（左）看齐”时每个字的间隔一致。</p>
 <p>此外，他有一句口头禅。如果有人在被说过后仍然表现不好，就会说那些人是：</p>
@@ -3951,47 +3781,40 @@ footer{
     <li>向右看齐时需要跺小碎步，但非训练时间很少或没人跺</li>
 </ul>
 <p>爱国有方对跺脚的响声要求没有龙翔变态。</p>
-<p>坐下后也有相应的命令。当教官喊“调整坐姿！”时，学生需双手平举坐好。喊“放”之后可以放下，一些教官还说要拍响大腿。</p>
+<p>坐下后也有相应的命令。当教官喊<var>调整坐姿！</var>时，学生需双手平举坐好。喊<var>放！</var>之后可以放下，一些教官还说要拍响大腿。</p>
 <p>这个动作经常被用于使学生安静。集合时一旦出现吵闹，就可能触发“调整坐姿”技能，久久不让放。</p>
 <p>训练以外的时候，只需要放松站、放松坐即可。</p>
 <h2>军体拳</h2>
 <p>这是爱国有方的第二个主要训练项目，也是闭营仪式时的展示项目。该项目在第三天才开始。</p>
 <p>该项目不由总教官教学，而是另一个班的教官。</p>
 <p>练习军体拳是，每营由四列合并为一列，男生在后、女生在前。</p>
-<p>学生学习的招式为前10动。具体流程如下：</p>
-<article>
-    <p>稍息！</p>
-    <p>军体拳！</p>
-    <p>格斗准备！</p>
-    <p>第1动：弓步冲拳！</p>
-    <p>第2动：穿喉弹踢！</p>
-    <p>第3动：马步横打！</p>
-    <p>第4动：内拨下勾！</p>
-    <p>第5动：交错侧踹！</p>
-    <p>第6动：外格横勾！</p>
-    <p>第7动：反击勾踢！</p>
-    <p>第8动：转身别臂！</p>
-    <p>第9动：虚步砍肋！</p>
-    <p>第10动：弹裆顶肘！</p>
-</article>
-<p>格斗准备后（含格斗准备），每做一个动作，学生就需要喊“哈”。</p>
+<p>学生学习的招式为前10动。流程如下：</p>
+<ul>
+    <li>稍息！军体拳！格斗准备！</li>
+    <li>第1动：弓步冲拳</li>
+    <li>第2动：穿喉弹踢</li>
+    <li>第3动：马步横打</li>
+    <li>第4动：内拨下勾</li>
+    <li>第5动：交错侧踹</li>
+    <li>第6动：外格横勾</li>
+    <li>第7动：反击勾踢</li>
+    <li>第8动：转身别臂</li>
+    <li>第9动：虚步砍肋</li>
+    <li>第10动：弹裆顶肘</li>
+</ul>
+<p>格斗准备后（含格斗准备），每做一个动作，学生就需要喊<var>哈！</var>。</p>
 <p>教官的要求是：声音洪亮、动作利落，当然学生总是没达到这两个标准。</p>
 <p>每次做到后面，队伍都乱成一团。不过教官并未对整齐度提出要求。</p>
 <p>声音这方面经常被批评。有时候学生已经喊得挺响了，但还是不达标，因此有人说台上教官的耳屎太多了，听不见。</p>
-<p>很快，在龙翔的一个“传统”就在爱国有方复现了。龙翔的传统由9班发起，是这样的：</p>
-<blockquote>
-    <p>辅导员：×班/四十中/初中部/队列方阵！</p>
-    <p>学生：操（到）！</p>
-</blockquote>
-<p>爱国有方的传统由10班发起，</p>
+<p>很快，在龙翔的一个“传统”就在爱国有方复现了。龙翔的传统由9班发起，其精髓是把“到”喊成“操”；爱国有方的传统由10班发起，和龙翔时的传统有异曲同工之妙：</p>
 <blockquote>
     <p>教官：格斗准备/第×动，××××！</p>
     <p>学生：操（哈）！</p>
 </blockquote>
 <p>这个传统在初二男生中很流行。每次喊完“操”时，学生都会小声地笑。这间接使声音变得更响了，不过教官也没发现。</p>
-<p>为了使闭营仪式时该项目更加精彩，教官还加入了背景音乐。音乐的名字叫做《战斗宣言》。当音乐中出现“准备好了吗”时，学生需喊三遍“时刻准备着”，且音量层层递进。但真正喊的时候发现：要么声音不响、要么喊出两个声部。</p>
+<p>为了使闭营仪式时该项目更加精彩，教官还加入了背景音乐。音乐的名字叫做《战斗宣言》。当音乐中出现<var>准备好了吗</var>时，学生需喊三遍<var>时刻准备着！</var>，且音量层层递进。但真正喊的时候发现：要么声音不响、要么喊出两个声部。</p>
 <audio src="audio/战斗宣言.mp3" controls></audio>
-<p>闭营仪式时，需要做两遍军体拳，一遍为分解动作、一遍为连贯动作。分解动作的意思就是教官会喊出每一动作的全名；做连贯动作时，教官则会吹哨（非闭营仪式时是喊数字）表示每个动作。连贯动作时，学生总是忘记怎么做。</p>
+<p>闭营仪式时，需要做两遍军体拳，一遍为<var>分解动作</var>、一遍为<var>连贯动作</var>。分解动作的意思就是教官会喊出每一动作的全名；做连贯动作时，教官则会吹哨（非闭营仪式时是喊数字）表示每个动作。连贯动作时，学生总是忘记怎么做。</p>
 <p>具体流程如下：</p>
 <article>
     <p style="text-indent:0"><strong>音乐：</strong>脑子里永远有任务，<p>
@@ -4003,12 +3826,12 @@ footer{
     <p style="text-indent:0"><strong>学生：</strong>时刻准备着！</p>
     <p style="text-indent:3.45em">时刻准备着！！</p>
     <p style="text-indent:3.45em">时刻准备着！！！</p>
-    <p style="text-indent:0"><strong>教官：</strong>军体拳1-10动，分解动作——</p>
-    <p style="text-indent:3.45em">稍息！</p>
+    <p style="text-indent:0"><strong>教官：</strong>稍息！</p>
     <p style="text-indent:3.45em">军体拳！</p>
     <p style="text-indent:3.45em">格斗准备！</p>
     <p style="text-indent:0"><strong>学生：</strong>哈！</p>
-    <p style="text-indent:0"><strong>教官：</strong>第1动：弓步冲拳！</p>
+    <p style="text-indent:0"><strong>教官：</strong>1-10动，分解动作！</p>
+    <p style="text-indent:3.45em">第1动：弓步冲拳！</p>
     <p style="text-indent:0"><strong>学生：</strong>哈！</p>
     <p style="text-indent:0"><strong>教官：</strong>第2动：穿喉弹踢！</p>
     <p style="text-indent:0"><strong>学生：</strong>哈！</p>
@@ -4031,12 +3854,12 @@ footer{
     <p style="text-indent:0"><strong>教官：</strong>停！</p>
     <p style="text-indent:3.45em">向右看齐！</p>
     <p style="text-indent:3.45em">向前看！</p>
-    <p style="text-indent:0"><strong>教官：</strong>军体拳1-10动，连贯动作——</p>
-    <p style="text-indent:3.45em">稍息！</p>
+    <p style="text-indent:0"><strong>教官：</strong>稍息！</p>
     <p style="text-indent:3.45em">军体拳！</p>
-    <p style="text-indent:0"><strong>教官：</strong>（吹哨）</p>
+    <p style="text-indent:3.45em">格斗准备！</p>
     <p style="text-indent:0"><strong>学生：</strong>哈！</p>
-    <p style="text-indent:0"><strong>教官：</strong>（吹哨）</p>
+    <p style="text-indent:0"><strong>教官：</strong>1-10动，连贯动作！</p>
+    <p style="text-indent:3.45em">（吹哨）</p>
     <p style="text-indent:0"><strong>学生：</strong>哈！</p>
     <p style="text-indent:0"><strong>教官：</strong>（吹哨）</p>
     <p style="text-indent:0"><strong>学生：</strong>哈！</p>
@@ -4066,8 +3889,10 @@ footer{
 <q>既然选择做了，就要做得最好。</q>
 <p>在刚开始练习时，教官先让大家练了一下扎马步，这段时间较为煎熬。后期教官让大家扎1分钟，扎得好就停。然后教官开始倒计时，并且不出意外地出现了小数点。</p>
 <p>不久，教官就让（学生视角）左半部分学生停下，但右半部分仍要继续。又扎了一会儿，部分学生停下，另一部分仍然需要保持扎马步动作。</p>
-<p>众所周知，龙翔辅导员的“钓鱼”战术令学生苦不堪言；但爱国有方的教官较为信守承诺。某次，台上教官为了让学生打好军体拳，生成如果一遍打得好，就可以坐下休息15-20分钟，且只有一次机会，还说没有利益就没有效果。</p>
-<p>这么一来，学生就打得不错，但是声音还差那么一点。教官就“提醒”大家声音要大，并“同情”大家，再给了一次机会。打完这一次，教官直接让大家坐下，果真休息了20分钟。零散的休息时间也不少。</p>
+<p>相较龙翔，爱国有方的教官较为信守承诺。某次，台上教官为了让学生打好军体拳，表示：</p>
+<q>我们来做个交易。</q>
+<p>教官告诉大家，如果一遍打得好，就可以坐下休息15-20分钟，且只有一次机会，还说没有利益就没有效果。</p>
+<p>这么一来，学生就打得不错，但是声音还差那么一点。教官就“提醒”大家声音要大，并“同情”大家，再给了一次机会。打完这一次，教官直接让大家坐下，果真休息了20分钟。除此之外，零散的休息时间也不少。</p>
 <p>军体拳的训练时间是有度的。每次训练完后还有不少用来进行其他活动的时间。教官结束训练也很干脆，学生本以为还要继续练，结果就结束了。例如教官教大家第六动的动作，按理来说需要学生打一下这一动看看效果，可教官教完动作就让各营组织接下来的活动。</p>
 <hr/>
 <h1 id="aiguoyoufang-activities">活动<sup>[4]</sup></h1>
@@ -4199,7 +4024,7 @@ footer{
 </ul>
 <hr/>
 <h1 id="aiguoyoufang-reataurant">食堂</h1>
-<p>爱国有方的食堂离宿舍很近，直接挨着①号宿舍楼。同时一些教官也称其为“饭堂”。</p>
+<p>爱国有方的食堂离宿舍很近，直接挨着①号宿舍楼。同时一些教官也称其为<var>饭堂</var>。</p>
 <h2>饭前</h2>
 <p>去吃饭的过程比龙翔顺畅得多。在龙翔的走走停停、不断对正放在爱国有方是不会出现的，停下来的话无非是前面真的在排队。</p>
 <p>食堂有多扇门，离开时只要是敞开的门都可以走；进入的门只有两扇。在接下来的五天内，每个班基本都只从一个入口进去，也就是不会到另一个入口前排队。</p>
@@ -4252,8 +4077,8 @@ footer{
 <h2>作息</h2>
 <p>爱国有方晚上九点半熄灯，这很正常。但当学生听到早上七点起床时，纷纷表示震惊——怎么这么晚？要知道在龙翔，6点就得准时起床！对此，教官的解释是：冬天是睡懒觉的时候，于是爱国有方给大家更多睡懒觉的时间。</p>
 <p>接下来是整理内务及洗漱的时间。</p>
-<p>7:25，学生下楼集合，吃早餐。吃完早餐回宿舍可以继续没有整理完的内务。8:25集合，开始上午的项目。接着是午餐，吃完午餐回宿舍准备午休，午休时间为12:30到14:00。</p>
-<p>14:25集合，进行下午的项目，约17:00时，体验完项目的班级会陆续到达小操场，自行组织训练。然后吃晚餐，晚餐后休息片刻下楼集合，20:30左右回宿舍，准备晚休。</p>
+<p><var>7:25</var>，学生下楼集合，吃早餐。吃完早餐回宿舍可以继续没有整理完的内务。<var>8:25</var>集合，开始上午的项目。接着是午餐，吃完午餐回宿舍准备午休，午休时间为<var>12:30</var>到<var>14:00</var>。</p>
+<p><var>14:25</var>集合，进行下午的项目，约<var>17:00</var>时，体验完项目的班级会陆续到达小操场，自行组织训练。然后吃晚餐，晚餐后休息片刻下楼集合，<var>20:30</var>左右回宿舍，准备晚休。</p>
 <p>学生回到宿舍后，是不允许串寝和没事在走廊上走动或停留的。这点爱国有方抓得挺严，一旦楼下的教官发现走廊有人就会大声提醒，其他时候也经常提醒“不要在走路上逗留！”</p>
 <p>午晚休的纪律要求中，没有声音是最基本的要求，但如果没有教官查寝这几乎是不可能的。</p>
 <p>午休时明确说可以选择睡觉或看书；晚休刚开始时允许未洗漱完毕的学生继续。</p>
@@ -4263,8 +4088,8 @@ footer{
 <p>集合时则是：</p>
 <q>同学们请注意，现在是集合时间！</q>
 <p>当听到这个命令时，学生就得穿好鞋，拿好水杯下楼。第一天，总教官未明确指出“集合必须带水”，但去过龙翔之后，这也成了默认的行为。</p>
-<p>不难发现，“同学们请注意”是常见的前缀，类似用法还有“同学们请注意，现在是熄灯时间”等。</p>
-<p>总教官要求集合要快且安静。前几次集合的速度经常被批评，后来他经常说“还有×分钟”，以督促学生加快脚步。</p>
+<p>不难发现，<var>同学们请注意</var>是常见的前缀，类似用法还有“同学们请注意，现在是熄灯时间”等。</p>
+<p>总教官要求集合要快且安静。前几次集合的速度经常被批评，后来他经常说<var>还有×分钟</var>，以督促学生加快脚步。</p>
 <p>女教官也会在即将集合时“报时”，如：</p>
 <q>同学们请注意，距离集合时间，还有×分钟！（抓紧时间，整理宿舍卫生！）</q>
 <p>声音这方面被批评的频率极高。被批评时，要么站在队伍里听着“男高音”，要么开始调整坐姿，有一次还延迟开饭。</p>
@@ -4338,7 +4163,7 @@ footer{
 <p>为了让大家看到军队里的标准，总教官打开了抖音，并搜索三折被，马上出现了一堆视频。总教官点开几个，映入眼帘的是真正的“豆腐块”。</p>
 <p>至于被子等物品的摆放，要求也与龙翔不同。具体如下：</p>
 <article>
-    <p>靠近门的四个床铺，靠近门的一侧为床头；靠近厕所的四个床铺，靠近厕所的一侧为床头。</p>
+    <p><small>靠近门的四个床铺，靠近门的一侧为床头；靠近厕所的四个床铺，靠近厕所的一侧为床头。</small></p>
     <p>三折被“难看”的一面朝里，摆在床头。</p>
     <p>枕头摆在三折被与栏杆的空隙间。</p>
     <p>书包靠墙摆在床头。</p>
@@ -4346,13 +4171,11 @@ footer{
 <p>要求看似很多，实际上爱国有方基本不检查内务。即使教官进宿舍查寝，也只是关注吃零食、讲话等情况。因此，学生虽然有按照要求做一下，但放到龙翔肯定是不达标的，尤其是三折被。</p>
 <h2>小卖部</h2>
 <p>爱国有方的小卖部位于①号宿舍楼楼下，顶部牌子上写着醒目的“便利店”三字。</p>
-<p>小卖部的开放时间为中午和晚上的饭后，也就是说学生吃完午晚饭，回宿舍的路上即可进入小卖部买东西，比龙翔的“8-9点开防”时间更加合理、充足。</p>
+<p>小卖部的开放时间为中午和晚上的饭后，也就是说学生吃完午晚饭，回宿舍的路上即可进入小卖部买东西，比龙翔的“8-9点开放”时间更加合理、充足。</p>
 <p>小卖部不大，也就一个房间，墙的周围摆放货架。相较于龙翔，爱国有方小卖部没有买炸鸡、汉堡这些食品，日用品比龙翔少很多，主要以饮料和零食为主。</p>
 <p>收银的地方位于入口对侧的墙边。</p>
 <p>最令人关心的是物价。爱国有方的物价比龙翔低很多，一般计算公式为：</p>
-<div class="box">
-    <p>爱国有方物价=市场价+1元</p>
-</div>
+<code><p>爱国有方物价=市场价+1元</p></code>
 <p>这种比较实惠的价格极大促进了学生的消费。学生在爱国有方买东西的频率和数量显著高于龙翔。不少人甚至需要向别人借钱买东西。</p>
 <p>泡面当然是很受欢迎的东西。由于有了在龙翔允许吃泡面的经验，很多人来时在行李箱放了一些泡面，不过还是有人选择在小卖部购买。结果第二天泡面就被禁止了，比龙翔还早1天。不过这并未对学生造成太大影响，大家还是该吃照吃。只是教官对泡面的审查制度较严，一旦在宿舍闻到泡面味或发现垃圾桶里有泡面的包装就会严格审问，不过可以通过隐藏垃圾、躲到阳台吃等手段规避。</p>
 <p>饮料方面，魔爪深受学生喜爱，哪怕其价格较高（7元/瓶）。一些人在实践期间购买了多瓶魔爪，集合时携带者更是不计其数。</p>
@@ -4392,7 +4215,7 @@ footer{
     </tr>
 </table>
 <p>五天之内甲流严重。医务室总是人满为患，每天都有大批学生不舒服，并且请假。学生不止一次看到有人收拾好行李，戴着口罩走向门口，准备离开。这种离开基地的情况又被称为“百万撤离”。</p>
-<p>最夸张的是7班。第三天时，7班只剩下4名男生、13名女生。为了平衡人数只好与8班合并。</p>
+<p>最夸张的是7班。第三天时，7班只剩下4名男生、13名女生。为了平衡人数只好与8班合并，称为<var>七、八班</var>。</p>
 <p>晴天与阴天交错。在1、2天，天气以阴天为主；3-5天则反之。</p>
 <p>面对这种程度的降温，爱国有方做了不少应对措施。</p>
 <p>总教官多次在集合时要求学生穿厚一点，具体就是：</p>
@@ -4466,7 +4289,7 @@ footer{
 <article>
     <p>自己曾去过美国的耐克总部，这里只卖2双鞋。<sup>[7]</sup></p>
 </article>
-<p>他的住址变幻莫测，虽经过多次“搬迁”，但核心词汇永远是“外滩”。据大家回忆，林奕扬曾说自己住过：</p>
+<p>他的住址变幻莫测，虽经过多次“搬迁”，但核心词汇永远是<var>外滩</var>。据大家回忆，林奕扬曾说自己住过：</p>
 <ul>
     <li>融侨外滩</li>
     <li>世茂外滩</li>
@@ -4488,7 +4311,7 @@ footer{
 <p>他说家长没有来接，只好自己打车。有人抛出了问题：为什么不坐公交？公交不是只要1块钱吗？</p>
 <p>林奕扬的回答成为了经典：</p>
 <q>坐你妈公交，<strong>公交是穷人的代步工具</strong>。</q>
-<p>据悉，四十中距离林奕扬家仅有2千米左右的路程，就算打车也肯定不会这么贵。那为什么要留50元打车呢？原因竟然是黑心商家多！</p>
+<p>据悉，四十中距离林奕扬家仅有2千米左右的路程，就算打车也肯定不会这么贵。那为什么要留50元打车呢？原因竟然是<var>黑心商家多</var>，多准备的钱可以应对可能的黑心商家！</p>
 <p>学生回到四十中后的第一周，有人表示：周五时发现他妈妈来接他，根本没去打什么车。</p>
 <p>陆梓豪在宿舍拿出一瓶蜂蜜，林奕扬一看见就凑上去，想要吃一点。吃完后说：</p>
 <q>好腻啊！我家的蜂蜜是花香。</q>
@@ -4649,6 +4472,1057 @@ footer{
     <p>[6] 下文唱军歌的过程可能和实际有差别，仅供参考。</p>
     <p>[7] 根据网络上的资料，该品牌实为Atoms。</p>
     <p>[8] 离开后，少部分人认为9班教官并非叫作丁欧文，“丁欧文”的说法为误判。</p>
+</div>
+</main>
+        <main id="LITERATURE">
+<header><h1>9班文学</h1></header>
+<!--添加名句高亮模块、错别字高亮模块（自定义元素）-->
+<div class="writing">
+    <h1>周记</h1>
+    <p>廖成羲</p>
+    <p>一周过去了，象征着又是七天过去了。时间似手里的沙，一点点地流去。</p>
+    <p>这周十分的特别，特别之处在于它竟然没有什么特别的事。我现在终于知道了，原来我刚才什么也不知道。我们都应该互相恭喜一下，恭喜我们刚才被对方恭喜到了。</p>
+    <p>我终于想起来了，想起来我其实什么都不记得了，一场狂风刮走了我的记忆，但我也不记得那场狂风是什么了。</p>
+    <p>阳光明媚的晴天下着雨，淹死了很多鱼。我悲伤地开怀大笑，惊跑了一群刚死的鸟。</p>
+</div>
+<div class="writing">
+    <h1>周记2</h1>
+    <p>廖成羲</p>
+    <p>抬头的一片天，是一片天；脚下的一寸土，是一寸土。眼前的教室，是一个教育学生的地方。其实，我说白了，我白说了。</p>
+    <p>就告诉你吧，我刚才说了一句话：就告诉你吧，我刚才说了一句话。雨下整夜，整个夜晚都在下雨。浑浊的雨水里，我看不清，鱼都淹死了。</p>
+    <p>告诉你一个好消息，就是没有坏消息；告诉你个坏消息，明天是世界末日；再告诉你个好消息，刚才的消息是假的。</p>
+    <p>在能看到三个月亮的地方，大象的背上插着一把剑。大象发出了求救，但我被大象压住了，听不见。</p>
+</div>
+<div class="writing">
+    <h1>周记</h1>
+    <p>徐嘉明</p>
+    <p>岁月就像一把大砍刀，把我们的生活砍成了无数段，但每一段都值得珍惜。这一周也是一个好段，让我来描述一下。</p>
+    <p>在这一周发生了一件重大的事情，这件事为何重大呢，因为它重大到我都觉得它很重大。这件事的内容是我小学的“好兄弟”居然不跟我联系了。兄弟就像春天还未融化的积雪，你朝他尿尿，它立刻就消失了。我用尽一切方法想找到他，可依旧没有成功。我渐渐想要放弃了，老师<wrong-character>交</wrong-character>过我们遇到困难不能轻易放弃。所以我更加努力的寻找方法了。</p>
+    <p>在最后我终于联系到了他，这中间是个什么过程呢？听我来说。在漫长寻找的里程中，我又想到了老师的话，成功之路也许就在一些不容易发现的地方，于是我找了各种地方，终于发现，原来我忘记充话费了，一切都是一个误会。</p>
+</div>
+<div class="writing">
+    <h1>十年后的我</h1>
+    <p>郑炜</p>
+    <p>“咦？这是谁？给我让开。”我猛抬起头，看到了一个身材高大的，身穿黑西服的老板——是十年后的我，全国500强的著名企业家。
+    <p>我愣住了，说：“您是……”十年后的我说：“别怕小朋友，我并不是坏人，我就十年后的你。”“那你能带我去现在的城市吗？”他说：“行，我背你。”过了一会儿，我们就坐上了去城市的豪车。</p>
+    <p>不一会儿，我们到了超市，我一进去就感到了一股温暖，看到货架上的零食都是我没见过的，真想拿一个来尝尝鲜，就拿了一个烤肠，躲在了货架旁尽情品尝，不一会儿，还没有吃，监控就朝向了我，我又去监控室里发现监控都开起了热成像，简直是隔空侦察啊！我又拿了一瓶矿泉水说：“这是啥，长得像矿泉水似的。”他却说：“这虽然是矿泉水，但它可不是一般的矿泉水，只要喝一口你的嘴24小时全是香气，并且吃了味道重的也不影响，我听完，立马掏钱，但他说：“哎呦！现在都不用实币了，现在都用电子钱啦！你只要有一个蜜蜂大小的电子钱包，在其它地方，然后有专门付钱的指纹感应器，轻触就支付完成了。”</p>
+    <p>过了一会儿，又开往了公园，发现了公园里有个不可思议的垃圾桶，为什么上面有一层绿绿的东西。他听到我对垃圾桶有疑问，便说：“这是酼酸垃圾桶，别看它长得像普通的垃圾桶，上面是酼酸层，用来腐蚀垃圾，下面是二氧化碳，专门把垃圾中的无机物转化为二氧化碳，提供了很好的资源。</p>
+    <p>等我知道时，我出现在了床上，才发现是一场梦。</p>
+</div>
+<div class="writing">
+    <h1>“舌战群儒”</h1>
+    <p>黄恩亚爸爸、刘老师</p>
+    <p>黄恩亚爸爸：@班主任-刘老师 13646014074 今天恩亚肚子疼，本想请假一节课，但他还是坚持赶去上课了，到校门口是7点25分，我是鼓励他了，并且最近我都有把关到校时间没有迟到的，多次迟到是什么意思？</p>
+    <p>刘老师：昨天早上也是迟到，累记很多次</p>
+    <p>刘老师：有特殊情况请提前私聊我告知</p>
+    <p>黄恩亚爸爸：昨天到校门口19分钟呀，什么情况？</p>
+    <p>刘老师：您要问他，到班过了25了</p>
+    <p>黄恩亚爸爸：每天到校门口，恩亚都叫我看看时间的，不要没迟到也给记迟到，孩子还是尊守纪律的。</p>
+    <p>刘老师：每天班长都认真记录迟到情况，不存在您说的没迟到记录迟到的情况</p>
+    <p>刘老师：刚才是记错时间了，去查记录已经告诉您具体时间。以及他的累计迟到次数，快10次。</p>
+    <p>黄恩亚爸爸：有几次22到校门口的，走到班上超过25分？建议上下浮动一两分钟吧</p>
+    <p>刘老师：大家都做得到，相信恩亚也做得到。去浮动或者踩点，会有很多问题</p>
+    <p>黄恩亚爸爸：以后跟你确认时间</p>
+    <p>刘老师：正常到班不用确认，提前几分钟出门就不会出现这种情况了</p>
+    <p>刘老师：我一直和他们说，做任何事情要留有余地，防止意外情况</p>
+    <p>黄恩亚爸爸：这是意外情况下赶在时间前到校为的就是不被记迟到，是努力的结果，所以到校门口都检查了时间，有没有迟到都是清楚的。</p>
+    <p>刘老师：所以您得提前告诉我，我才能知道是意外情况</p>
+    <p>刘老师：而不是已经迟到了，我问了，您跟我说什么原因</p>
+    <p>刘老师：这样对其他孩子也不公平</p>
+    <p>黄恩亚爸爸：都说了我是反映我到校的时间没有迟到，没有太复杂。</p>
+    <p>刘老师：确实很简单，恩亚只要25分之前到班就可以。特殊情况请提前告诉我，我会判定是否酌情处理。</p>
+    <p>黄恩亚爸爸：所以19分，20分，22分到校门口不存在迟到</p>
+    <p>黄恩亚爸爸：明天到校门口向你核实一下班上时间</p>
+</div>
+<div class="writing">
+    <h1>令我难忘的陌生人</h1>
+    <p>李梦妍</p>
+    <p>在生活中，我们会遇到许多形形色色的人们，但大多数都只是擦肩而过，没有在我们心中留下什么痕迹。但是就有一个陌生人，却让我难忘——一位环卫工人。</p>
+    <p>那是一天晚上我去“万达广场”，冰冷刺骨，风一阵阵吹过来，好似在说：“晚上好呀！”“万达广场”有很多人，大多数年轻们，买奶茶，逛商场，买物品，有很多人嘛，毕然垃圾会有很多，买的串串香吃完的签子，到处丢掉，喝完的瓶子也有几个，树叶枯黄掉了下来也非常的多，我的心理暗想：“这么多的垃圾，何时才会收完呢？”好奇的我回了家。</p>
+    <p>第二天，一大早我去了“万达广场”而这时地面上干干净净的，只有几片树叶，垃圾桶也非常干净，没有垃圾，这让我更加好奇了，怎样一夜之间变得这么干净，太不可思议了，而且这时才7点半不到！</p>
+    <p>第三天，我更早就起来了，5点钟我就出门了，外面才蒙蒙亮亮的，空气也很清析，江边还有晨跑“大爷”我还根他们打了招呼，这位爷爷平时有什么好吃的，会送给我，所以我对他很亲。还有别的大爷大奶正在锻炼，原来在我们还在睡觉时别人还在做事情了，来到万达广场，我看一个个环卫工人在扫地，原来每天这么干净是每个人睡觉，我跑去便利店，买了好几瓶矿泉水给环卫工人们，我跑去给每个环卫工人水，都说一句：“辛苦了！”这些真是令我难忘的陌生人！在我们睡觉或玩耍，他们却在大早上扫人，真令我难忘！</p>
+</div>
+<div class="writing">
+    <h1>-</h1>
+    <p>陈睿卓</p>
+    <p>一个帅气的男孩，手拿水杯，爱航天类的东西，所以我们给取了个外号——“机长”。</p>
+    <p>机长成绩不好，一头光头像个土豆，一身健硕的“键子”肉使他看起来很强壮，很帅，身旁时不时有道美丽的风景，使他看起来十分有魅力。</p>
+    <p>有一次，我跟他去玩，突然一架飞机飞过，他说，开飞机是他的一个梦想。于是他闭上眼睛，开始幻想自己在开飞机。幻想自己有一架真实的飞机，可以当机长，自己的飞机一次可以乘几十亿人。于是，想着想着，哭了，因为他想着自己感觉成绩不好，没希望，我连忙安慰他说：“别哭”，阿妈特拉斯。</p>
+</div>
+<div class="writing">
+    <h1>霸总文学追小娇妻</h1>
+    <p>李梦妍</p>
+    <p>月黑风高的晚上，霸总恩亚喝粹了，把女苔藓强吻了，在床上霸总恩亚亲着女苔藓。过了一个晚上，女苔藓她跑掉了，她跑出国，而霸总恩亚苦苦找了她三年！翻遍了整个A市都看到女苔藓，这天一个亮立的女人手中抓着三个萌娃的手，走出机场大门，所有人看着他们，这时霸总恩亚听到消息连忘回国，他的项目全部推到，到找到他的女人，女苔藓回到别垫。霸总恩亚，回到国后，连忙找他的女人。霸总坐着他的私人豪华飞机，稳当着陆，与女人擦肩而过，突然他停住了，那个女人的味道正是三年前那肥而不苔藓的香味，那股回忆的味道直传到他的鼻孔里，“等等”霸总恩亚直往苔藓处走去，但苔藓依然没有停留的样子向前走去，是的，霸总急了，他直用他180cm的大长腿向苔藓走去，把女苔藓在怀里待到一天34小时，直到女苔藓睡了，霸总才把苔藓抱回三年前他们一起睡的1亿m²大床上。霸总恩亚在女苔藓耳朵边说：“女人你永远都逃不出我的手掌心的！”霸总享受的闻着那肥而不苔藓的香味，摸着苔藓般肌肤，吹弹可破。霸总恩亚抱着女苔藓睡觉了！第二天早晨女苔藓从从1m²的霸总身上苏醒。听着那呼噜如天地之阵动，是多美妙啊——女苔藓欣赏着恩亚的呼噜声，而霸总却苏醒了，霸总看着小娇妻说：“宝贝——气泡声着叫着。走下吃早饭吧~！”到了楼下吃着米奇林八星的饭菜，女苔藓吃了三口就饱了。霸总恩亚问：“宝贝吃这么一点就饱了。”女苔藓说道：“因为我是小鸟胃~我只能吃三口~啧啧啧。”而这时苔藓打了一个小奶嗝，霸总让所有下人们来闻女苔藓的小奶嗝。女苔藓说道：“讨厌~我要用小拳头拳你的胸口！”霸总一脸宠溺的看着她~，撩起了女苔藓那一丝仅存的0.01cm的长发，闻了闻专属苔藓的清香，突然，霸总不语，只是一谓地把苔藓抱入浴室，他的双手触摸着苔藓柔软的小峦腰，正当霸总恩芽的唇要贴到苔藓的腰间时，三个萌娃也来到浴室，疑惑的眼神盯着恩芽和苔藓，两人收住动作，三个萌娃一口同声的说：“叔叔你为什么要欺负妈咪？”霸总恩亚说到：“你出国三年都有孩子！”霸总生气出门，坐着他私人飞机出门了。“陈特助给你3秒找出这女人在国外干了什么，女人你永远只能是我的！第二天霸总为了让苔藓为他吃醋，找了一个美吕，带回了家，霸总搂着大月亮进了门。苔藓看到后霸总搂着别的女人，生气的上楼，到了晚上，大月亮站在阳台上唱着歌：“月亮！月亮！你慔睡~”，苔藓走了过来。大月亮看到后说：“你别根我斗了，你比不过我的！霸总只love me，不会love you你的，啍！霸总这时走了过来。大月亮称这时机，造出苔藓推大月亮，让大月亮摔到楼下。大月亮发出啊——的声音。思芽跑了过来推开苔藓，看到月亮摔下楼下去。思芽生气的说：“月亮有什么三长两短，我不会放过你的！”霸总跑下楼，月亮说：“都是我不好，让姐姐生气了~！”霸总恩芽拿出了全A市唯一的价值80亿的手机，用了练习两年半的气泡音对他的私人特助说：“1秒内让全国最好的医院来治好我的爱人。”一听到恩芽用他专属的气泡音说月亮是他的爱人时，苔藓头脑发晕，一个劲地从阳台上摔下去，皎洁的月光照在了苔藓的仅存的0.01mm的长发上，然而霸总却已经抱起他的爱人坐上他的私人飞机飞走了。</p>
+</div>
+<div class="writing">
+    <h1>人机公主将站上娱乐圈顶流</h1>
+    <p></p>
+    <p>众所周知，人机公主是我班最有名的天才公主，打小就会琴骑书画。他人见人爱，花见花开，见到他的人都会马上花开富贵，打破了最美公主的记录，成为史上的最美公主。</p>
+    <p>我们的人机公主人美心善，曾骑着老奶奶横穿马路，但后来……因为有女苔藓的出现，让世界不得安宁，她故意拌倒老奶奶，让老奶奶受伤，还随意踩踏草坪，看到路边的花开，也要上前踩两脚。</p>
+    <p>再说经济上，人机公主每天都会送大家免费冰淇淋，即free也好吃，而苔藓则相反。</p>
+</div>
+<div class="writing">
+    <h1>晒晒我们班的牛人</h1>
+    <p>郑致辰</p>
+    <p>自从踏入九班的那一刻起，班级中各个人的优点与本领都渐渐显露出来，我们不妨将其称为“牛人”。今天，我要介绍一位真正的大牛人，他姓洪，名鑫洋。</p>
+    <p>洪鑫洋是一位语文课代表，他每天早上都早早到校，以惊人的速度收好了作业，整个过程只需三分钟。有时老师还没到校，他就将五十本作业整整齐齐地摆放在老师的办公桌上，不留一丝马虎。而他作为一个语文课代表，语文成绩也是遥遥领先。</p>
+    <p>或许你们会说：“这有什么牛的呀，很多人也可以做到这样呀，也就那样。”那么好，我就来讲讲他真正牛的地方，也就是他的梦想——当一位机长。</p>
+    <p>正是它那健壮的身材与强壮的臂膀才让他有了这个想法。他看完电影《中国机长》后，更加坚定了这个梦想，也从内心发出了对机长这一行业的赞美。心动不如行动，他在网上搜索了很多关于飞机与机长的资料与视频，花了大量的时间，听说他有时直到深夜还在了解这些知识，他家有不可记数的飞机模型。有一次，几位同学围住他，希望他能科普一些飞行知识，这可问对了人，只见他挺直了身子，使圆滚肚子的轮廓呈露了出来：</p>
+    <p>“飞机的知识其实很简单，对于目前战斗机类型，P91号战斗机是我最喜欢的，它的最高飞行高度为7800米，最快速度达到了1300千米每小时，可同时装下13发空际导弹……”</p>
+    <p>同学们听着他的话，不由瞪大了双眼，张大了嘴，他对这方面的知识已经了如指掌，一位同学不禁向他竖起了大拇指，鑫洋开心地绽放出了微笑，他的身影衬托着夕阳的余晖，我仿佛看到未来的他，成为了一位顶天立地的机长……</p>
+    <p>这位可爱可亲的少年，正朝着自己的目标不断前进，他的牛不仅仅体现在他到飞机的着迷与了解，他的负责与努力，更体现在他为梦想不断拼搏的精神与毅力，他是九班的传奇，是真正的牛人！</p>
+</div>
+<div class="writing">
+    <h1>班主任眼中完美的一天</h1>
+    <p></p>
+    <p>走进教室发现班级井然有序，干净整洁</p>
+    <p>班委积极负责，科代表作业及时收齐</p>
+    <p>课前已经做好准备，大声读书</p>
+    <p>科任老师跟我夸学生上课认真、积极互动、氛围良好</p>
+    <p>自习课学生专注写作业，无人聊天、玩闹</p>
+    <p>班级同学团结合作，背书任务认真完成</p>
+    <p>同学们一天都很充实，收获满满，没有扣分</p>
+</div>
+<div class="writing">
+    <h1>我想带您看盛世中国</h1>
+    <p></p>
+    <p>奕扬：姐姐，你是从哪里来的？</p>
+    <p>雨希：我来自新中国</p>
+    <p>奕扬：那 我们胜利了吗？</p>
+    <p>雨希：胜利了</p>
+    <p>奕扬：太好了 我真想看看 新中国是什么样的</p>
+    <p>雨希：来 我带你去看看我们的新中国</p>
+    <p>允儿：五星红旗迎风飘扬 胜利歌声多么响亮 歌唱我们亲爱的祖国 从今走向繁荣富强</p>
+    <p>（永泽：挥舞国旗）</p>
+    <hr/>
+    <p>祥懿：为实现中华民族的伟大复兴 我们</p>
+    <p>全体：准备着 时刻准备着</p>
+    <p>祥懿&amp;诗语：您看 清澈的爱只为中国的民族精神</p>
+    <p>王淮&amp;浩宇：您看 犯我中华者虽远必诛的民族气节</p>
+    <p>祥懿：您看 脱贫攻坚 全面小康 千年梦想 今朝实现</p>
+    <p>诗语：您看 嫦娥探月 蛟龙深潜 大国正气 世人惊艳</p>
+    <p>王淮：您看 生态文明 绿色低碳 美丽中国 展开画卷</p>
+    <p>浩宇：您看 一带一路 互通互联 和平发展 合作共赢</p>
+    <p>全体：您看 人民幸福 民族振兴</p>
+    <p>祥懿&amp;诗语：这民族如您所愿</p>
+    <p>全体：潜龙腾渊 鳞爪飞扬 乳虎啸谷 百兽震惶</p>
+    <p>王淮&amp;浩宇：这国家如您所愿</p>
+    <p>全体：奇花初开 矞矞皇皇</p>
+    <p>祥懿&amp;诗语&amp;王淮&amp;浩宇：这盛世如您所愿</p>
+    <p>全体：前途似海 来日方长</p>
+    <hr/>
+    <p>祥懿：我想带您行走在彩虹里</p>
+    <p>全体：那是北斗卫星 在指引我们前行</p>
+    <p>王淮：我想带您去新农村做客</p>
+    <p>全体：那里的土地 正翻种着时代新绿</p>
+    <p>诗语：我想带您走进新科技园区</p>
+    <p>全体：灿若繁星的 高科技让未来触手可及</p>
+    <p>浩宇：我还想带您去祖国各地 看锦绣河山 春光万里</p>
+    <p>左半：看万山红遍 层临尽染 漫江碧透 百舸争流</p>
+    <p>右半：看同学少年 风华正茂 书生意气 挥斥方遒</p>
+    <hr/>
+    <p>祥懿&amp;诗语：七十五年斗转星移 七十五年大江东去</p>
+    <p>左半：盛世中国 告诉您一个地球的惊喜；盛世中国 告诉您一个东方的奇迹</p>
+    <p>王淮&amp;浩宇：七十五年春华秋实 七十五年日新月异</p>
+    <p>右半：盛世中国 告诉您一个人间的传奇；盛世中国 告诉您一个时代的瑰丽</p>
+    <p>祥懿&amp;诗语&amp;王淮&amp;浩宇：七十五年波涛之上 七十五年征帆万里</p>
+    <p>全体：盛世中国 告诉您一个公开的秘密；盛世中国 告诉您一个永恒的真理：解放思想 实事求是 发展才是硬道理</p>
+    <p>祥懿：捧起地球村崭新的履历 盛世中国 一步跨进未来的行列里</p>
+    <p>王淮：这是十四亿颗心跳 迸发出的幸福奇迹；这是十四亿双脚步 追逐梦想的火炬接力</p>
+    <p>祥懿&amp;诗语：赞美你呀 辉煌七十五年</p>
+    <p>全体：盛世中国 蓬勃日出</p>
+    <p>王淮&amp;浩宇：讴歌你呀 奋进七十五年</p>
+    <p>全体：盛世中国 和平崛起</p>
+    <hr/>
+    <p>祥懿：七十五年沧海桑田 中华民族 正行走在 伟大复兴之路上</p>
+    <p>王淮：七十五年春潮不息 亿万中华儿女 正信心满怀 扬帆进击</p>
+    <p>祥懿&amp;诗语&amp;王淮&amp;浩宇：高歌迈向</p>
+    <p>全体：高歌迈向 高歌迈向 新的胜利</p>
+    <hr/>
+    <p>奕扬：姐姐，新中国真好啊</p>
+    <p>雨希：因为有你们的牺牲 才有我们现在的新中国</p>
+    <p>奕扬：不，不止我，还有很多很多人</p>
+    <p>雨希：我知道 我们不会忘 祖国不会忘</p>
+    <p>全体：我们不会忘 祖国不会忘</p>
+    <p>奕扬：真好啊 新中国的未来 就交给你们了</p>
+    <p>雨希：请您放心 山河已无恙 吾辈当自强</p>
+    <p>全体：请您放心 山河已无恙 吾辈当自强 当自强</p>
+</div>
+<div class="writing">
+    <h1>像你这样的朋友（凌云九班版）</h1>
+    <p></p>
+    <p>开始斗嘴是我 作对是我 最不爽你就是我</p>
+    <p>没想到我们会成为好朋友</p>
+    <p>现在爱你是我 懂你是我 并肩同行也是我</p>
+    <p>多幸运有像你这样的朋友</p>
+    <p>时光偷走遇见 转角送来错过</p>
+    <p>四季飞快像坐过山车</p>
+    <p>那些共度的 深刻的 专属我们的</p>
+    <p>如果这辈子做朋友你都不嫌多 下辈子够不够</p>
+    <p>我还想要像你这样的朋友</p>
+    <hr/>
+    <p>相信这天是我们梦寐以求的时刻</p>
+    <p>我喜欢老师家长以我为傲的神色</p>
+    <p>谁最懂我 全都在这</p>
+    <p>千千万万个迷茫困惑时刻 是你们伴着</p>
+    <p>终于到同学好友假日相聚的时刻</p>
+    <p>这次和同窗伙伴齐欢笑一个不落</p>
+    <p>心情不错 欢乐满桌</p>
+    <p>随时随地你想分享或探索 身边总有我</p>
+    <hr/>
+    <p>开始斗嘴是我 作对是我 最不爽你就是我</p>
+    <p>没想到我们会成为好朋友</p>
+    <p>现在爱你是我 懂你是我 并肩同行也是我</p>
+    <p>多幸运有像你这样的朋友</p>
+    <p>时光偷走遇见 转角送来错过</p>
+    <p>四季飞快像坐过山车</p>
+    <p>那些共度的 深刻的 专属我们的</p>
+    <p>如果这辈子做朋友你都不嫌多 下辈子够不够</p>
+    <p>我还想要像你这样的朋友</p>
+    <hr/>
+    <p>曾被欢呼淹没 也曾失落 脆弱也不知所措</p>
+    <p>成长难免受挫 都有你陪我</p>
+    <p>青春总有跌撞 有你同往 追求梦想不退让</p>
+    <p>年少并肩启航 未来不散场</p>
+    <hr/>
+    <p>时光偷走遇见 转角送来错过</p>
+    <p>四季飞快像坐过山车</p>
+    <p>那些共度的 深刻的 专属我们的</p>
+    <p>如果这辈子做朋友你都不嫌多 下辈子够不够</p>
+    <p>我还想要像你这样的朋友</p>
+</div>
+</main>
+<main id="ACTIVITIES">
+<header><h1>活动</h1></header>
+<h1 id="">班班有歌声</h1>
+<p>小学举办了6次的活动，在初中当然少不了。</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<hr/>
+<h1 id="">科艺节</h1>
+<p></p>
+<hr/>
+<h1 id="">元旦汇演</h1>
+<p></p>
+<hr/>
+<h1 id="">儿童节</h1>
+<p></p>
+<hr/>
+<h1 id="">高/中考加油</h1>
+<p></p>
+<hr/>
+<h1 id="">其他</h1>
+<p></p>
+<hr/>
+</main><main id="CHINESE">
+<header><h1>语文</h1></header>
+    <hr/>
+    <header>
+        <h1>方翔</h1>
+        <p>七上开始~期中；七下第三周~期末</p>
+    </header>
+    <h1 id="chinese-1">新课</h1>
+    <h2>松散的纪律</h2>
+    <h2>水课之道</h2>
+    <h2>方翔风课件</h2><!--早读背景音、妈妈洗脚-->
+    <h2>女高音</h2>
+    <h2>抽背</h2>
+    <hr/>
+    <h1 id="chinese-1">小测</h1>
+    <h2>超长复习时间</h2>
+    <h2>防伪标志</h2>
+    <h2>哇！咦——</h2>
+    <hr/>
+    <h1 id="chinese-1">作业</h1>
+    <h2>固定的作业</h2>
+    <h2>讲评</h2>
+    <hr/>
+    <h1 id="chinese-1">突如其来的意外</h1>
+    <h2>怎么突然变老了</h2>
+    <h2>路上的事故</h2>
+    <header>
+        <h1>郑慧敏</h1>
+        <p>七上期中~七下第二周</p>
+    </header>
+    <h1 id="chinese-2">出口就是金句</h1>
+    <hr/>
+    <h1 id="chinese-2">抽背</h1>
+    <h2>抽翻译</h2>
+    <h2>抽《西游记》</h2>
+    <hr/>
+    <h1 id="chinese-2">作业的审判</h1>
+    <hr/>
+    <h1 id="chinese-2">课件</h1>
+    <hr/>
+    <h1 id="chinese-2">离别</h1>
+    <hr/>
+    <header>
+        <h1>陈文慧</h1>
+        <p>八上~</p>
+    </header>
+<div class="page">
+    <button onclick="showPage('')" class="back">上一页-</button>
+    <button onclick="showPage('MATH')" class="next">下一页-数学</button>
+</div>
+</main>
+<main id="MATH">
+<header><h1>数学</h1></header>
+    <hr/>
+    <header>
+        <h1>严伟胜</h1>
+        <p>七上~</p>
+    </header>
+    <h1 id="math-">肢体的奥秘</h1>
+    <h2>笔盖咔咔响</h2>
+    <h2>穿着</h2>
+    <h2>站姿</h2>
+    <hr/>
+    <h1 id="math-">新课</h1>
+    <h2>讲课的流程</h2><!--导学案-->
+    <h2>课件的变迁</h2>
+    <h2>请人规律</h2>
+    <h2>纪律</h2>
+    <h3>今天纪律差</h3>
+    <h3>站后面</h3>
+    <h3>打手</h3>
+    <h2>写题目</h2><!--同意举手/同意-弘毅/笔记本拿出来-->
+    <hr/>
+    <h1 id="math-">作业</h1>
+    <h2>作业的布置</h2>
+    <h2>讲评</h2><!--检查、折名字、三四组的紧张时刻-->
+    <h2>正面和反面</h2>
+    <hr/>
+    <h1 id="math-">测验</h1>
+    <h2>科作业小测与订正</h2><!--告诉原因-->
+    <h2>阶段小卷</h2>
+    <h2>考后固定总结</h2>
+    <hr/>
+<div class="page">
+    <button onclick="showPage('CHINESE')" class="back">上一页-语文</button>
+    <button onclick="showPage('ENGLISH')" class="next">下一页-英语</button>
+</div>
+</main>
+<main id="ENGLISH">
+<header><h1>英语</h1></header>
+    <header>
+        <h1>刘必艳</h1>
+        <p>七上~</p>
+    </header>
+    <p>九班的英语老师兼班主任——刘必艳——在整个初中阶段都担任9、10班的英语教学。</p>
+    <hr/>
+    <h1 id="english-start">从零开始</h1>
+    <h2>初识九班</h2>
+    <p>六年级毕业后，暑假开始。</p>
+    <p>八月份左右，刘老师建立班级群。8月30日，学生到四十中报道。</p>
+    <p>为了让大家更好地融入班级，刘老师举办了一个“别出心裁”的破冰仪式。她：</p>
+    <ul>
+        <li>让学生写下自己的兴趣爱好、姓名等信息</li>
+        <li>以4人为一组，在一段时间内记忆本组其余3人的信息</li>
+        <li>时间结束后开火车，提问相关信息，如果说不出来，该组的4名学生需上台拍照</li>
+    </ul>
+    <p>然后刘老师放出了拍照的姿势要求——全是奇葩的姿势，戏剧性十足。在开火车时，有一些组中招了。</p>
+    <p>接下来，刘老师带领大家了解四十中。转眼间，两天就过去了。2024年9月1日，正式开学。</p>
+    <h2>教学的起点</h2>
+    <p>刘老师进行了一次“摸底”，让大家做了一张关于小学英语知识的单面试卷，旨在对大家的学习情况进行初步的“摸底”。</p>
+    <p>当然，无论这次测验的成绩如何都没关系。刘老师表示：</p>
+    <div class="box">
+        <p>无论小学基础如何，初中英语从零开始教起。</p>
+    </div>
+    <p>大部分学生在小学阶段都没接触音标，于是第一节正式的英语课就从音标开始。</p>
+    <hr/>
+    <header>教学风格</header>
+    <h1 id="english-class">惊心动魄的一堂课</h1>
+    <p>英语，作为班主任的任教科目，在学生眼中变得格外紧张。</p>
+    <p>每天需要带的英语材料主要有：</p>
+    <ul>
+        <li>课本</li>
+        <li>笔记本</li>
+        <li>草稿本</li>
+        <li>全部小测</li>
+        <li>校本</li>
+        <li>练习册/未讲评的练习</li>
+        <li>英语本</li>
+        <li>作文本</li>
+    </ul>
+    <h2>带读</h2>
+    <p>带读的内容为<var>单词</var>、<var>校本</var>或<var>课文</var>。带读的规则在不同场景下又有细分。</p>
+    <p>一般由科代表站在讲台上，指定相应的读书内容；刘老师在时则可能自己带。</p>
+    <p>读单词分两种情况。</p>
+    <h3>科代表带</h3>
+    <p>顾名思义就是由科代表带读一个单词，全班进行跟读。如果科代表正在收作业（尤其早读），则由相关班委（班长、学委）先带读。</p>
+    <p>具体格式如下：</p>
+    <code>
+        <p>科代表：【单词】</p>
+        <p>学生：【单词】，【单词】，【拼写】，【单词】，【中文】</p>
+    </code>
+    <p>学生跟读的前两遍均为降调，不需要读词性，但要读括号里的内容。</p>
+    <p>示例如下：</p>
+    <blockquote>
+        <p>科代表：Pencil.</p>
+        <p>学生：Pencil,pencil,p-e-n-c-i-l,pencil.铅笔。</p>
+    </blockquote>
+    <p>科代表带读时，需要读课上讲的相关变形。包括：</p>
+    <table>
+    <tr>
+        <th>词类</th>
+        <th>举例</th>
+    </tr>
+    <tr>
+        <td>词性转换</td>
+        <td>act→action→active→activity</td>
+    </tr>
+    <tr>
+        <td>过去式（不规则变化）</td>
+        <td>regret→regretted</td>
+    </tr>
+    <tr>
+        <td>现在分词（不规则变化）</td>
+        <td>run→running</td>
+    </tr>
+    <tr>
+        <td>复数（不规则变化）</td>
+        <td>city→cities</td>
+    </tr>
+    <tr>
+        <td>反义词</td>
+        <td>appear→disappear</td>
+    </tr>
+    <tr>
+        <td>易混淆词</td>
+        <td>expect→except</td>
+    </tr>
+    <tr>
+        <td>部分近义词</td>
+        <td>advice→suggestion</td>
+    </tr>
+    <tr>
+        <td>职业</td>
+        <td>sing→singer</td>
+    </tr>
+</table>
+    <p>通常，如果单词刚教或者没教，就需要科代表带读。这样可以让大家知道单词的读音，免得混乱。</p>
+    <p>不过科代表有时自己也会读错，还得刘老师改正。</p>
+    <h3>自己读</h3>
+    <p>这种情况下，科代表无需带读，由学生自己读下去。</p>
+    <p>如果单词教过很久就可以这样。但很多时候分不清要不要带读，于是会出现刚教的词自己读、教了很久的词带读的情况。</p>
+    <h3>刘老师带</h3>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <h2>课件</h2>
+    <p>刘老师的课件在每个单元都有统一的风格，但不同单元的风格有很大区别。</p>
+    <h3>AI视频</h3>
+    <h3>语法点</h3>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <h2>读书</h2>
+    <h2>校本</h2>
+    <h2>记笔记</h2>
+    <h2>讲单词</h2>
+    <h2>讲练习</h2>
+    <h2>复习</h2>
+    <h2>经典行为</h2>
+    <h3>激光笔</h3>
+    <h3>语录</h3>
+    <h3>难治的声音</h3>
+    <p></p>
+    <hr/>
+    <h1 id="english-test">OK,test.</h1>
+    <h2>什么是小测</h2>
+    <p>小测在初中阶段很是频繁，其中以英语小测最为典型。</p>
+    <p>很多班级都有英语小测，小测的题目由各班老师自行拟定。早在开学初，刘老师就已开始实行小测制度。</p>
+    <p>9班几乎每天都有小测，时间安排在每天的首节英语课。偶尔没有小测，常见的原因有：</p>
+    <ul>
+        <li>没有英语课</li>
+        <li>重大节日当天</li>
+        <li>不想测了</li>
+        <li>公开课</li>
+        <li>没时间改</li>
+    </ul>
+    <p>刘老师的小测题目通常位于课件的第二页，有时多日的小测都集中于这个地方。翻到小测页面后，顶部会有一个标题：<var>Test</var>；标题右下方有日期；主体的区域即为题目。</p>
+    <div class="box" style="font-family:serif">
+        <h1>Test</h1>
+        <p style="text-align:right">【日期】</p>
+        <div style="border:5px dotted #fff8;border-radius:10px;text-align:center;padding:50px;">【题目区域】</div>
+    </div>
+    <p>有时，小测页面的背景是一些周围有装饰的图片，大多数情况是纯白背景。</p>
+    <p>刘老师告诉大家，某班的老师都是使用口测的方法，有题目的形式已经相对简单。不过有一次小测页面意外没了，刘老师就口测了一次。</p>
+    <p>日期的格式也有相应的变化。刚开始时，刘老师会标出完整的日期，学生可直接抄在小测纸上。像这样：</p>
+    <div class="box" style="font-family:serif">
+        <p>December 1st</p>
+    </div>
+    <p>其标准格式就是这样：</p>
+    <code>
+        <p>【月份完整英文】【序数词缩写】</p>
+    </code>
+    <p>所有的小测都要按照这个格式写。</p>
+    <p>渐渐地，日期变成了纯数字的格式。刘老师会在后面加一个<var>用英文写出</var>。像这样：</p>
+    <div class="box" style="font-family:serif">
+        <p>12.1（用英文写出）</p>
+    </div>
+    <p>意思就是，即使屏幕上的日期长这样，学生仍然要将其写为<var>月份完整英文+序数词缩写</var>的形式。</p>
+    <p>意图很明确，就是在考察学生对月份英文的掌握程度。刘老师改小测时会顺便看一下日期，如果发现单词写错了或者“st”、“nd”、“rd”、“th”弄混了会圈出来。</p>
+    <p>学生熟悉流程后，<var>（用英文写出）</var>也变没了，不过要求是一样的。</p>
+    <h2>小测前</h2>
+    <p>用于小测的唯一纸张是<var>英语作业纸</var>。如果有人没有英语作业纸，需要向周围的人借。</p>
+    <p>每次小测都需要：</p>
+    <ul>
+        <li>将纸折成宽度相等的四列</li>
+        <li>写上完整个人信息</li>
+    </ul>
+    <p>这里的个人信息就包括<var>年级</var>、<var>班级</var>、<var>姓名</var>、<var>座号</var>和<var>日期</var>。这五项必须全部写上，如果缺了刘老师也会圈出。</p>
+    <p>有些人（如唐家祺、崔宇臣）经常在交小测时才写个人信息，有时会被批评。也就是说，小测前就得写好信息，甚至可以提前写好整本小测的信息，留一个日期在小测时写。</p>
+    <p>小测前的课间或早读，大部分学生进入“紧急状态”，开始紧张复习。有一种话术在此时非常常见：</p>
+    <q>完了，我都没背！</q>
+    <p>带读结束后，刘老师会让大家准备小测，有时是读到一半就让大家停下来小测。</p>
+    <p>命令的语言很多。中文的常见命令是：</p>
+    <q>准备小测。</q>
+    <p>有时更加简单：</p>
+    <q>小测。</q>
+    <p>中文的情况一般是在读到一半时说的。更常见，也更经典的是英语的命令。</p>
+    <p>首先是最经典的：</p>
+    <q>Close your books and test.</q>
+    <p>其变体为：</p>
+    <q>Prepare for the test.</q>
+    <p>和中文版一样，英文版有简洁的命令：</p>
+    <q>Test.</q>
+    <p>除了让大家“做”，还有“怎么做”的命令。这类命令通常跟在英文版命令之后。</p>
+    <q>Close your books and put them in the middle of your desks.</q>
+    <q>Put your books and notebooks in the middle of your desks.</q>
+    <q>Put your materials in the middle of your desks.</q>
+    <p>如果加上<var>all of</var>，则是更加强调命令，<var>all of</var>一般重读。</p>
+    <q>Put all of your books and notebooks in the middle of your desks.</q>
+    <q>Put all of your materials in the middle of your desks.</q>
+    <p>发出小测命令后，相当一部分学生会抓紧再看几眼。刘老师就会催促：</p>
+    <q>Quickly!</q>
+    <q>Hurry up!</q>
+    <p>以上就是小测的常见命令。</p>
+    <p>显然，刘老师要求在小测前将所有材料放到桌子中央，包括英语书、校本、笔记本等。这么做的目的有二：</p>
+    <ul>
+        <li>防止在抽屉底下偷看相关材料</li>
+        <li>材料可作为简易的挡板，一定程度上防止偷抄同桌答案</li>
+    </ul>
+    <p>万事俱备，刘老师会打开相关课件，调出小测页面，并打开计时器计时，然后开始小测。</p>
+    <h2>考些什么</h2>
+    <p>简单来说，<var>前一天作业中要求复习的笔记</var>、<var>背诵的单词和校本</var>、<var>课上特别提到会考的内容</var>、<var>最近积累本积累的单词</var>，都是第二天小测的内容。</p>
+    <p></p>
+    <h2>从上交到登记</h2>
+    <h2>不同的等级</h2>
+    <h2>过小测</h2>
+    <h2>订正</h2>
+    <h2>拒绝作弊！</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-homework">作业</h1>
+    <h2>固定的作业</h2>
+    <h2>预习</h2>
+    <h2>抄默本与积累本</h2>
+    <h2>“与时俱进”的练习册</h2>
+    <h2>背诵</h2>
+    <h2>寒暑假作业</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-mark">做题的标记</h1>
+    <h2>听力</h2>
+    <h2>单选</h2>
+    <h2>还原句子</h2>
+    <h2>作文</h2>
+    <h2>审判时刻</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-life">生活中的英语</h1>
+    <h2>跑操时的英语</h2>
+    <h2>不能丢了段一！</h2>
+    <h2></h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-student">上中下等人</h1>
+    <h2>上等——做积累本</h2>
+    <h2>中等——精准提问</h2>
+    <h2>下等——背其他科</h2>
+    <p></p>
+    <hr/>
+    <header>班级制度</header>
+    <h1 id="english-">收作业小组</h1>
+    <h2>六人小组</h2>
+    <h2>四个大组</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-">学习小组</h1>
+    <h2>小组的诞生与更替</h2>
+    <h2>别班纷纷效仿</h2>
+    <h2>黑板上的背诵内容</h2>
+    <h2>签字</h2>
+    <h2>奖励与惩罚</h2>
+    <h2>抽背</h2>
+    <h2>名存实亡的学习小组</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-">量化</h1>
+    <h2>九班量化细则</h2>
+    <h2>加分与扣分</h2>
+    <h2>抽奖与抽罚</h2>
+    <h2>吝啬的加分</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-">九班的“阶级”</h1>
+    <h2>阶级制度</h2>
+    <h2>班委</h2>
+    <h2>科代表</h2>
+    <h2>组长</h2>
+    <h2>其他</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-">换座位</h1>
+    <h2>一学期一大调</h2>
+    <h2>局部调整</h2>
+    <h2>讲台前的王位</h2>
+    <p></p>
+    <hr/>
+    <header>管理方针</header>
+    <h1 id="english-">占课</h1>
+    <h2>拼好课</h2>
+    <h2>信息课这块肉</h2>
+    <h2>音乐与美术</h2>
+    <h2>体育课</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-">严管手机！</h1>
+    <h2>初期的限制</h2>
+    <h2>班级群败露</h2>
+    <h2>如履薄冰的管理</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-">舌尖上的九班</h1>
+    <h2>一人一包</h2>
+    <h2>要饭</h2>
+    <h2>“九班高利贷”——筷子</h2>
+    <h2>正义维权</h2>
+    <h2>零食饮料复辟</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-">放学后的风波</h1>
+    <h2>通知不完的事情</h2>
+    <h2>思想教育讲座</h2>
+    <h2>读单词的诱惑</h2>
+    <h2>布置考场算什么？</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-">监视无处不在</h1>
+    <h2>带监控的对讲机</h2>
+    <h2>窗外闪现</h2>
+    <h2>控制电脑</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-">营造霉好班级</h1>
+    <h2>限制小团体</h2>
+    <h2>思想教育乐不停</h2><!--知道为什么……-->
+    <code><p>所以我希望……</p></code>
+    <h2>跑操审判</h2>
+    <h2>记作业本在哪里？</h2>
+    <h2>三条红领巾</h2>
+    <h2>打手工具的迭代</h2>
+    <h2>家长送来</h2>
+    <h2>尊重老师</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-">待人之道</h1>
+    <h2>历史上的冤狱</h2>
+    <h2>男女有别</h2>
+    <h2>课间的批评</h2><!--冷静-激昂-打手-->
+    <p></p>
+    <hr/>
+    <h1 id="english-">班级群中</h1>
+    <h2>请家长改名</h2>
+    <h2>@所有人</h2>
+    <h2>每日通报</h2>
+    <h2>另一个家长群</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-">公共设施的情况与管理</h1>
+    <h2>垃圾桶</h2>
+    <h2>桌布</h2>
+    <h2>“九班民族乐器”</h2>
+    <h2>班级布置</h2>
+    <h2>带“私货”的黑板报</h2>
+    <h2>作业公示栏与缺交名单公示</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-">学生的态度</h1>
+    <h2>怨气与名字</h2>
+    <h2>论占英语课</h2>
+    <h2>上涨的不满情绪</h2>
+    <h2>补英语本热潮</h2>
+    <h2>谁是卧底</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-">其他课上的刘老师</h1>
+    <h2>班会</h2>
+    <h2>早读</h2><!--站起来-->
+    <h2>八年级政治</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-">办公室</h1>
+    <h2>井然有序的办公室</h2>
+    <h2>物资一览</h2>
+    <h2>办公室的人文</h2>
+    <p></p>
+    <hr/>
+    <header>学习之外</header>
+    <h1 id="english-">大脚</h1>
+    <h2>突如其来的意外</h2>
+    <h2>松懈的纪律</h2>
+    <h2>回校整治</h2>
+    <h2>运动会怎么办</h2>
+    <h2></h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-">羽毛球</h1>
+    <h2>生活与羽毛球</h2>
+    <h2>自己的技术</h2>
+    <h2>与羽毛球的羁绊</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-">四十中关系链</h1>
+    <h2>段长</h2>
+    <h2>张佳欣</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-">其他</h1>
+    <h2>快速洗手通道</h2>
+    <h2></h2>
+    <h2></h2>
+    <h2></h2>
+    <p></p>
+    <hr/>
+<div class="page">
+    <button onclick="showPage('MATH')" class="back">上一页-数学</button>
+    <button onclick="showPage('PHYSICS')" class="next">下一页-物理</button>
+</div>
+</main>
+<main id="PHYSICS">
+<header><h1>物理</h1></header>
+    <header>
+        <h1>陈淑霞</h1>
+        <p>八上~</p>
+    </header>
+<div class="page">
+    <button onclick="showPage('ENGLISH')" class="back">上一页-英语</button>
+    <button onclick="showPage('POLITICS')" class="next">下一页-政治</button>
+</div>
+</main>
+<main id="POLITICS">
+<header><h1>政治</h1></header>
+    <header>
+        <h1>政治A</h1>
+        <p>七上</p>
+    </header>
+    <header>
+        <h1>政治B</h1>
+        <p>七下</p>
+    </header>
+    <header>
+        <h1>政治C</h1>
+        <p>八上~</p>
+    </header>
+    <h1 id="politics3-">上课</h1>
+    <h2>装备</h2>
+    <h3>水杯</h3>
+    <h3>小蜜蜂</h3>
+    <h2>课件</h2>
+    <h2>板书</h2>
+    <h2>政治课课练</h2><!--竟然有批改-->
+    <hr/>
+    <h1 id="politics3-">语言</h1>
+        <!--ā &#772;  á&#769;  ǎ&#780;  à&#768;-->
+    <h2>字词的读音</h2>
+    <code>
+        <p><ruby>遵<rt>zu&#772;n</rt>纪<rt>ji&#768;</rt>守<rt>sho&#780;u</rt>法<rt>fa&#772;</rt></ruby>或<ruby>遵<rt>zu&#772;n</rt>纪<rt>ji&#768;</rt>守<rt>sho&#780;u</rt>法<rt>fa&#769;</rt></ruby></p>
+        <p><ruby>选<rt>she&#780;n</rt>举<rt>zhi&#780;</rt>权<rt>che&#780;n</rt></ruby></p>
+        <p><ruby>合<rt>he&#772;</rt>法<rt>fa&#772;</rt>权<rt>qua&#769;n</rt>益<rt>yi&#772;</rt></ruby>或<ruby>合<rt>he&#772;</rt>法<rt>fa&#772;</rt>权<rt>qua&#780;n</rt>益<rt>yi&#768;</rt></ruby></p>
+        <p><ruby>策<rt>ce&#768;</rt>略<rt>luo&#768;</rt></ruby></p>
+        <p><ruby>说<rt>shuo&#772;</rt>法<rt>fa&#772;</rt></ruby></p>
+        <p><ruby>必<rt>bi&#769;</rt>须<rt>xu&#772;</rt>具<rt>ju&#768;</rt>备<rt>be&#768;i</rt></ruby></p>
+        <p><ruby>政<rt>zhe&#768;ng</rt>权<rt>che&#769;ng</rt></ruby></p>
+        <p><ruby>线<rt>xia&#772;n</rt>索<rt>suo&#772;</rt></ruby></p>
+        <p><ruby>乘<rt>che&#780;ng</rt>客<rt>ke&#772;</rt></ruby>或<ruby>乘<rt>che&#780;ng</rt>客<rt>ke&#768;</rt></ruby></p>
+        <p><ruby>行<rt>xi&#769;ng</rt>为<rt>we&#780;i</rt></ruby></p>
+        <p><ruby>参<rt>qia&#772;n</rt>加<rt>jia&#772;</rt></ruby></p>
+        <p><ruby>整<rt>zhe&#780;ng</rt>节<rt>jie&#772;</rt>课<rt>ke&#768;</rt></ruby></p>
+        <p><ruby>围<rt>we&#769;i</rt>绕<rt>ra&#780;o</rt>着<rt>zhe&#772;</rt></ruby></p>
+    </code>
+    <h2>设问句</h2><!--什么？-->
+    <h2>啧</h2>
+    <h2>整纪律</h2><!--哎呀、不说了、好好好-->
+    <h2>嘛</h2>
+    <h2>上课经典话术</h2><!--这里我们强调、对不对、预习复习-->
+    <h2>复读机</h2>
+    <h2></h2>
+    <hr/>
+    <h1 id="politics3-">动作</h1>
+    <h2>敲讲台</h2>
+    <h2>学生的水杯</h2>
+    <hr/>
+<div class="page">
+    <button onclick="showPage('PHYSICS')" class="back">上一页-物理</button>
+    <button onclick="showPage('HISTORY')" class="next">下一页-历史</button>
+</div>
+</main>
+<main id="HISTORY">
+<header><h1>历史</h1></header>
+    <header>
+        <h1>历史A</h1>
+        <p>七年级</p>
+    </header>
+    <h1 id="">上课与电脑</h1>
+    <h2></h2>
+    <hr/>
+    <h1 id="">语言与讲解</h1>
+    <h2></h2>
+    <hr/>
+    <h1 id="">练习与小测</h1>
+    <h2></h2>
+    <hr/>
+    <header>
+        <h1>冯越</h1>
+        <p>八上~</p>
+    </header>
+<div class="page">
+    <button onclick="showPage('POLITICS')" class="back">上一页-政治</button>
+    <button onclick="showPage('GEOGRAPHY')" class="next">下一页-地理</button>
+</div>
+</main>
+<main id="GEOGRAPHY">
+<header><h1>地理</h1></header>
+    <header>
+        <h1>张则斌</h1>
+        <p>七年级</p>
+    </header>
+    <h1 id="">初见</h1>
+    <h2>严肃的氛围</h2>
+    <h2>“重男轻女”</h2>
+    <h2>打手最重的老师</h2>
+    <hr/>
+    <h1 id="">上课流程</h1>
+    <h2>从不备课</h2>
+    <h2>拍照</h2>
+    <h2>专用批注笔</h2>
+    <h2>写字的习惯</h2>
+    <h2>语言</h2>
+    <h2>知识点</h2>
+    <h2>活动题</h2>
+    <h2>书上没有的故事</h2><!--撒哈拉洗澡-->
+    <hr/>
+    <h1 id="">作业与讲评</h1>
+    <h2>地理大组长</h2>
+    <h2>专用表格</h2>
+    <h2>讲评的风格</h2><!--在正确选项下画线-->
+    <h2>成绩分级</h2><!--做素养提升-->
+    <h2>抄知识点</h2>
+    <hr/>
+    <header>
+        <h1>地理B</h1>
+        <p>八上~</p>
+    </header>
+<div class="page">
+    <button onclick="showPage('HISTORY')" class="back">上一页-历史</button>
+    <button onclick="showPage('BIOLOGY')" class="next">下一页-生物</button>
+</div>
+</main>
+<main id="BIOLOGY">
+<header><h1>生物</h1></header>
+    <header>
+        <h1>生物A</h1>
+        <p>七上</p>
+    </header>
+    <h1 id="">课件</h1>
+    <h2>乐乐课堂</h2>
+    <h2>笔记的提供</h2>
+    <hr/>
+    <h1 id="">上课</h1>
+    <h2>绿色软勺</h2>
+    <h2>课课练</h2>
+    <h2>叫人的规律</h2>
+    <hr/>
+    <h1 id="">那些邪修</h1>
+    <h2>五块钱</h2>
+    <h2>巧记“囊”字</h2>
+    <hr/>
+    <h1 id="">匆忙的离别</h1>
+    <h2>预习七下生物</h2>
+    <h2>最后一届</h2>
+    <hr/>
+    <header>
+        <h1>生物B</h1>
+        <p>七下</p>
+    </header>
+    <h1 id="">课件</h1>
+    <h2>课件的风格</h2>
+    <h2>乐乐课堂传承？</h2>
+    <hr/>
+    <h1 id="">上课</h1>
+    <h2>踊跃的提问</h2><!--闭麦-->
+    <h2>精讲人的生殖</h2>
+    <hr/>
+    <h1 id="">课堂之外</h1>
+    <h2>生奇宝贝</h2>
+    <h2>七年级外的重逢</h2>
+    <hr/>
+    <header>
+        <h1>生物C</h1>
+        <p>八上~</p>
+    </header>
+<div class="page">
+    <button onclick="showPage('GEOGRAPHY')" class="back">上一页-地理</button>
+    <button onclick="showPage('OTHERS')" class="next">下一页-其他科目</button>
+</div>
+</main>
+<main id="OTHERS">
+<header><h1>其他科目</h1></header>
+    <hr/>
+    <header>
+        <h1>体育-张榕杰</h1>
+        <p>七上~</p>
+    </header>
+    <h1 id="">课前</h1>
+    <h2>跑步</h2>
+    <h2>热身</h2>
+    <h2>这节课上什么？</h2>
+    <hr/>
+    <h1 id="">跑不完的圈</h1>
+    <h2>一千与八百</h2>
+    <h2>变速跑</h2><!--自己打篮球-->
+    <h2>快下课时的三百</h2>
+    <h2>新型压迫——六百</h2>
+    <hr/>
+    <h1 id="">散养与严抓</h1>
+    <h2>排球</h2>
+    <h2>仰卧起坐</h2>
+    <h2>核心力量</h2>
+    <hr/>
+    <h1 id="">干干脆脆看午托</h1>
+    <h2>不顺眼就抽背</h2>
+    <h2>没带书的整治</h2><!--深蹲-->
+    <h2>直接罚</h2>
+    <h3>起立</h3>
+    <h3>扣分</h3>
+    <hr/>
+    <h1 id="">论自由活动</h1>
+    <h2>自由活动的时间</h2>
+    <h2>羽毛球场</h2>
+    <h2>班级的盛况</h2>
+    <h2>写作业</h2>
+    <hr/>
+    <header>
+        <h1>美术A</h1>
+        <p>七年级</p>
+    </header>
+    <h1 id="">美术班与中考</h1>
+    <h2>中考中的美术</h2>
+    <h2>如果要报班</h2>
+    <hr/>
+    <h1 id="">开始画画</h1>
+    <h2>画前的讲解</h2>
+    <h2>图片的摆放</h2>
+    <h2>学生的操作</h2><!--折纸、过水笔、自习-->
+    <h2>传上来</h2>
+    <h2>等级</h2>
+    <hr/>
+    <h1 id="">整纪律</h1>
+    <h2>下课状态</h2>
+    <h2>那些名言</h2>
+    <h2>调头与转圈</h2>
+    <h2>眼保健操</h2>
+    <hr/>
+    <h1 id="">奇怪的癖好</h1>
+    <h2>铅笔！水笔！</h2>
+    <h2>繁体字</h2>
+    <hr/>
+    <header>
+        <h1>美术B</h1>
+        <p>八上~</p>
+    </header>
+    <h1 id=""></h1>
+    <h2></h2>
+    <hr/>
+    <header>
+        <h1>音乐</h1>
+        <p>七上~</p>
+    </header>
+    <h1 id="">新课</h1>
+    <h2>生活中的音乐</h2>
+    <h2>电影里的音乐</h2>
+    <h3>长安的荔枝</h3>
+    <h3>哪吒2</h3>
+    <h2>五线谱与西洋管弦乐团</h2>
+    <h2></h2>
+    <hr/>
+    <h1 id="">班班有歌声</h1>
+    <h2>选曲的奥秘</h2>
+    <h2>排练</h2>
+    <hr/>
+    <h1 id="">表演节目</h1>
+    <h2>抽人来回答</h2><!--指定下一位-->
+    <h2>属于你的舞台</h2>
+    <hr/>
+    <header>
+        <h1>信息A</h1>
+        <p>七年级</p>
+    </header>
+    <h1 id="">新课</h1>
+    <h2>表格</h2>
+    <h2>C</h2>
+    <h2>制作二维码</h2>
+    <hr/>
+    <header>
+        <h1>信息B</h1>
+        <p>八上~</p>
+    </header>
+    <h1 id="">硬核科普</h1>
+    <h2>第一节——电击小子</h2>
+    <h2>第二节——论社会阶级</h2>
+    <hr/>
+    <h1 id="">位图的奥秘</h1>
+    <hr/>
+    <h1 id="">自己玩</h1>
+    <hr/>
+    <header>
+        <h1>劳技A</h1>
+        <p>七上；七下两周</p>
+    </header>
+    <h1 id="">劳技？物理？历史？</h1>
+    <h2></h2>
+    <hr/>
+    <h1 id="">丰富多彩的实践</h1>
+    <h2>中国十大名花</h2>
+    <h2>包饺子</h2>
+    <h2>雕刻水仙</h2>
+    <hr/>
+    <h1 id="">限时返场</h1>
+    <h2>国防科普</h2>
+    <h2>张叔叔与兵王</h2>
+    <hr/>
+    <header>
+        <h1>劳技B</h1>
+        <p>七下</p>
+    </header>
+    <h1 id="">美食PPT</h1>
+    <h2>与分数的密切联系</h2>
+    <h2>学生展示</h2>
+    <hr/>
+    <h1 id="">航拍中国</h1>
+    <hr/>
+<div class="page">
+    <button onclick="showPage('GEOGRAPHY')" class="back">上一页-地理</button>
+    <button onclick="showPage('')" class="next">下一页-</button>
 </div>
 </main>
         <footer>
