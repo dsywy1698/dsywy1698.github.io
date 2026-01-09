@@ -525,7 +525,7 @@ body[data-n="2"] nav{
         border-radius:99px;
     }
 }
-main{
+main:not(#EVENT){
     padding:60px 10px 10px 10px;
     min-height:100dvh;
     >header{
@@ -540,6 +540,12 @@ main{
         margin:5px 0;
         >p{text-indent:2.3em;}
         >h1{text-align:center;margin:5px auto;}
+        >time{
+            display:inline-block;
+            margin:auto;
+            width:auto;
+            padding:3px 7px;
+        }
     }
     q{
         background:var(--q-bg);
@@ -783,6 +789,14 @@ main{
             display:inline;
             margin:10px;
         }
+    }
+    time{
+        background:color-mix(in oklab,color-mix(in oklab,var(--nav-color) 70%,var(--color) 30%) 50%,transparent 50%);
+        font-size:0.8em;
+        padding:2.5px 5px;
+        margin:0 2.5px;
+        border-radius:99px;
+        color:color-mix(in oklab,var(--nav-color) 30%,var(--color) 70%);
     }
 }
 #EVENT{
