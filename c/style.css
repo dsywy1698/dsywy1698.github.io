@@ -798,6 +798,48 @@ main{
         border-radius:99px;
         color:color-mix(in oklab,var(--nav-color) 30%,var(--color) 70%);
     }
+    .wechat{
+        padding:10px 5px;
+        display:flex;
+        flex-direction:column;
+        .a,.b{
+            position:relative;
+            padding:5px 7.5px;
+            border-radius:10px;
+            color:#000;
+            flex:0 1 auto;
+            min-width:0;
+            max-width:80%;
+            &::before{
+                display:block;
+                position:absolute;
+                color:hsl(0,0,50%);
+                font-size:0.7rem;
+                top:-22px;
+            }
+        }
+        >.a{
+            background:#95ec69aa;
+            align-self:flex-end;
+            margin:30px 10px 10px 30px;
+            &::before{content:var(--a);right:3px;}
+        }
+        >.b{
+            background:#ffffffaa;
+            align-self:flex-start;
+            margin:30px 30px 10px 10px;
+            &::before{content:var(--b);left:3px;}
+        }
+        >small{
+            all:initial;
+            display:block;
+            background:#88888888;
+            font-size:0.8rem;
+            align-self:center;
+            padding:2px 7px;
+            border-radius:6px;
+        }
+    }
 }
 #EVENT{
     >h1{
