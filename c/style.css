@@ -810,12 +810,15 @@ main{
             flex:0 1 auto;
             min-width:0;
             max-width:80%;
+            text-indent:0;
+            font-size:1rem!important;
             &::before{
                 display:block;
                 position:absolute;
-                color:hsl(0,0,50%);
+                color:#777!important;
                 font-size:0.7rem;
                 top:-22px;
+                text-indent:0;
             }
         }
         >.a{
