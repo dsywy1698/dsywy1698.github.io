@@ -347,7 +347,7 @@ nav{
         height:0;
         opacity:0;
         transition:0.3s;
-        background:linear-gradient(#fff3,transparent);
+        background:linear-gradient(#fff2,transparent);
         pointer-events:none;
         padding:7.5px;
         border-radius:15px;
@@ -377,7 +377,7 @@ nav{
                 background:transparent;
                 margin:2.5px 0;
                 color:inherit;
-                &:hover{background:#fff5;}
+                &:hover{background:#fff1;}
             }
         }
         >button{
@@ -389,8 +389,7 @@ nav{
             border-radius:99px;
             margin-top:5px;
             background:transparent;
-            transition:0.3s;
-            &:hover{background:#fff2;}
+            &:hover{background:#fff1;}
         }
     }
 }
@@ -447,7 +446,7 @@ body[data-n="2"] nav{
             transition:opacity 0.3s;
             background:color-mix(in oklab,var(--dialog-input) 80%,transparent 20%);
             margin:0 2.5px;
-            opacity:0.4;
+            opacity:0.3;
             &::before{
                 content:var(--rc);
                 font-size:18px;
@@ -532,6 +531,7 @@ main{
         font-size:2rem;
         text-align:center;
         padding:20px 0 50px 0;
+        /*添加个性化header*/
     }
     article{
         background:var(--article);
