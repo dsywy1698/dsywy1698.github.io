@@ -3,6 +3,10 @@
     src:url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'),url('fa.woff2') format('woff2');
     font-display:swap;
 }
+@font-face{
+    font-family:'font';
+    src:url('font.ttf') format('truetype');
+}
 :root{color-scheme:light dark;}
 *{
     box-sizing:border-box;
@@ -11,6 +15,7 @@
     -ms-overflow-style:none!important;
     scrollbar-width:none!important;
     color:inherit;
+    font-family:'font',sans-serif;
 }
 html{
     font-size:100%;
