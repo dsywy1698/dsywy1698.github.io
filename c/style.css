@@ -15,6 +15,7 @@
     -ms-overflow-style:none!important;
     scrollbar-width:none!important;
     color:inherit;
+    font-family:'font','微软雅黑',sans-serif;
 }
 html{
     font-size:100%;
@@ -199,8 +200,6 @@ body[data-f="1"] *[data-tf="3"]{display:none;}
 body[data-f="2"] *[data-tf="3"]{display:none;}
 body[data-f="2"] *[data-tf="2"]{display:none;}
 body[data-f="3"] *[data-tf]{display:none;}
-body[data-c="n"]{font-family:'微软雅黑',sans-serif;}
-body[data-c="r"]{font-family:'font',sans-serif;}
 #password{
     &::backdrop{background:light-dark(#0008,#fff8);backdrop-filter:blur(20px);}
     border-radius:20px;
@@ -422,6 +421,7 @@ body[data-n="2"] nav{
     background:color-mix(in oklab,var(--dialog-bg) 50%,transparent 50%);
     backdrop-filter:blur(3px);
     user-select:none;
+    color:color-mix(in oklab,var(--dialog-bg) 10%,var(--color) 90%);
     &::backdrop{background:#0006;backdrop-filter:blur(2px);}
     >div:first-child{
         font-weight:bold;
@@ -449,7 +449,7 @@ body[data-n="2"] nav{
             appearance:none;
             height:30px;
             min-width:30px;
-            border-radius:10px;
+            border-radius:13px;
             position:relative;
             transition:0.3s;
             opacity:0.3;
@@ -459,7 +459,7 @@ body[data-n="2"] nav{
                 width:30px;
                 height:30px;
                 line-height:30px;
-                margin:0 6px;
+                margin:0 8px;
                 color:color-mix(in oklab,var(--dialog-bg) 20%,var(--color) 80%);
             }
             &:checked{
