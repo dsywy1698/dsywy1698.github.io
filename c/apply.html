@@ -247,41 +247,7 @@
         </div>
     </nav>
     <div id="main">
-        <dialog id="sD">
-            <div>设置<span onclick="document.getElementById('sD').close()" style="float:right;cursor:pointer;">×</span></div>
-            <div>
-                <span>主题</span>
-                <input type="radio" name="t" onclick="chT('l')" style="--rc:'浅'">
-                <input type="radio" name="t" onclick="chT('d')" style="--rc:'深'">
-                <input type="radio" name="t" onclick="chT('b')" style="--rc:'蓝'">
-                <input type="radio" name="t" onclick="chT('n')" style="--rc:'夜'">
-            </div>
-            <div>
-                <span>字重</span>
-                <input type="radio" name="w" onclick="chW('n')" style="--rc:'中'" checked>
-                <input type="radio" name="w" onclick="chW('l')" style="--rc:'细'">
-            </div>
-            <div>
-                <span>导航栏</span>
-                <input type="radio" name="n" onclick="chN('1')" style="--rc:'经典'">
-                <input type="radio" name="n" onclick="chN('2')" style="--rc:'胶囊'" checked>
-            </div>
-            <div>
-                <span>内容过滤</span>
-                <input type="radio" name="f" onclick="chF('0')" style="--rc:'无'">
-                <input type="radio" name="f" onclick="chF('1')" style="--rc:'一'">
-                <input type="radio" name="f" onclick="chF('2')" style="--rc:'二'">
-                <input type="radio" name="f" onclick="chF('3')" style="--rc:'三'" checked>
-            </div>
-            <div>
-                <span>背景图片</span>
-                <button onclick="ubg()">清除</button>
-                <button onclick="cbg()">上传</button>
-                <div><span>透明度</span><input type="range" max="100" min="0" step="10" id="r1"/></div>
-                <div><span>虚化</span><input type="range" max="30" min="0" step="3" id="r2"/></div>
-            </div>
-            <button onclick="localStorage.clear();ubg();location.reload(true);">重置<small style="color:#f99;">（将清除密码和个性化设置）</small></button>
-        </dialog>
+        <dialog id="sD"><div>设置<button onclick="localStorage.clear();ubg();location.reload(true);">重置</button><span onclick="document.getElementById('sD').close()"style="float:right;cursor:pointer;">×</span></div><div><span>主题</span><input type="radio"name="t"onclick="chT('l')"style="--rc:'浅'"><input type="radio"name="t"onclick="chT('d')"style="--rc:'深'"><input type="radio"name="t"onclick="chT('b')"style="--rc:'蓝'"><input type="radio"name="t"onclick="chT('n')"style="--rc:'夜'"></div><div><span>字重</span><input type="radio"name="w"onclick="chW('n')"style="--rc:'中'"checked><input type="radio"name="w"onclick="chW('l')"style="--rc:'细'"></div><div><span>字体</span><input type="radio"name="c"onclick="chC('n')"style="--rc:'常规'"><input type="radio"name="c"onclick="chC('r')"style="--rc:'圆润'"checked></div><div><span>导航栏</span><input type="radio"name="n"onclick="chN('1')"style="--rc:'经典'"><input type="radio"name="n"onclick="chN('2')"style="--rc:'胶囊'"checked></div><div><span>内容过滤</span><input type="radio"name="f"onclick="chF('0')"style="--rc:'无'"><input type="radio"name="f"onclick="chF('1')"style="--rc:'一'"><input type="radio"name="f"onclick="chF('2')"style="--rc:'二'"><input type="radio"name="f"onclick="chF('3')"style="--rc:'三'"checked></div><div><span>背景图片</span><button onclick="ubg()">清除</button><button onclick="cbg()">上传</button><div><span>透明度</span><input type="range"max="100"min="0"step="10"id="r1"/></div><div><span>虚化</span><input type="range"max="30"min="0"step="3"id="r2"/></div></div></dialog>
 <main id="HOME">
 <header><h1>首页</h1></header>
 <hr/>

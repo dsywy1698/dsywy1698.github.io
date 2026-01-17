@@ -15,7 +15,6 @@
     -ms-overflow-style:none!important;
     scrollbar-width:none!important;
     color:inherit;
-    font-family:'font',"微软雅黑",sans-serif;
 }
 html{
     font-size:100%;
@@ -200,6 +199,8 @@ body[data-f="1"] *[data-tf="3"]{display:none;}
 body[data-f="2"] *[data-tf="3"]{display:none;}
 body[data-f="2"] *[data-tf="2"]{display:none;}
 body[data-f="3"] *[data-tf]{display:none;}
+body[data-c="n"]{font-family:'微软雅黑',sans-serif;}
+body[data-c="r"]{font-family:'font',sans-serif;}
 #password{
     &::backdrop{background:light-dark(#0008,#fff8);backdrop-filter:blur(20px);}
     border-radius:20px;
@@ -410,7 +411,7 @@ body[data-n="2"] nav{
     &::before{border-radius:20px;}
 }
 #sD{
-    width:clamp(400px,60dvw,300px);
+    width:300px;
     border-radius:20px;
     padding:10px;
     border:none;
@@ -426,13 +427,16 @@ body[data-n="2"] nav{
         font-weight:bold;
         font-size:1.25rem;
         padding:5px 10px 20px 10px;
+        >button{
+            background:transparent;
+            color:color-mix(in oklab,red,var(--color));
+            padding:5px 9px;
+        }
     }
     >div:not(:first-child){
-        background:color-mix(in oklab,var(--dialog-bg) 30%,transparent 50%);
         border-radius:20px;
         height:40px;
         padding:5px;
-        margin:5px 0;
         text-align:right;
         clear:both;
         content:"";
@@ -445,11 +449,9 @@ body[data-n="2"] nav{
             appearance:none;
             height:30px;
             min-width:30px;
-            border-radius:15px;
+            border-radius:10px;
             position:relative;
-            transition:opacity 0.3s;
-            background:color-mix(in oklab,var(--dialog-input) 80%,transparent 20%);
-            margin:0 2.5px;
+            transition:0.3s;
             opacity:0.3;
             &::before{
                 content:var(--rc);
@@ -460,11 +462,15 @@ body[data-n="2"] nav{
                 margin:0 6px;
                 color:color-mix(in oklab,var(--dialog-bg) 20%,var(--color) 80%);
             }
-            &:checked{opacity:1;}
+            &:checked{
+                opacity:1;
+                margin:0 2.5px;
+                background:color-mix(in oklab,var(--dialog-input) 30%,transparent 70%);
+            }
         }
         >button{
             height:30px;
-            background:color-mix(in oklab,var(--dialog-input) 50%,transparent 50%);
+            background:color-mix(in oklab,var(--dialog-input) 10%,transparent 90%);
             color:color-mix(in oklab,var(--dialog-input) 10%,var(--color) 90%);;
             border-radius:15px;
             padding:0 10px;
@@ -474,10 +480,9 @@ body[data-n="2"] nav{
         }
         >div{
             width:100%;
-            height:35px;
-            padding:2.5px;
+            height:30px;
             margin-top:5px;
-            >span{line-height:30px;margin-left:10px;float:left;}
+            >span{line-height:30px;margin-left:15px;float:left;}
             >input{
                 -webkit-appearance:none;
                 -moz-appearance:none;
@@ -489,7 +494,7 @@ body[data-n="2"] nav{
                 outline:none;
                 opacity:0.7;
                 transition:opacity 0.2s;
-                margin:5px 7.5px 5px 0;
+                margin:5px;
                 &:hover{opacity:1;}
                 &::-webkit-slider-track{
                     height:10px;
@@ -517,15 +522,6 @@ body[data-n="2"] nav{
                 }
             }
         }
-    }
-    >button{
-        background:#b8141488;
-        color:#fff;
-        width:100%;
-        font-size:1.1125rem;
-        padding:5px;
-        text-align:center;
-        border-radius:99px;
     }
 }
 main{
@@ -871,7 +867,7 @@ main{
         background:#9df5;
         >time{
             all:initial;
-            font-family:"font",sans-serif;
+            font-family:unset;
             position:relative;
             top:-15px;
             left:-3px;
