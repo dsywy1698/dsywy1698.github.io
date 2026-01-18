@@ -7,7 +7,10 @@
     font-family:'font';
     src:url('font.ttf') format('truetype');
 }
-:root{color-scheme:light dark;}
+:root{
+    color-scheme:light dark;
+    --header:color-mix(in oklab,var(--writing) 70%,var(--blockquote) 30%);
+}
 *{
     box-sizing:border-box;
     margin:0;
@@ -123,8 +126,7 @@ body[data-t="l"]{
     --nav-color:#507c95;
     --hr:#af9c6a;
     --link:#0a0ac2;
-    --dialog-bg:#dddad5;
-    --dialog-input:#bcae8f;
+    --dialog:#bcae8f;
     --article:#7979d288;
     --q-bg:#d1c29488;
     --q-icon:#6b7d3688;
@@ -143,8 +145,7 @@ body[data-t="d"]{
     --nav-color:#b3bccc;
     --hr:#e6d299;
     --link:#8ca6f2;
-    --dialog-bg:#38352e;
-    --dialog-input:#6b6247;
+    --dialog:#6b6247;
     --article:#36636388;
     --q-bg:#6b4d2e88;
     --q-icon:#a2842a88;
@@ -163,8 +164,7 @@ body[data-t="b"]{
     --nav-color:#3366cc;
     --hr:#ccffff;
     --link:#fafa9e;
-    --dialog-bg:#99ccff;
-    --dialog-input:#198cb3;
+    --dialog:#198cb3;
     --article:#66c2ff88;
     --q-bg:#ffb3ff88;
     --q-icon:#ff339988;
@@ -183,8 +183,7 @@ body[data-t="n"]{
     --nav-color:#ffffcc;
     --hr:#ad88f6;
     --link:#ffff99;
-    --dialog-bg:#000066;
-    --dialog-input:#5b2aef;
+    --dialog:#5b2aef;
     --article:#80339988;
     --q-bg:#66841588;
     --q-icon:#a3cb3488;
@@ -238,7 +237,7 @@ body[data-f="3"] *[data-tf]{display:none;}
     }
 }
 #loader{
-    background:color-mix(in oklab,var(--dialog-bg) 60%,var(--background) 40%);
+    background:color-mix(in oklab,var(--dialog) 20%,var(--background) 80%);
     width:100dvw;
     height:100dvh;
     z-index:2;
@@ -308,8 +307,9 @@ nav{
                 height:30px;
                 border-radius:50%;
                 background:transparent;
-                transition:background 0.3s;
-                &:hover{background:#73838c88;}
+                transition:0.3s;
+                opacity:0.8;
+                &:hover{opacity:1;}
                 &::before{color:var(--nav-color);font-size:20px;}
             }
             #logo{
@@ -418,10 +418,10 @@ body[data-n="2"] nav{
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    background:color-mix(in oklab,var(--dialog-bg) 50%,transparent 50%);
+    background:color-mix(in oklab,var(--dialog) 30%,transparent 70%);
     backdrop-filter:blur(3px);
     user-select:none;
-    color:color-mix(in oklab,var(--dialog-bg) 10%,var(--color) 90%);
+    color:color-mix(in oklab,var(--dialog) 10%,var(--color) 90%);
     &::backdrop{background:#0006;backdrop-filter:blur(2px);}
     >div:first-child{
         font-weight:bold;
@@ -460,18 +460,18 @@ body[data-n="2"] nav{
                 height:30px;
                 line-height:30px;
                 margin:0 8px;
-                color:color-mix(in oklab,var(--dialog-bg) 20%,var(--color) 80%);
+                color:color-mix(in oklab,var(--dialog) 20%,var(--color) 80%);
             }
             &:checked{
                 opacity:1;
                 margin:0 2.5px;
-                background:color-mix(in oklab,var(--dialog-input) 30%,transparent 70%);
+                background:color-mix(in oklab,var(--dialog) 30%,transparent 70%);
             }
         }
         >button{
             height:30px;
-            background:color-mix(in oklab,var(--dialog-input) 10%,transparent 90%);
-            color:color-mix(in oklab,var(--dialog-input) 10%,var(--color) 90%);;
+            background:color-mix(in oklab,var(--dialog) 10%,transparent 90%);
+            color:color-mix(in oklab,var(--dialog) 10%,var(--color) 90%);;
             border-radius:15px;
             padding:0 10px;
             line-height:30px;
@@ -490,7 +490,7 @@ body[data-n="2"] nav{
                 width:100px;
                 height:20px;
                 border-radius:10px;
-                background:color-mix(in oklab,var(--dialog-input) 70%,transparent 30%);
+                background:color-mix(in oklab,var(--dialog) 70%,transparent 30%);
                 outline:none;
                 opacity:0.7;
                 transition:opacity 0.2s;
@@ -505,7 +505,7 @@ body[data-n="2"] nav{
                     appearance:none;
                     width:20px;
                     height:20px;
-                    background:color-mix(in oklab,var(--dialog-input) 60%,var(--color) 40%);
+                    background:color-mix(in oklab,var(--dialog) 60%,var(--color) 40%);
                     border-radius:50%;
                     cursor:pointer;
                 }
@@ -516,7 +516,7 @@ body[data-n="2"] nav{
                 &::-moz-range-thumb{
                     width:20px;
                     height:20px;
-                    background:color-mix(in oklab,var(--dialog-input) 60%,var(--color) 40%);
+                    background:color-mix(in oklab,var(--dialog) 60%,var(--color) 40%);
                     border-radius:50%;
                     cursor:pointer;
                 }
@@ -561,6 +561,7 @@ main{
                 width:1px;
             }
         }
+        /*添加外号、目录、名言模块*/
     }
     article{
         background:var(--article);
@@ -734,9 +735,9 @@ main{
     }
     var{
         all:unset;
-        background:color-mix(in oklab,var(--dialog-input) 50%,var(--color) 50%);
+        background:color-mix(in oklab,var(--dialog) 50%,var(--color) 50%);
         font-weight:normal;
-        color:var(--dialog-input);
+        color:var(--dialog);
         padding:1.5px 2.5px;
         border-radius:5px;
         margin:0 2.5px;
@@ -774,7 +775,7 @@ main{
         .next,.back{
             display:block;
             border:none;
-            color:color-mix(in oklab,var(--color) 80%,var(--dialog-bg) 20%);
+            color:color-mix(in oklab,var(--color) 80%,var(--dialog) 20%);
             padding:10px 25px;
             font-size:1.125rem;
             border-radius:20px;
@@ -782,7 +783,7 @@ main{
             margin:10px;
         }
         .next{
-            background:linear-gradient(to right,color-mix(in oklab,var(--dialog-input) 40%,transparent 60%),color-mix(in oklab,var(--dialog-input) 10%,transparent 90%));
+            background:linear-gradient(to right,color-mix(in oklab,var(--dialog) 40%,transparent 60%),color-mix(in oklab,var(--dialog) 10%,transparent 90%));
             text-align:left;
             &::after{
                 font-family:"icons";
@@ -793,7 +794,7 @@ main{
             }
         }
         .back{
-            background:linear-gradient(to left,color-mix(in oklab,var(--dialog-input) 40%,transparent 60%),color-mix(in oklab,var(--dialog-input) 10%,transparent 90%));
+            background:linear-gradient(to left,color-mix(in oklab,var(--dialog) 40%,transparent 60%),color-mix(in oklab,var(--dialog) 10%,transparent 90%));
             text-align:right;
             &::before{
                 font-family:"icons";
@@ -802,21 +803,6 @@ main{
                 opacity:0.6;
                 float:left;
             }
-        }
-    }
-    >header:not(:first-child){
-        background:linear-gradient(to bottom,color-mix(in oklab,color-mix(in oklab,var(--writing) 70%,var(--blockquote) 30%) 60%,transparent 40%) 0%,color-mix(in oklab,color-mix(in oklab,var(--writing) 70%,var(--blockquote) 30%) 55%,transparent 45%) 80%,transparent 100%);
-        border-radius:20px 20px 0 0;
-        padding:40px 20px;
-        >h1{font-size:3rem;}
-        >h1~p{
-            font-size:0.875rem;
-            background:color-mix(in oklab,color-mix(in oklab,var(--writing) 70%,var(--q-icon) 30%) 50%,transparent 50%);
-            color:color-mix(in oklab,color-mix(in oklab,var(--writing) 70%,var(--q-icon) 30%) 50%,var(--color) 50%);
-            border-radius:99px;
-            padding:5px 7px;
-            display:inline;
-            margin:10px;
         }
     }
     time{

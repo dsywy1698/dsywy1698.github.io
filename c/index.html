@@ -21,7 +21,19 @@
 </dialog>
 <div id="loader">
     <div><p>文本1</p><button onclick="smoothFadeOut()">跳过</button></div>
-    <script>const texts=["文本1","文本2"];let currentIndex=0;const carouselText=document.querySelector('#loader>div>p');carouselText.textContent=texts[currentIndex];function rotateText(){currentIndex=(currentIndex+1)%texts.length;carouselText.style.opacity='0';setTimeout(()=>{carouselText.textContent=texts[currentIndex];carouselText.style.opacity='1';},200);}setInterval(rotateText,1000);</script>
+    <script>
+        const texts=["文本1","文本2"];
+        let ci=0;
+        const ct=document.querySelector('#loader>div>p');
+        ct.textContent=texts[ci];
+        function rotateText(){
+            ci=(ci+1)%texts.length;
+            ct.style.opacity='0';
+            setTimeout(()=>{ct.textContent=texts[ci];
+                            ct.style.opacity='1';},200);
+        }
+        setInterval(rotateText,1000);
+    </script>
 </div>
 <div id="bigger">窗口过大</div>
 <div id="smaller">窗口过小</div>
@@ -148,7 +160,7 @@
         <p class="b">文本文本文本文本</p>
         <p class="a">文本文本文本文本</p>
     </div>
-    <div class="note">
+    <div class="notes">
         <p>文本文本文本文本</p>   
     </div>
     <div class="page">
@@ -188,6 +200,7 @@ function showPage(e){
     if (t){t.style.display="block";}
     e=="EVENT"?s.style.display="inline-block":s.style.display="none";
     document.getElementById(e+"-l").style.display="block";
+    window.scrollTo(0,0);
 }
 //关闭菜单
 document.addEventListener("click", function(t){
