@@ -858,6 +858,39 @@ main{
             border-radius:6px;
         }
     }
+    .moments{
+        >p{text-indent:0;font-size:1rem;}
+        >strong{
+            font-weight:bold;
+            color:#576b95;
+            display:block;
+        }
+        >hr{background:#dedede99;width:100%;}
+        >div{
+            background:#f7f7f799;
+            border-radius:7px;
+            margin:5px;
+            >div{
+                >span{
+                    color:#576b95;
+                    &:last-child{&::after{content:"：";}}
+                }
+                color:#000;
+                padding:5px;
+                border-bottom:1px solid #dedede99;
+            }
+            >div:first-child{
+                color:#576b95;
+                &::before{
+                    content:"\f08a";
+                    font-family:"icons";
+                    padding-right:10px;
+                }
+            }
+            &:empty{visibility:hidden;&::before{visibility:hidden;}}
+            >div:last-child{border:none;}
+        }
+    }
 }
 #EVENT{
     >h1{
