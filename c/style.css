@@ -901,7 +901,7 @@ main{
         padding:10px;
         color:#fff;
     }
-    >h1[id="event-not"]+div>p>span{
+    >h1[id="event-not"]+div span{
         background:#f968;
         padding:0 5px;
         border-radius:5px;
