@@ -282,6 +282,7 @@ nav{
     user-select:none;
     transition:height 0.3s;
     overflow:hidden;
+    box-shadow:0 3px 15px color-mix(in oklab,var(--nav-bg),transparent);
     &::before{
         content:'';
         position:absolute;
@@ -561,6 +562,14 @@ main{
                 width:1px;
             }
         }
+        dl.contents{
+            >dd{
+
+            }
+            >dt{
+                
+            }
+        }
         /*添加外号、目录、名言模块*/
     }
     article{
@@ -568,6 +577,7 @@ main{
         padding:12.5px;
         border-radius:15px;
         margin:5px 0;
+        box-shadow:0 3px 10px color-mix(in oklab,var(--article),transparent);
         >p{text-indent:2.3em;}
         >h1{text-align:center;margin:5px auto;}
         >time{
