@@ -1,0 +1,19 @@
+body[data-t="s"]{
+    >#main{background:rgba(241,243,244,var(--opacity,100%));}
+    --background:#f1f3f4!important;
+    --color:red!important;
+    --section:#32676788;
+    --nav-bg:green;
+    --nav-color:#507c95;
+    --hr:#af9c6a;
+    --link:#0a0ac2;
+    --dialog:#bcae8f;
+    --article:#7979d288;
+    --q-bg:#d1c29488;
+    --q-icon:#6b7d3688;
+    --blockquote:#bc8fa1;
+    --gallery:#339999;
+    --writing:#abc256;
+    --timeline:#b2bfc3;
+    --table:#d8d8a6;
+}
