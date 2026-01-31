@@ -341,7 +341,6 @@ body[data-n="2"] nav{
     left:7px;
     width:calc(100dvw - 14px);
     border-radius:20px;
-    &::before{border-radius:20px;}
 }
 #sD{
     width:300px;
