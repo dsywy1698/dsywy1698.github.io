@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>标题</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="robots" content="noindex,nofollow"/>
+    <meta name="referrer" content="no-referrer"/>
+    <meta name="theme-color" id="th" content="#c2d0d6">
+    <link rel="stylesheet" href="fa.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="icon" href="9.png"/>
+    <link rel="stylesheet" href="style.css"/>
+    <style></style>
+</head>
+<body data-t="l" data-w="n" data-c="r" data-n="2" data-f="3">
+<dialog id="password">
+    <h1>输入密码</h1>
+    <div><input type="password"/><button onclick="ep()">OK</button></div>
+    <p><strong>提示：</strong>提示文本</p>
+</dialog>
+<div id="loader">
+    <div><p>文本1</p><button onclick="smoothFadeOut()">跳过</button></div>
+    <script>
+        const texts=["文本1","文本2"];
+        let ci=0;
+        const ct=document.querySelector('#loader>div>p');
+        ct.textContent=texts[ci];
+        function rotateText(){
+            ci=(ci+1)%texts.length;
+            ct.style.opacity='0';
+            setTimeout(()=>{ct.textContent=texts[ci];
+                            ct.style.opacity='1';},200);
+        }
+        setInterval(rotateText,1000);
+    </script>
+</div>
+<div id="bigger">窗口过大</div>
+<div id="smaller">窗口过小</div>
+<nav>
+    <div>
+        <div>
+            <button onclick="document.querySelector('nav>div:nth-of-type(2)').classList.toggle('active')" class="fa fa-navicon"></button>
+            <button onclick="window.scrollTo(0,0)" class="fa fa-chevron-up"></button>
+            <button onclick="showPage('HOME')" id="logo"></button>
+            <button onclick="window.scrollTo(0,document.documentElement.scrollHeight)" class="fa fa-chevron-down"></button>
+            <button onclick="document.getElementById('sD').showModal()" class="fa fa-gear"></button>
+        </div>
+        <div><input type="text" placeholder="搜索关键词" oninput="search()"/></div>
+    </div>
+    <div>
+        <div id="LITERATURE-l">
+                <a href="#literature-journal">语文周记</a>
+                <a href="#literature-composition">语文作文</a>
+                <a href="#literature-wechat">聊天记录与朋友圈</a>
+                <a href="#literature-writing">小作文</a>
+                <a href="#literature-teachers">老师写的</a>
+                <a href="#literature-contribution">稿件</a>
+            </div>
+        <button onclick="showPage('LITERATURE')">9班文学</button>
+        <button onclick="showPage('SCHOOL')">四十中</button>
+        <button onclick="showPage('CLASS')">九班</button><!--
+        <button onclick="showPage('HUMANITY')">人文</button>
+        <button onclick="showPage('G-EVENT')">大事件</button>
+        <button onclick="showPage('WORDS')">关键词</button>-->
+    </div>
+</nav>
+<div id="main">
+    <dialog id="sD">
+        <div>设置
+            <button onclick="localStorage.clear();ubg();location.reload(true);">重置</button>
+            <span onclick="document.getElementById('sD').close()" style="float:right;cursor:pointer;">×</span>
+        </div>
+        <div><span>主题</span>
+             <input type="radio" name="t" onclick="chT('l')" style="--rc:'浅'">
+             <input type="radio" name="t" onclick="chT('d')" style="--rc:'深'">
+             <input type="radio" name="t" onclick="chT('b')" style="--rc:'蓝'">
+             <input type="radio" name="t" onclick="chT('n')" style="--rc:'夜'"></div>
+        <div><span>字重</span>
+             <input type="radio" name="w" onclick="chW('n')" style="--rc:'中'" checked>
+             <input type="radio" name="w" onclick="chW('l')" style="--rc:'细'"></div>
+        <div><span>导航栏</span>
+             <input type="radio" name="n" onclick="chN('1')" style="--rc:'经典'">
+             <input type="radio" name="n" onclick="chN('2')" style="--rc:'胶囊'" checked></div>
+        <div><span>内容过滤</span>
+             <input type="radio" name="f" onclick="chF('0')" style="--rc:'无'">
+             <input type="radio" name="f" onclick="chF('1')" style="--rc:'一'">
+             <input type="radio" name="f" onclick="chF('2')" style="--rc:'二'">
+             <input type="radio" name="f" onclick="chF('3')" style="--rc:'三'" checked></div>
+        <div><span>背景图片</span>
+             <button onclick="ubg()">清除</button>
+             <button onclick="cbg()">上传</button>
+             <div><span>透明度</span><input type="range" max="100" min="0" step="10" id="r1"/></div>
+             <div><span>虚化</span><input type="range" max="30" min="0" step="3" id="r2"/></div></div>
+    </dialog>
+<main id="HOME">
+<header><h1>首页</h1></header>
+    <hr/>
+    <p>页面开发中，敬请期待。</p>
+</main>
+<main id="LITERATURE">
+<header style="--header:#b86614">
+    <h1>9班文学</h1>
+</header>
+<h1 id="literature-journal">语文周记</h1>
+<div class="writing">
+    <h1>周记</h1>
+    <p>廖成羲</p>
+    <p>一周过去了，象征着又是七天过去了。时间似手里的沙，一点点地流去。</p>
+    <p>这周十分的特别，特别之处在于它竟然没有什么特别的事。我现在终于知道了，原来我刚才什么也不知道。我们都应该互相恭喜一下，恭喜我们刚才被对方恭喜到了。</p>
+    <p>我终于想起来了，想起来我其实什么都不记得了，一场狂风刮走了我的记忆，但我也不记得那场狂风是什么了。</p>
+    <p>阳光明媚的晴天下着雨，淹死了很多鱼。我悲伤地开怀大笑，惊跑了一群刚死的鸟。</p>
+</div>
+<div class="writing">
+    <h1>周记2</h1>
+    <p>廖成羲</p>
+    <p>抬头的一片天，是一片天；脚下的一寸土，是一寸土。眼前的教室，是一个教育学生的地方。其实，我说白了，我白说了。</p>
+    <p>就告诉你吧，我刚才说了一句话：就告诉你吧，我刚才说了一句话。雨下整夜，整个夜晚都在下雨。浑浊的雨水里，我看不清，鱼都淹死了。</p>
+    <p>告诉你一个好消息，就是没有坏消息；告诉你个坏消息，明天是世界末日；再告诉你个好消息，刚才的消息是假的。</p>
+    <p>在能看到三个月亮的地方，大象的背上插着一把剑。大象发出了求救，但我被大象压住了，听不见。</p>
+</div>
+<div class="writing">
+    <h1>周记</h1>
+    <p>徐嘉明</p>
+    <p>岁月就像一把大砍刀，把我们的生活砍成了无数段，但每一段都值得珍惜。这一周也是一个好段，让我来描述一下。</p>
+    <p>在这一周发生了一件重大的事情，这件事为何重大呢，因为它重大到我都觉得它很重大。这件事的内容是我小学的“好兄弟”居然不跟我联系了。兄弟就像春天还未融化的积雪，你朝他尿尿，它立刻就消失了。我用尽一切方法想找到他，可依旧没有成功。我渐渐想要放弃了，老师<wrong-character>交</wrong-character>过我们遇到困难不能轻易放弃。所以我更加努力的寻找方法了。</p>
+    <p>在最后我终于联系到了他，这中间是个什么过程呢？听我来说。在漫长寻找的里程中，我又想到了老师的话，成功之路也许就在一些不容易发现的地方，于是我找了各种地方，终于发现，原来我忘记充话费了，一切都是一个误会。</p>
+</div>
+<h1 id="literature-composition">语文作文</h1>
+<div class="writing">
+    <h1>十年后的我</h1>
+    <p>郑炜</p>
+    <p>“咦？这是谁？给我让开。”我猛抬起头，看到了一个身材高大的，身穿黑西服的老板——是十年后的我，全国500强的著名企业家。
+    <p>我愣住了，说：“您是……”十年后的我说：“别怕小朋友，我并不是坏人，我就十年后的你。”“那你能带我去现在的城市吗？”他说：“行，我背你。”过了一会儿，我们就坐上了去城市的豪车。</p>
+    <p>不一会儿，我们到了超市，我一进去就感到了一股温暖，看到货架上的零食都是我没见过的，真想拿一个来尝尝鲜，就拿了一个烤肠，躲在了货架旁尽情品尝，不一会儿，还没有吃，监控就朝向了我，我又去监控室里发现监控都开起了热成像，简直是隔空侦察啊！我又拿了一瓶矿泉水说：“这是啥，长得像矿泉水似的。”他却说：“这虽然是矿泉水，但它可不是一般的矿泉水，只要喝一口你的嘴24小时全是香气，并且吃了味道重的也不影响，我听完，立马掏钱，但他说：“哎呦！现在都不用实币了，现在都用电子钱啦！你只要有一个蜜蜂大小的电子钱包，在其它地方，然后有专门付钱的指纹感应器，轻触就支付完成了。”</p>
+    <p>过了一会儿，又开往了公园，发现了公园里有个不可思议的垃圾桶，为什么上面有一层绿绿的东西。他听到我对垃圾桶有疑问，便说：“这是酼酸垃圾桶，别看它长得像普通的垃圾桶，上面是酼酸层，用来腐蚀垃圾，下面是二氧化碳，专门把垃圾中的无机物转化为二氧化碳，提供了很好的资源。</p>
+    <p>等我知道时，我出现在了床上，才发现是一场梦。</p>
+</div>
+<div class="writing">
+    <h1>晒晒我们班的牛人</h1>
+    <p>郑致辰</p>
+    <p>自从踏入九班的那一刻起，班级中各个人的优点与本领都渐渐显露出来，我们不妨将其称为“牛人”。今天，我要介绍一位真正的大牛人，他姓洪，名鑫洋。</p>
+    <p>洪鑫洋是一位语文课代表，他每天早上都早早到校，以惊人的速度收好了作业，整个过程只需三分钟。有时老师还没到校，他就将五十本作业整整齐齐地摆放在老师的办公桌上，不留一丝马虎。而他作为一个语文课代表，语文成绩也是遥遥领先。</p>
+    <p>或许你们会说：“这有什么牛的呀，很多人也可以做到这样呀，也就那样。”那么好，我就来讲讲他真正牛的地方，也就是他的梦想——当一位机长。</p>
+    <p>正是它那健壮的身材与强壮的臂膀才让他有了这个想法。他看完电影《中国机长》后，更加坚定了这个梦想，也从内心发出了对机长这一行业的赞美。心动不如行动，他在网上搜索了很多关于飞机与机长的资料与视频，花了大量的时间，听说他有时直到深夜还在了解这些知识，他家有不可记数的飞机模型。有一次，几位同学围住他，希望他能科普一些飞行知识，这可问对了人，只见他挺直了身子，使圆滚肚子的轮廓呈露了出来：</p>
+    <p>“飞机的知识其实很简单，对于目前战斗机类型，P91号战斗机是我最喜欢的，它的最高飞行高度为7800米，最快速度达到了1300千米每小时，可同时装下13发空际导弹……”</p>
+    <p>同学们听着他的话，不由瞪大了双眼，张大了嘴，他对这方面的知识已经了如指掌，一位同学不禁向他竖起了大拇指，鑫洋开心地绽放出了微笑，他的身影衬托着夕阳的余晖，我仿佛看到未来的他，成为了一位顶天立地的机长……</p>
+    <p>这位可爱可亲的少年，正朝着自己的目标不断前进，他的牛不仅仅体现在他到飞机的着迷与了解，他的负责与努力，更体现在他为梦想不断拼搏的精神与毅力，他是九班的传奇，是真正的牛人！</p>
+</div>
+<div class="writing" time="2026-01-22">
+    <h1>你的馈赠，点燃了我</h1>
+    <p>洪鑫洋</p>
+    <p>十几岁的年纪，对世界还有些懵懂，但也有不少成熟于小时候的地方。开始知道什么是知识什么是金钱什么是感情。</p>
+    <p>遇见你时，盛夏蝉鸣正盛，阳光透过教室的窗户，落在你低头做题的身影上，笔尖在纸上沙沙作响，连发丝都包裹着温柔的光晕，那一刻，心跳忽的乱了节奏。</p>
+    <p>往后的日子里，我的目光总忍不住的追着你的身影，连你做难题时皱眉的样子，也印记了我一生中名为青春的相册。跑操时转弯的擦肩而过，目光越过身旁的“狐朋狗友”落在你那冰清玉洁的身上，哪怕只是远远一瞥，都已让我满心欢喜；放学走在路上，故意放慢脚步，只为能在你的身后多看你一会，听见你和同学的说笑声，吹过吹过你的微风好像轻轻拥抱了你一下带着甜甜的暖意。</p>
+    <p>翻开名为青春的相册在一页被暮日充满的照片，和平常的周五一样我留下来和同学打球，打到一半我就被班主任刘老师叫到办公室“喝茶”。因为我第一次半期考只考了700多名，年段一共800人，老师说出这些话的时候羞的我无地自容，后来老师就叫你来辅导我学习，在早读前的清晨，午后的课间和放学后的时光教室里总坐着一男一女加上练习，而我对你的爱意越攒越浓，学习的动力也越学越有劲。</p>
+    <p>但在期末中虽进步但仍未达到目标，你告诉我：“可不闻天无绝人之路，只要我要走路就在脚下。”听过后我的心又复燃了起来，和你一起着魔似着一起学习狂写卷子。终于，在又一次期中我连砍300名坐上班10的宝座。</p>
+    <p>十几岁的暗恋，没有轰轰烈烈的告白，只有小心翼翼的守护与默默的成长。你赠予我的自律、坚韧与对优秀的向往，如同星火燎原，点燃了我的青春，让我褪去青涩懵懂，学会了全力以赴，学会了向阳而生。这份无声的馈赠，早已刻进了青春的记忆里，成为我往后人生中，对抗迷茫、奔赴热爱的底气。即便这份心事终将藏于岁月，你带来的光，也会永远照亮我的前路，温暖而明亮。</p>
+    <small>Ps.老师我写记叙文的文笔实在是太差了有点流水账，请见谅，有些事不方便写<i class="fa fa-smile-o"></i></small>
+</div>
+<h1 id="literature-wechat">聊天记录与朋友圈</h1>
+<div class="writing">
+    <h1>“舌战群儒”</h1>
+    <p>黄恩亚爸爸、刘老师</p>
+    <div class="wechat" style="--a:'黄恩亚爸爸';--b:'刘老师'">
+    <p class="a">@班主任-刘老师 13646014074 今天恩亚肚子疼，本想请假一节课，但他还是坚持赶去上课了，到校门口是7点25分，我是鼓励他了，并且最近我都有把关到校时间没有迟到的，多次迟到是什么意思？</p>
+    <p class="b">昨天早上也是迟到，累记很多次</p>
+    <p class="b">有特殊情况请提前私聊我告知</p>
+    <p class="a">昨天到校门口19分钟呀，什么情况？</p>
+    <p class="b">您要问他，到班过了25了</p>
+    <p class="a">每天到校门口，恩亚都叫我看看时间的，不要没迟到也给记迟到，孩子还是尊守纪律的。</p>
+    <p class="b">每天班长都认真记录迟到情况，不存在您说的没迟到记录迟到的情况</p>
+    <p class="b">刚才是记错时间了，去查记录已经告诉您具体时间。以及他的累计迟到次数，快10次。</p>
+    <p class="a">有几次22到校门口的，走到班上超过25分？建议上下浮动一两分钟吧</p>
+    <p class="b">大家都做得到，相信恩亚也做得到。<br/>去浮动或者踩点，会有很多问题</p>
+    <p class="a">以后跟你确认时间</p>
+    <p class="b">正常到班不用确认，提前几分钟出门就不会出现这种情况了</p>
+    <p class="b">我一直和他们说，做任何事情要留有余地，防止意外情况</p>
+    <p class="a">这是意外情况下赶在时间前到校为的就是不被记迟到，是努力的结果，所以到校门口都检查了时间，有没有迟到都是清楚的。</p>
+    <p class="b">所以您得提前告诉我，我才能知道是意外情况</p>
+    <p class="b">而不是已经迟到了，我问了，您跟我说什么原因</p>
+    <p class="b">这样对其他孩子也不公平</p>
+    <p class="a">都说了我是反映我到校的时间没有迟到，没有太复杂。</p>
+    <p class="b">确实很简单，恩亚只要25分之前到班就可以。<br/>特殊情况请提前告诉我，我会判定是否酌情处理。</p>
+    <p class="a">所以19分，20分，22分到校门口不存在迟到</p>
+    <p class="a">明天到校门口向你核实一下班上时间</p>
+    </div>
+</div>
+<div class="writing">
+    <h1>朋友圈</h1>
+    <p>洪鑫洋</p>
+    <div class="moments">
+        <strong>洪鑫洋</strong>
+        <p>即要拿得起，也要放得下</p>
+        <hr/>
+        <strong>洪鑫洋</strong>
+        <div style="padding:30px 10px;color:#000">可不可以-张紫豪</div>
+        <div>
+            <div>洪鑫洋，崔宇臣</div>
+            <div><span>崔宇臣</span>有品位</div>
+        </div>
+        <hr/>
+        <strong>洪鑫洋</strong>
+        <p>我什么都不图就图你一颗真心行吗、</p>
+        <div>
+            <div>洪鑫洋，俞昕辰，颜哲铭，崔宇臣</div>
+            <div><span>崔宇臣</span>咋了？</div>
+            <div><span>崔宇臣</span>谁的爱心</div>
+            <div><span>洪鑫洋</span>回复<span>崔宇臣</span>没事</div>
+        </div>
+        <hr/>
+        <strong>洪鑫洋</strong>
+        <p>“我的三观和教养告诉我 要真心对待每一个人 可我的经历告诉我 真的不是每一个人都值得真心对待 我的底线就是我说了这件事我很介意 会让我很不开心 当你还继续去做 那么第三次第四次 我会让这些破事和你一起消失 所以真诚得不到回应的时候 我们要懂得及时止损 人都是会变的 只有对自己好 才是最好的”</p>
+    </div>
+</div>
+<h1 id="literature-writing">小作文</h1>
+<div class="writing">
+    <h1>-</h1>
+    <p>陈睿卓</p>
+    <p>一个帅气的男孩，手拿水杯，爱航天类的东西，所以我们给取了个外号——“机长”。</p>
+    <p>机长成绩不好，一头光头像个土豆，一身健硕的“键子”肉使他看起来很强壮，很帅，身旁时不时有道美丽的风景，使他看起来十分有魅力。</p>
+    <p>有一次，我跟他去玩，突然一架飞机飞过，他说，开飞机是他的一个梦想。于是他闭上眼睛，开始幻想自己在开飞机。幻想自己有一架真实的飞机，可以当机长，自己的飞机一次可以乘几十亿人。于是，想着想着，哭了，因为他想着自己感觉成绩不好，没希望，我连忙安慰他说：“别哭”，阿妈特拉斯。</p>
+</div>
+<div class="writing">
+    <h1>霸总文学追小娇妻</h1>
+    <p>李梦妍</p>
+    <p>月黑风高的晚上，霸总恩亚喝粹了，把女苔藓强吻了，在床上霸总恩亚亲着女苔藓。过了一个晚上，女苔藓她跑掉了，她跑出国，而霸总恩亚苦苦找了她三年！翻遍了整个A市都看到女苔藓，这天一个亮立的女人手中抓着三个萌娃的手，走出机场大门，所有人看着他们，这时霸总恩亚听到消息连忘回国，他的项目全部推到，到找到他的女人，女苔藓回到别垫。霸总恩亚，回到国后，连忙找他的女人。霸总坐着他的私人豪华飞机，稳当着陆，与女人擦肩而过，突然他停住了，那个女人的味道正是三年前那肥而不苔藓的香味，那股回忆的味道直传到他的鼻孔里，“等等”霸总恩亚直往苔藓处走去，但苔藓依然没有停留的样子向前走去，是的，霸总急了，他直用他180cm的大长腿向苔藓走去，把女苔藓在怀里待到一天34小时，直到女苔藓睡了，霸总才把苔藓抱回三年前他们一起睡的1亿m²大床上。霸总恩亚在女苔藓耳朵边说：“女人你永远都逃不出我的手掌心的！”霸总享受的闻着那肥而不苔藓的香味，摸着苔藓般肌肤，吹弹可破。霸总恩亚抱着女苔藓睡觉了！第二天早晨女苔藓从从1m²的霸总身上苏醒。听着那呼噜如天地之阵动，是多美妙啊——女苔藓欣赏着恩亚的呼噜声，而霸总却苏醒了，霸总看着小娇妻说：“宝贝——气泡声着叫着。走下吃早饭吧~！”到了楼下吃着米奇林八星的饭菜，女苔藓吃了三口就饱了。霸总恩亚问：“宝贝吃这么一点就饱了。”女苔藓说道：“因为我是小鸟胃~我只能吃三口~啧啧啧。”而这时苔藓打了一个小奶嗝，霸总让所有下人们来闻女苔藓的小奶嗝。女苔藓说道：“讨厌~我要用小拳头拳你的胸口！”霸总一脸宠溺的看着她~，撩起了女苔藓那一丝仅存的0.01cm的长发，闻了闻专属苔藓的清香，突然，霸总不语，只是一谓地把苔藓抱入浴室，他的双手触摸着苔藓柔软的小峦腰，正当霸总恩芽的唇要贴到苔藓的腰间时，三个萌娃也来到浴室，疑惑的眼神盯着恩芽和苔藓，两人收住动作，三个萌娃一口同声的说：“叔叔你为什么要欺负妈咪？”霸总恩亚说到：“你出国三年都有孩子！”霸总生气出门，坐着他私人飞机出门了。“陈特助给你3秒找出这女人在国外干了什么，女人你永远只能是我的！第二天霸总为了让苔藓为他吃醋，找了一个美吕，带回了家，霸总搂着大月亮进了门。苔藓看到后霸总搂着别的女人，生气的上楼，到了晚上，大月亮站在阳台上唱着歌：“月亮！月亮！你慔睡~”，苔藓走了过来。大月亮看到后说：“你别根我斗了，你比不过我的！霸总只love me，不会love you你的，啍！霸总这时走了过来。大月亮称这时机，造出苔藓推大月亮，让大月亮摔到楼下。大月亮发出啊——的声音。思芽跑了过来推开苔藓，看到月亮摔下楼下去。思芽生气的说：“月亮有什么三长两短，我不会放过你的！”霸总跑下楼，月亮说：“都是我不好，让姐姐生气了~！”霸总恩芽拿出了全A市唯一的价值80亿的手机，用了练习两年半的气泡音对他的私人特助说：“1秒内让全国最好的医院来治好我的爱人。”一听到恩芽用他专属的气泡音说月亮是他的爱人时，苔藓头脑发晕，一个劲地从阳台上摔下去，皎洁的月光照在了苔藓的仅存的0.01mm的长发上，然而霸总却已经抱起他的爱人坐上他的私人飞机飞走了。</p>
+</div>
+<div class="writing">
+    <h1>人机公主将站上娱乐圈顶流</h1>
+    <p></p>
+    <p>众所周知，人机公主是我班最有名的天才公主，打小就会琴骑书画。他人见人爱，花见花开，见到他的人都会马上花开富贵，打破了最美公主的记录，成为史上的最美公主。</p>
+    <p>我们的人机公主人美心善，曾骑着老奶奶横穿马路，但后来……因为有女苔藓的出现，让世界不得安宁，她故意拌倒老奶奶，让老奶奶受伤，还随意踩踏草坪，看到路边的花开，也要上前踩两脚。</p>
+    <p>再说经济上，人机公主每天都会送大家免费冰淇淋，即free也好吃，而苔藓则相反。</p>
+</div>
+<h1 id="literature-teachers">老师写的</h1>
+<div class="writing">
+    <h1>班主任眼中完美的一天</h1>
+    <p></p>
+    <p>走进教室发现班级井然有序，干净整洁</p>
+    <p>班委积极负责，科代表作业及时收齐</p>
+    <p>课前已经做好准备，大声读书</p>
+    <p>科任老师跟我夸学生上课认真、积极互动、氛围良好</p>
+    <p>自习课学生专注写作业，无人聊天、玩闹</p>
+    <p>班级同学团结合作，背书任务认真完成</p>
+    <p>同学们一天都很充实，收获满满，没有扣分</p>
+</div>
+<h1 id="literature-contribution">稿件</h1>
+<div class="writing">
+    <h1>我想带您看盛世中国</h1>
+    <p></p>
+    <p>奕扬：姐姐，你是从哪里来的？</p>
+    <p>雨希：我来自新中国</p>
+    <p>奕扬：那 我们胜利了吗？</p>
+    <p>雨希：胜利了</p>
+    <p>奕扬：太好了 我真想看看 新中国是什么样的</p>
+    <p>雨希：来 我带你去看看我们的新中国</p>
+    <p>允儿：五星红旗迎风飘扬 胜利歌声多么响亮 歌唱我们亲爱的祖国 从今走向繁荣富强</p>
+    <p>（永泽：挥舞国旗）</p>
+    <hr/>
+    <p>祥懿：为实现中华民族的伟大复兴 我们</p>
+    <p>全体：准备着 时刻准备着</p>
+    <p>祥懿&amp;诗语：您看 清澈的爱只为中国的民族精神</p>
+    <p>王淮&amp;浩宇：您看 犯我中华者虽远必诛的民族气节</p>
+    <p>祥懿：您看 脱贫攻坚 全面小康 千年梦想 今朝实现</p>
+    <p>诗语：您看 嫦娥探月 蛟龙深潜 大国正气 世人惊艳</p>
+    <p>王淮：您看 生态文明 绿色低碳 美丽中国 展开画卷</p>
+    <p>浩宇：您看 一带一路 互通互联 和平发展 合作共赢</p>
+    <p>全体：您看 人民幸福 民族振兴</p>
+    <p>祥懿&amp;诗语：这民族如您所愿</p>
+    <p>全体：潜龙腾渊 鳞爪飞扬 乳虎啸谷 百兽震惶</p>
+    <p>王淮&amp;浩宇：这国家如您所愿</p>
+    <p>全体：奇花初开 矞矞皇皇</p>
+    <p>祥懿&amp;诗语&amp;王淮&amp;浩宇：这盛世如您所愿</p>
+    <p>全体：前途似海 来日方长</p>
+    <hr/>
+    <p>祥懿：我想带您行走在彩虹里</p>
+    <p>全体：那是北斗卫星 在指引我们前行</p>
+    <p>王淮：我想带您去新农村做客</p>
+    <p>全体：那里的土地 正翻种着时代新绿</p>
+    <p>诗语：我想带您走进新科技园区</p>
+    <p>全体：灿若繁星的 高科技让未来触手可及</p>
+    <p>浩宇：我还想带您去祖国各地 看锦绣河山 春光万里</p>
+    <p>左半：看万山红遍 层临尽染 漫江碧透 百舸争流</p>
+    <p>右半：看同学少年 风华正茂 书生意气 挥斥方遒</p>
+    <hr/>
+    <p>祥懿&amp;诗语：七十五年斗转星移 七十五年大江东去</p>
+    <p>左半：盛世中国 告诉您一个地球的惊喜；盛世中国 告诉您一个东方的奇迹</p>
+    <p>王淮&amp;浩宇：七十五年春华秋实 七十五年日新月异</p>
+    <p>右半：盛世中国 告诉您一个人间的传奇；盛世中国 告诉您一个时代的瑰丽</p>
+    <p>祥懿&amp;诗语&amp;王淮&amp;浩宇：七十五年波涛之上 七十五年征帆万里</p>
+    <p>全体：盛世中国 告诉您一个公开的秘密；盛世中国 告诉您一个永恒的真理：解放思想 实事求是 发展才是硬道理</p>
+    <p>祥懿：捧起地球村崭新的履历 盛世中国 一步跨进未来的行列里</p>
+    <p>王淮：这是十四亿颗心跳 迸发出的幸福奇迹；这是十四亿双脚步 追逐梦想的火炬接力</p>
+    <p>祥懿&amp;诗语：赞美你呀 辉煌七十五年</p>
+    <p>全体：盛世中国 蓬勃日出</p>
+    <p>王淮&amp;浩宇：讴歌你呀 奋进七十五年</p>
+    <p>全体：盛世中国 和平崛起</p>
+    <hr/>
+    <p>祥懿：七十五年沧海桑田 中华民族 正行走在 伟大复兴之路上</p>
+    <p>王淮：七十五年春潮不息 亿万中华儿女 正信心满怀 扬帆进击</p>
+    <p>祥懿&amp;诗语&amp;王淮&amp;浩宇：高歌迈向</p>
+    <p>全体：高歌迈向 高歌迈向 新的胜利</p>
+    <hr/>
+    <p>奕扬：姐姐，新中国真好啊</p>
+    <p>雨希：因为有你们的牺牲 才有我们现在的新中国</p>
+    <p>奕扬：不，不止我，还有很多很多人</p>
+    <p>雨希：我知道 我们不会忘 祖国不会忘</p>
+    <p>全体：我们不会忘 祖国不会忘</p>
+    <p>奕扬：真好啊 新中国的未来 就交给你们了</p>
+    <p>雨希：请您放心 山河已无恙 吾辈当自强</p>
+    <p>全体：请您放心 山河已无恙 吾辈当自强 当自强</p>
+</div>
+<div class="writing">
+    <h1>像你这样的朋友（凌云九班版）</h1>
+    <p></p>
+    <p>开始斗嘴是我 作对是我 最不爽你就是我</p>
+    <p>没想到我们会成为好朋友</p>
+    <p>现在爱你是我 懂你是我 并肩同行也是我</p>
+    <p>多幸运有像你这样的朋友</p>
+    <p>时光偷走遇见 转角送来错过</p>
+    <p>四季飞快像坐过山车</p>
+    <p>那些共度的 深刻的 专属我们的</p>
+    <p>如果这辈子做朋友你都不嫌多 下辈子够不够</p>
+    <p>我还想要像你这样的朋友</p>
+    <hr/>
+    <p>相信这天是我们梦寐以求的时刻</p>
+    <p>我喜欢老师家长以我为傲的神色</p>
+    <p>谁最懂我 全都在这</p>
+    <p>千千万万个迷茫困惑时刻 是你们伴着</p>
+    <p>终于到同学好友假日相聚的时刻</p>
+    <p>这次和同窗伙伴齐欢笑一个不落</p>
+    <p>心情不错 欢乐满桌</p>
+    <p>随时随地你想分享或探索 身边总有我</p>
+    <hr/>
+    <p>开始斗嘴是我 作对是我 最不爽你就是我</p>
+    <p>没想到我们会成为好朋友</p>
+    <p>现在爱你是我 懂你是我 并肩同行也是我</p>
+    <p>多幸运有像你这样的朋友</p>
+    <p>时光偷走遇见 转角送来错过</p>
+    <p>四季飞快像坐过山车</p>
+    <p>那些共度的 深刻的 专属我们的</p>
+    <p>如果这辈子做朋友你都不嫌多 下辈子够不够</p>
+    <p>我还想要像你这样的朋友</p>
+    <hr/>
+    <p>曾被欢呼淹没 也曾失落 脆弱也不知所措</p>
+    <p>成长难免受挫 都有你陪我</p>
+    <p>青春总有跌撞 有你同往 追求梦想不退让</p>
+    <p>年少并肩启航 未来不散场</p>
+    <hr/>
+    <p>时光偷走遇见 转角送来错过</p>
+    <p>四季飞快像坐过山车</p>
+    <p>那些共度的 深刻的 专属我们的</p>
+    <p>如果这辈子做朋友你都不嫌多 下辈子够不够</p>
+    <p>我还想要像你这样的朋友</p>
+</div>
+</main>
+    <main id="SCHOOL">
+<header style="--header:#1a4c93">
+    <h1>四十中</h1>
+</header>
+    <hr/>
+    <h1 id="school-">基础设施</h1>
+    <h2>总体布局</h2>
+    <h2>教室</h2>
+    <h2>厕所</h2>
+    <h2>办公室</h2>
+    <h2>阶梯教室</h2>
+    <h2>图书馆</h2>
+    <h2>操场</h2>
+    <h2>高中部</h2>
+    <h2>广播</h2>
+    <h2>实验室</h2>
+    <h2>电脑室</h2>
+    <h2>贩卖机</h2>
+    <h2>四十中三坏</h2>
+    <h3>主席台上的屏幕</h3><!--花屏/少掉一半-->
+    <h3>不响的铃声</h3><!--跑操铃响-->
+    <h3>变幻莫测的电压</h3>
+    <hr/>
+    <h1 id="school-">日常作息</h1>
+    <h2>作息表</h2>
+    <h2>升旗</h2>
+    <h2>跑操</h2>
+    <h2>午餐与午托</h2>
+    <h2>“课后延时”</h2>
+    <h2>清校</h2>
+    <h2>晚自习</h2>
+    <h2>活动课</h2>
+    <h2>体锻课</h2>
+    <h2>培优</h2>
+    <h2>活动</h2>
+    <p>参见“活动”板块。</p>
+    <hr/>
+    <h1 id="school-">校规</h1>
+    <h2>头发</h2>
+    <h2>校服</h2>
+    <h2>处分的等级</h2>
+    <h2>四十中的口号</h2>
+    <hr/>
+    <h1 id="school-">午餐</h1>
+    <h2>公司的更替</h2>
+    <h2>送餐</h2>
+    <h2>餐盒</h2>
+    <h2>饭箱与汤桶</h2>
+    <h2>异物</h2>
+    <h2>特色餐</h2>
+    <hr/>
+    <h1 id="school-">打印练习</h1>
+    <h2>灰纸糊字</h2>
+    <h2>左上角那个校徽</h2>
+    <h2>错别字</h2>
+    <h2>校本作业</h2>
+    <hr/>
+</main>
+<main id="CLASS">
+<header style="--header:#899cc5">
+    <h1>九班</h1>
+</header>
+    <h1 id="class-">九班关系链</h1>
+    <h2>恋情</h2>
+    <h2>小团体</h2>
+    <h2>装</h2>
+    <h2>午餐的乱象</h2>
+    <hr/>
+    <h1 id="class-">热门的活动</h1>
+    <h2>五子棋</h2>
+    <h2>笔</h2>
+    <h2>水瓶</h2>
+    <h2>炸弹脚</h2>
+    <h2>折星星</h2>
+    <hr/>
+    <h1 id="class-">教室的地理</h1>
+    <h2>初一</h2>
+    <h2>初二</h2>
+    <h3>不制冷的空调</h3>
+    <h3>“反方向的钟”</h3><!--钟挂后面-->
+    <h2>初三</h2>
+    <hr/>
+    <h1 id="class-">梗</h1>
+    <h2></h2>
+    <h2></h2>
+    <h2></h2>
+    <hr/>
+    <h2></h2>
+    <h2></h2>
+    <h2></h2>
+    <hr/>
+</main>
+<main id="EVENT"></main>
+<footer><h1>页面到底了！</h1></footer>
+</div>
+<script>
+//密码（abc）
+function ep(){
+    var e=document.querySelector("#password input").value;
+    "YWJj"===btoa(e)?(localStorage.setItem("p","true"),document.getElementById("password").close()):document.querySelector("#password input").style.background="#f004";
+}
+//页面切换
+function showPage(e){
+    const p=document.querySelectorAll('main'),
+          t=document.getElementById(e),
+          n=document.querySelectorAll("nav>div:nth-of-type(2)>div"),
+          s=document.querySelector("nav>div:nth-of-type(1)>div:nth-of-type(2)");
+    p.forEach(p=>{p.style.display="none";});
+    n.forEach(n=>{n.style.display="none";});
+    if (t){t.style.display="block";}
+    e=="EVENT"?s.style.display="inline-block":s.style.display="none";
+    document.getElementById(e+"-l").style.display="block";
+    window.scrollTo(0,0);
+}
+//关闭菜单
+document.addEventListener("click", function(t){
+    var e=document.querySelector("nav>div:nth-of-type(2)"),
+        n=document.querySelector("nav>div:nth-of-type(1) button.fa-navicon");
+    e.classList.contains("active")&&!e.contains(t.target)&&t.target!==n&&e.classList.remove("active");
+}),document.querySelectorAll("nav>div:nth-of-type(2) a,nav>div:nth-of-type(2) button").forEach(t=>{
+    t.addEventListener("click",function(){
+        document.querySelector("nav>div:nth-of-type(2)").classList.remove("active");
+    })
+});
+//关闭模态框
+document.getElementById("sD").addEventListener("click",function(t){
+    var e=this.getBoundingClientRect();
+    (t.clientX<e.left||e.right<t.clientX||t.clientY<e.top||e.bottom<t.clientY)&&this.close();
+});
+//进度条
+window.addEventListener("scroll",()=>{document.querySelector("nav").style.setProperty("--progress",window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100+"%")});
+//主题切换
+function chT(e){document.body.setAttribute("data-t",e),localStorage.setItem("t",e);
+                document.getElementById("th").content=getComputedStyle(document.body).getPropertyValue('--th');}
+function chW(e){document.body.setAttribute("data-w",e),localStorage.setItem("w",e);}
+function chN(e){document.body.setAttribute("data-n",e),localStorage.setItem("n",e);}
+function chF(e){document.body.setAttribute("data-f",e),localStorage.setItem("f",e);search();}
+document.getElementById('r1').addEventListener('input',function(){
+    document.querySelector('body>#main').style.setProperty("--o", this.value + "%");
+    localStorage.setItem("o", this.value);
+});
+document.getElementById('r2').addEventListener('input', function() {
+    document.querySelector('body>#main').style.backdropFilter = "blur(" + this.value + "px)";
+    localStorage.setItem("b", this.value);
+});
+//背景图片
+let db;
+const request = indexedDB.open("backgroundDB", 1);
+
+function loadBackground() {
+    const e = db.transaction(["background"], "readonly").objectStore("background").get(1);
+    e.onsuccess = function() {
+        e.result && (document.body.style.backgroundImage = `url(${e.result.image})`)
+    }
+}
+
+function cbg() {
+    var e = document.createElement("input");
+    e.type = "file", e.accept = "image/*", e.onchange = function(e) {
+        var t, e = e.target.files[0];
+        e && ((t = new FileReader).onload = function(e) {
+            db.transaction(["background"], "readwrite").objectStore("background").put({
+                id: 1,
+                image: e.target.result
+            }), document.body.style.backgroundImage = `url(${e.target.result})`
+        }, t.readAsDataURL(e))
+    }, e.click()
+}
+
+function ubg() {
+    db.transaction(["background"], "readwrite").objectStore("background").delete(1), document.body.style.backgroundImage = ""
+}
+request.onupgradeneeded = function(e) {
+    (db = e.target.result).objectStoreNames.contains("background") || db.createObjectStore("background", {
+        keyPath: "id"
+    })
+}, request.onsuccess = function(e) {
+    db = e.target.result, loadBackground()
+};
+//替代图像
+document.querySelectorAll("img").forEach(M => {
+    M.onerror = function() {
+        this.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAyNCIgaGVpZ2h0PSIxMDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGNsYXNzPSJpY29uIj48Zz48cGF0aCBmaWxsPSIjY2ZmYSIgZD0ibTMwMCw0NTZjNDgsMCA4OCwtMzkgODgsLTg4cy0zOSwtODggLTg4LC04OHMtODgsMzkgLTg4LDg4czM5LDg4IDg4LDg4bDAsMHptMCwtMTE2YzE1LDAgMjgsMTIgMjgsMjhzLTEyLDI4IC0yOCwyOHMtMjgsLTEyIC0yOCwtMjhzMTIsLTI4IDI4LC0yOHoiLz48cGF0aCBmaWxsPSIjY2ZmYSIgZD0ibTg4NywxNTlsLTc1MCwwYy0zOSwwIC03MiwzMiAtNzIsNzJsMCw1NTljMCwzOSAzMiw3MiA3Miw3MmwxOTgsMGwxNjUsLTE3NWwtMzYsLTIyMmwxNjIsLTEzMGwtNjEsMTQzbDkyLDIxNGwtMTA1LDE3MWwzMzUsMGMzOSwwIDcyLC0zMiA3MiwtNzJsMCwtNTU5YzAsLTM5IC0zMiwtNzIgLTcyLC03MmwtMCwtMXptLTEzOCw3MWwwLDBsMTA5LDBjMTYsMCAzMCwxMyAzMCwzMGwwLDM5OWwtMjE0LC0yNTNsNzUsLTE3NnptLTQ0Myw1NjBsLTEzOCwwYy0xNiwwIC0zMCwtMTMgLTMwLC0zMGwwLC05bDEzOCwtMTY0bDEwNCwxMjRsLTc0LDc5em04MSwtMzU1bDM3LDIyOGwwLDBsLTE0MiwtMTY5Yy0zLC0zIC05LC0zIC0xMiwwbC0xMzIsMTU3bDAsLTM5MGMwLC0xNiAxMywtMzAgMzAsLTMwbDQ3NCwwbC0yNTMsMjA0bC0yLC0wem01MDEsMzI1YzAsMTYgLTEzLDMwIC0yOSwzMGwtMTc3LDBsNTcsLTkzbC04NywtMjAybDcsLTdsMjI5LDI3MnoiLz48L2c+PC9zdmc+"
+    }
+});
+//搜索
+function search() {
+    var e = document.querySelector("nav input").value.trim(),
+        t = document.getElementById("EVENT");
+    if (t && "none" !== window.getComputedStyle(t).display) {
+        if (t = t.querySelectorAll("p, dd"), e) {
+            const i = new RegExp(e.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
+            t.forEach(e => {
+                e.hasAttribute("data-original") || e.setAttribute("data-original", e.innerHTML);
+                var t = e.getAttribute("data-original");
+                i.test(t.replace(/<[^>]*>/g, "")) ? (e.style.display = "", e.innerHTML = t.replace(/([^<]*)(<[^>]*>)?/g, (e, t, a) => t ? t.replace(i, e => `<mark>${e}</mark>`) + (a || "") : a || "")) : e.style.display = "none", i.lastIndex = 0
+            })
+        } else t.forEach(e => {
+            e.style.display = "", e.hasAttribute("data-original") && (e.innerHTML = e.getAttribute("data-original"), e.removeAttribute("data-original"))
+        });
+        heb()
+    }
+}
+
+function heb() {
+    document.querySelectorAll("#EVENT>div").forEach(e => {
+        var t = Array.from(e.children).some(e => "TIME" !== e.tagName && "none" !== window.getComputedStyle(e).display);
+        e.style.display = t ? "" : "none"
+    }), document.querySelectorAll("#EVENT dl").forEach(e => {
+        var t = Array.from(e.querySelectorAll("dd")).every(e => "none" === window.getComputedStyle(e).display);
+        e.style.display = t ? "none" : ""
+    }), document.querySelectorAll("#EVENT>h1").forEach(e => {
+        let t = e.nextElementSibling,
+            l = !1;
+        for (; t && "H1" !== t.tagName;) {
+            if ("none" !== t.style.display) {
+                l = !0;
+                break
+            }
+            t = t.nextElementSibling
+        }
+        e.style.display = l ? "" : "none"
+    })
+}
+heb();
+const observer = new MutationObserver(heb);
+observer.observe(document.getElementById("EVENT"), {
+    childList: !0,
+    subtree: !0,
+    attributes: !0,
+    attributeFilter: ["style"]
+});
+//外部链接在新页面打开
+document.querySelectorAll('a[href^="http"]').forEach(link=>{link.setAttribute('target','_blank');});
+//加载动画
+function smoothFadeOut() {
+    const n = document.getElementById("loader");
+    let o = 1;
+    const a = performance.now();
+    requestAnimationFrame(function t(e) {
+        e -= a, e = Math.min(e / 300, 1);
+        o = 1 - e, n.style.opacity = o, e < 1 ? requestAnimationFrame(t) : n.style.display = "none"
+    })
+}
+window.addEventListener("load", function() {
+    setTimeout(smoothFadeOut, 300)
+});
+//初始化
+window.addEventListener('DOMContentLoaded',function(){
+    const p=localStorage.getItem('p');
+    p?document.getElementById('password').close():document.getElementById('password').showModal();
+    const t=localStorage.getItem('t');
+    t?chT(t):(window.matchMedia("(prefers-color-scheme:dark)").matches?chT('d'):chT('l'));
+    const w=localStorage.getItem('w');w&&chW(w);
+    const n=localStorage.getItem('n');n&&chN(n);
+    const f=localStorage.getItem('f');f&&chF(f);
+    const o=localStorage.getItem('o');
+    if (o){document.querySelector('body>#main').style.setProperty("--opacity",o+"%");
+           document.getElementById('r1').value=o;}
+    const b=localStorage.getItem('b');
+    if (b){document.querySelector('body>#main').style.backdropFilter="blur("+b+"px)";
+           document.getElementById('r2').value=b;}
+    const s = ["t", "w", "n", "f"];
+    s.forEach(e=>{var t=localStorage.getItem(e);
+                  t&&(e=document.querySelector(`input[name="${e}"][onclick*="${t}"]`))&&(e.checked=!0)});
+    showPage('HOME');
+});
+</script>
+</body>
+</html>

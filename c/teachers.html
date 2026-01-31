@@ -1,0 +1,2062 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>标题</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="robots" content="noindex,nofollow"/>
+    <meta name="referrer" content="no-referrer"/>
+    <meta name="theme-color" id="th" content="#c2d0d6">
+    <link rel="stylesheet" href="fa.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="manifest" href="manifest.json"/>
+    <link rel="icon" href="9.png"/><link rel="stylesheet" href="fa.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/><link rel="stylesheet" href="style.css"/>
+</head>
+<body data-t="l" data-w="n" data-n="2" data-f="3">
+    <dialog id="password">
+        <h1>输入密码</h1>
+        <div><input type="password"/><button onclick="ep()">OK</button></div>
+        <p><strong>提示：</strong>一些文本一些文本</p>
+    </dialog>
+    <div id="loader">
+        <div><p>文本1</p><button onclick="smoothFadeOut()">跳过</button></div>
+        <script>const texts=["文本1","文本2"];let currentIndex=0;const carouselText=document.querySelector('#loader>div>p');carouselText.textContent=texts[currentIndex];function rotateText(){currentIndex=(currentIndex+1)%texts.length;carouselText.style.opacity='0';setTimeout(()=>{carouselText.textContent=texts[currentIndex];carouselText.style.opacity='1';},200);}setInterval(rotateText,1000);</script>
+    </div>
+    <div id="bigger">窗口过大</div>
+    <div id="smaller">窗口过小</div>
+    <nav>
+        <div>
+            <div>
+                <button onclick="document.querySelector('nav>div:nth-of-type(2)').classList.toggle('active')" class="fa fa-navicon"></button>
+                <button onclick="window.scrollTo(0,0)" class="fa fa-chevron-up"></button>
+                <button onclick="showPage('HOME')" id="logo"></button>
+                <button onclick="window.scrollTo(0,document.documentElement.scrollHeight)" class="fa fa-chevron-down"></button>
+                <button onclick="document.getElementById('sD').showModal()" class="fa fa-gear"></button>
+            </div>
+            <div>
+                <input type="text" placeholder="搜索关键词" oninput="search()"/>
+            </div>
+        </div>
+        <div>
+            <div id="CHINESE-1-l">
+                <a href="#chinese-1-class">新课</a>
+                <a href="#chinese-1-test">小测</a>
+                <a href="#chinese-1-homework">作业</a>
+                <a href="#chinese-1-accident">突如其来的意外</a>
+            </div>
+            <div id="CHINESE-2-l">
+                <a href="#chinese-2-">出口就是金句</a>
+                <a href="#chinese-2-">抽背</a>
+                <a href="#chinese-2-">作业的审判</a>
+                <a href="#chinese-2-">课件</a>
+                <a href="#chinese-2-">离别</a>
+            </div>
+            <div id="CHINESE-3-l">
+                <a href="#chinese-3-"></a>
+                <a href="#chinese-3-"></a>
+                <a href="#chinese-3-"></a>
+                <a href="#chinese-3-"></a>
+            </div>
+            <div id="MATH-1-l">
+                <a href="#math-1-">肢体的奥秘</a>
+                <a href="#math-1-">新课</a>
+                <a href="#math-1-">作业</a>
+                <a href="#math-1-">测验</a>
+                <a href="#math-1-"></a>
+            </div>
+            <div id="ENGLISH-1-l">
+                <a href="#english-1-start">从零开始</a>
+                <h2>教学风格</h2>
+                <a href="#english-1-class">惊心动魄的一堂课</a>
+                <a href="#english-1-test">OK,test.</a>
+                <a href="#english-1-homework">作业</a>
+                <a href="#english-1-mark">做题的标记</a>
+                <a href="#english-1-life">生活中的英语</a>
+                <a href="#english-1-student">上中下等人</a>
+                <a href="#english-1-review">期末冲刺</a>
+                <h2>班级制度</h2>
+                <a href="#english-1-">收作业小组</a>
+                <a href="#english-1-">学习小组</a>
+                <a href="#english-1-">量化</a>
+                <a href="#english-1-">九班的“阶级”</a>
+                <a href="#english-1-">换座位</a>
+                <h2>管理方针</h2>
+                <a href="#english-1-">占课</a>
+                <a href="#english-1-">严管手机！</a>
+                <a href="#english-1-">舌尖上的九班</a>
+                <a href="#english-1-">放学后的风波</a>
+                <a href="#english-1-">监视无处不在</a>
+                <a href="#english-1-">营造霉好班级</a>
+                <a href="#english-1-">待人之道</a>
+                <a href="#english-1-">班级群中</a>
+                <a href="#english-1-">公共设施的情况与管理</a>
+                <a href="#english-1-">学生的态度</a>
+                <a href="#english-1-">其他课上的刘老师</a>
+                <a href="#english-1-">办公室</a>
+                <h2>学习之外</h2>
+                <a href="#english-1-">大脚</a>
+                <a href="#english-1-">羽毛球</a>
+                <a href="#english-1-">四十中关系链</a>
+                <a href="#english-1-">活动</a>
+                <a href="#english-1-">其他</a>
+            </div>
+            <div id="PHYSICS-1-l">
+                <a href="physics-1-"></a>
+                <a href="physics-1-"></a>
+                <a href="physics-1-"></a>
+                <a href="physics-1-"></a>
+                <a href="physics-1-"></a>
+            </div>
+            <div id="CHEMISTRY-1-l">
+                <a href="chemistry-1-"></a>
+                <a href="chemistry-1-"></a>
+                <a href="chemistry-1-"></a>
+                <a href="chemistry-1-"></a>
+                <a href="chemistry-1-"></a>
+            </div>
+            <div id="POLITICS-1-l">
+            </div>
+            <div id="POLITICS-2-l">
+            </div>
+            <div id="POLITICS-3-l">
+                <a href="pilitics-3-"></a>
+                <a href="pilitics-3-"></a>
+                <a href="pilitics-3-"></a>
+                <a href="pilitics-3-"></a>
+                <a href="pilitics-3-"></a>
+            </div>
+            <div id="HISTORY-1-l">
+                <a href="history-1-">上课与电脑</a>
+                <a href="history-1-">语言与讲解</a>
+                <a href="history-1-">联系与小测</a>
+            </div>
+            <div id="HISTORY-2-l">
+                <a href="history-2-"></a>
+                <a href="history-2-"></a>
+            </div>
+            <div id="GEOGRAPHY-1-l">
+                <a href="geography-1-">初见</a>
+                <a href="geography-1-">上课流程</a>
+                <a href="geography-1-">作业与讲评</a>
+            </div>
+            <div id="GEOGRAPHY-2-l">
+                <a href="geography-2-"></a>
+                <a href="geography-2-"></a>
+            </div>
+            <div id="BIOLOGY-1-l">
+            </div>
+            <div id="BIOLOGY-2-l">
+            </div>
+            <div id="BIOLOGY-3-l">
+                <a href="biology--"></a>
+                <a href="biology--"></a>
+                <a href="biology--"></a>
+                <a href="biology--"></a>
+                <a href="biology--"></a>
+            </div>
+            <div id="PE-1-l">
+            </div>
+            <div id="ART-1-l">
+            </div>
+            <div id="ART-2-l">
+            </div>
+            <div id="MUSIC-1-l">
+            </div>
+            <div id="COMPUTER-1-l">
+            </div>
+            <div id="COMPUTER-2-l">
+            </div>
+            <div id="LABOR-1-l">
+            </div>
+            <div id="LABOR-2-l">
+                <a href=""></a>
+                <a href=""></a>
+                <a href=""></a>
+                <a href=""></a>
+                <a href=""></a>
+            </div>
+            <button onclick="showPage('CHINESE-1')">语文-方翔</button>
+            <button onclick="showPage('CHINESE-2')">语文-郑慧敏</button>
+            <button onclick="showPage('CHINESE-3')">语文-陈文慧</button>
+            <button onclick="showPage('MATH-1')">数学-严伟胜</button>
+            <button onclick="showPage('ENGLISH-1')">英语-刘必艳</button>
+            <button onclick="showPage('PHYSICS-1')">物理-陈淑霞</button>
+            <button onclick="showPage('CHEMISTRY-1')">化学-</button>
+            <button onclick="showPage('POLITICS-1')">政治-</button>
+            <button onclick="showPage('POLITICS-2')">政治-</button>
+            <button onclick="showPage('POLITICS-3')">政治-</button>
+            <button onclick="showPage('HISTORY-1')">历史</button>
+            <button onclick="showPage('HISTORY-2')">历史-冯越</button>
+            <button onclick="showPage('GEOGRAPHY-1')">地理-张则斌</button>
+            <button onclick="showPage('GEOGRAPHY-2')">地理-</button>
+            <button onclick="showPage('BIOLOGY-1')">生物-</button>
+            <button onclick="showPage('BIOLOGY-2')">生物-毛俊文</button>
+            <button onclick="showPage('BIOLOGY-3')">生物-</button>
+            <button onclick="showPage('PE-1')">体育-张榕杰</button>
+            <button onclick="showPage('ART-1')">美术-</button>
+            <button onclick="showPage('ART-2')">美术-</button>
+            <button onclick="showPage('MUSIC-1')">音乐-</button>
+            <button onclick="showPage('COMPUTER-1')">信息-</button>
+            <button onclick="showPage('COMPUTER-2')">信息-</button>
+            <button onclick="showPage('LABOR-1')">劳技-</button>
+            <button onclick="showPage('LABOR-2')">劳技-</button>
+        </div>
+    </nav>
+    <div id="main">
+        <dialog id="sD"><div>设置<button onclick="localStorage.clear();ubg();location.reload(true);">重置</button><span onclick="document.getElementById('sD').close()"style="float:right;cursor:pointer;">×</span></div><div><span>主题</span><input type="radio"name="t"onclick="chT('l')"style="--rc:'浅'"><input type="radio"name="t"onclick="chT('d')"style="--rc:'深'"><input type="radio"name="t"onclick="chT('b')"style="--rc:'蓝'"><input type="radio"name="t"onclick="chT('n')"style="--rc:'夜'"></div><div><span>字重</span><input type="radio"name="w"onclick="chW('n')"style="--rc:'中'"checked><input type="radio"name="w"onclick="chW('l')"style="--rc:'细'"></div><div><span>导航栏</span><input type="radio"name="n"onclick="chN('1')"style="--rc:'经典'"><input type="radio"name="n"onclick="chN('2')"style="--rc:'胶囊'"checked></div><div><span>内容过滤</span><input type="radio"name="f"onclick="chF('0')"style="--rc:'无'"><input type="radio"name="f"onclick="chF('1')"style="--rc:'一'"><input type="radio"name="f"onclick="chF('2')"style="--rc:'二'"><input type="radio"name="f"onclick="chF('3')"style="--rc:'三'"checked></div><div><span>背景图片</span><button onclick="ubg()">清除</button><button onclick="cbg()">上传</button><div><span>透明度</span><input type="range"max="100"min="0"step="10"id="r1"/></div><div><span>虚化</span><input type="range"max="30"min="0"step="3"id="r2"/></div></div></dialog>
+<main id="HOME">
+<header><h1>首页</h1></header>
+<hr/>
+<p>页面开发中，敬请期待。</p>
+</main>
+<main id="CHINESE-1">
+    <header style="--header:#d58574;">
+        <h1>方翔</h1>
+        <span>语文</span>
+        <span>七上开始~期中；七下第三周~期末</span>
+        <dl class="keywords">
+            <dd onclick="window.location.href='#chinese-1-class'">新课</dd>
+            <dl>
+                <dd>松散的纪律</dd>
+                <dt>自习课</dt>
+                <dt>放学的整治</dt>
+                <dd>“水之道”</dd>
+                <dt>听书</dt>
+                <span>单独音频</span>
+                <span>课件内音频</span>
+                <dt>读书</dt>
+                <span>读全文</span>
+                <span>无精打采</span>
+                <span>个别撑场</span>
+                <span>声音停下</span>
+                <span>读段落</span>
+                <dd>方翔风课件</dd>
+                <span>土</span>
+                <span>4:3</span>
+                <dt>花样的字体</dt>
+                <span>字体</span>
+                <span>渐变</span>
+                <span>倒影</span>
+                <span>轮廓</span>
+                <span>变形</span>
+                <span>拉伸</span>
+                <span>动画</span>
+                <dt>古早的图片</dt>
+                <span>数量</span>
+                <span>清晰度</span>
+                <span>边框</span>
+                <span>拉伸</span>
+                <span>动图</span>
+                <dt>搞笑的音效</dt>
+                <span>进入音效</span>
+                <span>作用</span>
+                <dt>新式课件</dt>
+                <span>有所升级</span>
+                <span>高度统一</span>
+                <dd>讲课</dd>
+                <span>坐姿</span>
+                <span>物资</span>
+                <span>内容</span>
+                <span>补充</span>
+                <dt>女高音</dt>
+                <span>不用小蜜蜂</span>
+                <span>突然提音</span>
+                <span>对面楼</span>
+                <dd>抽背</dd>
+                <span>气氛</span>
+                <span>指定内容</span>
+                <span>复习</span>
+                <span>顺序抽</span>
+                <span>打断接续</span>
+                <span>提醒</span>
+                <dd>唧唧复唧唧，鑫洋当户织</dd>
+                <span>鑫洋</span>
+                <span>熠菲</span>
+                <span>读书声</span>
+                <span>禁止</span>
+            </dl>
+            <dd onclick="window.location.href='#chinese-1-test'">小测</dd>
+            <dl>
+                <dd>超长复习时间</dd>
+                <span>五到十分钟</span>
+                <span>易错点讲解</span>
+                <dd>防伪标志</dd>
+                <span>防提前写</span>
+                <span>特定符号</span>
+                <span>只用一次</span>
+                <dd>内容</dd>
+                <span>默写</span>
+                <span>字词</span>
+                <dd>哇！咦——</dd>
+                <span>九班传统</span>
+                <span>音量</span>
+                <span>新音效</span>
+            </dl>
+            <dd onclick="window.location.href='#chinese-1-homework'">作业</dd>
+            <dl>
+                <dd>固定的作业</dd>
+                <dt>金牌与校本</dt>
+                <dt>字词</dt>
+                <dt>作文</dt>
+                <dt>练字</dt>
+                <dd>批改</dd>
+                <dd>讲评</dd>
+            </dl>
+            <dd onclick="window.location.href='#chinese-1-accident'">突如其来的意外</dd>
+            <dl>
+                <dd>怎么突然变老了</dd>
+                <dd>路上的事故</dd>
+            </dl>
+        </dl>
+    </header>
+    <h1 id="chinese-1-class">新课</h1>
+    <h2>松散的纪律</h2>
+    <p>方老师是初中阶段采取“散养”策略的老师之一。在语文课上，纪律特别宽松，颇有自习课之感。</p>
+    <p>在语文课上，听课只是实在没事情时的选择。更多时候学生会充分把握宝贵的45分钟，做以下的事情：</p>
+    <ul>
+        <li>写作业、补作业</li>
+        <p>一些人逐渐养成不写作业，来校后补作业的习惯。在其他课上，想要补作业相对困难，风险很大；语文课正是绝佳的时机。一节语文课下来，没写作业的人完全可以补完大部分甚至全部的作业；同时课上也适合写当天作业，课上能清掉不少作业。</p>
+        <li>聊天</li>
+        <p>聊天是语文课吵闹声的主要来源。前后桌一起聊一个话题，可谓其乐融融。聊天还可以与写（补）作业配合进行，这样既能聊得欢，又有一些“收获”。</p>
+    </ul>
+    <p>这种现象肯定不是一朝一夕形成的。在七上时，语文课还是有很多人听的，讲话声也没有那么大。</p>
+    <p>但到了七下后，语文课的“自习课”程度大大加深。在方老师回归（见下文）后，学生彻底放松，语文课的纪律也逐渐被刘老师盯上，而且一抓一个正着。例如：</p>
+    <article>
+        <p>某节语文课，方老师将答案下发，让大家订正最近几课的金牌练习。此时班上如菜市场般闹腾。忽然，刘老师出现在门口，班上的人看到她后这才安静下来。看到这一幕，刘老师非常生气，学生又被训了一顿。</p>
+    </article>
+    <p>这并不意味着方老师会坐视不管。她在课上也会进行一定的纪律整顿，一般针对单个学生——当然效果微乎其微。</p>
+    <p>事实上，方老师也会针对此情况进行相应的反击。</p>
+    <h3>放学的整治</h3>
+    <p>每周都有一节语文晚托。如果这节课纪律特别差，方老师就会让大家放学后留下，达到以下条件后才能放学：</p>
+    <ul>
+        <li>班上完全安静，无人小声讲话</li>
+        <li>全体学生端正做好</li>
+    </ul>
+    <p>这种措施实施了2~3次。在刚开始留的时候，声音通常不能得到彻底改善，总会有此起彼伏的笑声讲话声。这时会有人让周围学生不要讲话，快点放学。</p>
+    <p>除了讲话，还有很多收书包的学生。他们可能会等方老师注视其他地方时，快速讲一样物品收进包里；有时收完的书包还会放在桌上或椅子上。</p>
+    <p>方老师也没进行什么思想教育，只是收拾物品、看几眼手机，然后看着大家，似乎悠然自得，不紧不慢。</p>
+    <p>往往要等到清校铃响后，才能达到放学的要求。方老师会等班上达标一会儿后，问大家以后会不会再这样。学生回答后才能放学。</p>
+    <h2>“水之道”</h2>
+    <p>为什么很少人会听语文课？一个原因当然是纪律松，另一个原因则是：根本听不下去。</p>
+    <p>这种水课现象也是在七下达到高峰的。虽然课上有讲解相应的知识点，但也有大量被“水”掉的时间。其中要数这两种行为最水：</p>
+    <h3>听书</h3>
+    <p>遇事不决？听书解决。凡是逢上新课，一般一个课文朗读的音频是少不了的。</p>
+    <p>这些音频可以出现在课件中，也可以以一个单独的文件保存；可以是名师朗读、字正腔圆但很单调的朗读音频，也可以是有画面但很“土”的视频。而且无论是古诗、文言文还说现代文，都可以在课上以“听一遍朗读”的形式出现，覆盖范围广，更加通用。</p>
+    <p>这种方式还有一种巨大的优势：解放了老师，更解放了学生。老师可以在讲台上坐着，对课文进行阅读或批注；学生也可以更放心地补作业或聊天（毕竟这时也没在真正上课）。</p>
+    <p>这些音频可以从各种渠道找到，音质肯定难以保证。有一次还出现了这样的搞笑场面：<time>2024年9月24日</time>点开课文朗读后，学生发现背景音乐竟然是四十中的早读铃声！</p>
+    <p></p>
+    <h3>读书</h3>
+    <p>有听书必有读书。读书虽然苦了学生，但也是重要的水课方式之一。</p>
+    <p>有时听课文朗读还会和读课文同时出现。听一遍、读一遍，所耗时间翻一倍。</p>
+    <p>哪怕课文长得没边，这种仪式也是要照样进行的。就比如说，方翔在七下的第一节课<sup>[1]</sup>放了个大招：</p>
+    <article>
+        <time>2025年3月3日</time>
+        <p>这是方老师七下回归后的第一节课，上的内容是《列夫·托尔斯泰》。作为一篇使用大量外貌描写的文章，它占了书本许多页数。</p>
+        <p>“好，我们把这篇课文读一遍。”方老师熟悉的声音在学生的耳边响起，却多了一丝寒意。</p>
+        <p>稀稀拉拉的声音，朗读着这篇课文。朗读时不乏中断的时刻。</p>
+        <p>当学生把最后一段读完后，看看墙上的钟表，已经过去25分钟了。</p>
+    </article>
+    <p>这种稀稀拉拉、无精打采的读书声是课文朗读时的常态。通常会有几个声音大的人“撑场”，让朗读能推进下去，剩下的人几乎不读。</p>
+    <p>但声音大的人偶尔也会停下，这时读书声彻底消失。方老师会再次组织大家从某处继续朗读。</p>
+    <p>当然，读完整篇文章后，讲解的过程中也可能会读某个段落。</p>
+    <p></p>
+    <h2>方翔风课件</h2><!--早读背景音、妈妈洗脚-->
+    <p>方老师的课件明显跟不上时代潮流。各个方面看起来都有点儿“土里土气”。</p>
+    <p>首先，课件尺寸必须是<var>4:3</var>。</p>
+    <h3>花样的字体</h3>
+    <p>宋体、楷体、黑体、仿宋、行楷……课件中集齐了各种各样的字体。标题和正文必然安排不同字体，不同标题甚至也有相应的字体。</p>
+    <p>标题的装饰更是把“设计”诠释到极致：</p>
+    <ul>
+        <li>彩虹渐变</li>
+        <li>拉长倒影</li>
+        <li>粗外轮廓</li>
+        <li>蛇形变形</li>
+        <li>细长拉伸</li>
+    </ul>
+    <p>这些文字进入时通常会有动画，一个课件几乎把ppt预置的动画都用了一遍。只不过动画多了就成了“滥用”。</p>
+    <h3>古早的图片</h3>
+    <p>图片也是“方翔风课件”的灵魂之一。在课件的一页中，图片的占比可以很大，甚至全是图片。</p>
+    <p>图片的清晰度不重要，有没有水印都没关系，反正有图就行。这些图风格各异，但鲜有清晰且符合当下审美的。</p>
+    <p>许多图片还会搭配边框使用，边框的美观程度可想而知。</p>
+    <p>当图片被放大、再放大，就成了背景。课件的背景一般是纯白色，背景图一出现就被拉伸得模糊，课件在其映衬下更加土里土气。</p>
+    <p>除了大图，角落的小图也格外引人注目。</p>
+    <p>你可以看到各种“娃娃”或类似的人物：头大、活蹦乱跳；或者是蜜蜂、蝴蝶之类的动物。这些“装饰”以动图的形式出现在课件各个空白处，不知疲倦地重复着相同的动画。它们虽然小，却成了课件的“点睛之笔”。</p>
+    <p>装饰也不全是动图，静态的装饰也有，但都很莫名其妙。</p>
+    <h3>搞笑的音效</h3>
+    <p>这种音效随机解锁，说不定在课件下一页，花里胡哨的文本飞入时，熟悉的音效响起，班上的学生瞬间躁动起来，笑声、起哄声不断。</p>
+    <p>方老师还为此还想了一个作用：</p>
+    <q>这样是为了让课堂氛围更活跃。</q>
+    <q>这样能让大家把注意力放到课堂上。</q>
+    <p>音效的种类当然也不少，你能想到的基本都有。而且它们分布集中。没有的时候一般很安全。有的话光是一页就有好几个音效。</p>
+    <h3>新式课件</h3>
+    <p>在七下的最后几节新课中，方老师的课件似乎有所“升级”，变得更加美观。这类新课件的风格高度统一：</p>
+    <ul>
+        <li>封面为标准的背景图+课题</li>
+        <li>其他页再背景图的基础上，叠加了白色的矩形，矩形中间就用来放置文本</li>
+    </ul>
+    <h2>讲课</h2>
+    <p>方翔讲课时，（以学生视角）一般斜坐在讲台右侧，桌上放着自己的语文书。方老师看着书本或课件进行讲解。</p>
+    <p>讲台上除了语文书，当然还有<var>水杯</var>和<var>背包</var>。这两样都是方老师上课必带的物资，各种教材就装在背包里。</p>
+    <p>哪怕没什么人听，课还是一节节讲下去了。</p>
+    <p>该讲的知识点都是有讲到的，有时还会再用一节课进行补充。比如七下的某一天：</p>
+    <article>
+        <p>这节公开课上《散文诗二首》（课件时新型的）。正常需要分两节课来分别讲解两首诗歌。结果课上不仅讲完了这两首诗歌，甚至还用剩余的时间讲解了“抒情”这个知识点。</p>
+        <p>当天的另一节语文课，方老师说把公开课上没提到的内容再讲一下。</p>
+    </article>
+    <p>这种补充有时还是学生去提醒的。上节课明确说没有讲的内容，下节课可能就有人表示“……还没讲”，方老师就拿起书，进行讲解。</p>
+    <h3>女高音</h3>
+    <p>方老师称：</p>
+    <q>我上课从不用小蜜蜂。</q>
+    <p>哪怕课上很吵，方老师始终坚持用自己的嗓子直接讲。怎么做到的呢？</p>
+    <p>在大部分时间，方老师会用正常的音量讲话。但偶尔会在某些字上突然提高音量，声音很明显。</p>
+    <p>这种猝不及防的音量提高有时候会把一些学生吓一大跳。方老师也表示：这声音：</p>
+    <q>对面楼的人都能听见。</q>
+    <h2>抽背</h2>
+    <p>方老师有时候会专门用课上的时间抽背，当然抽背时的气氛还是相对轻松的。想要知道原因，就得了解方老师抽背的习惯。</p>
+    <p>首先<var>指定背诵内容</var>。抽些什么、抽哪段都是固定的，不会出现“从多首古诗中随机抽一首”的情况，抽背的内容具有针对性。</p>
+    <p>其次<var>给予复习时间</var>。</p>
+    <p>接下来正式抽背。方老师会拿起自己的书，随机走到某一组前，从第一排抽起。之所以气氛轻松，是因为每次抽背，都只会<var>按顺序抽某一组的学生</var>。在那组的人都得被抽，不在那组的人这节课高枕无忧。</p>
+    <p>所谓的“顺序”大概是这样：</p>
+    <ul>
+        <li>第1排左边</li>
+        <li>第1排右边</li>
+        <li>第2排左边</li>
+        <li>第2排右边</li>
+        <li>第3排左边</li>
+        <li>……</li>
+    </ul>
+    <p>这样，学生能够明确知道下一个抽谁，以便做好准备。</p>
+    <p>抽背一个段落，平均到每位学生就是段落的一部分。方老师通常不会让人整段背诵，而是背到一半让那人停下，下一位学生接着背。这种“分段背诵”也是顺序的，前一位学生背了前一半，下一位学生肯定是背后一半；反之亦然。</p>
+    <p>如果背诵过程突然卡壳，方老师会适当提醒一两个字，只要能顺下来都算过关。实在背不出来才会被判定为“不合格”，受到相应的惩罚。</p>
+    <h2>唧唧复唧唧，鑫洋当户织</h2>
+    <p>松散的纪律使语文早读轻松不少。于是《木兰诗》这篇课文就有了被魔改的条件。</p>
+    <p>学生读到《木兰诗》时格外兴奋，会自动把“木兰”及相关代词换成“痒（洋）”或“鑫洋”。于是课文就变成了<sup>[3]</sup>：</p>
+    <article>
+        <p>唧唧复唧唧，<strong>鑫洋</strong>当户织。不闻机杼声，惟闻<strong>痒</strong>叹息。</p>
+        <p>问<strong>痒</strong>何所思，问<strong>痒</strong>何所忆。<strong>痒</strong>亦无所思，<strong>痒</strong>亦无所忆。昨夜见军帖，可汗大点兵，军书十二卷，卷卷有<strong>痒</strong>名。阿爷无大儿，<strong>鑫洋</strong>无长兄，愿为市鞍马，从此替爷征。东市买骏马，西市买鞍鞯，南市买辔头，北市买长鞭。旦辞爷娘去，暮宿黄河边，不闻爷娘唤<strong>痒</strong>声，但闻黄河流水鸣溅溅。旦辞黄河去，暮至黑山头，不闻爷娘唤<strong>痒</strong>声，但闻燕山胡骑鸣啾啾。</p>
+        <p>万里赴戎机，关山度<strong>熠菲</strong>。朔气传金柝，寒光照铁衣。将军百战死，壮士十年归。归来见天子，天子坐明堂。策勋十二转，赏赐百千强。可汗问所欲，<strong>鑫洋</strong>不用尚书郎；愿驰千里足，送<strong>痒</strong>还故乡。</p>
+        <p>爷娘闻女来，出郭相扶将；阿姊闻妹来，当户理红妆；小弟闻姊来，磨刀霍霍向<strong>鑫洋</strong>。开我东阁门，坐我西阁床，脱我战时袍，着我旧时裳，当窗理云鬓，对镜帖花黄。出门看火伴，火伴皆惊惶：同行十二年，不知<strong>鑫洋</strong>是女郎。</p>
+        <p>雄兔脚扑朔，雌兔眼迷离；双兔傍地走，安能辨我是雄雌？</p>
+    </article>
+    <p>文中还有一个“熠菲”，有时学生也会这么读。</p>
+    <p>读到这些句子时，声音是最大的：</p>
+    <q>小弟闻姊来，磨刀霍霍向鑫洋。</q>
+    <q>同行十二年，不知鑫洋是女郎。</q>
+    <p>对此，方老师在相当一段时间没有说什么。但后来搞得太过了，方老师就在读完后禁止了这种行为。</p>
+    <hr/>
+    <h1 id="chinese-1-test">小测</h1>
+    <p>偶尔会在语文课上进行小测。</p>
+    <h2>超长复习时间</h2>
+    <p>小测前，必然有一段复习时间。作为水课的又一绝妙途径，这段时间绝对不能浪费。</p>
+    <p>复习时间动不动就给五分钟或十分钟。学生肯定会用大部分（或者所有）复习时间做其他事情。</p>
+    <p>有时方老师会讲解易错的字形字音，写满整个黑板；小测时会擦掉。</p>
+    <h2>防伪标志</h2>
+    <p>有时候，小测本会提前下发，以便复习结束后可快速进入小测状态。但这会出现一个问题：小测的内容是提前预告的，假如有人提前写怎么办？</p>
+    <p>针对此类情况，方老师在第一次小测时别出心裁地发明了“防伪标志”。</p>
+    <p>其原理很简单：</p>
+    <code>
+        <p>小测开始后，方老师会要求学生在指定的字后面画上特定的符号。</p>
+    </code>
+    <p>理论上，如果有人提前写了，就会没地方画符号，导致露馅。</p>
+    <p>具体实现起来就是这样：</p>
+    <code>
+        <p>客路<i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>青山外</p>
+    </code>
+    <p>方老师会在黑板上写下“客路<i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>”，而学生就要在“客路”后面画两个星星，然后再写接下来的内容。</p>
+    <p>可惜的是，“防伪标志”也只使用过一次，后来也没有再出现过。小测前，学生可能会问“有没有防伪标志”，但都没得到回应。也有人建议其他代课语文老师用防伪标志，但未被采纳。</p>
+    <h2>内容</h2>
+    <p>小测主要测这些内容：</p>
+    <ul>
+        <li>默写</li>
+        <p>对于古诗词、文言文，主要考的就默写。默写的内容通常不多，一篇长文言文会分段默写。默写的内容会写在黑板上，如果是古诗则会包括题目和作者。</p>
+        <li>字词</li>
+        <p>字词主要包括写拼音、听写等。写拼音时，方老师会在黑板上写出相应题目。</p>
+    </ul>
+    <h2>哇！咦——</h2>
+    <p>小测改完后，方老师会在班上念出所有满分的学生。由此就诞生了一个9班独有的“传统”。</p>
+    <p>念到一个学生时，大家会判断这个人在班上的地位。如果地位较好，就喊<var>哇——</var>；否则喊<var>咦——</var>。</p>
+    <p>举个例子，这些学生是“哇”<sup>[2]</sup>：</p>
+    <ul>
+        <li>张雨希</li>
+        <li>郑诗语</li>
+        <li>王淮</li>
+    </ul>
+    <p>这些学生是“咦”：</p>
+    <ul>
+        <li>郑致辰</li>
+        <li>林芷琪</li>
+        <li>洪鑫洋</li>
+        <li>俞昕辰</li>
+    </ul>
+    <p>这么一喊，班上的气氛瞬间好了不少。喊“咦”时，学生的音量通常比喊“哇”大，喊完可能还会笑场。</p>
+    <p>还有个例外。有一次<time>2025年3月3日</time>念名单，念到钱尚恩时，学生解锁新音效：</p>
+    <q>啊？</q>
+    <p>以后换了别的语文老师，这种传统也继续延续了下去。</p>
+    <hr/>
+    <h1 id="chinese-1-homework">作业</h1>
+    <h2>固定的作业</h2>
+    <p></p>
+    <p></p>
+    <h2>讲评</h2>
+    <hr/>
+    <h1 id="chinese-1-accident">突如其来的意外</h1>
+    <h2>怎么突然变老了</h2>
+    <h2>路上的事故</h2>
+    <div class="notes">
+        <p>[1] “第一节课”指由方翔教大家的第一节课，并非七下的第一节语文课。</p>
+        <p>[2] 数据截至七下结束。</p>
+        <p>[3] 可能与现实又一定区别，仅供参考。</p>
+    </div>
+<div class="page">
+    <button onclick="showPage('HOME')" class="back">上一页-</button>
+    <button onclick="showPage('CHINESE-2')" class="next">下一页-郑慧敏</button>
+</div>
+</main>
+<main id="CHINESE-2">
+    <header style="--header:#d58574;">
+        <h1>郑慧敏</h1>
+        <span>语文</span>
+        <span>七上期中~七下第二周</span>
+    </header>
+    <h1 id="chinese-2">出口就是金句</h1>
+    <hr/>
+    <h1 id="chinese-2">抽背</h1>
+    <h2>抽翻译</h2>
+    <h2>抽《西游记》</h2>
+    <hr/>
+    <h1 id="chinese-2">作业的审判</h1>
+    <hr/>
+    <h1 id="chinese-2">课件</h1>
+    <hr/>
+    <h1 id="chinese-2">离别</h1>
+<div class="page">
+    <button onclick="showPage('CHINESE-1')" class="back">上一页-方翔</button>
+    <button onclick="showPage('CHINESE-3')" class="next">下一页-陈文慧</button>
+</div>
+</main>
+<main id="CHINESE-3">
+    <header style="--header:#d58574;">
+        <h1>陈文慧</h1>
+        <span>语文</span>
+        <span>八上~</span>
+    </header>
+<div class="page">
+    <button onclick="showPage('CHINESE-2')" class="back">上一页-方翔</button>
+    <button onclick="showPage('MATH-1')" class="next">下一页-严伟胜</button>
+</div>
+</main>
+<main id="MATH-1">
+    <header style="--header:#59aad5;">
+        <h1>严伟胜</h1>
+        <span>数学</span>
+        <span>七上~</span>
+    </header>
+    <h1 id="math-1-">肢体的奥秘</h1>
+    <h2>笔盖咔咔响</h2>
+    <h2>穿着</h2>
+    <h2>站姿</h2><!--双脚垂直，倾斜站立-->
+    <h2>课前的沉默</h2><!--门口安静看手机-->
+    <hr/>
+    <h1 id="math-1-">新课</h1>
+    <h2>讲课的流程</h2><!--导学案、八上周三3节课安排-->
+    <h2>课件的变迁</h2>
+    <h2>请人规律</h2>
+    <h2>纪律</h2>
+    <h3>今天纪律差</h3>
+    <h3>站后面</h3>
+    <h3>打手</h3>
+    <h2>写题目</h2><!--同意举手/同意-弘毅/笔记本拿出来-->
+    <h2>课上写作业</h2>
+    <hr/>
+    <h1 id="math-1-">作业</h1>
+    <h2>作业的布置</h2>
+    <h2>讲评</h2><!--检查、折名字、三四组的紧张时刻-->
+    <h2>正面和反面</h2>
+    <hr/>
+    <h1 id="math-1-">测验</h1>
+    <h2>科作业小测与订正</h2><!--告诉原因-->
+    <h2>阶段小卷</h2>
+    <h2>考后固定总结</h2>
+    <hr/>
+<div class="page">
+    <button onclick="showPage('CHINESE-3')" class="back">上一页-陈文慧</button>
+    <button onclick="showPage('ENGLISH-1')" class="next">下一页-刘必艳</button>
+</div>
+</main>
+<main id="ENGLISH-1">
+    <header style="--header:#fabb48">
+        <h1>刘必艳</h1>
+        <span>英语</span>
+        <span>七上~</span>
+        <dl class="keywords">
+            <dd onclick="window.location.href='#english-1-start'">从零开始</dd>
+            <dl>
+                <dd>初始九班</dd>
+                <dd>教学的起点</dd>
+            </dl>
+            <dd onclick="window.location.href='#english-1-class'">惊心动魄的一堂课</dd>
+            <dl>
+                <dd>带读</dd>
+                <dd>课件</dd>
+                <dd>读书</dd>
+                <dd>校本</dd>
+                <dd>记笔记</dd>
+                <dd>讲单词</dd>
+                <dd>讲练习</dd>
+                <dd>复习</dd>
+                <dd>经典行为</dd>
+            </dl>
+            <dd onclick="window.location.href='#english-1-test'">OK,test.</dd>
+            <dl>
+                <dd>什么是小测</dd>
+                <dd>小测前</dd>
+                <dd>考些什么</dd>
+                <dd>从上交到登记</dd>
+                <dd>不同的等级</dd>
+                <dd>过小测</dd>
+                <dd>订正</dd>
+                <dd>拒绝作弊！</dd>
+            </dl>
+            <dd onclick="window.location.href='#english-1-homework'">作业</dd>
+            <dl>
+                <dd>固定的作业</dd>
+                <dd>预习</dd>
+                <dd>抄默本与积累本</dd>
+                <dd>“与时俱进”的练习册</dd>
+                <dd>背诵</dd>
+                <dd>寒暑假作业</dd>
+            </dl>
+            <dd onclick="window.location.href='#english-1-mark'">做题的标记</dd>
+            <dl>
+                <dd>听力</dd>
+                <dd>单选</dd>
+                <dd>还原句子</dd>
+                <dd>作文</dd>
+                <dd>审判时刻</dd>
+            </dl>    
+            <dd onclick="window.location.href='#english-1-life'">生活中的英语</dd>
+            <dl>
+                <dd>跑操时的英语</dd>
+                <dd>不能丢了段一！</dd>
+            </dl>
+            <dd onclick="window.location.href='#english-1-student'">上中下等人</dd>
+            <dl>
+                <dd>A组——做积累本</dd>
+                <dd>B组——精准提问</dd>
+                <dd>C组——背其他科</dd>
+            </dl>    
+            <dd onclick="window.location.href='#english-1-review'">期末冲刺</dd>
+            <dl>
+                <dd>复习课件与流程</dd>
+                <dd>背单词</dd>
+                <dd>背作文</dd>
+                <dd>听听力</dd>
+                <dd>透明文件袋</dd>
+                <dd>考前复习</dd>
+                <dd>对答案</dd>
+            </dl>    
+            <dd onclick="window.location.href='#english-1-'">收作业小组</dd>
+            <dl>
+                <dd>六人小组</dd>
+                <dd>四个大组</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">学习小组</dd>
+            <dl>
+                <dd>小组的诞生与更替</dd>
+                <dd>别班纷纷效仿</dd>
+                <dd>黑板上的背诵内容</dd>
+                <dd>签字</dd>
+                <dd>奖励与惩罚</dd>
+                <dd>抽背</dd>
+                <dd>名存实亡的学习小组</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">量化</dd>
+            <dl>
+                <dd>九班量化细则</dd>
+                <dd>加分与扣分</dd>
+                <dd>抽奖与抽罚</dd>
+                <dd>吝啬的加分</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">九班的“阶级”</dd>
+            <dl>
+                <dd>阶级制度</dd>
+                <dd>班委</dd>
+                <dd>科代表</dd>
+                <dd>组长</dd>
+                <dd>其他</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">换座位</dd>
+            <dl>
+                <dd>一学期一大调</dd>
+                <dd>局部调整</dd>
+                <dd>讲台前的王位</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">占课</dd>
+            <dl>
+                <dd>拼好课</dd>
+                <dd>信息课这块肉</dd>
+                <dd>音乐与美术</dd>
+                <dd>体育课</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">严管手机！</dd>
+            <dl>
+                <dd>初期的限制</dd>
+                <dd>班级群败露</dd>
+                <dd>如履薄冰的管理</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">舌尖上的九班</dd>
+            <dl>
+                <dd>一人一包</dd>
+                <dd>要饭</dd>
+                <dd>“九班高利贷”——筷子</dd>
+                <dd>正义维权</dd>
+                <dd>零食饮料复辟</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">放学后的风波</dd>
+            <dl>
+                <dd>通知不完的事情</dd>
+                <dd>思想教育讲座</dd>
+                <dd>读单词的诱惑</dd>
+                <dd>布置考场算什么？</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">监视无处不在</dd>
+            <dl>
+                <dd>带监控的对讲机</dd>
+                <dd>窗外闪现</dd>
+                <dd>控制电脑</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">营造霉好班级</dd>
+            <dl>
+                <dd>限制小团体</dd>
+                <dd>思想教育乐不停</dd>
+                <dd>跑操审判</dd>
+                <dd>三条红领巾</dd>
+                <dd>尊重老师</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">带东西的讲究</dd>
+            <dl>
+                <dd>记作业本在哪里？</dd>
+                <dd>笔袋里的笔</dd>
+                <dd>第一件事：写名字</dd>
+                <dd>家长送来</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">待人之道</dd>
+            <dl>
+                <dd>历史上的冤狱</dd>
+                <dd>男女有别</dd>
+                <dd>课间的批评</dd>
+                <dd>门口的谈话</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">班级群中</dd>
+            <dl>
+                <dd>请家长改名</dd>
+                <dd>@所有人</dd>
+                <dd>每日通报</dd>
+                <dd>另一个家长群</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">公共设施的情况与管理</dd>
+            <dl>
+                <dd>垃圾桶</dd>
+                <dd>桌布</dd>
+                <dd>“九班民族乐器”</dd>
+                <dd>班级布置</dd>
+                <dd>带“私货”的黑板报</dd>
+                <dd>作业公示栏与缺交名单公示</dd>
+                <dd>打手工具的迭代</dd>
+                <dd>生化武器——黑板擦</dd>
+                <dd>代代相传的桌布</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">学生的态度</dd>
+            <dl>
+                <dd>怨气与名字</dd>
+                <dd>论占英语课</dd>
+                <dd>上涨的不满情绪</dd>
+                <dd>补英语本热潮</dd>
+                <dd>谁是卧底</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">其他课上的刘老师</dd>
+            <dl>
+                <dd>早读</dd>
+                <dd>班会</dd>
+                <dd>体育</dd>
+                <dd>八年级政治</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">办公室</dd>
+            <dl>
+                <dd>井然有序的办公室</dd>
+                <dd>物资一览</dd>
+                <dd>办公室的人文</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">大脚</dd>
+            <dl>
+                <dd>突如其来的意外</dd>
+                <dd>松懈的纪律</dd>
+                <dd>回校整治</dd>
+                <dd>运动会怎么办</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">羽毛球</dd>
+            <dl>
+                <dd>生活与羽毛球</dd>
+                <dd>自己的技术</dd>
+                <dd>与羽毛球的羁绊</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">四十中关系链</dd>
+            <dl>
+                <dd>段长</dd>
+                <dd>张佳欣</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">活动</dd>
+            <dl>
+                <dd>六一儿童节</dd>
+                <dd>元旦</dd>
+            </dl>        
+            <dd onclick="window.location.href='#english-1-'">其他</dd>
+            <dl>
+                <dd>快速洗手通道</dd>
+                <dd>两部手机</dd>
+            </dl>
+        </dl>
+    </header>
+    <p>九班的英语老师兼班主任——刘必艳——在整个初中阶段都担任9、10班的英语教学。</p>
+    <hr/>
+    <h1 id="english-1-start">从零开始</h1>
+    <h2>初识九班</h2>
+    <p>六年级毕业后，暑假开始。</p>
+    <p>八月份左右，刘老师建立班级群。8月30日，学生到四十中报道。</p>
+    <p>为了让大家更好地融入班级，刘老师举办了一个“别出心裁”的破冰仪式。她：</p>
+    <ul>
+        <li>让学生写下自己的兴趣爱好、姓名等信息</li>
+        <li>以4人为一组，在一段时间内记忆本组其余3人的信息</li>
+        <li>时间结束后开火车，提问相关信息，如果说不出来，该组的4名学生需上台拍照</li>
+    </ul>
+    <p>然后刘老师放出了拍照的姿势要求——全是奇葩的姿势，戏剧性十足。在开火车时，有一些组中招了。</p>
+    <p>接下来，刘老师带领大家了解四十中。转眼间，两天就过去了。2024年9月1日，正式开学。</p>
+    <h2>教学的起点</h2>
+    <p>刘老师进行了一次“摸底”，让大家做了一张关于小学英语知识的单面试卷，旨在对大家的学习情况进行初步的“摸底”。</p>
+    <p>当然，无论这次测验的成绩如何都没关系。刘老师表示：</p>
+    <div class="box">
+        <p>无论小学基础如何，初中英语从零开始教起。</p>
+    </div>
+    <p>大部分学生在小学阶段都没接触音标，于是第一节正式的英语课就从音标开始。</p>
+    <hr/>
+    <div style="font-size:2.5rem;text-align:center;font-weight:bold;padding:50px 0;background:linear-gradient(to bottom,#fabb4855,transparent);border-radius:25px 25px 0 0">教学风格</div>
+    <h1 id="english-1-class">惊心动魄的一堂课</h1>
+    <p>英语，作为班主任的任教科目，在学生眼中变得格外紧张。</p>
+    <p>每天需要带的英语材料主要有：</p>
+    <ul>
+        <li>课本</li>
+        <li>笔记本</li>
+        <li>草稿本</li>
+        <li>全部小测</li>
+        <li>校本</li>
+        <li>练习册/未讲评的练习</li>
+        <li>英语本</li>
+        <li>作文本</li>
+    </ul>
+    <h2>带读</h2>
+    <p>带读的内容为<var>单词</var>、<var>校本</var>或<var>课文</var>。带读的规则在不同场景下又有细分。</p>
+    <p>一般由科代表站在讲台上，指定相应的读书内容；刘老师在时则可能自己带。</p>
+    <p>读单词分两种情况。</p>
+    <h3>科代表带</h3>
+    <p>顾名思义就是由科代表带读一个单词，全班进行跟读。如果科代表正在收作业（尤其早读），则由相关班委（班长、学委）先带读。</p>
+    <p>具体格式如下：</p>
+    <code>
+        <p>科代表：【单词】</p>
+        <p>学生：【单词】，【单词】，【拼写】，【单词】，【中文】</p>
+    </code>
+    <p>学生跟读的前两遍均为降调，不需要读词性，但要读括号里的内容。</p>
+    <p>示例如下：</p>
+    <blockquote>
+        <p>科代表：Pencil.</p>
+        <p>学生：Pencil,pencil,p-e-n-c-i-l,pencil.铅笔。</p>
+    </blockquote>
+    <p>科代表带读时，需要读课上讲的相关变形。包括：</p>
+    <table>
+    <tr>
+        <th>词类</th>
+        <th>举例</th>
+    </tr>
+    <tr>
+        <td>词性转换</td>
+        <td>act→action→active→activity</td>
+    </tr>
+    <tr>
+        <td>过去式（不规则变化）</td>
+        <td>regret→regretted</td>
+    </tr>
+    <tr>
+        <td>现在分词（不规则变化）</td>
+        <td>run→running</td>
+    </tr>
+    <tr>
+        <td>复数（不规则变化）</td>
+        <td>city→cities</td>
+    </tr>
+    <tr>
+        <td>反义词</td>
+        <td>appear→disappear</td>
+    </tr>
+    <tr>
+        <td>易混淆词</td>
+        <td>expect→except</td>
+    </tr>
+    <tr>
+        <td>部分近义词</td>
+        <td>advice→suggestion</td>
+    </tr>
+    <tr>
+        <td>职业</td>
+        <td>sing→singer</td>
+    </tr>
+</table>
+    <p>通常，如果单词刚教或者没教，就需要科代表带读。这样可以让大家知道单词的读音，免得混乱。不过科代表有时自己也会读错。</p>
+    <h3>自己读</h3>
+    <p>这种情况下，科代表无需带读，由学生自己读下去。</p>
+    <p>如果单词教过很久就可以这样。但很多时候分不清要不要带读，于是会出现刚教的词自己读、教了很久的词带读的情况。</p>
+    <p>上述两种情况中，学生经常读错单词的音。刘老师会进行改正。常见的改正话术：</p>
+    <blockquote>
+        <p>师：Not【错误读音】.【正确读音】.Again,【正确读音】,【正确读音】.Go.</p>
+    </blockquote>
+    <p>有时甚至还有互动。</p>
+    <blockquote>
+        <p>师：【错误读音】?（Yes or no?）</p>
+        <p>部分学生：【正确读音】.</p>
+        <p>师：Yes.【正确读音】.Again（,【正确读音】,【正确读音】.Go）.</p>
+    </blockquote>
+    <h3>刘老师带</h3>
+    <p>课上如有读书的专门时间，刘老师会自己指定读书的内容。刘老师带读，言语里透露出干脆利落。</p>
+    <h3>最后一节</h3>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <h2>课件</h2>
+    <p>刘老师的课件在每个单元都有统一的风格，但不同单元的风格有很大区别。</p>
+    <p>据说刘老师的课件在年段许多班级是通用的。第一页必然有本单元的标志性封面，第二页是刘老师自行插入的小测页。</p>
+    <p>然后是本课的目标。刘老师一般自行读一遍，指出一些需要积累的词。</p>
+    <p>然后就是正课的内容。</p>
+    <h3>视频</h3>
+    <p>视频经常作为导入或拓展的内容，放在课件前面或中后部分。大部分视频为英配+字幕。</p>
+    <p>很多时候，刘老师会以“一点都不积极”或“没时间看”为由，跳过课件中的视频。此时的常用话术：</p>
+    <q>视频就不看了。（学生抗议）干嘛呢？</q>
+    <p>再后来，课件切到视频所在页面后，刘老师立刻翻页，直接跳过视频。</p>
+    <p>看视频的机会相对较少，但不至于极少或没有。</p>
+    <p>说到视频，就不得不提到经典的AI视频。</p>
+    <p>课本中“Theme Reading”和“Reading for Writing”都有一篇篇幅较长的课文。这类AI视频就针对这些课文创作。</p>
+    <p>首先，视频中会对该文章进行朗读，学生相当于听了一遍范读；同时下方配上字幕。</p>
+    <p>画面是AI视频的“精髓”。这类视频有着浓郁的“豆包味”。由于视频画面是由多个生成的视频拼接而成，一个典型的特征就是五秒钟内必切镜头。</p>
+    <p>为了满足视频的时长，有时生成的视频个数少了，就重复着用。导致一个镜头可能出现2到3词，通常在开头和结尾重复。</p>
+    <p>作为AI视频</p>
+    <p></p>
+    <h3>经典文章样式</h3>
+    <h3>“无中生有”的Activities</h3>
+    <h3>语法点</h3>
+    <h3>从课件到课堂</h3>
+    <p></p>
+    <p></p>
+    <h2>读书</h2>
+    <h3>难治的声音</h3>
+    <h2>校本</h2>
+    <h2>记笔记</h2>
+    <h2>讲单词</h2>
+    <h2>讲练习</h2>
+    <h2>复习</h2>
+    <h2>经典行为</h2>
+    <h3>激光笔</h3>
+    <h3>语录</h3>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-test">OK,test.</h1>
+    <h2>什么是小测</h2>
+    <p>小测在初中阶段很是频繁，其中以英语小测最为典型。</p>
+    <p>很多班级都有英语小测，小测的题目由各班老师自行拟定。早在开学初，刘老师就已开始实行小测制度。</p>
+    <p>9班几乎每天都有小测，时间安排在每天的首节英语课。偶尔没有小测，常见的原因有：</p>
+    <ul>
+        <li>没有英语课</li>
+        <li>重大节日当天</li>
+        <li>不想测了</li>
+        <li>公开课</li>
+        <li>没时间改</li>
+    </ul>
+    <p>刘老师的小测题目通常位于课件的第二页，有时多日的小测都集中于这个地方。翻到小测页面后，顶部会有一个标题：<var>Test</var>；标题右下方有日期；主体的区域即为题目。</p>
+    <div class="box" style="font-family:serif">
+        <h1>Test</h1>
+        <p style="text-align:right">【日期】</p>
+        <div style="border:5px dotted #fff8;border-radius:10px;text-align:center;padding:50px;">【题目区域】</div>
+    </div>
+    <p>有时，小测页面的背景是一些周围有装饰的图片，大多数情况是纯白背景。</p>
+    <p>刘老师告诉大家，某班的老师都是使用口测的方法，有题目的形式已经相对简单。不过有一次小测页面意外没了，刘老师就口测了一次。</p>
+    <p>日期的格式也有相应的变化。刚开始时，刘老师会标出完整的日期，学生可直接抄在小测纸上。像这样：</p>
+    <div class="box" style="font-family:serif">
+        <p>December 1st</p>
+    </div>
+    <p>其标准格式就是这样：</p>
+    <code>
+        <p>【月份完整英文】【序数词缩写】</p>
+    </code>
+    <p>所有的小测都要按照这个格式写。</p>
+    <p>渐渐地，日期变成了纯数字的格式。刘老师会在后面加一个<var>用英文写出</var>。像这样：</p>
+    <div class="box" style="font-family:serif">
+        <p>12.1（用英文写出）</p>
+    </div>
+    <p>意思就是，即使屏幕上的日期长这样，学生仍然要将其写为<var>月份完整英文+序数词缩写</var>的形式。</p>
+    <p>意图很明确，就是在考察学生对月份英文的掌握程度。刘老师改小测时会顺便看一下日期，如果发现单词写错了或者“st”、“nd”、“rd”、“th”弄混了会圈出来。</p>
+    <p>学生熟悉流程后，<var>（用英文写出）</var>也变没了，不过要求是一样的。</p>
+    <h2>小测前</h2>
+    <p>用于小测的唯一纸张是<var>英语作业纸</var>。如果有人没有英语作业纸，需要向周围的人借。</p>
+    <p>每次小测都需要：</p>
+    <ul>
+        <li>将纸折成宽度相等的四列</li>
+        <li>写上完整个人信息</li>
+    </ul>
+    <p>这里的个人信息就包括<var>年级</var>、<var>班级</var>、<var>姓名</var>、<var>座号</var>和<var>日期</var>。这五项必须全部写上，如果缺了刘老师也会圈出。</p>
+    <p>有些人（如唐家祺、崔宇臣）经常在交小测时才写个人信息，有时会被批评。也就是说，小测前就得写好信息，甚至可以提前写好整本小测的信息，留一个日期在小测时写。</p>
+    <p>小测前的课间或早读，大部分学生进入“紧急状态”，开始紧张复习。有一种话术在此时非常常见：</p>
+    <q>完了，我都没背！</q>
+    <p>带读结束后，刘老师会让大家准备小测，有时是读到一半就让大家停下来小测。</p>
+    <p>命令的语言很多。中文的常见命令是：</p>
+    <q>准备小测。</q>
+    <q>快点小测。</q>
+    <p>有时更加简单：</p>
+    <q>小测。</q>
+    <p>中文的情况一般是在读到一半时说的。更常见，也更经典的是英语的命令。</p>
+    <p>首先是最经典的：</p>
+    <q>Close your books and test.</q>
+    <p>其变体为：</p>
+    <q>Prepare for the test.</q>
+    <p>和中文版一样，英文版有简洁的命令：</p>
+    <q>Test.</q>
+    <p>除了让大家“做”，还有“怎么做”的命令。这类命令通常跟在英文版命令之后。</p>
+    <q>Close your books and put them in the middle of your desks.</q>
+    <q>Put your books and notebooks in the middle of your desks.</q>
+    <q>Put your materials in the middle of your desks.</q>
+    <p>如果加上<var>all of</var>，则是更加强调命令，<var>all of</var>一般重读。</p>
+    <q>Put all of your books and notebooks in the middle of your desks.</q>
+    <q>Put all of your materials in the middle of your desks.</q>
+    <p>有时甚至练命令都没有。看见刘老师去弄课件了，就是默认要准备小测了。</p>
+    <p>发出小测命令后，相当一部分学生会抓紧再看几眼。刘老师就会催促：</p>
+    <q>Quickly!</q>
+    <q>Hurry up!</q>
+    <p>以上就是小测的常见命令。</p>
+    <p>显然，刘老师要求在小测前将所有材料放到桌子中央，包括英语书、校本、笔记本等。这么做的目的有二：</p>
+    <ul>
+        <li>防止在抽屉底下偷看相关材料</li>
+        <li>材料可作为简易的挡板，一定程度上防止偷抄同桌答案</li>
+    </ul>
+    <p>万事俱备，刘老师会打开相关课件，调出小测页面，并打开计时器计时，然后开始小测。</p>
+    <h2>考些什么</h2>
+    <p>简单来说，<var>前一天作业中要求复习的笔记</var>、<var>背诵的单词和校本</var>、<var>课上特别提到会考的内容</var>、<var>最近积累本积累的单词</var>，都是第二天小测的内容。</p>
+    <p>我们来看一下上面的【题目区域】里有什么。</p>
+    <p>小测的正面有八行。一般地，刘老师出题格式如下：</p>
+    <style>
+        .testTable{
+            background:color-mix(in oklab,color-mix(in oklab,var(--table) 90%,var(--color) 10%),transparent);
+            tr:first-child>td{border-top:none!important;}
+            td{text-align:left;padding:12px 4px;}
+            td[colspan="4"]{border-right:none;}
+        }
+    </style>
+    <table class="testTable">
+    <tr>
+        <td>1.<var>音标</var></td>
+        <td>2.<var>音标</var></td>
+        <td>3.<var>音标</var></td>
+        <td>4.<var>音标</var></td>
+    </tr>
+    <tr>
+        <td>5.<var>听写</var></td>
+        <td>6.<var>听写</var></td>
+        <td>7.<var>听写</var></td>
+        <td>8.<var>听写</var></td>
+    </tr>
+    <tr>
+        <td>9.<var>词组</var></td>
+        <td>10.<var>词组</var></td>
+        <td>11.<var>词组</var></td>
+        <td>12.<var>词组</var></td>
+    </tr>
+    <tr>
+        <td>13.<var>词组</var></td>
+        <td>14.<var>词组</var></td>
+        <td>15.<var>词组</var></td>
+        <td>16.<var>词组</var></td>
+    </tr>
+            <tr><td colspan="4">17.<var>句子</var></td></tr>
+            <tr><td colspan="4">18.<var>句子</var></td></tr>
+            <tr><td colspan="4">19.<var>句子</var></td></tr>
+            <tr><td colspan="4">20.<var>句子</var></td></tr>
+    </table>
+    <p>接下来逐个分析。</p>
+    <h3>音标与听写</h3>
+    <p>正常1~4题为<var>看音标写单词</var>，5~8题为<var>听写单词</var>。有时，这两个板块的题目数量会有所增减，增减数量在2题以内。例如：</p>
+    <table class="testTable">
+    <tr>
+        <td>1.<var>音标</var></td>
+        <td>2.<var>音标</var></td>
+        <td>3.<var>音标</var></td>
+        <td>4.<var>音标</var></td>
+    </tr>
+    <tr>
+        <td>5.<var>音标</var></td>
+        <td>6.<var>听写</var></td>
+        <td>7.<var>听写</var></td>
+        <td>8.<var>听写</var></td>
+    </tr>
+    <tr>
+        <td>9.<var>听写</var></td>
+        <td>10.<var>词组</var></td>
+        <td>11.<var>词组</var></td>
+        <td>12.<var>词组</var></td>
+    </tr>
+    <tr><td colspan="4">……</td></tr>
+    </table>
+    <p>听写单词的时机一般在小测的后半段，但有时刘老师会等到倒计时结束后才想起听写。不过也有开始没多久就进行听写的情况。</p>
+    <p>因此，一般听写部分先只写个题号，然后空着写接下来的题。</p>
+    <p>听写时，刘老师会拿英语书寻找单词。听写的单词不与看音标写单词的单词重复，如有重复刘老师会换词。</p>
+    <p>当刘老师开始念听写题的题号时，标志着听写开始，学生停止写其他部分，准备听写。每个单词读2~3遍。</p>
+    <p>讲单词时给的相关变形也会考，这些词跟在主单词后。刘老师会以这些形式要求学生写出相关变形：</p>
+    <table class="testTable">
+    <tr>
+        <td>1.<var>音标</var>&amp;adj.&amp;adv.</td>
+        <td>2.<var>音标</var>&amp;...</td>
+        <td>3.<var>音标</var>&amp;pl</td>
+        <td>4.<var>音标</var>&amp;v.ed&amp;n.&amp;v.ing</td>
+    </tr>
+    <tr><td colspan="4">……</td></tr>
+    </table>
+    <p>以第一题为例，意思就是写出音标代表的单词后，在后面再写出其形容词和副词形式。</p>
+    <p>听写时的提醒形式如下：</p>
+    <code><p>【单词】，以及它的【变形】。</p></code>
+    <p>后来，提醒的形式进行了一番升级。原本有提醒“adj”、“n”之类的变形类型，升级后直接变成<var>→</var>，每出现一个“→”代表需写出它的一种变形。针对上面的题目，升级后的格式就是这样：</p>
+    <table class="testTable">
+    <tr>
+        <td>1.<var>音标</var>→ →</td>
+        <td>2.<var>音标</var>→</td>
+        <td>3.<var>音标</var>→</td>
+        <td>4.<var>音标</var>→ → →</td>
+    </tr>
+    <tr><td colspan="4">……</td></tr>
+    </table>
+    <p>听写时的提醒形式如下：</p>
+    <code><p>【单词】，以及它的（【个数】）相关变形。</p></code>
+    <h3>词组</h3>
+    <p>几乎所有词组都来源于<var>校本</var>或<var>笔记的重点词组</var>。和单词一样，校本的补充短语也会考。考法是：给出词组中文，写出相应词组。</p>
+    <p>很多时候，一种意思在英语中有多种相同的表达方法。刘老师为了让大家写出全部的表达，会在中文后加上<var>（2种）</var>或<var>（3种）</var>。</p>
+    <p>一些词组，意思相近或相反，于是放在同一题目中，用<var>/</var>隔开，也就是在同一体内写两个词组。</p>
+    <p>上面两种情况在真正的题目中就是长这样：</p>
+    <table class="testTable">
+    <tr><td colspan="4">……</td></tr>
+    <tr>
+        <td>9.参加（3种）</td>
+        <td>10.离……近/离……远</td>
+        <td>11.向某人寻求帮助（2种）</td>
+        <td>12.喜欢某事/做某事</td>
+    </tr>
+    <tr><td colspan="4">……</td></tr>
+    </table>
+    <p>随着时间流逝，该格式也有所升级。原先的<var>（2种）</var>或<var>（3种）</var>变得更加简洁，变成了<var>（2）</var>或<var>（3）</var>。</p>
+    <table class="testTable">
+    <tr><td colspan="4">……</td></tr>
+    <tr>
+        <td>9.参加（3）</td>
+        <td>10.离……近/离……远</td>
+        <td>11.向某人寻求帮助（2）</td>
+        <td>12.喜欢某事/做某事</td>
+    </tr>
+    <tr><td colspan="4">……</td></tr>
+    </table>
+    <p>一些词组占用空间很长，刘老师会视情况允许跨格写词组；有时小测的题目中，一行写的词组数量会减少，以适应个别词组的空间。例如：</p>
+    <table class="testTable">
+    <tr><td colspan="4">……</td></tr>
+    <tr>
+        <td>9.<var>词组</var></td>
+        <td>10.<var>词组</var></td>
+        <td>11.<var>词组</var></td>
+        <td>12.<var>词组</var></td>
+    </tr>
+    <tr>
+        <td>13.<var>词组</var></td>
+        <td>14.<var>词组</var></td>
+        <td colspan="2">15.<var>长词组</var></td>
+    </tr>
+    <tr>
+        <td colspan="2">16.<var>长词组</var></td>
+        <td colspan="2">17.<var>长词组</var></td>
+    </tr>
+    <tr><td colspan="4">……</td></tr>
+    </table>
+    <h3>句子</h3>
+    <p>句子题目来源于<var>校本</var>以及<var>笔记</var>中。考法：给出中文，写出句子。</p>
+    <p>校本中的句子大多直接考原句，即使修改也只是细微变化（一般改变名词成分），整体结构不变；笔记中的句子注重灵活应用，不过经常考抄在笔记中的例子。</p>
+    <p>和词组一样，有<var>（2）</var>、<var>（3）</var>以及<var>/</var>。不过在一些特殊的句子中，刘老师会特别标出“两种具体变什么”，例如<var>（2种喜爱）</var>。</p>
+    <p>有时，刘老师会标注写该句子是，需要用到的词组。一般以单个单词为提示，放在中文后的括号中。</p>
+    <p>为了方便批改，避免频繁翻到背面。刘老师规定：如果写到最后一行时还有一题没写，直接写在下面，不要写在背面。</p>
+    <h3>积累本</h3>
+    <p>如果前一天有记积累本的单词，第二天通常会在小测中考到，每次只考一个。</p>
+    <p>积累本单词一般为听写，偶尔为念中文，写出英语单词。积累本单词也会涉及相关变形。</p>
+    <p>观察最初的格式，发现并没有写积累本单词的专门区域。事实上，写积累本单词区域历经3次变化：</p>
+    <ol>
+        <li>写在原来第8题的地方</li>
+        <p>刘老师会直接听写，不特别强调“这是积累本单词”。这样一来，英语书中的单词就会少考一个。</p>
+        <table class="testTable">
+        <tr><td colspan="4">……</td></tr>
+        <tr>
+            <td>5.<var>听写</var></td>
+            <td>6.<var>听写</var></td>
+            <td>7.<var>听写</var></td>
+            <td>8.<var>积累本</var></td>
+        </tr>
+        <tr><td colspan="4">……</td></tr>
+        </table>
+        <li>写在第8题右侧</li>
+        <p>这一题就被刘老师称为“8.5题”。</p>
+        <li>写在标题（“英语作业纸”）左侧</li>
+        <p>这一题就被刘老师称为“0.5题”。</p>
+    </ol>
+    <p>后来，学生习惯了“0.5题”，刘老师就会这么说：</p>
+    <code><p>0.5写一个，……。</p></code>
+    <h3>表格</h3>
+    <p>对于重要的语法点，刘老师会要求在小测纸背面按格式画出表格并填空。这些语法点必须同时满足：</p>
+    <ul>
+        <li>可以呈现为表格形式</li>
+        <li>少数词语的不规则变化</li>
+    </ul>
+    <p>历史上，刘老师要求画出这些表格：</p>
+    <ul>
+        <li>人称代词、物主代词、反身代词的不同人称和数</li>
+        <li>形容词比较级、最高级的不规则变化</li>
+    </ul>
+    <h2>从上交到登记</h2>
+    <p>一般来说，倒计时结束后，刘老师会仪式性地问一句“OK?”，得到的答案总是“No”。刘老师就会说：</p>
+    <q>再写1分钟。</q>
+    <p>或</p>
+    <q>再写30秒。</q>
+    <p>这多给的时间过去了，刘老师就要真收了。</p>
+    <p>虽然更多时候是延迟收，但也有提前收的情况。在时间剩约1分钟时，刘老师会根据大家写小测的情况提前结束小测。</p>
+    <h3>收小测</h3>
+    <p>收小测的方法可以分为传统方式和新型方式。先来看传统方式。</p>
+    <p>刘老师在传统方式中的经典指令是：</p>
+    <q>OK,hand in.</q>
+    <p>这时，学生需要做的就是停笔，然后每一组从后往前传小测。</p>
+    <p>传的过程没几次顺利的。最经典的问题是有人到这时仍没写完，正在奋笔疾书。刘老师几乎每次都要提醒：</p>
+    <q>交了！</q>
+    <p>有时也会进行点名。但一些人仍然在写，拖了一会儿才交。</p>
+    <p>针对这种问题，刘老师实施的新型方法就是<var>组长起来收</var>。</p>
+    <p>这是在改编收作业小组（参见“收作业小组”）后才出现的方法，理论上可以使收小测更高效。到时间后，刘老师会让4个组的组长起立收小测，并强调“按顺序收”。</p>
+    <p>不过这种方法并没有对上面的问题有实质性的作用，仍然需要刘老师催交。</p>
+    <p>交完的小测放在郭沁诗手上，刘老师会找时间要走小测进行批改；新型方法中收好的小测一般直接交给刘老师。</p>
+    <p>收完小测后，刘老师会选择一些题目进行讲评，然后开始上课。</p>
+    <h3>改小测</h3>
+    <p>刘老师把小测用长尾夹夹成一本，逐份批改，批改时保持小测为一本（非单张）。</p>
+    <p>批改的速度很快，不需要看什么“参考答案”或题目就能直接改。</p>
+    <p>而关于改小测的地点，总结一下就是“哪里都能改”。除了办公室，还有：</p>
+    <ul>
+        <li>课上</li>
+        <p>当刘老师组织朗读全文或让学生做练习时，刘老师就会顺手拿起小测，边踱步边批改。</p>
+        <li>跑操（升旗）时</li>
+        <p>跑擦（升旗）时是批改小测的绝佳时机。跑操时，刘老师也是边走边改（有时是站定后批改），改的时候还能监督学生的跑步情况和口号之类的。升旗时，不到音乐响起，国旗队开始踏步，刘老师是不会停下的；而升国旗一结束，刘老师又会拿起小测，争分夺秒地批改。</p>
+    </ul>
+    <p>没错，刘老师能否改小测与站还是坐、有无桌面完全无关。</p>
+    <p>9班和10班的小测完全能满足刘老师在跑操或升旗时的批改需求；假如真的没小测改了，也多半会拿出练习进行批改。</p>
+    <p>正是这种效率，才让小测能快速改完。</p>
+    <h3>登记小测</h3>
+    <p>大概到了小测改完的时候（一般为<var>上午3、4节课</var>），科代表需主动询问，如果已经改完则会拿到班上进行等级。</p>
+    <p>登记小测用的都是科代表专用的作业登记表。登记规则如下：</p>
+    <table>
+    <tr>
+        <th>等级</th>
+        <th>规则</th>
+    </tr>
+    <tr>
+        <td>A+/A/A-/B/B-</td>
+        <td>用黑笔登记相应等级</td>
+    </tr>
+    <tr>
+        <td>F+</td>
+        <td>用红笔登记</td>
+    </tr>
+    <tr>
+        <td>F/F-</td>
+        <td>不登记</td>
+    </tr>
+    </table>
+    <p>然后再底部空白位置写上<var>AB</var>（所有过关的）、<var>F+</var>、<var>F</var>的人数。当天刘老师会将单子拍照发到群里。</p>
+    <p>班上的一些人非常着急要看自己小测的等级。因此小测一拿来，就会有大量学生围上去。好一点的情况是询问自己的等级，差的情况就是直接翻看，甚至拿走（要订正）。</p>
+    <p>假如科代表未在场，小测就会被翻的乱七八糟，桌面上到处都是散落的小测。学生在桌前围城一片，水泄不通，争相向前挤并找自己的小测。</p>
+    <p>登记完后，小测就会被正式下发，一般午休前每个人能够拿到小测。</p>
+    <h2>不同的等级</h2>
+    <p>夸张地说，小测的等级关乎学生的命运。</p>
+    <p>简单来讲，小测的等级包括以下几个：</p>
+    <table>
+    <tr>
+        <th>等级</th>
+        <th>加分</th>
+        <th>过关</th>
+        <th>标准</th>
+    </tr>
+    <tr>
+        <td>A+</td>
+        <td rowspan="3">是</td>
+        <td rowspan="5">是</td>
+        <td>全对</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>（极少见）</td>
+    </tr>
+    <tr>
+        <td>A-</td>
+        <td>细节错</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td rowspan="5">否</td>
+        <td>正常</td>
+    </tr>
+    <tr>
+        <td>B-</td>
+        <td>错较多</td>
+    </tr>
+    <tr>
+        <td>F+</td>
+        <td rowspan="3">否</td>
+        <td>错很多</td>
+    </tr>
+    <tr>
+        <td>F</td>
+        <td>严重错</td>
+    </tr>
+    <tr>
+        <td>F-</td>
+        <td>（极少见）</td>
+    </tr>
+    </table><!--无小测：你小测过了！过关：装-->
+    <p>另外还会有没等级的罕见情况——其实就是没过关的意思。</p>
+    <p>下面详细分析：</p>
+    <h3>A+/A/A-</h3>
+    <p>A+是小测的最高等级，意味着答案完全正确。该等级获取难度很大。</p>
+    <p>如果错的内容只是细节，且错误个数较少，就可以获得A-。</p>
+    <p>A介于A+和A-之间一个非常尴尬的地位。由于全对是A+，错细节是A-，导致没有适用于A的标准。</p>
+    <p></p>
+    <p></p>
+    <h3>B</h3>
+    <h3>B-</h3>
+    <h3>F+</h3>
+    <h3>F/F-</h3>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <h2>过小测</h2>
+    <h2>订正</h2>
+    <h2>拒绝作弊！</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-homework">作业</h1>
+    <h2>固定的作业</h2>
+    <h2>预习</h2>
+    <h2>抄默本与积累本</h2>
+    <h2>“与时俱进”的练习册</h2>
+    <h2>背诵</h2>
+    <h2>寒暑假作业</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-mark">做题的标记</h1>
+    <h2>听力</h2>
+    <h2>单选</h2>
+    <h2>还原句子</h2>
+    <h2>作文</h2>
+    <h2>审判时刻</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-life">生活中的英语</h1>
+    <h2>跑操时的英语</h2>
+    <h2>不能丢了段一！</h2>
+    <h2></h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-student">上中下等人</h1>
+    <h2>A组——做积累本</h2>
+    <h2>B组——精准提问</h2>
+    <h2>C组——背其他科</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-review">期末冲刺</h1>
+    <h2>复习课件与流程</h2>
+    <h2>背单词</h2>
+    <h2>背作文</h2>
+    <h2>听听力</h2>
+    <h2>透明文件袋</h2>
+    <h2>考前复习</h2><!--剩10分钟再走-->
+    <h2>对答案</h2>
+    <p></p>
+    <hr/>
+    <div style="font-size:2.5rem;text-align:center;font-weight:bold;padding:50px 0;background:linear-gradient(to bottom,#fabb4855,transparent);border-radius:25px 25px 0 0">班级制度</div>
+    <h1 id="english-1-">收作业小组</h1>
+    <h2>六人小组</h2>
+    <h2>四个大组</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-">学习小组</h1>
+    <h2>小组的诞生与更替</h2>
+    <h2>别班纷纷效仿</h2>
+    <h2>黑板上的背诵内容</h2>
+    <h2>签字</h2>
+    <h2>奖励与惩罚</h2>
+    <h2>抽背</h2><!--小猴子-->
+    <h2>名存实亡的学习小组</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-">量化</h1>
+    <h2>九班量化细则</h2>
+    <h2>加分与扣分</h2>
+    <h2>抽奖与抽罚</h2>
+    <h2>吝啬的加分</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-">九班的“阶级”</h1>
+    <h2>阶级制度</h2>
+    <h2>班委</h2>
+    <h2>科代表</h2>
+    <h2>组长</h2>
+    <h2>其他</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-">换座位</h1>
+    <h2>一学期一大调</h2>
+    <h2>局部调整</h2>
+    <h2>讲台前的王位</h2>
+    <p></p>
+    <hr/>
+    <div style="font-size:2.5rem;text-align:center;font-weight:bold;padding:50px 0;background:linear-gradient(to bottom,#fabb4855,transparent);border-radius:25px 25px 0 0">管理方针</div>
+    <h1 id="english-1-">占课</h1>
+    <h2>拼好课</h2>
+    <h2>信息课这块肉</h2>
+    <h2>音乐与美术</h2>
+    <h2>体育课</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-">严管手机！</h1>
+    <h2>初期的限制</h2>
+    <h2>班级群败露</h2>
+    <h2>如履薄冰的管理</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-">舌尖上的九班</h1>
+    <h2>一人一包</h2>
+    <h2>要饭</h2>
+    <h2>“九班高利贷”——筷子</h2>
+    <h2>正义维权</h2>
+    <h2>零食饮料复辟</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-">放学后的风波</h1>
+    <h2>通知不完的事情</h2>
+    <h2>思想教育讲座</h2>
+    <h2>读单词的诱惑</h2>
+    <h2>布置考场算什么？</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-">监视无处不在</h1>
+    <h2>带监控的对讲机</h2>
+    <h2>窗外闪现</h2>
+    <h2>控制电脑</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-">营造霉好班级</h1>
+    <h2>限制小团体</h2>
+    <h2>思想教育乐不停</h2><!--知道为什么……-->
+    <code><p>所以我希望……</p></code>
+    <h2>跑操审判</h2>
+    <h2>三条红领巾</h2>
+    <h2>尊重老师</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-">带东西的讲究</h1>
+    <h2>记作业本在哪里？</h2>
+    <h2>笔袋里的笔</h2>
+    <h2>第一件事：写名字</h2><!--新书侧面、练习右侧-->
+    <h2>家长送来</h2>
+    <hr/>
+    <h1 id="english-1-">待人之道</h1>
+    <h2>历史上的冤狱</h2>
+    <h2>男女有别</h2>
+    <h2>课间的批评</h2><!--冷静-激昂-打手-->
+    <h2>门口的谈话</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-">班级群中</h1>
+    <h2>请家长改名</h2>
+    <h2>@所有人</h2>
+    <h2>每日通报</h2>
+    <h2>另一个家长群</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-">公共设施的情况与管理</h1>
+    <h2>垃圾桶</h2>
+    <h2>桌布</h2>
+    <h2>“九班民族乐器”</h2>
+    <h2>班级布置</h2>
+    <h2>带“私货”的黑板报</h2>
+    <h2>作业公示栏与缺交名单公示</h2>
+    <h2>打手工具的迭代</h2>
+    <h2>生化武器——黑板擦</h2>
+    <h2>代代相传的桌布</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-">学生的态度</h1>
+    <h2>怨气与名字</h2>
+    <h2>论占英语课</h2>
+    <h2>上涨的不满情绪</h2>
+    <h2>补英语本热潮</h2>
+    <h2>谁是卧底</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-">其他课上的刘老师</h1>
+    <h2>早读</h2><!--站起来-->
+    <h2>班会</h2>
+    <h2>体育</h2><!--期末不准带拍-->
+    <h2>八年级政治</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-">办公室</h1>
+    <h2>井然有序的办公室</h2>
+    <h2>物资一览</h2>
+    <h2>办公室的人文</h2>
+    <p></p>
+    <hr/>
+    <div style="font-size:2.5rem;text-align:center;font-weight:bold;padding:50px 0;background:linear-gradient(to bottom,#fabb4855,transparent);border-radius:25px 25px 0 0">学习之外</div>
+    <h1 id="english-1-">大脚</h1>
+    <h2>突如其来的意外</h2>
+    <h2>松懈的纪律</h2>
+    <h2>回校整治</h2>
+    <h2>运动会怎么办</h2>
+    <h2></h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-">羽毛球</h1>
+    <h2>生活与羽毛球</h2>
+    <h2>自己的技术</h2>
+    <h2>与羽毛球的羁绊</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-">四十中关系链</h1>
+    <h2>段长</h2>
+    <h2>张佳欣</h2>
+    <p></p>
+    <hr/>
+    <h1 id="english-1-">活动</h1>
+    <h2>六一儿童节</h2>
+    <h2>元旦</h2><!--买课件、猜成语-->
+    <hr/>
+    <h1 id="english-1-">其他</h1>
+    <h2>快速洗手通道</h2>
+    <h2>两部手机</h2>
+    <h2></h2>
+    <h2></h2>
+    <p></p>
+    <hr/>
+<div class="page">
+    <button onclick="showPage('MATH-1')" class="back">上一页-严伟胜</button>
+    <button onclick="showPage('PHYSICS-1')" class="next">下一页-陈淑霞</button>
+        </div>
+</main>
+<main id="PHYSICS-1">
+    <header style="--header:#274e7a">
+        <h1>陈淑霞</h1>
+        <span>物理</span>
+        <span>八上~</span>
+    </header>
+<div class="page">
+    <button onclick="showPage('ENGLISH-1')" class="back">上一页-刘必艳</button>
+    <button onclick="showPage('CHEMISTRY-1')" class="next">下一页-化学</button>
+</div>
+</main>
+<main id="CHEMISTRY-1">
+    <header style="--header:#8f90c6">
+        <h1>无</h1>
+        <span>化学</span>
+        <span>九上~</span>
+    </header>
+<div class="page">
+    <button onclick="showPage('PHYSICS-1')" class="back">上一页-陈淑霞</button>
+    <button onclick="showPage('POLITICS-1')" class="next">下一页-政治</button>
+</div>
+</main>
+<main id="POLITICS-1">
+    <header style="--header:#21bcac">
+        <h1>A（魏？？）</h1>
+        <span>政治</span>
+        <span>七上</span>
+    </header>
+<div class="page">
+    <button onclick="showPage('CHEMISTRY-1')" class="back">上一页-政治</button>
+    <button onclick="showPage('POLITICS-2')" class="next">下一页-政治</button>
+</div>
+</main>
+<main id="POLITICS-2">
+    <header style="--header:#21bcac">
+        <h1>B（官？？）</h1>
+        <span>政治</span>
+        <span>七下</span>
+    </header>
+<div class="page">
+    <button onclick="showPage('POLITICS-1')" class="back">上一页-政治</button>
+    <button onclick="showPage('POLITICS-3')" class="next">下一页-政治</button>
+</div>
+</main>
+<main id="POLITICS-3">
+    <header style="--header:#21bcac">
+        <h1>C</h1>
+        <span>政治</span>
+        <span>八上~</span>
+    </header>
+    <h1 id="politics-3-">上课</h1>
+    <h2>“汪曾祺”</h2>
+    <h2>装备</h2>
+    <h3>水杯</h3>
+    <h3>小蜜蜂</h3>
+    <h2>课件</h2><!--看课标-->
+    <h2>板书</h2>
+    <h2>政治课课练</h2><!--竟然有批改-->
+    <hr/>
+    <h1 id="politics-3-">语言</h1>
+        <!--ā &#772;  á&#769;  ǎ&#780;  à&#768;-->
+    <h2>字词的读音</h2>
+    <code>
+        <p><ruby>遵<rt>zu&#772;n</rt>纪<rt>ji&#768;</rt>守<rt>sho&#780;u</rt>法<rt>fa&#772;</rt></ruby>或<ruby>遵<rt>zu&#772;n</rt>纪<rt>ji&#768;</rt>守<rt>sho&#780;u</rt>法<rt>fa&#769;</rt></ruby></p>
+        <p><ruby>选<rt>she&#780;n</rt>举<rt>zhi&#780;</rt>权<rt>che&#780;n</rt></ruby></p>
+        <p><ruby>合<rt>he&#772;</rt>法<rt>fa&#772;</rt>权<rt>qua&#769;n</rt>益<rt>yi&#772;</rt></ruby>或<ruby>合<rt>he&#772;</rt>法<rt>fa&#772;</rt>权<rt>qua&#780;n</rt>益<rt>yi&#768;</rt></ruby></p>
+        <p><ruby>策<rt>ce&#768;</rt>略<rt>luo&#768;</rt></ruby></p>
+        <p><ruby>说<rt>shuo&#772;</rt>法<rt>fa&#772;</rt></ruby></p>
+        <p><ruby>必<rt>bi&#769;</rt>须<rt>xu&#772;</rt>具<rt>ju&#768;</rt>备<rt>be&#768;i</rt></ruby></p>
+        <p><ruby>政<rt>zhe&#768;ng</rt>权<rt>che&#769;ng</rt></ruby></p>
+        <p><ruby>线<rt>xia&#772;n</rt>索<rt>suo&#772;</rt></ruby></p>
+        <p><ruby>乘<rt>che&#780;ng</rt>客<rt>ke&#772;</rt></ruby>或<ruby>乘<rt>che&#780;ng</rt>客<rt>ke&#768;</rt></ruby></p>
+        <p><ruby>行<rt>xi&#769;ng</rt>为<rt>we&#780;i</rt></ruby></p>
+        <p><ruby>参<rt>qia&#772;n</rt>加<rt>jia&#772;</rt></ruby></p>
+        <p><ruby>整<rt>zhe&#780;ng</rt>节<rt>jie&#772;</rt>课<rt>ke&#768;</rt></ruby></p>
+        <p><ruby>围<rt>we&#769;i</rt>绕<rt>ra&#780;o</rt>着<rt>zhe&#772;</rt></ruby></p>
+        <p><ruby>各<rt>ge&#772;</rt>个<rt>ge&#768;</rt>方<rt>fa&#772;ng</rt>面<rt>mia&#768;n</rt></ruby></p>
+        <p><ruby>包<rt>ba&#772;o</rt>括<rt>kuo&#772;</rt></ruby></p>
+        <p><ruby>存<rt>che&#769;n</rt>在<rt>za&#768;i</rt></ruby></p>
+        <p><ruby>科<rt>ke&#772;</rt>代<rt>da&#768;</rt>表<rt>bia&#780;o</rt></ruby></p>
+        <p><ruby>普<rt>pu&#769;</rt>法<rt>fa&#772;</rt>教<rt>jia&#768;o</rt>育<rt>yu&#768;</rt></ruby>或<ruby>普<rt>pu&#780;</rt>法<rt>fa&#772;</rt>教<rt>jia&#768;o</rt>育<rt>yu&#768;</rt></ruby></p>
+        <p><ruby>区<rt>qu&#772;</rt>别<rt>bie&#772;</rt>对<rt>dui&#768;</rt>待<rt>da&#768;i</rt></ruby></p>
+    </code>
+    <h2>设问句</h2><!--什么？-->
+    <h2>啧</h2>
+    <h2>整纪律</h2><!--哎呀、不说了、好好好-->
+    <h2>嘛</h2>
+    <h2>上课经典话术</h2><!--这里我们强调/这里我们要强调的是/我们强调/这里强调、对不对、预习复习-->
+    <h2>复读机</h2><!--……的第×点！……的第×点！第×点！第×点！……的第×点！-->
+    <h2></h2>
+    <hr/>
+    <h1 id="politics3-">动作</h1>
+    <h2>敲讲台</h2>
+    <h2>学生的水杯</h2>
+    <hr/>
+<div class="page">
+    <button onclick="showPage('POLITICS-2')" class="back">上一页-政治</button>
+    <button onclick="showPage('HISTORY-1')" class="next">下一页-历史</button>
+</div>
+</main>
+<main id="HISTORY-1">
+    <header style="--header:#d46a5a">
+        <h1>A</h1>
+        <span>历史</span>
+        <span>七年级</span>
+    </header>
+    <h1 id="">上课与电脑</h1>
+    <h2></h2>
+    <hr/>
+    <h1 id="">语言与讲解</h1>
+    <h2></h2>
+    <hr/>
+    <h1 id="">练习与小测</h1>
+    <h2></h2>
+    <hr/>
+<div class="page">
+    <button onclick="showPage('POLITICS-3')" class="back">上一页-政治</button>
+    <button onclick="showPage('HISTORY-2')" class="next">下一页-冯越</button>
+</div>
+</main>
+<main id="HISTORY-2">
+    <header style="--header:#d46a5a">
+        <h1>冯越</h1>
+        <span>历史</span>
+        <span>八上~</span>
+    </header>
+<div class="page">
+    <button onclick="showPage('HISTORY-1')" class="back">上一页-历史</button>
+    <button onclick="showPage('GEOGRAPHY-1')" class="next">下一页-张则斌</button>
+</div>
+</main>
+<main id="GEOGRAPHY-1">
+    <header style="--header:#9bb681">
+        <h1>张则斌</h1>
+        <span>地理</span>
+        <span>七年级</span>
+    </header>
+    <h1 id="">初见</h1>
+    <h2>严肃的氛围</h2>
+    <h2>“重男轻女”</h2>
+    <h2>打手最重的老师</h2>
+    <hr/>
+    <h1 id="">上课流程</h1>
+    <h2>从不备课</h2>
+    <h2>拍照</h2>
+    <h2>发呆3分钟</h2>
+    <h2>写字的习惯</h2><!--专用批注笔-->
+    <h2>语言</h2>
+    <h2>知识点</h2>
+    <h2>活动题</h2>
+    <h2>书上没有的故事</h2><!--撒哈拉洗澡-->
+    <hr/>
+    <h1 id="">作业与讲评</h1>
+    <h2>地理大组长</h2>
+    <h2>专用表格</h2>
+    <h2>讲评的风格</h2><!--在正确选项下画线-->
+    <h2>成绩分级</h2><!--做素养提升-->
+    <h2>抄知识点</h2>
+    <hr/>
+<div class="page">
+    <button onclick="showPage('HISTORY-2')" class="back">上一页-冯越</button>
+    <button onclick="showPage('GEOGRAPHY-2')" class="next">下一页-地理</button>
+</div>
+</main>
+<main id="GEOGRAPHY-2">
+    <header style="--header:#9bb681">
+        <h1>B（林？？）</h1>
+        <span>地理</span>
+        <span>八上~</span>
+    </header>
+<div class="page">
+    <button onclick="showPage('GEOGRAPHY-1')" class="back">上一页-张则斌</button>
+    <button onclick="showPage('BIOLOGY-1')" class="next">下一页-生物</button>
+</div>
+</main>
+<main id="BIOLOGY-1">
+    <header style="--header:#8dcba6">
+        <h1>A</h1>
+        <span>生物</span>
+        <span>七上</span>
+    </header>
+    <h1 id="">课件</h1>
+    <h2>乐乐课堂</h2>
+    <h2>笔记的提供</h2>
+    <hr/>
+    <h1 id="">上课</h1>
+    <h2>绿色软勺</h2>
+    <h2>课课练</h2>
+    <h2>叫人的规律</h2>
+    <hr/>
+    <h1 id="">那些邪修</h1>
+    <h2>五块钱</h2>
+    <h2>巧记“囊”字</h2>
+    <hr/>
+    <h1 id="">匆忙的离别</h1>
+    <h2>预习七下生物</h2>
+    <h2>最后一届</h2>
+    <hr/>
+<div class="page">
+    <button onclick="showPage('GEOGRAPHY-2')" class="back">上一页-地理</button>
+    <button onclick="showPage('BIOLOGY-2')" class="next">下一页-毛俊文</button>
+</div>
+</main>
+<main id="BIOLOGY-2">
+    <header style="--header:#8dcba6">
+        <h1>毛俊文</h1>
+        <span>生物</span>
+        <span>七下</span>
+    </header>
+    <h1 id="">课件</h1>
+    <h2>课件的风格</h2>
+    <h2>乐乐课堂传承？</h2>
+    <hr/>
+    <h1 id="">上课</h1>
+    <h2>踊跃的提问</h2><!--闭麦-->
+    <h2>精讲人的生殖</h2>
+    <hr/>
+    <h1 id="">课堂之外</h1>
+    <h2>生奇宝贝</h2>
+    <h2>七年级外的重逢</h2>
+    <hr/>
+<div class="page">
+    <button onclick="showPage('BIOLOGY-1')" class="back">上一页-生物</button>
+    <button onclick="showPage('BIOLOGY-3')" class="next">下一页-生物</button>
+</div>
+</main>
+<main id="BIOLOGY-3">
+    <header style="--header:#8dcba6">
+        <h1>C</h1>
+        <span>生物</span>
+        <span>八上~</span>
+    </header>
+<div class="page">
+    <button onclick="showPage('BIOLOGY-2')" class="back">上一页-毛俊文</button>
+    <button onclick="showPage('PE-1')" class="next">下一页-张榕杰</button>
+</div>
+</main>
+<main id="PE-1">
+    <header style="--header:#65bf81">
+        <h1>张榕杰</h1>
+        <span>体育</span>
+        <span>七上~</span>
+    </header>
+    <h1 id="">课前</h1>
+    <h2>跑步</h2>
+    <h2>热身</h2>
+    <h2>这节课上什么？</h2>
+    <hr/>
+    <h1 id="">跑不完的圈</h1>
+    <h2>一千与八百</h2>
+    <h2>变速跑</h2><!--自己打篮球-->
+    <h2>快下课时的三百</h2>
+    <h2>新型压迫——六百</h2>
+    <hr/>
+    <h1 id="">散养与严抓</h1>
+    <h2>排球</h2>
+    <h2>仰卧起坐</h2>
+    <h2>核心力量</h2>
+    <hr/>
+    <h1 id="">干干脆脆看午托</h1>
+    <h2>不顺眼就抽背</h2>
+    <h2>没带书的整治</h2><!--深蹲-->
+    <h2>直接罚</h2>
+    <h3>起立</h3>
+    <h3>扣分</h3>
+    <hr/>
+    <h1 id="">论自由活动</h1>
+    <h2>自由活动的时间</h2>
+    <h2>羽毛球场</h2>
+    <h2>班级的盛况</h2>
+    <h2>写作业</h2>
+<div class="page">
+    <button onclick="showPage('BIOLOGY-3')" class="back">上一页-生物</button>
+    <button onclick="showPage('ART-1')" class="next">下一页-美术</button>
+</div>
+</main>
+<main id="ART-1">
+    <header style="--header:#e35f5b">
+        <h1>A（蔡？？）</h1>
+        <span>美术</span>
+        <span>七年级</span>
+    </header>
+    <h1 id="">美术班与中考</h1>
+    <h2>中考中的美术</h2>
+    <h2>如果要报班</h2>
+    <hr/>
+    <h1 id="">开始画画</h1>
+    <h2>画前的讲解</h2>
+    <h2>图片的摆放</h2>
+    <h2>学生的操作</h2><!--折纸、过水笔、自习-->
+    <h2>传上来</h2>
+    <h2>等级</h2>
+    <hr/>
+    <h1 id="">整纪律</h1>
+    <h2>下课状态</h2>
+    <h2>那些名言</h2>
+    <h2>调头与转圈</h2>
+    <h2>眼保健操</h2>
+    <hr/>
+    <h1 id="">奇怪的癖好</h1>
+    <h2>铅笔！水笔！</h2>
+    <h2>繁体字</h2>
+<div class="page">
+    <button onclick="showPage('PE-1')" class="back">上一页-体育</button>
+    <button onclick="showPage('ART-2')" class="next">下一页-美术</button>
+</div>
+</main>
+<main id="ART-2">
+    <header style="--header:#e35f5b">
+        <h1>B</h1>
+        <span>美术</span>
+        <span>八上~</span>
+    </header>
+    <h1 id=""></h1>
+    <h2></h2>
+<div class="page">
+    <button onclick="showPage('ART-2')" class="back">上一页-美术</button>
+    <button onclick="showPage('MUSIC-1')" class="next">下一页-音乐</button>
+</div>
+</main>
+<main id="MUSIC-1">
+    <header style="--header:#f37a65">
+        <h1>A</h1>
+        <span>音乐</span>
+        <span>七上~</span>
+    </header>
+    <h1 id="">新课</h1>
+    <h2>生活中的音乐</h2>
+    <h2>电影里的音乐</h2>
+    <h3>长安的荔枝</h3>
+    <h3>哪吒2</h3>
+    <h2>五线谱与西洋管弦乐团</h2>
+    <h2></h2>
+    <hr/>
+    <h1 id="">班班有歌声</h1>
+    <h2>选曲的奥秘</h2>
+    <h2>排练</h2>
+    <hr/>
+    <h1 id="">表演节目</h1>
+    <h2>抽人来回答</h2><!--指定下一位-->
+    <h2>属于你的舞台</h2>
+<div class="page">
+    <button onclick="showPage('ART-1')" class="back">上一页-美术</button>
+    <button onclick="showPage('COMPUTER-1')" class="next">下一页-信息</button>
+</div>
+</main>
+<main id="COMPUTER-1">
+    <header style="--header:">
+        <h1>A</h1>
+        <span>信息</span>
+        <span>七年级</span>
+    </header>
+    <h1 id="">新课</h1>
+    <h2>表格</h2>
+    <h2>C</h2>
+    <h2>制作二维码</h2>
+<div class="page">
+    <button onclick="showPage('MUSIC-1')" class="back">上一页-音乐</button>
+    <button onclick="showPage('COMPUTER-2')" class="next">下一页-信息</button>
+</div>
+</main>
+<main id="COMPUTER-2">
+    <header style="--header:">
+        <h1>B</h1>
+        <span>信息</span>
+        <span>八上~</span>
+    </header>
+    <h1 id="">硬核科普</h1>
+    <h2>第一节——电击小子</h2>
+    <h2>第二节——论社会阶级</h2>
+    <hr/>
+    <h1 id="">位图的奥秘</h1>
+    <hr/>
+    <h1 id="">自己玩</h1>
+<div class="page">
+    <button onclick="showPage('COMPUTER-1')" class="back">上一页-信息</button>
+    <button onclick="showPage('LABOR-1')" class="next">下一页-劳技</button>
+</div>
+</main>
+<main id="LABOR-1">
+    <header style="--header:">
+        <h1>A</h1>
+        <span>劳技</span>
+        <span>七上；七下两周</span>
+    </header>
+    <h1 id="">劳技？物理？历史？</h1>
+    <h2></h2>
+    <hr/>
+    <h1 id="">丰富多彩的实践</h1>
+    <h2>中国十大名花</h2>
+    <h2>包饺子</h2>
+    <h2>雕刻水仙</h2>
+    <hr/>
+    <h1 id="">限时返场</h1>
+    <h2>国防科普</h2>
+    <h2>张叔叔与兵王</h2>
+<div class="page">
+    <button onclick="showPage('COMPUTER-2')" class="back">上一页-信息</button>
+    <button onclick="showPage('LABOR-2')" class="next">下一页-翁锦梅</button>
+</div>
+</main>
+<main id="LABOR-2">
+    <header style="--header:">
+        <h1>翁锦梅</h1>
+        <span>劳技</span>
+        <span>七下</span>
+    </header>
+    <h1 id="">美食PPT</h1>
+    <h2>与分数的密切联系</h2>
+    <h2>学生展示</h2>
+    <hr/>
+    <h1 id="">航拍中国</h1>
+    <hr/>
+<div class="page">
+    <button onclick="showPage('LABOR-1')" class="back">上一页-劳技</button>
+    <button onclick="" class="next">下一页-</button>
+</div>
+</main>
+<main id="EVENT"></main>
+        <footer>
+            <h1>页面到底了！</h1>
+        </footer>
+    </div>
+<script>
+//密码（abc）
+function ep(){var e=document.querySelector("#password input").value;"YWJj"===btoa(e)?(localStorage.setItem("p","true"),document.getElementById("password").close()):document.querySelector("#password input").style.background="#f004"}
+//页面切换
+function showPage(e){
+    const p=document.querySelectorAll('main'),
+    t=document.getElementById(e),
+    n=document.querySelectorAll("nav>div:nth-of-type(2)>div"),
+    s=document.querySelector("nav>div:nth-of-type(1)>div:nth-of-type(2)");
+    p.forEach(p=>{p.style.display="none";});
+    n.forEach(n=>{n.style.display="none";});
+    if(t){t.style.display="block";}
+    e=="EVENT"?s.style.display="inline-block":s.style.display="none";
+    document.getElementById(e+"-l").style.display="block";
+
+    window.scrollTo(0,0);
+}
+//关闭菜单
+document.addEventListener("click",function(t){var e=document.querySelector("nav>div:nth-of-type(2)"),n=document.querySelector("nav>div:nth-of-type(1) button.fa-navicon");e.classList.contains("active")&&!e.contains(t.target)&&t.target!==n&&e.classList.remove("active")}),document.querySelectorAll("nav>div:nth-of-type(2) a,nav>div:nth-of-type(2) button").forEach(t=>{t.addEventListener("click",function(){document.querySelector("nav>div:nth-of-type(2)").classList.remove("active")})});
+//关闭模态框
+document.getElementById("sD").addEventListener("click",function(t){var e=this.getBoundingClientRect();(t.clientX<e.left||e.right<t.clientX||t.clientY<e.top||e.bottom<t.clientY)&&this.close()});
+//进度条
+window.addEventListener("scroll",()=>{var e=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100;document.querySelector("nav").style.setProperty("--progress",e+"%")});
+//主题切换
+function chT(e){document.body.setAttribute("data-t",e),localStorage.setItem("t",e);document.getElementById("th").content=getComputedStyle(document.body).getPropertyValue('--th');}
+function chW(e){document.body.setAttribute("data-w",e),localStorage.setItem("w",e);}
+function chN(e){document.body.setAttribute("data-n",e),localStorage.setItem("n",e);}
+function chF(e){document.body.setAttribute("data-f",e),localStorage.setItem("f",e);search();}
+document.getElementById('r1').addEventListener('input',function(){document.querySelector('body>#main').style.setProperty("--o",this.value+"%");localStorage.setItem("o",this.value);});
+document.getElementById('r2').addEventListener('input',function(){document.querySelector('body>#main').style.backdropFilter="blur("+this.value+"px)";localStorage.setItem("b",this.value);});
+//背景图片
+let db;const request=indexedDB.open("backgroundDB",1);
+function loadBackground(){const e=db.transaction(["background"],"readonly").objectStore("background").get(1);e.onsuccess=function(){e.result&&(document.body.style.backgroundImage=`url(${e.result.image})`)}}
+function cbg(){var e=document.createElement("input");e.type="file",e.accept="image/*",e.onchange=function(e){var t,e=e.target.files[0];e&&((t=new FileReader).onload=function(e){db.transaction(["background"],"readwrite").objectStore("background").put({id:1,image:e.target.result}),document.body.style.backgroundImage=`url(${e.target.result})`},t.readAsDataURL(e))},e.click()}
+function ubg(){db.transaction(["background"],"readwrite").objectStore("background").delete(1),document.body.style.backgroundImage=""}request.onupgradeneeded=function(e){(db=e.target.result).objectStoreNames.contains("background")||db.createObjectStore("background",{keyPath:"id"})},request.onsuccess=function(e){db=e.target.result,loadBackground()};
+//替代图像
+document.querySelectorAll("img").forEach(M=>{M.onerror=function(){this.src="data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+DQo8cGF0aCBkPSJNMzA0LjEyOCA0NTYuMTkyYzQ4LjY0IDAgODguMDY0LTM5LjQyNCA4OC4wNjQtODguMDY0cy0zOS40MjQtODguMDY0LTg4LjA2NC04OC4wNjQtODguMDY0IDM5LjQyNC04OC4wNjQgODguMDY0IDM5LjQyNCA4OC4wNjQgODguMDY0IDg4LjA2NHptMC0xMTYuMjI0YzE1LjM2IDAgMjguMTYgMTIuMjg4IDI4LjE2IDI4LjE2cy0xMi4yODggMjguMTYtMjguMTYgMjguMTYtMjguMTYtMTIuMjg4LTI4LjE2LTI4LjE2IDEyLjI4OC0yOC4xNiAyOC4xNi0yOC4xNnoiIGZpbGw9IiNjY2ZmZmZjYyIvPg0KPHBhdGggZD0iTTg4Ny4yOTYgMTU5Ljc0NEgxMzYuNzA0Qzk2Ljc2OCAxNTkuNzQ0IDY0IDE5MiA2NCAyMzIuNDQ4djU1OS4xMDRjMCAzOS45MzYgMzIuMjU2IDcyLjcwNCA3Mi43MDQgNzIuNzA0aDE5OC4xNDRMNTAwLjIyNCA2ODguNjRsLTM2LjM1Mi0yMjIuNzIgMTYyLjMwNC0xMzAuNTYtNjEuNDQgMTQzLjg3MiA5Mi42NzIgMjE0LjAxNi0xMDUuNDcyIDE3MS4wMDhoMzM1LjM2QzkyNy4yMzIgODY0LjI1NiA5NjAgODMyIDk2MCA3OTEuNTUyVjIzMi40NDhjMC0zOS45MzYtMzIuMjU2LTcyLjcwNC03Mi43MDQtNzIuNzA0em0tMTM4Ljc1MiA3MS42OHYuNTEySDg1Ny42YzE2LjM4NCAwIDMwLjIwOCAxMy4zMTIgMzAuMjA4IDMwLjIwOHYzOTkuODcyTDY3My4yOCA0MDguMDY0bDc1LjI2NC0xNzYuNjR6TTMwNC42NCA3OTIuMDY0SDE2NS44ODhjLTE2LjM4NCAwLTMwLjIwOC0xMy4zMTItMzAuMjA4LTMwLjIwOHYtOS43MjhsMTM4Ljc1Mi0xNjQuMzUyIDEwNC45NiAxMjQuNDE2LTc0Ljc1MiA3OS44NzJ6bTgxLjkyLTM1NS44NGwzNy4zNzYgMjI4Ljg2NC0uNTEyLjUxMi0xNDIuODQ4LTE2OS45ODRjLTMuMDcyLTMuNTg0LTkuMjE2LTMuNTg0LTEyLjI4OCAwTDEzNS42OCA2NTIuOFYyNjIuMTQ0YzAtMTYuMzg0IDEzLjMxMi0zMC4yMDggMzAuMjA4LTMwLjIwOGg0NzQuNjI0TDM4Ni41NiA0MzYuMjI0em01MDEuMjQ4IDMyNS42MzJjMCAxNi44OTYtMTMuMzEyIDMwLjIwOC0yOS42OTYgMzAuMjA4SDY4MC45Nmw1Ny4zNDQtOTMuMTg0LTg3LjU1Mi0yMDIuMjQgNy4xNjgtNy42OCAyMjkuODg4IDI3Mi44OTZ6IiBmaWxsPSIjY2NmZmZmY2MiLz4NCjwvc3ZnPg=="}});
+//搜索
+function search(){var e=document.querySelector("nav input").value.trim(),t=document.getElementById("EVENT");if(t&&"none"!==window.getComputedStyle(t).display){if(t=t.querySelectorAll("p, dd"),e){const i=new RegExp(e.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"gi");t.forEach(e=>{e.hasAttribute("data-original")||e.setAttribute("data-original",e.innerHTML);var t=e.getAttribute("data-original");i.test(t.replace(/<[^>]*>/g,""))?(e.style.display="",e.innerHTML=t.replace(/([^<]*)(<[^>]*>)?/g,(e,t,a)=>t?t.replace(i,e=>`<mark>${e}</mark>`)+(a||""):a||"")):e.style.display="none",i.lastIndex=0})}else t.forEach(e=>{e.style.display="",e.hasAttribute("data-original")&&(e.innerHTML=e.getAttribute("data-original"),e.removeAttribute("data-original"))});heb()}}
+function heb(){document.querySelectorAll("#EVENT>div").forEach(e=>{var t=Array.from(e.children).some(e=>"TIME"!==e.tagName&&"none"!==window.getComputedStyle(e).display);e.style.display=t?"":"none"}),document.querySelectorAll("#EVENT dl").forEach(e=>{var t=Array.from(e.querySelectorAll("dd")).every(e=>"none"===window.getComputedStyle(e).display);e.style.display=t?"none":""}),document.querySelectorAll("#EVENT>h1").forEach(e=>{let t=e.nextElementSibling,l=!1;for(;t&&"H1"!==t.tagName;){if("none"!==t.style.display){l=!0;break}t=t.nextElementSibling}e.style.display=l?"":"none"})}heb();const observer=new MutationObserver(heb);observer.observe(document.getElementById("EVENT"),{childList:!0,subtree:!0,attributes:!0,attributeFilter:["style"]});
+//外部链接在新页面打开
+document.querySelectorAll('a[href^="http"]').forEach(link=>{link.setAttribute('target','_blank');});
+//加载动画
+function smoothFadeOut(){const n=document.getElementById("loader");let o=1;const a=performance.now();requestAnimationFrame(function t(e){e-=a,e=Math.min(e/300,1);o=1-e,n.style.opacity=o,e<1?requestAnimationFrame(t):n.style.display="none"})}
+window.addEventListener("load",function(){setTimeout(smoothFadeOut,300)});
+//初始化
+window.addEventListener('DOMContentLoaded',function(){
+    const p=localStorage.getItem('p');p?document.getElementById('password').close():document.getElementById('password').showModal();
+    const t=localStorage.getItem('t');t?chT(t):(window.matchMedia("(prefers-color-scheme:dark)").matches?chT('d'):chT('l'));
+    const w=localStorage.getItem('w');w&&chW(w);
+    const n=localStorage.getItem('n');n&&chN(n);
+    const f=localStorage.getItem('f');f&&chF(f);
+    const o=localStorage.getItem('o');
+    if(o){document.querySelector('body>#main').style.setProperty("--opacity",o+"%");document.getElementById('r1').value=o;}
+    const b=localStorage.getItem('b');
+    if(b){document.querySelector('body>#main').style.backdropFilter="blur("+b+"px)";document.getElementById('r2').value=b;}
+    const s=["t","w","n","f"];
+    s.forEach(e=>{var t=localStorage.getItem(e);t&&(e=document.querySelector(`input[name="${e}"][onclick*="${t}"]`))&&(e.checked=!0)});
+    showPage('HOME');
+});
+</script>
+</body>
+</html>
