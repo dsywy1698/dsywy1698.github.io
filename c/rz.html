@@ -43,8 +43,8 @@
         <dialog id="sD"><div>设置<button onclick="localStorage.clear();ubg();location.reload(true);">重置</button><span onclick="document.getElementById('sD').close()"style="float:right;cursor:pointer;">×</span></div><div><span>主题</span><input type="radio"name="t"onclick="chT('l')"style="--rc:'浅'"><input type="radio"name="t"onclick="chT('d')"style="--rc:'深'"><input type="radio"name="t"onclick="chT('b')"style="--rc:'蓝'"><input type="radio"name="t"onclick="chT('n')"style="--rc:'夜'"></div><div><span>字重</span><input type="radio"name="w"onclick="chW('n')"style="--rc:'中'"checked><input type="radio"name="w"onclick="chW('l')"style="--rc:'细'"></div><div><span>导航栏</span><input type="radio"name="n"onclick="chN('1')"style="--rc:'经典'"><input type="radio"name="n"onclick="chN('2')"style="--rc:'胶囊'"checked></div><div><span>内容过滤</span><input type="radio"name="f"onclick="chF('0')"style="--rc:'无'"><input type="radio"name="f"onclick="chF('1')"style="--rc:'一'"><input type="radio"name="f"onclick="chF('2')"style="--rc:'二'"><input type="radio"name="f"onclick="chF('3')"style="--rc:'三'"checked></div><div><span>背景图片</span><button onclick="ubg()">清除</button><button onclick="cbg()">上传</button><div><span>透明度</span><input type="range"max="100"min="0"step="10"id="r1"/></div><div><span>虚化</span><input type="range"max="30"min="0"step="3"id="r2"/></div></div></dialog>
 <main id="EVENT">
 <header><h1>八卦</h1></header>
-<div style="background:#0008;">
-    <p><strong>说明</strong></p>
+<details>
+    <summary>说明</summary>
     <ul>
         <li>条目前的<span class="unsure"></span>表示日期不确定。</li>
         <li>部分条目因被过滤，导致不可见。</li>
@@ -55,7 +55,7 @@
         <li>“师”表示当节课的科任老师，“生”表示学生。</li>
         <li>“（笑）”在引用的话语中，表示讲话的人一定有笑；不在引用的话语中，表示全班笑。</li>
     </ul>
-</div>
+</details>
 <h1 id="event-not">未记录准确日期</h1>
 <div>
     <dl>
@@ -2075,7 +2075,7 @@
     <p>政治老师：“几万块钱甚至好几万块钱。”“七天无理由购物。”</p>
     <p>李梦妍饭撒掉。</p>
     <p>放学前发“订校服”的回执。</p>
-    <p>物理课，师：“陈睿卓，我上一句话是什么？说不出来这句话抄50遍。”卓：“那个……什么盆……”师：“坐下，记得抄50遍。”蔡华楷：“我来帮你复述一遍：如果看到刻度尺，应该记得进行……”卓：“蔡华楷！”</p>
+    <p>物理课，师：“陈睿卓，我上一句话是什么？说不出来这句话抄50遍。”卓：“那个……什么盆……”师：“坐下，记得抄50遍。”蔡华楷：“（原句：刻度尺要估读）我来帮你复述一遍：如果看到刻度尺，应该记得进行……”卓：“蔡华楷！”</p>
     <p>体锻课男女轮流跑操各2轮，随后全年段男生及3个班的女生被留下批评（纪律问题），跑了多圈后才回班。</p>
     <dl>
         <dt>数学课：</dt>
@@ -2864,27 +2864,31 @@ function cbg(){var e=document.createElement("input");e.type="file",e.accept="ima
 function ubg(){db.transaction(["background"],"readwrite").objectStore("background").delete(1),document.body.style.backgroundImage=""}request.onupgradeneeded=function(e){(db=e.target.result).objectStoreNames.contains("background")||db.createObjectStore("background",{keyPath:"id"})},request.onsuccess=function(e){db=e.target.result,loadBackground()};
 //替代图像
 document.querySelectorAll("img").forEach(M=>{M.onerror=function(){this.src="data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+DQo8cGF0aCBkPSJNMzA0LjEyOCA0NTYuMTkyYzQ4LjY0IDAgODguMDY0LTM5LjQyNCA4OC4wNjQtODguMDY0cy0zOS40MjQtODguMDY0LTg4LjA2NC04OC4wNjQtODguMDY0IDM5LjQyNC04OC4wNjQgODguMDY0IDM5LjQyNCA4OC4wNjQgODguMDY0IDg4LjA2NHptMC0xMTYuMjI0YzE1LjM2IDAgMjguMTYgMTIuMjg4IDI4LjE2IDI4LjE2cy0xMi4yODggMjguMTYtMjguMTYgMjguMTYtMjguMTYtMTIuMjg4LTI4LjE2LTI4LjE2IDEyLjI4OC0yOC4xNiAyOC4xNi0yOC4xNnoiIGZpbGw9IiNjY2ZmZmZjYyIvPg0KPHBhdGggZD0iTTg4Ny4yOTYgMTU5Ljc0NEgxMzYuNzA0Qzk2Ljc2OCAxNTkuNzQ0IDY0IDE5MiA2NCAyMzIuNDQ4djU1OS4xMDRjMCAzOS45MzYgMzIuMjU2IDcyLjcwNCA3Mi43MDQgNzIuNzA0aDE5OC4xNDRMNTAwLjIyNCA2ODguNjRsLTM2LjM1Mi0yMjIuNzIgMTYyLjMwNC0xMzAuNTYtNjEuNDQgMTQzLjg3MiA5Mi42NzIgMjE0LjAxNi0xMDUuNDcyIDE3MS4wMDhoMzM1LjM2QzkyNy4yMzIgODY0LjI1NiA5NjAgODMyIDk2MCA3OTEuNTUyVjIzMi40NDhjMC0zOS45MzYtMzIuMjU2LTcyLjcwNC03Mi43MDQtNzIuNzA0em0tMTM4Ljc1MiA3MS42OHYuNTEySDg1Ny42YzE2LjM4NCAwIDMwLjIwOCAxMy4zMTIgMzAuMjA4IDMwLjIwOHYzOTkuODcyTDY3My4yOCA0MDguMDY0bDc1LjI2NC0xNzYuNjR6TTMwNC42NCA3OTIuMDY0SDE2NS44ODhjLTE2LjM4NCAwLTMwLjIwOC0xMy4zMTItMzAuMjA4LTMwLjIwOHYtOS43MjhsMTM4Ljc1Mi0xNjQuMzUyIDEwNC45NiAxMjQuNDE2LTc0Ljc1MiA3OS44NzJ6bTgxLjkyLTM1NS44NGwzNy4zNzYgMjI4Ljg2NC0uNTEyLjUxMi0xNDIuODQ4LTE2OS45ODRjLTMuMDcyLTMuNTg0LTkuMjE2LTMuNTg0LTEyLjI4OCAwTDEzNS42OCA2NTIuOFYyNjIuMTQ0YzAtMTYuMzg0IDEzLjMxMi0zMC4yMDggMzAuMjA4LTMwLjIwOGg0NzQuNjI0TDM4Ni41NiA0MzYuMjI0em01MDEuMjQ4IDMyNS42MzJjMCAxNi44OTYtMTMuMzEyIDMwLjIwOC0yOS42OTYgMzAuMjA4SDY4MC45Nmw1Ny4zNDQtOTMuMTg0LTg3LjU1Mi0yMDIuMjQgNy4xNjgtNy42OCAyMjkuODg4IDI3Mi44OTZ6IiBmaWxsPSIjY2NmZmZmY2MiLz4NCjwvc3ZnPg=="}});
-//搜索
-function search() {
-    var e = document.querySelector("nav input").value.trim(),
-        t = document.getElementById("EVENT");
-    if (t && "none" !== window.getComputedStyle(t).display) {
-        if (t = t.querySelectorAll("p, dd"), e) {
-            const i = new RegExp(e.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
-            t.forEach(e => {
-                e.hasAttribute("data-original") || e.setAttribute("data-original", e.innerHTML);
-                var t = e.getAttribute("data-original");
-                i.test(t.replace(/<[^>]*>/g, "")) ? (e.style.display = "", e.innerHTML = t.replace(/([^<]*)(<[^>]*>)?/g, (e, t, a) => t ? t.replace(i, e => `<mark>${e}</mark>`) + (a || "") : a || "")) : e.style.display = "none", i.lastIndex = 0
+function search(){
+    var e=document.querySelector("nav input").value.trim(),
+        t=document.getElementById("EVENT");
+    if (t&&"none"!==window.getComputedStyle(t).display){
+        if(t=t.querySelectorAll("p,dd"),e){
+            const i=new RegExp(e.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"gi");
+            t.forEach(e=>{
+                e.hasAttribute("data-or")||e.setAttribute("data-or",e.innerHTML);
+                var t=e.getAttribute("data-or");
+                i.test(t.replace(/<[^>]*>/g,""))?
+                    (e.style.display="",
+                     e.innerHTML=t.replace(/([^<]*)(<[^>]*>)?/g,(e,t,a)=>t?t.replace(i,e=>`<mark>${e}</mark>`)+(a||""):a||"")):
+                e.style.display="none",i.lastIndex=0;
             })
-        } else t.forEach(e => {
-            e.style.display = "", e.hasAttribute("data-original") && (e.innerHTML = e.getAttribute("data-original"), e.removeAttribute("data-original"))
+        }else t.forEach(e=>{
+            e.style.display="";
+            e.hasAttribute("data-or")&&(e.innerHTML=e.getAttribute("data-or"),e.removeAttribute("data-or"));
         });
-        heb()
+        heb();
     }
 }
 function hot(){
     const d=document.querySelector("nav>div:nth-of-type(1)>div:nth-of-type(2)>button").classList.contains('active');
     d?document.body.setAttribute("data-th","1"):document.body.setAttribute("data-th","2");
+    console.log(document.body.getAttribute("data-th"));
     document.querySelector("nav>div:nth-of-type(1)>div:nth-of-type(2)>button").classList.toggle("active");
     heb();
 }
@@ -2900,21 +2904,21 @@ function heb() {
             l = !1;
         for (; t && "H1" !== t.tagName;) {
             if ("none" !== t.style.display) {
-                l = !0;
-                break
+                l=!0;
+                break;
             }
-            t = t.nextElementSibling
+            t=t.nextElementSibling;
         }
-        e.style.display = l ? "" : "none"
+        e.style.display=l?"":"none";
     })
 }
 heb();
-const observer = new MutationObserver(heb);
-observer.observe(document.getElementById("EVENT"), {
-    childList: !0,
-    subtree: !0,
-    attributes: !0,
-    attributeFilter: ["style"]
+const obs=new MutationObserver(heb);
+obs.observe(document.getElementById("EVENT"),{
+    childList:!0,
+    subtree:!0,
+    attributes:!0,
+    attributeFilter:["style"]
 });
 //外部链接在新页面打开
 document.querySelectorAll('a[href^="http"]').forEach(link=>{link.setAttribute('target','_blank');});
