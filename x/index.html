@@ -14,25 +14,24 @@
     :root{color-scheme:light dark;}
     *{box-sizing:border-box;}
     html{scroll-behavior:smooth;font-size:100%;}
-    body{margin:0;padding:0;font-family:"微软雅黑",sans-serif;background:#e6ffff;}
+    body{margin:0;padding:0;font-family:"微软雅黑",sans-serif;background:#06f;}
     .clear{display:table;content:"";clear:both;}
     p,li{line-height:1.5rem;letter-spacing:0.8px;}
-    hr{color:#cff;border:1px solid #cff;border-radius:100px;margin:10px  20px;}
-    a{color:#ff6;}
-    a:hover{color:#ff0;}
+    hr{color:#cff;border:1px solid #cff;border-radius:100px;margin:10px 20px;}
+    a{color:#ff6;&:hover{color:#ff0;}}
     .small,.big{display:none;}
     .overflow::-webkit-scrollbar,.box>a::-webkit-scrollbar,html:-webkit-scrollbar,.dropdown-content::-webkit-scrollbar{display:none!important;}
     .overflow,.box>a,html,.dropdown-content{-ms-overflow-style:none!important;scrollbar-width:none!important;}
     .tabcontent{display:none;}
     ::-moz-selection{color:#e6f0ff;background:#80b3ff66;}
     ::selection{color:#e6f0ff;background:#80b3ff66;}
-    nav{background:#ccffffaa;position:fixed;width:calc(100vw - 10px);z-index:1;backdrop-filter:blur(20px);box-shadow:0 15px 35px #0066ff08,0 5px 15px #0066ff08;margin:5px;border-radius:20px;}
-    nav button{text-decoration:none;color:#36c;display:inline-block;padding:7px;margin:3px;font-size:1.25rem;border:none;background:transparent;border-radius:10px;transition:0.2s;}
-    nav button:hover{background:#66ccff88;}
-    .dropdown-content{display:block;width:100%;left:0;border-top:1px solid #3cf;height:0;opacity:0;transition:height 0.3s ease, opacity 0.3s ease;pointer-events:none;overflow:auto;}
-    .dropdown-content a{color:#006;padding:12px 16px;text-decoration:none;margin:3px;display:block;transition:0.1s;border-radius:100vw;}
+    nav{background:#cffa;position:fixed;width:calc(100vw - 10px);z-index:1;backdrop-filter:blur(20px);box-shadow:0 15px 35px #0066ff08,0 5px 15px #0066ff08;margin:5px;border-radius:20px;}
+    nav button{text-decoration:none;color:#36c;display:inline-block;padding:5px;margin:2.5px;font-size:1.25rem;border:none;background:transparent;border-radius:99px;width:35px;height:35px;transition:0.2s;}
+    nav button:hover{background:#6cf8;}
+    .dropdown-content{display:block;width:100%;left:0;border-top:1px solid #3cf;height:0;opacity:0;transition:height 0.3s ease,opacity 0.3s ease;pointer-events:none;overflow:auto;}
+    .dropdown-content a{color:#006;padding:8px 16px;text-decoration:none;margin:3px;display:block;transition:0.1s;border-radius:100vw;}
     .dropdown-content h2{color:#fff;margin:10px;}
-    .dropdown-content a:hover{background:#66ffffaa;}
+    .dropdown-content a:hover{background:#6ff4;}
     .menu:hover+.dropdown-content,.dropdown-content:hover{height:400px;opacity:1;pointer-events:auto;}
     .loading{background:#e6ffff;width:100vw;height:100vh;text-align:center;font-size:1.25rem;z-index:2;color:#39f;overflow:hidden;display:flex;justify-content:center;align-items:center;position:fixed;top:0;left:0;}
     .loading h1{font-size:3.125rem;}
@@ -47,9 +46,9 @@
     @keyframes dotFlashing{0%{background-color:#4285f4;transform:scale(1);}50%,100%{background-color:rgba(66,133,244,0.2);transform:scale(0.8);}}
     header{margin-bottom:150px;}
     header>h1{padding:30px 10px;font-size:7.5rem;margin:0;text-align:center;}
-    header>div{background:linear-gradient(#0f9 0%,#00ff99bb 90%);color:#030;display:table;content:"";clear:both;padding:20px;border:3px solid #090;border-radius:25px;margin:20px;}
-    header>div>p>i{border:2px solid blue;padding:7px;border-radius:5px;}
-    .header{background:linear-gradient(to bottom,#6600ffcc 0%,#6600ff88 100%);padding:15px;border-radius:25px;box-shadow:0 2px 20px #cc99ff33;}
+    header>div{background:linear-gradient(#0f9 0%,#0f9b 90%);color:#030;display:table;content:"";clear:both;padding:20px;border-radius:25px;margin:20px;box-shadow:0 2px 20px rgba(0,0,0,0.2);}
+    header>div>p>i{padding:7px;color:#060}
+    .header{background:linear-gradient(to bottom,#60fc 0%,#60f8 100%);padding:15px;border-radius:25px;box-shadow:0 2px 20px #cc99ff33;}
     .header>h1{font-size:3rem;margin:10px 3px;}
     .header>div{background:#ffffff22;padding:10px;border-radius:0 20px 20px 20px;}
     .header>div>p{margin:5px;font-weight:100;}
@@ -58,8 +57,7 @@
     .header>p{text-align:center;font-size:1.125rem;background:#ffffff22;width:100px;padding:5px;margin:5px auto 0 0;border-radius:20px 20px 0 0;}
     footer{background:linear-gradient(#06f 0px,#009 150px);padding:30px;padding-top:200px;color:#66f;}
     footer p{text-align:center;}
-    main:not(#Index>main){background:#06f;padding:10px;animation-name:main;animation-duration:2s;padding-top:4em;animation-fill-mode:forwards;color:#fff;}
-    @keyframes main{0%{background:#e6ffff;color:#000000;}30%{background:#e6ffff;color:#000000;}100%{background:#06f;/*#03c*/color:#ffffff;}}
+    main:not(#Index>main){background:#06f;padding:10px;padding-top:4em;color:#fff;}
     img,video,canvas,svg，canvas,audio{max-height:90vh!important;max-width:100%;}
     img{border-radius:15px;}
     audio{width:98%;margin:auto 1%;}
@@ -68,8 +66,8 @@
     article>p{text-indent:2em;margin:7px 0;}
     article i{display:inline;}
     img,video,.max-width,iframe,svg{max-width:100%;object-fit:contain;}
-    .img_box{padding:10px;margin:10px 0;border-radius:15px;background:linear-gradient(#0099cc 0%,#0099cc77 90%);text-align:center;}
-    .img_box p{color:#e6f9ff;margin:10px 0;}
+    .gallery{padding:10px;margin:10px 0;border-radius:15px;background:linear-gradient(#0099cc 0%,#0099cc77 90%);text-align:center;}
+    .gallery p{color:#e6f9ff;margin:10px 0;}
     .say{background:#e6b3ff;color:#203;text-align:center;padding:10px;font-size:1.5625rem;margin:5px 0;border-radius:10px;box-shadow:0 2px 20px #ff33cc33;}
     .say>i{color:#f39;font-size:1.875rem;}
     li{color:#ffe6cc;}
@@ -80,48 +78,58 @@
     #div>*{position:relative;}
     @keyframes fade-in{from{opacity:0;bottom:-100px;}to{opacity:1;bottom:0;}}
     
-    #Index main{background:linear-gradient(#e6ffff 0vh, #e6ffff 95vh, #06f 150vh);color:#fff!important;padding:0px 0px 10px 0px;}
-    #Index h1{font-size:2.5rem;margin:5px 0;}
-    #Index .login{text-align:center;padding-top:90px;height:100vh;color:#000;}
-    #Index .login_title{font-size:8.125rem;margin:0;padding:40px 0;color:#006;}
-    #Index .login>div{font-size:1.25rem;background:#fff;width:500px;margin:auto;padding:0.3em;border:1px solid #cc0000;border-radius:100vw;height:1.9em;}
-    #Index .by{margin-right:30px;background:#6600ff77;padding:20px 20px 20px 0;border-radius:0 20px 20px 0;box-shadow:0 2px 20px rgba(102,0,204,0.2);}
-    #Index .by>h2{margin:0 0 10px 10px;color:#fff;text-align:center;}
-    #Index .by p{background:#336699dd;padding:7px 20px;border-radius:100vw;display:inline;margin:5px;}
-    #Index #asklz{margin:0;padding:0;}
-    #Index #time{background:#b3cce6;font-size:1.875rem;padding:15px 0;border-radius:0 15px 15px 0;text-align:center;}
-    #Index #toggle-btn{background:#00000000;padding:5px 0 0 20px;color:#fff;border:0;}
-    #Index #toggle-btn:hover{color:#cff;}
-    #Index #teacher{background:#ffffff33;margin:10px 0 10px 25px;padding:5px;border-radius:20px 0 0 20px;}
-    #Index #teacher>a{background:#f69;text-decoration:none;color:#fff;display:block;margin:12px 20px;border-radius:8px;padding:15px;height:160px;overflow:hidden;transition:0.3s;}
-    #Index #teacher>a:hover{background:#f37;box-shadow:0 2px 20px rgba(0,0,0,0.2);}
-    #Index #teacher>h1,#Index #pupil>h1,#Index #qt>h1{background:#ffffff88;color:#000066;padding:10px;margin:10px;border-radius:100vw;text-align:center;display:block;}
-    #Index #pupil{margin:30px 20px 30px 20px;background:linear-gradient(#ffffff55 0%,#ffffff00 90%);padding:5px;border-radius:20px 20px 0 0;}
-    #Index #pupil>a{display:block;text-decoration:none;background:linear-gradient(to right,#1a1aff 0%,#1a1aff 50%,#1a1aff66 90%);color:#fff;border-radius:100vw;font-size:1.25rem;padding:8px 40px 8px 30px;margin:5px;transition:0.5s;}
-    #Index #pupil>a>i{float:right;font-size:1.5rem;}
-    #Index #pupil>a:hover{padding:8px 25px 8px 30px;}
-    #Index .box{width:33.33%;float:left;}
-    #Index .box>a{padding:18px;border-radius:10px;margin:5px;height:170px;display:block;text-decoration:none;color:#fff;overflow:auto;background:#3333ffcc;transition:0.3s;box-shadow:0 2px 20px rgba(51,51,255,0.2);}
-    #Index .box>a:hover{background:#3333ffff;}
-    #Index .classroom{background:#66ffffcc;border-radius:15px;box-shadow:0 2px 20px rgba(0,204,204,0.2);display:flex;padding:5px 10px;}
-    #Index .classroom>div{display:flex;flex-direction:column;padding:5px 0;width:12.5%;}
-    #Index .classroom>div a{text-decoration:none;font-size:1.25rem;background:#00ccff66;padding:5px;text-align:center;border:1px solid #06c;color:#033;height:40px;}
-    #Index .classroom>div a[href]{background:#00ccffcc;transition:0.3s;}
-    #Index .classroom>div a[href]:hover{background:#00ccff;color:#06c;}
-    #Index .a>a{margin:5px 0 5px 5px;border-radius:10px 0 0 10px;}
-    #Index .b>a{margin:5px 5px 5px 0;border-radius:0 10px 10px 0;}
-    #Index #siziren::before{content:"锐辰";}
-    #Index #sj>a{background:#f06;color:#ffe6f0;text-align:center;border-radius:10px;padding:10px;display:block;margin:10px;}
-    #Index #ds{background:#dfff80cc;color:#394d00;border-radius:30px;padding:10px;text-decoration:none;height:150px;overflow:hidden;text-align:center;transition:0.3s;margin:30px 10px 0 10px;display:block;}
-    #Index #ds:hover{background:#ccff33cc;}
-    #Index #webpage{background:#fcf;border-radius:25px;margin:60px 10px;padding-bottom:5px;box-shadow:0 2px 20px rgba(0,0,0,0.2);}
-    #Index #webpage>div{background:#f9f;padding:5px;width:100%;border-radius:15px 15px 0 0;}
-    #Index #webpage>div>span{float:right;color:#909;}
-    #Index #webpage>a{text-decoration:none;display:block;background:#df80ff;margin:10px;padding:10px;border-radius:20px;color:#303;transition:0.3s;}
-    #Index #webpage>a:hover{background:#d966ff;}
-    #Index #webpage h3{margin:10px 0;}
-    #Index .other{margin:10px;display:block;background:linear-gradient(to right,#ff8533dd,#ff9933dd);text-decoration:none;color:#600;padding:10px 20px;height:160px;overflow:hidden;border-radius:30px;}
-    #Index footer>ol>li{color:#66f;}
+    #Index{
+        main{background:linear-gradient(#e6ffff 0vh,#e6ffff 95vh,#06f 150vh);color:#fff!important;padding:0px 0px 10px 0px;}
+        h1{font-size:2.5rem;margin:5px 0;}
+        .login{text-align:center;padding-top:90px;height:100vh;color:#000;}
+        .login_title{font-size:8.125rem;margin:0;padding:40px 0;color:#006;}
+        .login>div{font-size:1.25rem;background:#fff;width:500px;margin:auto;padding:0.3em;box-shadow:0 2px 20px rgba(0,0,0,0.2);border-radius:100vw;height:1.9em;}
+        .by{
+            margin-right:30px;background:#60f7;padding:20px 20px 20px 0;border-radius:0 20px 20px 0;box-shadow:0 2px 20px rgba(102,0,204,0.2);
+            >h2{margin:0 0 10px 10px;color:#fff;text-align:center;}
+            p{background:#369d;padding:7px 20px;border-radius:100vw;display:inline;margin:5px;}
+        }
+        #asklz{margin:0;padding:0;}
+        #time{background:#b3cce6;font-size:1.875rem;padding:15px 0;border-radius:0 15px 15px 0;text-align:center;}
+        #toggle-btn{background:#0000;padding:5px 0 0 20px;color:#fff;border:0;&:hover{color:#cff;}}
+        #teacher{
+            background:#fff3;margin:10px 0 10px 25px;padding:5px;border-radius:20px 0 0 20px;
+            >a{background:#f69;text-decoration:none;color:#fff;display:block;margin:12px 20px;border-radius:15px;padding:15px;height:160px;overflow:hidden;transition:0.3s;&:hover{background:#f37;box-shadow:0 2px 20px rgba(0,0,0,0.2);}}
+        }
+        #teacher>h1,#pupil>h1,#qt>h1{background:#fff8;color:#006;padding:10px;margin:10px;border-radius:100vw;text-align:center;display:block;}
+        #pupil{
+            margin:30px 20px;background:linear-gradient(#fff5 0%,#fff0 90%);padding:5px;border-radius:20px 20px 0 0;
+            >a{
+                display:block;text-decoration:none;background:linear-gradient(to right,#1a1aff 0%,#1a1aff 50%,#1a1aff66 90%);color:#fff;border-radius:100vw;font-size:1.25rem;padding:8px 40px 8px 30px;margin:5px;transition:0.5s;
+                >i{float:right;font-size:1.5rem;}
+                &:hover{padding:8px 25px 8px 30px;}
+            }
+        }
+        .box{
+            width:33.33%;float:left;
+            >a{padding:18px;border-radius:15px;margin:5px;height:170px;display:block;text-decoration:none;color:#fff;overflow:auto;background:#33fc;transition:0.3s;box-shadow:0 2px 20px rgba(51,51,255,0.2);&:hover{background:#33ff;}}
+        }
+        .classroom{
+            background:#6ffc;border-radius:15px;box-shadow:0 2px 20px rgba(0,204,204,0.2);display:flex;padding:5px 10px;
+            >div{
+                display:flex;flex-direction:column;padding:5px 0;width:12.5%;
+                a{text-decoration:none;font-size:1.25rem;background:#0cf6;padding:5px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.2);color:#033;height:40px;text-wrap:nowrap;overflow:hidden;&[href]{background:#0cfc;transition:0.3s;&:hover{background:#00ccff;color:#06c;}}}
+            }
+            .a>a{margin:5px 0 5px 5px;border-radius:10px 0 0 10px;}
+            .b>a{margin:5px 5px 5px 0;border-radius:0 10px 10px 0;}
+        }
+        #sj>a{background:#f06;color:#ffe6f0;text-align:center;border-radius:10px;padding:10px;display:block;margin:10px;}
+        #ds{background:#dfff80cc;color:#394d00;border-radius:30px;padding:10px;text-decoration:none;height:150px;overflow:hidden;text-align:center;transition:0.3s;margin:30px 10px 0 10px;display:block;}
+        #ds:hover{background:#ccff33cc;}
+        #webpage{background:#fcf;border-radius:25px;margin:60px 10px;padding-bottom:5px;box-shadow:0 2px 20px rgba(0,0,0,0.2);}
+        #webpage>div{background:#f9f;padding:5px;width:100%;border-radius:15px 15px 0 0;}
+        #webpage>div>span{float:right;color:#909;}
+        #webpage>a{text-decoration:none;display:block;background:#df80ff;margin:10px;padding:10px;border-radius:20px;color:#303;transition:0.3s;}
+        #webpage>a:hover{background:#d966ff;}
+        #webpage h3{margin:10px 0;}
+        .other{margin:10px;display:block;background:linear-gradient(to right,#ff8533dd,#ff9933dd);text-decoration:none;color:#600;padding:10px 20px;height:160px;overflow:hidden;border-radius:30px;}
+        footer>ol>li{color:#66f;}
+    }
     @media screen and (min-width:1600px){
       header,main,footer{display:none;}
       .big{display:flex;justify-content:center;align-items:center;color:#06c;padding:20px 5px;text-align:center;background:#e6ffff;height:100vh;font-size:5rem;transition:0.5s;}
@@ -131,41 +139,46 @@
     @media screen and (min-width:900px){img{max-width:50vw!important;}}
     @media screen and (max-width:880px){#Index #siziren::before{content:"...";}}
     @media screen and (max-width:800px){
-      #Index .login_title{font-size:6.25rem;}
-      #Index .box{width:50%;}
-      #Index .classroom>div a{font-size:1rem;height:32px;}
-      #Index .a>a{margin:4px 0 4px 4px;}
-      #Index .b>a{margin:4px 4px 4px 0;}
-      nav{width:98vw;margin:1vw;}
-      #Index .by p{display:block;margin:5px;border-radius:100vw;}
-      #Index #time{font-size:1.5625rem;padding:5px;}
+        nav{width:98vw;margin:1vw;}
+        #Index{
+            .login_title{font-size:6.25rem;}
+            .box{width:50%;}
+            .classroom>div a{font-size:1rem;height:32px;}
+            .a>a{margin:4px 0 4px 4px;}
+            .b>a{margin:4px 4px 4px 0;}
+            .by p{display:block;margin:5px;border-radius:100vw;}
+            #time{font-size:1.5625rem;padding:5px;}
+        }
     }
     @media screen and (max-width:600px){
-      #Index .login{padding-top:80px;}
-      #Index .login_title{font-size:5rem;padding:20px 0;}
-      #Index .login>div{font-size:1.1875rem;width:90vw;}
-      #Index .box{width:100%;}
-      #Index .classroom{border-radius:20px;display:flex;flex-wrap:wrap;}
-      #Index .classroom>div{padding:5px 0;width:25%;margin:0;}
-      #Index .classroom>div a{font-size:1.25rem;height:40px;}
-      #Index .a>a{margin:5px 0 5px 5px;border-radius:15px 0 0 15px;}
-      #Index .b>a{margin:5px 5px 5px 0;border-radius:0 15px 15px 0;}
-      #Index #siziren::before{content:"锐辰";}
-      #Index .col_title>h1>span{display:none;}
-      #Index .button_l,.button_r{width:120px;}
-      #Index .tab{overflow:hidden;width:240px;margin:auto;}
-      #Index #pupil{margin:30px 15px 30px 15px;}
-}
+        #Index{
+            .login{padding-top:80px;}
+            .login_title{font-size:5rem;padding:20px 0;}
+            .login>div{font-size:1.1875rem;width:300px;}
+            .box{width:100%;}
+            .classroom{border-radius:20px;display:flex;flex-wrap:wrap;}
+            .classroom>div{padding:5px 0;width:25%;margin:0;}
+            .classroom>div a{font-size:1.25rem;height:40px;}
+            .a>a{margin:5px 0 5px 5px;border-radius:15px 0 0 15px;}
+            .b>a{margin:5px 5px 5px 0;border-radius:0 15px 15px 0;}
+            .col_title>h1>span{display:none;}
+            .button_l,.button_r{width:120px;}
+            .tab{overflow:hidden;width:240px;margin:auto;}
+            #pupil{margin:30px 15px 30px 15px;}
+        }
+    }
     @media screen and (max-width:500px){
-      #Index .classroom{border-radius:10px;display:flex;flex-wrap:wrap;}
-      #Index .classroom>div{padding:5px 0;width:25%;margin:0;}
-      #Index .classroom>div a{font-size:1rem;height:32px;}
+        #Index{
+            .classroom{border-radius:10px;display:flex;flex-wrap:wrap;}
+            .classroom>div{padding:5px 0;width:25%;margin:0;}
+            .classroom>div a{font-size:1rem;height:32px;}
+            
+        }
     }
     @media screen and (max-width:470px){
       #Index #time{padding:auto 5px;}
       #Index .by{margin-right:15px;padding:20px 10px 20px 0;border-radius:0 17px 17px 0;}
       #Index #pupil{margin:30px 10px 30px 10px;}
-      #Index #siziren::before{content:"...";}
     }
     @media screen and (max-width:350px){
       header,main,footer{display:none;}
@@ -196,12 +209,11 @@
     <div class="loading" id="loading">
         <div>
             <div class="flashing"><span></span></div>
-            <div style="color:#03c;padding:5px;margin:30px auto;max-width:300px;"><p style="transition:opacity 0.2s;margin:0;padding:0;font-weight:200;" id="carouselText"></p></div>
+            <div style="color:#03c;padding:5px;margin:30px auto;max-width:300px;"><p style="transition:opacity 0.2s;margin:0;padding:0;font-weight:200;" id="text"></p></div>
             <button onclick="loading()">跳过</button>
         </div>
         <script>
-        const texts=["今晚我家只有我一个人","顾兮——爱惜","微胖才是YYDS","你永久蹲出来","这周末刚好有个周末","知识梳理，3遍","×××和余佳皓在3楼拉大便","用爱唤醒学生的心灵","如果可以","好，全部起立","你连比亚迪都买不起","算了算了，就来个蚂蚁生存吧","身上的勾比卷子上的还多","Women's Day","你去5楼把单词抄3遍","你，在干什么？站到后面去！","越优秀，越努力","我现在已经12岁了","请你们喝星巴克（蜜雪冰城）","女性乘务员","承诺是金","葵花宝典","把93拿出来做","我的红笔没有water了","我的鞭子不长眼镜","抄出来做","递等式","没有接高拍仪，请接上高拍仪再试","密密麻麻，麻麻密密","这篇课文从你们爷爷那一代起就开始读了","喝酒班、抽烟班、打架班、纹身班"];let currentIndex=0;const carouselText=document.getElementById('carouselText');carouselText.textContent=texts[currentIndex];function rotateText(){currentIndex=(currentIndex+1)%texts.length;carouselText.style.opacity='0';setTimeout(()=>{carouselText.textContent=texts[currentIndex];carouselText.style.opacity='1';},200);}
-setInterval(rotateText,1000);
+            const texts=["今晚我家只有我一个人","顾兮——爱惜","微胖才是YYDS","你永久蹲出来","这周末刚好有个周末","知识梳理，3遍","×××和余佳皓在3楼拉大便","用爱唤醒学生的心灵","如果可以","好，全部起立","你连比亚迪都买不起","算了算了，就来个蚂蚁生存吧","身上的勾比卷子上的还多","Women's Day","你去5楼把单词抄3遍","你，在干什么？站到后面去！","越优秀，越努力","我现在已经12岁了","请你们喝星巴克（蜜雪冰城）","女性乘务员","承诺是金","葵花宝典","把93拿出来做","我的红笔没有water了","我的鞭子不长眼镜","抄出来做","递等式","没有接高拍仪，请接上高拍仪再试","密密麻麻，麻麻密密","这篇课文从你们爷爷那一代起就开始读了","喝酒班、抽烟班、打架班、纹身班"];let ci=0;const ct=document.getElementById('text');ct.textContent=texts[ci];function rotateText(){ci=(ci+1)%texts.length;ct.style.opacity='0';setTimeout(()=>{ct.textContent=texts[ci];ct.style.opacity='1';},200);}setInterval(rotateText,1000);
         </script>
     </div>
     <div class="small"><p>请放大窗口</p></div>
@@ -213,12 +225,12 @@ setInterval(rotateText,1000);
         <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
         <button class="menu"><i class="fa fa-navicon"></i></button>
         <div class="dropdown-content overflow">
-            <a onclick="openPage('Pupil', this)">学生</a>
-            <a onclick="openPage('Et', this)">ET</a>
-            <a onclick="openPage('Ct', this)">CT</a>
-            <a onclick="openPage('Mt', this)">MT</a>
-            <a onclick="openPage('At', this)">AT</a>
-            <a onclick="openPage('Ds', this)">大事</a>
+            <a onclick="p('Pupil',this)">学生</a>
+            <a onclick="p('Et',this)">ET</a>
+            <a onclick="p('Ct',this)">CT</a>
+            <a onclick="p('Mt',this)">MT</a>
+            <a onclick="p('At',this)">AT</a>
+            <a onclick="p('Ds',this)">大事</a>
         </div>
     </nav>
     <main>
@@ -236,108 +248,108 @@ setInterval(rotateText,1000);
         </div>
         <div id="teacher">
             <h1>老师</h1>
-            <a onclick="openPage('Et', this)"><h1>ET</h1><p>《真·用爱唤醒学生的心灵》</p></a>
-            <a onclick="openPage('Ct', this)"><h1>CT</h1><p>笑笑地整你~</p></a>
-            <a onclick="openPage('Mt', this)"><h1>MT</h1><p>科纸拿一张，折八格。</p></a>
-            <a onclick="openPage('At', this)"><h1>AT</h1><p>好，全部起立。<br/>坐下的人可以把作业（zuo&#772;&nbsp;ye&#772;）拿出来做。</p></a>
+            <a onclick="p('Et',this)"><h1>ET</h1><p>用爱唤醒学生的心灵。</p></a>
+            <a onclick="p('Ct',this)"><h1>CT</h1><p>笑笑地整你~</p></a>
+            <a onclick="p('Mt',this)"><h1>MT</h1><p>科纸拿一张，折八格。</p></a>
+            <a onclick="p('At',this)"><h1>AT</h1><p>好，全部起立。</p></a>
         </div>
         <div id="pupil">
             <h1>学生</h1>
-            <a onclick="openPage('Pupil', this)">进入！<i class="fa fa-angle-double-right"></i></a>
+            <a onclick="p('Pupil',this)">进入！<i class="fa fa-angle-double-right"></i></a>
             <div style="margin:10px;">
-            <a style="width:100%;border-radius:10px;background:url('lgy-bg.jpg') repeat;display:block;text-decoration:none;background-size:cover;height:400px;padding:0;" onclick="openPage('Pupil', this)" href="#lgy">
-                <div style="background:#ffffff66;width:100%;color:#000066bb;border-radius:7px;padding:30px;height:400px;overflow:auto;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(2px);" class="overflow">
+            <a style="width:100%;border-radius:20px;background:url('lgy-bg.jpg');display:block;text-decoration:none;background-size:cover;height:400px;padding:0;" onclick="p('Pupil',this)" href="#lgy">
+                <div style="background:#fff6;width:100%;color:#006b;border-radius:20px;padding:30px;height:400px;overflow:auto;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(2px);" class="overflow">
                 <h1 style="text-align:center;margin:20px auto;font-size:3rem;">刘圭宥</h1>
                 <p>今晚我家只有我一个人，我可以把所有都发泄出来了！我已经放弃了，没有开玩笑，不要有谁再给我提“童钰轩”三个字昂，就让这1698天的喜欢全部都化为灰烬吧，就让这42天的想哭全部给我哭出来吧。谁要是再给我在那里狗叫一句啊，我特么直接一巴掌给你干过去！说实话，我是真的一年级开学第一天就喜欢上了ta，而且以前我妈不在家的时候把我扔到ta家，都是我自己提出来的，只为多看ta几眼。但现在呢，就算了吧，也不可能了。就让这泪水全部都流出来吧，撕心裂肺地哭出来吧。反正也只有我在家，也没人管。ta的生与死，喜怒哀乐，都与我无关了。也许像三叶和阳菜这样好的女生只有在二次元出现吧。像新兰这样的情侣，也只有在动漫里有吧，我也不想多说什么，只能说心碎了，碎了一地💔。但是也要乐观一点吧，至少在小学生活中，喜欢上了一个人的漂亮、学习好，但是不喜欢我的女孩子，ta说正在想要不要把我拉黑。我反正随便，你拉不拉黑我都愿意，你就算删了我都不会想再开始加，忘了你最好，反正没你我也能活，也有其他人会跟我聊天，不需要你来填满我的生活，谢谢你，能遇见你我真的很荣幸，但是现在，不……这么……想了……💔💔💔</p>
                 </div>
             </a>
             </div>
-            <div class="box"><a onclick="openPage('Pupil', this)" href="#qmx"><h1>瞿明爔</h1><p>男神！标杆！</p></a></div>
-            <div class="box"><a onclick="openPage('Pupil', this)" href="#cyh"><h1>陈宇恒</h1><p>宇貆，你个变态~</p></a></div>
-            <div class="box"><a onclick="openPage('Pupil', this)" href="#ycm"><h1>叶宸铭</h1><p>滚，操你妈！</p></a></div>
-            <div class="box"><a onclick="openPage('Pupil', this)" href="#zlj"><h1>郑隆俊</h1><p>身上的勾比卷子上的还多。</p></a></div>
-            <div class="box"><a onclick="openPage('Pupil', this)" href="#wxl"><h1>王湘琳</h1><p>小余~&nbsp;小余~</p></a></div>
-            <div class="box"><a onclick="openPage('Pupil', this)" href="#lst"><h1>李诗彤</h1><p>最特别的组长</p></a></div>
+            <div class="box"><a onclick="p('Pupil',this)" href="#qmx"><h1>瞿明爔</h1><p>男神！标杆！</p></a></div>
+            <div class="box"><a onclick="p('Pupil',this)" href="#cyh"><h1>陈宇恒</h1><p>宇貆，你个变态~</p></a></div>
+            <div class="box"><a onclick="p('Pupil',this)" href="#ycm"><h1>叶宸铭</h1><p>滚，操你妈！</p></a></div>
+            <div class="box"><a onclick="p('Pupil',this)" href="#zlj"><h1>郑隆俊</h1><p>身上的勾比卷子上的还多。</p></a></div>
+            <div class="box"><a onclick="p('Pupil',this)" href="#wxl"><h1>王湘琳</h1><p>小余~&nbsp;小余~</p></a></div>
+            <div class="box"><a onclick="p('Pupil',this)" href="#lst"><h1>李诗彤</h1><p>最特别的组长</p></a></div>
             <hr/>
             <h2>所有</h2>
             <div class="classroom">
             <div class="a">
-                <a onclick="openPage('Pupil', this)" href="#czy">陈忠宇</a>
-                <a onclick="openPage('Pupil', this)" href="#qmx">瞿明爔</a>
+                <a onclick="p('Pupil',this)" href="#czy">陈忠宇</a>
+                <a onclick="p('Pupil',this)" href="#qmx">瞿明爔</a>
                 <a>黄语熙</a>
                 <a>童钰轩</a>
-                <a onclick="openPage('Pupil', this)" href="#gyf">郭予凡</a>
-                <a onclick="openPage('Pupil', this)" href="#xyh">许逸晗</a>
-                <a onclick="openPage('Pupil', this)" href="#clh">陈砾航</a>
+                <a onclick="p('Pupil',this)" href="#gyf">郭予凡</a>
+                <a onclick="p('Pupil',this)" href="#xyh">许逸晗</a>
+                <a onclick="p('Pupil',this)" href="#clh">陈砾航</a>
             </div>
             <div class="b">
-                <a onclick="openPage('Pupil', this)" href="#qzh">邱子韩</a>
+                <a onclick="p('Pupil',this)" href="#qzh">邱子韩</a>
                 <a>陈欣蕾</a>
-                <a onclick="openPage('Pupil', this)" href="#wxl">王湘琳</a>
-                <a onclick="openPage('Pupil', this)" href="#lzc">林泽晨</a>
-                <a onclick="openPage('Pupil', this)" href="#zsy">曾诗芸</a>
-                <a onclick="openPage('Pupil', this)" href="#lyx">林煜昕</a>
-                <a onclick="openPage('Pupil', this)" href="#wym">吴一鸣</a>
+                <a onclick="p('Pupil',this)" href="#wxl">王湘琳</a>
+                <a onclick="p('Pupil',this)" href="#lzc">林泽晨</a>
+                <a onclick="p('Pupil',this)" href="#zsy">曾诗芸</a>
+                <a onclick="p('Pupil',this)" href="#lyx">林煜昕</a>
+                <a onclick="p('Pupil',this)" href="#wym">吴一鸣</a>
             </div>
             <div class="a">
-                <a onclick="openPage('Pupil', this)" href="#ycm">叶宸铭</a>
+                <a onclick="p('Pupil',this)" href="#ycm">叶宸铭</a>
                 <a>游武毅</a>
-                <a onclick="openPage('Pupil', this)" href="#cyh">陈宇恒</a>
-                <a onclick="openPage('Pupil', this)" href="#zlj">郑隆俊</a>
+                <a onclick="p('Pupil',this)" href="#cyh">陈宇恒</a>
+                <a onclick="p('Pupil',this)" href="#zlj">郑隆俊</a>
                 <a>陈鑫怡</a>
                 <a>陈盈如</a>
-                <a onclick="openPage('Pupil', this)" href="#cyh2">陈彦豪</a>
+                <a onclick="p('Pupil',this)" href="#cyh2">陈彦豪</a>
             </div>
             <div class="b">
-                <a onclick="openPage('Pupil', this)" href="#xcz">谢承志</a>
-                <a onclick="openPage('Pupil', this)" href="#lst">李诗彤</a>
-                <a onclick="openPage('Pupil', this)" href="#zxy">张纤雅</a>
-                <a onclick="openPage('Pupil', this)" href="#lly">林柳妍</a>
-                <a onclick="openPage('Pupil', this)" href="#cyc">蔡宇城</a>
+                <a onclick="p('Pupil',this)" href="#xcz">谢承志</a>
+                <a onclick="p('Pupil',this)" href="#lst">李诗彤</a>
+                <a onclick="p('Pupil',this)" href="#zxy">张纤雅</a>
+                <a onclick="p('Pupil',this)" href="#lly">林柳妍</a>
+                <a onclick="p('Pupil',this)" href="#cyc">蔡宇城</a>
                 <a class="b">林安冉</a>
                 <a class="b"></a>
             </div>
             <div class="a">
-                <a onclick="openPage('Pupil', this)" href="#lcj">吕楚鋆</a>
+                <a onclick="p('Pupil',this)" href="#lcj">吕楚鋆</a>
                 <a>林妍筱</a>
-                <a onclick="openPage('Pupil', this)" href="#zqk">郑权楷</a>
+                <a onclick="p('Pupil',this)" href="#zqk">郑权楷</a>
                 <a>周志朋</a>
-                <a onclick="openPage('Pupil', this)" href="#hyrc" title="何亦锐辰">何亦<span id="siziren"></span></a>
-                <a onclick="openPage('Pupil', this)" href="#lzc2">刘子岑</a>
+                <a onclick="p('Pupil',this)" href="#hyrc" title="何亦锐辰">何亦锐辰</a>
+                <a onclick="p('Pupil',this)" href="#lzc2">刘子岑</a>
                 <a>陈睿卓</a>
             </div>
             <div class="b">
-                <a onclick="openPage('Pupil', this)" href="#zjx">郑瑾烯</a>
-                <a onclick="openPage('Pupil', this)" href="#zmy">郑明洋</a>
-                <a onclick="openPage('Pupil', this)" href="#lgy">刘圭宥</a>
+                <a onclick="p('Pupil',this)" href="#zjx">郑瑾烯</a>
+                <a onclick="p('Pupil',this)" href="#zmy">郑明洋</a>
+                <a onclick="p('Pupil',this)" href="#lgy">刘圭宥</a>
                 <a>陈睿婕</a>
                 <a>刘睿萱</a>
-                <a onclick="openPage('Pupil', this)" href="#dyz">董艳泽</a>
+                <a onclick="p('Pupil',this)" href="#dyz">董艳泽</a>
                 <a></a>
             </div>
             <div class="a">
-                <a onclick="openPage('Pupil', this)" href="#ghx">郭浩轩</a>
-                <a onclick="openPage('Pupil', this)" href="#chq">陈昊圻</a>
-                <a onclick="openPage('Pupil', this)" href="#zwc">张炜承</a>
-                <a onclick="openPage('Pupil', this)" href="#dxy">董轩宇</a>
-                <a onclick="openPage('Pupil', this)" href="#jyy">江玥瑶</a>
-                <a onclick="openPage('Pupil', this)" href="#cmx">陈旻希</a>
+                <a onclick="p('Pupil',this)" href="#ghx">郭浩轩</a>
+                <a onclick="p('Pupil',this)" href="#chq">陈昊圻</a>
+                <a onclick="p('Pupil',this)" href="#zwc">张炜承</a>
+                <a onclick="p('Pupil',this)" href="#dxy">董轩宇</a>
+                <a onclick="p('Pupil',this)" href="#jyy">江玥瑶</a>
+                <a onclick="p('Pupil',this)" href="#cmx">陈旻希</a>
                 <a></a>
             </div>
             <div class="b">
-                <a onclick="openPage('Pupil', this)" href="#gjj">郭吉家</a>
-                <a onclick="openPage('Pupil', this)" href="#cn">陈诺</a>
+                <a onclick="p('Pupil',this)" href="#gjj">郭吉家</a>
+                <a onclick="p('Pupil',this)" href="#cn">陈诺</a>
                 <a>陈慧欣</a>
-                <a onclick="openPage('Pupil', this)" href="#lpl">林佩玲</a>
-                <a onclick="openPage('Pupil', this)" href="#zcx">张辰熙</a>
-                <a onclick="openPage('Pupil', this)" href="#cr">陈锐</a>
-                <a onclick="openPage('Pupil', this)" href="#wzc">王芷辰</a>
+                <a onclick="p('Pupil',this)" href="#lpl">林佩玲</a>
+                <a onclick="p('Pupil',this)" href="#zcx">张辰熙</a>
+                <a onclick="p('Pupil',this)" href="#cr">陈锐</a>
+                <a onclick="p('Pupil',this)" href="#wzc">王芷辰</a>
             </div>
             </div>
         </div>
         <div id="qt">
             <h1>其他</h1>
-                <a onclick="openPage('Ds', this)" id="ds" class="clear"><h1>大事</h1><p>微胖才是YYDS~</p></a>
+                <a onclick="p('Ds',this)" id="ds" class="clear"><h1>大事</h1><p>微胖才是YYDS~</p></a>
             <div id="webpage">
                 <div class="clear"><span>&times;&nbsp;&nbsp;</span></div>
                 <a href="lst.htm" target="_blank"><h1>李诗彤网页</h1><p>林煜昕是我的仆人。</p></a>
@@ -351,7 +363,7 @@ setInterval(rotateText,1000);
     <footer>
         <ol>
             <li>该网站仅针对<strong>福州市东升小学2018级1班学生</strong>。</li>
-            <li>该网站不支持在旧版本浏览器（如IE）、过大或过小窗口显示。</li>
+            <li>该网站不支持旧版本浏览器。</li>
             <li>部分图像源于网络，可能无法显示，如有侵权将删除。</li>
             <li>文本可能出现错别字。</li>
         </ol>
@@ -365,9 +377,9 @@ setInterval(rotateText,1000);
     
     <div id="Pupil" class="tabcontent">
         <nav>
-                <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
-                <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
-        <button onclick="openPage('Index', this)" title="返回首页"><i class="fa fa-home"></i></button>
+        <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
+        <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
+        <button onclick="p('Index',this)" title="返回首页"><i class="fa fa-home"></i></button>
         <button class="menu"><i class="fa fa-navicon"></i></button>
         <div class="dropdown-content overflow">
             <a href="#wxl">王湘琳</a>
@@ -411,11 +423,11 @@ setInterval(rotateText,1000);
             <a href="#gjj">郭吉家</a>
             <a href="#zxy">张纤雅</a>
             <hr/>
-            <a onclick="openPage('Et', this)">ET</a>
-            <a onclick="openPage('Ct', this)">CT</a>
-            <a onclick="openPage('Mt', this)">MT</a>
-            <a onclick="openPage('At', this)">AT</a>
-            <a onclick="openPage('Ds', this)">大事</a>
+            <a onclick="p('Et',this)">ET</a>
+            <a onclick="p('Ct',this)">CT</a>
+            <a onclick="p('Mt',this)">MT</a>
+            <a onclick="p('At',this)">AT</a>
+            <a onclick="p('Ds',this)">大事</a>
             </div>
     </nav>
     <main>
@@ -428,7 +440,6 @@ setInterval(rotateText,1000);
         </header>
         <hr/>
         <p>每个班都有各种各样的学生，他们各显神通，造就了一整个班级。</p>
-        <p class="smaller">注：点击上方的“<i class="fa fa-navicon"></i>”按钮快速跳转至目标位置！</p>
         <p class="smaller">注：网站中的学生数据是截至毕业时的，在毕业前转学的学生未统计。</p>
         <hr/><hr/>
         <div id="wxl" class="header">
@@ -537,7 +548,7 @@ setInterval(rotateText,1000);
         </article>
         <p>成功偷到日记的案例也不少，如李诗彤就曾在午托时翻出日记本并拍照。另外，在一次ET看班时，蔡宇城就把王湘琳用涂改带涂抹的“保密”部分刮开，令王湘琳哭了一中午。</p>
         <p>原来，涂改带涂掉的部分就是王湘琳的“绝密”，类似的还有：</p>
-        <div class="img_box" style="text-align:center;">
+        <div class="gallery" style="text-align:center;">
             <svg width="400" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
                 <rect x="0" y="0" width="400" height="200" fill="#e6e6e6" />
                 <rect x="10" y="70" width="350" height="100" fill="#fff" />
@@ -769,10 +780,10 @@ setInterval(rotateText,1000);
             <p>我是三年（1）班的刘圭宥，任校少先队执勤队员、班级学习委员。在东升这片沃土上，我从一棵稚嫩的幼苗成长为一个勤奋上进，多才多艺，知书达理的新时代少先队员。爱班级，爱集体，爱学习，爱书法，爱音乐，爱运动，……阳光上进的我将走得更远。</p>
         </article>
         <p>刘圭宥三年级时的照片也在那里了，这些照片还被做成了表情包。同时，他的多张毕业照在班上也有很大热度。</p>
-        <div class="img_box" style="text-align:center">
-            <img src="lgy2.jpg" onerror="this.src='break.svg';"/>
+        <div class="gallery" style="text-align:center">
+            <img src="lgy2.jpg"/>
             <p>刘圭宥特写</p>
-            <img src="lgy4.jpg" onerror="this.src='break.svg';"/>
+            <img src="lgy4.jpg"/>
             <p>“因为立了很开心”</p>
         </div>
         <p>但是，他在CT的课上就不一样了。CT多次说刘圭宥的大队委席位不保，对他的印象不怎么样。</p>
@@ -794,7 +805,7 @@ setInterval(rotateText,1000);
         <article>
             <p>我们想在刘xx面前朗读“1698‘名著’”然后我们一路追，他们走楼梯，我们坐电梯，我随便按了一个四，结果他们正在四层，我们一路追追到了8层到九层楼梯间，战斗就是这里打开的，他先动的手（后面没记住）然后被我摁在了墙上，然后开始咬我（现在手上的一道疤就是当时留下的）而我在扇他巴掌，后面又不知道怎么了把它放开了，然后他提自行车没提起来（期间又过了许久）本来要收了，结果把我手机弄掉了，然后又开始了我把他摁在墙上打他的头，他嘴里还说着“你很会打嘛”然后我想揪他的头发往墙，被cn制止，结束后他又去问中岛为什么不帮忙</p>
         </article>
-        <p>毕业考结束后，刘圭宥又说要在星巴克（蜜雪冰城）请客。结果我给刘圭宥（见<a onclick="openPage('Waihao', this)" href="#lgy">外号</a>）展示和李诗彤的语音通话页面，然后发生的事成了经典：</p>
+        <p>毕业考结束后，刘圭宥又说要在星巴克（蜜雪冰城）请客。结果我给刘圭宥（见<a onclick="p('Waihao',this)" href="#lgy">外号</a>）展示和李诗彤的语音通话页面，然后发生的事成了经典：</p>
         <article>
             <p>（星巴克店内）</p>
             <p>刘圭宥一看，也没说话，只是潇洒地从座位上起来，绕过桌子来到我旁边。然后，他用左脚猛踹我，踹了几下后又打我头，口中大声地说：“操你妈操你妈操你妈！……”惹得星巴克店员看了这一眼。同时，刘圭宥伸手抢手机和自拍杆，闹了一会儿才走。</p>
@@ -802,8 +813,8 @@ setInterval(rotateText,1000);
         </article>
         <h2>关系</h2>
         <p>刘圭宥和郑隆俊、刘子岑关系很好，经常放学和那两人回家。</p>
-        <div class="img_box">
-            <img src="lgy3.jpg" onerror="this.src='break.svg';"/>
+        <div class="gallery">
+            <img src="lgy3.jpg"/>
             <p>三人一起回家</p>
         </div>
         <p>另外，他似乎显现出对陈诺的喜爱与赞美之情。在军训时，他曾说过：</p>
@@ -940,8 +951,8 @@ setInterval(rotateText,1000);
         <p>同学们都说刘圭宥的手机是“老人机”，原因是同学们一直发刘圭宥的丑照和八卦，刘圭宥竟然没有回复。</p>
         <p>李诗彤说，刘圭宥怕狗。</p>
         <p>他的住址（金辉伯爵山）也是一个很经典的东西，在CT上《董存瑞舍身炸暗堡》这篇课文时，李诗彤就曾将它拿去改编：“……解放刘圭宥家的战争开始了，同学们如潮水一般冲向金辉伯爵山……”。</p>
-        <div class="img_box">
-            <img src="lgy.jpg" onerror="this.src='break.svg';"/>
+        <div class="gallery">
+            <img src="lgy.jpg"/>
             <p>刘圭宥在金辉伯爵山泳池</p>
         </div>
         <hr/>
@@ -1267,9 +1278,9 @@ setInterval(rotateText,1000);
         <p>MT也不例外。每次午托结束时，他都让吴一鸣和张炜承去提凳子。且多名老师让他去拿饭、拿外卖等。</p>
         <p>而且在午托时，郑岩鑫对他的待遇也很好，曾多次将教师餐给他吃。有一次，郑岩鑫在永辉生活买了很多吃的，让吴一鸣去拿。其中有一瓶可乐，同学们想要喝，均被拒绝了，吴一鸣却喝到了大口的可乐。</p>
         <h2>体育</h2>
-        <div class="img_box">
-            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20231029/lw5c7j6etjfdi2f5zbcg7j94gn8k6aeq.jpg?x-oss-process=image/resize,w_870" onerror="this.src='break.svg';"/>
-            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20231029/jx4udi7cfhdcb1revlg4fxbibuvo56du.jpg?x-oss-process=image/resize,w_870" onerror="this.src='break.svg';"/>
+        <div class="gallery">
+            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20231029/lw5c7j6etjfdi2f5zbcg7j94gn8k6aeq.jpg?x-oss-process=image/resize,w_870"/>
+            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20231029/jx4udi7cfhdcb1revlg4fxbibuvo56du.jpg?x-oss-process=image/resize,w_870"/>
             <p>吴一鸣参加比赛</p>
         </div>
         <p>吴一鸣很擅长跑步，曾加入过田径队，在50米跑考试时成绩优异、名列前茅。正因如此，他成为了午托玩跑跑抓时影响力最大的人物。</p>
@@ -1319,15 +1330,15 @@ setInterval(rotateText,1000);
         <p>郑隆俊爱装，同时和刘圭宥、刘子岑关系密切，常骑自行车。</p>
         <h2>耐克</h2>
         <p>郑隆俊几乎每天穿的都是耐克的服装。有一件最经典的衣服，由上至下印了耐克的各种不同样式。</p>
-        <div class="img_box">
-            <img src="zlj.jpg" onerror="this.src='break.svg';"/>
+        <div class="gallery">
+            <img src="zlj.jpg"/>
             <p>耐克衣服</p>
         </div>
         <p>他的鞋当然也是如此。因此有这么一句话：“身上的勾比卷子上还多。”</p>
         <h2>立了</h2>
         <p>毕业留念册发下来后，同学们发现里面的一张图片中，郑隆俊两腿内侧的部分鼓包了，这张图也成了经典。</p>
-        <div class="img_box">
-            <img src="zlj2.jpg" onerror="this.src='break.svg';"/>
+        <div class="gallery">
+            <img src="zlj2.jpg"/>
             <p>郑隆俊（从左到右第三个）鼓包</p>
         </div>
         <hr/>
@@ -1431,8 +1442,8 @@ setInterval(rotateText,1000);
         <p>陈忠宇的笔盒小，笔自然少。不过陈忠宇特别喜欢用百乐的文具，橡皮必须是“PILOT”（百乐），黑笔有很多只，但也全是百乐果汁笔。</p>
         <h2>其他</h2>
         <p>曾经风靡一时的热梗便是陈忠宇的排骨。陈忠宇由于瘦小的体型，所以出现了特有的排骨。当然，他也不介意有人看他的排骨——他会当着全班的面掀起衣服展示。</p>
-        <div class="img_box">
-            <img src="czy.jpg" onerror="this.src='break.svg';"/>
+        <div class="gallery">
+            <img src="czy.jpg"/>
             <p>李诗彤拍摄的陈忠宇露排骨照片</p>
         </div>
         <p>相传陈忠宇军训时，曾在宿舍跳“鸡鸡舞”。具体就是露出他的鸡鸡，然后开始跳舞。</p>
@@ -1516,7 +1527,7 @@ setInterval(rotateText,1000);
         </div>
         <p>陈诺担任过大队委，并常在学校的活动中主持，是前“草原三姐妹”成员之一。她在早读时经常用大喊来整顿纪律，并在毕业前送给班上每人一份礼物（卡片+捏捏乐/钥匙扣）。</p>
                     <div>
-            <img src="https://oss.weixiao100.com.cn/wgw/editor/2021/32/1614688016958_24.jpg?x-oss-process=image/crop,x_172,y_0,w_765,h_715" onerror="this.src='break.svg';"/>
+            <img src="https://oss.weixiao100.com.cn/wgw/editor/2021/32/1614688016958_24.jpg?x-oss-process=image/crop,x_172,y_0,w_765,h_715"/>
         </div>
         <h2>对CT</h2>
         <p>CT曾说：</p>
@@ -1725,8 +1736,8 @@ setInterval(rotateText,1000);
         <h2>“龟幼”视频</h2>
         <p>郭吉家是刘圭宥视频的资深创作者，曾做过大量刘圭宥（搞笑）视频。</p>
         <p>视频开头，他会用上祖传的鞠躬视频+“感恩有你”+免责声明：“仅为娱乐，无不良向导”、“该视频仅为2018届1班提供”。</p>
-        <div class="img_box">
-            <img src="lgy.gif" onerror="this.src='break.svg';"/>
+        <div class="gallery">
+            <img src="lgy.gif"/>
             <p>视频开头的“感恩有你”</p>
                     </div>
         <p>他做了哪些视频呢？</p>
@@ -1764,7 +1775,7 @@ setInterval(rotateText,1000);
     <nav>
         <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
         <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
-        <button onclick="openPage('Index', this)" title="返回首页"><i class="fa fa-home"></i></button>
+        <button onclick="p('Index',this)" title="返回首页"><i class="fa fa-home"></i></button>
         <button class="menu"><i class="fa fa-navicon"></i></button>
         <div class="dropdown-content">
             <h2>班级大事</h2>
@@ -1784,11 +1795,11 @@ setInterval(rotateText,1000);
             <a href="#ls">老师</a>
             <a href="#xxxz">小学现状</a>
             <hr/>
-            <a onclick="openPage('Pupil', this)">学生</a>
-            <a onclick="openPage('Et', this)">ET</a>
-            <a onclick="openPage('Ct', this)">CT</a>
-            <a onclick="openPage('Mt', this)">MT</a>
-            <a onclick="openPage('At', this)">AT</a>
+            <a onclick="p('Pupil',this)">学生</a>
+            <a onclick="p('Et',this)">ET</a>
+            <a onclick="p('Ct',this)">CT</a>
+            <a onclick="p('Mt',this)">MT</a>
+            <a onclick="p('At',this)">AT</a>
         </div>
     </nav>
     <main>
@@ -1800,7 +1811,7 @@ setInterval(rotateText,1000);
         <hr/>
         <h1 style="font-size:50px">班级大事</h1>
         <h1 id="moyuwan">墨鱼丸</h1>
-        <img src="https://so1.360tres.com/t012680d34962993436.png" onerror="this.src='break.svg';"/>
+        <img src="https://so1.360tres.com/t012680d34962993436.png"/>
         <p>话说同学们对班上电脑的探索可谓是永无止境。自从一年级开学，老师向大家展示黑板里面藏起来的电脑时，命中注定就会有更多电脑遭殃……</p>
         <p>要说同学们是什么时候第一次点墨鱼丸的话，我们不得而知。但根据现有材料，早在五年级，同学们就开始这么做了。这之前其实也没少折腾电脑，时不时就有新闻资讯被点开，引起班上的一阵尖叫声。</p>
         <p>墨鱼丸这个应用处在电脑右下角任务栏中，图标是一个暂停键外包一个矩形。不动时，它还会不时变换颜色以吸引大家注意。一旦点开，就会出现一个小窗口，黑色背景，中间有黄色章鱼，章鱼下方是一行小的白色字体：“加载中，请稍侯”。当加载完毕后，就会出现随机的视频，还用到了大数据加以推荐。</p>
@@ -1823,18 +1834,8 @@ setInterval(rotateText,1000);
         <hr/>
         <h1 id="wanda">万达</h1>
         <p>同学们在周末或节假日时常去白湖亭万达（现已改名“集祥天地”）逛，尤为喜欢“KKV”那家店。</p>
-        <div class="img_box">
-            <img src="kkv.jpg" onerror="this.src='break.svg';"/>
-            <p>生日宴后大家在逛KKV</p>
-        </div>
         <p>蜜雪冰城也颇受欢迎，同学们来逛时常买蜜雪冰城。在“星巴克事件”中，刘圭宥就是请大家喝蜜雪冰城。</p>
-        <p>同学们过生日大多也是在那里请客（见下）。</p>
-        <div class="img_box">
-            <img src="rxj.jpg" onerror="this.src='break.svg';"/>
-            <p>林煜昕在融禧记请客</p>
-            <img src="mmz.jpg" onerror="this.src='break.svg';"/>
-            <p>童钰轩在木马转请客</p>
-        </div>
+        <p>同学们过生日大多也是在那里请客。</p>
         <p>奋斗广场也是同学们经常出没的地方，郑隆俊、郑明洋等人就很喜欢那里。</p>
         <p>毕业后，中骏世界城开业，部分人（如李诗彤）就经常在此出没，比较受欢迎的店铺有二楼KKV、西西弗书店。</p>
         <hr/>
@@ -1887,46 +1888,46 @@ setInterval(rotateText,1000);
         <p>下午的活动会好点，会有一大波零食等着同学们。但似乎每一次六一活动都是“吃零食+看电影”，有点无聊。于是在五年级时，实习老师让大家边吃零食边玩游戏。起初同学们还有很多反对的声音，但活动照旧，同学们开展了一场“踩气球”的游戏，气氛异常活跃。</p>
         <p>六年级的活动似乎很特别。当时操场已经被围住了一半，且主席台还被拆了，所以大家就只能在班上看演出——这就比晒太阳好了不知多少，而且六年级是还有配空调，MT更是允许大家在过道上看（给同学们换位置提供了良好的机会）。每个班在电脑上看演出，而那些“演员”则要到录播室表演节目。当时，“班班有歌声”的一等奖需要全班表演，结果同学们就看到了令大家气愤的二班唱《青苹果乐园》。</p>
         <p>至于这个“班班有歌声”，其实也是六一前的一项活动。同学们在音乐室表演歌曲，台下则站着一堆评委。</p>
-        <div class="img_box">
-            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20240528/qzued4r33o87ty2unm8oydxwu6s2is2c.jpg?x-oss-process=image/resize,w_768" onerror="this.src='break.svg';"/>
+        <div class="gallery">
+            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20240528/qzued4r33o87ty2unm8oydxwu6s2is2c.jpg?x-oss-process=image/resize,w_768"/>
             <p>CT在评委席观看表演</p>
         </div>
         <p>这次主要来说说六年级。六（1）唱的是《<a href="https://www.kugou.com/mixsong/9aagyjdb.html">少年有志</a>》。当这首歌首次在六（1）播放时，引起了很大的轰动。很多人说它“难听”，还有的人说“要唱《大香蕉》”。在播放完毕后，还出现了一个插曲：画面中一个非常酷的小孩在做一个耍酷的动作，前面还摆着一堆乐器之类的东西。</p>
         <p>到了排练时，MT还加了一些“料”，跳舞、出旗、授红领巾、跳绳、朗诵，一应俱全。而且这次，MT是打着“不花一分钱”的旗号参加本次比赛的，就连穿的衣服都是拍毕业照时的那套（借来的）。</p>
-        <div class="img_box">
-            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20240528/m87qdxdbrllp63sl67xi5psbg34ymtlu.jpg?x-oss-process=image/resize,w_768" onerror="this.src='break.svg';"/>
+        <div class="gallery">
+            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20240528/m87qdxdbrllp63sl67xi5psbg34ymtlu.jpg?x-oss-process=image/resize,w_768"/>
             <p>《少年有志》表演</p>
-            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20240528/n9exyivzon6s3fi7plsfc1zktl65e4m5.jpg?x-oss-process=image/resize,w_768" onerror="this.src='break.svg';"/>
+            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20240528/n9exyivzon6s3fi7plsfc1zktl65e4m5.jpg?x-oss-process=image/resize,w_768"/>
             <p>跳舞</p>
-            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20240528/36mt36uq6ggc48m2rc3uykbhlnv33b3h.jpg?x-oss-process=image/resize,w_768" onerror="this.src='break.svg';"/>
+            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20240528/36mt36uq6ggc48m2rc3uykbhlnv33b3h.jpg?x-oss-process=image/resize,w_768"/>
             <p>跳绳</p>
-            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20240528/fueai2a4rcqnrwh6rxs9j48i984hf58g.jpg?x-oss-process=image/resize,w_768" onerror="this.src='break.svg';"/>
+            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20240528/fueai2a4rcqnrwh6rxs9j48i984hf58g.jpg?x-oss-process=image/resize,w_768"/>
             <p>朗诵</p>
         </div>
         <p>与同学们针锋相对的是六（2）班。他们在陈冲的带领下，表演了《青苹果乐园》这首歌，结果就夺得了一等奖。一些人就开始评价：“这是《烂苹果乐园》！”“陈冲肯定是走了后门！”</p>
         <p>不得不说，2班的衣服甚是“花里胡哨”。</p>
-        <div class="img_box">
-            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20240528/qxbkdk1nz7svzz9i1yx2i15e6buhw5ox.jpg?x-oss-process=image/resize,w_768" onerror="this.src='break.svg';"/>
-            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20240528/nfkvkrjs6avmd9c2vc5mes3gt997volk.jpg?x-oss-process=image/resize,w_768" onerror="this.src='break.svg';"/>
+        <div class="gallery">
+            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20240528/qxbkdk1nz7svzz9i1yx2i15e6buhw5ox.jpg?x-oss-process=image/resize,w_768"/>
+            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20240528/nfkvkrjs6avmd9c2vc5mes3gt997volk.jpg?x-oss-process=image/resize,w_768"/>
             <p>六（2）《青苹果乐园》</p>
         </div>
         <hr/>
         <h1 id="tiaozaoshichang">跳蚤市场</h1>
         <p>东升小学曾多次举办“跳蚤市场”（校园集市）活动。顾名思义，就是让每个班设立一个摊位，并把同学们给的东西放在摊位上卖。其中最火爆的无非是卖金鱼（围得水泄不通）的和买棉花糖（队伍从综合楼排到办公楼）的。</p>
         <p>每次活动，学校都会分发一些“跳蚤币”。同时，学校还会开设一些“赚钱”的地方，只不过需要答一些题目。</p>
-        <div class="img_box">
-            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20231231/oucumtlnb4o9guqyt2w9gtpl4mu7ph58.jpg?x-oss-process=image/resize,w_768" onerror="this.src='break.svg';"/>
-            <img src="https://oss.weixiao100.com.cn/fronts/material/wgw/resource/20230405/ov9raphakmk3tsbfkojtzzmtes4bd5oq.jpg?x-oss-process=image/resize,w_768" onerror="this.src='break.svg';"/>
+        <div class="gallery">
+            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20231231/oucumtlnb4o9guqyt2w9gtpl4mu7ph58.jpg?x-oss-process=image/resize,w_768"/>
+            <img src="https://oss.weixiao100.com.cn/fronts/material/wgw/resource/20230405/ov9raphakmk3tsbfkojtzzmtes4bd5oq.jpg?x-oss-process=image/resize,w_768"/>
             <p>跳蚤币</p>
         </div>
         <p>有时，甚至还有表演可看。</p>
-        <div class="img_box">
-            <img src="https://oss.weixiao100.com.cn/fronts/material/wgw/resource/20230405/14akknsnhfn5qhrov34i37hi2ouy6buh.jpg?x-oss-process=image/resize,w_768" onerror="this.src='break.svg';"/>
+        <div class="gallery">
+            <img src="https://oss.weixiao100.com.cn/fronts/material/wgw/resource/20230405/14akknsnhfn5qhrov34i37hi2ouy6buh.jpg?x-oss-process=image/resize,w_768"/>
             <p>论刘圭宥装逼的100种方式</p>
         </div>
         <p>这时就又要扯到MT了。她想了一个“骚操作”，首先，在活动开始前，在本班摊位上摆五十几个小袋子，里面装有文具。拍完照并且活动开始后，赶紧让六（1）班的学生一人领一个袋子去，避免别人看到了想买。这样一来，既出片，又能让班上的同学拿到东西。</p>
-        <div class="img_box">
-            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20231231/y2kcin299814ehe3m4e44ebqtgvz5hre.jpg?x-oss-process=image/resize,w_768" onerror="this.src='break.svg';"/>
+        <div class="gallery">
+            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20231231/y2kcin299814ehe3m4e44ebqtgvz5hre.jpg?x-oss-process=image/resize,w_768"/>
             <p>蔡宇城、陈忠宇、张炜承合照以及摊位上的袋子</p>
         </div>
         <hr/>
@@ -1952,8 +1953,8 @@ setInterval(rotateText,1000);
             <li>如果可以</li>
             <p>这是刘圭宥的社死现场。当时多人表示“听不见”，近一半的人拿手机录像，后排的人则在挥舞手机。</p>
         </ul>
-        <div class="img_box">
-            <img src="lgy5.jpg" onerror="this.src='break.svg';"/>
+        <div class="gallery">
+            <img src="lgy5.jpg"/>
             <p>刘圭宥唱《如果可以》</p>
         </div>
         <p>另外还有围着水池站成一圈拍照和站在走廊扔纸飞机等。</p>
@@ -2012,287 +2013,6 @@ setInterval(rotateText,1000);
             <p>十六班：林妍筱&nbsp;陈立航</p>
         </article>
         <p>这便是分到四十中的学生。另外，据可靠消息，李诗彤、许逸晗在附中；王湘琳在平潭一中（“平潭一中”对王湘琳来说是个敏感词汇）。</p>
-        <p>来到四十中，首先就会发现：那里的饭菜跟京元一样难吃，是“华威菜多多”做的。有别于小学的地方是，这里的密封条上面有菜品名称。</p>
-        <p>当然，四十中也会“督促”菜品质量，如填写问卷、家长陪餐等，不过味道和以前差不了多少。有一次，有人甚至在海带排骨汤里喝出了虫卵，那碗汤就被放在了水池旁边。</p>
-        <p>其次便是跑操了。小学时还只在冬天偶尔有该项目，到了四十中就成了“经典项目”，除周一、周末培优、恶劣天气、操场被占用及其他特殊情况外，每天跑一次，圈数一般为5~9圈（初中）。</p>
-        <p>凡是大考前300名的都可以去培优班。学校甚至还遵循“自愿原则”，让大家签回执。</p>
-        <p>军训也是同学们也是疯狂吐槽的内容之一。在龙翔的环境中，幸福庄园都变得和蔼可亲。</p><!--
-        <p>那，龙翔又是怎样的？</p>
-        <hr/>
-        <h1 id="lx">龙翔</h1>
-        <h2>澡堂</h2>
-        <p>龙翔只有公共浴室。每天晚上，要洗澡的人需带上工具（水桶、洗发水、沐浴露、浴巾、衣服等）并徒步挺长的一段距离。军训的前3天都在下雨，往往洗完澡后，穿着拖鞋走在泥泞、坑洼的路上，到宿舍时，脚已经白洗了。</p>
-        <p>男生澡堂入口有一个架子可供放衣服，且里面有几十个单间，但是只用了一条很薄的白色窗帘挡着，风一吹可能就飘起来了。而且白布下面有很大的空隙，隐私性超级低。单间和单间被铁板隔着，但铁板的一侧及下方均有空隙。</p>
-        <p>至于洗澡的体验感，那自然不必多说。里面可谓什么人都有，据说林泽晨、郭予凡同另外两个同班的在同一间里洗澡。</p>
-        <h2>宿舍</h2>
-        <h3>宿舍楼</h3>
-        <p>四十中学生住在下图的四栋楼中，其中：初一男生住振兴楼、女生住尚武楼；高一男生住崇军楼、女生住自强楼。</p>
-        <div class="img_box">
-            <svg width="400" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
-                <rect x="30" y="30" width="100" height="200" fill="#ffaaaa"/>
-                <rect x="270" y="30" width="100" height="200" fill="#ffaaaa"/>
-                <rect x="30" y="250" width="100" height="200" fill="#aad4ff"/>
-                <rect x="270" y="250" width="100" height="200" fill="#aad4ff"/>
-                <path d="M130,0 H270 V30 H130 Z" fill="#e5e5e5"/>
-                <text x="170" y="23" font-family="Noto Sans JP" font-size="20" fill="#000">小卖部</text>
-                <text x="55" y="95" font-family="Noto Sans JP" font-size="50" fill="#7f0000">尚</text>
-                <text x="55" y="195" font-family="Noto Sans JP" font-size="50" fill="#7f0000">武</text>
-                <text x="295" y="95" font-family="Noto Sans JP" font-size="50" fill="#7f0000">自</text>
-                <text x="295" y="195" font-family="Noto Sans JP" font-size="50" fill="#7f0000">强</text>
-                <text x="55" y="315" font-family="Noto Sans JP" font-size="50" fill="#003f7f">崇</text>
-                <text x="55" y="415" font-family="Noto Sans JP" font-size="50" fill="#003f7f">军</text>
-                <text x="295" y="315" font-family="Noto Sans JP" font-size="50" fill="#003f7f">振</text>
-                <text x="295" y="415" font-family="Noto Sans JP" font-size="50" fill="#003f7f">兴</text>
-            </svg>
-            <p>宿舍楼平面图</p>
-        </div>
-        <p>左边的楼有6层、右边5层。</p>
-        <h3>布局</h3>
-        <p>每层楼有两个楼梯口、两侧有两个厕所及若干水池，走廊有防盗网、顶上还有晾衣杆。宿舍内部左右各3个上下铺，共计12张床。每间宿舍有两扇窗以及风扇、空调、铁架子。</p>
-        <h3>卫生</h3>
-        <p>话说学生的传言中“床单上有尿渍”这一事实也不知是否属实。但到龙翔的第一天，辅导员教学生叠“三折被”时，有人说看到床单发霉。</p>
-        <p>值得一提的是，枕头的魔术贴真的恶心。</p>
-        <p>最后一天，大家要把三件套拆掉放回。当同学们走进机房时，看到了这样一幕：几个比人高的洗衣机矗立其中，前面是圆形玻璃，里面有很多三件套正在被清洗。洗衣机运行的声音很大，走近时还能感觉到热气。旁边时三件套堆成的小山，同学们就把自己的三件套扔到这里——可见其卫生状况。</p>
-        <p>总之，三件套虽没有想象中的脏，但也绝非干净。</p>
-        <p>床铺就几根铁架支撑，稍微动一动就吱吱作响。</p>
-        <p>至于“小动物”，不知道各个宿舍的情况，但是辅导员曾经说：“不要再床上吃零食，不然会招惹小动物……”</p>
-        <h2>食堂</h2>
-        <p>龙翔的食堂很大，且打饭窗口很多。另外，有两个打汤窗口。</p>
-        <p>吃饭的流程主要有下面几步：</p>
-        <ol>
-            <li>齐步走</li>
-            <p>每次从训练的地方走向食堂，首先要站成四列并齐步走。但辅导员总会让大家走走停停，然后不断地对正、齐步走，令人心烦。</p>
-            <li>拿水果、洗手</li>
-            <p>饭前需要洗手。食堂入口有一排水池，同学们往往只是淋一两秒就走。在中午，洗手前还会拿水果。饭后水果包括橙子、橘子、苹果，但许多人不大爱吃，于是他们的水果就会出现在其他学生或辅导员手上。</p>
-            <li>打饭</li>
-            <p>洗完手就可以进入食堂内部排队。地上有1米线，学生排队时需按照地上的线保持距离。</p>
-            <li>吃饭</li>
-            <p>打完饭后，可以自愿打汤。第一天时，辅导员说一桌只能坐一个班的学生。这就导致前面的桌子往往被别班“霸占”，同学们只能到后面坐，而且找空桌也很不容易。</p>
-            <li>放盘子</li>
-            <p>吃完饭后，便可以从出口离开。学生要将剩饭剩菜倒在外面摆着的蓝色大塑料缸内。然后，学生需到水池简单冲洗盘子，主要得把食物残渣冲走，油脂则无所谓。原因是：如果有饭粒粘在盘子上，到洗碗机里洗时就可能卡住（牛逼）。洗完后，需将餐具放在蓝色框里。</p>
-            <li>集合</li>
-            <p>接下来，就要到各班约定的地点集合。在全班到齐之前，你需要上完厕所、装完水。等全班到齐后，就会开始接下来的活动。</p>
-        </ol>
-        <p>但饭菜的味道总是一言难尽。第一天午饭时，同学们都说米饭很黏，不好吃；第三天早饭时，同学们推测豆浆是用粉跑的，因为从汤桶最底下打的豆浆没有豆渣。</p>
-        <p>每次午餐和晚餐，米饭的旁边总会有一块不知用什么食材做的饼，往往很难吃。另外，这里的一些菜表面都裹了一层看似挺粘稠的汤汁。</p>
-        <p>第一天，辅导员说可以加菜，但像鸡腿这样一人只能有一个的菜不能加。</p>
-        <p>再就是早餐了。一个鸡蛋是标配，另外还有两道小菜，主食则是馒头、包子之类的，至少不是单调的“馒头配萝卜干”。所以，一些人说早餐是三餐内最好吃的了。</p>
-        <p>但另外两餐就不一样了。每次你去外面，就会看到部分装剩饭剩菜的桶已经满出来了，还堆出了一座小山。这种现象最早体现在第二天的晚餐中，一些人表示那顿饭是最难吃的。还有一些人说，当时去到饭，看到这一幕时，差点没吐出来。</p>
-        <h2>小卖部</h2>
-        <p>和其他地方一样，这里有小卖部，就在四栋宿舍楼旁。里面还有卖汉堡、自制饮料之类的，开放时几乎爆满。但这儿的物价是真的高，一瓶矿泉水能卖3块，炸鸡、奶茶、汉堡等更是无法想象。</p>
-        <p>当然，这里最受欢迎的东西是泡面，在第一天时，同学们得知可以吃泡面，结果当天晚上泡面就被抢光。第二天晚上，是吃泡面的高峰，第三天就禁止吃泡面了。原因是，当时厕所的垃圾桶里出现了泡面的桶，且开水房里、蹲坑里都是泡面汤汁，非常恶心。</p>
-        <h2>操场</h2>
-        <p>这里已知的操场有两个，一个就是普通操场，开营仪式、闭营仪式都在这举行。但这个操场有个令人无语的地方，就是会掉色。闭营仪式前，同学们坐在操场上，一会儿就有人发现自己的鞋底变绿了，然后就说这里会掉色。</p>
-        <p>第二个操场美其名曰“大操场”，结果同学们去到这里时发现就是一块大的水泥地，旁边虽有跑道，但上面有各种车辆，妥妥的一个停车场。</p>
-        <h2>入口</h2>
-        <p>入口处是一条大路（这条路跨过一条小溪），从国道转弯，开过这条路就能进入龙翔了。这里的大门的设计灵感据说是隐形战斗机，进入后，有着各种大炮、坦克等装备，而且都是真的，上面印有“中国人民解放军海军（空军、陆军）赠”。</p>
-        <img src="https://tse2-mm.cn.bing.net/th/id/OIP-C.D-KAKKA3FuJx2JMt2l5eAwHaEJ?rs=1&pid=ImgDetMain" onerror="this.src='break.svg';"/>
-        <p>这里还有一个公交站，名为“龙翔站”，广告牌上还写着“期待您下次光临”。</p>
-        <h2>大厅</h2>
-        <p>龙翔有两个大厅，分别为“①号多功能大厅”与“②号多功能大厅”。其中，“②号多功能大厅”里摆放着射击的相关道具，“①号多功能大厅”则是同学们常去的地方，那里有大屏幕以及一些座椅，用来进行文艺汇演、朗诵比赛等。</p>
-        <p>这里还有许多展馆，都是“60个项目”中的一员，但大概率对于四十中只是个诱惑。</p>
-        <hr/>
-        <h2>教官</h2>
-        <p>话说在龙翔是没有教官的，只有“辅导员”，听上去好像亲切许多。但教官的本性是不会变的，还是该练练、该凶凶。这里的教官统一穿迷彩服，戴帽子。</p>
-        <p>同学们如果有什么事，也得叫“辅导员”，说“教官”大抵是没用的。但还是阻止不了同学们说辅导员为“教官”。</p>
-        <p>龙翔有专门为辅导员准备的喇叭，每天叫宿舍里的人起床、集合或者在大厅里“发号施令”都离不开它。其中有一个喇叭上面还贴了很多搞笑的贴纸。</p>
-        <p>有人发现，辅导员的手机壁纸是美女，于是就有人去作死问他，结果那人就被批评了，这时又有人发现当时辅导员在憋笑，而且据说有其他辅导员凑近去看他的手机。</p>
-        <p>辅导员的口音也很古怪。如说“一二一”，有一个辅导员是这么读的：“一儿一”。一次那个班的学生齐步走，就故意将“一二一”喊成“一儿一”。另一个辅导员则读成这样：“亚二一”。</p>
-        <p>这里的辅导员还非常喜欢喊“四十中”、“初中部”、“高中部”、“×班”等，反正对应的学生得答“到！”，例如以下情景：</p>
-        <article>
-            <p>辅导员：“四十中？”</p>
-            <p>学生：“到！”</p>
-            <p>辅导员：“四十中？”</p>
-            <p>学生：“到！”</p>
-            <p>辅导员：“高中部？”</p>
-            <p>学生：“到！”</p>
-            <p>辅导员：“高中部？”</p>
-            <p>学生：“到！”</p>
-            <p>辅导员：“高中部一、二、三楼，下楼集合！”</p>
-            <p>（一段时间后）</p>
-            <p>……</p>
-            <p>辅导员：“初中部？”</p>
-            <p>学生：“到！”</p>
-            <p>辅导员：“初中部？”</p>
-            <p>学生：“到！”</p>
-            <p>（一段时间后）</p>
-            <p>辅导员：“一、二、三楼，下楼集合！”</p>
-            <p>……</p>
-            <p>辅导员：“一班？”</p>
-            <p>学生：“到！”</p>
-            <p>辅导员：“二班？”</p>
-            <p>学生：“到！”</p>
-            <p>辅导员：“三班？”</p>
-            <p>学生：“到！”</p>
-            <p>……</p>
-            <p>辅导员：“感恩的心？”</p>
-            <p>学生：“到！”</p>
-            <p>辅导员：“队列？”</p>
-            <p>学生：“到！”</p>
-        </article>
-        <p>像这样的情景，每天要重复n遍，而在9班那三个人（陈睿卓、唐家祺、郑锦熠）的带领下，越来越多人开始喊“操！”，甚至推广到了别班。以至于到闭营仪式之前，同学们的应答听着就很像“操！”，但辅导员却以为就是“到！”。</p>
-        <p>至于辅导员的语录，也是数不胜数，如：</p>
-        <div class="say">
-            <i class="fa fa-quote-left"></i>&nbsp;吵什么呢！&nbsp;<i class="fa fa-quote-right"></i>
-        </div>
-        <div class="say">
-            <i class="fa fa-quote-left"></i>&nbsp;小碎步跺响！&nbsp;<i class="fa fa-quote-right"></i>
-        </div>
-        <div class="say">
-            <i class="fa fa-quote-left"></i>&nbsp;调整军姿！&nbsp;<i class="fa fa-quote-right"></i>
-        </div>
-        <div class="say">
-            <i class="fa fa-quote-left"></i>&nbsp;四十中，起——床——&nbsp;<i class="fa fa-quote-right"></i>
-        </div>
-        <p>在众多辅导员中，有几个“长（zha&#780;ng）”的角色，掌管其他辅导员。所以龙翔会出现“辅导员大骂辅导员”的“奇观”。</p>
-        <p>辅导员还喜欢用“钓鱼”战术控制学生。例如，辅导员多次说过：“如果今天练得好，明天就全都是玩；如果练得不好，就全都是训练。”“明天（下午）训练的时间取决于你们现在的态度。”之类的话。当然哪怕同学们练得再好，也鲜有玩的时间。另一种情况则是辅导员会“挑刺”，指出方阵中的部分学生哪里不好，并让玩的时间泡汤。</p>
-        <p>另一种渠道就是压榨休息时间，看这样几句话：“这一遍练得好就休息，练不好就一直练。”“最后一遍练完就休息。”而当所谓的“这一遍”练完后，往往没有想象中的休息。要么就是再去练其他的项目，要么练第二遍、第三遍。举个例子，第四晚出来集合，本来说好宣誓完就回宿舍，结果宣誓了两遍后又冒出个唱国歌环节，本来说“唱得好就提前解散”，等到唱得好了，又开始练队列/感恩的心，回宿舍的最早时间也自然被推到九点半。</p>
-        <p>这里就不得不牵扯到两个基本事实。第一个：在到达龙翔的第一天，辅导员说这里有60个玩的项目，且需要门票才能玩。这里分为两个主要项目，一是训练、二是玩，两者互相穿插。如果练得好，玩的时间就多，练不好，就别提玩的事情。这样也间接加强了辅导员对学生的控制，提升了训练效果；同时也导致从学生的角度来看，五天基本全是训练。</p>
-        <p>第二个：辅导员说，只有在晚上8:00-9:00才能去小卖部，其余时间段去的话就会被驻守在那的辅导员抓住。然后看看龙翔4个晚上的安排：第一晚看电影，第二晚在大厅玩游戏/体验VR，第三晚训练，第四晚文艺晚会。没有一晚能在8点之前回到宿舍的。</p>
-        <h2>训练</h2>
-        <p>这次军训，以班为单位展开训练，所有行动必须和本班一起。</p>
-        <p>辅导员口口声声的“训练”当然是很无聊的。辅导员声称的训练项目包括：</p>
-        <ul>
-            <li>稍息立正、跨立立正</li>
-            <li>停止间转法</li>
-            <li>敬礼与礼毕</li>
-            <li>齐步走的行进与立定</li>
-        </ul>
-        <p>当然，还有站军姿、向前对正和原地踏步走。站军姿实际上是最频繁的项目，当以班为单位训练时，站军姿是不可避免的。</p>
-        <p>其实，这些项目与平时最大的不同就是声音。凡遇到要跺脚的时候都得跺响（齐步走除外），最好把地板给跺塌。辅导员曾让大家使劲跺，地板坏了他会赔。</p>
-        <p>还有需要声音的就是礼毕与齐步走。礼毕时，手要拍响；齐步走时，要有划过衣服的声音。</p>
-        <p>齐步走时，辅导员还有统一的口令。在辅导员喊“一二三四”时，学生也得接“一二三四”。如：</p>
-        <article>
-            <p>辅导员：一，二，三，四！</p>
-            <p>学生：一二三——四！</p>
-            <p>辅导员：一二三——四！</p>
-            <p>学生：一二三——四！</p>
-        </article>
-        <p>或：</p>
-        <article>
-            <p>辅导员：一二，三四！</p>
-            <p>学生：一二，三四！</p>
-        </article>
-        <p>第三天，训练的项目出现了“分化”。为了圆满地举行闭营仪式，大家分成了四个方阵进行训练：</p>
-        <ul>
-            <li>队列</li>
-            <p>这是初中的两大方阵之一。说白了，这个方阵的展示内容就是训练的内容，包括四个科目：稍息立正与跨立立正、停止间转法、敬礼与礼毕、齐步走的行进与立定。</p>
-            <li>感恩的心</li>
-            <p>这是初中部的另一方阵，表演内容为《感恩的心》手语操（手势舞）。</p>
-            <li>国家</li>
-            <p>这是高中部的方阵之一，和“感恩的心”一样，是展示手语操的。</p>
-            <li>炮排</li>
-            <p>这个方阵主要是在闭营仪式时放炮，增加氛围感，同时也是唯一一个有配备道具的方阵。</p>
-        </ul>
-        <p>队列方阵的口号也是非常经典：</p>
-        <article>
-            <p>第一项科目：稍息立正、跨立立正。都有，稍息！</p>
-            <p>立正！</p>
-            <p>稍息！</p>
-            <p>立正！</p>
-            <p>跨立！</p>
-            <p>立正！</p>
-            <p>跨立！</p>
-            <p>立正！</p>
-            <p>第二项科目：停止间转法。都有，向——右——转！</p>
-            <p>向——右——转！</p>
-            <p>向——左——转！</p>
-            <p>向——左——转！</p>
-            <p>向——后——转！</p>
-            <p>向——后——转！</p>
-            <p>第三项科目：敬礼与礼毕。都有，半面向左——转！</p>
-            <p>敬礼！</p>
-            <p>礼毕！</p>
-            <p>敬礼！</p>
-            <p>礼毕！</p>
-            <p>半面向右——转！</p>
-            <p>第四项科目：齐步走的行进与立定。都有，向——后——转！</p>
-            <p>齐步——走！一二一，一二，立定！</p>
-            <p>向——后——转！</p>
-            <p>向前，对正！放！</p>
-            <p>齐步——走！一二一，一二，立定！</p>
-            <p>向前，对正！放！</p>
-        </article>
-        <p>一次排练，辅导员还让大家在齐步走时喊：</p>
-        <div class="say">
-            <i class="fa fa-quote-left"></i>&nbsp;魔力青春，升华自我！&nbsp;<i class="fa fa-quote-right"></i>
-        </div>
-        <p>每次集合，都要求学生带上水杯（下雨时要带伞），训练时将水杯集中放到一处或放在每个人的右边。而且当辅导员让你“拿水杯”时，不管你有没有带水杯都得弯下腰，而且只有当辅导员说“起来”才能起来，就很莫名其妙。</p>
-        <p>闭营仪式上，不只有4个方阵，还有唱国歌和宣誓环节：</p>
-        <article>
-            <p>辅导员：“我是一名优秀的，”</p>
-            <p>学生：“我是一名优秀的，”</p>
-            <p>辅导员：“福州第四十中学学子。”</p>
-            <p>学生：“福州第四十中学学子。”</p>
-            <p>辅导员：“为实现中华民族伟大复兴梦想，”</p>
-            <p>学生：“为实现中华民族伟大复兴梦想，”</p>
-            <p>辅导员：“我庄严宣誓：”</p>
-            <p>学生：“我庄严宣誓：”</p>
-            <p>辅导员：“坚决认真践行，”</p>
-            <p>学生：“坚决认真践行，”</p>
-            <p>辅导员：“社会主义核心价值观，”</p>
-            <p>学生：“社会主义核心价值观，”</p>
-            <p>辅导员：“热爱祖国，”</p>
-            <p>学生：“热爱祖国，”</p>
-            <p>辅导员：“热爱人民，”</p>
-            <p>学生：“热爱人民，”</p>
-            <p>辅导员：“热爱中国共产党。”</p>
-            <p>学生：“热爱中国共产党。”</p>
-            <p>辅导员：“保卫国防，”</p>
-            <p>学生：“保卫国防，”</p>
-            <p>辅导员：“不怕困难，”</p>
-            <p>学生：“不怕困难，”</p>
-            <p>辅导员：“不怕吃苦，”</p>
-            <p>学生：“不怕吃苦，”</p>
-            <p>辅导员：“坚决捍卫祖国利益，”</p>
-            <p>学生：“坚决捍卫祖国利益，”</p>
-            <p>辅导员：“绝不背叛祖国。”</p>
-            <p>学生：“绝不背叛祖国。”</p>
-            <p>辅导员：“与一切有损国家利益的，”</p>
-            <p>学生：“与一切有损国家利益的，”</p>
-            <p>辅导员：“敌对势力作斗争。”</p>
-            <p>学生：“敌对势力作斗争。”</p>
-            <p>辅导员：“做一名有灵魂、”</p>
-            <p>学生：“做一名有灵魂、”</p>
-            <p>辅导员：“有本事、”</p>
-            <p>学生：“有本事、”</p>
-            <p>辅导员：“有血性、”</p>
-            <p>学生：“有血性、”</p>
-            <p>辅导员：“有品德的中国人。”</p>
-            <p>学生：“有品德的中国人。”</p>
-            <p>辅导员：“国旗为证，”</p>
-            <p>学生：“国旗为证，”</p>
-            <p>辅导员：“天地为鉴，”</p>
-            <p>学生：“天地为鉴，”</p>
-            <p>辅导员：“强国有我，”</p>
-            <p>学生：“强国有我，”</p>
-            <p>辅导员：“请党放心。”</p>
-            <p>学生：“请党放心。”</p>
-            <p>辅导员：“牢记历史，”</p>
-            <p>学生：“牢记历史，”</p>
-            <p>辅导员：“？？？？！！”</p>
-            <p>学生：“？？？？！！”</p>
-            <p>辅导员：“牢记历史，”</p>
-            <p>学生：“牢记历史，”</p>
-            <p>辅导员：“？？？？！！”</p>
-            <p>学生：“？？？？！！”</p>
-            <p>辅导员：“牢记历史，”</p>
-            <p>学生：“牢记历史，”</p>
-            <p>辅导员：“？？，？？！！”</p>
-            <p>学生：“？？，？？！！”</p>
-            <p>辅导员：“宣誓人：”</p>
-            <p>学生：“福州第四十中学全体学生！”</p>
-        </article>
-        <p>至于最后那一段“？”出现的原因则是压根没人能听懂那四个字是什么，只知道一个“牢记历史”。</p>
-        <h2>内务</h2>
-        <p>龙翔对内务要求严格。首先是床上：床单不能有褶皱、被子要叠成三折被；床铺朝门的方向为床尾，书包就放在床尾的地方（对此辅导员之间还有不同的要求，一个要求书包放中间，另一个却让大家放靠墙的一侧），床头中间放被子、上面是枕头。</p>
-        <p>左侧的床底用来摆放水桶，右边的床底放行李，要求摆成一条线。门口摆放拖鞋或运动鞋，也是要一条线摆下去。</p>
-        <p>每次集合，内务得达到以上的标准，而且垃圾要倒掉，灯要关掉。</p>
-        <p>这里的辅导员会不定时去检查内务。一次同学们在大厅训练，一会儿辅导员让大家坐下休息，并说要给大家“惊喜”。接下来就是史诗级的一幕——只见宿舍的照片被投放到大屏幕上，引起一片惊呼，不少人说自己的宿舍肯定不合格。辅导员就询问宿舍长是谁，这个×××是谁的，并让相关人员站在台上，后来被罚的人就干脆直接站在方阵里。</p>
-        <h2>文明礼仪</h2>
-        <p>龙翔注重文明礼仪。在初到龙翔时，辅导员就要求：凡是齐步走时经过老师，就要有一个带头的学生喊“老师好！”，然后方阵中的学生跟着喊“老师好”；经过辅导员时规则是一样的，只不过喊的是“辅导员好”。</p>
-        <h2>拉练</h2>
-        <p>拉练其实就是走路、爬山，同学们也把它叫做“长征”。这次拉练，据辅导员说有4公里左右（来回8公里），而且同学们是出基地的，但至少比在龙翔“受罪”好很多。</p>-->
         <hr/>
         <h1 id="ls">老师</h1>
         <p>小学以来（教过我们）的老师基本可以分为两大类：</p>
@@ -2322,7 +2042,7 @@ setInterval(rotateText,1000);
     <nav>
         <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
         <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
-        <button onclick="openPage('Index', this)" title="返回首页"><i class="fa fa-home"></i></button>
+        <button onclick="p('Index',this)" title="返回首页"><i class="fa fa-home"></i></button>
         <button class="menu"><i class="fa fa-navicon"></i></button>
         <div class="dropdown-content">
             <a href="#e-wjj">文件夹</a>
@@ -2335,11 +2055,11 @@ setInterval(rotateText,1000);
             <a href="#e-cf">惩罚</a>
             <a href="#e-gd">更多</a>
             <hr/>
-            <a onclick="openPage('Pupil', this)">学生</a>
-            <a onclick="openPage('Ct', this)">CT</a>
-            <a onclick="openPage('Mt', this)">MT</a>
-            <a onclick="openPage('At', this)">AT</a>
-            <a onclick="openPage('Ds', this)">大事</a>
+            <a onclick="p('Pupil',this)">学生</a>
+            <a onclick="p('Ct',this)">CT</a>
+            <a onclick="p('Mt',this)">MT</a>
+            <a onclick="p('At',this)">AT</a>
+            <a onclick="p('Ds',this)">大事</a>
         </div>
     </nav>
     <main>
@@ -2482,7 +2202,7 @@ setInterval(rotateText,1000);
                 <li>红色毛衣</li>
                 <li>浅蓝花朵衣</li>
                 <p>见下图。</p>
-                <img src="https://oss.weixiao100.com.cn/wgw/editor/2021/928/1632832390978_84.png?x-oss-process=image/resize,w_870" onerror="this.src='break.svg';"/>
+                <img src="https://oss.weixiao100.com.cn/wgw/editor/2021/928/1632832390978_84.png?x-oss-process=image/resize,w_870"/>
                 <li>深蓝外套</li>
                 <li>肉色外套</li>
                 <li>紫色绣花裙</li>
@@ -3006,7 +2726,7 @@ setInterval(rotateText,1000);
     <nav>
         <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
         <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
-        <button onclick="openPage('Index', this)" title="返回首页"><i class="fa fa-home"></i></button>
+        <button onclick="p('Index',this)" title="返回首页"><i class="fa fa-home"></i></button>
         <button class="menu"><i class="fa fa-navicon"></i></button>
         <div class="dropdown-content">
             <a href="#c-wm">外貌</a>
@@ -3020,11 +2740,11 @@ setInterval(rotateText,1000);
             <a href="#c-dxs">对学生</a>
             <a href="#c-gd">更多</a>
             <hr/>
-            <a onclick="openPage('Pupil', this)">学生</a>
-            <a onclick="openPage('Et', this)">ET</a>
-            <a onclick="openPage('Mt', this)">MT</a>
-            <a onclick="openPage('At', this)">AT</a>
-            <a onclick="openPage('Ds', this)">大事</a>
+            <a onclick="p('Pupil',this)">学生</a>
+            <a onclick="p('Et',this)">ET</a>
+            <a onclick="p('Mt',this)">MT</a>
+            <a onclick="p('At',this)">AT</a>
+            <a onclick="p('Ds',this)">大事</a>
         </div>
     </nav>
     <main>
@@ -3132,8 +2852,8 @@ setInterval(rotateText,1000);
         <p>CT外貌属于很与众不同的那种。他身材很胖，尤其在肚子和脸上体现出来；脸比较“扁平”。</p>
         <p>他还习惯戴一副方形眼镜（有时不戴），自称“有文化的象征”。眼睛的镜片极窄，边框呈黑色，有类似鸟巢的花纹。CT戴眼镜时，会讲眼镜自然放在鼻梁上方，从学生的视角来看，CT的眼睛根本不在镜框内，而是在镜框上面。这副眼镜的结构也很特别,其中一个镜腿可以绕镜框360度旋转，以至于CT戴眼镜时，有时镜腿会脱落。</p>
         <p>CT喜欢穿“比音勒芬”牌子的衣服（参见<a href="http://www.biemlf.com/">比音勒芬</a>官网)
-        <div class="img_box">
-            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20230903/awut9gk5tkfnu8nrv5qln2wxw2a23mu8.png?x-oss-process=image/resize,w_870" onerror="this.src='break.svg';"/>
+        <div class="gallery">
+            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20230903/awut9gk5tkfnu8nrv5qln2wxw2a23mu8.png?x-oss-process=image/resize,w_870"/>
             <p>东升小学官网上的CT照片</p>
         </div>
         <hr/>
@@ -3400,10 +3120,10 @@ setInterval(rotateText,1000);
         <p>CT的字迹也是非常的潦草，要“联系上下文”才能看懂，且CT自已也说“我的字跟母猪一样”。这也形成了一道天然的“屏障”——在CT讲优化、53时，那些“疯狂抄”的人就有可能看不懂，往往要到大家齐读时才恍然大悟。有时大家读着读着就会因为看不懂CT的字而停下，需要CT提示。</p>
         <p>CT的答案位置变幻莫测。有时题目下面没地方写了，他就会写到题目上方，连个箭号都不打。</p>
         <p>当然，他对书法尤为擅长，甚至还开过讲座（见<a href="https://wgw.weixiao100.com.cn/custom/wgw/content?schoolCode=78218603-X&templateType=3&menuid=259855&detailid=2390513">东升官网</a>），经常在各大活动中、寒假前后写春联。</p>
-        <div class="img_box">
-            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20250114/jyb7zm4ajxk9ueods8gvbwx8gvm3p7fy.jpg?x-oss-process=image/resize,w_768" onerror="this.src='break.svg';"/>
+        <div class="gallery">
+            <img src="https://oss.weixiao100.com.cn/wgw/material/78218603-X/image/20250114/jyb7zm4ajxk9ueods8gvbwx8gvm3p7fy.jpg?x-oss-process=image/resize,w_768"/>
             <p>CT在校门口写春联</p>
-            <img src="https://oss.weixiao100.com.cn/fronts/material/wgw/resource/20230421/2t4ddm7nro623emsiolxbklz5ll4amaa.jpg?x-oss-process=image/resize,w_768" onerror="this.src='break.svg';"/>
+            <img src="https://oss.weixiao100.com.cn/fronts/material/wgw/resource/20230421/2t4ddm7nro623emsiolxbklz5ll4amaa.jpg?x-oss-process=image/resize,w_768"/>
             <p>CT在讲座中写毛笔字</p>
         </div>
         <h2>没交作业</h2>
@@ -3502,7 +3222,7 @@ setInterval(rotateText,1000);
             <li>郑权楷</li>
             <p>由于郑权楷是“假惺惺”的一员，于是CT之前非常看好他，可是到后来他就因讲话等原因成了狗屎，经常被批评。</p>
             <li>王湘琳</li>
-            <p>CT最讨厌的人之一。他经常对王湘琳说“又放花痴？”还多次暗示“余佳皓”（详见<a onclick="openPage('Pupil', this)" href="#wxl">学生</a>）。此外，《斗罗大陆》也常被CT调侃，一次，CT还把那本“值10万元的绝版书”扔到地上。</p>
+            <p>CT最讨厌的人之一。他经常对王湘琳说“又放花痴？”还多次暗示“余佳皓”（详见<a onclick="p('Pupil',this)" href="#wxl">学生</a>）。此外，《斗罗大陆》也常被CT调侃，一次，CT还把那本“值10万元的绝版书”扔到地上。</p>
             <li>陈锐</li>
             <p>CT常说自己下班会经过他家楼下，随时有家访的风险。</p>
             <li>张炜承</li>
@@ -3535,7 +3255,7 @@ setInterval(rotateText,1000);
     <nav>
         <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
         <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
-        <button onclick="openPage('Index', this)" title="返回首页"><i class="fa fa-home"></i></button>
+        <button onclick="p('Index',this)" title="返回首页"><i class="fa fa-home"></i></button>
         <button class="menu"><i class="fa fa-navicon"></i></button>
         <div class="dropdown-content">
             <a href="#m-zssl">知识梳理</a>
@@ -3545,11 +3265,11 @@ setInterval(rotateText,1000);
             <a href="#m-byh">毕业后</a>
             <a href="#m-gd">更多</a>
             <hr/>
-            <a onclick="openPage('Pupil', this)">学生</a>
-            <a onclick="openPage('Et', this)">ET</a>
-            <a onclick="openPage('Ct', this)">CT</a>
-            <a onclick="openPage('At', this)">AT</a>
-            <a onclick="openPage('Ds', this)">大事</a>
+            <a onclick="p('Pupil',this)">学生</a>
+            <a onclick="p('Et',this)">ET</a>
+            <a onclick="p('Ct',this)">CT</a>
+            <a onclick="p('At',this)">AT</a>
+            <a onclick="p('Ds',this)">大事</a>
         </div>
     </nav>
     <main>
@@ -3689,17 +3409,17 @@ setInterval(rotateText,1000);
     <nav>
         <button onclick="goTop()"><i class="fa fa-arrow-circle-up"></i></button>
         <button onclick="goBottom()"><i class="fa fa-arrow-circle-down"></i></button>
-        <button onclick="openPage('Index', this)" title="返回首页"><i class="fa fa-home"></i></button>
+        <button onclick="p('Index',this)" title="返回首页"><i class="fa fa-home"></i></button>
         <button class="menu"><i class="fa fa-navicon"></i></button>
         <div class="dropdown-content">
             <a href="#a-sk">上课</a>
             <a href="#a-fz">罚站</a>
             <hr/>
-            <a onclick="openPage('Pupil', this)">学生</a>
-            <a onclick="openPage('Et', this)">ET</a>
-            <a onclick="openPage('Ct', this)">CT</a>
-            <a onclick="openPage('Mt', this)">MT</a>
-            <a onclick="openPage('Ds', this)">大事</a>
+            <a onclick="p('Pupil',this)">学生</a>
+            <a onclick="p('Et',this)">ET</a>
+            <a onclick="p('Ct',this)">CT</a>
+            <a onclick="p('Mt',this)">MT</a>
+            <a onclick="p('Ds',this)">大事</a>
         </div>
     </nav>
     <main>
@@ -3762,13 +3482,14 @@ setInterval(rotateText,1000);
         <p>网页到底了！</p>
     </footer>
     </div>
-        
 <script>
-function openPage(pageName,elmnt){var tabcontent=document.getElementsByClassName("tabcontent");for(var i=0;i<tabcontent.length;i++){tabcontent[i].style.display="none";}
+function p(pageName,elmnt){var tabcontent=document.getElementsByClassName("tabcontent");for(var i=0;i<tabcontent.length;i++){tabcontent[i].style.display="none";}
 document.getElementById(pageName).style.display="block";document.getElementById(pageName).style.animation="fade-in 0.5s forwards";}
-document.getElementById("defaultOpen").click();function goTop(){window.scrollTo(0,0);}
+document.getElementById("defaultOpen").click();
+function goTop(){window.scrollTo(0,0);}
 function goBottom(){window.scrollTo(0,document.documentElement.scrollHeight);}
-    </script>
+document.querySelectorAll("img").forEach(M=>{M.onerror=function(){this.src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAyNCIgaGVpZ2h0PSIxMDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGNsYXNzPSJpY29uIj48Zz48cGF0aCBmaWxsPSIjY2ZmYSIgZD0ibTMwMCw0NTZjNDgsMCA4OCwtMzkgODgsLTg4cy0zOSwtODggLTg4LC04OHMtODgsMzkgLTg4LDg4czM5LDg4IDg4LDg4bDAsMHptMCwtMTE2YzE1LDAgMjgsMTIgMjgsMjhzLTEyLDI4IC0yOCwyOHMtMjgsLTEyIC0yOCwtMjhzMTIsLTI4IDI4LC0yOHoiLz48cGF0aCBmaWxsPSIjY2ZmYSIgZD0ibTg4NywxNTlsLTc1MCwwYy0zOSwwIC03MiwzMiAtNzIsNzJsMCw1NTljMCwzOSAzMiw3MiA3Miw3MmwxOTgsMGwxNjUsLTE3NWwtMzYsLTIyMmwxNjIsLTEzMGwtNjEsMTQzbDkyLDIxNGwtMTA1LDE3MWwzMzUsMGMzOSwwIDcyLC0zMiA3MiwtNzJsMCwtNTU5YzAsLTM5IC0zMiwtNzIgLTcyLC03MmwtMCwtMXptLTEzOCw3MWwwLDBsMTA5LDBjMTYsMCAzMCwxMyAzMCwzMGwwLDM5OWwtMjE0LC0yNTNsNzUsLTE3NnptLTQ0Myw1NjBsLTEzOCwwYy0xNiwwIC0zMCwtMTMgLTMwLC0zMGwwLC05bDEzOCwtMTY0bDEwNCwxMjRsLTc0LDc5em04MSwtMzU1bDM3LDIyOGwwLDBsLTE0MiwtMTY5Yy0zLC0zIC05LC0zIC0xMiwwbC0xMzIsMTU3bDAsLTM5MGMwLC0xNiAxMywtMzAgMzAsLTMwbDQ3NCwwbC0yNTMsMjA0bC0yLC0wem01MDEsMzI1YzAsMTYgLTEzLDMwIC0yOSwzMGwtMTc3LDBsNTcsLTkzbC04NywtMjAybDcsLTdsMjI5LDI3MnoiLz48L2c+PC9zdmc+"}});
+</script>
 </div>
 </body>
 </html>

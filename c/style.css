@@ -30,7 +30,7 @@ body{
     color:var(--color);
 }
 *::-webkit-scrollbar{display:none!important;}
-::selection{background:var(--nav-bg);}
+::selection{background:var(--nav-b);}
 p,dt,dd,li,small{line-height:1.7em;letter-spacing:0.15em;}
 button{border:none;}
 input:focus{outline:none;}
@@ -52,14 +52,14 @@ body[data-t="l"]{
     >#main{background:rgba(241,243,244,var(--o,1))}
     --background:#f1f3f4;
     --color:#212121;
-    --nav-bg:#abb5ba88;
-    --nav-icon:#507c95;
+    --nav-b:#abb5ba88;
+    --nav-c:#507c95;
     --hr:#af9c6a;
     --link:#0a0ac2;
     --dialog:#bcae8f;
     --article:#7979d288;
-    --q-bg:#d1c29488;
-    --q-icon:#6b7d3688;
+    --q-b:#d1c29488;
+    --q-c:#6b7d3688;
     --blockquote:#bc8fa1;
     --gallery:#339999;
     --writing:#abc256;
@@ -70,14 +70,14 @@ body[data-t="d"]{
     >#main{background:rgba(0,0,26,var(--o,1))}
     --background:#00001a;
     --color:#eff5f5;
-    --nav-bg:#3d495c88;
-    --nav-icon:#b3bccc;
+    --nav-b:#3d495c88;
+    --nav-c:#b3bccc;
     --hr:#e6d299;
     --link:#8ca6f2;
     --dialog:#6b6247;
     --article:#36636388;
-    --q-bg:#6b4d2e88;
-    --q-icon:#a2842a88;
+    --q-b:#6b4d2e88;
+    --q-c:#a2842a88;
     --blockquote:#5c5c3d;
     --gallery:#2847a4;
     --writing:#673e74;
@@ -88,14 +88,14 @@ body[data-t="b"]{
     >#main{background:rgba(0,102,255,var(--o,1))}
     --background:#0066ff;
     --color:#ffffff;
-    --nav-bg:#ccffff88;
-    --nav-icon:#3366cc;
+    --nav-b:#ccffff88;
+    --nav-c:#3366cc;
     --hr:#ccffff;
     --link:#fafa9e;
     --dialog:#198cb3;
     --article:#66c2ff88;
-    --q-bg:#ffb3ff88;
-    --q-icon:#ff339988;
+    --q-b:#ffb3ff88;
+    --q-c:#ff339988;
     --blockquote:#b366ff;
     --gallery:#0099ccaa;
     --writing:#336699;
@@ -106,14 +106,14 @@ body[data-t="n"]{
     >#main{background:rgba(13,13,63,var(--o,1))}
     --background:#0d0d3f;
     --color:#ecf2f9;
-    --nav-bg:#99990088;
-    --nav-icon:#ffffcc;
+    --nav-b:#99990088;
+    --nav-c:#ffffcc;
     --hr:#ad88f6;
     --link:#ffff99;
     --dialog:#5b2aef;
     --article:#80339988;
-    --q-bg:#66841588;
-    --q-icon:#a3cb3488;
+    --q-b:#66841588;
+    --q-c:#a3cb3488;
     --blockquote:#981b59;
     --gallery:#0f8a8a;
     --writing:#0066cc;
@@ -182,15 +182,15 @@ body[data-th="2"] #EVENT>div p:not([data-h]),body[data-th="2"] #EVENT>div dd:not
         width:100vw;
         text-align:center;
         >p{
-            color:var(--nav-icon);
+            color:var(--nav-c);
             transition:opacity 0.2s;
             margin:10px 0;
             padding:0;
             font-size:1.25rem;
         }
         >button{
-            background:var(--nav-bg);
-            color:var(--nav-icon);
+            background:var(--nav-b);
+            color:var(--nav-c);
             font-size:1.125rem;
             padding:2.5px 15px;
             line-height:30px;
@@ -201,7 +201,7 @@ body[data-th="2"] #EVENT>div p:not([data-h]),body[data-th="2"] #EVENT>div dd:not
 }
 nav{
     position:fixed;
-    background:var(--nav-bg);
+    background:var(--nav-b);
     height:40px;
     padding:5px;
     backdrop-filter:blur(15px);
@@ -210,7 +210,7 @@ nav{
     user-select:none;
     transition:height 0.3s;
     overflow:hidden;
-    box-shadow:0 3px 15px color-mix(in oklab,var(--nav-bg),transparent);
+    box-shadow:0 3px 15px color-mix(in oklab,var(--nav-b),transparent);
     &::before{
         content:'';
         position:absolute;
@@ -221,7 +221,7 @@ nav{
         z-index:-1;
         height:40px;
         opacity:0.4;
-        background:var(--nav-bg);
+        background:var(--nav-b);
     }
     &:has(>div:nth-of-type(2).active){height:400px;}
     >div:nth-of-type(1){
@@ -239,7 +239,7 @@ nav{
                 transition:0.3s;
                 opacity:0.8;
                 &:hover{opacity:1;}
-                &::before{color:var(--nav-icon);font-size:20px;}
+                &::before{color:var(--nav-c);font-size:20px;}
             }
             #logo{
                 background-image:url("9.png");
@@ -268,7 +268,7 @@ nav{
                 transition:0.3s;
                 opacity:0.5;
                 &.active{opacity:1;}
-                color:color-mix(in oklab, var(--nav-icon),#f90);
+                color:color-mix(in oklab, var(--nav-c),#f90);
             }
             >input{
                 position:relative;
@@ -277,7 +277,7 @@ nav{
                 background:transparent;
                 border:none;
                 padding:0;
-                &::placeholder{color:var(--nav-icon);opacity:0.4;}
+                &::placeholder{color:var(--nav-c);opacity:0.4;}
             }
         }
     }
@@ -301,7 +301,7 @@ nav{
                 top:5px;
                 bottom:5px;
                 width:3px;
-                background:var(--nav-bg);
+                background:var(--nav-b);
                 opacity:0.5;
                 border-radius:1.5px;
             }
@@ -484,10 +484,10 @@ main{
         position:relative;
         display:inline-block;
         width:auto;
-        color:color-mix(in oklab,var(--q-icon) 50%,var(--color) 50%);
+        color:color-mix(in oklab,var(--q-c) 50%,var(--color) 50%);
         margin:8px 5px;
         &::after{
-            background:color-mix(in oklab,var(--q-icon) 40%,transparent 60%);
+            background:color-mix(in oklab,var(--q-c) 40%,transparent 60%);
             content:'';
             position:absolute;
             left:-5px;
@@ -608,7 +608,11 @@ main{
                 }
             }
         }
-        /*添加外号、名言模块*/
+        .information{
+            padding:10px;
+            border-radius:15px;
+            /*添加外号、名言模块*/
+        }
     }
     article{
         background:var(--article);
@@ -625,7 +629,7 @@ main{
         }
     }
     q{
-        background:var(--q-bg);
+        background:var(--q-b);
         font-size:1.5625rem;
         display:block;
         text-align:center;
@@ -634,13 +638,13 @@ main{
         &::before{
             font-family:"icons";
             content:"\f10d";
-            color:var(--q-icon);
+            color:var(--q-c);
             padding-right:10px;
         }
         &::after{
             font-family:"icons";
             content:"\f10e";
-            color:var(--q-icon);
+            color:var(--q-c);
             padding-left:10px;
         }
     }
@@ -788,19 +792,19 @@ main{
     }
     code{
         all:unset;
-        background:color-mix(in oklab,var(--q-icon) 60%,transparent 40%);
-        box-shadow:8px -8px color-mix(in oklab,var(--q-icon) 30%,transparent 70%);
+        background:color-mix(in oklab,var(--q-c) 60%,transparent 40%);
+        box-shadow:8px -8px color-mix(in oklab,var(--q-c) 30%,transparent 70%);
         display:block;
         border-radius:10px;
         padding:10px;
         text-align:center;
         font-size:1.125rem;
-        color:color-mix(in oklab,var(--color) 70%,var(--q-bg) 30%);
+        color:color-mix(in oklab,var(--color) 70%,var(--q-b) 30%);
     }
     ruby{
         font-size:1.75rem;
         >rt{
-            background:color-mix(in oklab,color-mix(in oklab,var(--q-icon),var(--color)) 10%,transparent 90%);
+            background:color-mix(in oklab,color-mix(in oklab,var(--q-c),var(--color)) 10%,transparent 90%);
             border-radius:10px;
             font-size:1rem;
             margin:2.5px;
@@ -848,12 +852,12 @@ main{
         }
     }
     time{
-        background:color-mix(in oklab,color-mix(in oklab,var(--nav-icon) 70%,var(--color) 30%) 50%,transparent 50%);
+        background:color-mix(in oklab,color-mix(in oklab,var(--nav-c) 70%,var(--color) 30%) 50%,transparent 50%);
         font-size:0.8em;
         padding:2.5px 5px;
         margin:0 2.5px;
         border-radius:99px;
-        color:color-mix(in oklab,var(--nav-icon) 30%,var(--color) 70%);
+        color:color-mix(in oklab,var(--nav-c) 30%,var(--color) 70%);
     }
     .wechat{
         padding:10px 5px;

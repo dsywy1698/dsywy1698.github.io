@@ -138,7 +138,7 @@
     </table>
     <q>文本文本文本文本</q>
     <div class="gallery">
-        <img src=""/>
+        <img src="1.jpg"/>
         <p>文本文本文本文本</p>
     </div>
     <div class="wechat" style="--a:'a';--b:'b'">
@@ -150,6 +150,11 @@
         <p class="b">文本文本文本文本</p>
         <p class="a">文本文本文本文本</p>
     </div>
+    <details>
+        <summary>详情</summary>
+        <p>文本文本文本文本</p>
+        <p>文本文本文本文本</p>
+    </details>
     <div class="notes">
         <p>文本文本文本文本</p>   
     </div>
@@ -292,25 +297,21 @@ function hot(){
     document.querySelector("nav>div:nth-of-type(1)>div:nth-of-type(2)>button").classList.toggle("active");
     heb();
 }
-function heb() {
-    document.querySelectorAll("#EVENT>div").forEach(e => {
-        var t = Array.from(e.children).some(e => "TIME" !== e.tagName && "none" !== window.getComputedStyle(e).display);
-        e.style.display = t ? "" : "none"
-    }), document.querySelectorAll("#EVENT dl").forEach(e => {
-        var t = Array.from(e.querySelectorAll("dd")).every(e => "none" === window.getComputedStyle(e).display);
-        e.style.display = t ? "none" : ""
-    }), document.querySelectorAll("#EVENT>h1").forEach(e => {
-        let t = e.nextElementSibling,
-            l = !1;
-        for (; t && "H1" !== t.tagName;) {
-            if ("none" !== t.style.display) {
-                l=!0;
-                break;
-            }
+function heb(){
+    document.querySelectorAll("#EVENT>div").forEach(e=>{
+        var t=Array.from(e.children).some(e=>"TIME"!==e.tagName&&"none"!== window.getComputedStyle(e).display);
+        e.style.display=t?"":"none";});
+    document.querySelectorAll("#EVENT dl").forEach(e=>{
+        var t=Array.from(e.querySelectorAll("dd")).every(e=>"none"===window.getComputedStyle(e).display);
+        e.style.display=t?"none":"";});
+    document.querySelectorAll("#EVENT>h1").forEach(e=>{
+        let t=e.nextElementSibling,l=!1;
+        for (;t&&"H1"!==t.tagName;){
+            if("none"!==t.style.display){l=!0;break;}
             t=t.nextElementSibling;
         }
         e.style.display=l?"":"none";
-    })
+    });
 }
 heb();
 const obs=new MutationObserver(heb);
