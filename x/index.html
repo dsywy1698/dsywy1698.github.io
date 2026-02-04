@@ -238,13 +238,11 @@
         <div class="by">
             <h2>我们毕业已经</h2>
             <div id="time">
-            <p><span id="years">0</span>年</p>
             <p><span id="days">0</span>天</p>
             <p><span id="hours">0</span>时</p>
             <p><span id="minutes">0</span>分</p>
             <p><span id="seconds">0</span>秒</p>
             </div>
-        <button id="toggle-btn">天数</button>
         </div>
         <div id="teacher">
             <h1>老师</h1>
@@ -370,8 +368,27 @@
         <p>网页到底了！</p>
     </footer>
     <script>
-        const fixedGraduationDateTime=new Date(2024,5,28,9,15,0);const yearsElement=document.getElementById('years');const daysElement=document.getElementById('days');const hoursElement=document.getElementById('hours');const minutesElement=document.getElementById('minutes');const secondsElement=document.getElementById('seconds');const toggleBtn=document.getElementById('toggle-btn');let isTotalDaysMode=false;let totalDays=0;let years=0;let remainingDays=0;let hours=0;let minutes=0;let seconds=0;function calculateTime() {const now=new Date();const diffMs=now-fixedGraduationDateTime;const diffSec=Math.floor(diffMs/1000);seconds=diffSec%60;const diffMin=Math.floor(diffSec/60);minutes=diffMin%60;const diffHour=Math.floor(diffMin/60);hours=diffHour%24;const diffDay=Math.floor(diffHour/24);years=0;remainingDays=diffDay;let year=fixedGraduationDateTime.getFullYear();while(true){const isLeapYear=(year%4===0&&year%100!==0)||year%400===0;const daysInYear=isLeapYear?366:365;if(remainingDays>=daysInYear){remainingDays-=daysInYear;years++;year++;} else {break;}}totalDays=0;let tempYear=fixedGraduationDateTime.getFullYear();for (let i=0;i<years;i++){const isLeapYear=(tempYear%4===0&&tempYear%100!==0)||tempYear%400===0;totalDays+=isLeapYear?366:365;tempYear++;}totalDays+=remainingDays;}function updateDisplay(){if(!isTotalDaysMode){yearsElement.textContent=years;daysElement.textContent=remainingDays;}else{yearsElement.textContent="0";daysElement.textContent=totalDays;}hoursElement.textContent=hours;minutesElement.textContent=minutes;secondsElement.textContent=seconds;}function updateTime(){calculateTime();updateDisplay();}toggleBtn.addEventListener('click',function(){isTotalDaysMode=!isTotalDaysMode;toggleBtn.textContent=isTotalDaysMode?"年数":"天数";updateDisplay();});updateTime();setInterval(updateTime,1000);
-        var app=document.getElementById('asklz');var texts2=['欢迎来到这个网站……','没啥话说……'];var currentTextIndex=0;var currentCharIndex=0;var isDeleting=false;var typingSpeed=100;var pauseTime=1700;function type(){var currentText=texts2[currentTextIndex];if(isDeleting){app.textContent=currentText.substring(0,currentCharIndex-1);currentCharIndex--;}else{app.textContent=currentText.substring(0,currentCharIndex+1);currentCharIndex++;}if(!isDeleting&&currentCharIndex===currentText.length){isDeleting=true;setTimeout(type,pauseTime);}else if(isDeleting&&currentCharIndex===0){isDeleting=false;currentTextIndex=(currentTextIndex+1)%texts2.length;setTimeout(type,typingSpeed);}else{setTimeout(type,isDeleting?typingSpeed/2:typingSpeed);}}setTimeout(type,1000);
+        const date=new Date("2024-06-28T09:15:00");
+        function time(){
+            var e=new Date,e=Math.abs(e-date),
+                t=Math.floor(e/864e5),
+                n=Math.floor(e%864e5/36e5),
+                o=Math.floor(e%36e5/6e4),
+                e=Math.floor(e%6e4/1e3);
+            document.getElementById("days").textContent=t;
+            document.getElementById("hours").textContent=n;
+            document.getElementById("minutes").textContent=o;
+            document.getElementById("seconds").textContent=e
+        }
+        setInterval(time,1e3),time();
+        var app=document.getElementById("asklz"),
+            text2=["欢迎来到这个网站……","没啥话说……"],
+            cti=0,cci=0,d=!1,s=100,p=1700;
+        function type(){
+            var e=text2[cti];
+            d?(app.textContent=e.substring(0,cci-1),cci--):(app.textContent=e.substring(0,cci+1),cci++),d||cci!==e.length?d&&0===cci?(d=!1,cti=(cti+1)%text2.length,setTimeout(type,s)):setTimeout(type,d?s/2:s):(d=!0,setTimeout(type,p))
+        }
+        setTimeout(type,1e3);
     </script>
     </div>
     
