@@ -69,8 +69,8 @@ button{border:none;}
             color:#39f;
             transition:opacity 0.2s;
             margin:10px 0;
-            padding:0;
             font-size:1.25rem;
+            font-weight:100;
         }
         >button{
             background:#9df;
@@ -521,6 +521,7 @@ footer{
                 transition:0.3s;
                 box-shadow:0 2px 20px rgba(51,51,255,0.2);
                 &:hover{background:#33ff;}
+                >p{margin-top:10px;}
             }
         }
         >div:last-child{
@@ -668,9 +669,13 @@ footer{
         #pupil{
             margin:30px 15px 30px 15px;
             >div:last-child{
-                border-radius:20px;display:flex;flex-wrap:wrap;
+                border-radius:20px;
+                display:flex;
+                flex-wrap:wrap;
                 >div{
-                    padding:5px 0;width:25%;margin:0;
+                    padding:5px 0;
+                    width:25%;
+                    margin:0;
                     >a{font-size:1.25rem;height:40px;}
                 }
                 .a>a{margin:5px 0 5px 5px;border-radius:15px 0 0 15px;}
@@ -680,24 +685,20 @@ footer{
     }
 }
 @media screen and (max-width:500px){
-    #pupil{
-        >div:last-child{
-            border-radius:10px;display:flex;flex-wrap:wrap;
-            >div{padding:5px 0;width:25%;margin:0;}
-            >div a{font-size:1rem;height:32px;}
-        }
-        
+    #HOME>#pupil>div:last-child{
+        border-radius:10px;
+        >div>a{font-size:1rem;height:32px;}
     }
+        
 }
 @media screen and (max-width:470px){
     #HOME{
-        #time{padding:auto 5px;}
+        #pupil{margin:30px 10px 30px 10px;}
         >div:nth-of-type(2){
             margin-right:15px;
             padding:20px 10px 20px 0;
             border-radius:0 17px 17px 0;
         }
-        #pupil{margin:30px 10px 30px 10px;}
     }
 }
 @media screen and (max-width:320px),(max-height:300px){
@@ -860,7 +861,7 @@ footer{
             <a onclick="showPage('PU')" href="#wxl"><h1>王湘琳</h1><p>小余~&nbsp;小余~</p></a>
             <a onclick="showPage('PU')" href="#lst"><h1>李诗彤</h1><p>最特别的组长</p></a>
         </div>
-        <div class="classroom">
+        <div>
             <div class="a">
                 <a onclick="showPage('PU')" href="#czy">陈忠宇</a>
                 <a onclick="showPage('PU')" href="#qmx">瞿明爔</a>
@@ -1854,9 +1855,9 @@ footer{
 <h2>嘴臭</h2>
 <p>有时候谢承志会跟叶宸铭讲话，叶宸铭就发现了谢承志的口臭。每次，叶宸铭都会说“嘴巴好臭啊”，就连李诗彤也感同身受。为此，叶宸铭甚至还写了多首关于谢承志嘴臭的诗。</p>
 <article style="text-align:center">
-    <h2 style="margin:10px;">嘴臭</h2>
+    <h1>嘴臭</h1>
     <p style="text-indent:0em;">叶宸铭</p>
-    <p style="text-indent:0em;">谢橙汁嘴臭，<br/>恶心像大便。<br/>是个老香港，<br/>真是香港嘴。</p>
+    <p style="text-indent:0em;">谢橙汁嘴臭<br/>恶心像大便<br/>是个老香港<br/>真是香港嘴</p>
     <small>“香港嘴”由香港脚演变而来。</small>
 </article>
 <h2>金榜题名</h2>
@@ -1864,10 +1865,10 @@ footer{
 <p>于是，每当刘圭宥讲完题目来到谢承志旁边时，叶宸铭和李诗彤就会让他拿“金榜题名”。</p>
 <h2>作文</h2>
 <div class="writing">
-    <h2>烧烤还是生病</h2>
+    <h1>烧烤还是生病</h1>
     <p>每年上南平，这烧烤是必不可少的，今天的我，虽然生病了，但在心中，胜利的天平却向着“吃美食”！虽心向美食可我的身体不允许呀！所以我用笔记录下这一切</p>
-    <p>早上，阿舅一大早就去黄田买鸡肉、牛肉<span style="color:purple">的</span>，听阿舅说，早上表弟也闹着要去，还问我要不要理发，呵呵，一月理发，厕所里打灯笼，找“屎”！所以被阿舅骂了一顿。</p>
-    <p>中午，舅妈起了床，阿舅在给食物们配料，而妈妈以为我中<span style="color:red">署</span>了，挽起袖子就<span style="color:purple">是</span>要给我捉痧，我一看在却难逃，念起了佛经，“阿弥陀佛”那是张口就来，可身子不老实呀，这一不老实外公就上阵，外公一上阵就老实了，可嘴不老实，那杀猪般的惨叫传遍了村子。从那天起，村子里多了一个传说，传说是：每当月圆之夜，就在山上在一座古屋里有小孩的惨叫，而进屋一探究竟的人，再未归来……</p>
+    <p>早上，阿舅一大早就去黄田买鸡肉、牛肉的，听阿舅说，早上表弟也闹着要去，还问我要不要理发，呵呵，一月理发，厕所里打灯笼，找“屎”！所以被阿舅骂了一顿。</p>
+    <p>中午，舅妈起了床，阿舅在给食物们配料，而妈妈以为我中署了，挽起袖子就是要给我捉痧，我一看在却难逃，念起了佛经，“阿弥陀佛”那是张口就来，可身子不老实呀，这一不老实外公就上阵，外公一上阵就老实了，可嘴不老实，那杀猪般的惨叫传遍了村子。从那天起，村子里多了一个传说，传说是：每当月圆之夜，就在山上在一座古屋里有小孩的惨叫，而进屋一探究竟的人，再未归来……</p>
     <p>晚上，阿舅的烧烤神功大成！随着几串牛肉烤好，我也在妈妈不注意的期间溜了下来，吃了几串，那时，我想，这也就比老八蜜制小汉堡差点吧！</p>
     <p>烧烤还是生病？我选烧烤！</p>
 </div>
@@ -2444,7 +2445,7 @@ footer{
     <h1>E&nbsp;T</h1>
     <div>
         <p><i class="fa fa-quote-left fa-2x fa-pull-left"></i>中共党员，现为福州市东升小学英语教师。热爱教育事业。遵守教育法律法规和教师职业道德，履行教师职责。贯彻党的教育方针，遵循教育规律，潜心教书育人。对学生严慈相济，做学生良师益友。</p>
-        <p>教育格言：<strong>用爱唤醒学生的心灵。</strong></p>
+        <p><strong>教育格言：</strong>用爱唤醒学生的心灵。</p>
     </div>
 </header>
 <div class="header">
@@ -3065,7 +3066,7 @@ footer{
     <h1>C&nbsp;T</h1>
     <div>
         <p><i class="fa fa-quote-left fa-2x fa-pull-left"></i> 中共党员，一级教师。福州市语文骨干教师。擅长小学中、高年级语文教学。充分发挥市骨干教师的引领作用，多次承担市级、区级公开教学、专题讲座、送培送教、师徒结对活动。平时潜心教育教学科研工作。其中两个课题荣获省级优秀课题。撰写的多篇论文被各级各类CN刊物收录发表。曾获得“仓山区先进教育工作者”“福州市教育系统先进教育工作者”称号。</p>
-        <p>教育格言：<strong>用爱浇灌，静待花开。</strong></p>
+        <p><strong>教育格言：</strong>用爱浇灌，静待花开。</p>
     </div>
 </header>
 <div class="header">
@@ -3536,7 +3537,7 @@ footer{
     <h1>M&nbsp;T</h1>
     <div>
         <p><i class="fa fa-quote-left fa-2x fa-pull-left"></i> 小学数学二级教师。从教以来，她多次开设区、校级公开课，积极参与各级各类教育教学研讨活动，乐于沉浸在各项课题研究中。在班主任工作中，她注重对育人方法的探究、以爱人之心感染学生，以真诚赢得家长的信任。在数学教学中，她的课堂能让同行者感受到数学独特的魅力和师生情感的共鸣；学生在她的鼓励下愿意张扬个性，发挥潜能，展现着对数学探究的浓厚兴趣。</p>
-        <p>教育格言：<strong>每一个与众不同的孩子，都有独一无二的颜色。</strong></p>
+        <p><strong>教育格言：</strong>每一个与众不同的孩子，都有独一无二的颜色。</p>
     </div>
 </header>
 <div class="header">
@@ -3656,7 +3657,7 @@ footer{
     <h1>A&nbsp;T</h1>
     <div>
         <p><i class="fa fa-quote-left fa-2x fa-pull-left"></i> 欧榕，本科学历，2010年毕业于福建师范大学美术学院，小学美术二级教师，本人热爱少儿教育事业，具有教育学术专研精神，在工作中有深厚的美术教学基础，善于沟通，认真负责，敬业爱岗，诚实守信，喜欢接触新鲜事物，勇于面对新鲜事物，迎接挑战。</p>
-        <p>教育格言：<strong>人之性，教也；人之情，育也。</strong></p>
+        <p><strong>教育格言：</strong>人之性，教也；人之情，育也。</p>
     </div>
 </header>
 <div class="header">
@@ -3706,7 +3707,7 @@ footer{
 <p>对于特别猖狂的人，AT会亲自下去，将他拉上讲台旁边罚站。而讲台上的人则会成为显眼包。像陈彦豪这些人会在AT转身时擦掉黑板上的字或者拉黑板，下面的人则会让讲台上的人点墨鱼丸，不过至今没有人这样做过。</p>
 </main>
 <footer><h1>页面到底了！</h1></footer></div><script>
-const date=new Date("2024-06-28T09:15:00");function time(){var e=new Date,e=Math.abs(e-date),t=Math.floor(e/864e5),n=Math.floor(e%864e5/36e5),o=Math.floor(e%36e5/6e4),e=Math.floor(e%6e4/1e3);document.getElementById("days").textContent=t,document.getElementById("hours").textContent=n,document.getElementById("minutes").textContent=o,document.getElementById("seconds").textContent=e}setInterval(time,1e3),time();
+const date=new Date("2024-05-28T09:15:00");function time(){var e=new Date,e=Math.abs(e-date),t=Math.floor(e/864e5),n=Math.floor(e%864e5/36e5),o=Math.floor(e%36e5/6e4),e=Math.floor(e%6e4/1e3);document.getElementById("days").textContent=t,document.getElementById("hours").textContent=n,document.getElementById("minutes").textContent=o,document.getElementById("seconds").textContent=e}setInterval(time,1e3),time();
 var app=document.getElementById("asklz"),text2=["欢迎来到这个网站……","没啥话说……"],cti=0,cci=0,d=!1,s=100,p=1700;function type(){var t=text2[cti];d?(app.textContent=t.substring(0,cci-1),cci--):(app.textContent=t.substring(0,cci+1),cci++),d||cci!==t.length?d&&0===cci?(d=!1,cti=(cti+1)%text2.length,setTimeout(type,s)):setTimeout(type,d?s/2:s):(d=!0,setTimeout(type,p))}setTimeout(type,1e3);
 function showPage(e){const p=document.querySelectorAll('main'),t=document.getElementById(e),n=document.querySelectorAll("nav>div:nth-of-type(2)>div");p.forEach(p=>{p.style.display="none";});n.forEach(n=>{n.style.display="none";});if(t){t.style.display="block";}document.getElementById(e+"-l").style.display="block";window.scrollTo(0,0);}
 document.addEventListener("click",function(t){var e=document.querySelector("nav>div:nth-of-type(2)"),n=document.querySelector("nav>div:nth-of-type(1) button.fa-navicon");e.classList.contains("active")&&!e.contains(t.target)&&t.target!==n&&e.classList.remove("active");});

@@ -1,0 +1,96 @@
+/*
+待优化：
+1.字母i最上方的点要与变音符号重合或将i改为其他
+2.优化变音符号与字母间距
+3.统一单位
+使用方法：
+<span data-1>a</span>
+*/
+span[data-1]{
+    position:relative;
+    display:inline-block;
+    text-indent:0;
+    text-align:center;
+    width:0.8em;
+    font-size:1em;
+    &::after{
+        content:"-";
+        text-indent:0;
+        width:0.8em;
+        height:0.8em;
+        position:absolute;
+        display:block;
+        left:0;
+        top:-0.2em;
+        line-height:0.8em;
+        font-size:1em;
+        text-align:center;
+        font-family:inherit;
+    } 
+}
+span[data-2]{
+    position:relative;
+    display:inline-block;
+    text-indent:0;
+    text-align:center;
+    width:0.8em;
+    &::after{
+        content:"-";
+        text-indent:0;
+        width:0.8em;
+        height:0.8em;
+        position:absolute;
+        display:block;
+        left:0;
+        top:-0.2em;
+        line-height:0.8em;
+        font-size:1em;
+        text-align:center;
+        font-family:inherit;
+        transform:rotate(-45deg);
+    } 
+}
+span[data-3]{
+    position:relative;
+    display:inline-block;
+    text-indent:0;
+    text-align:center;
+    width:0.8em;
+    &::after{
+        content:"v";
+        text-indent:0;
+        width:1em;
+        height:1em;
+        position:absolute;
+        display:block;
+        left:0;
+        top:-0.25em;
+        line-height:1em;
+        font-size:0.8em;
+        text-align:center;
+        font-family:inherit;
+        transform:scaleY(0.6);
+    } 
+}
+span[data-4]{
+    position:relative;
+    display:inline-block;
+    text-indent:0;
+    text-align:center;
+    width:0.8em;
+    &::after{
+        content:"-";
+        text-indent:0;
+        width:0.8em;
+        height:0.8em;
+        position:absolute;
+        display:block;
+        left:0;
+        top:-0.2em;
+        line-height:0.8em;
+        font-size:1em;
+        text-align:center;
+        font-family:inherit;
+        transform:rotate(45deg);
+    } 
+}
