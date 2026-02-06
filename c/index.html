@@ -93,6 +93,9 @@
     </table>
 </header>
 <hr/>
+    <h1>一级标题</h1>
+    <h2>二级标题</h2>
+    <h3>三级标题</h3>
     <p>文本<time>时间</time><var>文本</var>。</p>
     <div class="division"></div>
     <ul>
@@ -171,6 +174,15 @@
         <dd>列表项</dd>
     </dl>
 </div>
+<div class="sp1">
+    <time>2</time>
+    <p data-h>热门文本</p>
+    <dl>
+        <dt>标题</dt>
+        <dd><span class="unsure"></span>列表项</dd>
+        <dd>列表项</dd>
+    </dl>
+</div>
 </main>
 <footer><h1>页面到底了！</h1></footer>
 </div>
@@ -214,11 +226,11 @@ function chT(e){document.body.setAttribute("data-t",e),localStorage.setItem("t",
 function chN(e){document.body.setAttribute("data-n",e),localStorage.setItem("n",e);}
 function chF(e){document.body.setAttribute("data-tf",e),localStorage.setItem("f",e);search();}
 document.getElementById('r1').addEventListener('input',function(){
-    document.querySelector('body>#main').style.setProperty("--o",this.value);
+    document.querySelector('body').style.setProperty("--o",this.value);
     localStorage.setItem("o",this.value);
 });
 document.getElementById('r2').addEventListener('input',function(){
-    document.querySelector('body>#main').style.backdropFilter="blur("+this.value+"px)";
+    document.querySelector('body').style.setProperty("--bl",this.value+"px");
     localStorage.setItem("b",this.value);
 });
 //背景图片
@@ -274,7 +286,6 @@ function search(){
 function hot(){
     const d=document.querySelector("nav>div:nth-of-type(1)>div:nth-of-type(2)>button").classList.contains('active');
     d?document.body.setAttribute("data-th","1"):document.body.setAttribute("data-th","2");
-    console.log(document.body.getAttribute("data-th"));
     document.querySelector("nav>div:nth-of-type(1)>div:nth-of-type(2)>button").classList.toggle("active");
     heb();
 }
@@ -335,9 +346,9 @@ window.addEventListener('DOMContentLoaded',function(){
     const n=localStorage.getItem('n');n&&(chN(n),document.querySelector(`input[name="n"][onclick*="${n}"]`).checked=!0);
     const f=localStorage.getItem('f');f&&(chF(f),document.querySelector(`input[name="f"][onclick*="${f}"]`).checked=!0);
     const o=localStorage.getItem('o');
-    o&&(document.querySelector('body>#main').style.setProperty("--o",o),document.getElementById('r1').value=o);
+    o&&(document.querySelector('body').style.setProperty("--o",o),document.getElementById('r1').value=o);
     const b=localStorage.getItem('b');
-    b&&(document.querySelector('body>#main').style.backdropFilter="blur("+b+"px)",document.getElementById('r2').value=b);
+    b&&(document.querySelector('body').style.setProperty("--bl",b+"px"),document.getElementById('r2').value=b);
     showPage('HOME');
 });
 </script>

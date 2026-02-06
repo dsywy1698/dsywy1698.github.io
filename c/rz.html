@@ -41,7 +41,30 @@
         </div>
     </nav>
     <div id="main">
-        <dialog id="sD"><div>设置<button onclick="localStorage.clear();ubg();location.reload(true);">重置</button><span onclick="document.getElementById('sD').close()"style="float:right;cursor:pointer;">×</span></div><div><span>主题</span><input type="radio"name="t"onclick="chT('l')"style="--rc:'浅'"><input type="radio"name="t"onclick="chT('d')"style="--rc:'深'"><input type="radio"name="t"onclick="chT('b')"style="--rc:'蓝'"><input type="radio"name="t"onclick="chT('n')"style="--rc:'夜'"></div><div><span>导航栏</span><input type="radio"name="n"onclick="chN('1')"style="--rc:'经典'"><input type="radio"name="n"onclick="chN('2')"style="--rc:'胶囊'"checked></div><div><span>内容过滤</span><input type="radio"name="f"onclick="chF('0')"style="--rc:'无'"><input type="radio"name="f"onclick="chF('1')"style="--rc:'一'"><input type="radio"name="f"onclick="chF('2')"style="--rc:'二'"><input type="radio"name="f"onclick="chF('3')"style="--rc:'三'"checked></div><div><span>背景图片</span><button onclick="ubg()">清除</button><button onclick="cbg()">上传</button><div><span>透明度</span><input type="range"max="100"min="0"step="10"id="r1"/></div><div><span>虚化</span><input type="range"max="30"min="0"step="3"id="r2"/></div></div></dialog>
+        <dialog id="sD">
+        <div>设置
+            <button onclick="localStorage.clear();ubg();location.reload(true);">重置</button>
+            <span onclick="document.getElementById('sD').close()" style="float:right;cursor:pointer;">×</span>
+        </div>
+        <div><span>主题</span>
+             <input type="radio" name="t" onclick="chT('l')" style="--rc:'浅'">
+             <input type="radio" name="t" onclick="chT('d')" style="--rc:'深'">
+             <input type="radio" name="t" onclick="chT('b')" style="--rc:'蓝'">
+             <input type="radio" name="t" onclick="chT('n')" style="--rc:'夜'"></div>
+        <div><span>导航栏</span>
+             <input type="radio" name="n" onclick="chN('1')" style="--rc:'经典'">
+             <input type="radio" name="n" onclick="chN('2')" style="--rc:'胶囊'" checked></div>
+        <div><span>内容过滤</span>
+             <input type="radio" name="f" onclick="chF('0')" style="--rc:'无'">
+             <input type="radio" name="f" onclick="chF('1')" style="--rc:'一'">
+             <input type="radio" name="f" onclick="chF('2')" style="--rc:'二'">
+             <input type="radio" name="f" onclick="chF('3')" style="--rc:'三'" checked></div>
+        <div><span>背景图片</span>
+             <button onclick="ubg()">清除</button>
+             <button onclick="cbg()">上传</button>
+             <div><span>透明度</span><input type="range" max="1" min="0" step="0.1" id="r1"/></div>
+             <div><span>虚化</span><input type="range" max="30" min="0" step="3" id="r2"/></div></div>
+</dialog>
 <main id="EVENT">
 <header><h1>八卦</h1></header>
 <details>
@@ -2898,11 +2921,11 @@ function chT(e){document.body.setAttribute("data-t",e),localStorage.setItem("t",
 function chN(e){document.body.setAttribute("data-n",e),localStorage.setItem("n",e);}
 function chF(e){document.body.setAttribute("data-tf",e),localStorage.setItem("f",e);search();}
 document.getElementById('r1').addEventListener('input',function(){
-    document.querySelector('body>#main').style.setProperty("--o",this.value);
+    document.querySelector('body').style.setProperty("--o",this.value);
     localStorage.setItem("o",this.value);
 });
 document.getElementById('r2').addEventListener('input',function(){
-    document.querySelector('body>#main').style.backdropFilter="blur("+this.value+"px)";
+    document.querySelector('body').style.setProperty("--bl",this.value+"px");
     localStorage.setItem("b",this.value);
 });
 //背景图片
@@ -3019,8 +3042,8 @@ window.addEventListener('DOMContentLoaded',function(){
     const n=localStorage.getItem('n');n&&(chN(n),document.querySelector(`input[name="n"][onclick*="${n}"]`).checked=!0);
     const f=localStorage.getItem('f');f&&(chF(f),document.querySelector(`input[name="f"][onclick*="${f}"]`).checked=!0);
     const o=localStorage.getItem('o');
-    o&&(document.querySelector('body>#main').style.setProperty("--o",o),document.getElementById('r1').value=o);
+    o&&(document.querySelector('body').style.setProperty("--o",o),document.getElementById('r1').value=o);
     const b=localStorage.getItem('b');
-    b&&(document.querySelector('body>#main').style.backdropFilter="blur("+b+"px)",document.getElementById('r2').value=b);
+    b&&(document.querySelector('body').style.setProperty("--bl",b+"px"),document.getElementById('r2').value=b);
     showPage('EVENT');
 });</script></body></html>
