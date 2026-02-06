@@ -1861,8 +1861,6 @@ document.getElementById("sD").addEventListener("click",function(t){
     var e=this.getBoundingClientRect();
     (t.clientX<e.left||e.right<t.clientX||t.clientY<e.top||e.bottom<t.clientY)&&this.close();
 });
-//进度条
-window.addEventListener("scroll",()=>{document.querySelector("nav").style.setProperty("--progress",window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100+"%")});
 //主题切换
 function chT(e){document.body.setAttribute("data-t",e),localStorage.setItem("t",e);
                 document.getElementById("th").content=getComputedStyle(document.body).getPropertyValue('--th');}
