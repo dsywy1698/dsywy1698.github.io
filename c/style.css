@@ -985,6 +985,14 @@ main{
             >summary::before{transform:rotate(90deg);}
         }
     }
+    .conversations>p{
+        display:flex;
+        text-indent:0;
+        >b{
+            display:block;
+            padding:0 5px;
+        }
+    }
 }
 #EVENT{
     >h1{
@@ -1049,7 +1057,10 @@ main{
     .hot{
         background:#d9d98c88;
         color:#212121;
-        >dd{text-indent:0;}
+        >dd{
+            text-indent:0;
+            >strong{color:red;}
+        }
     }
     .mt{
         background:#f9f8;
