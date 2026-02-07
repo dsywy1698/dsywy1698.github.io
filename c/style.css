@@ -990,6 +990,7 @@ main{
         text-indent:0;
         >b{
             display:block;
+            text-wrap:nowrap;
             padding:0 5px;
         }
     }
