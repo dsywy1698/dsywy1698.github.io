@@ -515,10 +515,12 @@ main{
             border-radius:5px;
         }
     }
+    sup,sub{
+        line-height:0;
+        opacity:0.8
+    }
     sup[class="fa fa-external-link"]{
         font-size:0.7em;
-        opacity:0.8;
-        line-height:0;
         color:var(--link);
         vertical-align:super;
         position:relative;
@@ -530,7 +532,6 @@ main{
         display:block;
         margin:10px auto;
     }
-    sup,sub{font-size:0.7em;}
     ul,ol{
         margin:10px 0 10px 2em;
         li{
@@ -570,7 +571,7 @@ main{
             font-size:initial;
             margin:20px auto;
             background:hsl(from var(--header) h s l / 0.2);
-            width:260px;
+            width:clamp(260px,70%,400px);
             td{
                 border:none;
                 text-align:left;
@@ -581,13 +582,13 @@ main{
             }
         }
         dl.keywords{
-            background:#60c2;
+            background:hsl(from var(--header) calc(h - 30) calc(s - 20) l / 0.3);
             padding:15px;
             border-radius:20px;
             font-size:1rem;
             margin:10px 30px;
             >dd{
-                background:#c0c2;
+                background:hsl(from var(--header) calc(h - 30) calc(s - 20) l / 0.5);
                 font-weight:bold;
                 font-size:1.25rem;
                 padding:4px;
@@ -595,7 +596,7 @@ main{
             }
             >dl{
                 text-align:left;
-                background:linear-gradient(to bottom,#c0c2,transparent);
+                background:linear-gradient(to bottom,hsl(from var(--header) calc(h - 30) calc(s - 20) l / 0.5),transparent);
                 border-radius:7px 7px 0 0;
                 padding:15px;
                 margin:5px 0;
@@ -607,12 +608,12 @@ main{
                         font-size:1.125rem;
                         margin-right:3px;
                         content:"\f101";
-                        color:color-mix(in oklab,#c0c,var(--color));
+                        color:color-mix(in oklab,hsl(from var(--header) calc(h - 20) s l),var(--color));
                     }
                 }
                 >dt{
                     margin:5px 1em;
-                    color:color-mix(in oklab,#c0c 20%,var(--color));
+                    color:color-mix(in oklab,hsl(from var(--header) calc(h - 20) s l) 20%,var(--color));
                 }
                 >span{
                     font-size:0.875rem;
@@ -991,7 +992,7 @@ main{
         >b{
             display:block;
             text-wrap:nowrap;
-            padding:0 5px;
+            padding:0 0.5em;
         }
     }
 }
