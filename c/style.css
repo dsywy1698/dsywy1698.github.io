@@ -837,7 +837,7 @@ main{
         width:calc(100% - 40px);
         margin:20px;
         justify-content:center;
-        .next,.back{
+        >button{
             display:block;
             border:none;
             color:color-mix(in oklab,var(--color) 80%,var(--dialog));
@@ -846,27 +846,28 @@ main{
             border-radius:20px;
             width:50%;
             margin:10px;
-        }
-        .next{
-            background:linear-gradient(to right,hsl(from var(--dialog) h s l / 0.4),hsl(from var(--dialog) h s l / 0.1));
-            text-align:left;
-            &::after{
-                font-family:"icons";
-                content:"\f101";
-                font-size:1.5rem;
-                opacity:0.6;
-                float:right;
+            &:empty{display:none;}
+            &:first-child{
+                background:linear-gradient(to left,hsl(from var(--dialog) h s l / 0.4),hsl(from var(--dialog) h s l / 0.1));
+                text-align:right;
+                &::before{
+                    font-family:"icons";
+                    content:"\f100";
+                    font-size:1.5rem;
+                    opacity:0.6;
+                    float:left;
+                }
             }
-        }
-        .back{
-            background:linear-gradient(to left,hsl(from var(--dialog) h s l / 0.4),hsl(from var(--dialog) h s l / 0.1));
-            text-align:right;
-            &::before{
-                font-family:"icons";
-                content:"\f100";
-                font-size:1.5rem;
-                opacity:0.6;
-                float:left;
+            &:last-child{
+                background:linear-gradient(to right,hsl(from var(--dialog) h s l / 0.4),hsl(from var(--dialog) h s l / 0.1));
+                text-align:left;
+                &::after{
+                    font-family:"icons";
+                    content:"\f101";
+                    font-size:1.5rem;
+                    opacity:0.6;
+                    float:right;
+                }
             }
         }
     }
