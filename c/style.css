@@ -850,13 +850,14 @@ main{
             &:first-child{
                 background:linear-gradient(to left,hsl(from var(--dialog) h s l / 0.4),hsl(from var(--dialog) h s l / 0.1));
                 text-align:right;
-                &::before{
+                &::after{
                     font-family:"icons";
                     content:"\f100";
                     font-size:1.5rem;
                     opacity:0.6;
                     float:left;
                 }
+                &::before{content:"上一页-";}
             }
             &:last-child{
                 background:linear-gradient(to right,hsl(from var(--dialog) h s l / 0.4),hsl(from var(--dialog) h s l / 0.1));
@@ -868,6 +869,13 @@ main{
                     opacity:0.6;
                     float:right;
                 }
+                &::before{content:"下一页-";}
+            }
+            @media screen and (max-width:600px){
+                flex-wrap:wrap;
+                width:100%;
+                margin:20px 0;
+                >button{width:100%!important;}
             }
         }
     }
@@ -1092,14 +1100,6 @@ footer{
 @media screen and (min-width:1600px),(min-height:900px){
     #bigger{display:flex;}
     #password,#main,#loader,nav{display:none!important;}
-}
-@media screen and (max-width:600px){
-    .page{
-        flex-wrap:wrap;
-        width:100%;
-        margin:20px 0;
-        .next,.back{width:100%!important;}
-    }
 }
 @media screen and (max-width:320px),(max-height:300px){
     #smaller{display:flex;}
