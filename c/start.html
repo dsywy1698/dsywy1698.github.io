@@ -89,6 +89,15 @@
                 animation:slide forwards;
                 backdrop-filter:blur(5px)!important;
                 animation-timeline:scroll(root y);
+                &::before{
+                    content:'';
+                    position:fixed;
+                    left:0;
+                    width:100%;
+                    height:100%;
+                    z-index:-1;
+                    backdrop-filter:blur(3px);
+                }
                 >div{
                     left:0;
                     width:100vw;

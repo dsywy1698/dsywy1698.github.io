@@ -260,7 +260,7 @@ function ubg(){
 request.onupgradeneeded=function(e){(db=e.target.result).objectStoreNames.contains("bg")||db.createObjectStore("bg",{keyPath:"id"})};
 request.onsuccess=function(e){db=e.target.result,lbg()};
 //替代图像
-document.querySelectorAll("img").forEach(m=>{m.onerror=function(){this.src="data:image/svg+xml;utf8,<svg width='300' viewBox='0 0 300 200' xmlns='http://www.w3.org/2000/svg'><rect x='0' y='0' width='300' height='200' fill='#8dd4'/></svg>"}});
+document.querySelectorAll("img").forEach(m=>{m.onerror=function(){this.src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMzAwJyB2aWV3Qm94PScwIDAgMzAwIDIwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMzAwJyBoZWlnaHQ9JzIwMCcgZmlsbD0nIzhkZDQnLz48L3N2Zz4="}});
 //日志页逻辑
 function search(){
     var e=document.querySelector("nav input").value.trim(),

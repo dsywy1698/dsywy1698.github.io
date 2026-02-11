@@ -10,7 +10,205 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="icon" href="9.png"/>
     <link rel="stylesheet" href="style.css"/>
-    <style></style>
+    <style>
+    #lxsh{
+        margin:auto;
+        background:#013a;
+        width:260px;
+        height:400px;
+        padding:5px;
+        margin-top:40px;
+        >i{
+            width:60px;
+            height:100px;
+            border-radius:7px;
+            position:absolute;
+            background:#3518;
+            box-shadow:15px 15px 0 #2318;
+            backdrop-filter:blur(5px);
+            content:"";
+            display:block;
+            &:nth-of-type(1){transform:translate(-20px,-10px);}
+            &:nth-of-type(2){transform:translate(-20px,100px);}
+            &:nth-of-type(3){transform:translate(-20px,210px);}
+            &:nth-of-type(4){transform:translate(180px,-10px)}
+            &:nth-of-type(5){transform:translate(180px,100px)}
+            &:nth-of-type(6){transform:translate(180px,210px)}
+        }
+        >div{
+            backdrop-filter:blur(2px);
+            position:absolute;
+            display:block;
+            &:nth-of-type(1){
+                width:260px;
+                height:40px;
+                background:#6308;
+                transform:translate(-25px,-45px) skew(45deg,0);
+                &::before{
+                    position:absolute;
+                    width:140px;
+                    height:20px;
+                    background:#09c2;
+                    border-radius:5px;
+                    display:block;
+                    content:"";
+                    left:60px;
+                    top:5px;
+                }
+            }
+            &:nth-of-type(2){
+                width:40px;
+                height:400px;
+                background:#4208;
+                transform:translate(-45px,-25px) skew(0,45deg);
+            }
+            &:nth-of-type(3){
+                width:100px;
+                height:40px;
+                background:#0368;
+                border-radius:5px;
+                transform:translate(-20px,340px);
+                box-shadow:10px 10px 0 #0368,
+                           11px 11px 0 #0368,
+                           12px 12px 0 #0368,
+                           13px 13px 0 #0368,
+                           14px 14px 0 #0368,
+                           15px 15px 0 #0368;
+            }
+            &:nth-of-type(4){
+                width:40px;
+                height:400px;
+                background:#4208;
+                transform:translate(215px,-25px) skew(0,45deg);
+            }
+            &:nth-of-type(5){
+                width:260px;
+                height:40px;
+                background:#6308;
+                transform:translate(-25px,355px) skew(45deg,0);
+                &::before{
+                    position:absolute;
+                    width:60px;
+                    height:30px;
+                    background:#bcc3;
+                    border-radius:5px 5px 0 0;
+                    display:block;
+                    content:"";
+                    left:160px;
+                    top:10px;
+                }
+                &::after{
+                    position:absolute;
+                    width:100px;
+                    height:20px;
+                    background:#09c2;
+                    border-radius:5px;
+                    display:block;
+                    content:"";
+                    left:20px;
+                    top:5px;
+                }
+            }
+        }
+    }
+    #lyymy{
+        margin:auto;
+        background:#013a;
+        border-radius:10px;
+        width:260px;
+        height:300px;
+        padding:5px;
+        >div{
+            width:60px;
+            height:100px;
+            margin:5px;
+            border-radius:7px;
+            position:absolute;
+            backdrop-filter:blur(2px);
+            writing-mode:vertical-lr;
+            text-align:center;
+            line-height:60px;
+            font-size:1.25rem;
+            color:#cc98;
+            &:nth-child(even){background:#8848;}
+            &:nth-child(odd){background:#433c2388;}
+            &:nth-of-type(1){transform:translate(10px,10px);}
+            &:nth-of-type(2){transform:translate(0,0);}
+            &:nth-of-type(3){transform:translate(10px,140px);}
+            &:nth-of-type(4){transform:translate(0,130px);}
+            &:nth-of-type(5){transform:translate(180px,10px);}
+            &:nth-of-type(6){transform:translate(170px,0);}
+            &:nth-of-type(7){transform:translate(180px,140px);}
+            &:nth-of-type(8){transform:translate(170px,130px);}
+        }
+        >span{
+            width:20px;
+            height:20px;
+            border-radius:10px;
+            display:block;
+            position:absolute;
+            transform:translate(25px,20px);
+            background:#c30;
+            animation:lyymy 20s linear infinite;
+        }
+        >i{
+            width:260px;
+            height:40px;
+            background:#6308;
+            backdrop-filter:blur(2px);
+            position:absolute;
+            display:block;
+            transform:translate(-25px,240px) skew(45deg,0);
+            border-radius:10px 10px 0 0;
+            &::before{
+                position:absolute;
+                width:30px;
+                height:30px;
+                background:#c608;
+                border-radius:5px 5px 0 0;
+                display:block;
+                content:"";
+                left:115px;
+                top:10px;
+            }
+        }
+    }
+    @keyframes lyymy{
+        0%{transform:translate(25px,20px);background:#c30;}
+        5%{transform:translate(25px,20px);background:#c30;}
+        11%{background:#c30;}
+        12%{transform:translate(25px,90px);background:#33c;}
+        15%{transform:translate(25px,90px);background:#33c;}
+        16%{background:#33c;}
+        17%{background:#460;}
+        18%{transform:translate(25px,20px);background:#460;}
+        28%{transform:translate(25px,20px);background:#460;}
+        29%{background:#c30;}
+        33%{transform:translate(25px,110px);}
+        38%{transform:translate(75px,120px);}
+        43%{transform:translate(110px,120px);}
+        48%{transform:translate(110px,230px);}
+        58%{transform:translate(110px,230px);}
+        63%{transform:translate(110px,120px);}
+        68%{transform:translate(150px,120px);}
+        73%{transform:translate(195px,110px);}
+        75%{transform:translate(195px,100px);}
+        80%{transform:translate(195px,180px);}
+        82%{transform:translate(200px,175px);}
+        82%{transform:translate(190px,180px);}
+        83%{transform:translate(195px,185px);}
+        84%{transform:translate(190px,175px);}
+        85%{transform:translate(195px,180px);}
+        86%{transform:translate(200px,175px);}
+        87%{transform:translate(190px,180px);}
+        88%{transform:translate(195px,185px);}
+        89%{transform:translate(190px,180px);}
+        90%{transform:translate(195px,180px);}
+        94%{background:#c30;}
+        95%{transform:translate(195px,180px);background:#33c;}
+        100%{transform:translate(195px,180px);background:#33c;}
+    }
+    </style>
 </head>
 <body data-t="l" data-n="2" data-f="3">
 <dialog id="password">
@@ -678,29 +876,34 @@
     <tr><td>崇军楼</td><td>男生</td><td>高一</td></tr>
     <tr><td>自强楼</td><td>女生</td><td>高一</td></tr>
 </table>
-<svg width="400" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
-    <rect x="30" y="30" width="100" height="200" fill="#ffaaaa"/>
-    <rect x="270" y="30" width="100" height="200" fill="#ffaaaa"/>
-    <rect x="30" y="250" width="100" height="200" fill="#aad4ff"/>
-    <rect x="270" y="250" width="100" height="200" fill="#aad4ff"/>
-    <path d="M130,0 H270 V30 H130 Z" fill="#e5e5e5"/>
-    <text x="170" y="23" font-size="20" fill="#000">小卖部</text>
-    <text x="55" y="95" font-size="50" fill="#7f0000">尚</text>
-    <text x="55" y="195" font-size="50" fill="#7f0000">武</text>
-    <text x="295" y="95" font-size="50" fill="#7f0000">自</text>
-    <text x="295" y="195" font-size="50" fill="#7f0000">强</text>
-    <text x="55" y="315" font-size="50" fill="#003f7f">崇</text>
-    <text x="55" y="415" font-size="50" fill="#003f7f">军</text>
-    <text x="295" y="315" font-size="50" fill="#003f7f">振</text>
-    <text x="295" y="415" font-size="50" fill="#003f7f">兴</text>
-</svg>
 <p>左边的楼有6层、右边有5层。每层楼有两个楼梯口、两侧各有一个厕所、厕所门口有若干水池，走廊有防盗网和晾衣杆。</p>
 <p>女生的宿舍楼白天有男辅导员，晚上是女辅导员。</p>
 <p>龙翔的厕所环境居然比四十中还好，每个隔间都可以正常锁上，且高度足够，看上去干净整洁。厕所外面是多个水池，这也是学生洗漱的地方。</p>
 <p>宿舍也这么好吗？我们先看配置。</p>
 <p>一间宿舍有两扇窗，其中一扇连接走廊，这扇窗旁有晾衣架。</p>
 <p>宿舍里空调、风扇齐全，不过没有看到打开的方式。</p>
-<p>左右各3个上下铺，共计12张床，是宿舍看起来比较拥挤。</p>
+<p>左右各3个上下铺，共计12张床，使宿舍看起来比较拥挤。</p>
+<div class="gallery">
+    <svg width="400" viewBox="0 0 400 460" xmlns="http://www.w3.org/2000/svg">
+        <rect x="30" y="30" width="100" height="200" fill="#faa" rx="5" ry="5"/>
+        <rect x="270" y="30" width="100" height="200" fill="#faa" rx="5" ry="5"/>
+        <rect x="30" y="250" width="100" height="200" fill="#adf" rx="5" ry="5"/>
+        <rect x="270" y="250" width="100" height="200" fill="#adf" rx="5" ry="5"/>
+        <rect x="130" y="0" width="140" height="50" fill="#eee" rx="5" ry="5"/>
+        <text x="170" y="33" font-size="20" fill="#000">小卖部</text>
+        <text x="55" y="95" font-size="50" fill="#800">尚</text>
+        <text x="55" y="195" font-size="50" fill="#800">武</text>
+        <text x="295" y="95" font-size="50" fill="#800">自</text>
+        <text x="295" y="195" font-size="50" fill="#800">强</text>
+        <text x="55" y="315" font-size="50" fill="#048">崇</text>
+        <text x="55" y="415" font-size="50" fill="#048">军</text>
+        <text x="295" y="315" font-size="50" fill="#048">振</text>
+        <text x="295" y="415" font-size="50" fill="#048">兴</text>
+    </svg>
+    <p>龙翔的宿舍楼</p>
+    <div id="lxsh"><div></div><div></div><i></i><i></i><i></i><i></i><i></i><i></i><div></div><div></div><div></div></div>
+    <p>龙翔的一间宿舍</p>
+</div>
 <p>辅导员曾经说：</p>
 <q>不要在床上吃零食，不然会招惹小动物。</q>
 <p>这种现象很罕见，没有人公开反映宿舍有“小动物”。</p>
@@ -832,6 +1035,7 @@
 <p>总之，龙翔澡堂环境乱、场面乱、物品乱，一团乱。</p>
 <h2>小卖部、开水房</h2>
 <p>龙翔的小卖部就在尚武楼、自强楼楼下。因此去小卖部比去澡堂方便不知多少。</p>
+<p>小卖部不仅有卖零食和饮料，也有一些常用的日用品，例如夹子等。</p>
 <p>辅导员说只有在晚上8:00-9:00才能去小卖部，其余时间段去的话就会被驻守在那的辅导员抓住。事实上，四个晚上被安排得满满当当，没有一晚能在8点之前回到宿舍。不过辅导员明面上这么说，实际上只要解散回宿舍，就可以去小卖部，只要在熄灯前一点时间回宿舍就行。</p>
 <p>这时，小卖部就会出现拥挤的现象。由于只有两个收银台，结账时一般要排很久队。这种热闹的场面在龙翔属实不多见。由此还出现了一些问题。例如陆梓豪表示：</p>
 <article>
@@ -953,7 +1157,7 @@
 <p>拉练的开端就在新奇与歌声中度过。</p>
 <p>学生走在路的右侧。由于没有人行道，大家得尽量靠边。刚开始边上是绿化带，灌木和树遮住部分视野。走了一段路，右边变得开阔，人行道也有了。</p>
 <p>拉练途中总有许多趣事，这便是其中一件。右边出现一条岔路，通向不远处的居民区。岔路一侧有一石碑，上书：</p>
-<q>玉埔村</q>
+<div class="box"><p>玉埔村</p></div>
 <p>岔路口有一道门，也写着这三字。于是有人说：</p>
 <q>到蒲林豪家了！</q>
 <q>蒲林豪，还不回家？</q>
@@ -1440,7 +1644,7 @@
 <h2>军体拳</h2>
 <p>这是爱国有方的第二个主要训练项目，也是闭营仪式时的展示项目。该项目在第三天才开始。</p>
 <p>该项目不由总教官教学，而是另一个班的教官。</p>
-<p>练习军体拳是，每营由四列合并为一列，男生在后、女生在前。</p>
+<p>练习军体拳时，每营由四列合并为一列，男生在后、女生在前。</p>
 <p>学生学习的招式为前10动。流程如下：</p>
 <ul>
     <li>稍息！军体拳！格斗准备！</li>
@@ -1700,7 +1904,7 @@
     <p>在第一个视频中，刘老师、林钰颖、徐嘉明、黄丰泽出镜。</p>
     <p>第二个视频聚焦两个年段的拔河比赛。背景音乐是《大东北我的家乡》（翻唱）。这个视频也被爱国有方发到网上，获得了不少点赞和评论。</p>
 </article>
-<p>然后就开始正式的演出了——期中考颁奖环节没了，原因后面会解释。</p>
+<p>其实来到爱国有方的第一天中午，期中考成绩就已经出来了，但晚会前并没有颁奖仪式，原因后面会解释。</p>
 <p>爱国有方的便利店有买荧光棒，三块钱一个，发蓝光，一些人带了过来，但9班没人买。</p>
 <p>并非每个节目都有对应的背景画面，有画面的只有两三个节目，且都是舞蹈节目。</p>
 <p>另外，顶部棚子上有若干聚光灯，但亮了跟没亮似的，也就是亮度不够。有三个主灯，学生发现，最右边的一个灯时常“发癫”，要么乱变颜色，要么乱转。</p>
@@ -2050,105 +2254,6 @@
     <small>小球表示林奕扬，球的颜色表示的状态：<span style="background:#c30;color:#fff;border-radius:5px;padding:0 5px;">梦游</span>/<span style="background:#33c;color:#fff;border-radius:5px;padding:0 5px;">醒来</span>/<span style="background:#460;color:#fff;border-radius:5px;padding:0 5px;">睡着</span></small>
     <p>林奕扬梦游路径示意</p>
 </div>
-<style>
-    #lyymy{
-        margin:auto;
-        background:#013a;
-        border-radius:10px;
-        width:260px;
-        height:300px;
-        padding:5px;
-        >div{
-            width:60px;
-            height:100px;
-            margin:5px;
-            border-radius:7px;
-            position:absolute;
-            backdrop-filter:blur(2px);
-            writing-mode:vertical-lr;
-            text-align:center;
-            line-height:60px;
-            font-size:1.25rem;
-            color:#cc98;
-            &:nth-child(even){background:#8848;}
-            &:nth-child(odd){background:#433c2388;}
-            &:nth-of-type(1){transform:translate(10px,10px);}
-            &:nth-of-type(2){transform:translate(0,0);}
-            &:nth-of-type(3){transform:translate(10px,140px);}
-            &:nth-of-type(4){transform:translate(0,130px);}
-            &:nth-of-type(5){transform:translate(180px,10px);}
-            &:nth-of-type(6){transform:translate(170px,0);}
-            &:nth-of-type(7){transform:translate(180px,140px);}
-            &:nth-of-type(8){transform:translate(170px,130px);}
-        }
-        >span{
-            width:20px;
-            height:20px;
-            border-radius:10px;
-            display:block;
-            position:absolute;
-            transform:translate(25px,20px);
-            background:#c30;
-            animation:lyymy 20s linear infinite;
-        }
-        >i{
-            width:260px;
-            height:40px;
-            background:#6308;
-            backdrop-filter:blur(2px);
-            position:absolute;
-            display:block;
-            transform:translate(-25px,240px) skew(45deg,0);
-            border-radius:10px 10px 0 0;
-            &::before{
-                position:absolute;
-                width:30px;
-                height:30px;
-                background:#c608;
-                border-radius:5px 5px 0 0;
-                display:block;
-                content:"";
-                left:115px;
-                top:10px;
-            }
-        }
-    }
-    @keyframes lyymy{
-        0%{transform:translate(25px,20px);background:#c30;}
-        5%{transform:translate(25px,20px);background:#c30;}
-        11%{background:#c30;}
-        12%{transform:translate(25px,90px);background:#33c;}
-        15%{transform:translate(25px,90px);background:#33c;}
-        16%{background:#33c;}
-        17%{background:#460;}
-        18%{transform:translate(25px,20px);background:#460;}
-        28%{transform:translate(25px,20px);background:#460;}
-        29%{background:#c30;}
-        33%{transform:translate(25px,110px);}
-        38%{transform:translate(75px,120px);}
-        43%{transform:translate(110px,120px);}
-        48%{transform:translate(110px,230px);}
-        58%{transform:translate(110px,230px);}
-        63%{transform:translate(110px,120px);}
-        68%{transform:translate(150px,120px);}
-        73%{transform:translate(195px,110px);}
-        75%{transform:translate(195px,100px);}
-        80%{transform:translate(195px,180px);}
-        82%{transform:translate(200px,175px);}
-        82%{transform:translate(190px,180px);}
-        83%{transform:translate(195px,185px);}
-        84%{transform:translate(190px,175px);}
-        85%{transform:translate(195px,180px);}
-        86%{transform:translate(200px,175px);}
-        87%{transform:translate(190px,180px);}
-        88%{transform:translate(195px,185px);}
-        89%{transform:translate(190px,180px);}
-        90%{transform:translate(195px,180px);}
-        94%{background:#c30;}
-        95%{transform:translate(195px,180px);background:#33c;}
-        100%{transform:translate(195px,180px);background:#33c;}
-    }
-</style>
 <p data-f="2">从这时起，宿舍的人就开始对林奕扬产生了抵触情绪，林奕扬去医务室时，宿舍似乎清净许多。</p>
 <p data-f="2">教官严查吃泡面情况。林奕扬则表示：自己有教官的“把柄”，教官不敢拿我怎么样，我可以大胆地吃泡面。</p>
 <p data-f="2">而这个“把柄”不过是教官抽了几根烟，结果林奕扬真以为自己无敌了。第四晚的时候，林奕扬称又要去医务室，出门时被教官抓住。随后林奕扬回到宿舍，称“教官让我回来加衣服”，加完衣服后离开，这一走就是一整个晚上，一整晚都不见林奕扬回来睡觉，大家就猜测起来。</p>

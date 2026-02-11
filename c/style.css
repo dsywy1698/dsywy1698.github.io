@@ -226,6 +226,7 @@ nav{
         background:linear-gradient(to right,var(--nav-b) calc(100% - 5px),transparent 100%);
         transform-origin:left center;
         animation-name:progress;
+        animation-timing-function:linear;
         animation-timeline:scroll(root block);
     }
     &:has(>div:nth-of-type(2).active){height:400px;}
@@ -236,6 +237,7 @@ nav{
         >div:nth-of-type(1){
             position:relative;
             top:-5px;
+            font-size:0;
             >button{
                 width:30px;
                 height:30px;
@@ -243,6 +245,7 @@ nav{
                 background:transparent;
                 transition:0.3s;
                 opacity:0.8;
+                margin:0 2.5px;
                 &:hover{opacity:1;}
                 &::before{color:var(--nav-c);font-size:20px;}
             }
@@ -891,7 +894,7 @@ main{
         padding:10px 5px;
         display:flex;
         flex-direction:column;
-        .a,.b{
+        >p{
             position:relative;
             padding:5px 7.5px;
             border-radius:10px;
@@ -916,30 +919,32 @@ main{
             margin:30px 10px 10px 30px;
             &::before{content:var(--a);right:3px;}
         }
-        >.b{
+        >.b,>.c,>.d{
             background:#ffffffaa;
             align-self:flex-start;
             margin:30px 30px 10px 10px;
-            &::before{content:var(--b);left:3px;}
+            &::before{left:3px;}
         }
+        >.b::before{content:var(--b);}
+        >.c::before{content:var(--c);}
+        >.d::before{content:var(--d);}
         >small{
-            all:initial;
             display:block;
-            background:#88888888;
             font-size:0.8rem;
             align-self:center;
             padding:2px 7px;
-            border-radius:6px;
         }
     }
     .moments{
+        background:#fff3;
+        padding:10px;
+        border-radius:10px;
         >p{text-indent:0;font-size:1rem;}
         >strong{
             font-weight:bold;
             color:#576b95;
             display:block;
         }
-        >hr{background:#dedede99;width:100%;}
         >div{
             background:#f7f7f799;
             border-radius:7px;
