@@ -874,12 +874,6 @@ main{
                 }
                 &::before{content:"下一页-";}
             }
-            @media screen and (max-width:600px){
-                flex-wrap:wrap;
-                width:100%;
-                margin:20px 0;
-                >button{width:100%!important;}
-            }
         }
     }
     time{
@@ -1102,11 +1096,19 @@ footer{
     background:linear-gradient(transparent 0,#0008 30dvh);
     color:#fffa;
 }
-@media screen and (min-width:1600px),(min-height:900px){
+@media (width>=1600px),(height>=900px){
     #bigger{display:flex;}
     #password,#main,#loader,nav{display:none!important;}
 }
-@media screen and (max-width:320px),(max-height:300px){
+@media (width<=600px){
+    .page{
+        flex-wrap:wrap;
+        width:100%;
+        margin:20px 0;
+        >button{width:100%!important;}
+    }
+}
+@media (width<=320px),(height<=300px){
     #smaller{display:flex;}
     #password,#main,#loader,nav{display:none!important;}
 }
