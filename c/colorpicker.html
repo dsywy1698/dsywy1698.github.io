@@ -1,15 +1,12 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<!doctype html><html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>颜色选择器</title>
 <style>
-html{box-sizing:border-box;overflow-x:hidden;}
-::-webkit-scrollbar{width:0px;}
+html{overflow-x:hidden;}
+::-webkit-scrollbar{width:0}
 body{
     margin:0;
-    padding:0;
     background:var(--bg);
     font-family:Consolas,sans-serif;
     transition:background 0.3s;
@@ -20,20 +17,16 @@ body{
     >div{
         margin:5px;
         padding:5px;
-        width:230px;
         background:#fffa;
         border-radius:20px;
+        width:230px;
         height:676px;
     }
 }
-#map{
-    width:220px;
-    padding:5px;
-    border-radius:20px;
-}
-#entercolorDIV{
+#colormap{display:block;width:220px;padding:5px;>path{cursor:pointer}}
+#enter{
     background:color-mix(in srgb,var(--bg),#fff);
-    width:220px;
+    width:200px;
     margin:5px auto;
     border-radius:20px;
     padding:5px;
@@ -50,363 +43,317 @@ body{
     >input{
         background:transparent;
         transition:0.2s;
-        width:180px;
+        width:160px;
         padding-left:10px;
+        font-family:Consolas,sans-serif;
         &:focus{outline:0;}
-        &::placeholder{color:hsl(from var(--bg) h s l / 0.5);}
+        &::placeholder{color:hsl(from var(--bg) h s calc(l - 20) / 0.5);}
     }
-    >button{
-        background:hsl(from var(--bg) h s l / 0.7);
-        width:30px;
-    }
+    >button{background:hsl(from var(--bg) h s l / 0.7);width:30px;}
 }
-#selected{
-    width:230px;
-    padding:10px 0;
-    text-align:center;
-    font-size:20px;
-    
-}
+#selected{padding:10px 0;text-align:center;font-size:20px;>p{margin:0;}}
 .colorTable{
     width:230px;
     cursor:pointer;
     >div{
-        display:table;
-        content:"";
-        clear:both;
         width:100%;
-        &:first-child{border-radius:15px 15px 0 0;>div{border-radius:0 15px 0 0;}}
-        &:last-child{border-radius:0 0 15px 15px;>div{border-radius:0 0 15px 0;}}
-        >div{
-            margin:0;
+        height:100%;
+        overflow:hidden;
+        &:first-child{border-radius:15px 15px 0 0;}
+        &:last-child{border-radius:0 0 15px 15px;}
+        >b,>i{
+            width:113px;
             line-height:26px;
+            display:block;
+            font-style:normal;
             padding-right:7px;
             float:right;
             background:linear-gradient(to right,transparent 0,#fff8 25px);
             text-align:right;
-            width:120px;
         }
     }
 }
-@media(width<=520px){body>div{height:auto}}
+@media(width<=1020px){.colorTable,body>div:not(:first-child){width:180px}}
+@media(width<=870px) and (width>600px){
+    body>div{
+        &:nth-of-type(1){
+            width:100%;
+            height:auto;
+            display:flex;
+            justify-content:Center;
+            align-items:center;
+        }
+        &:nth-of-type(2){margin-right:0;border-radius:20px 0 0 20px;}
+        &:nth-of-type(3){margin:auto 0;border-radius:0;}
+        &:nth-of-type(4){margin-left:0;border-radius:0 20px 20px 0;}
+    }
+}
+@media(width<=600px){
+    #colormap{margin:auto;}
+    .colorTable{width:140px;>div>b,>div>i{width:100px;background:#fff8;text-align:center;padding:0;}}
+    body>div{
+        &:nth-of-type(1){width:100%;height:auto;}
+        &:nth-of-type(2),&:nth-of-type(3),&:nth-of-type(4){
+            width:140px;
+            height:auto;
+            padding:0;
+            background:transparent;
+        }
+        
+    }
+}
+@media(width<=470px){}
 </style>
 <script>
-function w3SetColorsByAttribute(){for(var e,t=document.getElementsByTagName("*"),r=0;r<t.length;r++)(e=t[r].getAttribute("data-w3-color"))&&(t[r].style.backgroundColor=w3color(e).toRgbString())}!function(){function r(e,t){return this instanceof r?"object"==typeof e?e:(this.attachValues(function(e){var t,r,s,i,n,a,h,u,f,o,l=[],c=[],b=[];e=k(e.toLowerCase()),n=e.substr(0,1).toUpperCase(),t=e.substr(1),h=1,"R"!=n&&"Y"!=n&&"G"!=n&&"C"!=n&&"B"!=n&&"M"!=n&&"W"!=n||isNaN(t)||6==e.length&&-1==e.indexOf(",")||(e="ncol("+e+")");3==e.length||6==e.length||isNaN(e)||(e="ncol("+e+")");0<e.indexOf(",")&&-1==e.indexOf("(")&&(e="ncol("+e+")");if("rgb"==e.substr(0,3)||"hsl"==e.substr(0,3)||"hwb"==e.substr(0,3)||"ncol"==e.substr(0,4)||"cmyk"==e.substr(0,4)){if(e="ncol"==e.substr(0,4)?(4==e.split(",").length&&-1==e.indexOf("ncola")&&(e=e.replace("ncol","ncola")),r="ncol",e.substr(4)):"cmyk"==e.substr(0,4)?(r="cmyk",e.substr(4)):(r=e.substr(0,3),e.substr(3)),n=!(s=3),"a"==e.substr(0,1).toLowerCase()?(s=4,n=!0,e=e.substr(1)):"cmyk"==r&&(s=4,5==e.split(",").length)&&(s=5,n=!0),e=(e=e.replace("(","")).replace(")",""),l=e.split(","),"rgb"==r){if(l.length!=s)return g();for(i=0;i<s;i++){if(""!=l[i]&&" "!=l[i]||(l[i]="0"),-1<l[i].indexOf("%")&&(l[i]=l[i].replace("%",""),l[i]=Number(l[i]/100),i<3)&&(l[i]=Math.round(255*l[i])),isNaN(l[i]))return g();255<parseInt(l[i])&&(l[i]=255),i<3&&(l[i]=parseInt(l[i])),3==i&&1<Number(l[i])&&(l[i]=1)}o={r:l[0],g:l[1],b:l[2]},1==n&&(h=Number(l[3]))}if("hsl"==r||"hwb"==r||"ncol"==r){for(;l.length<s;)l.push("0");for("hsl"!=r&&"hwb"!=r||360<=parseInt(l[0])&&(l[0]=0),i=1;i<s;i++){if(-1<l[i].indexOf("%")){if(l[i]=l[i].replace("%",""),l[i]=Number(l[i]),isNaN(l[i]))return g();l[i]=l[i]/100}else l[i]=Number(l[i]);1<Number(l[i])&&(l[i]=1),Number(l[i])<0&&(l[i]=0)}"hsl"==r&&(o=y(l[0],l[1],l[2]),u=Number(l[0]),f=Number(l[1])),"hwb"==r&&(o=p(l[0],l[1],l[2])),"ncol"==r&&(o=function(e,t,r){var s,i;if(i=e,isNaN(e.substr(0,1))){if(s=e.substr(0,1).toUpperCase(),""==(e=e.substr(1))&&(e=0),e=Number(e),isNaN(e))return!1;"R"==s&&(i=0+.6*e),"Y"==s&&(i=60+.6*e),"G"==s&&(i=120+.6*e),"C"==s&&(i=180+.6*e),"B"==s&&(i=240+.6*e),"M"==s&&(i=300+.6*e),"W"==s&&(i=0,t=1-e/100,r=e/100)}return p(i,t,r)}(l[0],l[1],l[2])),1==n&&(h=Number(l[3]))}if("cmyk"==r){for(;l.length<s;)l.push("0");for(i=0;i<s;i++){if(-1<l[i].indexOf("%")){if(l[i]=l[i].replace("%",""),l[i]=Number(l[i]),isNaN(l[i]))return g();l[i]=l[i]/100}else l[i]=Number(l[i]);1<Number(l[i])&&(l[i]=1),Number(l[i])<0&&(l[i]=0)}o=function(e,t,r,s){return e=255-255*Math.min(1,e*(1-s)+s),t=255-255*Math.min(1,t*(1-s)+s),r=255-255*Math.min(1,r*(1-s)+s),{r:e,g:t,b:r}}(l[0],l[1],l[2],l[3]),1==n&&(h=Number(l[4]))}}else if("ncs"==e.substr(0,3))o=function(e){var t,r,s,i,n,a,h,u;-1==(e=(e=(e=(e=(e=k(e).toUpperCase()).replace("(","")).replace(")","")).replace("NCS","NCS ")).replace(/  /g," ")).indexOf("NCS")&&(e="NCS "+e);if(null===(e=e.match(/^(?:NCS|NCS\sS)\s(\d{2})(\d{2})-(N|[A-Z])(\d{2})?([A-Z])?$/)))return!1;if(t=parseInt(e[1],10),n=parseInt(e[2],10),"N"!=(s=e[3])&&"Y"!=s&&"R"!=s&&"B"!=s&&"G"!=s)return!1;e=parseInt(e[4],10)||0,"N"!==s?(r=1.05*t-5.25,n=n,"Y"===s&&e<=60?u=1:"Y"===s&&60<e||"R"===s&&e<=80?(i="Y"===s?e-60:e+40,u=(Math.sqrt(14884-Math.pow(i,2))-22)/100):"R"===s&&80<e||"B"===s?u=0:"G"===s&&(i=e-170,u=(Math.sqrt(33800-Math.pow(i,2))-70)/100),"Y"===s&&e<=80?a=0:"Y"===s&&80<e||"R"===s&&e<=60?(i="Y"===s?e-80+20.5:e+20+20.5,a=(104-Math.sqrt(11236-Math.pow(i,2)))/100):"R"===s&&60<e||"B"===s&&e<=80?(i="R"===s?e-60-60:e+40-60,a=(Math.sqrt(1e4-Math.pow(i,2))-10)/100):"B"===s&&80<e||"G"===s&&e<=40?(i="B"===s?e-80-131:e+20-131,a=(122-Math.sqrt(19881-Math.pow(i,2)))/100):"G"===s&&40<e&&(a=0),"Y"===s?green1=(85-.85*e)/100:"R"===s&&e<=60?green1=0:"R"===s&&60<e?(i=e-60+35,green1=(67.5-Math.sqrt(5776-Math.pow(i,2)))/100):"B"===s&&e<=60?(i=+e-68.5,green1=(6.5+Math.sqrt(7044.5-Math.pow(i,2)))/100):"B"===s&&60<e||"G"===s&&e<=60?green1=.9:"G"===s&&60<e&&(green1=(90-1/8*(i=e-60))/100),i=(u+green1+a)/3,s=(i-u)*(100-n)/100+u,e=(i-green1)*(100-n)/100+green1,u=(i-a)*(100-n)/100+a,i=1/(e<s&&u<s?s:s<e&&u<e?e:s<u&&e<u?u:(s+e+u)/3),a=parseInt(s*i*(100-r)/100*255,10),h=parseInt(e*i*(100-r)/100*255,10),u=parseInt(u*i*(100-r)/100*255,10),(a=255<a?255:a)<0&&(a=0),(h=255<h?255:h)<0&&(h=0),(u=255<u?255:u)<0&&(u=0)):(n=parseInt(255*(1-t/100),10),u=h=a=n=(n=255<n?255:n)<0?0:n);return{r:a,g:h,b:u}}(e);else{for(a=!1,c=m("names"),i=0;i<c.length;i++)if(e.toLowerCase()==c[i].toLowerCase()){b=m("hexs"),a=!0,o={r:parseInt(b[i].substr(0,2),16),g:parseInt(b[i].substr(2,2),16),b:parseInt(b[i].substr(4,2),16)};break}if(0==a){for(3==(e=e.replace("#","")).length&&(e=e.substr(0,1)+e.substr(0,1)+e.substr(1,1)+e.substr(1,1)+e.substr(2,1)+e.substr(2,1)),i=0;i<e.length;i++)if(!(-1<"0123456789ABCDEFabcdef".indexOf(e.substr(i,1))))return g();for(l[0]=parseInt(e.substr(0,2),16),l[1]=parseInt(e.substr(2,2),16),l[2]=parseInt(e.substr(4,2),16),i=0;i<3;i++)if(isNaN(l[i]))return g();o={r:l[0],g:l[1],b:l[2]}}}return d(o,h,u,f)}(e)),void(t&&(t.style.backgroundColor=this.toRgbString()))):new r(e,t)}function d(e,t,r,s){var i,n,a,h;return e?(null===t&&(t=1),i=function(e,t,r){var s,i,n,a,h,u=[];for(u[0]=e/255,u[1]=t/255,u[2]=r/255,i=s=u[0],n=a=0;n<u.length-1;n++)u[n+1]<=s&&(s=u[n+1]),i<=u[n+1]&&(i=u[n+1],a=n+1);0==a&&(h=(u[1]-u[2])/(i-s));1==a&&(h=2+(u[2]-u[0])/(i-s));2==a&&(h=4+(u[0]-u[1])/(i-s));isNaN(h)&&(h=0);(h*=60)<0&&(h+=360);e=(s+i)/2,t=s==i?0:e<.5?(i-s)/(i+s):(i-s)/(2-i-s);return{h:h,s:t,l:e}}(e.r,e.g,e.b),n=function(e,t,r){e/=255,t/=255,r/=255,max=Math.max(e,t,r),min=Math.min(e,t,r),r=0==(chroma=max-min)?0:e==max?(t-r)/chroma%6*360:t==max?((r-e)/chroma+2)%6*360:((e-t)/chroma+4)%6*360;return e=min,t=1-max,{h:r,w:e,b:t}}(e.r,e.g,e.b),a=function(e,t,r){var s,i,n;e/=255,t/=255,r/=255,max=Math.max(e,t,r),e=1==(n=1-max)?i=s=0:(s=(1-e-n)/(1-n),i=(1-t-n)/(1-n),(1-r-n)/(1-n));return{c:s,m:i,y:e,k:n}}(e.r,e.g,e.b),r=r||i.h,s=s||i.s,h=function(e){for(;360<=e;)e-=360;if(e<60)return"R"+e/.6;if(e<120)return"Y"+(e-60)/.6;if(e<180)return"G"+(e-120)/.6;if(e<240)return"C"+(e-180)/.6;if(e<300)return"B"+(e-240)/.6;if(e<360)return"M"+(e-300)/.6}(r),e={red:e.r,green:e.g,blue:e.b,hue:r,sat:s,lightness:i.l,whiteness:n.w,blackness:n.b,cyan:a.c,magenta:a.m,yellow:a.y,black:a.k,ncol:h,opacity:t,valid:!0},(r=e).red=Number(r.red.toFixed(0)),r.green=Number(r.green.toFixed(0)),r.blue=Number(r.blue.toFixed(0)),r.hue=Number(r.hue.toFixed(0)),r.sat=Number(r.sat.toFixed(2)),r.lightness=Number(r.lightness.toFixed(2)),r.whiteness=Number(r.whiteness.toFixed(2)),r.blackness=Number(r.blackness.toFixed(2)),r.cyan=Number(r.cyan.toFixed(2)),r.magenta=Number(r.magenta.toFixed(2)),r.yellow=Number(r.yellow.toFixed(2)),r.black=Number(r.black.toFixed(2)),r.ncol=r.ncol.substr(0,1)+Math.round(Number(r.ncol.substr(1))),r.opacity=Number(r.opacity.toFixed(2)),r):g()}function g(){return{red:0,green:0,blue:0,hue:0,sat:0,lightness:0,whiteness:0,blackness:0,cyan:0,magenta:0,yellow:0,black:0,ncol:"R",opacity:1,valid:!1}}
-function m(e){return"names"==e?["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","DarkOrange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","RebeccaPurple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"]:"hexs"==e?["f0f8ff","faebd7","00ffff","7fffd4","f0ffff","f5f5dc","ffe4c4","000000","ffebcd","0000ff","8a2be2","a52a2a","deb887","5f9ea0","7fff00","d2691e","ff7f50","6495ed","fff8dc","dc143c","00ffff","00008b","008b8b","b8860b","a9a9a9","a9a9a9","006400","bdb76b","8b008b","556b2f","ff8c00","9932cc","8b0000","e9967a","8fbc8f","483d8b","2f4f4f","2f4f4f","00ced1","9400d3","ff1493","00bfff","696969","696969","1e90ff","b22222","fffaf0","228b22","ff00ff","dcdcdc","f8f8ff","ffd700","daa520","808080","808080","008000","adff2f","f0fff0","ff69b4","cd5c5c","4b0082","fffff0","f0e68c","e6e6fa","fff0f5","7cfc00","fffacd","add8e6","f08080","e0ffff","fafad2","d3d3d3","d3d3d3","90ee90","ffb6c1","ffa07a","20b2aa","87cefa","778899","778899","b0c4de","ffffe0","00ff00","32cd32","faf0e6","ff00ff","800000","66cdaa","0000cd","ba55d3","9370db","3cb371","7b68ee","00fa9a","48d1cc","c71585","191970","f5fffa","ffe4e1","ffe4b5","ffdead","000080","fdf5e6","808000","6b8e23","ffa500","ff4500","da70d6","eee8aa","98fb98","afeeee","db7093","ffefd5","ffdab9","cd853f","ffc0cb","dda0dd","b0e0e6","800080","663399","ff0000","bc8f8f","4169e1","8b4513","fa8072","f4a460","2e8b57","fff5ee","a0522d","c0c0c0","87ceeb","6a5acd","708090","708090","fffafa","00ff7f","4682b4","d2b48c","008080","d8bfd8","ff6347","40e0d0","ee82ee","f5deb3","ffffff","f5f5f5","ffff00","9acd32"]:void 0}function y(e,t,r){return{r:255*s(t=2*r-(r=r<=.5?r*(t+1):r+t-r*t),r,(e/=60)+2),g:255*s(t,r,e),b:255*s(t,r,e-2)}}function s(e,t,r){return r<0&&(r+=6),6<=r&&(r-=6),r<1?(t-e)*r+e:r<3?t:r<4?(t-e)*(4-r)+e:e}function p(e,t,r){var s,i=[],e=y(e,1,.5);for(i[0]=e.r/255,i[1]=e.g/255,i[2]=e.b/255,1<(e=t+r)&&(t=Number((t/e).toFixed(2)),r=Number((r/e).toFixed(2))),s=0;s<3;s++)i[s]*=1-t-r,i[s]+=t,i[s]=Number(255*i[s]);return{r:i[0],g:i[1],b:i[2]}}function e(e){for(var t=e.toString(16);t.length<2;)t="0"+t;return t}function k(e){return e.replace(/^\s+|\s+$/g,"")}r.prototype={toRgbString:function(){return"rgb("+this.red+", "+this.green+", "+this.blue+")"},toRgbaString:function(){return"rgba("+this.red+", "+this.green+", "+this.blue+", "+this.opacity+")"},toHwbString:function(){return"hwb("+this.hue+", "+Math.round(100*this.whiteness)+"%, "+Math.round(100*this.blackness)+"%)"},toHwbStringDecimal:function(){return"hwb("+this.hue+", "+this.whiteness+", "+this.blackness+")"},toHwbaString:function(){return"hwba("+this.hue+", "+Math.round(100*this.whiteness)+"%, "+Math.round(100*this.blackness)+"%, "+this.opacity+")"},toHslString:function(){return"hsl("+this.hue+", "+Math.round(100*this.sat)+"%, "+Math.round(100*this.lightness)+"%)"},toHslStringDecimal:function(){return"hsl("+this.hue+", "+this.sat+", "+this.lightness+")"},toHslaString:function(){return"hsla("+this.hue+", "+Math.round(100*this.sat)+"%, "+Math.round(100*this.lightness)+"%, "+this.opacity+")"},toCmykString:function(){return"cmyk("+Math.round(100*this.cyan)+"%, "+Math.round(100*this.magenta)+"%, "+Math.round(100*this.yellow)+"%, "+Math.round(100*this.black)+"%)"},toCmykStringDecimal:function(){return"cmyk("+this.cyan+", "+this.magenta+", "+this.yellow+", "+this.black+")"},toNcolString:function(){return this.ncol+", "+Math.round(100*this.whiteness)+"%, "+Math.round(100*this.blackness)+"%"},toNcolStringDecimal:function(){return this.ncol+", "+this.whiteness+", "+this.blackness},toNcolaString:function(){return this.ncol+", "+Math.round(100*this.whiteness)+"%, "+Math.round(100*this.blackness)+"%, "+this.opacity},toName:function(){var e,t,r,s=m("hexs");for(i=0;i<s.length;i++)if(e=parseInt(s[i].substr(0,2),16),t=parseInt(s[i].substr(2,2),16),r=parseInt(s[i].substr(4,2),16),this.red==e&&this.green==t&&this.blue==r)return m("names")[i];return""},toHexString:function(){return"#"+e(this.red)+e(this.green)+e(this.blue)},toRgb:function(){return{r:this.red,g:this.green,b:this.blue,a:this.opacity}},toHsl:function(){return{h:this.hue,s:this.sat,l:this.lightness,a:this.opacity}},toHwb:function(){return{h:this.hue,w:this.whiteness,b:this.blackness,a:this.opacity}},toCmyk:function(){return{c:this.cyan,m:this.magenta,y:this.yellow,k:this.black,a:this.opacity}},toNcol:function(){return{ncol:this.ncol,w:this.whiteness,b:this.blackness,a:this.opacity}},isDark:function(e){return(299*this.red+587*this.green+114*this.blue)/1e3<(e||128)},saturate:function(e){this.sat+=e/100||.1,1<this.sat&&(this.sat=1),e=d(y(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},desaturate:function(e){this.sat-=e/100||.1,this.sat<0&&(this.sat=0),e=d(y(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},lighter:function(e){this.lightness+=e/100||.1,1<this.lightness&&(this.lightness=1),e=d(y(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},darker:function(e){this.lightness-=e/100||.1,this.lightness<0&&(this.lightness=0),e=d(y(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},attachValues:function(e){this.red=e.red,this.green=e.green,this.blue=e.blue,this.hue=e.hue,this.sat=e.sat,this.lightness=e.lightness,this.whiteness=e.whiteness,this.blackness=e.blackness,this.cyan=e.cyan,this.magenta=e.magenta,this.yellow=e.yellow,this.black=e.black,this.ncol=e.ncol,this.opacity=e.opacity,this.valid=e.valid}},window.w3color=r}();
+function w3SetColorsByAttribute(){for(var e,t=document.getElementsByTagName("*"),r=0;r<t.length;r++)(e=t[r].getAttribute("data-w3-color"))&&(t[r].style.backgroundColor=w3color(e).toRgbString())}
+!function(){function r(e,t){return this instanceof r?"object"==typeof e?e:(this.attachValues(function(e){var t,r,s,i,n,a,h,u,f,o,l=[],c=[],b=[];e=k(e.toLowerCase()),n=e.substr(0,1).toUpperCase(),t=e.substr(1),h=1,"R"!=n&&"Y"!=n&&"G"!=n&&"C"!=n&&"B"!=n&&"M"!=n&&"W"!=n||isNaN(t)||6==e.length&&-1==e.indexOf(",")||(e="ncol("+e+")");3==e.length||6==e.length||isNaN(e)||(e="ncol("+e+")");0<e.indexOf(",")&&-1==e.indexOf("(")&&(e="ncol("+e+")");if("rgb"==e.substr(0,3)||"hsl"==e.substr(0,3)||"hwb"==e.substr(0,3)||"ncol"==e.substr(0,4)||"cmyk"==e.substr(0,4)){if(e="ncol"==e.substr(0,4)?(4==e.split(",").length&&-1==e.indexOf("ncola")&&(e=e.replace("ncol","ncola")),r="ncol",e.substr(4)):"cmyk"==e.substr(0,4)?(r="cmyk",e.substr(4)):(r=e.substr(0,3),e.substr(3)),n=!(s=3),"a"==e.substr(0,1).toLowerCase()?(s=4,n=!0,e=e.substr(1)):"cmyk"==r&&(s=4,5==e.split(",").length)&&(s=5,n=!0),e=(e=e.replace("(","")).replace(")",""),l=e.split(","),"rgb"==r){if(l.length!=s)return g();for(i=0;i<s;i++){if(""!=l[i]&&" "!=l[i]||(l[i]="0"),-1<l[i].indexOf("%")&&(l[i]=l[i].replace("%",""),l[i]=Number(l[i]/100),i<3)&&(l[i]=Math.round(255*l[i])),isNaN(l[i]))return g();255<parseInt(l[i])&&(l[i]=255),i<3&&(l[i]=parseInt(l[i])),3==i&&1<Number(l[i])&&(l[i]=1)}o={r:l[0],g:l[1],b:l[2]},1==n&&(h=Number(l[3]))}if("hsl"==r||"hwb"==r||"ncol"==r){for(;l.length<s;)l.push("0");for("hsl"!=r&&"hwb"!=r||360<=parseInt(l[0])&&(l[0]=0),i=1;i<s;i++){if(-1<l[i].indexOf("%")){if(l[i]=l[i].replace("%",""),l[i]=Number(l[i]),isNaN(l[i]))return g();l[i]=l[i]/100}else l[i]=Number(l[i]);1<Number(l[i])&&(l[i]=1),Number(l[i])<0&&(l[i]=0)}"hsl"==r&&(o=y(l[0],l[1],l[2]),u=Number(l[0]),f=Number(l[1])),"hwb"==r&&(o=p(l[0],l[1],l[2])),"ncol"==r&&(o=function(e,t,r){var s,i;if(i=e,isNaN(e.substr(0,1))){if(s=e.substr(0,1).toUpperCase(),""==(e=e.substr(1))&&(e=0),e=Number(e),isNaN(e))return!1;"R"==s&&(i=0+.6*e),"Y"==s&&(i=60+.6*e),"G"==s&&(i=120+.6*e),"C"==s&&(i=180+.6*e),"B"==s&&(i=240+.6*e),"M"==s&&(i=300+.6*e),"W"==s&&(i=0,t=1-e/100,r=e/100)}return p(i,t,r)}(l[0],l[1],l[2])),1==n&&(h=Number(l[3]))}if("cmyk"==r){for(;l.length<s;)l.push("0");for(i=0;i<s;i++){if(-1<l[i].indexOf("%")){if(l[i]=l[i].replace("%",""),l[i]=Number(l[i]),isNaN(l[i]))return g();l[i]=l[i]/100}else l[i]=Number(l[i]);1<Number(l[i])&&(l[i]=1),Number(l[i])<0&&(l[i]=0)}o=function(e,t,r,s){return e=255-255*Math.min(1,e*(1-s)+s),t=255-255*Math.min(1,t*(1-s)+s),r=255-255*Math.min(1,r*(1-s)+s),{r:e,g:t,b:r}}(l[0],l[1],l[2],l[3]),1==n&&(h=Number(l[4]))}}else if("ncs"==e.substr(0,3))o=function(e){var t,r,s,i,n,a,h,u;-1==(e=(e=(e=(e=(e=k(e).toUpperCase()).replace("(","")).replace(")","")).replace("NCS","NCS ")).replace(/  /g," ")).indexOf("NCS")&&(e="NCS "+e);if(null===(e=e.match(/^(?:NCS|NCS\sS)\s(\d{2})(\d{2})-(N|[A-Z])(\d{2})?([A-Z])?$/)))return!1;if(t=parseInt(e[1],10),n=parseInt(e[2],10),"N"!=(s=e[3])&&"Y"!=s&&"R"!=s&&"B"!=s&&"G"!=s)return!1;e=parseInt(e[4],10)||0,"N"!==s?(r=1.05*t-5.25,n=n,"Y"===s&&e<=60?u=1:"Y"===s&&60<e||"R"===s&&e<=80?(i="Y"===s?e-60:e+40,u=(Math.sqrt(14884-Math.pow(i,2))-22)/100):"R"===s&&80<e||"B"===s?u=0:"G"===s&&(i=e-170,u=(Math.sqrt(33800-Math.pow(i,2))-70)/100),"Y"===s&&e<=80?a=0:"Y"===s&&80<e||"R"===s&&e<=60?(i="Y"===s?e-80+20.5:e+20+20.5,a=(104-Math.sqrt(11236-Math.pow(i,2)))/100):"R"===s&&60<e||"B"===s&&e<=80?(i="R"===s?e-60-60:e+40-60,a=(Math.sqrt(1e4-Math.pow(i,2))-10)/100):"B"===s&&80<e||"G"===s&&e<=40?(i="B"===s?e-80-131:e+20-131,a=(122-Math.sqrt(19881-Math.pow(i,2)))/100):"G"===s&&40<e&&(a=0),"Y"===s?green1=(85-.85*e)/100:"R"===s&&e<=60?green1=0:"R"===s&&60<e?(i=e-60+35,green1=(67.5-Math.sqrt(5776-Math.pow(i,2)))/100):"B"===s&&e<=60?(i=+e-68.5,green1=(6.5+Math.sqrt(7044.5-Math.pow(i,2)))/100):"B"===s&&60<e||"G"===s&&e<=60?green1=.9:"G"===s&&60<e&&(green1=(90-1/8*(i=e-60))/100),i=(u+green1+a)/3,s=(i-u)*(100-n)/100+u,e=(i-green1)*(100-n)/100+green1,u=(i-a)*(100-n)/100+a,i=1/(e<s&&u<s?s:s<e&&u<e?e:s<u&&e<u?u:(s+e+u)/3),a=parseInt(s*i*(100-r)/100*255,10),h=parseInt(e*i*(100-r)/100*255,10),u=parseInt(u*i*(100-r)/100*255,10),(a=255<a?255:a)<0&&(a=0),(h=255<h?255:h)<0&&(h=0),(u=255<u?255:u)<0&&(u=0)):(n=parseInt(255*(1-t/100),10),u=h=a=n=(n=255<n?255:n)<0?0:n);return{r:a,g:h,b:u}}(e);else{for(a=!1,c=m("names"),i=0;i<c.length;i++)if(e.toLowerCase()==c[i].toLowerCase()){b=m("hexs"),a=!0,o={r:parseInt(b[i].substr(0,2),16),g:parseInt(b[i].substr(2,2),16),b:parseInt(b[i].substr(4,2),16)};break}if(0==a){for(3==(e=e.replace("#","")).length&&(e=e.substr(0,1)+e.substr(0,1)+e.substr(1,1)+e.substr(1,1)+e.substr(2,1)+e.substr(2,1)),i=0;i<e.length;i++)if(!(-1<"0123456789ABCDEFabcdef".indexOf(e.substr(i,1))))return g();for(l[0]=parseInt(e.substr(0,2),16),l[1]=parseInt(e.substr(2,2),16),l[2]=parseInt(e.substr(4,2),16),i=0;i<3;i++)if(isNaN(l[i]))return g();o={r:l[0],g:l[1],b:l[2]}}}return d(o,h,u,f)}(e)),void(t&&(t.style.backgroundColor=this.toRgbString()))):new r(e,t)}function d(e,t,r,s){var i,n,a,h;return e?(null===t&&(t=1),i=function(e,t,r){var s,i,n,a,h,u=[];for(u[0]=e/255,u[1]=t/255,u[2]=r/255,i=s=u[0],n=a=0;n<u.length-1;n++)u[n+1]<=s&&(s=u[n+1]),i<=u[n+1]&&(i=u[n+1],a=n+1);0==a&&(h=(u[1]-u[2])/(i-s));1==a&&(h=2+(u[2]-u[0])/(i-s));2==a&&(h=4+(u[0]-u[1])/(i-s));isNaN(h)&&(h=0);(h*=60)<0&&(h+=360);e=(s+i)/2,t=s==i?0:e<.5?(i-s)/(i+s):(i-s)/(2-i-s);return{h:h,s:t,l:e}}(e.r,e.g,e.b),n=function(e,t,r){e/=255,t/=255,r/=255,max=Math.max(e,t,r),min=Math.min(e,t,r),r=0==(chroma=max-min)?0:e==max?(t-r)/chroma%6*360:t==max?((r-e)/chroma+2)%6*360:((e-t)/chroma+4)%6*360;return e=min,t=1-max,{h:r,w:e,b:t}}(e.r,e.g,e.b),a=function(e,t,r){var s,i,n;e/=255,t/=255,r/=255,max=Math.max(e,t,r),e=1==(n=1-max)?i=s=0:(s=(1-e-n)/(1-n),i=(1-t-n)/(1-n),(1-r-n)/(1-n));return{c:s,m:i,y:e,k:n}}(e.r,e.g,e.b),r=r||i.h,s=s||i.s,h=function(e){for(;360<=e;)e-=360;if(e<60)return"R"+e/.6;if(e<120)return"Y"+(e-60)/.6;if(e<180)return"G"+(e-120)/.6;if(e<240)return"C"+(e-180)/.6;if(e<300)return"B"+(e-240)/.6;if(e<360)return"M"+(e-300)/.6}(r),e={red:e.r,green:e.g,blue:e.b,hue:r,sat:s,lightness:i.l,whiteness:n.w,blackness:n.b,cyan:a.c,magenta:a.m,yellow:a.y,black:a.k,ncol:h,opacity:t,valid:!0},(r=e).red=Number(r.red.toFixed(0)),r.green=Number(r.green.toFixed(0)),r.blue=Number(r.blue.toFixed(0)),r.hue=Number(r.hue.toFixed(0)),r.sat=Number(r.sat.toFixed(2)),r.lightness=Number(r.lightness.toFixed(2)),r.whiteness=Number(r.whiteness.toFixed(2)),r.blackness=Number(r.blackness.toFixed(2)),r.cyan=Number(r.cyan.toFixed(2)),r.magenta=Number(r.magenta.toFixed(2)),r.yellow=Number(r.yellow.toFixed(2)),r.black=Number(r.black.toFixed(2)),r.ncol=r.ncol.substr(0,1)+Math.round(Number(r.ncol.substr(1))),r.opacity=Number(r.opacity.toFixed(2)),r):g()}
+function g(){return{red:0,green:0,blue:0,hue:0,sat:0,lightness:0,whiteness:0,blackness:0,cyan:0,magenta:0,yellow:0,black:0,ncol:"R",opacity:1,valid:!1}}
+function m(e){return"names"==e?["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","DarkOrange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","RebeccaPurple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"]:"hexs"==e?["f0f8ff","faebd7","00ffff","7fffd4","f0ffff","f5f5dc","ffe4c4","000000","ffebcd","0000ff","8a2be2","a52a2a","deb887","5f9ea0","7fff00","d2691e","ff7f50","6495ed","fff8dc","dc143c","00ffff","00008b","008b8b","b8860b","a9a9a9","a9a9a9","006400","bdb76b","8b008b","556b2f","ff8c00","9932cc","8b0000","e9967a","8fbc8f","483d8b","2f4f4f","2f4f4f","00ced1","9400d3","ff1493","00bfff","696969","696969","1e90ff","b22222","fffaf0","228b22","ff00ff","dcdcdc","f8f8ff","ffd700","daa520","808080","808080","008000","adff2f","f0fff0","ff69b4","cd5c5c","4b0082","fffff0","f0e68c","e6e6fa","fff0f5","7cfc00","fffacd","add8e6","f08080","e0ffff","fafad2","d3d3d3","d3d3d3","90ee90","ffb6c1","ffa07a","20b2aa","87cefa","778899","778899","b0c4de","ffffe0","00ff00","32cd32","faf0e6","ff00ff","800000","66cdaa","0000cd","ba55d3","9370db","3cb371","7b68ee","00fa9a","48d1cc","c71585","191970","f5fffa","ffe4e1","ffe4b5","ffdead","000080","fdf5e6","808000","6b8e23","ffa500","ff4500","da70d6","eee8aa","98fb98","afeeee","db7093","ffefd5","ffdab9","cd853f","ffc0cb","dda0dd","b0e0e6","800080","663399","ff0000","bc8f8f","4169e1","8b4513","fa8072","f4a460","2e8b57","fff5ee","a0522d","c0c0c0","87ceeb","6a5acd","708090","708090","fffafa","00ff7f","4682b4","d2b48c","008080","d8bfd8","ff6347","40e0d0","ee82ee","f5deb3","ffffff","f5f5f5","ffff00","9acd32"]:void 0}
+function y(e,t,r){return{r:255*s(t=2*r-(r=r<=.5?r*(t+1):r+t-r*t),r,(e/=60)+2),g:255*s(t,r,e),b:255*s(t,r,e-2)}}
+function s(e,t,r){return r<0&&(r+=6),6<=r&&(r-=6),r<1?(t-e)*r+e:r<3?t:r<4?(t-e)*(4-r)+e:e}
+function p(e,t,r){var s,i=[],e=y(e,1,.5);for(i[0]=e.r/255,i[1]=e.g/255,i[2]=e.b/255,1<(e=t+r)&&(t=Number((t/e).toFixed(2)),r=Number((r/e).toFixed(2))),s=0;s<3;s++)i[s]*=1-t-r,i[s]+=t,i[s]=Number(255*i[s]);return{r:i[0],g:i[1],b:i[2]}}
+function e(e){for(var t=e.toString(16);t.length<2;)t="0"+t;return t}
+function k(e){return e.replace(/^\s+|\s+$/g,"")}
+r.prototype={
+    toRgbString:function(){return"rgb("+this.red+","+this.green+","+this.blue+")"},
+    toRgbaString:function(){return"rgba("+this.red+","+this.green+","+this.blue+","+this.opacity+")"},
+    toHwbString:function(){return"hwb("+this.hue+","+Math.round(100*this.whiteness)+"%,"+Math.round(100*this.blackness)+"%)"},
+    toHwbStringDecimal:function(){return"hwb("+this.hue+","+this.whiteness+","+this.blackness+")"},
+    toHwbaString:function(){return"hwba("+this.hue+","+Math.round(100*this.whiteness)+"%,"+Math.round(100*this.blackness)+"%,"+this.opacity+")"},
+    toHslString:function(){return"hsl("+this.hue+","+Math.round(100*this.sat)+"%,"+Math.round(100*this.lightness)+"%)"},
+    toHslStringDecimal:function(){return"hsl("+this.hue+","+this.sat+","+this.lightness+")"},
+    toHslaString:function(){return"hsla("+this.hue+","+Math.round(100*this.sat)+"%,"+Math.round(100*this.lightness)+"%,"+this.opacity+")"},
+    toCmykString:function(){return"cmyk("+Math.round(100*this.cyan)+"%,"+Math.round(100*this.magenta)+"%,"+Math.round(100*this.yellow)+"%,"+Math.round(100*this.black)+"%)"},
+    toCmykStringDecimal:function(){return"cmyk("+this.cyan+","+this.magenta+","+this.yellow+","+this.black+")"},
+    toNcolString:function(){return this.ncol+","+Math.round(100*this.whiteness)+"%,"+Math.round(100*this.blackness)+"%"},
+    toNcolStringDecimal:function(){return this.ncol+","+this.whiteness+","+this.blackness},
+    toNcolaString:function(){return this.ncol+","+Math.round(100*this.whiteness)+"%,"+Math.round(100*this.blackness)+"%,"+this.opacity},
+    toName:function(){var e,t,r,s=m("hexs");for(i=0;i<s.length;i++)if(e=parseInt(s[i].substr(0,2),16),t=parseInt(s[i].substr(2,2),16),r=parseInt(s[i].substr(4,2),16),this.red==e&&this.green==t&&this.blue==r)return m("names")[i];return""},
+    toHexString:function(){return"#"+e(this.red)+e(this.green)+e(this.blue)},
+    toRgb:function(){return{r:this.red,g:this.green,b:this.blue,a:this.opacity}},
+    toHsl:function(){return{h:this.hue,s:this.sat,l:this.lightness,a:this.opacity}},
+    toHwb:function(){return{h:this.hue,w:this.whiteness,b:this.blackness,a:this.opacity}},
+    toCmyk:function(){return{c:this.cyan,m:this.magenta,y:this.yellow,k:this.black,a:this.opacity}},
+    toNcol:function(){return{ncol:this.ncol,w:this.whiteness,b:this.blackness,a:this.opacity}},
+    isDark:function(e){return(299*this.red+587*this.green+114*this.blue)/1e3<(e||128)},
+    saturate:function(e){this.sat+=e/100||.1,1<this.sat&&(this.sat=1),e=d(y(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},
+    desaturate:function(e){this.sat-=e/100||.1,this.sat<0&&(this.sat=0),e=d(y(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},
+    lighter:function(e){this.lightness+=e/100||.1,1<this.lightness&&(this.lightness=1),e=d(y(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},
+    darker:function(e){this.lightness-=e/100||.1,this.lightness<0&&(this.lightness=0),e=d(y(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},
+    attachValues:function(e){this.red=e.red,this.green=e.green,this.blue=e.blue,this.hue=e.hue,this.sat=e.sat,this.lightness=e.lightness,this.whiteness=e.whiteness,this.blackness=e.blackness,this.cyan=e.cyan,this.magenta=e.magenta,this.yellow=e.yellow,this.black=e.black,this.ncol=e.ncol,this.opacity=e.opacity,this.valid=e.valid}
+},window.w3color=r}();
 </script>
 <script>
-var colorhex="#06f";
-var color="#06f";
-var colorObj=w3color(color);
-function moColor(hex){
-    document.getElementById("map").style.backgroundColor=hex;
-    document.body.style.cursor="pointer";
-}
-function mouseOutMap(){
-    document.getElementById("map").style.backgroundColor="transparent";
-    document.body.style.cursor="";
-}
-var hh=0;
+var colorhex=color="#06f",colorObj=w3color(color),hh=0;
 function cc(hex,seltop,selleft,html5){
-    var c, cObj, colormap, areas, i, areacolor, cc;
-    if (html5 && html5 == 5)  {c = document.getElementById("html5colorpicker").value;}
-    else {
-        if (hex == 0)  { c = document.getElementById("entercolor").value;}
-        else {c = hex;}
-    }
-    cObj = w3color(c);
-    colorhex = cObj.toHexString();
-    if (cObj.valid) {clear();}
-    else {wrongInput();return;}
-    r = cObj.red;
-    g = cObj.green;
-    b = cObj.blue;
-    document.getElementById("colornam").innerHTML = (cObj.toName() || "");
-    document.getElementById("colorhex").innerHTML = cObj.toHexString();
-    document.getElementById("colorrgb").innerHTML = cObj.toRgbString();
-    document.getElementById("colorhsl").innerHTML = cObj.toHslString();    
-    if ((!seltop || seltop == -1) && (!selleft || selleft == -1)) {
-        colormap = document.getElementById("colormap");
-        areas = colormap.getElementsByTagName("AREA");
-        for (i = 0; i < areas.length; i++) {
-            areacolor = areas[i].getAttribute("onmouseover").replace('moColor("', '');
-            areacolor = areacolor.replace('")', '');
-            if (areacolor.toLowerCase() == colorhex) {
-                cc = areas[i].getAttribute("onclick").replace(')', '').split(",");
-                seltop = Number(cc[1]);
-                selleft = Number(cc[2]);
-            }
+    var c=0==hex?document.getElementById("input").value:hex,
+        cObj=w3color(c),colormap,areas,i,areacolor,cc,
+        r=cObj.red,g=cObj.green,b=cObj.blue;
+    colorhex=cObj.toHexString();
+    document.getElementById("cnam").innerHTML=(cObj.toName()||"");
+    document.getElementById("chex").innerHTML=cObj.toHexString();
+    document.getElementById("crgb").innerHTML=cObj.toRgbString();
+    document.getElementById("chsl").innerHTML=cObj.toHslString();    
+    if((!seltop||seltop==-1)&&(!selleft||selleft==-1)){
+        colormap=document.getElementById("colormap");
+        areas=colormap.getElementsByTagName("AREA");
+        for(i=0;i<areas.length;i++){
+            areacolor=areacolor.replace('")','');
+            areacolor.toLowerCase()==colorhex&&(cc=areas[i].getAttribute("onclick").replace(")","").split(","),seltop=Number(cc[1]),selleft=Number(cc[2]));
         }
     }
-    if ((seltop+200)>-1 && selleft>-1) {
-        document.getElementById("selectedhexagon").style.top=seltop + "px";
-        document.getElementById("selectedhexagon").style.left=selleft + "px";
-        document.getElementById("selectedhexagon").style.visibility="visible";
-  } else {
-        document.getElementById("selectedhexagon").style.visibility = "hidden";
-  }
-  document.querySelector('body').style.setProperty("--bg",cObj.toHexString());
-  changeColor();
+    document.querySelector('body').style.setProperty("--bg",cObj.toHexString());
+    changeColor();
 }
-function wrongInput() {
-    document.getElementById("entercolorDIV").className = "error";
-}
-function clear() {
-    document.getElementById("entercolorDIV").className = "";
-}
-
-function hslLum_top() {
-  var i, a, match;
-  var color = document.getElementById("colorhex").innerHTML;
-  var hslObj = w3color(color);
-  var h = hslObj.hue;
-  var s = hslObj.sat;
-  var l = hslObj.lightness;
-  var arr = [];
-  for (i = 0; i <= 20; i++) {
-      arr.push(w3color("hsl(" + h + "," + s + "," + (i * 0.05) + ")"));
-  }
-  arr.reverse();
-  a = "<div class='colorTable'>";
-  match = 0;
-  for (i = 0; i < arr.length; i++) {
-    if (match == 0 && Math.round(l * 100) == Math.round(arr[i].lightness * 100)) {
-      a += "<div style='background:" + w3color(hslObj).toHexString() + ";'>\
-                <div>\
-                    <b>" + Math.round(l * 100) + " " + w3color(hslObj).toHexString() + "</b>\
-                </div>\
-            </div>";
-      match = 1;      
-    } else {
-      if (match == 0 && l > arr[i].lightness) {
-        a += "<div style='background:" + w3color(hslObj).toHexString() + ";'>\
-                  <div>\
-                      <b>" + Math.round(l * 100) + " " + w3color(hslObj).toHexString() + "</b>\
-                  </div>\
-              </div>";
-        match = 1;
-      }
-      a += "<div style='background:" + arr[i].toHexString() + ";' onclick='cc(\"" + arr[i].toHexString() + "\")'>\
-                <div>" + Math.round(arr[i].lightness * 100) + " " + arr[i].toHexString() + "</div>\
-            </div>";
+function hslLum_top(){
+    var i,
+        a="<div class='colorTable'>",
+        match=0,
+        color=document.getElementById("chex").innerHTML,
+        hslObj=w3color(color),
+        h=hslObj.hue,s=hslObj.sat,l=hslObj.lightness,
+        arr=[],
+        str=w3color(hslObj).toHexString();
+    for(i=0;i<=20;i++)arr.push(w3color("hsl("+h+","+s+","+.05*i+")"));
+    arr.reverse();
+    for(i=0;i<arr.length;i++){
+        if(match==0&&Math.round(l*100)==Math.round(arr[i].lightness*100)){
+            a+=`<div style='background:${str}'><b>${Math.round(l*100)} ${str}</b></div>`;
+            match=1;      
+        }else{
+            0==match&&l>arr[i].lightness&&(a+=`<div style='background:${str}'><b>${Math.round(100*l)} ${str}</b></div>`,match=1);
+            a+=`<div style='background:${arr[i].toHexString()}' onclick='cc("${arr[i].toHexString()}")'><i>${Math.round(arr[i].lightness*100)} ${arr[i].toHexString()}</i></div>`;
+        }
     }
-  }
-  a += "</div>";
-  document.getElementById("lumtop").innerHTML = a;
+    a+="</div>";
+    document.getElementById("lum").innerHTML=a;
 }
-function hslTable(x) {
-  var lineno, header, i, a, match, same, comp, loopHSL, HSL;
-  var color = document.getElementById("colorhex").innerHTML;
-  var hslObj = w3color(color);
-  var h = hslObj.hue;
-  var s = hslObj.sat;
-  var l = hslObj.lightness;
-  var arr = [];
-  if (x == "hue") {lineno = 24;}
-  if (x == "sat") {lineno = 20;} 
-  for (i = 0; i <= lineno; i++) {
-    if (x == "hue") {arr.push(w3color("hsl(" + (i * 15) + "," + s + "," + l + ")"));}
-    if (x == "sat") {arr.push(w3color("hsl(" + h + "," + (i * 0.05) + "," + l + ")"));}
-  }
-  if (x == "sat") {arr.reverse();}
-  a = "<div class='colorTable'>";
-  match = 0;
-  for (i = 0; i < arr.length; i++) {
-    same = 0;
-    if (x == "hue") {
-      loopHSL = w3color(arr[i]).hue;
-      HSL = h;
-      if (i == arr.length - 1) {loopHSL = 360;}
-      comp = (loopHSL > HSL);
+function hslTable(x){
+    var lineno,header,same,comp,loopHSL,HSL,i,match=0,
+        a="<div class='colorTable'>",
+        color=document.getElementById("chex").innerHTML,
+        hslObj=w3color(color),
+        h=hslObj.hue,
+        s=hslObj.sat,
+        l=hslObj.lightness,
+        arr=[];
+    "hue"==x&&(lineno=24);
+    "sat"==x&&(lineno=20); 
+    for(i=0;i<=lineno;i++){
+        "hue"==x&&arr.push(w3color(`hsl(${15*i},${s},${l})`));
+        "sat"==x&&arr.push(w3color(`hsl(${h},${.05*i},${l})`));
     }
-    if (x == "sat") {
-      loopHSL = Math.round(w3color(arr[i]).sat * 100);
-      HSL = Number(s * 100);
-      HSL = Math.round(HSL);
-      comp = (loopHSL < HSL);
-      HSL = HSL + "%";
-      loopHSL = loopHSL + "%";
+    "sat"==x&&arr.reverse();
+    for(i=0;i<arr.length;i++){
+        same=0;
+        "hue"==x&&(loopHSL=w3color(arr[i]).hue,HSL=h,comp=(loopHSL=i==arr.length-1?360:loopHSL)>HSL);
+        "sat"==x&&(loopHSL=Math.round(100*w3color(arr[i]).sat),HSL=Number(100*s),HSL=Math.round(HSL),comp=loopHSL<HSL);
+        HSL==loopHSL&&(match++,same=1);
+        comp&&match++;
+        1==match&&(a+=`<div style='background:${hslObj.toHexString()}'><b>${HSL} ${hslObj.toHexString()}</b></div>`,match=2);
+        0==same&&(a+=`<div style='background:${arr[i].toHexString()}' onclick='cc("${arr[i].toHexString()}")'><i>${loopHSL} ${arr[i].toHexString()}</i></div>`);
     }
-    if (HSL == loopHSL) {match++; same = 1;}
-    if (comp) {match++;}
-    if (match == 1) {
-      a += "<div style='background:" + hslObj.toHexString() + "'>\
-            <div><b>" + HSL + " " + hslObj.toHexString() + "</b></span></div>\
-            </div>";
-      match = 2;
-    }
-    if (same == 0) {
-      a += "<div style='background:" + arr[i].toHexString() + "' onclick='cc(\"" + arr[i].toHexString() + "\")'>\
-            <div>" + loopHSL + " " + arr[i].toHexString() + "</span></div>\
-            </div>";
-    }
-  }
-  a += "</div>";
-  if (x == "hue") {document.getElementById("hue").innerHTML = a;}
-  if (x == "sat") {document.getElementById("hsl").innerHTML = a;}
+    a+="</div>";
+    "hue"==x&&(document.getElementById("hue").innerHTML=a);
+    "sat"==x&&(document.getElementById("hsl").innerHTML=a);
 }
-function changeColor(value) {
-  hslLum_top();  
-  hslTable("hue");
-  hslTable("sat");
-}
-function submit(e) {
-    keyboardKey = e.which || e.keyCode;
-    if (keyboardKey == 13) {cc(0,-1,-1);}
-}
-</script>
-</head>
-<body>
+function changeColor(l){hslLum_top(),hslTable("hue"),hslTable("sat")}
+</script></head><body>
 <div>
-    <div id="map">
-    <svg id='colormap' name='colormap' viewBox="0 0 236 200" onmouseout="mouseOutMap()">
-    <path fill='#036' d='M63,0,72,4,72,15,63,19,54,15,54,4' onclick='cc("#036",-200,54)' onmouseover='moColor("#036")'/>
-    <path fill='#369' d='M81,0,90,4,90,15,81,19,72,15,72,4' onclick='cc("#369",-200,72)' onmouseover='moColor("#369")'/>
-    <path fill='#36C' d='M99,0,108,4,108,15,99,19,90,15,90,4' onclick='cc("#36C",-200,90)' onmouseover='moColor("#36C")'/>
-    <path fill='#039' d='M117,0,126,4,126,15,117,19,108,15,108,4' onclick='cc("#039",-200,108)' onmouseover='moColor("#039")'/>
-    <path fill='#009' d='M135,0,144,4,144,15,135,19,126,15,126,4' onclick='cc("#009",-200,126)' onmouseover='moColor("#009")'/>
-    <path fill='#00C' d='M153,0,162,4,162,15,153,19,144,15,144,4' onclick='cc("#00C",-200,144)' onmouseover='moColor("#00C")'/>
-    <path fill='#006' d='M171,0,180,4,180,15,171,19,162,15,162,4' onclick='cc("#006",-200,162)' onmouseover='moColor("#006")'/>
-    <path fill='#066' d='M54,15,63,19,63,30,54,34,45,30,45,19' onclick='cc("#066",-185,45)' onmouseover='moColor("#066")'/>
-    <path fill='#069' d='M72,15,81,19,81,30,72,34,63,30,63,19' onclick='cc("#069",-185,63)' onmouseover='moColor("#069")'/>
-    <path fill='#09C' d='M90,15,99,19,99,30,90,34,81,30,81,19' onclick='cc("#09C",-185,81)' onmouseover='moColor("#09C")'/>
-    <path fill='#06C' d='M108,15,117,19,117,30,108,34,99,30,99,19' onclick='cc("#06C",-185,99)' onmouseover='moColor("#06C")'/>
-    <path fill='#03C' d='M126,15,135,19,135,30,126,34,117,30,117,19' onclick='cc("#03C",-185,117)' onmouseover='moColor("#03C")'/>
-    <path fill='#00F' d='M144,15,153,19,153,30,144,34,135,30,135,19' onclick='cc("#00F",-185,135)' onmouseover='moColor("#00F")'/>
-    <path fill='#33F' d='M162,15,171,19,171,30,162,34,153,30,153,19' onclick='cc("#33F",-185,153)' onmouseover='moColor("#33F")'/>
-    <path fill='#339' d='M180,15,189,19,189,30,180,34,171,30,171,19' onclick='cc("#339",-185,171)' onmouseover='moColor("#339")'/>
-    <path fill='#699' d='M45,30,54,34,54,45,45,49,36,45,36,34' onclick='cc("#699",-170,36)' onmouseover='moColor("#699")'/>
-    <path fill='#099' d='M63,30,72,34,72,45,63,49,54,45,54,34' onclick='cc("#099",-170,54)' onmouseover='moColor("#099")'/>
-    <path fill='#3CC' d='M81,30,90,34,90,45,81,49,72,45,72,34' onclick='cc("#3CC",-170,72)' onmouseover='moColor("#3CC")'/>
-    <path fill='#0CF' d='M99,30,108,34,108,45,99,49,90,45,90,34' onclick='cc("#0CF",-170,90)' onmouseover='moColor("#0CF")'/>
-    <path fill='#09F' d='M117,30,126,34,126,45,117,49,108,45,108,34' onclick='cc("#09F",-170,108)' onmouseover='moColor("#09F")'/>
-    <path fill='#06F' d='M135,30,144,34,144,45,135,49,126,45,126,34' onclick='cc("#06F",-170,126)' onmouseover='moColor("#06F")'/>
-    <path fill='#36F' d='M153,30,162,34,162,45,153,49,144,45,144,34' onclick='cc("#36F",-170,144)' onmouseover='moColor("#36F")'/>
-    <path fill='#33C' d='M171,30,180,34,180,45,171,49,162,45,162,34' onclick='cc("#33C",-170,162)' onmouseover='moColor("#33C")'/>
-    <path fill='#669' d='M189,30,198,34,198,45,189,49,180,45,180,34' onclick='cc("#669",-170,180)' onmouseover='moColor("#669")'/>
-    <path fill='#396' d='M36,45,45,49,45,60,36,64,27,60,27,49' onclick='cc("#396",-155,27)' onmouseover='moColor("#396")'/>
-    <path fill='#0C9' d='M54,45,63,49,63,60,54,64,45,60,45,49' onclick='cc("#0C9",-155,45)' onmouseover='moColor("#0C9")'/>
-    <path fill='#0FC' d='M72,45,81,49,81,60,72,64,63,60,63,49' onclick='cc("#0FC",-155,63)' onmouseover='moColor("#0FC")'/>
-    <path fill='#0FF' d='M90,45,99,49,99,60,90,64,81,60,81,49' onclick='cc("#0FF",-155,81)' onmouseover='moColor("#0FF")'/>
-    <path fill='#3CF' d='M108,45,117,49,117,60,108,64,99,60,99,49' onclick='cc("#3CF",-155,99)' onmouseover='moColor("#3CF")'/>
-    <path fill='#39F' d='M126,45,135,49,135,60,126,64,117,60,117,49' onclick='cc("#39F",-155,117)' onmouseover='moColor("#39F")'/>
-    <path fill='#69F' d='M144,45,153,49,153,60,144,64,135,60,135,49' onclick='cc("#69F",-155,135)' onmouseover='moColor("#69F")'/>
-    <path fill='#66F' d='M162,45,171,49,171,60,162,64,153,60,153,49' onclick='cc("#66F",-155,153)' onmouseover='moColor("#66F")'/>
-    <path fill='#60F' d='M180,45,189,49,189,60,180,64,171,60,171,49' onclick='cc("#60F",-155,171)' onmouseover='moColor("#60F")'/>
-    <path fill='#60C' d='M198,45,207,49,207,60,198,64,189,60,189,49' onclick='cc("#60C",-155,189)' onmouseover='moColor("#60C")'/>
-    <path fill='#393' d='M27,60,36,64,36,75,27,79,18,75,18,64' onclick='cc("#393",-140,18)' onmouseover='moColor("#393")'/>
-    <path fill='#0C6' d='M45,60,54,64,54,75,45,79,36,75,36,64' onclick='cc("#0C6",-140,36)' onmouseover='moColor("#0C6")'/>
-    <path fill='#0F9' d='M63,60,72,64,72,75,63,79,54,75,54,64' onclick='cc("#0F9",-140,54)' onmouseover='moColor("#0F9")'/>
-    <path fill='#6FC' d='M81,60,90,64,90,75,81,79,72,75,72,64' onclick='cc("#6FC",-140,72)' onmouseover='moColor("#6FC")'/>
-    <path fill='#6FF' d='M99,60,108,64,108,75,99,79,90,75,90,64' onclick='cc("#6FF",-140,90)' onmouseover='moColor("#6FF")'/>
-    <path fill='#6CF' d='M117,60,126,64,126,75,117,79,108,75,108,64' onclick='cc("#6CF",-140,108)' onmouseover='moColor("#6CF")'/>
-    <path fill='#9CF' d='M135,60,144,64,144,75,135,79,126,75,126,64' onclick='cc("#9CF",-140,126)' onmouseover='moColor("#9CF")'/>
-    <path fill='#99F' d='M153,60,162,64,162,75,153,79,144,75,144,64' onclick='cc("#99F",-140,144)' onmouseover='moColor("#99F")'/>
-    <path fill='#96F' d='M171,60,180,64,180,75,171,79,162,75,162,64' onclick='cc("#96F",-140,162)' onmouseover='moColor("#96F")'/>
-    <path fill='#93F' d='M189,60,198,64,198,75,189,79,180,75,180,64' onclick='cc("#93F",-140,180)' onmouseover='moColor("#93F")'/>
-    <path fill='#90F' d='M207,60,216,64,216,75,207,79,198,75,198,64' onclick='cc("#90F",-140,198)' onmouseover='moColor("#90F")'/>
-    <path fill='#060' d='M18,75,27,79,27,90,18,94,9,90,9,79' onclick='cc("#060",-125,9)' onmouseover='moColor("#060")'/>
-    <path fill='#0C0' d='M36,75,45,79,45,90,36,94,27,90,27,79' onclick='cc("#0C0",-125,27)' onmouseover='moColor("#0C0")'/>
-    <path fill='#0F0' d='M54,75,63,79,63,90,54,94,45,90,45,79' onclick='cc("#0F0",-125,45)' onmouseover='moColor("#0F0")'/>
-    <path fill='#6F9' d='M72,75,81,79,81,90,72,94,63,90,63,79' onclick='cc("#6F9",-125,63)' onmouseover='moColor("#6F9")'/>
-    <path fill='#9FC' d='M90,75,99,79,99,90,90,94,81,90,81,79' onclick='cc("#9FC",-125,81)' onmouseover='moColor("#9FC")'/>
-    <path fill='#CFF' d='M108,75,117,79,117,90,108,94,99,90,99,79' onclick='cc("#CFF",-125,99)' onmouseover='moColor("#CFF")'/>
-    <path fill='#CCF' d='M126,75,135,79,135,90,126,94,117,90,117,79' onclick='cc("#CCF",-125,117)' onmouseover='moColor("#CCF")'/>
-    <path fill='#C9F' d='M144,75,153,79,153,90,144,94,135,90,135,79' onclick='cc("#C9F",-125,135)' onmouseover='moColor("#C9F")'/>
-    <path fill='#C6F' d='M162,75,171,79,171,90,162,94,153,90,153,79' onclick='cc("#C6F",-125,153)' onmouseover='moColor("#C6F")'/>
-    <path fill='#C3F' d='M180,75,189,79,189,90,180,94,171,90,171,79' onclick='cc("#C3F",-125,171)' onmouseover='moColor("#C3F")'/>
-    <path fill='#C0F' d='M198,75,207,79,207,90,198,94,189,90,189,79' onclick='cc("#C0F",-125,189)' onmouseover='moColor("#C0F")'/>
-    <path fill='#90C' d='M216,75,225,79,225,90,216,94,207,90,207,79' onclick='cc("#90C",-125,207)' onmouseover='moColor("#90C")'/>
-    <path fill='#030' d='M9,90,18,94,18,105,9,109,0,105,0,94' onclick='cc("#030",-110,0)' onmouseover='moColor("#030")'/>
-    <path fill='#093' d='M27,90,36,94,36,105,27,109,18,105,18,94' onclick='cc("#093",-110,18)' onmouseover='moColor("#093")'/>
-    <path fill='#3C3' d='M45,90,54,94,54,105,45,109,36,105,36,94' onclick='cc("#3C3",-110,36)' onmouseover='moColor("#3C3")'/>
-    <path fill='#6F6' d='M63,90,72,94,72,105,63,109,54,105,54,94' onclick='cc("#6F6",-110,54)' onmouseover='moColor("#6F6")'/>
-    <path fill='#9F9' d='M81,90,90,94,90,105,81,109,72,105,72,94' onclick='cc("#9F9",-110,72)' onmouseover='moColor("#9F9")'/>
-    <path fill='#CFC' d='M99,90,108,94,108,105,99,109,90,105,90,94' onclick='cc("#CFC",-110,90)' onmouseover='moColor("#CFC")'/>
-    <path fill='#FFF' d='M117,90,126,94,126,105,117,109,108,105,108,94' onclick='cc("#FFF",-110,108)' onmouseover='moColor("#FFF")'/>
-    <path fill='#FCF' d='M135,90,144,94,144,105,135,109,126,105,126,94' onclick='cc("#FCF",-110,126)' onmouseover='moColor("#FCF")'/>
-    <path fill='#F9F' d='M153,90,162,94,162,105,153,109,144,105,144,94' onclick='cc("#F9F",-110,144)' onmouseover='moColor("#F9F")'/>
-    <path fill='#F6F' d='M171,90,180,94,180,105,171,109,162,105,162,94' onclick='cc("#F6F",-110,162)' onmouseover='moColor("#F6F")'/>
-    <path fill='#F0F' d='M189,90,198,94,198,105,189,109,180,105,180,94' onclick='cc("#F0F",-110,180)' onmouseover='moColor("#F0F")'/>
-    <path fill='#C0C' d='M207,90,216,94,216,105,207,109,198,105,198,94' onclick='cc("#C0C",-110,198)' onmouseover='moColor("#C0C")'/>
-    <path fill='#606' d='M225,90,234,94,234,105,225,109,216,105,216,94' onclick='cc("#606",-110,216)' onmouseover='moColor("#606")'/>
-    <path fill='#360' d='M18,105,27,109,27,120,18,124,9,120,9,109' onclick='cc("#360",-95,9)' onmouseover='moColor("#360")'/>
-    <path fill='#090' d='M36,105,45,109,45,120,36,124,27,120,27,109' onclick='cc("#090",-95,27)' onmouseover='moColor("#090")'/>
-    <path fill='#6F3' d='M54,105,63,109,63,120,54,124,45,120,45,109' onclick='cc("#6F3",-95,45)' onmouseover='moColor("#6F3")'/>
-    <path fill='#9F6' d='M72,105,81,109,81,120,72,124,63,120,63,109' onclick='cc("#9F6",-95,63)' onmouseover='moColor("#9F6")'/>
-    <path fill='#CF9' d='M90,105,99,109,99,120,90,124,81,120,81,109' onclick='cc("#CF9",-95,81)' onmouseover='moColor("#CF9")'/>
-    <path fill='#FFC' d='M108,105,117,109,117,120,108,124,99,120,99,109' onclick='cc("#FFC",-95,99)' onmouseover='moColor("#FFC")'/>
-    <path fill='#FCC' d='M126,105,135,109,135,120,126,124,117,120,117,109' onclick='cc("#FCC",-95,117)' onmouseover='moColor("#FCC")'/>
-    <path fill='#F9C' d='M144,105,153,109,153,120,144,124,135,120,135,109' onclick='cc("#F9C",-95,135)' onmouseover='moColor("#F9C")'/>
-    <path fill='#F6C' d='M162,105,171,109,171,120,162,124,153,120,153,109' onclick='cc("#F6C",-95,153)' onmouseover='moColor("#F6C")'/>
-    <path fill='#F3C' d='M180,105,189,109,189,120,180,124,171,120,171,109' onclick='cc("#F3C",-95,171)' onmouseover='moColor("#F3C")'/>
-    <path fill='#C09' d='M198,105,207,109,207,120,198,124,189,120,189,109' onclick='cc("#C09",-95,189)' onmouseover='moColor("#C09")'/>
-    <path fill='#939' d='M216,105,225,109,225,120,216,124,207,120,207,109' onclick='cc("#939",-95,207)' onmouseover='moColor("#939")'/>
-    <path fill='#330' d='M27,120,36,124,36,135,27,139,18,135,18,124' onclick='cc("#330",-80,18)' onmouseover='moColor("#330")'/>
-    <path fill='#690' d='M45,120,54,124,54,135,45,139,36,135,36,124' onclick='cc("#690",-80,36)' onmouseover='moColor("#690")'/>
-    <path fill='#9F3' d='M63,120,72,124,72,135,63,139,54,135,54,124' onclick='cc("#9F3",-80,54)' onmouseover='moColor("#9F3")'/>
-    <path fill='#CF6' d='M81,120,90,124,90,135,81,139,72,135,72,124' onclick='cc("#CF6",-80,72)' onmouseover='moColor("#CF6")'/>
-    <path fill='#FF9' d='M99,120,108,124,108,135,99,139,90,135,90,124' onclick='cc("#FF9",-80,90)' onmouseover='moColor("#FF9")'/>
-    <path fill='#FC9' d='M117,120,126,124,126,135,117,139,108,135,108,124' onclick='cc("#FC9",-80,108)' onmouseover='moColor("#FC9")'/>
-    <path fill='#F99' d='M135,120,144,124,144,135,135,139,126,135,126,124' onclick='cc("#F99",-80,126)' onmouseover='moColor("#F99")'/>
-    <path fill='#F69' d='M153,120,162,124,162,135,153,139,144,135,144,124' onclick='cc("#F69",-80,144)' onmouseover='moColor("#F69")'/>
-    <path fill='#F39' d='M171,120,180,124,180,135,171,139,162,135,162,124' onclick='cc("#F39",-80,162)' onmouseover='moColor("#F39")'/>
-    <path fill='#C39' d='M189,120,198,124,198,135,189,139,180,135,180,124' onclick='cc("#C39",-80,180)' onmouseover='moColor("#C39")'/>
-    <path fill='#909' d='M207,120,216,124,216,135,207,139,198,135,198,124' onclick='cc("#909",-80,198)' onmouseover='moColor("#909")'/>
-    <path fill='#663' d='M36,135,45,139,45,150,36,154,27,150,27,139' onclick='cc("#663",-65,27)' onmouseover='moColor("#663")'/>
-    <path fill='#9C0' d='M54,135,63,139,63,150,54,154,45,150,45,139' onclick='cc("#9C0",-65,45)' onmouseover='moColor("#9C0")'/>
-    <path fill='#CF3' d='M72,135,81,139,81,150,72,154,63,150,63,139' onclick='cc("#CF3",-65,63)' onmouseover='moColor("#CF3")'/>
-    <path fill='#FF6' d='M90,135,99,139,99,150,90,154,81,150,81,139' onclick='cc("#FF6",-65,81)' onmouseover='moColor("#FF6")'/>
-    <path fill='#FC6' d='M108,135,117,139,117,150,108,154,99,150,99,139' onclick='cc("#FC6",-65,99)' onmouseover='moColor("#FC6")'/>
-    <path fill='#F96' d='M126,135,135,139,135,150,126,154,117,150,117,139' onclick='cc("#F96",-65,117)' onmouseover='moColor("#F96")'/>
-    <path fill='#F66' d='M144,135,153,139,153,150,144,154,135,150,135,139' onclick='cc("#F66",-65,135)' onmouseover='moColor("#F66")'/>
-    <path fill='#F06' d='M162,135,171,139,171,150,162,154,153,150,153,139' onclick='cc("#F06",-65,153)' onmouseover='moColor("#F06")'/>
-    <path fill='#C69' d='M180,135,189,139,189,150,180,154,171,150,171,139' onclick='cc("#C69",-65,171)' onmouseover='moColor("#C69")'/>
-    <path fill='#936' d='M198,135,207,139,207,150,198,154,189,150,189,139' onclick='cc("#936",-65,189)' onmouseover='moColor("#936")'/>
-    <path fill='#996' d='M45,150,54,154,54,165,45,169,36,165,36,154' onclick='cc("#996",-50,36)' onmouseover='moColor("#996")'/>
-    <path fill='#CC0' d='M63,150,72,154,72,165,63,169,54,165,54,154' onclick='cc("#CC0",-50,54)' onmouseover='moColor("#CC0")'/>
-    <path fill='#FF0' d='M81,150,90,154,90,165,81,169,72,165,72,154' onclick='cc("#FF0",-50,72)' onmouseover='moColor("#FF0")'/>
-    <path fill='#FC0' d='M99,150,108,154,108,165,99,169,90,165,90,154' onclick='cc("#FC0",-50,90)' onmouseover='moColor("#FC0")'/>
-    <path fill='#F93' d='M117,150,126,154,126,165,117,169,108,165,108,154' onclick='cc("#F93",-50,108)' onmouseover='moColor("#F93")'/>
-    <path fill='#F60' d='M135,150,144,154,144,165,135,169,126,165,126,154' onclick='cc("#F60",-50,126)' onmouseover='moColor("#F60")'/>
-    <path fill='#F50' d='M153,150,162,154,162,165,153,169,144,165,144,154' onclick='cc("#F55",-50,144)' onmouseover='moColor("#F05")'/>
-    <path fill='#C06' d='M171,150,180,154,180,165,171,169,162,165,162,154' onclick='cc("#C06",-50,162)' onmouseover='moColor("#C06")'/>
-    <path fill='#603' d='M189,150,198,154,198,165,189,169,180,165,180,154' onclick='cc("#603",-50,180)' onmouseover='moColor("#603")'/>
-    <path fill='#963' d='M54,165,63,169,63,180,54,184,45,180,45,169' onclick='cc("#963",-35,45)' onmouseover='moColor("#963")'/>
-    <path fill='#C90' d='M72,165,81,169,81,180,72,184,63,180,63,169' onclick='cc("#C90",-35,63)' onmouseover='moColor("#C90")'/>
-    <path fill='#F90' d='M90,165,99,169,99,180,90,184,81,180,81,169' onclick='cc("#F90",-35,81)' onmouseover='moColor("#F90")'/>
-    <path fill='#C60' d='M108,165,117,169,117,180,108,184,99,180,99,169' onclick='cc("#C60",-35,99)' onmouseover='moColor("#C60")'/>
-    <path fill='#F30' d='M126,165,135,169,135,180,126,184,117,180,117,169' onclick='cc("#F30",-35,117)' onmouseover='moColor("#F30")'/>
-    <path fill='#F00' d='M144,165,153,169,153,180,144,184,135,180,135,169' onclick='cc("#F00",-35,135)' onmouseover='moColor("#F00")'/>
-    <path fill='#C00' d='M162,165,171,169,171,180,162,184,153,180,153,169' onclick='cc("#C00",-35,153)' onmouseover='moColor("#C00")'/>
-    <path fill='#903' d='M180,165,189,169,189,180,180,184,171,180,171,169' onclick='cc("#903",-35,171)' onmouseover='moColor("#903")'/>
-    <path fill='#630' d='M63,180,72,184,72,195,63,199,54,195,54,184' onclick='cc("#630",-20,54)' onmouseover='moColor("#630")'/>
-    <path fill='#960' d='M81,180,90,184,90,195,81,199,72,195,72,184' onclick='cc("#960",-20,72)' onmouseover='moColor("#960")'/>
-    <path fill='#C30' d='M99,180,108,184,108,195,99,199,90,195,90,184' onclick='cc("#C30",-20,90)' onmouseover='moColor("#C30")'/>
-    <path fill='#930' d='M117,180,126,184,126,195,117,199,108,195,108,184' onclick='cc("#930",-20,108)' onmouseover='moColor("#930")'/>
-    <path fill='#900' d='M135,180,144,184,144,195,135,199,126,195,126,184' onclick='cc("#900",-20,126)' onmouseover='moColor("#900")'/>
-    <path fill='#800' d='M153,180,162,184,162,195,153,199,144,195,144,184' onclick='cc("#800",-20,144)' onmouseover='moColor("#800")'/>
-    <path fill='#933' d='M171,180,180,184,180,195,171,199,162,195,162,184' onclick='cc("#933",-20,162)' onmouseover='moColor("#933")'/>
-    </svg>
-    <script>var thistop="-35",thisleft="135"</script>
-    <div id='selectedhexagon'></div>
-    </div>
-    <div id="entercolorDIV">
-        <input id="entercolor" onkeydown="submit(event)" onfocus="clear()" placeholder="color">
-        <button onclick="cc(0,-1,-1)"></button>
-    </div>
-    <div id="selected">
-        <div id="colornam"></div>      
-        <div id="colorhex"></div>
-        <div id="colorrgb"></div>
-        <div id="colorhsl"></div>  
-    </div>
+<svg id='colormap' viewBox="0 0 236 200">
+<path fill='#036' d='M63,0,72,4,72,15,63,19,54,15,54,4' onclick='cc("#036",-200,54)'/>
+<path fill='#369' d='M81,0,90,4,90,15,81,19,72,15,72,4' onclick='cc("#369",-200,72)'/>
+<path fill='#36C' d='M99,0,108,4,108,15,99,19,90,15,90,4' onclick='cc("#36C",-200,90)'/>
+<path fill='#039' d='M117,0,126,4,126,15,117,19,108,15,108,4' onclick='cc("#039",-200,108)'/>
+<path fill='#009' d='M135,0,144,4,144,15,135,19,126,15,126,4' onclick='cc("#009",-200,126)'/>
+<path fill='#00C' d='M153,0,162,4,162,15,153,19,144,15,144,4' onclick='cc("#00C",-200,144)'/>
+<path fill='#006' d='M171,0,180,4,180,15,171,19,162,15,162,4' onclick='cc("#006",-200,162)'/>
+<path fill='#066' d='M54,15,63,19,63,30,54,34,45,30,45,19' onclick='cc("#066",-185,45)'/>
+<path fill='#069' d='M72,15,81,19,81,30,72,34,63,30,63,19' onclick='cc("#069",-185,63)'/>
+<path fill='#09C' d='M90,15,99,19,99,30,90,34,81,30,81,19' onclick='cc("#09C",-185,81)'/>
+<path fill='#06C' d='M108,15,117,19,117,30,108,34,99,30,99,19' onclick='cc("#06C",-185,99)'/>
+<path fill='#03C' d='M126,15,135,19,135,30,126,34,117,30,117,19' onclick='cc("#03C",-185,117)'/>
+<path fill='#00F' d='M144,15,153,19,153,30,144,34,135,30,135,19' onclick='cc("#00F",-185,135)'/>
+<path fill='#33F' d='M162,15,171,19,171,30,162,34,153,30,153,19' onclick='cc("#33F",-185,153)'/>
+<path fill='#339' d='M180,15,189,19,189,30,180,34,171,30,171,19' onclick='cc("#339",-185,171)'/>
+<path fill='#699' d='M45,30,54,34,54,45,45,49,36,45,36,34' onclick='cc("#699",-170,36)'/>
+<path fill='#099' d='M63,30,72,34,72,45,63,49,54,45,54,34' onclick='cc("#099",-170,54)'/>
+<path fill='#3CC' d='M81,30,90,34,90,45,81,49,72,45,72,34' onclick='cc("#3CC",-170,72)'/>
+<path fill='#0CF' d='M99,30,108,34,108,45,99,49,90,45,90,34' onclick='cc("#0CF",-170,90)'/>
+<path fill='#09F' d='M117,30,126,34,126,45,117,49,108,45,108,34' onclick='cc("#09F",-170,108)'/>
+<path fill='#06F' d='M135,30,144,34,144,45,135,49,126,45,126,34' onclick='cc("#06F",-170,126)'/>
+<path fill='#36F' d='M153,30,162,34,162,45,153,49,144,45,144,34' onclick='cc("#36F",-170,144)'/>
+<path fill='#33C' d='M171,30,180,34,180,45,171,49,162,45,162,34' onclick='cc("#33C",-170,162)'/>
+<path fill='#669' d='M189,30,198,34,198,45,189,49,180,45,180,34' onclick='cc("#669",-170,180)'/>
+<path fill='#396' d='M36,45,45,49,45,60,36,64,27,60,27,49' onclick='cc("#396",-155,27)'/>
+<path fill='#0C9' d='M54,45,63,49,63,60,54,64,45,60,45,49' onclick='cc("#0C9",-155,45)'/>
+<path fill='#0FC' d='M72,45,81,49,81,60,72,64,63,60,63,49' onclick='cc("#0FC",-155,63)'/>
+<path fill='#0FF' d='M90,45,99,49,99,60,90,64,81,60,81,49' onclick='cc("#0FF",-155,81)'/>
+<path fill='#3CF' d='M108,45,117,49,117,60,108,64,99,60,99,49' onclick='cc("#3CF",-155,99)'/>
+<path fill='#39F' d='M126,45,135,49,135,60,126,64,117,60,117,49' onclick='cc("#39F",-155,117)'/>
+<path fill='#69F' d='M144,45,153,49,153,60,144,64,135,60,135,49' onclick='cc("#69F",-155,135)'/>
+<path fill='#66F' d='M162,45,171,49,171,60,162,64,153,60,153,49' onclick='cc("#66F",-155,153)'/>
+<path fill='#60F' d='M180,45,189,49,189,60,180,64,171,60,171,49' onclick='cc("#60F",-155,171)'/>
+<path fill='#60C' d='M198,45,207,49,207,60,198,64,189,60,189,49' onclick='cc("#60C",-155,189)'/>
+<path fill='#393' d='M27,60,36,64,36,75,27,79,18,75,18,64' onclick='cc("#393",-140,18)'/>
+<path fill='#0C6' d='M45,60,54,64,54,75,45,79,36,75,36,64' onclick='cc("#0C6",-140,36)'/>
+<path fill='#0F9' d='M63,60,72,64,72,75,63,79,54,75,54,64' onclick='cc("#0F9",-140,54)'/>
+<path fill='#6FC' d='M81,60,90,64,90,75,81,79,72,75,72,64' onclick='cc("#6FC",-140,72)'/>
+<path fill='#6FF' d='M99,60,108,64,108,75,99,79,90,75,90,64' onclick='cc("#6FF",-140,90)'/>
+<path fill='#6CF' d='M117,60,126,64,126,75,117,79,108,75,108,64' onclick='cc("#6CF",-140,108)'/>
+<path fill='#9CF' d='M135,60,144,64,144,75,135,79,126,75,126,64' onclick='cc("#9CF",-140,126)'/>
+<path fill='#99F' d='M153,60,162,64,162,75,153,79,144,75,144,64' onclick='cc("#99F",-140,144)'/>
+<path fill='#96F' d='M171,60,180,64,180,75,171,79,162,75,162,64' onclick='cc("#96F",-140,162)'/>
+<path fill='#93F' d='M189,60,198,64,198,75,189,79,180,75,180,64' onclick='cc("#93F",-140,180)'/>
+<path fill='#90F' d='M207,60,216,64,216,75,207,79,198,75,198,64' onclick='cc("#90F",-140,198)'/>
+<path fill='#060' d='M18,75,27,79,27,90,18,94,9,90,9,79' onclick='cc("#060",-125,9)'/>
+<path fill='#0C0' d='M36,75,45,79,45,90,36,94,27,90,27,79' onclick='cc("#0C0",-125,27)'/>
+<path fill='#0F0' d='M54,75,63,79,63,90,54,94,45,90,45,79' onclick='cc("#0F0",-125,45)'/>
+<path fill='#6F9' d='M72,75,81,79,81,90,72,94,63,90,63,79' onclick='cc("#6F9",-125,63)'/>
+<path fill='#9FC' d='M90,75,99,79,99,90,90,94,81,90,81,79' onclick='cc("#9FC",-125,81)'/>
+<path fill='#CFF' d='M108,75,117,79,117,90,108,94,99,90,99,79' onclick='cc("#CFF",-125,99)'/>
+<path fill='#CCF' d='M126,75,135,79,135,90,126,94,117,90,117,79' onclick='cc("#CCF",-125,117)'/>
+<path fill='#C9F' d='M144,75,153,79,153,90,144,94,135,90,135,79' onclick='cc("#C9F",-125,135)'/>
+<path fill='#C6F' d='M162,75,171,79,171,90,162,94,153,90,153,79' onclick='cc("#C6F",-125,153)'/>
+<path fill='#C3F' d='M180,75,189,79,189,90,180,94,171,90,171,79' onclick='cc("#C3F",-125,171)'/>
+<path fill='#C0F' d='M198,75,207,79,207,90,198,94,189,90,189,79' onclick='cc("#C0F",-125,189)'/>
+<path fill='#90C' d='M216,75,225,79,225,90,216,94,207,90,207,79' onclick='cc("#90C",-125,207)'/>
+<path fill='#030' d='M9,90,18,94,18,105,9,109,0,105,0,94' onclick='cc("#030",-110,0)'/>
+<path fill='#093' d='M27,90,36,94,36,105,27,109,18,105,18,94' onclick='cc("#093",-110,18)'/>
+<path fill='#3C3' d='M45,90,54,94,54,105,45,109,36,105,36,94' onclick='cc("#3C3",-110,36)'/>
+<path fill='#6F6' d='M63,90,72,94,72,105,63,109,54,105,54,94' onclick='cc("#6F6",-110,54)'/>
+<path fill='#9F9' d='M81,90,90,94,90,105,81,109,72,105,72,94' onclick='cc("#9F9",-110,72)'/>
+<path fill='#CFC' d='M99,90,108,94,108,105,99,109,90,105,90,94' onclick='cc("#CFC",-110,90)'/>
+<path fill='#FFF' d='M117,90,126,94,126,105,117,109,108,105,108,94' onclick='cc("#FFF",-110,108)'/>
+<path fill='#FCF' d='M135,90,144,94,144,105,135,109,126,105,126,94' onclick='cc("#FCF",-110,126)'/>
+<path fill='#F9F' d='M153,90,162,94,162,105,153,109,144,105,144,94' onclick='cc("#F9F",-110,144)'/>
+<path fill='#F6F' d='M171,90,180,94,180,105,171,109,162,105,162,94' onclick='cc("#F6F",-110,162)'/>
+<path fill='#F0F' d='M189,90,198,94,198,105,189,109,180,105,180,94' onclick='cc("#F0F",-110,180)'/>
+<path fill='#C0C' d='M207,90,216,94,216,105,207,109,198,105,198,94' onclick='cc("#C0C",-110,198)'/>
+<path fill='#606' d='M225,90,234,94,234,105,225,109,216,105,216,94' onclick='cc("#606",-110,216)'/>
+<path fill='#360' d='M18,105,27,109,27,120,18,124,9,120,9,109' onclick='cc("#360",-95,9)'/>
+<path fill='#090' d='M36,105,45,109,45,120,36,124,27,120,27,109' onclick='cc("#090",-95,27)'/>
+<path fill='#6F3' d='M54,105,63,109,63,120,54,124,45,120,45,109' onclick='cc("#6F3",-95,45)'/>
+<path fill='#9F6' d='M72,105,81,109,81,120,72,124,63,120,63,109' onclick='cc("#9F6",-95,63)'/>
+<path fill='#CF9' d='M90,105,99,109,99,120,90,124,81,120,81,109' onclick='cc("#CF9",-95,81)'/>
+<path fill='#FFC' d='M108,105,117,109,117,120,108,124,99,120,99,109' onclick='cc("#FFC",-95,99)'/>
+<path fill='#FCC' d='M126,105,135,109,135,120,126,124,117,120,117,109' onclick='cc("#FCC",-95,117)'/>
+<path fill='#F9C' d='M144,105,153,109,153,120,144,124,135,120,135,109' onclick='cc("#F9C",-95,135)'/>
+<path fill='#F6C' d='M162,105,171,109,171,120,162,124,153,120,153,109' onclick='cc("#F6C",-95,153)'/>
+<path fill='#F3C' d='M180,105,189,109,189,120,180,124,171,120,171,109' onclick='cc("#F3C",-95,171)'/>
+<path fill='#C09' d='M198,105,207,109,207,120,198,124,189,120,189,109' onclick='cc("#C09",-95,189)'/>
+<path fill='#939' d='M216,105,225,109,225,120,216,124,207,120,207,109' onclick='cc("#939",-95,207)'/>
+<path fill='#330' d='M27,120,36,124,36,135,27,139,18,135,18,124' onclick='cc("#330",-80,18)'/>
+<path fill='#690' d='M45,120,54,124,54,135,45,139,36,135,36,124' onclick='cc("#690",-80,36)'/>
+<path fill='#9F3' d='M63,120,72,124,72,135,63,139,54,135,54,124' onclick='cc("#9F3",-80,54)'/>
+<path fill='#CF6' d='M81,120,90,124,90,135,81,139,72,135,72,124' onclick='cc("#CF6",-80,72)'/>
+<path fill='#FF9' d='M99,120,108,124,108,135,99,139,90,135,90,124' onclick='cc("#FF9",-80,90)'/>
+<path fill='#FC9' d='M117,120,126,124,126,135,117,139,108,135,108,124' onclick='cc("#FC9",-80,108)'/>
+<path fill='#F99' d='M135,120,144,124,144,135,135,139,126,135,126,124' onclick='cc("#F99",-80,126)'/>
+<path fill='#F69' d='M153,120,162,124,162,135,153,139,144,135,144,124' onclick='cc("#F69",-80,144)'/>
+<path fill='#F39' d='M171,120,180,124,180,135,171,139,162,135,162,124' onclick='cc("#F39",-80,162)'/>
+<path fill='#C39' d='M189,120,198,124,198,135,189,139,180,135,180,124' onclick='cc("#C39",-80,180)'/>
+<path fill='#909' d='M207,120,216,124,216,135,207,139,198,135,198,124' onclick='cc("#909",-80,198)'/>
+<path fill='#663' d='M36,135,45,139,45,150,36,154,27,150,27,139' onclick='cc("#663",-65,27)'/>
+<path fill='#9C0' d='M54,135,63,139,63,150,54,154,45,150,45,139' onclick='cc("#9C0",-65,45)'/>
+<path fill='#CF3' d='M72,135,81,139,81,150,72,154,63,150,63,139' onclick='cc("#CF3",-65,63)'/>
+<path fill='#FF6' d='M90,135,99,139,99,150,90,154,81,150,81,139' onclick='cc("#FF6",-65,81)'/>
+<path fill='#FC6' d='M108,135,117,139,117,150,108,154,99,150,99,139' onclick='cc("#FC6",-65,99)'/>
+<path fill='#F96' d='M126,135,135,139,135,150,126,154,117,150,117,139' onclick='cc("#F96",-65,117)'/>
+<path fill='#F66' d='M144,135,153,139,153,150,144,154,135,150,135,139' onclick='cc("#F66",-65,135)'/>
+<path fill='#F06' d='M162,135,171,139,171,150,162,154,153,150,153,139' onclick='cc("#F06",-65,153)'/>
+<path fill='#C69' d='M180,135,189,139,189,150,180,154,171,150,171,139' onclick='cc("#C69",-65,171)'/>
+<path fill='#936' d='M198,135,207,139,207,150,198,154,189,150,189,139' onclick='cc("#936",-65,189)'/>
+<path fill='#996' d='M45,150,54,154,54,165,45,169,36,165,36,154' onclick='cc("#996",-50,36)'/>
+<path fill='#CC0' d='M63,150,72,154,72,165,63,169,54,165,54,154' onclick='cc("#CC0",-50,54)'/>
+<path fill='#FF0' d='M81,150,90,154,90,165,81,169,72,165,72,154' onclick='cc("#FF0",-50,72)'/>
+<path fill='#FC0' d='M99,150,108,154,108,165,99,169,90,165,90,154' onclick='cc("#FC0",-50,90)'/>
+<path fill='#F93' d='M117,150,126,154,126,165,117,169,108,165,108,154' onclick='cc("#F93",-50,108)'/>
+<path fill='#F60' d='M135,150,144,154,144,165,135,169,126,165,126,154' onclick='cc("#F60",-50,126)'/>
+<path fill='#F50' d='M153,150,162,154,162,165,153,169,144,165,144,154' onclick='cc("#F55",-50,144)'/>
+<path fill='#C06' d='M171,150,180,154,180,165,171,169,162,165,162,154' onclick='cc("#C06",-50,162)'/>
+<path fill='#603' d='M189,150,198,154,198,165,189,169,180,165,180,154' onclick='cc("#603",-50,180)'/>
+<path fill='#963' d='M54,165,63,169,63,180,54,184,45,180,45,169' onclick='cc("#963",-35,45)'/>
+<path fill='#C90' d='M72,165,81,169,81,180,72,184,63,180,63,169' onclick='cc("#C90",-35,63)'/>
+<path fill='#F90' d='M90,165,99,169,99,180,90,184,81,180,81,169' onclick='cc("#F90",-35,81)'/>
+<path fill='#C60' d='M108,165,117,169,117,180,108,184,99,180,99,169' onclick='cc("#C60",-35,99)'/>
+<path fill='#F30' d='M126,165,135,169,135,180,126,184,117,180,117,169' onclick='cc("#F30",-35,117)'/>
+<path fill='#F00' d='M144,165,153,169,153,180,144,184,135,180,135,169' onclick='cc("#F00",-35,135)'/>
+<path fill='#C00' d='M162,165,171,169,171,180,162,184,153,180,153,169' onclick='cc("#C00",-35,153)'/>
+<path fill='#903' d='M180,165,189,169,189,180,180,184,171,180,171,169' onclick='cc("#903",-35,171)'/>
+<path fill='#630' d='M63,180,72,184,72,195,63,199,54,195,54,184' onclick='cc("#630",-20,54)'/>
+<path fill='#960' d='M81,180,90,184,90,195,81,199,72,195,72,184' onclick='cc("#960",-20,72)'/>
+<path fill='#C30' d='M99,180,108,184,108,195,99,199,90,195,90,184' onclick='cc("#C30",-20,90)'/>
+<path fill='#930' d='M117,180,126,184,126,195,117,199,108,195,108,184' onclick='cc("#930",-20,108)'/>
+<path fill='#900' d='M135,180,144,184,144,195,135,199,126,195,126,184' onclick='cc("#900",-20,126)'/>
+<path fill='#800' d='M153,180,162,184,162,195,153,199,144,195,144,184' onclick='cc("#800",-20,144)'/>
+<path fill='#933' d='M171,180,180,184,180,195,171,199,162,195,162,184' onclick='cc("#933",-20,162)'/>
+</svg>
+<div>
+<div id="enter"><input id="input" placeholder="color"><button onclick="cc(0,-1,-1)"></button></div>
+<div id="selected"><p id="cnam"></p><p id="chex"></p><p id="crgb"></p><p id="chsl"></p></div>
 </div>
-<div id="lumtop"></div>
-<div id="hue"></div>
-<div id="hsl"></div>
-<script>
-cc(colorObj.toHexString());
-</script>
-</body>
-</html>
+</div>
+<div id="lum"></div><div id="hue"></div><div id="hsl"></div>
+<script>cc(colorObj.toHexString())</script>
+</body></html>
