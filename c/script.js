@@ -17,7 +17,7 @@ function showPage(e){
     window.scrollTo({top:0,behavior:'auto'});
 }
 //关闭菜单
-document.addEventListener("click", function(t){
+document.addEventListener("click",function(t){
     var e=document.querySelector("nav>div:nth-of-type(2)"),
         n=document.querySelector("nav>div:nth-of-type(1) button.fa-navicon");
     e.classList.contains("active")&&!e.contains(t.target)&&t.target!==n&&e.classList.remove("active");
@@ -162,13 +162,13 @@ window.addEventListener('DOMContentLoaded',function(){
     b&&(document.querySelector('body').style.setProperty("--bl",b+"px"),document.getElementById('r2').value=b);
     showPage('HOME');
 });
-//文本复制（实验）
+//文本复制
 document.querySelectorAll(".writing").forEach((e)=>{
     const ele=document.createElement("button");
     e.prepend(ele);
     ele.onclick=function(){
-        let copy=document.querySelectorAll(".writing>h1,.writing>p"),
-    text=Array.from(copy).map(e=>e.textContent.trim()).join('\n');
-    navigator.clipboard.writeText(text);
+        let copy=e.querySelectorAll("h1,p");
+        text=Array.from(copy).map(e=>e.textContent.trim()).join('\n');
+        navigator.clipboard.writeText(text);
     };
 });
