@@ -268,6 +268,15 @@ nav{
             padding:0 5px;
             margin-left:5px;
             box-shadow:0 2px 10px hsl(from var(--nav-b) h calc(s - 5) calc(l - 20) / 0.3);
+            transition:0.3s;
+            opacity:1;
+            width:100px;
+            overflow:hidden;
+            text-wrap:nowrap;
+            @starting-style{
+                width:0;
+                opacity:0;
+            }
             >button{
                 width:20px;
                 height:20px;
@@ -368,7 +377,18 @@ body[data-n="2"] nav{
     backdrop-filter:blur(5px);
     user-select:none;
     color:color-mix(in oklab,var(--dialog) 10%,var(--color));
-    &::backdrop{background:#0006;backdrop-filter:blur(2px);}
+    opacity:1;
+    transition:0.3s;
+    @starting-style{transform:translate(-50%,calc(-50% + 20px));opacity:0;}
+    &::backdrop{
+        background:#0004;
+        backdrop-filter:blur(2px);
+        transition:0.3s;
+        @starting-style{
+            background:transparent;
+            backdrop-filter:blur(0);
+        }
+    }
     >div:first-child{
         font-weight:bold;
         font-size:1.25rem;
@@ -473,8 +493,15 @@ body[data-n="2"] nav{
 main{
     padding:60px 10px 10px 10px;
     min-height:100dvh;
+    transition:opacity 0.7s;
+    opacity:1;
+    @starting-style{
+        opacity:0;
+        >*:not(header),>header>*{transform:translateY(20px)}
+    }
     *[id]{scroll-margin-top:55px;}
     >*{margin:10px 0;}
+    >*:not(header),>header>*{transform:0;transition:transform 1s;}
     hr{
         border:0;
         border-radius:1px;
@@ -567,7 +594,7 @@ main{
             color:hsl(from color-mix(in oklab,var(--header),var(--color)) h calc(s - 20) l);
             border-radius:99px;
             padding:5px 7px;
-            display:inline;
+            display:inline-block;
             margin:5px;
         }
         >table{
@@ -696,6 +723,7 @@ main{
             width:100%;
             border-radius:10px;
         }
+        >div{margin:auto;}
         >p{color:color-mix(in oklab,var(--gallery) 30%,var(--color));}
     }
     .division{
@@ -728,6 +756,22 @@ main{
                 text-indent:0;}
         }
         p{font-size:1.125rem;text-indent:2.3em;}
+        >button{
+            position:absolute;
+            display:block;
+            width:30px;
+            height:30px;
+            background:color-mix(in oklab,var(--writing),#fff8);
+            border-radius:10px;
+            right:30px;
+            transition:0.3s;
+            &:hover{opacity:0.7;}
+            &::before{
+                font-family:"icons";
+                content:"\f24d";
+                color:var(--writing);
+            }
+        }
     }
     .timeline{
         background:linear-gradient(135deg,hsl(from var(--timeline) h s l / 0.5),hsl(from var(--timeline) h s l / 0.2));
