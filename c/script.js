@@ -165,10 +165,14 @@ window.addEventListener('DOMContentLoaded',function(){
 //文本复制
 document.querySelectorAll(".writing").forEach((e)=>{
     const ele=document.createElement("button");
+    ele.className="fa fa-clone";
     e.prepend(ele);
     ele.onclick=function(){
         let copy=e.querySelectorAll("h1,p");
         text=Array.from(copy).map(e=>e.textContent.trim()).join('\n');
-        navigator.clipboard.writeText(text);
+        navigator.clipboard.writeText(text).then(()=>{
+            ele.className="fa fa-check";
+            setTimeout(()=>{ele.className="fa fa-clone";},500);
+        })
     };
 });
