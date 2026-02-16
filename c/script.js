@@ -10,11 +10,11 @@ function showPage(e){
         o=document.querySelectorAll("nav>div:nth-of-type(2)>div"),
         t=document.querySelector("nav>div:nth-of-type(1)>div:nth-of-type(2)");
     l.forEach(e=>{e.style.display="none"});
+    window.scrollTo({top:0,behavior:'auto'});
     o.forEach(e=>{e.style.display="none"});
     n&&(n.style.display="block");
     t.style.display="EVENT"==e?"inline-block":"none";
     document.getElementById(e+"-l").style.display="block";
-    window.scrollTo({top:0,behavior:'auto'});
 }
 //关闭菜单
 document.addEventListener("click",function(t){

@@ -535,7 +535,7 @@ main{
         color:color-mix(in oklab,var(--q-c),var(--color));
         margin:8px 5px;
         &::after{
-            background:hsl(from var(--q-c) h s l / 0.4);;
+            background:hsl(from var(--q-c) h s l / 0.4);
             content:'';
             position:absolute;
             left:-5px;
@@ -547,7 +547,8 @@ main{
     }
     sup,sub{
         line-height:0;
-        opacity:0.8
+        opacity:0.8;
+        font-size:10px;
     }
     sup[class="fa fa-external-link"]{
         font-size:0.7em;
