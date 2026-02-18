@@ -29,8 +29,8 @@ body{
         content:'';
         position:fixed;
         left:0;
-        width:100%;
-        height:100%;
+        width:100dvw;
+        height:100lvh;
         z-index:-1;
         backdrop-filter:blur(var(--bl,0));
         background:--opa(var(--background),var(--o,1));
@@ -366,8 +366,8 @@ body[data-n="2"] nav{
     from{transform:scaleX(0);}
     to{transform:scaleX(1);}
 }
-#sD{
-    width:300px;
+#setting{
+    width:280px;
     border-radius:20px;
     padding:10px;
     border:none;
@@ -380,7 +380,7 @@ body[data-n="2"] nav{
     user-select:none;
     color:color-mix(in oklch,var(--dialog) 10%,var(--color));
     opacity:1;
-    transition:0.3s;
+    transition:transform 0.3s,opacity 0.3s;
     @starting-style{transform:translate(-50%,calc(-50% + 20px));opacity:0;}
     &::backdrop{
         background:#0004;
@@ -397,8 +397,9 @@ body[data-n="2"] nav{
         padding:5px 10px 20px 10px;
         >button{
             background:transparent;
-            color:--mix(red);
-            padding:5px 9px;
+            color:#f00a;
+            float:right;
+            margin-top:5px;
         }
     }
     >div:not(:first-child){
@@ -422,7 +423,7 @@ body[data-n="2"] nav{
             transition:0.3s;
             opacity:0.3;
             &::before{
-                content:var(--rc);
+                content:attr(title);
                 font-size:18px;
                 width:30px;
                 height:30px;
@@ -565,16 +566,17 @@ main{
         display:block;
         margin:10px auto;
     }
-    ul,ol{
+    ul,ol,&:not(#EVENT) dl:not(.keywords,.keywords>dl){
         margin:10px 0 10px 2em;
-        li{
+        li,dd{
             color:--mix(var(--hr));
             opacity:0.9;
         }
-        p{
+        dt{
             color:--mix(var(--link));
             font-size:0.875rem;
             opacity:0.8;
+            margin-left:1em;
         }
     }
     p:not(#EVENT p){margin:10px 0;}
@@ -637,6 +639,7 @@ main{
                 >dd{
                     margin:10px 5px;
                     font-weight:bold;
+                    position:relative;
                     &::before{
                         font-family:"icons";
                         font-size:1.125rem;
@@ -749,6 +752,7 @@ main{
         background:linear-gradient(to bottom,--opa(var(--writing)),--opa(var(--writing),0.3));
         padding:20px;
         border-radius:20px;
+        position:relative;
         >h1{
             text-align:center;
             font-size:2.5rem;
@@ -765,9 +769,9 @@ main{
             display:block;
             width:30px;
             height:30px;
+            right:20px;
             background:color-mix(in oklch,var(--writing),#fff8);
             border-radius:10px;
-            right:30px;
             transition:opacity 0.3s;
             &:hover{opacity:0.7;}
             &::before{color:var(--writing);}

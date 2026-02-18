@@ -30,11 +30,11 @@
             <button onclick="window.scrollTo(0,0)" class="fa fa-chevron-up"></button>
             <button onclick="showPage('HOME')" id="logo"></button>
             <button onclick="window.scrollTo(0,document.documentElement.scrollHeight)" class="fa fa-chevron-down"></button>
-            <button onclick="document.getElementById('sD').showModal()" class="fa fa-gear"></button>
+            <button commandfor="setting" command="show-modal" class="fa fa-gear"></button>
         </div>
         <div>
             <button onclick="hot()">热</button>
-            <input type="text" placeholder="搜索..." oninput="search()" maxlength="10"/>
+            <input type="text" placeholder="搜索..." oninput="search()" maxlength="10" spellcheck="false"/>
         </div>
     </div>
     <div>
@@ -46,29 +46,34 @@
     </div>
 </nav>
 <div id="main">
-    <dialog id="sD">
-        <div>设置
-            <button onclick="localStorage.clear();ubg();location.reload(true);">重置</button>
-            <span onclick="document.getElementById('sD').close()" style="float:right;cursor:pointer;">×</span>
+    <dialog id="setting" closedby="any">
+        <div>设置<button onclick="localStorage.clear();ubg();location.reload(true);">重置</button></div>
+        <div>
+            <span>主题</span>
+            <input type="radio" name="t" onclick="chT('l')" title="浅">
+            <input type="radio" name="t" onclick="chT('d')" title="深">
+            <input type="radio" name="t" onclick="chT('b')" title="蓝">
+            <input type="radio" name="t" onclick="chT('n')" title="夜">
         </div>
-        <div><span>主题</span>
-             <input type="radio" name="t" onclick="chT('l')" style="--rc:'浅'">
-             <input type="radio" name="t" onclick="chT('d')" style="--rc:'深'">
-             <input type="radio" name="t" onclick="chT('b')" style="--rc:'蓝'">
-             <input type="radio" name="t" onclick="chT('n')" style="--rc:'夜'"></div>
-        <div><span>导航栏</span>
-             <input type="radio" name="n" onclick="chN('1')" style="--rc:'经典'">
-             <input type="radio" name="n" onclick="chN('2')" style="--rc:'胶囊'" checked></div>
-        <div><span>内容过滤</span>
-             <input type="radio" name="f" onclick="chF('0')" style="--rc:'无'">
-             <input type="radio" name="f" onclick="chF('1')" style="--rc:'一'">
-             <input type="radio" name="f" onclick="chF('2')" style="--rc:'二'">
-             <input type="radio" name="f" onclick="chF('3')" style="--rc:'三'" checked></div>
-        <div><span>背景图片</span>
-             <button onclick="ubg()">清除</button>
-             <button onclick="cbg()">上传</button>
-             <div><span>透明度</span><input type="range" max="1" min="0" step="0.1" id="r1"/></div>
-             <div><span>虚化</span><input type="range" max="30" min="0" step="3" id="r2"/></div></div>
+        <div>
+            <span>导航栏</span>
+            <input type="radio" name="n" onclick="chN('1')" title="经典">
+            <input type="radio" name="n" onclick="chN('2')" title="胶囊" checked>
+        </div>
+        <div>
+            <span>内容过滤</span>
+            <input type="radio" name="f" onclick="chF('0')" title="无">
+            <input type="radio" name="f" onclick="chF('1')" title="一">
+            <input type="radio" name="f" onclick="chF('2')" title="二">
+            <input type="radio" name="f" onclick="chF('3')" title="三" checked>
+        </div>
+        <div>
+            <span>背景图片</span>
+            <button onclick="ubg()">清除</button>
+            <button onclick="cbg()">添加</button>
+            <div><span>透明度</span><input type="range" max="1" min="0" step="0.1" id="r1"/></div>
+            <div><span>虚化</span><input type="range" max="30" min="0" step="3" id="r2"/></div>
+        </div>
     </dialog>
 <main id="HOME">
 <header><h1>首页</h1></header>
@@ -82,14 +87,8 @@
     <span>描述文本</span>
     <span>描述文本</span>
     <table>
-        <tr>
-            <td>标题</td>
-            <td>描述文本</td>
-        </tr>
-        <tr>
-            <td>标题</td>
-            <td>描述文本</td>
-        </tr>
+        <tr><td>标题</td><td>描述文本</td></tr>
+        <tr><td>标题</td><td>描述文本</td></tr>
     </table>
 </header>
 <hr/>
@@ -98,65 +97,31 @@
     <h3>三级标题</h3>
     <p>文本<time>时间</time><var>文本</var>。</p>
     <div class="division"></div>
-    <ul>
-        <li>无序列表</li>
-        <p>描述文本</p>
-        <li>无序列表</li>
-        <p>描述文本</p>
-    </ul>
-    <article>
-        <p>文本文本文本文本</p>
-    </article>
-    <code>
-        <p>文本文本文本文本</p>
-    </code>
-    <blockquote>
-        <p>文本文本文本文本</p>
-    </blockquote>
-    <div class="box">
-        <p>文本文本文本文本</p>
-    </div>
-    <div class="writing">
-        <h1>标题</h1>
-        <p>作者</p>
-        <p>文本文本文本文本</p>
-    </div>
+    <ul><li>无序</li><li>无序</li></ul>
+    <dl><dd>列表</dd><dt>文本</dt><dd>列表</dd><dt>文本</dt></dl>
+    <article><p>文本文本文本文本</p></article>
+    <code><p>文本文本文本文本</p></code>
+    <blockquote><p>文本文本文本文本</p></blockquote>
+    <div class="box"><p>文本文本文本文本</p></div>
+    <div class="writing"><h1>标题</h1><p>作者</p><p>文本文本文本文本</p></div>
     <table>
-        <tr>
-            <th>表头</th>
-            <th>表头</th>
-        </tr>
-        <tr>
-            <td>标题</td>
-            <td>描述文本</td>
-        </tr>
-        <tr>
-            <td>标题</td>
-            <td>描述文本</td>
-        </tr>
+        <tr><th>表头</th><th>表头</th></tr>
+        <tr><td>标题</td><td>描述文本</td></tr>
+        <tr><td>标题</td><td>描述文本</td></tr>
     </table>
     <q>文本文本文本文本</q>
-    <div class="gallery">
-        <img src="1.jpg"/>
-        <p>文本文本文本文本</p>
-    </div>
+    <div class="gallery"><img src="1.jpg"/><p>文本文本文本文本</p></div>
     <div class="wechat" style="--a:'a';--b:'b'">
-        <p class="b">文本文本文本文本</p>
-        <p class="a">文本文本文本文本</p>
+        <p class="b">文本文本</p>
+        <p class="a">文本文本文本</p>
         <p class="b">文本文本文本文本</p>
         <small>时间</small>
-        <p class="a">文本文本文本文本</p>
-        <p class="b">文本文本文本文本</p>
+        <p class="a">文本文本</p>
+        <p class="b">文本文本文本</p>
         <p class="a">文本文本文本文本</p>
     </div>
-    <details>
-        <summary>详情</summary>
-        <p>文本文本文本文本</p>
-        <p>文本文本文本文本</p>
-    </details>
-    <div class="notes">
-        <p>文本文本文本文本</p>   
-    </div>
+    <details><summary>详情</summary><p>文本文本</p><p>文本文本</p></details>
+    <div class="notes"><p>文本文本文本文本</p></div>
     <div class="page">
         <button onclick="showPage('EVENT')">日志</button>
         <button></button>

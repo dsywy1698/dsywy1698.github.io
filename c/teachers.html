@@ -30,7 +30,7 @@
                 <button onclick="window.scrollTo(0,0)" class="fa fa-chevron-up"></button>
                 <button onclick="showPage('HOME')" id="logo"></button>
                 <button onclick="window.scrollTo(0,document.documentElement.scrollHeight)" class="fa fa-chevron-down"></button>
-                <button onclick="document.getElementById('sD').showModal()" class="fa fa-gear"></button>
+                <button commandfor="setting" command="show-modal" class="fa fa-gear"></button>
             </div>
             <div>
                 <input type="text" placeholder="搜索关键词" oninput="search()"/>
@@ -202,7 +202,35 @@
         </div>
     </nav>
     <div id="main">
-        <dialog id="sD"><div>设置<button onclick="localStorage.clear();ubg();location.reload(true);">重置</button><span onclick="document.getElementById('sD').close()"style="float:right;cursor:pointer;">×</span></div><div><span>主题</span><input type="radio"name="t"onclick="chT('l')"style="--rc:'浅'"><input type="radio"name="t"onclick="chT('d')"style="--rc:'深'"><input type="radio"name="t"onclick="chT('b')"style="--rc:'蓝'"><input type="radio"name="t"onclick="chT('n')"style="--rc:'夜'"></div><div><span>导航栏</span><input type="radio"name="n"onclick="chN('1')"style="--rc:'经典'"><input type="radio"name="n"onclick="chN('2')"style="--rc:'胶囊'"checked></div><div><span>内容过滤</span><input type="radio"name="f"onclick="chF('0')"style="--rc:'无'"><input type="radio"name="f"onclick="chF('1')"style="--rc:'一'"><input type="radio"name="f"onclick="chF('2')"style="--rc:'二'"><input type="radio"name="f"onclick="chF('3')"style="--rc:'三'"checked></div><div><span>背景图片</span><button onclick="ubg()">清除</button><button onclick="cbg()">上传</button><div><span>透明度</span><input type="range"max="100"min="0"step="10"id="r1"/></div><div><span>虚化</span><input type="range"max="30"min="0"step="3"id="r2"/></div></div></dialog>
+        <dialog id="setting" closedby="any">
+        <div>设置<button onclick="localStorage.clear();ubg();location.reload(true);">重置</button></div>
+        <div>
+            <span>主题</span>
+            <input type="radio" name="t" onclick="chT('l')" title="浅">
+            <input type="radio" name="t" onclick="chT('d')" title="深">
+            <input type="radio" name="t" onclick="chT('b')" title="蓝">
+            <input type="radio" name="t" onclick="chT('n')" title="夜">
+        </div>
+        <div>
+            <span>导航栏</span>
+            <input type="radio" name="n" onclick="chN('1')" title="经典">
+            <input type="radio" name="n" onclick="chN('2')" title="胶囊" checked>
+        </div>
+        <div>
+            <span>内容过滤</span>
+            <input type="radio" name="f" onclick="chF('0')" title="无">
+            <input type="radio" name="f" onclick="chF('1')" title="一">
+            <input type="radio" name="f" onclick="chF('2')" title="二">
+            <input type="radio" name="f" onclick="chF('3')" title="三" checked>
+        </div>
+        <div>
+            <span>背景图片</span>
+            <button onclick="ubg()">清除</button>
+            <button onclick="cbg()">上传</button>
+            <div><span>透明度</span><input type="range" max="1" min="0" step="0.1" id="r1"/></div>
+            <div><span>虚化</span><input type="range" max="30" min="0" step="3" id="r2"/></div>
+        </div>
+    </dialog>
 <main id="HOME">
 <header><h1>首页</h1></header>
 <hr/>

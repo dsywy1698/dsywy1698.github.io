@@ -27,11 +27,6 @@ document.querySelectorAll("nav>div:nth-of-type(2) a,nav>div:nth-of-type(2) butto
         document.querySelector("nav>div:nth-of-type(2)").classList.remove("active");
     })
 });
-//关闭模态框
-document.getElementById("sD").addEventListener("click",function(t){
-    var e=this.getBoundingClientRect();
-    (t.clientX<e.left||e.right<t.clientX||t.clientY<e.top||e.bottom<t.clientY)&&this.close();
-});
 //主题切换
 function chT(e){document.body.setAttribute("data-t",e),localStorage.setItem("t",e);}
 function chN(e){document.body.setAttribute("data-n",e),localStorage.setItem("n",e);}
