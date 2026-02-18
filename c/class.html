@@ -25,14 +25,17 @@
 <div id="smaller">窗口过小</div>
 <nav>
     <div>
+        <button onclick="window.scrollTo(0,0)"></button>
         <div>
             <button onclick="document.querySelector('nav>div:nth-of-type(2)').classList.toggle('active')" class="fa fa-navicon"></button>
-            <button onclick="window.scrollTo(0,0)" class="fa fa-chevron-up"></button>
             <button onclick="showPage('HOME')" id="logo"></button>
-            <button onclick="window.scrollTo(0,document.documentElement.scrollHeight)" class="fa fa-chevron-down"></button>
             <button commandfor="setting" command="show-modal" class="fa fa-gear"></button>
+            <div>
+                <button onclick="hot()">热</button>
+                <input type="text" placeholder="搜索..." oninput="search()" maxlength="10" spellcheck="false"/>
+            </div>
         </div>
-        <div><input type="text" placeholder="搜索关键词" oninput="search()"/></div>
+        <button onclick="window.scrollTo(0,document.documentElement.scrollHeight)"></button>
     </div>
     <div>
         <div id="LITERATURE-l">
