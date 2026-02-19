@@ -90,9 +90,9 @@ function search(){
     }
 }
 function hot(){
-    const d=document.querySelector("nav>div:nth-of-type(1)>div:nth-of-type(2)>button").classList.contains('active');
+    const d=document.querySelector("nav>div:nth-of-type(1)>div>div>button").classList.contains('active');
     d?document.body.setAttribute("data-th","1"):document.body.setAttribute("data-th","2");
-    document.querySelector("nav>div:nth-of-type(1)>div:nth-of-type(2)>button").classList.toggle("active");
+    document.querySelector("nav>div:nth-of-type(1)>div>div>button").classList.toggle("active");
     heb();
 }
 function heb(){
