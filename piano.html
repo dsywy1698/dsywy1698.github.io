@@ -1,71 +1,92 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>钢琴键盘</title><style>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>HTML钢琴</title><style>
+*{box-sizing:border-box;user-select:none;}
 body{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
     margin:0;
     font-family:sans-serif;
     background:#eee;
-    overflow:hidden;
     >div{
-        display:flex;
-        position:relative;
-        height:200px;
-    }
-    .w{
-        width:40px;
-        height:200px;
-        background:#fff;
-        outline:1px solid #ccc;
-        border-radius:0 0 5px 5px;
-        position:relative;
-        display:flex;
-        justify-content:center;
-        align-items:flex-end;
-        padding-bottom:10px;
-        transition:0.2s;
-        &:hover{background:#f9f9f9;}
-        &:active{box-shadow:0 2px 3px #0006;}
-    }
-    .b{
-        width:30px;
-        height:120px;
-        background:#000;
-        color:#fff;
-        position:absolute;
-        border-radius:0 0 5px 5px;
-        z-index:1;
-        transition:0.2s;
-        &:hover{background:#333;}
-        &:active{box-shadow:0 2px 3px #0008;}
+        >div{
+            display:flex;
+            width:1770px;
+            >b{
+                position:relative;
+                display:flex;
+                justify-content:center;
+                align-items:flex-end;
+                border-radius:0 0 5px 5px;
+                transition:0.2s;
+                padding-bottom:10px;
+                font-weight:normal;
+                overflow:hidden;
+                &:active{box-shadow:0 2px 3px #0006;}
+            }
+            &:first-child>b{
+                width:30px;
+                height:200px;
+                background:#fff;
+                outline:1px solid #ccc;
+                &:hover{background:#f9f9f9;}
+            }
+            &:last-child{
+                position:absolute;
+                margin-top:-200px;
+                margin-left:10px;
+                >b{
+                    width:20px;
+                    height:120px;
+                    background:#000;
+                    color:transparent;
+                    margin-left:10px;
+                    &:hover{background:#333;}
+                    &[data-e]{pointer-events:none;opacity:0;}
+                }
+            }
+        }
     }
 }
-@media (width<=650px){body>div{transform:rotate(90deg)}}
-</style></head><body><div>
-    <div class="w">C3</div>
-    <div class="b" style="left:25px">C#3</div>
-    <div class="w">D3</div>
-    <div class="b" style="left:65px">D#3</div>
-    <div class="w">E3</div>
-    <div class="w">F3</div>
-    <div class="b" style="left:145px">F#3</div>
-    <div class="w">G3</div>
-    <div class="b" style="left:185px">G#3</div>
-    <div class="w">A3</div>
-    <div class="b" style="left:225px">A#3</div>
-    <div class="w">B3</div>
-    <div class="w">C4</div>
-    <div class="b" style="left:305px">C#4</div>
-    <div class="w">D4</div>
-    <div class="b" style="left:345px">D#4</div>
-    <div class="w">E4</div>
-    <div class="w">F4</div>
-    <div class="b" style="left:425px">F#4</div>
-    <div class="w">G4</div>
-    <div class="b" style="left:465px">G#4</div>
-    <div class="w">A4</div>
-    <div class="b" style="left:505px">A#4</div>
-    <div class="w">B4</div>
-    <div class="w">C5</div>
-</div><script>document.addEventListener("DOMContentLoaded",function(){let n;const e=document.querySelector("body>div"),o={C3:130.81,"C#3":138.59,D3:146.83,"D#3":155.56,E3:164.81,F3:174.61,"F#3":185,G3:196,"G#3":207.65,A3:220,"A#3":233.08,B3:246.94,C4:261.63,"C#4":277.18,D4:293.66,"D#4":311.13,E4:329.63,F4:349.23,"F#4":369.99,G4:392,"G#4":415.3,A4:440,"A#4":466.16,B4:493.88,C5:523.25};function t(e){var t;"suspended"===(n=n||new(window.AudioContext||window.webkitAudioContext)).state&&n.resume(),(e=o[e])&&((t=n.createOscillator()).type="sine",t.frequency.value=e,(e=n.createGain()).gain.value=.3,e.gain.exponentialRampToValueAtTime(.001,n.currentTime+1),t.connect(e),e.connect(n.destination),t.start(),t.stop(n.currentTime+1))}e.querySelectorAll(".w,.b").forEach(e=>{e.addEventListener("click",function(){t(this.textContent)})})});</script></body></html>
+@media (width<=750px){
+    body{
+        display:block;
+        >div{
+            transform:rotate(90deg);
+            transform-origin:0 100%;
+        }
+    }
+}
+</style></head><body><div><div>
+    <b>A₂</b><b>B₂</b>
+    <b>C₁</b><b>D₁</b><b>E₁</b><b>F₁</b><b>G₁</b><b>A₁</b><b>B₁</b>
+    <b>C</b><b>D</b><b>E</b><b>F</b><b>G</b><b>A</b><b>B</b>
+    <b>c</b><b>d</b><b>e</b><b>f</b><b>g</b><b>a</b><b>b</b>
+    <b>c¹</b><b>d¹</b><b>e¹</b><b>f¹</b><b>g¹</b><b>a¹</b><b>b¹</b>
+    <b>c²</b><b>d²</b><b>e²</b><b>f²</b><b>g²</b><b>a²</b><b>b²</b>
+    <b>c³</b><b>d³</b><b>e³</b><b>f³</b><b>g³</b><b>a³</b><b>b³</b>
+    <b>c⁴</b><b>d⁴</b><b>e⁴</b><b>f⁴</b><b>g⁴</b><b>a⁴</b><b>b⁴</b>
+    <b>c⁵</b>
+</div><div>
+    <b>A#₂</b>
+    <b>C#₁</b><b>D#₁</b><b data-e></b><b>F#₁</b><b>G#₁</b><b>A#₁</b><b data-e></b>
+    <b>C#</b><b>D#</b><b data-e></b><b>F#</b><b>G#</b><b>A#</b><b data-e></b>
+    <b>c#</b><b>d#</b><b data-e></b><b>f#</b><b>g#</b><b>a#</b><b data-e></b>
+    <b>c#¹</b><b>d#¹</b><b data-e></b><b>f#¹</b><b>g#¹</b><b>a#¹</b><b data-e></b>
+    <b>c#²</b><b>d#²</b><b data-e></b><b>f#²</b><b>g#²</b><b>a#²</b><b data-e></b>
+    <b>c#³</b><b>d#³</b><b data-e></b><b>f#³</b><b>g#³</b><b>a#³</b><b data-e></b>
+    <b>c#⁴</b><b>d#⁴</b><b data-e></b><b>f#⁴</b><b>g#⁴</b><b>a#⁴</b><b data-e></b>
+</div></div><script>document.addEventListener("DOMContentLoaded",function(){let n;const a={
+"A₂":27.50,"A#₂":29.14,"B₂":30.87,
+"C₁":32.70,"C#₁":34.65,"D₁":36.71,"D#₁":38.89,"E₁":41.20,"F₁":43.65,
+"F#₁":46.25,"G₁":49.00,"G#₁":51.91,"A₁":55.00,"A#₁":58.27,"B₁":61.74,
+"C":65.41,"C#":69.30,"D":73.42,"D#":77.78,"E":82.41,"F":87.31,
+"F#":92.50,"G":98.00,"G#":103.83,"A":110.00,"A#":116.54,"B":123.47,
+"c":130.81,"c#":138.59,"d":146.83,"d#":155.56,"e":164.81,"f":174.61,
+"f#":185.00,"g":196.00,"g#":207.65,"a":220.00,"a#":233.08,"b":246.94,
+"c¹":261.63,"c#¹":277.18,"d¹":293.66,"d#¹":311.13,"e¹":329.63,"f¹":349.23,
+"f#¹":369.99,"g¹":392.00,"g#¹":415.30,"a¹":440.00,"a#¹":466.16,"b¹":493.88,
+"c²":523.25,"c#²":554.37,"d²":587.33,"d#²":622.25,"e²":659.26,"f²":698.46,
+"f#²":739.99,"g²":783.99,"g#²":830.61,"a²":880.00,"a#²":932.33,"b²":987.77,
+"c³":1046.50,"c#³":1108.73,"d³":1174.66,"d#³":1244.51,"e³":1318.51,"f³":1396.91,
+"f#³":1479.98,"g³":1567.98,"g#³":1661.22,"a³":1760.00,"a#³":1864.66,"b³":1975.53,
+"c⁴":2093.00,"c#⁴":2217.46,"d⁴":2349.32,"d#⁴":2489.02,"e⁴":2637.02,"f⁴":2793.83,
+"f#⁴":2959.96,"g⁴":3135.96,"g#⁴":3322.44,"a⁴":3520.00,"a#⁴":3729.31,"b⁴":3951.07,
+"c⁵":4186.01
+};function t(e){var t;"suspended"===(n=n||new(window.AudioContext||window.webkitAudioContext)).state&&n.resume(),(e=a[e])&&((t=n.createOscillator()).type="sine",t.frequency.value=e,(e=n.createGain()).gain.value=.3,e.gain.exponentialRampToValueAtTime(.001,n.currentTime+1),t.connect(e),e.connect(n.destination),t.start(),t.stop(n.currentTime+1))}document.querySelectorAll("b").forEach(e=>{e.addEventListener("click",function(){t(this.textContent)}),e.addEventListener("touchstart",function(e){e.preventDefault(),t(this.textContent)},{passive:!1})}),document.body.addEventListener("touchmove",function(e){"B"===e.target.tagName&&e.preventDefault()},{passive:!1})});</script></body></html>
