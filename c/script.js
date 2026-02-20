@@ -171,3 +171,30 @@ document.querySelectorAll(".writing").forEach((e)=>{
         })
     };
 });
+//换页
+window.addEventListener('DOMContentLoaded',function(){
+    const mainElements=document.querySelectorAll('main');
+    mainElements.forEach((currentMain,index)=>{
+        const pageDiv=document.createElement('div');
+        pageDiv.className='page';
+        const prevButton=document.createElement('button');
+        const nextButton=document.createElement('button');
+        if(index>0){
+            const prevMain=mainElements[index-1];
+            const prevMainId=prevMain.id;
+            const prevMainTitle=prevMain.querySelector('header h1')?.textContent;
+            prevButton.setAttribute('onclick',`showPage('${prevMainId}')`);
+            prevButton.textContent=prevMainTitle;
+        }
+        if(index<mainElements.length-1){
+            const nextMain=mainElements[index+1];
+            const nextMainId=nextMain.id;
+            const nextMainTitle=nextMain.querySelector('header h1')?.textContent;
+            nextButton.setAttribute('onclick',`showPage('${nextMainId}')`);
+            nextButton.textContent=nextMainTitle;
+        }
+        pageDiv.appendChild(prevButton);
+        pageDiv.appendChild(nextButton);
+        currentMain.appendChild(pageDiv);
+    });
+});
