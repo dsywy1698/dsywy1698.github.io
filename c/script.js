@@ -10,8 +10,10 @@ function showPage(e){
         o=document.querySelectorAll("nav>div:nth-of-type(2)>div>div"),
         t=document.querySelector("nav>div:nth-of-type(1)>div>div");
     l.forEach(e=>{e.style.display="none"});
-    window.scrollTo({top:0,behavior:'auto'});
+    window.scrollTo({top:0,behavior:"auto"});
     o.forEach(e=>{e.style.display="none"});
+    document.querySelectorAll("nav button").forEach(e=>{e.classList.remove("active")});
+    document.querySelector(`nav button[onclick*="${e}"]`).classList.add("active");
     n&&(n.style.display="block");
     t.style.display="EVENT"==e?"block":"none";
     document.getElementById(e+"-l").style.display="block";
@@ -205,14 +207,14 @@ window.addEventListener('DOMContentLoaded',function(){
             const prevMain=mainElements[index-1];
             const prevMainId=prevMain.id;
             const prevMainTitle=prevMain.querySelector('header h1')?.textContent;
-            prevButton.setAttribute('onclick',`showPage('${prevMainId}')`);
+            prevButton.setAttribute('onclick',`showPage("${prevMainId}")`);
             prevButton.textContent=prevMainTitle;
         }
         if(index<mainElements.length-1){
             const nextMain=mainElements[index+1];
             const nextMainId=nextMain.id;
             const nextMainTitle=nextMain.querySelector('header h1')?.textContent;
-            nextButton.setAttribute('onclick',`showPage('${nextMainId}')`);
+            nextButton.setAttribute('onclick',`showPage("${nextMainId}")`);
             nextButton.textContent=nextMainTitle;
         }
         pageDiv.appendChild(prevButton);

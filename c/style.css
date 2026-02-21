@@ -277,10 +277,7 @@ nav{
                 width:100px;
                 overflow:hidden;
                 text-wrap:nowrap;
-                @starting-style{
-                    width:0;
-                    opacity:0;
-                }
+                @starting-style{width:0;opacity:0;}
                 >button{
                     width:20px;
                     height:20px;
@@ -298,7 +295,7 @@ nav{
                     width:80px;
                     background:transparent;
                     border:none;
-                    padding:0;
+                    padding:0 5px;
                     &::placeholder{color:--mix((--nav));opacity:0.4;}
                 }
             }
@@ -336,6 +333,10 @@ nav{
                 text-wrap:nowrap;
                 overflow:hidden;
                 &:hover{background:#fff1;}
+                &.active{
+                    background:#fff2;
+                    pointer-events:none;
+                }
             }
         }
         hr{
