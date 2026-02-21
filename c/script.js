@@ -7,7 +7,7 @@ function ep(){
 function showPage(e){
     var l=document.querySelectorAll("main"),
         n=document.getElementById(e),
-        o=document.querySelectorAll("nav>div:nth-of-type(2)>div"),
+        o=document.querySelectorAll("nav>div:nth-of-type(2)>div>div"),
         t=document.querySelector("nav>div:nth-of-type(1)>div>div");
     l.forEach(e=>{e.style.display="none"});
     window.scrollTo({top:0,behavior:'auto'});
@@ -19,13 +19,8 @@ function showPage(e){
 //关闭菜单
 document.addEventListener("click",function(t){
     var e=document.querySelector("nav>div:nth-of-type(2)"),
-        n=document.querySelector("nav>div:nth-of-type(1) button.fa-navicon");
-    e.classList.contains("active")&&!e.contains(t.target)&&t.target!==n&&e.classList.remove("active");
-});
-document.querySelectorAll("nav>div:nth-of-type(2) a,nav>div:nth-of-type(2) button").forEach(t=>{
-    t.addEventListener("click",function(){
-        document.querySelector("nav>div:nth-of-type(2)").classList.remove("active");
-    })
+        n=document.querySelector("nav button.fa-navicon");
+    e.classList.contains("active")&&t.target!==n&&e.classList.remove("active");
 });
 //主题切换
 function chT(e){document.body.setAttribute("data-t",e),localStorage.setItem("t",e);}
@@ -144,6 +139,33 @@ function fo(){
     });
 }
 window.addEventListener("load",function(){setTimeout(fo,300);});
+//菜单
+window.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('main').forEach(main=>{
+        const mainId=main.id,
+              mainTitle=main.querySelector('header>h1')?.textContent;
+        if(mainId==='HOME')return;
+        const divContainer=document.createElement('div');
+        divContainer.id=`${mainId}-l`;
+        divContainer.style.display='none';
+        const h1Elements=main.querySelectorAll(':scope>h1');
+        h1Elements.forEach(h1=>{
+            const h1Id=h1.id;
+            const h1Text=h1.textContent||h1Id;
+            if (h1Id){
+                const link=document.createElement('a');
+                link.href=`#${h1Id}`;
+                link.textContent=h1Text;
+                divContainer.appendChild(link);
+            }
+        });
+        const navButton=document.createElement('button');
+        navButton.setAttribute('onclick',`showPage('${mainId}')`);
+        navButton.textContent=mainTitle;
+        document.querySelector('nav>div:nth-of-type(2)>div:nth-of-type(1)').appendChild(navButton);
+        document.querySelector('nav>div:nth-of-type(2)>div:nth-of-type(2)').appendChild(divContainer);
+    });
+});
 //初始化
 window.addEventListener('DOMContentLoaded',function(){
     const p=localStorage.getItem('p');

@@ -30,29 +30,11 @@
             <button onclick="document.querySelector('nav>div:nth-of-type(2)').classList.toggle('active')" class="fa fa-navicon"></button>
             <button onclick="showPage('HOME')" id="logo"></button>
             <button commandfor="setting" command="show-modal" class="fa fa-gear"></button>
-            <div>
-                <button onclick="hot()">热</button>
-                <input type="text" placeholder="搜索..." oninput="search()" maxlength="10" spellcheck="false"/>
-            </div>
+            <div><button onclick="hot()">热</button><input type="text" placeholder="搜索..." oninput="search()" maxlength="10" spellcheck="false"/></div>
         </div>
         <button onclick="window.scrollTo(0,document.documentElement.scrollHeight)"></button>
     </div>
-    <div>
-        <div id="LITERATURE-l">
-                <a href="#literature-journal">语文周记</a>
-                <a href="#literature-composition">语文作文</a>
-                <a href="#literature-wechat">聊天记录与朋友圈</a>
-                <a href="#literature-writing">小作文</a>
-                <a href="#literature-teachers">老师写的</a>
-                <a href="#literature-contribution">稿件</a>
-            </div>
-        <button onclick="showPage('LITERATURE')">9班文学</button>
-        <button onclick="showPage('SCHOOL')">四十中</button>
-        <button onclick="showPage('CLASS')">九班</button><!--
-        <button onclick="showPage('HUMANITY')">人文</button>
-        <button onclick="showPage('G-EVENT')">大事件</button>
-        <button onclick="showPage('WORDS')">关键词</button>-->
-    </div>
+    <div><div></div><hr/><div></div></div>
 </nav>
 <div id="main">
     <dialog id="setting" closedby="any">

@@ -1,31 +1,4 @@
-<!DOCTYPE html><html><head><title>标题</title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><meta name="robots" content="noindex,nofollow"/><meta name="referrer" content="no-referrer"/><link rel="stylesheet" href="fa.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/><link rel="icon" href="9.png"/><link rel="stylesheet" href="style.css"/><style></style></head><body data-t="l" data-n="2" data-f="3"><dialog id="password"><h1>输入密码</h1><div><input type="password"/><button onclick="ep()">OK</button></div><p><strong>提示：</strong>提示文本</p></dialog><div id="loader"><div><p>文本1</p><button onclick="fo()">跳过</button></div></div><div id="bigger">窗口过大</div><div id="smaller">窗口过小</div><nav><div><button onclick="window.scrollTo(0,0)"></button><div><button onclick="document.querySelector('nav>div:nth-of-type(2)').classList.toggle('active')" class="fa fa-navicon"></button><button onclick="showPage('HOME')" id="logo"></button><button commandfor="setting" command="show-modal" class="fa fa-gear"></button><div><button onclick="hot()">热</button><input type="text" placeholder="搜索..." oninput="search()" maxlength="10" spellcheck="false"/></div></div><button onclick="window.scrollTo(0,document.documentElement.scrollHeight)"></button></div><div>
-            <div id="EVENT-l">
-                <a href="#event-not">未记录准确日期</a>
-                <h2>七上</h2>
-                <a href="#event-d2408">2024年8月</a>
-                <a href="#event-d2409">2024年9月</a>
-                <a href="#event-d2410">2024年10月</a>
-                <a href="#event-d2411">2024年11月</a>
-                <a href="#event-d2412">2024年12月</a>
-                <a href="#event-d2501">2025年1月</a>
-                <h2>七下</h2>
-                <a href="#event-d2502">2025年2月</a>
-                <a href="#event-d2503">2025年3月</a>
-                <a href="#event-d2504">2025年4月</a>
-                <a href="#event-d2505">2025年5月</a>
-                <a href="#event-d2506">2025年6月</a>
-                <h2>八上</h2>
-                <a href="#event-d2508">2025年8月</a>
-                <a href="#event-d2509">2025年9月</a>
-                <a href="#event-d2510">2025年10月</a>
-                <a href="#event-d2511">2025年11月</a>
-                <a href="#event-d2512">2025年12月</a>
-                <a href="#event-d2601">2026年1月</a>
-                <h2>八下</h2>
-                <a href="#event-d2602">2026年2月</a>
-            </div>
-        <button onclick="showPage('EVENT')">八卦</button>
-</div></nav><div id="main"><dialog id="setting" closedby="any"><div>设置<button onclick="localStorage.clear();ubg();location.reload(true);">重置</button></div><div><span>主题</span><input type="radio" name="t" onclick="chT('l')" title="浅"><input type="radio" name="t" onclick="chT('d')" title="深"><input type="radio" name="t" onclick="chT('b')" title="蓝"><input type="radio" name="t" onclick="chT('n')" title="夜"></div><div><span>导航栏</span><input type="radio" name="n" onclick="chN('1')" title="经典"><input type="radio" name="n" onclick="chN('2')" title="胶囊" checked></div><div><span>内容过滤</span><input type="radio" name="f" onclick="chF('0')" title="无"><input type="radio" name="f" onclick="chF('1')" title="一"><input type="radio" name="f" onclick="chF('2')" title="二"><input type="radio" name="f" onclick="chF('3')" title="三" checked></div><div><span>背景图片</span><button onclick="ubg()">清除</button><button onclick="cbg()">上传</button><div><span>透明度</span><input type="range" max="1" min="0" step="0.1" id="r1"/></div><div><span>虚化</span><input type="range" max="30" min="0" step="3" id="r2"/></div></div></dialog>
+<!DOCTYPE html><html><head><title>标题</title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><meta name="robots" content="noindex,nofollow"/><meta name="referrer" content="no-referrer"/><link rel="stylesheet" href="fa.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/><link rel="icon" href="9.png"/><link rel="stylesheet" href="style.css"/><style></style></head><body data-t="l" data-n="2" data-f="3"><dialog id="password"><h1>输入密码</h1><div><input type="password"/><button onclick="ep()">OK</button></div><p><strong>提示：</strong>提示文本</p></dialog><div id="loader"><div><p>文本1</p><button onclick="fo()">跳过</button></div></div><div id="bigger">窗口过大</div><div id="smaller">窗口过小</div><nav><div><button onclick="window.scrollTo(0,0)"></button><div><button onclick="document.querySelector('nav>div:nth-of-type(2)').classList.toggle('active')" class="fa fa-navicon"></button><button onclick="showPage('HOME')" id="logo"></button><button commandfor="setting" command="show-modal" class="fa fa-gear"></button><div><button onclick="hot()">热</button><input type="text" placeholder="搜索..." oninput="search()" maxlength="10" spellcheck="false"/></div></div><button onclick="window.scrollTo(0,document.documentElement.scrollHeight)"></button></div><div><div></div><hr/><div></div></div></nav><div id="main"><dialog id="setting" closedby="any"><div>设置<button onclick="localStorage.clear();ubg();location.reload(true);">重置</button></div><div><span>主题</span><input type="radio" name="t" onclick="chT('l')" title="浅"><input type="radio" name="t" onclick="chT('d')" title="深"><input type="radio" name="t" onclick="chT('b')" title="蓝"><input type="radio" name="t" onclick="chT('n')" title="夜"></div><div><span>导航栏</span><input type="radio" name="n" onclick="chN('1')" title="经典"><input type="radio" name="n" onclick="chN('2')" title="胶囊" checked></div><div><span>内容过滤</span><input type="radio" name="f" onclick="chF('0')" title="无"><input type="radio" name="f" onclick="chF('1')" title="一"><input type="radio" name="f" onclick="chF('2')" title="二"><input type="radio" name="f" onclick="chF('3')" title="三" checked></div><div><span>背景图片</span><button onclick="ubg()">清除</button><button onclick="cbg()">上传</button><div><span>透明度</span><input type="range" max="1" min="0" step="0.1" id="r1"/></div><div><span>虚化</span><input type="range" max="30" min="0" step="3" id="r2"/></div></div></dialog>
 <main id="HOME"><header><h1>首页</h1></header><hr/><p>页面开发中，敬请期待。</p></main>
 <main id="EVENT">
 <header><h1>八卦</h1></header>
