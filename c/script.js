@@ -63,7 +63,7 @@ function ubg(){
 request.onupgradeneeded=function(e){(db=e.target.result).objectStoreNames.contains("bg")||db.createObjectStore("bg",{keyPath:"id"})};
 request.onsuccess=function(e){db=e.target.result,lbg()};
 //替代图像
-document.querySelectorAll("img").forEach(m=>{m.onerror=function(){this.src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMzAwJyB2aWV3Qm94PScwIDAgMzAwIDIwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nMzAwJyBoZWlnaHQ9JzIwMCcgZmlsbD0nIzhkZDQnLz48L3N2Zz4="}});
+document.querySelectorAll("img").forEach(o=>{o.onerror=function(){this.classList.add("broken")}});
 //日志页逻辑
 function search(){
     var e=document.querySelector("nav input").value.trim(),
@@ -141,11 +141,10 @@ function fo(){
     });
 }
 window.addEventListener("load",function(){setTimeout(fo,300);});
-//菜单
 window.addEventListener('DOMContentLoaded',function(){
+    //菜单
     document.querySelectorAll('main').forEach(main=>{
-        const mainId=main.id,
-              mainTitle=main.querySelector('header>h1')?.textContent;
+        const mainId=main.id,mainTitle=main.querySelector('header>h1')?.textContent;
         if(mainId==='HOME')return;
         const divContainer=document.createElement('div');
         divContainer.id=`${mainId}-l`;
@@ -167,9 +166,7 @@ window.addEventListener('DOMContentLoaded',function(){
         document.querySelector('nav>div:nth-of-type(2)>div:nth-of-type(1)').appendChild(navButton);
         document.querySelector('nav>div:nth-of-type(2)>div:nth-of-type(2)').appendChild(divContainer);
     });
-});
-//初始化
-window.addEventListener('DOMContentLoaded',function(){
+    //初始化
     const p=localStorage.getItem('p');
     p?document.getElementById('password').close():document.getElementById('password').showModal();
     const t=localStorage.getItem('t');t&&(chT(t),document.querySelector(`input[name="t"][onclick*="${t}"]`).checked=!0);
@@ -180,20 +177,6 @@ window.addEventListener('DOMContentLoaded',function(){
     const b=localStorage.getItem('b');
     b&&(document.querySelector('body').style.setProperty("--bl",b+"px"),document.getElementById('r2').value=b);
     showPage('HOME');
-});
-//文本复制
-document.querySelectorAll(".writing").forEach((e)=>{
-    const ele=document.createElement("button");
-    ele.className="fa fa-clone";
-    e.prepend(ele);
-    ele.onclick=function(){
-        let copy=e.querySelectorAll("h1,p");
-        text=Array.from(copy).map(e=>e.textContent.trim()).join('\n');
-        navigator.clipboard.writeText(text).then(()=>{
-            ele.className="fa fa-check";
-            setTimeout(()=>{ele.className="fa fa-clone";},500);
-        })
-    };
 });
 //换页
 window.addEventListener('DOMContentLoaded',function(){
@@ -221,4 +204,18 @@ window.addEventListener('DOMContentLoaded',function(){
         pageDiv.appendChild(nextButton);
         currentMain.appendChild(pageDiv);
     });
+});
+//文本复制
+document.querySelectorAll(".writing").forEach((e)=>{
+    const ele=document.createElement("button");
+    ele.className="fa fa-clone";
+    e.prepend(ele);
+    ele.onclick=function(){
+        let copy=e.querySelectorAll("h1,p");
+        text=Array.from(copy).map(e=>e.textContent.trim()).join('\n');
+        navigator.clipboard.writeText(text).then(()=>{
+            ele.className="fa fa-check";
+            setTimeout(()=>{ele.className="fa fa-clone";},500);
+        })
+    };
 });
