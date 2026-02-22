@@ -124,6 +124,8 @@ body[data-t="n"]{
 }
 @function --mix(--a:var(--background),--b:var(--color)){
     result:color-mix(in oklch,var(--a),var(--b));
+}@function --txt(--c:transparent){
+    result:color-mix(in oklch,var(--c) 10%,var(--color));
 }
 body[data-tf="1"] *[data-f="3"],
 body[data-tf="2"] *[data-f="3"],
@@ -586,6 +588,7 @@ main{
         &:hover{opacity:0.7;}}
     img,svg,canvas,audio,video{
         max-width:100%;
+        max-height:60vh;
         border-radius:10px;
         display:block;
         margin:10px auto;
@@ -707,6 +710,7 @@ main{
     }
     article{
         background:--opa(var(--article));
+        color:--txt(var(--article));
         padding:13px;
         border-radius:15px;
         box-shadow:0 3px 10px hsl(from var(--article) h calc(s - 5) calc(l - 5) / 0.5);
@@ -721,6 +725,7 @@ main{
     }
     q{
         background:color-mix(in oklch,hsl(from var(--q) h 80 l) 40%,hsl(from var(--background) h 0 l) 10%);
+        color:--txt(var(--q));
         font-size:1.5625rem;
         display:block;
         text-align:center;
@@ -742,6 +747,7 @@ main{
     blockquote{
         position:relative;
         background:linear-gradient(to right,--opa(var(--blockquote)),--opa(var(--blockquote)),transparent);
+        color:--txt(var(--blockquote));
         padding:20px;
         border-radius:20px;
         &::before{
@@ -779,6 +785,7 @@ main{
     }
     .writing{
         background:linear-gradient(to bottom,--opa(var(--writing)),--opa(var(--writing),0.3));
+        color:--txt(var(--writing));
         padding:20px;
         border-radius:20px;
         position:relative;
@@ -833,6 +840,7 @@ main{
         }
         >dd{
             background:linear-gradient(to right,#fff2,transparent);
+            color:--txt(var(--timeline));
             padding:0 7.5px;
             margin:15px 5px 0 30px;
             height:40px;
@@ -868,6 +876,7 @@ main{
         th{
             font-size:1.125rem;
             background:--opa(var(--table),0.4);
+            color:--txt(var(--table));
             &:first-child{border-top-left-radius:15px;}
             &:last-child{border-top-right-radius:15px;}
         }
@@ -891,6 +900,7 @@ main{
     code{
         all:unset;
         background:--opa(var(--q),0.4);
+        color:--txt(var(--q));
         box-shadow:6px -6px --opa(var(--q),0.3);
         display:block;
         border-radius:10px;
@@ -1165,7 +1175,7 @@ main{
         padding:0 5px;
         margin-right:5px;
         border-radius:5px;
-        &:before{content:"日期存疑";}
+        &:before{content:"？";}
     }
 }
 footer{
