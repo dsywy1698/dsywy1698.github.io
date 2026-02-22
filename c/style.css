@@ -132,40 +132,43 @@ body[data-tf="3"] *[data-f],
 body[data-th="2"] #EVENT>div p:not([data-h]),
 body[data-th="2"] #EVENT>div dd:not([data-h]){display:none;}
 #password{
-    &::backdrop{background:light-dark(#0008,#fff8);backdrop-filter:blur(20px);}
+    &::backdrop{background:--opa(var(--color),0.7);backdrop-filter:blur(20px);}
     border-radius:20px;
-    padding:22.5px 35px;
     border:none;
     position:fixed;
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    background:light-dark(#fffa,#000a);
+    width:300px;
+    background:--opa(var(--background));
     text-align:center;
-    color:light-dark(#333,#ccc);
+    color:var(--color);
     z-index:3;
-    >h1{font-size:1.875rem;margin:10px;}
     >div{
         display:flex;
-        justify-content:center;
-        margin:10px 0;
+        background:var(--background);
+        height:50px;
         >input{
-            width:200px;
-            height:40px;
-            border:1px solid #888;
-            border-radius:10px 0 0 10px;
+            background:transparent;
+            width:220px;
+            height:50px;
+            border:none;
+            padding:0 15px;
             font-size:1.125rem;
-            padding:0 10px;
         }
         >button{
-            width:60px;
+            width:80px;
             height:40px;
-            border:1px solid #888;
-            border-radius:0 10px 10px 0;
+            margin:5px;
+            border:none;
+            border-radius:15px;
             font-size:1.125rem;
-            background:#888;
-            color:light-dark(#fff,#000);
+            background:--opa(var(--color));
+            color:var(--background);
         }
+    }
+    >p{
+        margin:15px;
     }
 }
 #loader{
@@ -594,7 +597,7 @@ main{
         height:180px;
         border-radius:10px;
     }
-    ul,ol,&:not(#EVENT) dl:not(.keywords,.keywords>dl,.timeline){
+    ul,ol,&:not(#EVENT) dl:not(.keywords,.keywords>dl,.timeline,#EVENT dl){
         margin:10px 0 10px 2em;
         li,dd{
             color:--mix(var(--hr));
@@ -652,11 +655,14 @@ main{
             border-radius:20px;
             font-size:1rem;
             margin:10px 30px;
-            >dd{
+            >a{
+                display:block;
                 background:hsl(from var(--t) calc(h - 30) calc(s - 20) l / 0.5);
                 font-weight:bold;
+                text-decoration:none;
+                color:inherit;
                 font-size:1.25rem;
-                padding:4px;
+                padding:10px;
                 border-radius:20px 20px 7px 7px;
             }
             >dl{
@@ -681,7 +687,7 @@ main{
                     margin:5px 1em;
                     color:color-mix(in oklab,hsl(from var(--t) calc(h - 20) s l) 20%,var(--color));
                 }
-                >span{
+                span{
                     font-size:0.875rem;
                     background:--opa(var(--t),0.3);
                     color:--mix(var(--t));
@@ -762,12 +768,6 @@ main{
         >div{margin:auto;}
         >p{color:color-mix(in oklch,var(--gallery) 30%,var(--color));}
     }
-    .division{
-        width:100%;
-        box-shadow:0 15px 15px -14px var(--color);
-        height:30px;
-        margin:20px 0;
-    }
     .box{
         background:--opa(var(--color),0.4);
         padding:20px;
@@ -819,25 +819,24 @@ main{
             top:10px;
             bottom:10px;
             width:5px;
-            background:color-mix(in oklab,var(--timeline),#fff5);
-            border-radius:2px;
+            background:linear-gradient(to bottom,transparent 0,color-mix(in oklab,var(--timeline),#fff5) 15px,color-mix(in oklab,var(--timeline),#fff5) calc(100% - 15px),transparent 100%);
         }
         >dt{
             background:#0002;
             padding:0 30px 0 20px;
             line-height:50px;
             font-size:1.25rem;
-            margin:0 15px;
-            border-radius:0 25px 25px 0;
+            margin:0 20px;
+            border-radius:10px 25px 25px 10px;
             display:inline-block;
             width:auto;
         }
         >dd{
-            background:#fff2;
+            background:linear-gradient(to right,#fff2,transparent);
             padding:0 7.5px;
-            margin:15px 5px 15px 30px;
-            line-height:30px;
-            border-radius:10px;
+            margin:15px 5px 0 30px;
+            height:40px;
+            border-radius:15px 0 0 15px;
             &::before{
                 content:'';
                 position:relative;
@@ -847,7 +846,7 @@ main{
                 border-radius:50%;
                 background:var(--timeline);
                 left:-35px;
-                margin-top:5px;
+                margin-top:10px;
             }
         }
     }
@@ -1151,7 +1150,7 @@ main{
         }
     }
     .mt{
-        background:#f9f8;
+        background:#f9f8!important;
         color:#303;
         font-style:italic;
     }

@@ -219,3 +219,82 @@ document.querySelectorAll(".writing").forEach((e)=>{
         })
     };
 });
+//header目录
+window.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('main').forEach(main=>{
+        const header=main.querySelector('header');
+        if(!header)return;
+        const h1Elements=main.querySelectorAll('h1[id]');
+        if(h1Elements.length===0)return;
+        const toc=document.createElement('dl');
+        toc.className='keywords';
+        h1Elements.forEach(h1=>{
+            const link=document.createElement('a');
+            link.href=`#${h1.id}`;
+            link.textContent=h1.textContent;
+            const h2Dl=document.createElement('dl');
+            let nextElement=h1.nextElementSibling;
+            const h2sUnderCurrentH1=[];
+            while(nextElement&&nextElement.tagName!=='H1'){
+                if(nextElement.tagName==='H2'){h2sUnderCurrentH1.push(nextElement);}
+                nextElement=nextElement.nextElementSibling;
+            }
+            h2sUnderCurrentH1.forEach(h2=>{
+                const h2Text=h2.textContent;
+                const h2Dd=document.createElement('dd');
+                h2Dd.textContent=h2Text;
+                h2Dl.appendChild(h2Dd);
+                const h2Description = h2.getAttribute('data-des');
+                if(h2Description){
+                    const descriptions=h2Description.split(' ');
+                    descriptions.forEach(desc=>{
+                        if(desc.trim()){
+                            const span=document.createElement('span');
+                            span.textContent=desc.trim();
+                            h2Dd.after(span);
+                        }
+                    });
+                }
+                const h3Dt=document.createElement('dt');
+                let nextElementH2=h2.nextElementSibling;
+                const h3sUnderCurrentH2=[];
+                while(nextElementH2&&nextElementH2.tagName!=='H1'&&nextElementH2.tagName!=='H2'){
+                    if(nextElementH2.tagName==='H3'){h3sUnderCurrentH2.push(nextElementH2);}
+                    nextElementH2=nextElementH2.nextElementSibling;
+                }
+                h3sUnderCurrentH2.forEach(h3=>{
+                    const h3Dt=document.createElement('dt'),
+                          h3Dd=document.createElement('dd');
+                    h3Dd.textContent=h3.textContent;
+                    h3Dt.appendChild(h3Dd);
+                    h2Dl.appendChild(h3Dt);
+                    const h3Description=h3.getAttribute('data-des');
+                    if(h3Description){
+                        const descriptions=h3Description.split(' ');
+                        descriptions.forEach(desc=>{
+                            if(desc.trim()){
+                                const span=document.createElement('span');
+                                span.textContent=desc.trim();
+                                h3Dd.after(span);
+                            }
+                        });
+                    }
+                });
+            });
+            toc.appendChild(link);
+            if(h2sUnderCurrentH1.length>0){toc.appendChild(h2Dl);}
+            const h1Description=h1.getAttribute('data-des');
+            if(h1Description){
+                const descriptions=h1Description.split(' ');
+                descriptions.forEach(desc=>{
+                    if(desc.trim()){
+                        const span=document.createElement('span');
+                        span.textContent=desc.trim();
+                        h2Dl.prepend(span);
+                    }
+                });
+            }
+        });
+        header.appendChild(toc);
+    });
+});
