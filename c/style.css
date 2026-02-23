@@ -593,6 +593,10 @@ main{
         display:block;
         margin:10px auto;
     }
+    ins,rt{
+        font-family:sans-serif;
+        text-decoration:none;
+    }
     .broken{
         display:block;
         background:--opa(var(--nav));
