@@ -15,7 +15,7 @@ function showPage(e){
     document.querySelectorAll("nav button").forEach(e=>{e.classList.remove("active")});
     document.querySelector(`nav button[onclick*="${e}"]`).classList.add("active");
     n&&(n.style.display="block");
-    t.style.display="EVENT"==e?"block":"none";
+    t.style.display="EVE"==e?"block":"none";
     document.getElementById(e+"-l").style.display="block";
 }
 //关闭菜单
@@ -67,7 +67,7 @@ document.querySelectorAll("img").forEach(o=>{o.onerror=function(){this.classList
 //日志页逻辑
 function search(){
     var e=document.querySelector("nav input").value.trim(),
-        t=document.getElementById("EVENT");
+        t=document.getElementById("EVE");
     if (t&&"none"!==window.getComputedStyle(t).display){
         if(t=t.querySelectorAll("p,dd"),e){
             const i=new RegExp(e.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"gi");
@@ -93,13 +93,13 @@ function hot(){
     heb();
 }
 function heb(){
-    document.querySelectorAll("#EVENT>div").forEach(e=>{
+    document.querySelectorAll("#EVE>div").forEach(e=>{
         var t=Array.from(e.children).some(e=>"TIME"!==e.tagName&&"none"!==window.getComputedStyle(e).display);
         e.style.display=t?"":"none";});
-    document.querySelectorAll("#EVENT dl").forEach(e=>{
+    document.querySelectorAll("#EVE dl").forEach(e=>{
         var t=Array.from(e.querySelectorAll("dd")).every(e=>"none"===window.getComputedStyle(e).display);
         e.style.display=t?"none":"";});
-    document.querySelectorAll("#EVENT>h1").forEach(e=>{
+    document.querySelectorAll("#EVE>h1").forEach(e=>{
         let t=e.nextElementSibling,l=!1;
         for(;t&&"H1"!==t.tagName;){"none"!==t.style.display&&(l=!0);t=t.nextElementSibling;}
         e.style.display=l?"":"none";
@@ -107,7 +107,7 @@ function heb(){
 }
 heb();
 const obs=new MutationObserver(heb);
-obs.observe(document.getElementById("EVENT"),{
+obs.observe(document.getElementById("EVE"),{
     childList:!0,
     subtree:!0,
     attributes:!0,
