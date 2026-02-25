@@ -1024,23 +1024,22 @@ main{
         padding:10px;
         border-radius:10px;
         >p{text-indent:0;font-size:1rem;}
-        >strong{
+        >b{
             font-weight:bold;
             color:#576b95;
             display:block;
+            margin-top:10px;
         }
         >div{
             background:#f7f7f799;
             border-radius:7px;
             margin:5px;
             >div{
-                >span{
-                    color:#576b95;
-                    &:last-child{&::after{content:"：";}}
-                }
+                >span{color:#576b95;&:last-child::after{content:"：";}}
                 color:#000;
                 padding:5px;
                 border-bottom:1px solid #dedede99;
+                &:empty{display:none;&::before{display:none;}}
             }
             >div:first-child{
                 color:#576b95;
@@ -1050,9 +1049,9 @@ main{
                     padding-right:10px;
                 }
             }
-            &:empty{visibility:hidden;&::before{visibility:hidden;}}
             >div:last-child{border:none;}
         }
+        >time{background:transparent;opacity:0.6;}
     }
     details{
         display:block;
