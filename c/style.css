@@ -124,7 +124,8 @@ body[data-t="n"]{
 }
 @function --mix(--a:var(--background),--b:var(--color)){
     result:color-mix(in oklch,var(--a),var(--b));
-}@function --txt(--c:transparent){
+}
+@function --txt(--c:transparent){
     result:color-mix(in oklch,var(--c) 10%,var(--color));
 }
 body[data-tf="1"] *[data-f="3"],
