@@ -5,17 +5,14 @@ function ep(){
 }
 //页面切换
 function showPage(e){
-    var l=document.querySelectorAll("main"),
-        n=document.getElementById(e),
-        o=document.querySelectorAll("nav>div:nth-of-type(2)>div>div"),
-        t=document.querySelector("nav>div:nth-of-type(1)>div>div");
-    l.forEach(e=>{e.style.display="none"});
+    const n=document.getElementById(e);
+    document.querySelectorAll("main").forEach(e=>{e.style.display="none"});
     window.scrollTo({top:0,behavior:"auto"});
-    o.forEach(e=>{e.style.display="none"});
+    document.querySelectorAll("nav>div:nth-of-type(2)>div>div").forEach(e=>{e.style.display="none"});
     document.querySelectorAll("nav button").forEach(e=>{e.classList.remove("active")});
     document.querySelector(`nav button[onclick*="${e}"]`).classList.add("active");
     n&&(n.style.display="block");
-    t.style.display="EVE"==e?"block":"none";
+    document.querySelector("nav>div:nth-of-type(1)>div>div").style.display="EVE"==e?"block":"none";
     document.getElementById(e+"-l").style.display="block";
 }
 //关闭菜单
@@ -123,12 +120,12 @@ const texts=["文本1","文本2"];
 let ci=0;
 const ct=document.querySelector('#loader>div>p');
 ct.textContent=texts[ci];
-function rotateText(){
+function roT(){
     ci=(ci+1)%texts.length;
     ct.style.opacity='0';
     setTimeout(()=>{ct.textContent=texts[ci];ct.style.opacity='1';},200);
 }
-setInterval(rotateText,1000);
+setInterval(roT,1000);
 //加载动画
 function fo(){
     const t=document.getElementById("loader"),o=performance.now();
@@ -141,30 +138,37 @@ function fo(){
     });
 }
 window.addEventListener("load",function(){setTimeout(fo,300);});
+document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('main:has(>h1):not(#HOME)').forEach(m=>{
+        m.querySelectorAll(':scope>h1').forEach(h=>{
+            const i=`${m.id}-${h.textContent.trim().replace(/[^\w\u4e00-\u9fa5]+/g, '-').toLowerCase()}`;
+            h.setAttribute('id',i);
+        });
+    });
+    "function"==typeof heb&&heb();
+});
 window.addEventListener('DOMContentLoaded',function(){
     //菜单
     document.querySelectorAll('main').forEach(main=>{
-        const mainId=main.id,mainTitle=main.querySelector('header>h1')?.textContent;
+        const mainId=main.id;
         if(mainId==='HOME')return;
-        const divContainer=document.createElement('div');
-        divContainer.id=`${mainId}-l`;
-        divContainer.style.display='none';
-        const h1Elements=main.querySelectorAll(':scope>h1');
-        h1Elements.forEach(h1=>{
+        const c=document.createElement('div');
+        c.id=`${mainId}-l`;
+        c.style.display='none';
+        main.querySelectorAll(':scope>h1').forEach(h1=>{
             const h1Id=h1.id;
-            const h1Text=h1.textContent||h1Id;
             if (h1Id){
                 const link=document.createElement('a');
                 link.href=`#${h1Id}`;
-                link.textContent=h1Text;
-                divContainer.appendChild(link);
+                link.textContent=h1.textContent||h1Id;
+                c.appendChild(link);
             }
         });
         const navButton=document.createElement('button');
         navButton.setAttribute('onclick',`showPage('${mainId}')`);
-        navButton.textContent=mainTitle;
+        navButton.textContent=main.querySelector('header>h1')?.textContent;
         document.querySelector('nav>div:nth-of-type(2)>div:nth-of-type(1)').appendChild(navButton);
-        document.querySelector('nav>div:nth-of-type(2)>div:nth-of-type(2)').appendChild(divContainer);
+        document.querySelector('nav>div:nth-of-type(2)>div:nth-of-type(2)').appendChild(c);
     });
     //初始化
     const p=localStorage.getItem('p');
@@ -180,29 +184,25 @@ window.addEventListener('DOMContentLoaded',function(){
 });
 //换页
 window.addEventListener('DOMContentLoaded',function(){
-    const mainElements=document.querySelectorAll('main');
-    mainElements.forEach((currentMain,index)=>{
-        const pageDiv=document.createElement('div');
-        pageDiv.className='page';
-        const prevButton=document.createElement('button');
-        const nextButton=document.createElement('button');
+    const m=document.querySelectorAll('main');
+    m.forEach((c,index)=>{
+        const d=document.createElement('div'),
+              pr=document.createElement('button'),
+              ne=document.createElement('button');
+        d.className='page';
         if(index>0){
-            const prevMain=mainElements[index-1];
-            const prevMainId=prevMain.id;
-            const prevMainTitle=prevMain.querySelector('header h1')?.textContent;
-            prevButton.setAttribute('onclick',`showPage("${prevMainId}")`);
-            prevButton.textContent=prevMainTitle;
+            const prevMain=m[index-1];
+            pr.setAttribute('onclick',`showPage("${prevMain.id}")`);
+            pr.textContent=prevMain.querySelector('header h1')?.textContent;
         }
-        if(index<mainElements.length-1){
-            const nextMain=mainElements[index+1];
-            const nextMainId=nextMain.id;
-            const nextMainTitle=nextMain.querySelector('header h1')?.textContent;
-            nextButton.setAttribute('onclick',`showPage("${nextMainId}")`);
-            nextButton.textContent=nextMainTitle;
+        if(index<m.length-1){
+            const nextMain=m[index+1];
+            ne.setAttribute('onclick',`showPage("${nextMain.id}")`);
+            ne.textContent=nextMain.querySelector('header h1')?.textContent;
         }
-        pageDiv.appendChild(prevButton);
-        pageDiv.appendChild(nextButton);
-        currentMain.appendChild(pageDiv);
+        d.appendChild(pr);
+        d.appendChild(ne);
+        c.appendChild(d);
     });
 });
 //文本复制
@@ -224,75 +224,76 @@ window.addEventListener('DOMContentLoaded',function(){
     document.querySelectorAll('main').forEach(main=>{
         const header=main.querySelector('header');
         if(!header)return;
-        const h1Elements=main.querySelectorAll('h1[id]');
-        if(h1Elements.length===0)return;
+        const h1Ele=main.querySelectorAll('h1[id]');
+        if(h1Ele.length===0)return;
         const toc=document.createElement('dl');
         toc.className='keywords';
-        h1Elements.forEach(h1=>{
+        h1Ele.forEach(h1=>{
             const link=document.createElement('a');
             link.href=`#${h1.id}`;
             link.textContent=h1.textContent;
             const h2Dl=document.createElement('dl');
-            let nextElement=h1.nextElementSibling;
-            const h2sUnderCurrentH1=[];
-            while(nextElement&&nextElement.tagName!=='H1'){
-                if(nextElement.tagName==='H2'){h2sUnderCurrentH1.push(nextElement);}
-                nextElement=nextElement.nextElementSibling;
+            let ne=h1.nextElementSibling;
+            const h2u=[];
+            while(ne&&ne.tagName!=='H1'){
+                if(ne.tagName==='H2'){h2u.push(ne);}
+                ne=ne.nextElementSibling;
             }
-            h2sUnderCurrentH1.forEach(h2=>{
-                const h2Text=h2.textContent;
+            h2u.forEach(h2=>{
                 const h2Dd=document.createElement('dd');
-                h2Dd.textContent=h2Text;
+                h2Dd.textContent=h2.textContent;
                 h2Dl.appendChild(h2Dd);
-                const h2Description = h2.getAttribute('data-des');
-                if(h2Description){
-                    const descriptions=h2Description.split(' ');
-                    descriptions.forEach(desc=>{
+                const h2Des=h2.getAttribute('data-des');
+                if(h2Des){
+                    const descFragment=document.createDocumentFragment();
+                    h2Des.split(' ').forEach(desc=>{
                         if(desc.trim()){
                             const span=document.createElement('span');
                             span.textContent=desc.trim();
-                            h2Dd.after(span);
+                            descFragment.appendChild(span);
                         }
                     });
+                    h2Dd.after(descFragment);
                 }
-                const h3Dt=document.createElement('dt');
-                let nextElementH2=h2.nextElementSibling;
-                const h3sUnderCurrentH2=[];
-                while(nextElementH2&&nextElementH2.tagName!=='H1'&&nextElementH2.tagName!=='H2'){
-                    if(nextElementH2.tagName==='H3'){h3sUnderCurrentH2.push(nextElementH2);}
-                    nextElementH2=nextElementH2.nextElementSibling;
+                let neH2=h2.nextElementSibling;
+                const h3u=[];
+                while(neH2&&neH2.tagName!=='H1'&&neH2.tagName!=='H2'){
+                    if(neH2.tagName==='H3'){h3u.push(neH2);}
+                    neH2=neH2.nextElementSibling;
                 }
-                h3sUnderCurrentH2.forEach(h3=>{
+                h3u.forEach(h3=>{
                     const h3Dt=document.createElement('dt'),
                           h3Dd=document.createElement('dd');
                     h3Dd.textContent=h3.textContent;
                     h3Dt.appendChild(h3Dd);
                     h2Dl.appendChild(h3Dt);
-                    const h3Description=h3.getAttribute('data-des');
-                    if(h3Description){
-                        const descriptions=h3Description.split(' ');
-                        descriptions.forEach(desc=>{
+                    const h3Des=h3.getAttribute('data-des');
+                    if(h3Des){
+                        const descFragment=document.createDocumentFragment();
+                        h3Des.split(' ').forEach(desc=>{
                             if(desc.trim()){
                                 const span=document.createElement('span');
                                 span.textContent=desc.trim();
-                                h3Dd.after(span);
+                                descFragment.appendChild(span);
                             }
                         });
+                        h3Dd.after(descFragment);
                     }
                 });
             });
             toc.appendChild(link);
-            if(h2sUnderCurrentH1.length>0){toc.appendChild(h2Dl);}
-            const h1Description=h1.getAttribute('data-des');
-            if(h1Description){
-                const descriptions=h1Description.split(' ');
-                descriptions.forEach(desc=>{
+            if(h2u.length>0){toc.appendChild(h2Dl);}
+            const h1Des=h1.getAttribute('data-des');
+            if(h1Des){
+                const descFragment=document.createDocumentFragment();
+                h1Des.split(' ').forEach(desc=>{
                     if(desc.trim()){
                         const span=document.createElement('span');
                         span.textContent=desc.trim();
-                        h2Dl.prepend(span);
+                        descFragment.appendChild(span);
                     }
                 });
+                h2Dl.prepend(descFragment);
             }
         });
         header.appendChild(toc);
