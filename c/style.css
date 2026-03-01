@@ -834,32 +834,33 @@ main{
             background:linear-gradient(to bottom,transparent 0,color-mix(in oklab,var(--timeline),#fff5) 15px,color-mix(in oklab,var(--timeline),#fff5) calc(100% - 15px),transparent 100%);
         }
         >dt{
-            background:#0002;
-            padding:0 30px 0 20px;
-            line-height:50px;
-            font-size:1.25rem;
+            background:--opa(var(--color),0.2);
+            padding:0 30px;
+            line-height:40px;
+            font-size:1.125rem;
             margin:0 20px;
-            border-radius:10px 25px 25px 10px;
+            border-radius:10px 20px 20px 10px;
             display:inline-block;
             width:auto;
         }
         >dd{
-            background:linear-gradient(to right,#fff2,transparent);
+            background:linear-gradient(to right,--opa(var(--color),0.1),transparent);
             color:--txt(var(--timeline));
-            padding:0 7.5px;
-            margin:15px 5px 0 30px;
-            height:40px;
-            border-radius:15px 0 0 15px;
+            padding:0 10px;
+            margin:15px 30px;
+            line-height:36px;
+            border-radius:15px;
+            position:relative;
             &::before{
                 content:'';
-                position:relative;
-                display:inline-block;
+                position:absolute;
+                display:block;
                 width:20px;
                 height:20px;
                 border-radius:50%;
                 background:var(--timeline);
-                left:-35px;
-                margin-top:10px;
+                left:-27.5px;
+                top:8px;
             }
         }
     }
