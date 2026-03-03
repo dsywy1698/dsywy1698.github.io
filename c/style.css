@@ -602,6 +602,7 @@ main{
         width:260px;
         height:180px;
         border-radius:10px;
+        border:0;
     }
     ul,ol,&:not(#EVE) dl:not(.keywords,.keywords>dl,.timeline,#EVE dl){
         margin:10px 0 10px 2em;

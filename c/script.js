@@ -60,7 +60,7 @@ function ubg(){
 request.onupgradeneeded=function(e){(db=e.target.result).objectStoreNames.contains("bg")||db.createObjectStore("bg",{keyPath:"id"})};
 request.onsuccess=function(e){db=e.target.result,lbg()};
 //替代图像
-document.querySelectorAll("img").forEach(o=>{o.onerror=function(){this.classList.add("broken")}});
+document.querySelectorAll("img").forEach(o=>{o.onerror=function(){this.classList.add("broken");this.src=""}});
 //日志页逻辑
 function search(){
     var e=document.querySelector("nav input").value.trim(),
