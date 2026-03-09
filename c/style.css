@@ -59,15 +59,15 @@ body[data-t="l"]{
     --nav:#abb5ba;
     --nav-c:#507c95;
     --dialog:#bcae8f;
-    --hr:#af9c6a;
+    --hr:#6a9daf;
     --link:#0a0ac2;
     --q:#6b7d36;
-    --blockquote:#bc8fa1;
-    --gallery:#339999;
-    --article:#7979d2;
+    --blockquote:#d194ac;
+    --gallery:#40dfdf;
+    --article:#9898e6;
     --writing:#abc256;
     --timeline:#b2bfc3;
-    --table:#d8d8a6;
+    --table:#c9c983;
 }
 body[data-t="d"]{
     --background:#00001a;
@@ -79,11 +79,11 @@ body[data-t="d"]{
     --link:#8ca6f2;
     --q:#a2842a;
     --blockquote:#5c5c3d;
-    --gallery:#2847a4;
-    --article:#366363;
+    --gallery:#2d2d86;
+    --article:#2e6d6d;
     --writing:#673e74;
     --timeline:#19384d;
-    --table:#343419;
+    --table:#4d4d19;
 }
 body[data-t="b"]{
     --background:#0066ff;
@@ -93,13 +93,13 @@ body[data-t="b"]{
     --dialog:#198cb3;
     --hr:#ccffff;
     --link:#fafa9e;
-    --q:#ff3399;
-    --blockquote:#b366ff;
-    --gallery:#0099ccaa;
+    --q:#ff66b3;
+    --blockquote:#ff80ff;
+    --gallery:#0099cc;
     --article:#66c2ff;
-    --writing:#336699;
+    --writing:#2d5986;
     --timeline:#5aa4ae;
-    --table:#4747eb;
+    --table:#28bd98;
 }
 body[data-t="n"]{
     --background:#000033;
