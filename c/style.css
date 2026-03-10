@@ -75,7 +75,7 @@ body[data-t="d"]{
     --nav:#3d495c;
     --nav-c:#b3bccc;
     --dialog:#bcae8f;
-    --hr:#e6d299;
+    --hr:#85c2e0;
     --link:#8ca6f2;
     --q:#a2842a;
     --blockquote:#5c5c3d;
@@ -173,7 +173,7 @@ body[data-th="2"] #EVE>div dd:not([data-h]){display:none;}
     }
 }
 #loader{
-    background:color-mix(in oklab,var(--dialog) 20%,var(--background));
+    background:var(--background);
     width:100dvw;
     height:100dvh;
     z-index:2;
@@ -655,14 +655,14 @@ main{
             tr>td:first-of-type{font-weight:bold;width:4em;}
         }
         dl.keywords{
-            background:hsl(from var(--t) calc(h - 30) calc(s - 20) l / 0.3);
+            background:hsl(from var(--t) calc(h - 30) calc(s - 20) l / 0.2);
             padding:15px;
             border-radius:20px;
             font-size:1rem;
             margin:10px 30px;
             >a{
                 display:block;
-                background:hsl(from var(--t) calc(h - 30) calc(s - 20) l / 0.35);
+                background:hsl(from var(--t) calc(h - 30) calc(s - 20) l / 0.28);
                 font-weight:bold;
                 text-decoration:none;
                 color:inherit;
@@ -673,7 +673,7 @@ main{
             }
             >dl{
                 text-align:left;
-                background:linear-gradient(to bottom,hsl(from var(--t) calc(h - 30) calc(s - 20) l / 0.4),transparent);
+                background:linear-gradient(to bottom,hsl(from var(--t) calc(h - 30) calc(s - 20) l / 0.3),transparent);
                 border-radius:5px 5px 0 0;
                 padding:15px;
                 >dd{
@@ -730,6 +730,7 @@ main{
         color:--txt(var(--q));
         box-shadow:0 0 20px --opa(var(--q),0.4);
         font-size:1.5625rem;
+        text-wrap:pretty;
         display:block;
         text-align:center;
         padding:8px;
@@ -778,7 +779,7 @@ main{
         >p{color:color-mix(in oklch,var(--gallery) 30%,var(--color));}
     }
     .box{
-        background:--opa(var(--color),0.4);
+        background:--opa(var(--color),0.35);
         padding:20px;
         text-align:center;
         border-radius:15px;
@@ -809,7 +810,7 @@ main{
             width:30px;
             height:30px;
             right:20px;
-            background:color-mix(in oklch,var(--writing),#fff8);
+            background:color-mix(in oklch,var(--writing),#fff5);
             border-radius:10px;
             transition:opacity 0.3s;
             &:hover{opacity:0.7;}
@@ -895,7 +896,7 @@ main{
         all:unset;
         background:--mix(var(--dialog));
         font-weight:normal;
-        color:var(--dialog);
+        color:color-mix(in oklch,var(--dialog),var(--background) 20%);
         padding:1.5px 2.5px;
         border-radius:5px;
         margin:0 2.5px;
@@ -905,7 +906,7 @@ main{
         all:unset;
         background:--opa(var(--q),0.4);
         color:--txt(var(--q));
-        box-shadow:6px -6px --opa(var(--q),0.3);
+        box-shadow:6px -6px 3px --opa(var(--q),0.3);
         display:block;
         border-radius:10px;
         padding:10px;
@@ -976,9 +977,11 @@ main{
         color:color-mix(in oklch,var(--nav-c) 30%,var(--color));
     }
     .wechat{
-        padding:10px 5px;
+        padding:15px 10px;
+        border-radius:8px;
         display:flex;
         flex-direction:column;
+        background:--opa(var(--color),0.05);
         >p{
             position:relative;
             padding:5px 7.5px;
@@ -1056,9 +1059,9 @@ main{
     }
     details{
         display:block;
-        background:--opa(var(--color),0.2);
+        background:--opa(var(--color),0.1);
         border-radius:15px;
-        padding:5px;
+        padding:5px 15px;
         transition:height 0.3s;
         interpolate-size:allow-keywords;
         height:40px;
@@ -1098,13 +1101,13 @@ main{
 }
 #EVE{
     >h1{
-        background:#0998;
+        background:#0996;
+        color:--txt(#099);
         text-align:center;
         border-radius:100dvw;
-        margin:25px 15px 5px 15px;
+        margin:25px 15px;
         padding:10px;
-        color:#fff;
-        box-shadow:0 2px 10px #3996;
+        box-shadow:0 0px 10px #2776;
         &::before{all:initial}
     }
     >h1[id="EVE-未记录准确日期"]+div span{
@@ -1166,9 +1169,9 @@ main{
         font-style:italic;
     }
     mark{
-        background-color:#d9b3ff88;
-        padding:0 5px;
-        border-radius:15px;
+        background-color:#d9b3ff80;
+        padding:0 3px;
+        border-radius:6px;
     }
     [data-un]::before{
         content:"?";
