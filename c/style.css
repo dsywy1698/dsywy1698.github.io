@@ -37,6 +37,7 @@ body{
 }
 ::selection{background:--opa(var(--nav));}
 p,dt,dd,li,small{line-height:1.7em;letter-spacing:0.15em;}
+td{line-height:1.4em;letter-spacing:0.12em;}
 button{border:none;}
 input:focus{outline:none;}
 #bigger,#smaller{
@@ -92,7 +93,7 @@ body[data-t="b"]{
     --nav-c:#3366cc;
     --dialog:#198cb3;
     --hr:#ccffff;
-    --link:#fafa9e;
+    --link:#f0f075;
     --q:#ff66b3;
     --blockquote:#ff80ff;
     --gallery:#0099cc;
@@ -534,8 +535,8 @@ main{
         border:0;
         border-radius:1px;
         margin:15px 10px;
-        padding:1px;
-        background:linear-gradient(to right,transparent 0%,var(--hr) 25%,var(--hr) 75%,transparent 100%);
+        padding:0.8px;
+        background:linear-gradient(to right,transparent 0%,var(--hr) 20%,var(--hr) 80%,transparent 100%);
     }
     a{
         color:var(--link);
@@ -634,7 +635,7 @@ main{
         bottom:5px;
         >span{
             font-size:0.875rem;
-            background:--opa(var(--t));
+            background:--opa(var(--t),0.4);
             color:--mix(var(--t));
             border-radius:99px;
             padding:5px 7px;
@@ -662,7 +663,7 @@ main{
             margin:10px 30px;
             >a{
                 display:block;
-                background:hsl(from var(--t) calc(h - 30) calc(s - 20) l / 0.28);
+                background:hsl(from var(--t) calc(h - 30) calc(s - 20) l / 0.19);
                 font-weight:bold;
                 text-decoration:none;
                 color:inherit;
@@ -673,7 +674,7 @@ main{
             }
             >dl{
                 text-align:left;
-                background:linear-gradient(to bottom,hsl(from var(--t) calc(h - 30) calc(s - 20) l / 0.3),transparent);
+                background:linear-gradient(to bottom,hsl(from var(--t) calc(h - 30) calc(s - 20) l / 0.2),transparent);
                 border-radius:5px 5px 0 0;
                 padding:15px;
                 >dd{
@@ -715,7 +716,7 @@ main{
         color:--txt(var(--article));
         padding:13px;
         border-radius:15px;
-        box-shadow:0 0 10px --opa(var(--article),0.4),inset 0 0 20px --opa(var(--article),0.3);
+        box-shadow:0 0 10px --opa(var(--article),0.4);
         >p{text-indent:2.3em;}
         >h1{text-align:center;margin:5px auto;}
         >time{
@@ -814,7 +815,7 @@ main{
             border-radius:10px;
             transition:opacity 0.3s;
             &:hover{opacity:0.7;}
-            &::before{color:var(--writing);}
+            &::before{color:--mix(var(--writing),#0008);}
         }
     }
     .timeline{
@@ -952,7 +953,7 @@ main{
                     opacity:0.6;
                     float:left;
                 }
-                &::before{content:"上一页-";}
+                &::before{content:"上页-";}
             }
             &:last-child{
                 background:linear-gradient(to right,--opa(var(--dialog),0.4),--opa(var(--dialog),0.1));
@@ -964,7 +965,7 @@ main{
                     opacity:0.6;
                     float:right;
                 }
-                &::before{content:"下一页-";}
+                &::before{content:"下页-";}
             }
         }
     }
@@ -1060,6 +1061,7 @@ main{
     details{
         display:block;
         background:--opa(var(--color),0.1);
+        color:--txt();
         border-radius:15px;
         padding:5px 15px;
         transition:height 0.3s;
@@ -1101,7 +1103,7 @@ main{
 }
 #EVE{
     >h1{
-        background:#0996;
+        background:#0995;
         color:--txt(#099);
         text-align:center;
         border-radius:100dvw;

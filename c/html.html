@@ -13,76 +13,76 @@
 ::-webkit-scrollbar-thumb:hover{background:#8585ad;}
 body{margin:0;font-size:100%;overflow:hidden;}
 button{width:20px;height:20px;border-radius:100vw;background-color:rgba(255, 255, 255, 0.1);border:0;transition:all 0.2s ease;margin:auto;}
-.b1{background:#cc000088;margin:5px 1px 5px 5px;}
-.b1:hover{background:#cc0000dd;}
-.b2{background:#00993388;margin:5px 0;width:30px;}
-.b2:hover{background:#009933dd;}
-.b3{background:#0066ff88;margin:5px 0;}
-.b3:hover{background:#0066ffdd;}
-.b4{background:#cccc0088;margin:5px 0 5px 1px;}
-.b4:hover{background:#cccc00dd;}
-#dragbar{position:absolute;cursor:col-resize;z-index:3;padding:5px;}
 #shield{display:none;top:0;left:0;width:100%;position:absolute;height:100%;z-index:4;}
+#dragbar{position:absolute;cursor:col-resize;z-index:3;padding:5px;}
 #container{width:100%;overflow:hidden;position:absolute;top:0;bottom:0;height:auto;}
 #textareacontainer,#iframecontainer{float:left;height:100%;width:50%;}
 #textarea,#iframe{height:100%;width:100%;padding-bottom:10px;padding:0;}
 #textareawrapper{width:100%;height:100%;position:relative;}
-#iframewrapper{width:100%;height:100%;-webkit-overflow-scrolling:touch;background-color:#ffffff;}
+#iframewrapper{width:100%;height:100%;-webkit-overflow-scrolling:touch;background-color:#fff;}
 #textareaCode{background-color:#aaaaaa;font-family:consolas,"courier new",monospace;font-size:15px;height:100%;width:100%;resize:none;line-height:normal;}
 #iframeResult,#iframeSource{height:100%;width:100%;}
-.trytopnav{overflow:hidden;padding:0;margin:0;white-space:nowrap!important;z-index:10000;background:#000000aa;position:fixed;width:200px;border-radius:100vw;backdrop-filter:blur(1px);left:calc((100vw - 200px) / 2);top:2px;}
+.trytopnav{
+    overflow:hidden;padding:0;margin:0;white-space:nowrap!important;z-index:10000;background:#000a;position:fixed;width:200px;border-radius:100vw;backdrop-filter:blur(1px);left:calc((100vw - 200px) / 2);top:2px;
+    .b1{background:#c008;margin:5px 1px 5px 5px;}
+    .b2{background:#0938;margin:5px 0;width:30px;}
+    .b3{background:#06f8;margin:5px 0;}
+    .b4{background:#cc08;margin:5px 0 5px 1px;}
+    button:hover{opacity:0.7}
+    span{display:inline-block;width:45px;color:#fff;font-family:Consolas;user-select:none;padding:5px 0;text-align:center;&:first-child{float:left!important;}&:last-child{float:right!important;}}
+}
 
 .CodeMirror.cm-s-default{line-height:normal;padding:0;height:100%;width:100%;}
 .cm-s-default{
-  .cm-keyword{color:#0000FF;}
-  .cm-atom{color:#7D007D;}
-  .cm-number{color:#008000;}
-  .cm-def{color:#0000FF;}
-  .cm-variable{color:#000;}
-  .cm-variable-2{color:#005A9C;}
-  .cm-variable-3{color:#008080;}
-  .cm-property{color:#309;}
-  .cm-operator{color:#AA22FF;}
-  .cm-comment{color:#3F7F5F;font-style:italic;}
-  .cm-string{color:#BA2121;}
-  .cm-string-2{color:#FF0000;}
-  .cm-meta{color:#555;}
-  .cm-qualifier{color:#555;}
-  .cm-builtin{color:#30A;}
-  .cm-bracket{color:#997;}
-  .cm-tag{color:#170;}
-  .cm-attribute{color:#00c;}
-  .cm-header{color:blue;}
-  .cm-quote{color:#090;}
-  .cm-link{color:#00c;}
-  .cm-error{color:#f00;}
+  .cm-keyword{color:#00F}
+  .cm-atom{color:#7D007D}
+  .cm-number{color:#008000}
+  .cm-def{color:#00F}
+  .cm-variable{color:#000}
+  .cm-variable-2{color:#005A9C}
+  .cm-variable-3{color:#008080}
+  .cm-property{color:#309}
+  .cm-operator{color:#AA22FF}
+  .cm-comment{color:#3F7F5F;font-style:italic}
+  .cm-string{color:#BA2121}
+  .cm-string-2{color:#F00}
+  .cm-meta{color:#555}
+  .cm-qualifier{color:#555}
+  .cm-builtin{color:#30A}
+  .cm-bracket{color:#997}
+  .cm-tag{color:#170}
+  .cm-attribute{color:#00c}
+  .cm-header{color:blue}
+  .cm-quote{color:#090}
+  .cm-link{color:#00c}
+  .cm-error{color:#f00}
 }
 .darktheme .cm-s-default{
-  .cm-keyword{color:#569CD6;}
-  .cm-atom{color:#C586C0;}
-  .cm-number{color:#B5CEA8;}
-  .cm-def{color:#9CDCFE;}
-  .cm-variable{color:#9CDCFE;}
-  .cm-variable-2{color:#569CD6;}
-  .cm-variable-3{color:#9CDCFE;}
-  .cm-property{color:#9CDCFE;}
-  .cm-operator{color:#D4D4D4;}
-  .cm-comment{color:#6A9955;}
-  .cm-string{color:#CE9178;}
-  .cm-string-2{color:#D16969;}
-  .cm-meta{color:#569CD6;}
-  .cm-qualifier{color:#D7BA7D;}
-  .cm-builtin{color:#569CD6;}
-  .cm-bracket{color:#808080;}
-  .cm-tag{color:#569CD6;}
-  .cm-attribute{color:#9CDCFE;}
-  .cm-header{color:#569CD6;}
-  .cm-quote{color:#569CD6;}
-  .cm-link{color:#569CD6;}
-  .cm-error{color:#F44747;}
+  .cm-keyword{color:#569CD6}
+  .cm-atom{color:#C586C0}
+  .cm-number{color:#B5CEA8}
+  .cm-def{color:#9CDCFE}
+  .cm-variable{color:#9CDCFE}
+  .cm-variable-2{color:#569CD6}
+  .cm-variable-3{color:#9CDCFE}
+  .cm-property{color:#9CDCFE}
+  .cm-operator{color:#D4D4D4}
+  .cm-comment{color:#6A9955}
+  .cm-string{color:#CE9178}
+  .cm-string-2{color:#D16969}
+  .cm-meta{color:#569CD6}
+  .cm-qualifier{color:#D7BA7D}
+  .cm-builtin{color:#569CD6}
+  .cm-bracket{color:#808080}
+  .cm-tag{color:#569CD6}
+  .cm-attribute{color:#9CDCFE}
+  .cm-header{color:#569CD6}
+  .cm-quote{color:#569CD6}
+  .cm-link{color:#569CD6}
+  .cm-error{color:#F44747}
 }
 .cm-invalidchar{color:#f00;transition:0.5s;}
-.CodeMirror{font-family:Consolas,"等线","微软雅黑",monospace,sans-serif;font-size:14px;color:#000;position:relative;overflow:hidden;background:#fff;box-shadow:inset 0 0 5px rgba(0,0,0,.3);}
+.CodeMirror{font-family:Consolas,"等线",monospace,sans-serif;font-size:14px;color:#000;position:relative;overflow:hidden;background:#fff;box-shadow:inset 0 0 5px rgba(0,0,0,.3);}
 .CodeMirror-lines{padding:4px 0}
 .CodeMirror-gutter-filler,.CodeMirror-scrollbar-filler{background-color:#fff}
 .CodeMirror-gutters{background:#f7f7f7;white-space:nowrap;}
@@ -90,13 +90,8 @@ button{width:20px;height:20px;border-radius:100vw;background-color:rgba(255, 255
 .CodeMirror-linenumber{padding:0 2px;min-width:20px;text-align:right;color:#999;white-space:nowrap;letter-spacing:-0.07em;}
 .CodeMirror-guttermarker{color:#000}
 .CodeMirror-guttermarker-subtle{color:#999}
-.CodeMirror-cursor{border-left:1px solid #000;border-right:none;width:0;animation:blink 1.06s infinite;position:absolute;pointer-events:none;}
+.CodeMirror-cursor{border-left:1px solid #000;border-right:none;width:0;position:absolute;pointer-events:none;}
 .darktheme .CodeMirror-cursor{border-left:1px solid #fff;}
-@keyframes blink{
-  0%{border-left:1px solid inherit;}
-  50%{border-left:1px solid transparent;}
-  100%{border-left:1px solid inherit;}
-}
 .cm-tab{display:inline-block;text-decoration:inherit}
 .CodeMirror-composing{border-bottom:2px solid;background:#06f8;border-radius:5px;}
 div.CodeMirror span.CodeMirror-matchingbracket{color:#0f0}
@@ -140,40 +135,85 @@ dialog{
   overflow-x:hidden;
   width:100vw;
   height:100vh;
-  background:#0066ff88;
+  background:hsl(from var(--bg) h s l / 0.5);
+  transition:background 0.2s;
   backdrop-filter:blur(5px);
   border:none;
   padding:0;
   border-radius:20px;
   font-family:Consolas,sans-serif;
   &::-webkit-scrollbar{width:0;}
-    >span{position:sticky;top:0;left:0;display:block;background:#cff8;width:100%;height:30px;line-height:30px;font-size:20px;backdrop-filter:blur(10px);margin-bottom:15px;text-align:center;}
-    #color{
-    display:flex;flex-wrap:wrap;width:100%;
-    >div{flex:0 25%;text-align:center;padding:5px;@media(max-width:1050px){flex:0 50%;}@media(max-width:600px){flex:0 100%;}}
-    &::backdrop{background:#00000066;backdrop-filter:blur(2px);}
-    #selectedcolor{border-radius:10px;width:200px;height:200px;margin:auto;padding:5px;max-width:100%;}
-    #divpreview {border:0;width:80px;height:20px;margin:5px auto;border-radius:5px;visibility:hidden;}
-    #colorhexDIV,#colorrgbDIV,#colorhslDIV,#colornamDIV{font-size:18px;}
-    .colorTable{width:200px;max-width:100%;margin:2px auto;border-radius:10px;}
-    .colorTable>div{margin:0;padding:0;display:table;content:"";clear:both;width:100%;text-align:right;}
-    .colorTable>div:first-child{border-radius:10px 10px 0 0;}
-    .colorTable>div:last-child{border-radius:0 0 10px 10px;}
-    .colorTable>div>div{margin:0;padding:2.5px;float:right;background:#ffffff88;text-align:center;width:120px;}
-    .colorTable>div:first-child>div{border-radius:0 10px 0 0;}
-    .colorTable>div:last-child>div{border-radius:0 0 10px 0;}
-    .color{display:table;content:"";clear:both;}
-    input{z-index:0;background:#cff;border:0;height:35px;width:130px;margin:0;padding-left:10px;border-radius:10px;transition:0.2s;}
-    input:focus{outline:0;background:#b3ffff;}
-    button{z-index:0;border:0;background:#6cf;height:35px;width:50px;margin:0;padding:5px;border-radius:10px;transition:0.2s;}
-    button:hover{background:#4dc3ff;}
+    >#color{
+        margin:0;
+        font-family:Consolas,sans-serif;
+        transition:background 0.3s;
+        padding:10px;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        >div{
+            margin:5px;
+            padding:5px;
+            background:#fffa;
+            border-radius:20px;
+            width:230px;
+            height:686px;
+        }
+        #colormap{display:block;width:220px;padding:5px;>path{cursor:pointer}}
+        #enter{
+            background:color-mix(in srgb,var(--bg),#fff);
+            width:200px;
+            margin:5px auto;
+            border-radius:20px;
+            padding:5px;
+            display:flex;
+            &:has(>input:focus){background:color-mix(in srgb,var(--bg) 40%,#fff);}
+            >*{
+                display:block;
+                height:30px;
+                padding:0;
+                margin:0;
+                border:0;
+                border-radius:15px;
+            }
+            >input{
+                background:transparent;
+                transition:0.2s;
+                width:160px;
+                padding-left:10px;
+                font-family:Consolas,sans-serif;
+                &:focus{outline:0;}
+                &::placeholder{color:hsl(from var(--bg) h s calc(l - 20) / 0.5);}
+            }
+            >button{background:hsl(from var(--bg) h s l / 0.7);width:30px;}
+        }
+        #selected{padding:10px 0;text-align:center;font-size:20px;>p{margin:0;}}
+        .colorTable{
+            width:220px;
+            cursor:pointer;
+            >div{
+                width:100%;
+                height:100%;
+                overflow:hidden;
+                &:first-child{border-radius:15px 15px 0 0;}
+                &:last-child{border-radius:0 0 15px 15px;}
+                >b,>i{
+                    width:113px;
+                    line-height:26px;
+                    display:block;
+                    font-style:normal;
+                    padding-right:7px;
+                    float:right;
+                    background:linear-gradient(to right,transparent 0,#fff8 25px);
+                    text-align:right;
+                }
+            }
+        }
     }
     >#icons{
-        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:20px;color:#333;width:100%;text-align:center;
-        div{display:inline-flex;width:150px;height:40px;margin:2.5px;padding:5px;background-color:#ffffffaa;border-radius:8px;}
-        i{width:30px;}
-        i::before{font-size:25px;color:#2d426c;line-height:30px;margin-right:5px;}
-        span{font-size:12px;line-height:30px;color:#666;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:0;}
+        font-family:Consolas,sans-serif;width:100%;text-align:center;line-height:20px;
+        div{display:inline-flex;width:150px;height:30px;margin:2px 0;padding:5px;background:#fff6;border-radius:8px;font-size:12px;color:#666;white-space:nowrap;overflow:hidden;}
+        i{width:30px;&::before{font-size:22px;color:#2d426c;line-height:20px;margin-right:5px;}}
     }
 }
 </style>
@@ -182,19 +222,18 @@ dialog{
 <div id="shield"></div>
 <a href="javascript:void(0)" id="dragbar"></a>
 <div id="container">
- <div id="menuOverlay" style="cursor:pointer;z-index:4"></div>
  <div id="textareacontainer">
   <div id="textarea">
    <div id="textareawrapper">
     <div class="trytopnav" id="trytopnav">
-    <span style="display:inline-block;width:45px;float:left!important;color:#fff;font-family:Consolas;user-select:none;padding:5px 0;text-align:center;" id="framesizew"></span>
+    <span id="framesizew"></span>
     <div style="display:inline-block;width:90px">
      <button class="b1" onclick="restack(currentStack)"></button>
-     <button class="b2" onclick="submitTryit(1);ga('send', 'event', 'runCode', 'click');"></button>
+     <button class="b2" onclick="submitTryit(1);ga('send','event','runCode','click');"></button>
      <button class="b3" onclick="retheme()"></button>
-     <button class="b4" onclick="document.getElementById('dialog').showModal();"></button>
+     <button class="b4" commandfor="dialog" command="show-modal"></button>
      </div>
-     <span style="display:inline-block;width:45px;float:right!important;color:#fff;font-family:Consolas;user-select:none;padding:5px 0;text-align:center;" id="framesizeh"></span>
+     <span id="framesizeh"></span>
     </div>
     <textarea autocomplete="off" id="textareaCode" wrap="logical" spellcheck="false"></textarea>
    </div>
@@ -204,796 +243,643 @@ dialog{
   <div id="iframe"><div id="iframewrapper"></div></div>
  </div>
 </div>
-<dialog id="dialog">
-  <span onclick="document.getElementById('dialog').close();">a&#772;&nbsp;772&nbsp;&nbsp;a&#769;769&nbsp;&nbsp;a&#780;780&nbsp;&nbsp;a&#768;768</span>
+<dialog id="dialog" closedby="any">
   <div id="color">
-  <div>
-    <div style="margin:auto;width:236px;">
-      <svg id='colormap' name='colormap' viewBox="0 0 234 200" style="margin-right:2px;" onmouseout="mouseOutMap()">
-      <path fill='#003366' d='M63,0,72,4,72,15,63,19,54,15,54,4' onclick='clickColor("#003366",-200,54)' onmouseover='mouseOverColor("#003366")'/>
-      <path fill='#336699' d='M81,0,90,4,90,15,81,19,72,15,72,4' onclick='clickColor("#336699",-200,72)' onmouseover='mouseOverColor("#336699")'/>
-      <path fill='#3366CC' d='M99,0,108,4,108,15,99,19,90,15,90,4' onclick='clickColor("#3366CC",-200,90)' onmouseover='mouseOverColor("#3366CC")'/>
-      <path fill='#003399' d='M117,0,126,4,126,15,117,19,108,15,108,4' onclick='clickColor("#003399",-200,108)' onmouseover='mouseOverColor("#003399")'/>
-      <path fill='#000099' d='M135,0,144,4,144,15,135,19,126,15,126,4' onclick='clickColor("#000099",-200,126)' onmouseover='mouseOverColor("#000099")'/>
-      <path fill='#0000CC' d='M153,0,162,4,162,15,153,19,144,15,144,4' onclick='clickColor("#0000CC",-200,144)' onmouseover='mouseOverColor("#0000CC")'/>
-      <path fill='#000066' d='M171,0,180,4,180,15,171,19,162,15,162,4' onclick='clickColor("#000066",-200,162)' onmouseover='mouseOverColor("#000066")'/>
-      <path fill='#006666' d='M54,15,63,19,63,30,54,34,45,30,45,19' onclick='clickColor("#006666",-185,45)' onmouseover='mouseOverColor("#006666")'/>
-      <path fill='#006699' d='M72,15,81,19,81,30,72,34,63,30,63,19' onclick='clickColor("#006699",-185,63)' onmouseover='mouseOverColor("#006699")'/>
-      <path fill='#0099CC' d='M90,15,99,19,99,30,90,34,81,30,81,19' onclick='clickColor("#0099CC",-185,81)' onmouseover='mouseOverColor("#0099CC")'/>
-      <path fill='#0066CC' d='M108,15,117,19,117,30,108,34,99,30,99,19' onclick='clickColor("#0066CC",-185,99)' onmouseover='mouseOverColor("#0066CC")'/>
-      <path fill='#0033CC' d='M126,15,135,19,135,30,126,34,117,30,117,19' onclick='clickColor("#0033CC",-185,117)' onmouseover='mouseOverColor("#0033CC")'/>
-      <path fill='#0000FF' d='M144,15,153,19,153,30,144,34,135,30,135,19' onclick='clickColor("#0000FF",-185,135)' onmouseover='mouseOverColor("#0000FF")'/>
-      <path fill='#3333FF' d='M162,15,171,19,171,30,162,34,153,30,153,19' onclick='clickColor("#3333FF",-185,153)' onmouseover='mouseOverColor("#3333FF")'/>
-      <path fill='#333399' d='M180,15,189,19,189,30,180,34,171,30,171,19' onclick='clickColor("#333399",-185,171)' onmouseover='mouseOverColor("#333399")'/>
-      <path fill='#669999' d='M45,30,54,34,54,45,45,49,36,45,36,34' onclick='clickColor("#669999",-170,36)' onmouseover='mouseOverColor("#669999")'/>
-      <path fill='#009999' d='M63,30,72,34,72,45,63,49,54,45,54,34' onclick='clickColor("#009999",-170,54)' onmouseover='mouseOverColor("#009999")'/>
-      <path fill='#33CCCC' d='M81,30,90,34,90,45,81,49,72,45,72,34' onclick='clickColor("#33CCCC",-170,72)' onmouseover='mouseOverColor("#33CCCC")'/>
-      <path fill='#00CCFF' d='M99,30,108,34,108,45,99,49,90,45,90,34' onclick='clickColor("#00CCFF",-170,90)' onmouseover='mouseOverColor("#00CCFF")'/>
-      <path fill='#0099FF' d='M117,30,126,34,126,45,117,49,108,45,108,34' onclick='clickColor("#0099FF",-170,108)' onmouseover='mouseOverColor("#0099FF")'/>
-      <path fill='#0066FF' d='M135,30,144,34,144,45,135,49,126,45,126,34' onclick='clickColor("#0066FF",-170,126)' onmouseover='mouseOverColor("#0066FF")'/>
-      <path fill='#3366FF' d='M153,30,162,34,162,45,153,49,144,45,144,34' onclick='clickColor("#3366FF",-170,144)' onmouseover='mouseOverColor("#3366FF")'/>
-      <path fill='#3333CC' d='M171,30,180,34,180,45,171,49,162,45,162,34' onclick='clickColor("#3333CC",-170,162)' onmouseover='mouseOverColor("#3333CC")'/>
-      <path fill='#666699' d='M189,30,198,34,198,45,189,49,180,45,180,34' onclick='clickColor("#666699",-170,180)' onmouseover='mouseOverColor("#666699")'/>
-      <path fill='#339966' d='M36,45,45,49,45,60,36,64,27,60,27,49' onclick='clickColor("#339966",-155,27)' onmouseover='mouseOverColor("#339966")'/>
-      <path fill='#00CC99' d='M54,45,63,49,63,60,54,64,45,60,45,49' onclick='clickColor("#00CC99",-155,45)' onmouseover='mouseOverColor("#00CC99")'/>
-      <path fill='#00FFCC' d='M72,45,81,49,81,60,72,64,63,60,63,49' onclick='clickColor("#00FFCC",-155,63)' onmouseover='mouseOverColor("#00FFCC")'/>
-      <path fill='#00FFFF' d='M90,45,99,49,99,60,90,64,81,60,81,49' onclick='clickColor("#00FFFF",-155,81)' onmouseover='mouseOverColor("#00FFFF")'/>
-      <path fill='#33CCFF' d='M108,45,117,49,117,60,108,64,99,60,99,49' onclick='clickColor("#33CCFF",-155,99)' onmouseover='mouseOverColor("#33CCFF")'/>
-      <path fill='#3399FF' d='M126,45,135,49,135,60,126,64,117,60,117,49' onclick='clickColor("#3399FF",-155,117)' onmouseover='mouseOverColor("#3399FF")'/>
-      <path fill='#6699FF' d='M144,45,153,49,153,60,144,64,135,60,135,49' onclick='clickColor("#6699FF",-155,135)' onmouseover='mouseOverColor("#6699FF")'/>
-      <path fill='#6666FF' d='M162,45,171,49,171,60,162,64,153,60,153,49' onclick='clickColor("#6666FF",-155,153)' onmouseover='mouseOverColor("#6666FF")'/>
-      <path fill='#6600FF' d='M180,45,189,49,189,60,180,64,171,60,171,49' onclick='clickColor("#6600FF",-155,171)' onmouseover='mouseOverColor("#6600FF")'/>
-      <path fill='#6600CC' d='M198,45,207,49,207,60,198,64,189,60,189,49' onclick='clickColor("#6600CC",-155,189)' onmouseover='mouseOverColor("#6600CC")'/>
-      <path fill='#339933' d='M27,60,36,64,36,75,27,79,18,75,18,64' onclick='clickColor("#339933",-140,18)' onmouseover='mouseOverColor("#339933")'/>
-      <path fill='#00CC66' d='M45,60,54,64,54,75,45,79,36,75,36,64' onclick='clickColor("#00CC66",-140,36)' onmouseover='mouseOverColor("#00CC66")'/>
-      <path fill='#00FF99' d='M63,60,72,64,72,75,63,79,54,75,54,64' onclick='clickColor("#00FF99",-140,54)' onmouseover='mouseOverColor("#00FF99")'/>
-      <path fill='#66FFCC' d='M81,60,90,64,90,75,81,79,72,75,72,64' onclick='clickColor("#66FFCC",-140,72)' onmouseover='mouseOverColor("#66FFCC")'/>
-      <path fill='#66FFFF' d='M99,60,108,64,108,75,99,79,90,75,90,64' onclick='clickColor("#66FFFF",-140,90)' onmouseover='mouseOverColor("#66FFFF")'/>
-      <path fill='#66CCFF' d='M117,60,126,64,126,75,117,79,108,75,108,64' onclick='clickColor("#66CCFF",-140,108)' onmouseover='mouseOverColor("#66CCFF")'/>
-      <path fill='#99CCFF' d='M135,60,144,64,144,75,135,79,126,75,126,64' onclick='clickColor("#99CCFF",-140,126)' onmouseover='mouseOverColor("#99CCFF")'/>
-      <path fill='#9999FF' d='M153,60,162,64,162,75,153,79,144,75,144,64' onclick='clickColor("#9999FF",-140,144)' onmouseover='mouseOverColor("#9999FF")'/>
-      <path fill='#9966FF' d='M171,60,180,64,180,75,171,79,162,75,162,64' onclick='clickColor("#9966FF",-140,162)' onmouseover='mouseOverColor("#9966FF")'/>
-      <path fill='#9933FF' d='M189,60,198,64,198,75,189,79,180,75,180,64' onclick='clickColor("#9933FF",-140,180)' onmouseover='mouseOverColor("#9933FF")'/>
-      <path fill='#9900FF' d='M207,60,216,64,216,75,207,79,198,75,198,64' onclick='clickColor("#9900FF",-140,198)' onmouseover='mouseOverColor("#9900FF")'/>
-      <path fill='#006600' d='M18,75,27,79,27,90,18,94,9,90,9,79' onclick='clickColor("#006600",-125,9)' onmouseover='mouseOverColor("#006600")'/>
-      <path fill='#00CC00' d='M36,75,45,79,45,90,36,94,27,90,27,79' onclick='clickColor("#00CC00",-125,27)' onmouseover='mouseOverColor("#00CC00")'/>
-      <path fill='#00FF00' d='M54,75,63,79,63,90,54,94,45,90,45,79' onclick='clickColor("#00FF00",-125,45)' onmouseover='mouseOverColor("#00FF00")'/>
-      <path fill='#66FF99' d='M72,75,81,79,81,90,72,94,63,90,63,79' onclick='clickColor("#66FF99",-125,63)' onmouseover='mouseOverColor("#66FF99")'/>
-      <path fill='#99FFCC' d='M90,75,99,79,99,90,90,94,81,90,81,79' onclick='clickColor("#99FFCC",-125,81)' onmouseover='mouseOverColor("#99FFCC")'/>
-      <path fill='#CCFFFF' d='M108,75,117,79,117,90,108,94,99,90,99,79' onclick='clickColor("#CCFFFF",-125,99)' onmouseover='mouseOverColor("#CCFFFF")'/>
-      <path fill='#CCCCFF' d='M126,75,135,79,135,90,126,94,117,90,117,79' onclick='clickColor("#CCCCFF",-125,117)' onmouseover='mouseOverColor("#CCCCFF")'/>
-      <path fill='#CC99FF' d='M144,75,153,79,153,90,144,94,135,90,135,79' onclick='clickColor("#CC99FF",-125,135)' onmouseover='mouseOverColor("#CC99FF")'/>
-      <path fill='#CC66FF' d='M162,75,171,79,171,90,162,94,153,90,153,79' onclick='clickColor("#CC66FF",-125,153)' onmouseover='mouseOverColor("#CC66FF")'/>
-      <path fill='#CC33FF' d='M180,75,189,79,189,90,180,94,171,90,171,79' onclick='clickColor("#CC33FF",-125,171)' onmouseover='mouseOverColor("#CC33FF")'/>
-      <path fill='#CC00FF' d='M198,75,207,79,207,90,198,94,189,90,189,79' onclick='clickColor("#CC00FF",-125,189)' onmouseover='mouseOverColor("#CC00FF")'/>
-      <path fill='#9900CC' d='M216,75,225,79,225,90,216,94,207,90,207,79' onclick='clickColor("#9900CC",-125,207)' onmouseover='mouseOverColor("#9900CC")'/>
-      <path fill='#003300' d='M9,90,18,94,18,105,9,109,0,105,0,94' onclick='clickColor("#003300",-110,0)' onmouseover='mouseOverColor("#003300")'/>
-      <path fill='#009933' d='M27,90,36,94,36,105,27,109,18,105,18,94' onclick='clickColor("#009933",-110,18)' onmouseover='mouseOverColor("#009933")'/>
-      <path fill='#33CC33' d='M45,90,54,94,54,105,45,109,36,105,36,94' onclick='clickColor("#33CC33",-110,36)' onmouseover='mouseOverColor("#33CC33")'/>
-      <path fill='#66FF66' d='M63,90,72,94,72,105,63,109,54,105,54,94' onclick='clickColor("#66FF66",-110,54)' onmouseover='mouseOverColor("#66FF66")'/>
-      <path fill='#99FF99' d='M81,90,90,94,90,105,81,109,72,105,72,94' onclick='clickColor("#99FF99",-110,72)' onmouseover='mouseOverColor("#99FF99")'/>
-      <path fill='#CCFFCC' d='M99,90,108,94,108,105,99,109,90,105,90,94' onclick='clickColor("#CCFFCC",-110,90)' onmouseover='mouseOverColor("#CCFFCC")'/>
-      <path fill='#FFFFFF' d='M117,90,126,94,126,105,117,109,108,105,108,94' onclick='clickColor("#FFFFFF",-110,108)' onmouseover='mouseOverColor("#FFFFFF")'/>
-      <path fill='#FFCCFF' d='M135,90,144,94,144,105,135,109,126,105,126,94' onclick='clickColor("#FFCCFF",-110,126)' onmouseover='mouseOverColor("#FFCCFF")'/>
-      <path fill='#FF99FF' d='M153,90,162,94,162,105,153,109,144,105,144,94' onclick='clickColor("#FF99FF",-110,144)' onmouseover='mouseOverColor("#FF99FF")'/>
-      <path fill='#FF66FF' d='M171,90,180,94,180,105,171,109,162,105,162,94' onclick='clickColor("#FF66FF",-110,162)' onmouseover='mouseOverColor("#FF66FF")'/>
-      <path fill='#FF00FF' d='M189,90,198,94,198,105,189,109,180,105,180,94' onclick='clickColor("#FF00FF",-110,180)' onmouseover='mouseOverColor("#FF00FF")'/>
-      <path fill='#CC00CC' d='M207,90,216,94,216,105,207,109,198,105,198,94' onclick='clickColor("#CC00CC",-110,198)' onmouseover='mouseOverColor("#CC00CC")'/>
-      <path fill='#660066' d='M225,90,234,94,234,105,225,109,216,105,216,94' onclick='clickColor("#660066",-110,216)' onmouseover='mouseOverColor("#660066")'/>
-      <path fill='#336600' d='M18,105,27,109,27,120,18,124,9,120,9,109' onclick='clickColor("#336600",-95,9)' onmouseover='mouseOverColor("#336600")'/>
-      <path fill='#009900' d='M36,105,45,109,45,120,36,124,27,120,27,109' onclick='clickColor("#009900",-95,27)' onmouseover='mouseOverColor("#009900")'/>
-      <path fill='#66FF33' d='M54,105,63,109,63,120,54,124,45,120,45,109' onclick='clickColor("#66FF33",-95,45)' onmouseover='mouseOverColor("#66FF33")'/>
-      <path fill='#99FF66' d='M72,105,81,109,81,120,72,124,63,120,63,109' onclick='clickColor("#99FF66",-95,63)' onmouseover='mouseOverColor("#99FF66")'/>
-      <path fill='#CCFF99' d='M90,105,99,109,99,120,90,124,81,120,81,109' onclick='clickColor("#CCFF99",-95,81)' onmouseover='mouseOverColor("#CCFF99")'/>
-      <path fill='#FFFFCC' d='M108,105,117,109,117,120,108,124,99,120,99,109' onclick='clickColor("#FFFFCC",-95,99)' onmouseover='mouseOverColor("#FFFFCC")'/>
-      <path fill='#FFCCCC' d='M126,105,135,109,135,120,126,124,117,120,117,109' onclick='clickColor("#FFCCCC",-95,117)' onmouseover='mouseOverColor("#FFCCCC")'/>
-      <path fill='#FF99CC' d='M144,105,153,109,153,120,144,124,135,120,135,109' onclick='clickColor("#FF99CC",-95,135)' onmouseover='mouseOverColor("#FF99CC")'/>
-      <path fill='#FF66CC' d='M162,105,171,109,171,120,162,124,153,120,153,109' onclick='clickColor("#FF66CC",-95,153)' onmouseover='mouseOverColor("#FF66CC")'/>
-      <path fill='#FF33CC' d='M180,105,189,109,189,120,180,124,171,120,171,109' onclick='clickColor("#FF33CC",-95,171)' onmouseover='mouseOverColor("#FF33CC")'/>
-      <path fill='#CC0099' d='M198,105,207,109,207,120,198,124,189,120,189,109' onclick='clickColor("#CC0099",-95,189)' onmouseover='mouseOverColor("#CC0099")'/>
-      <path fill='#993399' d='M216,105,225,109,225,120,216,124,207,120,207,109' onclick='clickColor("#993399",-95,207)' onmouseover='mouseOverColor("#993399")'/>
-      <path fill='#333300' d='M27,120,36,124,36,135,27,139,18,135,18,124' onclick='clickColor("#333300",-80,18)' onmouseover='mouseOverColor("#333300")'/>
-      <path fill='#669900' d='M45,120,54,124,54,135,45,139,36,135,36,124' onclick='clickColor("#669900",-80,36)' onmouseover='mouseOverColor("#669900")'/>
-      <path fill='#99FF33' d='M63,120,72,124,72,135,63,139,54,135,54,124' onclick='clickColor("#99FF33",-80,54)' onmouseover='mouseOverColor("#99FF33")'/>
-      <path fill='#CCFF66' d='M81,120,90,124,90,135,81,139,72,135,72,124' onclick='clickColor("#CCFF66",-80,72)' onmouseover='mouseOverColor("#CCFF66")'/>
-      <path fill='#FFFF99' d='M99,120,108,124,108,135,99,139,90,135,90,124' onclick='clickColor("#FFFF99",-80,90)' onmouseover='mouseOverColor("#FFFF99")'/>
-      <path fill='#FFCC99' d='M117,120,126,124,126,135,117,139,108,135,108,124' onclick='clickColor("#FFCC99",-80,108)' onmouseover='mouseOverColor("#FFCC99")'/>
-      <path fill='#FF9999' d='M135,120,144,124,144,135,135,139,126,135,126,124' onclick='clickColor("#FF9999",-80,126)' onmouseover='mouseOverColor("#FF9999")'/>
-      <path fill='#FF6699' d='M153,120,162,124,162,135,153,139,144,135,144,124' onclick='clickColor("#FF6699",-80,144)' onmouseover='mouseOverColor("#FF6699")'/>
-      <path fill='#FF3399' d='M171,120,180,124,180,135,171,139,162,135,162,124' onclick='clickColor("#FF3399",-80,162)' onmouseover='mouseOverColor("#FF3399")'/>
-      <path fill='#CC3399' d='M189,120,198,124,198,135,189,139,180,135,180,124' onclick='clickColor("#CC3399",-80,180)' onmouseover='mouseOverColor("#CC3399")'/>
-      <path fill='#990099' d='M207,120,216,124,216,135,207,139,198,135,198,124' onclick='clickColor("#990099",-80,198)' onmouseover='mouseOverColor("#990099")'/>
-      <path fill='#666633' d='M36,135,45,139,45,150,36,154,27,150,27,139' onclick='clickColor("#666633",-65,27)' onmouseover='mouseOverColor("#666633")'/>
-      <path fill='#99CC00' d='M54,135,63,139,63,150,54,154,45,150,45,139' onclick='clickColor("#99CC00",-65,45)' onmouseover='mouseOverColor("#99CC00")'/>
-      <path fill='#CCFF33' d='M72,135,81,139,81,150,72,154,63,150,63,139' onclick='clickColor("#CCFF33",-65,63)' onmouseover='mouseOverColor("#CCFF33")'/>
-      <path fill='#FFFF66' d='M90,135,99,139,99,150,90,154,81,150,81,139' onclick='clickColor("#FFFF66",-65,81)' onmouseover='mouseOverColor("#FFFF66")'/>
-      <path fill='#FFCC66' d='M108,135,117,139,117,150,108,154,99,150,99,139' onclick='clickColor("#FFCC66",-65,99)' onmouseover='mouseOverColor("#FFCC66")'/>
-      <path fill='#FF9966' d='M126,135,135,139,135,150,126,154,117,150,117,139' onclick='clickColor("#FF9966",-65,117)' onmouseover='mouseOverColor("#FF9966")'/>
-      <path fill='#FF6666' d='M144,135,153,139,153,150,144,154,135,150,135,139' onclick='clickColor("#FF6666",-65,135)' onmouseover='mouseOverColor("#FF6666")'/>
-      <path fill='#FF0066' d='M162,135,171,139,171,150,162,154,153,150,153,139' onclick='clickColor("#FF0066",-65,153)' onmouseover='mouseOverColor("#FF0066")'/>
-      <path fill='#CC6699' d='M180,135,189,139,189,150,180,154,171,150,171,139' onclick='clickColor("#CC6699",-65,171)' onmouseover='mouseOverColor("#CC6699")'/>
-      <path fill='#993366' d='M198,135,207,139,207,150,198,154,189,150,189,139' onclick='clickColor("#993366",-65,189)' onmouseover='mouseOverColor("#993366")'/>
-      <path fill='#999966' d='M45,150,54,154,54,165,45,169,36,165,36,154' onclick='clickColor("#999966",-50,36)' onmouseover='mouseOverColor("#999966")'/>
-      <path fill='#CCCC00' d='M63,150,72,154,72,165,63,169,54,165,54,154' onclick='clickColor("#CCCC00",-50,54)' onmouseover='mouseOverColor("#CCCC00")'/>
-      <path fill='#FFFF00' d='M81,150,90,154,90,165,81,169,72,165,72,154' onclick='clickColor("#FFFF00",-50,72)' onmouseover='mouseOverColor("#FFFF00")'/>
-      <path fill='#FFCC00' d='M99,150,108,154,108,165,99,169,90,165,90,154' onclick='clickColor("#FFCC00",-50,90)' onmouseover='mouseOverColor("#FFCC00")'/>
-      <path fill='#FF9933' d='M117,150,126,154,126,165,117,169,108,165,108,154' onclick='clickColor("#FF9933",-50,108)' onmouseover='mouseOverColor("#FF9933")'/>
-      <path fill='#FF6600' d='M135,150,144,154,144,165,135,169,126,165,126,154' onclick='clickColor("#FF6600",-50,126)' onmouseover='mouseOverColor("#FF6600")'/>
-      <path fill='#FF5050' d='M153,150,162,154,162,165,153,169,144,165,144,154' onclick='clickColor("#FF5050",-50,144)' onmouseover='mouseOverColor("#FF5050")'/>
-      <path fill='#CC0066' d='M171,150,180,154,180,165,171,169,162,165,162,154' onclick='clickColor("#CC0066",-50,162)' onmouseover='mouseOverColor("#CC0066")'/>
-      <path fill='#660033' d='M189,150,198,154,198,165,189,169,180,165,180,154' onclick='clickColor("#660033",-50,180)' onmouseover='mouseOverColor("#660033")'/>
-      <path fill='#996633' d='M54,165,63,169,63,180,54,184,45,180,45,169' onclick='clickColor("#996633",-35,45)' onmouseover='mouseOverColor("#996633")'/>
-      <path fill='#CC9900' d='M72,165,81,169,81,180,72,184,63,180,63,169' onclick='clickColor("#CC9900",-35,63)' onmouseover='mouseOverColor("#CC9900")'/>
-      <path fill='#FF9900' d='M90,165,99,169,99,180,90,184,81,180,81,169' onclick='clickColor("#FF9900",-35,81)' onmouseover='mouseOverColor("#FF9900")'/>
-      <path fill='#CC6600' d='M108,165,117,169,117,180,108,184,99,180,99,169' onclick='clickColor("#CC6600",-35,99)' onmouseover='mouseOverColor("#CC6600")'/>
-      <path fill='#FF3300' d='M126,165,135,169,135,180,126,184,117,180,117,169' onclick='clickColor("#FF3300",-35,117)' onmouseover='mouseOverColor("#FF3300")'/>
-      <path fill='#FF0000' d='M144,165,153,169,153,180,144,184,135,180,135,169' onclick='clickColor("#FF0000",-35,135)' onmouseover='mouseOverColor("#FF0000")'/>
-      <path fill='#CC0000' d='M162,165,171,169,171,180,162,184,153,180,153,169' onclick='clickColor("#CC0000",-35,153)' onmouseover='mouseOverColor("#CC0000")'/>
-      <path fill='#990033' d='M180,165,189,169,189,180,180,184,171,180,171,169' onclick='clickColor("#990033",-35,171)' onmouseover='mouseOverColor("#990033")'/>
-      <path fill='#663300' d='M63,180,72,184,72,195,63,199,54,195,54,184' onclick='clickColor("#663300",-20,54)' onmouseover='mouseOverColor("#663300")'/>
-      <path fill='#996600' d='M81,180,90,184,90,195,81,199,72,195,72,184' onclick='clickColor("#996600",-20,72)' onmouseover='mouseOverColor("#996600")'/>
-      <path fill='#CC3300' d='M99,180,108,184,108,195,99,199,90,195,90,184' onclick='clickColor("#CC3300",-20,90)' onmouseover='mouseOverColor("#CC3300")'/>
-      <path fill='#993300' d='M117,180,126,184,126,195,117,199,108,195,108,184' onclick='clickColor("#993300",-20,108)' onmouseover='mouseOverColor("#993300")'/>
-      <path fill='#990000' d='M135,180,144,184,144,195,135,199,126,195,126,184' onclick='clickColor("#990000",-20,126)' onmouseover='mouseOverColor("#990000")'/>
-      <path fill='#800000' d='M153,180,162,184,162,195,153,199,144,195,144,184' onclick='clickColor("#800000",-20,144)' onmouseover='mouseOverColor("#800000")'/>
-      <path fill='#993333' d='M171,180,180,184,180,195,171,199,162,195,162,184' onclick='clickColor("#993333",-20,162)' onmouseover='mouseOverColor("#993333")'/>
-      </svg>
-      <script>var thistop="-35";var thisleft="135";</script>
-      <div id='selectedhexagon'></div>
-      <div id='divpreview'>&nbsp;</div>
-      <div id="entercolorDIV">
-        <input type="text" id="entercolor" placeholder="color..." onkeydown="submitOnEnter(event)" onfocus="clearWrongInput();">
-        <button onclick="clickColor(0,-1,-1)">OK</button>
-      </div>
-      <div id="wronginputDIV"></div>
-      <br/>
-    </div>
-    <div id="selectedcolor">
-      <div style="background:#ffffff88;border-radius:10px;padding:5px;">
-        <div id="colornamDIV"></div>      
-        <div id="colorhexDIV"></div>
-        <div id="colorrgbDIV"></div>
-        <div id="colorhslDIV"></div>  
-      </div>
-    </div>
-  </div>
-  <div><div id="lumtopcontainer"></div></div>
-  <div id="huecontainer"></div>
-  <div id="hslsatcontainer"></div>
+    <div><svg id='colormap' viewBox="0 0 236 200"><path fill='#036' d='M63,0,72,4,72,15,63,19,54,15,54,4' onclick='cc("#036",-200,54)'/><path fill='#369' d='M81,0,90,4,90,15,81,19,72,15,72,4' onclick='cc("#369",-200,72)'/><path fill='#36C' d='M99,0,108,4,108,15,99,19,90,15,90,4' onclick='cc("#36C",-200,90)'/><path fill='#039' d='M117,0,126,4,126,15,117,19,108,15,108,4' onclick='cc("#039",-200,108)'/><path fill='#009' d='M135,0,144,4,144,15,135,19,126,15,126,4' onclick='cc("#009",-200,126)'/><path fill='#00C' d='M153,0,162,4,162,15,153,19,144,15,144,4' onclick='cc("#00C",-200,144)'/><path fill='#006' d='M171,0,180,4,180,15,171,19,162,15,162,4' onclick='cc("#006",-200,162)'/><path fill='#066' d='M54,15,63,19,63,30,54,34,45,30,45,19' onclick='cc("#066",-185,45)'/><path fill='#069' d='M72,15,81,19,81,30,72,34,63,30,63,19' onclick='cc("#069",-185,63)'/><path fill='#09C' d='M90,15,99,19,99,30,90,34,81,30,81,19' onclick='cc("#09C",-185,81)'/><path fill='#06C' d='M108,15,117,19,117,30,108,34,99,30,99,19' onclick='cc("#06C",-185,99)'/><path fill='#03C' d='M126,15,135,19,135,30,126,34,117,30,117,19' onclick='cc("#03C",-185,117)'/><path fill='#00F' d='M144,15,153,19,153,30,144,34,135,30,135,19' onclick='cc("#00F",-185,135)'/><path fill='#33F' d='M162,15,171,19,171,30,162,34,153,30,153,19' onclick='cc("#33F",-185,153)'/><path fill='#339' d='M180,15,189,19,189,30,180,34,171,30,171,19' onclick='cc("#339",-185,171)'/><path fill='#699' d='M45,30,54,34,54,45,45,49,36,45,36,34' onclick='cc("#699",-170,36)'/><path fill='#099' d='M63,30,72,34,72,45,63,49,54,45,54,34' onclick='cc("#099",-170,54)'/><path fill='#3CC' d='M81,30,90,34,90,45,81,49,72,45,72,34' onclick='cc("#3CC",-170,72)'/><path fill='#0CF' d='M99,30,108,34,108,45,99,49,90,45,90,34' onclick='cc("#0CF",-170,90)'/><path fill='#09F' d='M117,30,126,34,126,45,117,49,108,45,108,34' onclick='cc("#09F",-170,108)'/><path fill='#06F' d='M135,30,144,34,144,45,135,49,126,45,126,34' onclick='cc("#06F",-170,126)'/><path fill='#36F' d='M153,30,162,34,162,45,153,49,144,45,144,34' onclick='cc("#36F",-170,144)'/><path fill='#33C' d='M171,30,180,34,180,45,171,49,162,45,162,34' onclick='cc("#33C",-170,162)'/><path fill='#669' d='M189,30,198,34,198,45,189,49,180,45,180,34' onclick='cc("#669",-170,180)'/><path fill='#396' d='M36,45,45,49,45,60,36,64,27,60,27,49' onclick='cc("#396",-155,27)'/><path fill='#0C9' d='M54,45,63,49,63,60,54,64,45,60,45,49' onclick='cc("#0C9",-155,45)'/><path fill='#0FC' d='M72,45,81,49,81,60,72,64,63,60,63,49' onclick='cc("#0FC",-155,63)'/><path fill='#0FF' d='M90,45,99,49,99,60,90,64,81,60,81,49' onclick='cc("#0FF",-155,81)'/><path fill='#3CF' d='M108,45,117,49,117,60,108,64,99,60,99,49' onclick='cc("#3CF",-155,99)'/><path fill='#39F' d='M126,45,135,49,135,60,126,64,117,60,117,49' onclick='cc("#39F",-155,117)'/><path fill='#69F' d='M144,45,153,49,153,60,144,64,135,60,135,49' onclick='cc("#69F",-155,135)'/><path fill='#66F' d='M162,45,171,49,171,60,162,64,153,60,153,49' onclick='cc("#66F",-155,153)'/><path fill='#60F' d='M180,45,189,49,189,60,180,64,171,60,171,49' onclick='cc("#60F",-155,171)'/><path fill='#60C' d='M198,45,207,49,207,60,198,64,189,60,189,49' onclick='cc("#60C",-155,189)'/><path fill='#393' d='M27,60,36,64,36,75,27,79,18,75,18,64' onclick='cc("#393",-140,18)'/><path fill='#0C6' d='M45,60,54,64,54,75,45,79,36,75,36,64' onclick='cc("#0C6",-140,36)'/><path fill='#0F9' d='M63,60,72,64,72,75,63,79,54,75,54,64' onclick='cc("#0F9",-140,54)'/><path fill='#6FC' d='M81,60,90,64,90,75,81,79,72,75,72,64' onclick='cc("#6FC",-140,72)'/><path fill='#6FF' d='M99,60,108,64,108,75,99,79,90,75,90,64' onclick='cc("#6FF",-140,90)'/><path fill='#6CF' d='M117,60,126,64,126,75,117,79,108,75,108,64' onclick='cc("#6CF",-140,108)'/><path fill='#9CF' d='M135,60,144,64,144,75,135,79,126,75,126,64' onclick='cc("#9CF",-140,126)'/><path fill='#99F' d='M153,60,162,64,162,75,153,79,144,75,144,64' onclick='cc("#99F",-140,144)'/><path fill='#96F' d='M171,60,180,64,180,75,171,79,162,75,162,64' onclick='cc("#96F",-140,162)'/><path fill='#93F' d='M189,60,198,64,198,75,189,79,180,75,180,64' onclick='cc("#93F",-140,180)'/><path fill='#90F' d='M207,60,216,64,216,75,207,79,198,75,198,64' onclick='cc("#90F",-140,198)'/><path fill='#060' d='M18,75,27,79,27,90,18,94,9,90,9,79' onclick='cc("#060",-125,9)'/><path fill='#0C0' d='M36,75,45,79,45,90,36,94,27,90,27,79' onclick='cc("#0C0",-125,27)'/><path fill='#0F0' d='M54,75,63,79,63,90,54,94,45,90,45,79' onclick='cc("#0F0",-125,45)'/><path fill='#6F9' d='M72,75,81,79,81,90,72,94,63,90,63,79' onclick='cc("#6F9",-125,63)'/><path fill='#9FC' d='M90,75,99,79,99,90,90,94,81,90,81,79' onclick='cc("#9FC",-125,81)'/><path fill='#CFF' d='M108,75,117,79,117,90,108,94,99,90,99,79' onclick='cc("#CFF",-125,99)'/><path fill='#CCF' d='M126,75,135,79,135,90,126,94,117,90,117,79' onclick='cc("#CCF",-125,117)'/><path fill='#C9F' d='M144,75,153,79,153,90,144,94,135,90,135,79' onclick='cc("#C9F",-125,135)'/><path fill='#C6F' d='M162,75,171,79,171,90,162,94,153,90,153,79' onclick='cc("#C6F",-125,153)'/><path fill='#C3F' d='M180,75,189,79,189,90,180,94,171,90,171,79' onclick='cc("#C3F",-125,171)'/><path fill='#C0F' d='M198,75,207,79,207,90,198,94,189,90,189,79' onclick='cc("#C0F",-125,189)'/><path fill='#90C' d='M216,75,225,79,225,90,216,94,207,90,207,79' onclick='cc("#90C",-125,207)'/><path fill='#030' d='M9,90,18,94,18,105,9,109,0,105,0,94' onclick='cc("#030",-110,0)'/><path fill='#093' d='M27,90,36,94,36,105,27,109,18,105,18,94' onclick='cc("#093",-110,18)'/><path fill='#3C3' d='M45,90,54,94,54,105,45,109,36,105,36,94' onclick='cc("#3C3",-110,36)'/><path fill='#6F6' d='M63,90,72,94,72,105,63,109,54,105,54,94' onclick='cc("#6F6",-110,54)'/><path fill='#9F9' d='M81,90,90,94,90,105,81,109,72,105,72,94' onclick='cc("#9F9",-110,72)'/><path fill='#CFC' d='M99,90,108,94,108,105,99,109,90,105,90,94' onclick='cc("#CFC",-110,90)'/><path fill='#FFF' d='M117,90,126,94,126,105,117,109,108,105,108,94' onclick='cc("#FFF",-110,108)'/><path fill='#FCF' d='M135,90,144,94,144,105,135,109,126,105,126,94' onclick='cc("#FCF",-110,126)'/><path fill='#F9F' d='M153,90,162,94,162,105,153,109,144,105,144,94' onclick='cc("#F9F",-110,144)'/><path fill='#F6F' d='M171,90,180,94,180,105,171,109,162,105,162,94' onclick='cc("#F6F",-110,162)'/><path fill='#F0F' d='M189,90,198,94,198,105,189,109,180,105,180,94' onclick='cc("#F0F",-110,180)'/><path fill='#C0C' d='M207,90,216,94,216,105,207,109,198,105,198,94' onclick='cc("#C0C",-110,198)'/><path fill='#606' d='M225,90,234,94,234,105,225,109,216,105,216,94' onclick='cc("#606",-110,216)'/><path fill='#360' d='M18,105,27,109,27,120,18,124,9,120,9,109' onclick='cc("#360",-95,9)'/><path fill='#090' d='M36,105,45,109,45,120,36,124,27,120,27,109' onclick='cc("#090",-95,27)'/><path fill='#6F3' d='M54,105,63,109,63,120,54,124,45,120,45,109' onclick='cc("#6F3",-95,45)'/><path fill='#9F6' d='M72,105,81,109,81,120,72,124,63,120,63,109' onclick='cc("#9F6",-95,63)'/><path fill='#CF9' d='M90,105,99,109,99,120,90,124,81,120,81,109' onclick='cc("#CF9",-95,81)'/><path fill='#FFC' d='M108,105,117,109,117,120,108,124,99,120,99,109' onclick='cc("#FFC",-95,99)'/><path fill='#FCC' d='M126,105,135,109,135,120,126,124,117,120,117,109' onclick='cc("#FCC",-95,117)'/><path fill='#F9C' d='M144,105,153,109,153,120,144,124,135,120,135,109' onclick='cc("#F9C",-95,135)'/><path fill='#F6C' d='M162,105,171,109,171,120,162,124,153,120,153,109' onclick='cc("#F6C",-95,153)'/><path fill='#F3C' d='M180,105,189,109,189,120,180,124,171,120,171,109' onclick='cc("#F3C",-95,171)'/><path fill='#C09' d='M198,105,207,109,207,120,198,124,189,120,189,109' onclick='cc("#C09",-95,189)'/><path fill='#939' d='M216,105,225,109,225,120,216,124,207,120,207,109' onclick='cc("#939",-95,207)'/><path fill='#330' d='M27,120,36,124,36,135,27,139,18,135,18,124' onclick='cc("#330",-80,18)'/><path fill='#690' d='M45,120,54,124,54,135,45,139,36,135,36,124' onclick='cc("#690",-80,36)'/><path fill='#9F3' d='M63,120,72,124,72,135,63,139,54,135,54,124' onclick='cc("#9F3",-80,54)'/><path fill='#CF6' d='M81,120,90,124,90,135,81,139,72,135,72,124' onclick='cc("#CF6",-80,72)'/><path fill='#FF9' d='M99,120,108,124,108,135,99,139,90,135,90,124' onclick='cc("#FF9",-80,90)'/><path fill='#FC9' d='M117,120,126,124,126,135,117,139,108,135,108,124' onclick='cc("#FC9",-80,108)'/><path fill='#F99' d='M135,120,144,124,144,135,135,139,126,135,126,124' onclick='cc("#F99",-80,126)'/><path fill='#F69' d='M153,120,162,124,162,135,153,139,144,135,144,124' onclick='cc("#F69",-80,144)'/><path fill='#F39' d='M171,120,180,124,180,135,171,139,162,135,162,124' onclick='cc("#F39",-80,162)'/><path fill='#C39' d='M189,120,198,124,198,135,189,139,180,135,180,124' onclick='cc("#C39",-80,180)'/><path fill='#909' d='M207,120,216,124,216,135,207,139,198,135,198,124' onclick='cc("#909",-80,198)'/><path fill='#663' d='M36,135,45,139,45,150,36,154,27,150,27,139' onclick='cc("#663",-65,27)'/><path fill='#9C0' d='M54,135,63,139,63,150,54,154,45,150,45,139' onclick='cc("#9C0",-65,45)'/><path fill='#CF3' d='M72,135,81,139,81,150,72,154,63,150,63,139' onclick='cc("#CF3",-65,63)'/><path fill='#FF6' d='M90,135,99,139,99,150,90,154,81,150,81,139' onclick='cc("#FF6",-65,81)'/><path fill='#FC6' d='M108,135,117,139,117,150,108,154,99,150,99,139' onclick='cc("#FC6",-65,99)'/><path fill='#F96' d='M126,135,135,139,135,150,126,154,117,150,117,139' onclick='cc("#F96",-65,117)'/><path fill='#F66' d='M144,135,153,139,153,150,144,154,135,150,135,139' onclick='cc("#F66",-65,135)'/><path fill='#F06' d='M162,135,171,139,171,150,162,154,153,150,153,139' onclick='cc("#F06",-65,153)'/><path fill='#C69' d='M180,135,189,139,189,150,180,154,171,150,171,139' onclick='cc("#C69",-65,171)'/><path fill='#936' d='M198,135,207,139,207,150,198,154,189,150,189,139' onclick='cc("#936",-65,189)'/><path fill='#996' d='M45,150,54,154,54,165,45,169,36,165,36,154' onclick='cc("#996",-50,36)'/><path fill='#CC0' d='M63,150,72,154,72,165,63,169,54,165,54,154' onclick='cc("#CC0",-50,54)'/><path fill='#FF0' d='M81,150,90,154,90,165,81,169,72,165,72,154' onclick='cc("#FF0",-50,72)'/><path fill='#FC0' d='M99,150,108,154,108,165,99,169,90,165,90,154' onclick='cc("#FC0",-50,90)'/><path fill='#F93' d='M117,150,126,154,126,165,117,169,108,165,108,154' onclick='cc("#F93",-50,108)'/><path fill='#F60' d='M135,150,144,154,144,165,135,169,126,165,126,154' onclick='cc("#F60",-50,126)'/><path fill='#F50' d='M153,150,162,154,162,165,153,169,144,165,144,154' onclick='cc("#F55",-50,144)'/><path fill='#C06' d='M171,150,180,154,180,165,171,169,162,165,162,154' onclick='cc("#C06",-50,162)'/><path fill='#603' d='M189,150,198,154,198,165,189,169,180,165,180,154' onclick='cc("#603",-50,180)'/><path fill='#963' d='M54,165,63,169,63,180,54,184,45,180,45,169' onclick='cc("#963",-35,45)'/><path fill='#C90' d='M72,165,81,169,81,180,72,184,63,180,63,169' onclick='cc("#C90",-35,63)'/><path fill='#F90' d='M90,165,99,169,99,180,90,184,81,180,81,169' onclick='cc("#F90",-35,81)'/><path fill='#C60' d='M108,165,117,169,117,180,108,184,99,180,99,169' onclick='cc("#C60",-35,99)'/><path fill='#F30' d='M126,165,135,169,135,180,126,184,117,180,117,169' onclick='cc("#F30",-35,117)'/><path fill='#F00' d='M144,165,153,169,153,180,144,184,135,180,135,169' onclick='cc("#F00",-35,135)'/><path fill='#C00' d='M162,165,171,169,171,180,162,184,153,180,153,169' onclick='cc("#C00",-35,153)'/><path fill='#903' d='M180,165,189,169,189,180,180,184,171,180,171,169' onclick='cc("#903",-35,171)'/><path fill='#630' d='M63,180,72,184,72,195,63,199,54,195,54,184' onclick='cc("#630",-20,54)'/><path fill='#960' d='M81,180,90,184,90,195,81,199,72,195,72,184' onclick='cc("#960",-20,72)'/><path fill='#C30' d='M99,180,108,184,108,195,99,199,90,195,90,184' onclick='cc("#C30",-20,90)'/><path fill='#930' d='M117,180,126,184,126,195,117,199,108,195,108,184' onclick='cc("#930",-20,108)'/><path fill='#900' d='M135,180,144,184,144,195,135,199,126,195,126,184' onclick='cc("#900",-20,126)'/><path fill='#800' d='M153,180,162,184,162,195,153,199,144,195,144,184' onclick='cc("#800",-20,144)'/><path fill='#933' d='M171,180,180,184,180,195,171,199,162,195,162,184' onclick='cc("#933",-20,162)'/></svg><div><div id="enter"><input id="input" placeholder="color" spellcheck="false"><button onclick="cc(0,-1,-1)"></button></div><div id="selected"><p id="cnam"></p><p id="chex"></p><p id="crgb"></p><p id="chsl"></p></div></div></div><div id="lum"></div><div id="hue"></div><div id="hsl"></div>
   </div>
   <div id="icons">
-    <div><i class="fa fa-glass"></i><span>fa-glass</span></div>
-    <div><i class="fa fa-music"></i><span>fa-music</span></div>
-    <div><i class="fa fa-search"></i><span>fa-search</span></div>
-    <div><i class="fa fa-envelope-o"></i><span>fa-envelope-o</span></div>
-    <div><i class="fa fa-heart"></i><span>fa-heart</span></div>
-    <div><i class="fa fa-star"></i><span>fa-star</span></div>
-    <div><i class="fa fa-star-o"></i><span>fa-star-o</span></div>
-    <div><i class="fa fa-user"></i><span>fa-user</span></div>
-    <div><i class="fa fa-film"></i><span>fa-film</span></div>
-    <div><i class="fa fa-th-large"></i><span>fa-th-large</span></div>
-    <div><i class="fa fa-th"></i><span>fa-th</span></div>
-    <div><i class="fa fa-th-list"></i><span>fa-th-list</span></div>
-    <div><i class="fa fa-check"></i><span>fa-check</span></div>
-    <div><i class="fa fa-remove"></i><span>fa-remove</span></div>
-    <div><i class="fa fa-search-plus"></i><span>fa-search-plus</span></div>
-    <div><i class="fa fa-search-minus"></i><span>fa-search-minus</span></div>
-    <div><i class="fa fa-power-off"></i><span>fa-power-off</span></div>
-    <div><i class="fa fa-signal"></i><span>fa-signal</span></div>
-    <div><i class="fa fa-gear"></i><span>fa-gear</span></div>
-    <div><i class="fa fa-trash-o"></i><span>fa-trash-o</span></div>
-    <div><i class="fa fa-home"></i><span>fa-home</span></div>
-    <div><i class="fa fa-file-o"></i><span>fa-file-o</span></div>
-    <div><i class="fa fa-clock-o"></i><span>fa-clock-o</span></div>
-    <div><i class="fa fa-road"></i><span>fa-road</span></div>
-    <div><i class="fa fa-download"></i><span>fa-download</span></div>
-    <div><i class="fa fa-arrow-circle-o-down"></i><span>fa-arrow-circle-o-down</span></div>
-    <div><i class="fa fa-arrow-circle-o-up"></i><span>fa-arrow-circle-o-up</span></div>
-    <div><i class="fa fa-inbox"></i><span>fa-inbox</span></div>
-    <div><i class="fa fa-play-circle-o"></i><span>fa-play-circle-o</span></div>
-    <div><i class="fa fa-rotate-right"></i><span>fa-rotate-right</span></div>
-    <div><i class="fa fa-refresh"></i><span>fa-refresh</span></div>
-    <div><i class="fa fa-list-alt"></i><span>fa-list-alt</span></div>
-    <div><i class="fa fa-lock"></i><span>fa-lock</span></div>
-    <div><i class="fa fa-flag"></i><span>fa-flag</span></div>
-    <div><i class="fa fa-headphones"></i><span>fa-headphones</span></div>
-    <div><i class="fa fa-volume-off"></i><span>fa-volume-off</span></div>
-    <div><i class="fa fa-volume-down"></i><span>fa-volume-down</span></div>
-    <div><i class="fa fa-volume-up"></i><span>fa-volume-up</span></div>
-    <div><i class="fa fa-qrcode"></i><span>fa-qrcode</span></div>
-    <div><i class="fa fa-barcode"></i><span>fa-barcode</span></div>
-    <div><i class="fa fa-tag"></i><span>fa-tag</span></div>
-    <div><i class="fa fa-tags"></i><span>fa-tags</span></div>
-    <div><i class="fa fa-book"></i><span>fa-book</span></div>
-    <div><i class="fa fa-bookmark"></i><span>fa-bookmark</span></div>
-    <div><i class="fa fa-print"></i><span>fa-print</span></div>
-    <div><i class="fa fa-camera"></i><span>fa-camera</span></div>
-    <div><i class="fa fa-font"></i><span>fa-font</span></div>
-    <div><i class="fa fa-bold"></i><span>fa-bold</span></div>
-    <div><i class="fa fa-italic"></i><span>fa-italic</span></div>
-    <div><i class="fa fa-text-height"></i><span>fa-text-height</span></div>
-    <div><i class="fa fa-text-width"></i><span>fa-text-width</span></div>
-    <div><i class="fa fa-align-left"></i><span>fa-align-left</span></div>
-    <div><i class="fa fa-align-center"></i><span>fa-align-center</span></div>
-    <div><i class="fa fa-align-right"></i><span>fa-align-right</span></div>
-    <div><i class="fa fa-align-justify"></i><span>fa-align-justify</span></div>
-    <div><i class="fa fa-list"></i><span>fa-list</span></div>
-    <div><i class="fa fa-dedent"></i><span>fa-dedent</span></div>
-    <div><i class="fa fa-indent"></i><span>fa-indent</span></div>
-    <div><i class="fa fa-video-camera"></i><span>fa-video-camera</span></div>
-    <div><i class="fa fa-photo"></i><span>fa-photo</span></div>
-    <div><i class="fa fa-pencil"></i><span>fa-pencil</span></div>
-    <div><i class="fa fa-map-marker"></i><span>fa-map-marker</span></div>
-    <div><i class="fa fa-adjust"></i><span>fa-adjust</span></div>
-    <div><i class="fa fa-tint"></i><span>fa-tint</span></div>
-    <div><i class="fa fa-edit"></i><span>fa-edit</span></div>
-    <div><i class="fa fa-share-square-o"></i><span>fa-share-square-o</span></div>
-    <div><i class="fa fa-check-square-o"></i><span>fa-check-square-o</span></div>
-    <div><i class="fa fa-arrows"></i><span>fa-arrows</span></div>
-    <div><i class="fa fa-step-backward"></i><span>fa-step-backward</span></div>
-    <div><i class="fa fa-fast-backward"></i><span>fa-fast-backward</span></div>
-    <div><i class="fa fa-backward"></i><span>fa-backward</span></div>
-    <div><i class="fa fa-play"></i><span>fa-play</span></div>
-    <div><i class="fa fa-pause"></i><span>fa-pause</span></div>
-    <div><i class="fa fa-stop"></i><span>fa-stop</span></div>
-    <div><i class="fa fa-forward"></i><span>fa-forward</span></div>
-    <div><i class="fa fa-fast-forward"></i><span>fa-fast-forward</span></div>
-    <div><i class="fa fa-step-forward"></i><span>fa-step-forward</span></div>
-    <div><i class="fa fa-eject"></i><span>fa-eject</span></div>
-    <div><i class="fa fa-chevron-left"></i><span>fa-chevron-left</span></div>
-    <div><i class="fa fa-chevron-right"></i><span>fa-chevron-right</span></div>
-    <div><i class="fa fa-plus-circle"></i><span>fa-plus-circle</span></div>
-    <div><i class="fa fa-minus-circle"></i><span>fa-minus-circle</span></div>
-    <div><i class="fa fa-times-circle"></i><span>fa-times-circle</span></div>
-    <div><i class="fa fa-check-circle"></i><span>fa-check-circle</span></div>
-    <div><i class="fa fa-question-circle"></i><span>fa-question-circle</span></div>
-    <div><i class="fa fa-info-circle"></i><span>fa-info-circle</span></div>
-    <div><i class="fa fa-crosshairs"></i><span>fa-crosshairs</span></div>
-    <div><i class="fa fa-times-circle-o"></i><span>fa-times-circle-o</span></div>
-    <div><i class="fa fa-check-circle-o"></i><span>fa-check-circle-o</span></div>
-    <div><i class="fa fa-ban"></i><span>fa-ban</span></div>
-    <div><i class="fa fa-arrow-left"></i><span>fa-arrow-left</span></div>
-    <div><i class="fa fa-arrow-right"></i><span>fa-arrow-right</span></div>
-    <div><i class="fa fa-arrow-up"></i><span>fa-arrow-up</span></div>
-    <div><i class="fa fa-arrow-down"></i><span>fa-arrow-down</span></div>
-    <div><i class="fa fa-mail-forward"></i><span>fa-mail-forward</span></div>
-    <div><i class="fa fa-expand"></i><span>fa-expand</span></div>
-    <div><i class="fa fa-compress"></i><span>fa-compress</span></div>
-    <div><i class="fa fa-plus"></i><span>fa-plus</span></div>
-    <div><i class="fa fa-minus"></i><span>fa-minus</span></div>
-    <div><i class="fa fa-asterisk"></i><span>fa-asterisk</span></div>
-    <div><i class="fa fa-exclamation-circle"></i><span>fa-exclamation-circle</span></div>
-    <div><i class="fa fa-gift"></i><span>fa-gift</span></div>
-    <div><i class="fa fa-leaf"></i><span>fa-leaf</span></div>
-    <div><i class="fa fa-fire"></i><span>fa-fire</span></div>
-    <div><i class="fa fa-eye"></i><span>fa-eye</span></div>
-    <div><i class="fa fa-eye-slash"></i><span>fa-eye-slash</span></div>
-    <div><i class="fa fa-warning"></i><span>fa-warning</span></div>
-    <div><i class="fa fa-plane"></i><span>fa-plane</span></div>
-    <div><i class="fa fa-calendar"></i><span>fa-calendar</span></div>
-    <div><i class="fa fa-random"></i><span>fa-random</span></div>
-    <div><i class="fa fa-comment"></i><span>fa-comment</span></div>
-    <div><i class="fa fa-magnet"></i><span>fa-magnet</span></div>
-    <div><i class="fa fa-chevron-up"></i><span>fa-chevron-up</span></div>
-    <div><i class="fa fa-chevron-down"></i><span>fa-chevron-down</span></div>
-    <div><i class="fa fa-retweet"></i><span>fa-retweet</span></div>
-    <div><i class="fa fa-shopping-cart"></i><span>fa-shopping-cart</span></div>
-    <div><i class="fa fa-folder"></i><span>fa-folder</span></div>
-    <div><i class="fa fa-folder-open"></i><span>fa-folder-open</span></div>
-    <div><i class="fa fa-arrows-v"></i><span>fa-arrows-v</span></div>
-    <div><i class="fa fa-arrows-h"></i><span>fa-arrows-h</span></div>
-    <div><i class="fa fa-bar-chart-o"></i><span>fa-bar-chart-o</span></div>
-    <div><i class="fa fa-twitter-square"></i><span>fa-twitter-square</span></div>
-    <div><i class="fa fa-facebook-square"></i><span>fa-facebook-square</span></div>
-    <div><i class="fa fa-camera-retro"></i><span>fa-camera-retro</span></div>
-    <div><i class="fa fa-key"></i><span>fa-key</span></div>
-    <div><i class="fa fa-gears"></i><span>fa-gears</span></div>
-    <div><i class="fa fa-comments"></i><span>fa-comments</span></div>
-    <div><i class="fa fa-thumbs-o-up"></i><span>fa-thumbs-o-up</span></div>
-    <div><i class="fa fa-thumbs-o-down"></i><span>fa-thumbs-o-down</span></div>
-    <div><i class="fa fa-star-half"></i><span>fa-star-half</span></div>
-    <div><i class="fa fa-heart-o"></i><span>fa-heart-o</span></div>
-    <div><i class="fa fa-sign-out"></i><span>fa-sign-out</span></div>
-    <div><i class="fa fa-linkedin-square"></i><span>fa-linkedin-square</span></div>
-    <div><i class="fa fa-thumb-tack"></i><span>fa-thumb-tack</span></div>
-    <div><i class="fa fa-external-link"></i><span>fa-external-link</span></div>
-    <div><i class="fa fa-sign-in"></i><span>fa-sign-in</span></div>
-    <div><i class="fa fa-trophy"></i><span>fa-trophy</span></div>
-    <div><i class="fa fa-github-square"></i><span>fa-github-square</span></div>
-    <div><i class="fa fa-upload"></i><span>fa-upload</span></div>
-    <div><i class="fa fa-lemon-o"></i><span>fa-lemon-o</span></div>
-    <div><i class="fa fa-phone"></i><span>fa-phone</span></div>
-    <div><i class="fa fa-square-o"></i><span>fa-square-o</span></div>
-    <div><i class="fa fa-bookmark-o"></i><span>fa-bookmark-o</span></div>
-    <div><i class="fa fa-phone-square"></i><span>fa-phone-square</span></div>
-    <div><i class="fa fa-twitter"></i><span>fa-twitter</span></div>
-    <div><i class="fa fa-facebook-f"></i><span>fa-facebook-f</span></div>
-    <div><i class="fa fa-github"></i><span>fa-github</span></div>
-    <div><i class="fa fa-unlock"></i><span>fa-unlock</span></div>
-    <div><i class="fa fa-credit-card"></i><span>fa-credit-card</span></div>
-    <div><i class="fa fa-feed"></i><span>fa-feed</span></div>
-    <div><i class="fa fa-hdd-o"></i><span>fa-hdd-o</span></div>
-    <div><i class="fa fa-bullhorn"></i><span>fa-bullhorn</span></div>
-    <div><i class="fa fa-bell"></i><span>fa-bell</span></div>
-    <div><i class="fa fa-certificate"></i><span>fa-certificate</span></div>
-    <div><i class="fa fa-hand-o-right"></i><span>fa-hand-o-right</span></div>
-    <div><i class="fa fa-hand-o-left"></i><span>fa-hand-o-left</span></div>
-    <div><i class="fa fa-hand-o-up"></i><span>fa-hand-o-up</span></div>
-    <div><i class="fa fa-hand-o-down"></i><span>fa-hand-o-down</span></div>
-    <div><i class="fa fa-arrow-circle-left"></i><span>fa-arrow-circle-left</span></div>
-    <div><i class="fa fa-arrow-circle-right"></i><span>fa-arrow-circle-right</span></div>
-    <div><i class="fa fa-arrow-circle-up"></i><span>fa-arrow-circle-up</span></div>
-    <div><i class="fa fa-arrow-circle-down"></i><span>fa-arrow-circle-down</span></div>
-    <div><i class="fa fa-globe"></i><span>fa-globe</span></div>
-    <div><i class="fa fa-wrench"></i><span>fa-wrench</span></div>
-    <div><i class="fa fa-tasks"></i><span>fa-tasks</span></div>
-    <div><i class="fa fa-filter"></i><span>fa-filter</span></div>
-    <div><i class="fa fa-briefcase"></i><span>fa-briefcase</span></div>
-    <div><i class="fa fa-arrows-alt"></i><span>fa-arrows-alt</span></div>
-    <div><i class="fa fa-group"></i><span>fa-group</span></div>
-    <div><i class="fa fa-chain"></i><span>fa-chain</span></div>
-    <div><i class="fa fa-cloud"></i><span>fa-cloud</span></div>
-    <div><i class="fa fa-flask"></i><span>fa-flask</span></div>
-    <div><i class="fa fa-cut"></i><span>fa-cut</span></div>
-    <div><i class="fa fa-copy"></i><span>fa-copy</span></div>
-    <div><i class="fa fa-paperclip"></i><span>fa-paperclip</span></div>
-    <div><i class="fa fa-save"></i><span>fa-save</span></div>
-    <div><i class="fa fa-square"></i><span>fa-square</span></div>
-    <div><i class="fa fa-navicon"></i><span>fa-navicon</span></div>
-    <div><i class="fa fa-list-ul"></i><span>fa-list-ul</span></div>
-    <div><i class="fa fa-list-ol"></i><span>fa-list-ol</span></div>
-    <div><i class="fa fa-strikethrough"></i><span>fa-strikethrough</span></div>
-    <div><i class="fa fa-underline"></i><span>fa-underline</span></div>
-    <div><i class="fa fa-table"></i><span>fa-table</span></div>
-    <div><i class="fa fa-magic"></i><span>fa-magic</span></div>
-    <div><i class="fa fa-truck"></i><span>fa-truck</span></div>
-    <div><i class="fa fa-pinterest"></i><span>fa-pinterest</span></div>
-    <div><i class="fa fa-pinterest-square"></i><span>fa-pinterest-square</span></div>
-    <div><i class="fa fa-google-plus-square"></i><span>fa-google-plus-square</span></div>
-    <div><i class="fa fa-google-plus"></i><span>fa-google-plus</span></div>
-    <div><i class="fa fa-money"></i><span>fa-money</span></div>
-    <div><i class="fa fa-caret-down"></i><span>fa-caret-down</span></div>
-    <div><i class="fa fa-caret-up"></i><span>fa-caret-up</span></div>
-    <div><i class="fa fa-caret-left"></i><span>fa-caret-left</span></div>
-    <div><i class="fa fa-caret-right"></i><span>fa-caret-right</span></div>
-    <div><i class="fa fa-columns"></i><span>fa-columns</span></div>
-    <div><i class="fa fa-unsorted"></i><span>fa-unsorted</span></div>
-    <div><i class="fa fa-sort-down"></i><span>fa-sort-down</span></div>
-    <div><i class="fa fa-sort-up"></i><span>fa-sort-up</span></div>
-    <div><i class="fa fa-envelope"></i><span>fa-envelope</span></div>
-    <div><i class="fa fa-linkedin"></i><span>fa-linkedin</span></div>
-    <div><i class="fa fa-rotate-left"></i><span>fa-rotate-left</span></div>
-    <div><i class="fa fa-legal"></i><span>fa-legal</span></div>
-    <div><i class="fa fa-dashboard"></i><span>fa-dashboard</span></div>
-    <div><i class="fa fa-comment-o"></i><span>fa-comment-o</span></div>
-    <div><i class="fa fa-comments-o"></i><span>fa-comments-o</span></div>
-    <div><i class="fa fa-flash"></i><span>fa-flash</span></div>
-    <div><i class="fa fa-sitemap"></i><span>fa-sitemap</span></div>
-    <div><i class="fa fa-umbrella"></i><span>fa-umbrella</span></div>
-    <div><i class="fa fa-paste"></i><span>fa-paste</span></div>
-    <div><i class="fa fa-lightbulb-o"></i><span>fa-lightbulb-o</span></div>
-    <div><i class="fa fa-exchange"></i><span>fa-exchange</span></div>
-    <div><i class="fa fa-cloud-download"></i><span>fa-cloud-download</span></div>
-    <div><i class="fa fa-cloud-upload"></i><span>fa-cloud-upload</span></div>
-    <div><i class="fa fa-user-md"></i><span>fa-user-md</span></div>
-    <div><i class="fa fa-stethoscope"></i><span>fa-stethoscope</span></div>
-    <div><i class="fa fa-suitcase"></i><span>fa-suitcase</span></div>
-    <div><i class="fa fa-bell-o"></i><span>fa-bell-o</span></div>
-    <div><i class="fa fa-coffee"></i><span>fa-coffee</span></div>
-    <div><i class="fa fa-cutlery"></i><span>fa-cutlery</span></div>
-    <div><i class="fa fa-file-text-o"></i><span>fa-file-text-o</span></div>
-    <div><i class="fa fa-building-o"></i><span>fa-building-o</span></div>
-    <div><i class="fa fa-hospital-o"></i><span>fa-hospital-o</span></div>
-    <div><i class="fa fa-ambulance"></i><span>fa-ambulance</span></div>
-    <div><i class="fa fa-medkit"></i><span>fa-medkit</span></div>
-    <div><i class="fa fa-fighter-jet"></i><span>fa-fighter-jet</span></div>
-    <div><i class="fa fa-beer"></i><span>fa-beer</span></div>
-    <div><i class="fa fa-h-square"></i><span>fa-h-square</span></div>
-    <div><i class="fa fa-plus-square"></i><span>fa-plus-square</span></div>
-    <div><i class="fa fa-angle-double-left"></i><span>fa-angle-double-left</span></div>
-    <div><i class="fa fa-angle-double-right"></i><span>fa-angle-double-right</span></div>
-    <div><i class="fa fa-angle-double-up"></i><span>fa-angle-double-up</span></div>
-    <div><i class="fa fa-angle-double-down"></i><span>fa-angle-double-down</span></div>
-    <div><i class="fa fa-angle-left"></i><span>fa-angle-left</span></div>
-    <div><i class="fa fa-angle-right"></i><span>fa-angle-right</span></div>
-    <div><i class="fa fa-angle-up"></i><span>fa-angle-up</span></div>
-    <div><i class="fa fa-angle-down"></i><span>fa-angle-down</span></div>
-    <div><i class="fa fa-desktop"></i><span>fa-desktop</span></div>
-    <div><i class="fa fa-laptop"></i><span>fa-laptop</span></div>
-    <div><i class="fa fa-tablet"></i><span>fa-tablet</span></div>
-    <div><i class="fa fa-mobile-phone"></i><span>fa-mobile-phone</span></div>
-    <div><i class="fa fa-circle-o"></i><span>fa-circle-o</span></div>
-    <div><i class="fa fa-quote-left"></i><span>fa-quote-left</span></div>
-    <div><i class="fa fa-quote-right"></i><span>fa-quote-right</span></div>
-    <div><i class="fa fa-spinner"></i><span>fa-spinner</span></div>
-    <div><i class="fa fa-circle"></i><span>fa-circle</span></div>
-    <div><i class="fa fa-mail-reply"></i><span>fa-mail-reply</span></div>
-    <div><i class="fa fa-github-alt"></i><span>fa-github-alt</span></div>
-    <div><i class="fa fa-folder-o"></i><span>fa-folder-o</span></div>
-    <div><i class="fa fa-folder-open-o"></i><span>fa-folder-open-o</span></div>
-    <div><i class="fa fa-smile-o"></i><span>fa-smile-o</span></div>
-    <div><i class="fa fa-frown-o"></i><span>fa-frown-o</span></div>
-    <div><i class="fa fa-meh-o"></i><span>fa-meh-o</span></div>
-    <div><i class="fa fa-gamepad"></i><span>fa-gamepad</span></div>
-    <div><i class="fa fa-keyboard-o"></i><span>fa-keyboard-o</span></div>
-    <div><i class="fa fa-flag-o"></i><span>fa-flag-o</span></div>
-    <div><i class="fa fa-flag-checkered"></i><span>fa-flag-checkered</span></div>
-    <div><i class="fa fa-terminal"></i><span>fa-terminal</span></div>
-    <div><i class="fa fa-code"></i><span>fa-code</span></div>
-    <div><i class="fa fa-mail-reply-all"></i><span>fa-mail-reply-all</span></div>
-    <div><i class="fa fa-star-half-empty"></i><span>fa-star-half-empty</span></div>
-    <div><i class="fa fa-location-arrow"></i><span>fa-location-arrow</span></div>
-    <div><i class="fa fa-crop"></i><span>fa-crop</span></div>
-    <div><i class="fa fa-code-fork"></i><span>fa-code-fork</span></div>
-    <div><i class="fa fa-unlink"></i><span>fa-unlink</span></div>
-    <div><i class="fa fa-question"></i><span>fa-question</span></div>
-    <div><i class="fa fa-info"></i><span>fa-info</span></div>
-    <div><i class="fa fa-exclamation"></i><span>fa-exclamation</span></div>
-    <div><i class="fa fa-superscript"></i><span>fa-superscript</span></div>
-    <div><i class="fa fa-subscript"></i><span>fa-subscript</span></div>
-    <div><i class="fa fa-eraser"></i><span>fa-eraser</span></div>
-    <div><i class="fa fa-puzzle-piece"></i><span>fa-puzzle-piece</span></div>
-    <div><i class="fa fa-microphone"></i><span>fa-microphone</span></div>
-    <div><i class="fa fa-microphone-slash"></i><span>fa-microphone-slash</span></div>
-    <div><i class="fa fa-shield"></i><span>fa-shield</span></div>
-    <div><i class="fa fa-calendar-o"></i><span>fa-calendar-o</span></div>
-    <div><i class="fa fa-fire-extinguisher"></i><span>fa-fire-extinguisher</span></div>
-    <div><i class="fa fa-rocket"></i><span>fa-rocket</span></div>
-    <div><i class="fa fa-maxcdn"></i><span>fa-maxcdn</span></div>
-    <div><i class="fa fa-chevron-circle-left"></i><span>fa-chevron-circle-left</span></div>
-    <div><i class="fa fa-chevron-circle-right"></i><span>fa-chevron-circle-right</span></div>
-    <div><i class="fa fa-chevron-circle-up"></i><span>fa-chevron-circle-up</span></div>
-    <div><i class="fa fa-chevron-circle-down"></i><span>fa-chevron-circle-down</span></div>
-    <div><i class="fa fa-html5"></i><span>fa-html5</span></div>
-    <div><i class="fa fa-css3"></i><span>fa-css3</span></div>
-    <div><i class="fa fa-anchor"></i><span>fa-anchor</span></div>
-    <div><i class="fa fa-unlock-alt"></i><span>fa-unlock-alt</span></div>
-    <div><i class="fa fa-bullseye"></i><span>fa-bullseye</span></div>
-    <div><i class="fa fa-ellipsis-h"></i><span>fa-ellipsis-h</span></div>
-    <div><i class="fa fa-ellipsis-v"></i><span>fa-ellipsis-v</span></div>
-    <div><i class="fa fa-rss-square"></i><span>fa-rss-square</span></div>
-    <div><i class="fa fa-play-circle"></i><span>fa-play-circle</span></div>
-    <div><i class="fa fa-ticket"></i><span>fa-ticket</span></div>
-    <div><i class="fa fa-minus-square"></i><span>fa-minus-square</span></div>
-    <div><i class="fa fa-minus-square-o"></i><span>fa-minus-square-o</span></div>
-    <div><i class="fa fa-level-up"></i><span>fa-level-up</span></div>
-    <div><i class="fa fa-level-down"></i><span>fa-level-down</span></div>
-    <div><i class="fa fa-check-square"></i><span>fa-check-square</span></div>
-    <div><i class="fa fa-pencil-square"></i><span>fa-pencil-square</span></div>
-    <div><i class="fa fa-external-link-square"></i><span>fa-external-link-square</span></div>
-    <div><i class="fa fa-share-square"></i><span>fa-share-square</span></div>
-    <div><i class="fa fa-compass"></i><span>fa-compass</span></div>
-    <div><i class="fa fa-toggle-down"></i><span>fa-toggle-down</span></div>
-    <div><i class="fa fa-toggle-up"></i><span>fa-toggle-up</span></div>
-    <div><i class="fa fa-toggle-right"></i><span>fa-toggle-right</span></div>
-    <div><i class="fa fa-euro"></i><span>fa-euro</span></div>
-    <div><i class="fa fa-gbp"></i><span>fa-gbp</span></div>
-    <div><i class="fa fa-dollar"></i><span>fa-dollar</span></div>
-    <div><i class="fa fa-rupee"></i><span>fa-rupee</span></div>
-    <div><i class="fa fa-cny"></i><span>fa-cny</span></div>
-    <div><i class="fa fa-ruble"></i><span>fa-ruble</span></div>
-    <div><i class="fa fa-won"></i><span>fa-won</span></div>
-    <div><i class="fa fa-bitcoin"></i><span>fa-bitcoin</span></div>
-    <div><i class="fa fa-file"></i><span>fa-file</span></div>
-    <div><i class="fa fa-file-text"></i><span>fa-file-text</span></div>
-    <div><i class="fa fa-sort-alpha-asc"></i><span>fa-sort-alpha-asc</span></div>
-    <div><i class="fa fa-sort-alpha-desc"></i><span>fa-sort-alpha-desc</span></div>
-    <div><i class="fa fa-sort-amount-asc"></i><span>fa-sort-amount-asc</span></div>
-    <div><i class="fa fa-sort-amount-desc"></i><span>fa-sort-amount-desc</span></div>
-    <div><i class="fa fa-sort-numeric-asc"></i><span>fa-sort-numeric-asc</span></div>
-    <div><i class="fa fa-sort-numeric-desc"></i><span>fa-sort-numeric-desc</span></div>
-    <div><i class="fa fa-thumbs-up"></i><span>fa-thumbs-up</span></div>
-    <div><i class="fa fa-thumbs-down"></i><span>fa-thumbs-down</span></div>
-    <div><i class="fa fa-youtube-square"></i><span>fa-youtube-square</span></div>
-    <div><i class="fa fa-youtube"></i><span>fa-youtube</span></div>
-    <div><i class="fa fa-xing"></i><span>fa-xing</span></div>
-    <div><i class="fa fa-xing-square"></i><span>fa-xing-square</span></div>
-    <div><i class="fa fa-youtube-play"></i><span>fa-youtube-play</span></div>
-    <div><i class="fa fa-dropbox"></i><span>fa-dropbox</span></div>
-    <div><i class="fa fa-stack-overflow"></i><span>fa-stack-overflow</span></div>
-    <div><i class="fa fa-instagram"></i><span>fa-instagram</span></div>
-    <div><i class="fa fa-flickr"></i><span>fa-flickr</span></div>
-    <div><i class="fa fa-adn"></i><span>fa-adn</span></div>
-    <div><i class="fa fa-bitbucket"></i><span>fa-bitbucket</span></div>
-    <div><i class="fa fa-bitbucket-square"></i><span>fa-bitbucket-square</span></div>
-    <div><i class="fa fa-tumblr"></i><span>fa-tumblr</span></div>
-    <div><i class="fa fa-tumblr-square"></i><span>fa-tumblr-square</span></div>
-    <div><i class="fa fa-long-arrow-down"></i><span>fa-long-arrow-down</span></div>
-    <div><i class="fa fa-long-arrow-up"></i><span>fa-long-arrow-up</span></div>
-    <div><i class="fa fa-long-arrow-left"></i><span>fa-long-arrow-left</span></div>
-    <div><i class="fa fa-long-arrow-right"></i><span>fa-long-arrow-right</span></div>
-    <div><i class="fa fa-apple"></i><span>fa-apple</span></div>
-    <div><i class="fa fa-windows"></i><span>fa-windows</span></div>
-    <div><i class="fa fa-android"></i><span>fa-android</span></div>
-    <div><i class="fa fa-linux"></i><span>fa-linux</span></div>
-    <div><i class="fa fa-dribbble"></i><span>fa-dribbble</span></div>
-    <div><i class="fa fa-skype"></i><span>fa-skype</span></div>
-    <div><i class="fa fa-foursquare"></i><span>fa-foursquare</span></div>
-    <div><i class="fa fa-trello"></i><span>fa-trello</span></div>
-    <div><i class="fa fa-female"></i><span>fa-female</span></div>
-    <div><i class="fa fa-male"></i><span>fa-male</span></div>
-    <div><i class="fa fa-gittip"></i><span>fa-gittip</span></div>
-    <div><i class="fa fa-sun-o"></i><span>fa-sun-o</span></div>
-    <div><i class="fa fa-moon-o"></i><span>fa-moon-o</span></div>
-    <div><i class="fa fa-archive"></i><span>fa-archive</span></div>
-    <div><i class="fa fa-bug"></i><span>fa-bug</span></div>
-    <div><i class="fa fa-vk"></i><span>fa-vk</span></div>
-    <div><i class="fa fa-weibo"></i><span>fa-weibo</span></div>
-    <div><i class="fa fa-renren"></i><span>fa-renren</span></div>
-    <div><i class="fa fa-pagelines"></i><span>fa-pagelines</span></div>
-    <div><i class="fa fa-stack-exchange"></i><span>fa-stack-exchange</span></div>
-    <div><i class="fa fa-arrow-circle-o-right"></i><span>fa-arrow-circle-o-right</span></div>
-    <div><i class="fa fa-arrow-circle-o-left"></i><span>fa-arrow-circle-o-left</span></div>
-    <div><i class="fa fa-toggle-left"></i><span>fa-toggle-left</span></div>
-    <div><i class="fa fa-dot-circle-o"></i><span>fa-dot-circle-o</span></div>
-    <div><i class="fa fa-wheelchair"></i><span>fa-wheelchair</span></div>
-    <div><i class="fa fa-vimeo-square"></i><span>fa-vimeo-square</span></div>
-    <div><i class="fa fa-turkish-lira"></i><span>fa-turkish-lira</span></div>
-    <div><i class="fa fa-plus-square-o"></i><span>fa-plus-square-o</span></div>
-    <div><i class="fa fa-space-shuttle"></i><span>fa-space-shuttle</span></div>
-    <div><i class="fa fa-slack"></i><span>fa-slack</span></div>
-    <div><i class="fa fa-envelope-square"></i><span>fa-envelope-square</span></div>
-    <div><i class="fa fa-wordpress"></i><span>fa-wordpress</span></div>
-    <div><i class="fa fa-openid"></i><span>fa-openid</span></div>
-    <div><i class="fa fa-institution"></i><span>fa-institution</span></div>
-    <div><i class="fa fa-mortar-board"></i><span>fa-mortar-board</span></div>
-    <div><i class="fa fa-yahoo"></i><span>fa-yahoo</span></div>
-    <div><i class="fa fa-google"></i><span>fa-google</span></div>
-    <div><i class="fa fa-reddit"></i><span>fa-reddit</span></div>
-    <div><i class="fa fa-reddit-square"></i><span>fa-reddit-square</span></div>
-    <div><i class="fa fa-stumbleupon-circle"></i><span>fa-stumbleupon-circle</span></div>
-    <div><i class="fa fa-stumbleupon"></i><span>fa-stumbleupon</span></div>
-    <div><i class="fa fa-delicious"></i><span>fa-delicious</span></div>
-    <div><i class="fa fa-digg"></i><span>fa-digg</span></div>
-    <div><i class="fa fa-pied-piper-pp"></i><span>fa-pied-piper-pp</span></div>
-    <div><i class="fa fa-pied-piper-alt"></i><span>fa-pied-piper-alt</span></div>
-    <div><i class="fa fa-drupal"></i><span>fa-drupal</span></div>
-    <div><i class="fa fa-joomla"></i><span>fa-joomla</span></div>
-    <div><i class="fa fa-language"></i><span>fa-language</span></div>
-    <div><i class="fa fa-fax"></i><span>fa-fax</span></div>
-    <div><i class="fa fa-building"></i><span>fa-building</span></div>
-    <div><i class="fa fa-child"></i><span>fa-child</span></div>
-    <div><i class="fa fa-paw"></i><span>fa-paw</span></div>
-    <div><i class="fa fa-spoon"></i><span>fa-spoon</span></div>
-    <div><i class="fa fa-cube"></i><span>fa-cube</span></div>
-    <div><i class="fa fa-cubes"></i><span>fa-cubes</span></div>
-    <div><i class="fa fa-behance"></i><span>fa-behance</span></div>
-    <div><i class="fa fa-behance-square"></i><span>fa-behance-square</span></div>
-    <div><i class="fa fa-steam"></i><span>fa-steam</span></div>
-    <div><i class="fa fa-steam-square"></i><span>fa-steam-square</span></div>
-    <div><i class="fa fa-recycle"></i><span>fa-recycle</span></div>
-    <div><i class="fa fa-automobile"></i><span>fa-automobile</span></div>
-    <div><i class="fa fa-cab"></i><span>fa-cab</span></div>
-    <div><i class="fa fa-tree"></i><span>fa-tree</span></div>
-    <div><i class="fa fa-spotify"></i><span>fa-spotify</span></div>
-    <div><i class="fa fa-deviantart"></i><span>fa-deviantart</span></div>
-    <div><i class="fa fa-soundcloud"></i><span>fa-soundcloud</span></div>
-    <div><i class="fa fa-database"></i><span>fa-database</span></div>
-    <div><i class="fa fa-file-pdf-o"></i><span>fa-file-pdf-o</span></div>
-    <div><i class="fa fa-file-word-o"></i><span>fa-file-word-o</span></div>
-    <div><i class="fa fa-file-excel-o"></i><span>fa-file-excel-o</span></div>
-    <div><i class="fa fa-file-powerpoint-o"></i><span>fa-file-powerpoint-o</span></div>
-    <div><i class="fa fa-file-photo-o"></i><span>fa-file-photo-o</span></div>
-    <div><i class="fa fa-file-zip-o"></i><span>fa-file-zip-o</span></div>
-    <div><i class="fa fa-file-sound-o"></i><span>fa-file-sound-o</span></div>
-    <div><i class="fa fa-file-movie-o"></i><span>fa-file-movie-o</span></div>
-    <div><i class="fa fa-file-code-o"></i><span>fa-file-code-o</span></div>
-    <div><i class="fa fa-vine"></i><span>fa-vine</span></div>
-    <div><i class="fa fa-codepen"></i><span>fa-codepen</span></div>
-    <div><i class="fa fa-jsfiddle"></i><span>fa-jsfiddle</span></div>
-    <div><i class="fa fa-life-bouy"></i><span>fa-life-bouy</span></div>
-    <div><i class="fa fa-circle-o-notch"></i><span>fa-circle-o-notch</span></div>
-    <div><i class="fa fa-ra"></i><span>fa-ra</span></div>
-    <div><i class="fa fa-ge"></i><span>fa-ge</span></div>
-    <div><i class="fa fa-git-square"></i><span>fa-git-square</span></div>
-    <div><i class="fa fa-git"></i><span>fa-git</span></div>
-    <div><i class="fa fa-y-combinator-square"></i><span>fa-y-combinator-square</span></div>
-    <div><i class="fa fa-tencent-weibo"></i><span>fa-tencent-weibo</span></div>
-    <div><i class="fa fa-qq"></i><span>fa-qq</span></div>
-    <div><i class="fa fa-wechat"></i><span>fa-wechat</span></div>
-    <div><i class="fa fa-send"></i><span>fa-send</span></div>
-    <div><i class="fa fa-send-o"></i><span>fa-send-o</span></div>
-    <div><i class="fa fa-history"></i><span>fa-history</span></div>
-    <div><i class="fa fa-circle-thin"></i><span>fa-circle-thin</span></div>
-    <div><i class="fa fa-header"></i><span>fa-header</span></div>
-    <div><i class="fa fa-paragraph"></i><span>fa-paragraph</span></div>
-    <div><i class="fa fa-sliders"></i><span>fa-sliders</span></div>
-    <div><i class="fa fa-share-alt"></i><span>fa-share-alt</span></div>
-    <div><i class="fa fa-share-alt-square"></i><span>fa-share-alt-square</span></div>
-    <div><i class="fa fa-bomb"></i><span>fa-bomb</span></div>
-    <div><i class="fa fa-soccer-ball-o"></i><span>fa-soccer-ball-o</span></div>
-    <div><i class="fa fa-tty"></i><span>fa-tty</span></div>
-    <div><i class="fa fa-binoculars"></i><span>fa-binoculars</span></div>
-    <div><i class="fa fa-plug"></i><span>fa-plug</span></div>
-    <div><i class="fa fa-slideshare"></i><span>fa-slideshare</span></div>
-    <div><i class="fa fa-twitch"></i><span>fa-twitch</span></div>
-    <div><i class="fa fa-yelp"></i><span>fa-yelp</span></div>
-    <div><i class="fa fa-newspaper-o"></i><span>fa-newspaper-o</span></div>
-    <div><i class="fa fa-wifi"></i><span>fa-wifi</span></div>
-    <div><i class="fa fa-calculator"></i><span>fa-calculator</span></div>
-    <div><i class="fa fa-paypal"></i><span>fa-paypal</span></div>
-    <div><i class="fa fa-google-wallet"></i><span>fa-google-wallet</span></div>
-    <div><i class="fa fa-cc-visa"></i><span>fa-cc-visa</span></div>
-    <div><i class="fa fa-cc-mastercard"></i><span>fa-cc-mastercard</span></div>
-    <div><i class="fa fa-cc-discover"></i><span>fa-cc-discover</span></div>
-    <div><i class="fa fa-cc-amex"></i><span>fa-cc-amex</span></div>
-    <div><i class="fa fa-cc-paypal"></i><span>fa-cc-paypal</span></div>
-    <div><i class="fa fa-cc-stripe"></i><span>fa-cc-stripe</span></div>
-    <div><i class="fa fa-bell-slash"></i><span>fa-bell-slash</span></div>
-    <div><i class="fa fa-bell-slash-o"></i><span>fa-bell-slash-o</span></div>
-    <div><i class="fa fa-trash"></i><span>fa-trash</span></div>
-    <div><i class="fa fa-copyright"></i><span>fa-copyright</span></div>
-    <div><i class="fa fa-at"></i><span>fa-at</span></div>
-    <div><i class="fa fa-eyedropper"></i><span>fa-eyedropper</span></div>
-    <div><i class="fa fa-paint-brush"></i><span>fa-paint-brush</span></div>
-    <div><i class="fa fa-birthday-cake"></i><span>fa-birthday-cake</span></div>
-    <div><i class="fa fa-area-chart"></i><span>fa-area-chart</span></div>
-    <div><i class="fa fa-pie-chart"></i><span>fa-pie-chart</span></div>
-    <div><i class="fa fa-line-chart"></i><span>fa-line-chart</span></div>
-    <div><i class="fa fa-lastfm"></i><span>fa-lastfm</span></div>
-    <div><i class="fa fa-lastfm-square"></i><span>fa-lastfm-square</span></div>
-    <div><i class="fa fa-toggle-off"></i><span>fa-toggle-off</span></div>
-    <div><i class="fa fa-toggle-on"></i><span>fa-toggle-on</span></div>
-    <div><i class="fa fa-bicycle"></i><span>fa-bicycle</span></div>
-    <div><i class="fa fa-bus"></i><span>fa-bus</span></div>
-    <div><i class="fa fa-ioxhost"></i><span>fa-ioxhost</span></div>
-    <div><i class="fa fa-angellist"></i><span>fa-angellist</span></div>
-    <div><i class="fa fa-cc"></i><span>fa-cc</span></div>
-    <div><i class="fa fa-shekel"></i><span>fa-shekel</span></div>
-    <div><i class="fa fa-meanpath"></i><span>fa-meanpath</span></div>
-    <div><i class="fa fa-buysellads"></i><span>fa-buysellads</span></div>
-    <div><i class="fa fa-connectdevelop"></i><span>fa-connectdevelop</span></div>
-    <div><i class="fa fa-dashcube"></i><span>fa-dashcube</span></div>
-    <div><i class="fa fa-forumbee"></i><span>fa-forumbee</span></div>
-    <div><i class="fa fa-leanpub"></i><span>fa-leanpub</span></div>
-    <div><i class="fa fa-sellsy"></i><span>fa-sellsy</span></div>
-    <div><i class="fa fa-shirtsinbulk"></i><span>fa-shirtsinbulk</span></div>
-    <div><i class="fa fa-simplybuilt"></i><span>fa-simplybuilt</span></div>
-    <div><i class="fa fa-skyatlas"></i><span>fa-skyatlas</span></div>
-    <div><i class="fa fa-cart-plus"></i><span>fa-cart-plus</span></div>
-    <div><i class="fa fa-cart-arrow-down"></i><span>fa-cart-arrow-down</span></div>
-    <div><i class="fa fa-diamond"></i><span>fa-diamond</span></div>
-    <div><i class="fa fa-ship"></i><span>fa-ship</span></div>
-    <div><i class="fa fa-user-secret"></i><span>fa-user-secret</span></div>
-    <div><i class="fa fa-motorcycle"></i><span>fa-motorcycle</span></div>
-    <div><i class="fa fa-street-view"></i><span>fa-street-view</span></div>
-    <div><i class="fa fa-heartbeat"></i><span>fa-heartbeat</span></div>
-    <div><i class="fa fa-venus"></i><span>fa-venus</span></div>
-    <div><i class="fa fa-mars"></i><span>fa-mars</span></div>
-    <div><i class="fa fa-mercury"></i><span>fa-mercury</span></div>
-    <div><i class="fa fa-intersex"></i><span>fa-intersex</span></div>
-    <div><i class="fa fa-transgender-alt"></i><span>fa-transgender-alt</span></div>
-    <div><i class="fa fa-venus-double"></i><span>fa-venus-double</span></div>
-    <div><i class="fa fa-mars-double"></i><span>fa-mars-double</span></div>
-    <div><i class="fa fa-venus-mars"></i><span>fa-venus-mars</span></div>
-    <div><i class="fa fa-mars-stroke"></i><span>fa-mars-stroke</span></div>
-    <div><i class="fa fa-mars-stroke-v"></i><span>fa-mars-stroke-v</span></div>
-    <div><i class="fa fa-mars-stroke-h"></i><span>fa-mars-stroke-h</span></div>
-    <div><i class="fa fa-neuter"></i><span>fa-neuter</span></div>
-    <div><i class="fa fa-genderless"></i><span>fa-genderless</span></div>
-    <div><i class="fa fa-facebook-official"></i><span>fa-facebook-official</span></div>
-    <div><i class="fa fa-pinterest-p"></i><span>fa-pinterest-p</span></div>
-    <div><i class="fa fa-whatsapp"></i><span>fa-whatsapp</span></div>
-    <div><i class="fa fa-server"></i><span>fa-server</span></div>
-    <div><i class="fa fa-user-plus"></i><span>fa-user-plus</span></div>
-    <div><i class="fa fa-user-times"></i><span>fa-user-times</span></div>
-    <div><i class="fa fa-hotel"></i><span>fa-hotel</span></div>
-    <div><i class="fa fa-viacoin"></i><span>fa-viacoin</span></div>
-    <div><i class="fa fa-train"></i><span>fa-train</span></div>
-    <div><i class="fa fa-subway"></i><span>fa-subway</span></div>
-    <div><i class="fa fa-medium"></i><span>fa-medium</span></div>
-    <div><i class="fa fa-yc"></i><span>fa-yc</span></div>
-    <div><i class="fa fa-optin-monster"></i><span>fa-optin-monster</span></div>
-    <div><i class="fa fa-opencart"></i><span>fa-opencart</span></div>
-    <div><i class="fa fa-expeditedssl"></i><span>fa-expeditedssl</span></div>
-    <div><i class="fa fa-battery-4"></i><span>fa-battery-4</span></div>
-    <div><i class="fa fa-battery-3"></i><span>fa-battery-3</span></div>
-    <div><i class="fa fa-battery-2"></i><span>fa-battery-2</span></div>
-    <div><i class="fa fa-battery-1"></i><span>fa-battery-1</span></div>
-    <div><i class="fa fa-battery-0"></i><span>fa-battery-0</span></div>
-    <div><i class="fa fa-mouse-pointer"></i><span>fa-mouse-pointer</span></div>
-    <div><i class="fa fa-i-cursor"></i><span>fa-i-cursor</span></div>
-    <div><i class="fa fa-object-group"></i><span>fa-object-group</span></div>
-    <div><i class="fa fa-object-ungroup"></i><span>fa-object-ungroup</span></div>
-    <div><i class="fa fa-sticky-note"></i><span>fa-sticky-note</span></div>
-    <div><i class="fa fa-sticky-note-o"></i><span>fa-sticky-note-o</span></div>
-    <div><i class="fa fa-cc-jcb"></i><span>fa-cc-jcb</span></div>
-    <div><i class="fa fa-cc-diners-club"></i><span>fa-cc-diners-club</span></div>
-    <div><i class="fa fa-clone"></i><span>fa-clone</span></div>
-    <div><i class="fa fa-balance-scale"></i><span>fa-balance-scale</span></div>
-    <div><i class="fa fa-hourglass-o"></i><span>fa-hourglass-o</span></div>
-    <div><i class="fa fa-hourglass-1"></i><span>fa-hourglass-1</span></div>
-    <div><i class="fa fa-hourglass-2"></i><span>fa-hourglass-2</span></div>
-    <div><i class="fa fa-hourglass-3"></i><span>fa-hourglass-3</span></div>
-    <div><i class="fa fa-hourglass"></i><span>fa-hourglass</span></div>
-    <div><i class="fa fa-hand-grab-o"></i><span>fa-hand-grab-o</span></div>
-    <div><i class="fa fa-hand-stop-o"></i><span>fa-hand-stop-o</span></div>
-    <div><i class="fa fa-hand-scissors-o"></i><span>fa-hand-scissors-o</span></div>
-    <div><i class="fa fa-hand-lizard-o"></i><span>fa-hand-lizard-o</span></div>
-    <div><i class="fa fa-hand-spock-o"></i><span>fa-hand-spock-o</span></div>
-    <div><i class="fa fa-hand-pointer-o"></i><span>fa-hand-pointer-o</span></div>
-    <div><i class="fa fa-hand-peace-o"></i><span>fa-hand-peace-o</span></div>
-    <div><i class="fa fa-trademark"></i><span>fa-trademark</span></div>
-    <div><i class="fa fa-registered"></i><span>fa-registered</span></div>
-    <div><i class="fa fa-creative-commons"></i><span>fa-creative-commons</span></div>
-    <div><i class="fa fa-gg"></i><span>fa-gg</span></div>
-    <div><i class="fa fa-gg-circle"></i><span>fa-gg-circle</span></div>
-    <div><i class="fa fa-tripadvisor"></i><span>fa-tripadvisor</span></div>
-    <div><i class="fa fa-odnoklassniki"></i><span>fa-odnoklassniki</span></div>
-    <div><i class="fa fa-odnoklassniki-square"></i><span>fa-odnoklassniki-square</span></div>
-    <div><i class="fa fa-get-pocket"></i><span>fa-get-pocket</span></div>
-    <div><i class="fa fa-wikipedia-w"></i><span>fa-wikipedia-w</span></div>
-    <div><i class="fa fa-safari"></i><span>fa-safari</span></div>
-    <div><i class="fa fa-chrome"></i><span>fa-chrome</span></div>
-    <div><i class="fa fa-firefox"></i><span>fa-firefox</span></div>
-    <div><i class="fa fa-opera"></i><span>fa-opera</span></div>
-    <div><i class="fa fa-internet-explorer"></i><span>fa-internet-explorer</span></div>
-    <div><i class="fa fa-tv"></i><span>fa-tv</span></div>
-    <div><i class="fa fa-contao"></i><span>fa-contao</span></div>
-    <div><i class="fa fa-500px"></i><span>fa-500px</span></div>
-    <div><i class="fa fa-amazon"></i><span>fa-amazon</span></div>
-    <div><i class="fa fa-calendar-plus-o"></i><span>fa-calendar-plus-o</span></div>
-    <div><i class="fa fa-calendar-minus-o"></i><span>fa-calendar-minus-o</span></div>
-    <div><i class="fa fa-calendar-times-o"></i><span>fa-calendar-times-o</span></div>
-    <div><i class="fa fa-calendar-check-o"></i><span>fa-calendar-check-o</span></div>
-    <div><i class="fa fa-industry"></i><span>fa-industry</span></div>
-    <div><i class="fa fa-map-pin"></i><span>fa-map-pin</span></div>
-    <div><i class="fa fa-map-signs"></i><span>fa-map-signs</span></div>
-    <div><i class="fa fa-map-o"></i><span>fa-map-o</span></div>
-    <div><i class="fa fa-map"></i><span>fa-map</span></div>
-    <div><i class="fa fa-commenting"></i><span>fa-commenting</span></div>
-    <div><i class="fa fa-commenting-o"></i><span>fa-commenting-o</span></div>
-    <div><i class="fa fa-houzz"></i><span>fa-houzz</span></div>
-    <div><i class="fa fa-vimeo"></i><span>fa-vimeo</span></div>
-    <div><i class="fa fa-black-tie"></i><span>fa-black-tie</span></div>
-    <div><i class="fa fa-fonticons"></i><span>fa-fonticons</span></div>
-    <div><i class="fa fa-reddit-alien"></i><span>fa-reddit-alien</span></div>
-    <div><i class="fa fa-edge"></i><span>fa-edge</span></div>
-    <div><i class="fa fa-credit-card-alt"></i><span>fa-credit-card-alt</span></div>
-    <div><i class="fa fa-codiepie"></i><span>fa-codiepie</span></div>
-    <div><i class="fa fa-modx"></i><span>fa-modx</span></div>
-    <div><i class="fa fa-fort-awesome"></i><span>fa-fort-awesome</span></div>
-    <div><i class="fa fa-usb"></i><span>fa-usb</span></div>
-    <div><i class="fa fa-product-hunt"></i><span>fa-product-hunt</span></div>
-    <div><i class="fa fa-mixcloud"></i><span>fa-mixcloud</span></div>
-    <div><i class="fa fa-scribd"></i><span>fa-scribd</span></div>
-    <div><i class="fa fa-pause-circle"></i><span>fa-pause-circle</span></div>
-    <div><i class="fa fa-pause-circle-o"></i><span>fa-pause-circle-o</span></div>
-    <div><i class="fa fa-stop-circle"></i><span>fa-stop-circle</span></div>
-    <div><i class="fa fa-stop-circle-o"></i><span>fa-stop-circle-o</span></div>
-    <div><i class="fa fa-shopping-bag"></i><span>fa-shopping-bag</span></div>
-    <div><i class="fa fa-shopping-basket"></i><span>fa-shopping-basket</span></div>
-    <div><i class="fa fa-hashtag"></i><span>fa-hashtag</span></div>
-    <div><i class="fa fa-bluetooth"></i><span>fa-bluetooth</span></div>
-    <div><i class="fa fa-bluetooth-b"></i><span>fa-bluetooth-b</span></div>
-    <div><i class="fa fa-percent"></i><span>fa-percent</span></div>
-    <div><i class="fa fa-gitlab"></i><span>fa-gitlab</span></div>
-    <div><i class="fa fa-wpbeginner"></i><span>fa-wpbeginner</span></div>
-    <div><i class="fa fa-wpforms"></i><span>fa-wpforms</span></div>
-    <div><i class="fa fa-envira"></i><span>fa-envira</span></div>
-    <div><i class="fa fa-universal-access"></i><span>fa-universal-access</span></div>
-    <div><i class="fa fa-wheelchair-alt"></i><span>fa-wheelchair-alt</span></div>
-    <div><i class="fa fa-question-circle-o"></i><span>fa-question-circle-o</span></div>
-    <div><i class="fa fa-blind"></i><span>fa-blind</span></div>
-    <div><i class="fa fa-audio-description"></i><span>fa-audio-description</span></div>
-    <div><i class="fa fa-volume-control-phone"></i><span>fa-volume-control-phone</span></div>
-    <div><i class="fa fa-braille"></i><span>fa-braille</span></div>
-    <div><i class="fa fa-assistive-listening-systems"></i><span>fa-assistive-listening-systems</span></div>
-    <div><i class="fa fa-asl-interpreting"></i><span>fa-asl-interpreting</span></div>
-    <div><i class="fa fa-deafness"></i><span>fa-deafness</span></div>
-    <div><i class="fa fa-glide"></i><span>fa-glide</span></div>
-    <div><i class="fa fa-glide-g"></i><span>fa-glide-g</span></div>
-    <div><i class="fa fa-signing"></i><span>fa-signing</span></div>
-    <div><i class="fa fa-low-vision"></i><span>fa-low-vision</span></div>
-    <div><i class="fa fa-viadeo"></i><span>fa-viadeo</span></div>
-    <div><i class="fa fa-viadeo-square"></i><span>fa-viadeo-square</span></div>
-    <div><i class="fa fa-snapchat"></i><span>fa-snapchat</span></div>
-    <div><i class="fa fa-snapchat-ghost"></i><span>fa-snapchat-ghost</span></div>
-    <div><i class="fa fa-snapchat-square"></i><span>fa-snapchat-square</span></div>
-    <div><i class="fa fa-pied-piper"></i><span>fa-pied-piper</span></div>
-    <div><i class="fa fa-first-order"></i><span>fa-first-order</span></div>
-    <div><i class="fa fa-yoast"></i><span>fa-yoast</span></div>
-    <div><i class="fa fa-themeisle"></i><span>fa-themeisle</span></div>
+    <div><i class="fa fa-glass"></i>fa-glass</div>
+    <div><i class="fa fa-music"></i>fa-music</div>
+    <div><i class="fa fa-search"></i>fa-search</div>
+    <div><i class="fa fa-envelope-o"></i>fa-envelope-o</div>
+    <div><i class="fa fa-heart"></i>fa-heart</div>
+    <div><i class="fa fa-star"></i>fa-star</div>
+    <div><i class="fa fa-star-o"></i>fa-star-o</div>
+    <div><i class="fa fa-user"></i>fa-user</div>
+    <div><i class="fa fa-film"></i>fa-film</div>
+    <div><i class="fa fa-th-large"></i>fa-th-large</div>
+    <div><i class="fa fa-th"></i>fa-th</div>
+    <div><i class="fa fa-th-list"></i>fa-th-list</div>
+    <div><i class="fa fa-check"></i>fa-check</div>
+    <div><i class="fa fa-remove"></i>fa-remove</div>
+    <div><i class="fa fa-search-plus"></i>fa-search-plus</div>
+    <div><i class="fa fa-search-minus"></i>fa-search-minus</div>
+    <div><i class="fa fa-power-off"></i>fa-power-off</div>
+    <div><i class="fa fa-signal"></i>fa-signal</div>
+    <div><i class="fa fa-gear"></i>fa-gear</div>
+    <div><i class="fa fa-trash-o"></i>fa-trash-o</div>
+    <div><i class="fa fa-home"></i>fa-home</div>
+    <div><i class="fa fa-file-o"></i>fa-file-o</div>
+    <div><i class="fa fa-clock-o"></i>fa-clock-o</div>
+    <div><i class="fa fa-road"></i>fa-road</div>
+    <div><i class="fa fa-download"></i>fa-download</div>
+    <div><i class="fa fa-arrow-circle-o-down"></i>fa-arrow-circle-o-down</div>
+    <div><i class="fa fa-arrow-circle-o-up"></i>fa-arrow-circle-o-up</div>
+    <div><i class="fa fa-inbox"></i>fa-inbox</div>
+    <div><i class="fa fa-play-circle-o"></i>fa-play-circle-o</div>
+    <div><i class="fa fa-rotate-right"></i>fa-rotate-right</div>
+    <div><i class="fa fa-refresh"></i>fa-refresh</div>
+    <div><i class="fa fa-list-alt"></i>fa-list-alt</div>
+    <div><i class="fa fa-lock"></i>fa-lock</div>
+    <div><i class="fa fa-flag"></i>fa-flag</div>
+    <div><i class="fa fa-headphones"></i>fa-headphones</div>
+    <div><i class="fa fa-volume-off"></i>fa-volume-off</div>
+    <div><i class="fa fa-volume-down"></i>fa-volume-down</div>
+    <div><i class="fa fa-volume-up"></i>fa-volume-up</div>
+    <div><i class="fa fa-qrcode"></i>fa-qrcode</div>
+    <div><i class="fa fa-barcode"></i>fa-barcode</div>
+    <div><i class="fa fa-tag"></i>fa-tag</div>
+    <div><i class="fa fa-tags"></i>fa-tags</div>
+    <div><i class="fa fa-book"></i>fa-book</div>
+    <div><i class="fa fa-bookmark"></i>fa-bookmark</div>
+    <div><i class="fa fa-print"></i>fa-print</div>
+    <div><i class="fa fa-camera"></i>fa-camera</div>
+    <div><i class="fa fa-font"></i>fa-font</div>
+    <div><i class="fa fa-bold"></i>fa-bold</div>
+    <div><i class="fa fa-italic"></i>fa-italic</div>
+    <div><i class="fa fa-text-height"></i>fa-text-height</div>
+    <div><i class="fa fa-text-width"></i>fa-text-width</div>
+    <div><i class="fa fa-align-left"></i>fa-align-left</div>
+    <div><i class="fa fa-align-center"></i>fa-align-center</div>
+    <div><i class="fa fa-align-right"></i>fa-align-right</div>
+    <div><i class="fa fa-align-justify"></i>fa-align-justify</div>
+    <div><i class="fa fa-list"></i>fa-list</div>
+    <div><i class="fa fa-dedent"></i>fa-dedent</div>
+    <div><i class="fa fa-indent"></i>fa-indent</div>
+    <div><i class="fa fa-video-camera"></i>fa-video-camera</div>
+    <div><i class="fa fa-photo"></i>fa-photo</div>
+    <div><i class="fa fa-pencil"></i>fa-pencil</div>
+    <div><i class="fa fa-map-marker"></i>fa-map-marker</div>
+    <div><i class="fa fa-adjust"></i>fa-adjust</div>
+    <div><i class="fa fa-tint"></i>fa-tint</div>
+    <div><i class="fa fa-edit"></i>fa-edit</div>
+    <div><i class="fa fa-share-square-o"></i>fa-share-square-o</div>
+    <div><i class="fa fa-check-square-o"></i>fa-check-square-o</div>
+    <div><i class="fa fa-arrows"></i>fa-arrows</div>
+    <div><i class="fa fa-step-backward"></i>fa-step-backward</div>
+    <div><i class="fa fa-fast-backward"></i>fa-fast-backward</div>
+    <div><i class="fa fa-backward"></i>fa-backward</div>
+    <div><i class="fa fa-play"></i>fa-play</div>
+    <div><i class="fa fa-pause"></i>fa-pause</div>
+    <div><i class="fa fa-stop"></i>fa-stop</div>
+    <div><i class="fa fa-forward"></i>fa-forward</div>
+    <div><i class="fa fa-fast-forward"></i>fa-fast-forward</div>
+    <div><i class="fa fa-step-forward"></i>fa-step-forward</div>
+    <div><i class="fa fa-eject"></i>fa-eject</div>
+    <div><i class="fa fa-chevron-left"></i>fa-chevron-left</div>
+    <div><i class="fa fa-chevron-right"></i>fa-chevron-right</div>
+    <div><i class="fa fa-plus-circle"></i>fa-plus-circle</div>
+    <div><i class="fa fa-minus-circle"></i>fa-minus-circle</div>
+    <div><i class="fa fa-times-circle"></i>fa-times-circle</div>
+    <div><i class="fa fa-check-circle"></i>fa-check-circle</div>
+    <div><i class="fa fa-question-circle"></i>fa-question-circle</div>
+    <div><i class="fa fa-info-circle"></i>fa-info-circle</div>
+    <div><i class="fa fa-crosshairs"></i>fa-crosshairs</div>
+    <div><i class="fa fa-times-circle-o"></i>fa-times-circle-o</div>
+    <div><i class="fa fa-check-circle-o"></i>fa-check-circle-o</div>
+    <div><i class="fa fa-ban"></i>fa-ban</div>
+    <div><i class="fa fa-arrow-left"></i>fa-arrow-left</div>
+    <div><i class="fa fa-arrow-right"></i>fa-arrow-right</div>
+    <div><i class="fa fa-arrow-up"></i>fa-arrow-up</div>
+    <div><i class="fa fa-arrow-down"></i>fa-arrow-down</div>
+    <div><i class="fa fa-mail-forward"></i>fa-mail-forward</div>
+    <div><i class="fa fa-expand"></i>fa-expand</div>
+    <div><i class="fa fa-compress"></i>fa-compress</div>
+    <div><i class="fa fa-plus"></i>fa-plus</div>
+    <div><i class="fa fa-minus"></i>fa-minus</div>
+    <div><i class="fa fa-asterisk"></i>fa-asterisk</div>
+    <div><i class="fa fa-exclamation-circle"></i>fa-exclamation-circle</div>
+    <div><i class="fa fa-gift"></i>fa-gift</div>
+    <div><i class="fa fa-leaf"></i>fa-leaf</div>
+    <div><i class="fa fa-fire"></i>fa-fire</div>
+    <div><i class="fa fa-eye"></i>fa-eye</div>
+    <div><i class="fa fa-eye-slash"></i>fa-eye-slash</div>
+    <div><i class="fa fa-warning"></i>fa-warning</div>
+    <div><i class="fa fa-plane"></i>fa-plane</div>
+    <div><i class="fa fa-calendar"></i>fa-calendar</div>
+    <div><i class="fa fa-random"></i>fa-random</div>
+    <div><i class="fa fa-comment"></i>fa-comment</div>
+    <div><i class="fa fa-magnet"></i>fa-magnet</div>
+    <div><i class="fa fa-chevron-up"></i>fa-chevron-up</div>
+    <div><i class="fa fa-chevron-down"></i>fa-chevron-down</div>
+    <div><i class="fa fa-retweet"></i>fa-retweet</div>
+    <div><i class="fa fa-shopping-cart"></i>fa-shopping-cart</div>
+    <div><i class="fa fa-folder"></i>fa-folder</div>
+    <div><i class="fa fa-folder-open"></i>fa-folder-open</div>
+    <div><i class="fa fa-arrows-v"></i>fa-arrows-v</div>
+    <div><i class="fa fa-arrows-h"></i>fa-arrows-h</div>
+    <div><i class="fa fa-bar-chart-o"></i>fa-bar-chart-o</div>
+    <div><i class="fa fa-twitter-square"></i>fa-twitter-square</div>
+    <div><i class="fa fa-facebook-square"></i>fa-facebook-square</div>
+    <div><i class="fa fa-camera-retro"></i>fa-camera-retro</div>
+    <div><i class="fa fa-key"></i>fa-key</div>
+    <div><i class="fa fa-gears"></i>fa-gears</div>
+    <div><i class="fa fa-comments"></i>fa-comments</div>
+    <div><i class="fa fa-thumbs-o-up"></i>fa-thumbs-o-up</div>
+    <div><i class="fa fa-thumbs-o-down"></i>fa-thumbs-o-down</div>
+    <div><i class="fa fa-star-half"></i>fa-star-half</div>
+    <div><i class="fa fa-heart-o"></i>fa-heart-o</div>
+    <div><i class="fa fa-sign-out"></i>fa-sign-out</div>
+    <div><i class="fa fa-linkedin-square"></i>fa-linkedin-square</div>
+    <div><i class="fa fa-thumb-tack"></i>fa-thumb-tack</div>
+    <div><i class="fa fa-external-link"></i>fa-external-link</div>
+    <div><i class="fa fa-sign-in"></i>fa-sign-in</div>
+    <div><i class="fa fa-trophy"></i>fa-trophy</div>
+    <div><i class="fa fa-github-square"></i>fa-github-square</div>
+    <div><i class="fa fa-upload"></i>fa-upload</div>
+    <div><i class="fa fa-lemon-o"></i>fa-lemon-o</div>
+    <div><i class="fa fa-phone"></i>fa-phone</div>
+    <div><i class="fa fa-square-o"></i>fa-square-o</div>
+    <div><i class="fa fa-bookmark-o"></i>fa-bookmark-o</div>
+    <div><i class="fa fa-phone-square"></i>fa-phone-square</div>
+    <div><i class="fa fa-twitter"></i>fa-twitter</div>
+    <div><i class="fa fa-facebook-f"></i>fa-facebook-f</div>
+    <div><i class="fa fa-github"></i>fa-github</div>
+    <div><i class="fa fa-unlock"></i>fa-unlock</div>
+    <div><i class="fa fa-credit-card"></i>fa-credit-card</div>
+    <div><i class="fa fa-feed"></i>fa-feed</div>
+    <div><i class="fa fa-hdd-o"></i>fa-hdd-o</div>
+    <div><i class="fa fa-bullhorn"></i>fa-bullhorn</div>
+    <div><i class="fa fa-bell"></i>fa-bell</div>
+    <div><i class="fa fa-certificate"></i>fa-certificate</div>
+    <div><i class="fa fa-hand-o-right"></i>fa-hand-o-right</div>
+    <div><i class="fa fa-hand-o-left"></i>fa-hand-o-left</div>
+    <div><i class="fa fa-hand-o-up"></i>fa-hand-o-up</div>
+    <div><i class="fa fa-hand-o-down"></i>fa-hand-o-down</div>
+    <div><i class="fa fa-arrow-circle-left"></i>fa-arrow-circle-left</div>
+    <div><i class="fa fa-arrow-circle-right"></i>fa-arrow-circle-right</div>
+    <div><i class="fa fa-arrow-circle-up"></i>fa-arrow-circle-up</div>
+    <div><i class="fa fa-arrow-circle-down"></i>fa-arrow-circle-down</div>
+    <div><i class="fa fa-globe"></i>fa-globe</div>
+    <div><i class="fa fa-wrench"></i>fa-wrench</div>
+    <div><i class="fa fa-tasks"></i>fa-tasks</div>
+    <div><i class="fa fa-filter"></i>fa-filter</div>
+    <div><i class="fa fa-briefcase"></i>fa-briefcase</div>
+    <div><i class="fa fa-arrows-alt"></i>fa-arrows-alt</div>
+    <div><i class="fa fa-group"></i>fa-group</div>
+    <div><i class="fa fa-chain"></i>fa-chain</div>
+    <div><i class="fa fa-cloud"></i>fa-cloud</div>
+    <div><i class="fa fa-flask"></i>fa-flask</div>
+    <div><i class="fa fa-cut"></i>fa-cut</div>
+    <div><i class="fa fa-copy"></i>fa-copy</div>
+    <div><i class="fa fa-paperclip"></i>fa-paperclip</div>
+    <div><i class="fa fa-save"></i>fa-save</div>
+    <div><i class="fa fa-square"></i>fa-square</div>
+    <div><i class="fa fa-navicon"></i>fa-navicon</div>
+    <div><i class="fa fa-list-ul"></i>fa-list-ul</div>
+    <div><i class="fa fa-list-ol"></i>fa-list-ol</div>
+    <div><i class="fa fa-strikethrough"></i>fa-strikethrough</div>
+    <div><i class="fa fa-underline"></i>fa-underline</div>
+    <div><i class="fa fa-table"></i>fa-table</div>
+    <div><i class="fa fa-magic"></i>fa-magic</div>
+    <div><i class="fa fa-truck"></i>fa-truck</div>
+    <div><i class="fa fa-pinterest"></i>fa-pinterest</div>
+    <div><i class="fa fa-pinterest-square"></i>fa-pinterest-square</div>
+    <div><i class="fa fa-google-plus-square"></i>fa-google-plus-square</div>
+    <div><i class="fa fa-google-plus"></i>fa-google-plus</div>
+    <div><i class="fa fa-money"></i>fa-money</div>
+    <div><i class="fa fa-caret-down"></i>fa-caret-down</div>
+    <div><i class="fa fa-caret-up"></i>fa-caret-up</div>
+    <div><i class="fa fa-caret-left"></i>fa-caret-left</div>
+    <div><i class="fa fa-caret-right"></i>fa-caret-right</div>
+    <div><i class="fa fa-columns"></i>fa-columns</div>
+    <div><i class="fa fa-unsorted"></i>fa-unsorted</div>
+    <div><i class="fa fa-sort-down"></i>fa-sort-down</div>
+    <div><i class="fa fa-sort-up"></i>fa-sort-up</div>
+    <div><i class="fa fa-envelope"></i>fa-envelope</div>
+    <div><i class="fa fa-linkedin"></i>fa-linkedin</div>
+    <div><i class="fa fa-rotate-left"></i>fa-rotate-left</div>
+    <div><i class="fa fa-legal"></i>fa-legal</div>
+    <div><i class="fa fa-dashboard"></i>fa-dashboard</div>
+    <div><i class="fa fa-comment-o"></i>fa-comment-o</div>
+    <div><i class="fa fa-comments-o"></i>fa-comments-o</div>
+    <div><i class="fa fa-flash"></i>fa-flash</div>
+    <div><i class="fa fa-sitemap"></i>fa-sitemap</div>
+    <div><i class="fa fa-umbrella"></i>fa-umbrella</div>
+    <div><i class="fa fa-paste"></i>fa-paste</div>
+    <div><i class="fa fa-lightbulb-o"></i>fa-lightbulb-o</div>
+    <div><i class="fa fa-exchange"></i>fa-exchange</div>
+    <div><i class="fa fa-cloud-download"></i>fa-cloud-download</div>
+    <div><i class="fa fa-cloud-upload"></i>fa-cloud-upload</div>
+    <div><i class="fa fa-user-md"></i>fa-user-md</div>
+    <div><i class="fa fa-stethoscope"></i>fa-stethoscope</div>
+    <div><i class="fa fa-suitcase"></i>fa-suitcase</div>
+    <div><i class="fa fa-bell-o"></i>fa-bell-o</div>
+    <div><i class="fa fa-coffee"></i>fa-coffee</div>
+    <div><i class="fa fa-cutlery"></i>fa-cutlery</div>
+    <div><i class="fa fa-file-text-o"></i>fa-file-text-o</div>
+    <div><i class="fa fa-building-o"></i>fa-building-o</div>
+    <div><i class="fa fa-hospital-o"></i>fa-hospital-o</div>
+    <div><i class="fa fa-ambulance"></i>fa-ambulance</div>
+    <div><i class="fa fa-medkit"></i>fa-medkit</div>
+    <div><i class="fa fa-fighter-jet"></i>fa-fighter-jet</div>
+    <div><i class="fa fa-beer"></i>fa-beer</div>
+    <div><i class="fa fa-h-square"></i>fa-h-square</div>
+    <div><i class="fa fa-plus-square"></i>fa-plus-square</div>
+    <div><i class="fa fa-angle-double-left"></i>fa-angle-double-left</div>
+    <div><i class="fa fa-angle-double-right"></i>fa-angle-double-right</div>
+    <div><i class="fa fa-angle-double-up"></i>fa-angle-double-up</div>
+    <div><i class="fa fa-angle-double-down"></i>fa-angle-double-down</div>
+    <div><i class="fa fa-angle-left"></i>fa-angle-left</div>
+    <div><i class="fa fa-angle-right"></i>fa-angle-right</div>
+    <div><i class="fa fa-angle-up"></i>fa-angle-up</div>
+    <div><i class="fa fa-angle-down"></i>fa-angle-down</div>
+    <div><i class="fa fa-desktop"></i>fa-desktop</div>
+    <div><i class="fa fa-laptop"></i>fa-laptop</div>
+    <div><i class="fa fa-tablet"></i>fa-tablet</div>
+    <div><i class="fa fa-mobile-phone"></i>fa-mobile-phone</div>
+    <div><i class="fa fa-circle-o"></i>fa-circle-o</div>
+    <div><i class="fa fa-quote-left"></i>fa-quote-left</div>
+    <div><i class="fa fa-quote-right"></i>fa-quote-right</div>
+    <div><i class="fa fa-spinner"></i>fa-spinner</div>
+    <div><i class="fa fa-circle"></i>fa-circle</div>
+    <div><i class="fa fa-mail-reply"></i>fa-mail-reply</div>
+    <div><i class="fa fa-github-alt"></i>fa-github-alt</div>
+    <div><i class="fa fa-folder-o"></i>fa-folder-o</div>
+    <div><i class="fa fa-folder-open-o"></i>fa-folder-open-o</div>
+    <div><i class="fa fa-smile-o"></i>fa-smile-o</div>
+    <div><i class="fa fa-frown-o"></i>fa-frown-o</div>
+    <div><i class="fa fa-meh-o"></i>fa-meh-o</div>
+    <div><i class="fa fa-gamepad"></i>fa-gamepad</div>
+    <div><i class="fa fa-keyboard-o"></i>fa-keyboard-o</div>
+    <div><i class="fa fa-flag-o"></i>fa-flag-o</div>
+    <div><i class="fa fa-flag-checkered"></i>fa-flag-checkered</div>
+    <div><i class="fa fa-terminal"></i>fa-terminal</div>
+    <div><i class="fa fa-code"></i>fa-code</div>
+    <div><i class="fa fa-mail-reply-all"></i>fa-mail-reply-all</div>
+    <div><i class="fa fa-star-half-empty"></i>fa-star-half-empty</div>
+    <div><i class="fa fa-location-arrow"></i>fa-location-arrow</div>
+    <div><i class="fa fa-crop"></i>fa-crop</div>
+    <div><i class="fa fa-code-fork"></i>fa-code-fork</div>
+    <div><i class="fa fa-unlink"></i>fa-unlink</div>
+    <div><i class="fa fa-question"></i>fa-question</div>
+    <div><i class="fa fa-info"></i>fa-info</div>
+    <div><i class="fa fa-exclamation"></i>fa-exclamation</div>
+    <div><i class="fa fa-superscript"></i>fa-superscript</div>
+    <div><i class="fa fa-subscript"></i>fa-subscript</div>
+    <div><i class="fa fa-eraser"></i>fa-eraser</div>
+    <div><i class="fa fa-puzzle-piece"></i>fa-puzzle-piece</div>
+    <div><i class="fa fa-microphone"></i>fa-microphone</div>
+    <div><i class="fa fa-microphone-slash"></i>fa-microphone-slash</div>
+    <div><i class="fa fa-shield"></i>fa-shield</div>
+    <div><i class="fa fa-calendar-o"></i>fa-calendar-o</div>
+    <div><i class="fa fa-fire-extinguisher"></i>fa-fire-extinguisher</div>
+    <div><i class="fa fa-rocket"></i>fa-rocket</div>
+    <div><i class="fa fa-maxcdn"></i>fa-maxcdn</div>
+    <div><i class="fa fa-chevron-circle-left"></i>fa-chevron-circle-left</div>
+    <div><i class="fa fa-chevron-circle-right"></i>fa-chevron-circle-right</div>
+    <div><i class="fa fa-chevron-circle-up"></i>fa-chevron-circle-up</div>
+    <div><i class="fa fa-chevron-circle-down"></i>fa-chevron-circle-down</div>
+    <div><i class="fa fa-html5"></i>fa-html5</div>
+    <div><i class="fa fa-css3"></i>fa-css3</div>
+    <div><i class="fa fa-anchor"></i>fa-anchor</div>
+    <div><i class="fa fa-unlock-alt"></i>fa-unlock-alt</div>
+    <div><i class="fa fa-bullseye"></i>fa-bullseye</div>
+    <div><i class="fa fa-ellipsis-h"></i>fa-ellipsis-h</div>
+    <div><i class="fa fa-ellipsis-v"></i>fa-ellipsis-v</div>
+    <div><i class="fa fa-rss-square"></i>fa-rss-square</div>
+    <div><i class="fa fa-play-circle"></i>fa-play-circle</div>
+    <div><i class="fa fa-ticket"></i>fa-ticket</div>
+    <div><i class="fa fa-minus-square"></i>fa-minus-square</div>
+    <div><i class="fa fa-minus-square-o"></i>fa-minus-square-o</div>
+    <div><i class="fa fa-level-up"></i>fa-level-up</div>
+    <div><i class="fa fa-level-down"></i>fa-level-down</div>
+    <div><i class="fa fa-check-square"></i>fa-check-square</div>
+    <div><i class="fa fa-pencil-square"></i>fa-pencil-square</div>
+    <div><i class="fa fa-external-link-square"></i>fa-external-link-square</div>
+    <div><i class="fa fa-share-square"></i>fa-share-square</div>
+    <div><i class="fa fa-compass"></i>fa-compass</div>
+    <div><i class="fa fa-toggle-down"></i>fa-toggle-down</div>
+    <div><i class="fa fa-toggle-up"></i>fa-toggle-up</div>
+    <div><i class="fa fa-toggle-right"></i>fa-toggle-right</div>
+    <div><i class="fa fa-euro"></i>fa-euro</div>
+    <div><i class="fa fa-gbp"></i>fa-gbp</div>
+    <div><i class="fa fa-dollar"></i>fa-dollar</div>
+    <div><i class="fa fa-rupee"></i>fa-rupee</div>
+    <div><i class="fa fa-cny"></i>fa-cny</div>
+    <div><i class="fa fa-ruble"></i>fa-ruble</div>
+    <div><i class="fa fa-won"></i>fa-won</div>
+    <div><i class="fa fa-bitcoin"></i>fa-bitcoin</div>
+    <div><i class="fa fa-file"></i>fa-file</div>
+    <div><i class="fa fa-file-text"></i>fa-file-text</div>
+    <div><i class="fa fa-sort-alpha-asc"></i>fa-sort-alpha-asc</div>
+    <div><i class="fa fa-sort-alpha-desc"></i>fa-sort-alpha-desc</div>
+    <div><i class="fa fa-sort-amount-asc"></i>fa-sort-amount-asc</div>
+    <div><i class="fa fa-sort-amount-desc"></i>fa-sort-amount-desc</div>
+    <div><i class="fa fa-sort-numeric-asc"></i>fa-sort-numeric-asc</div>
+    <div><i class="fa fa-sort-numeric-desc"></i>fa-sort-numeric-desc</div>
+    <div><i class="fa fa-thumbs-up"></i>fa-thumbs-up</div>
+    <div><i class="fa fa-thumbs-down"></i>fa-thumbs-down</div>
+    <div><i class="fa fa-youtube-square"></i>fa-youtube-square</div>
+    <div><i class="fa fa-youtube"></i>fa-youtube</div>
+    <div><i class="fa fa-xing"></i>fa-xing</div>
+    <div><i class="fa fa-xing-square"></i>fa-xing-square</div>
+    <div><i class="fa fa-youtube-play"></i>fa-youtube-play</div>
+    <div><i class="fa fa-dropbox"></i>fa-dropbox</div>
+    <div><i class="fa fa-stack-overflow"></i>fa-stack-overflow</div>
+    <div><i class="fa fa-instagram"></i>fa-instagram</div>
+    <div><i class="fa fa-flickr"></i>fa-flickr</div>
+    <div><i class="fa fa-adn"></i>fa-adn</div>
+    <div><i class="fa fa-bitbucket"></i>fa-bitbucket</div>
+    <div><i class="fa fa-bitbucket-square"></i>fa-bitbucket-square</div>
+    <div><i class="fa fa-tumblr"></i>fa-tumblr</div>
+    <div><i class="fa fa-tumblr-square"></i>fa-tumblr-square</div>
+    <div><i class="fa fa-long-arrow-down"></i>fa-long-arrow-down</div>
+    <div><i class="fa fa-long-arrow-up"></i>fa-long-arrow-up</div>
+    <div><i class="fa fa-long-arrow-left"></i>fa-long-arrow-left</div>
+    <div><i class="fa fa-long-arrow-right"></i>fa-long-arrow-right</div>
+    <div><i class="fa fa-apple"></i>fa-apple</div>
+    <div><i class="fa fa-windows"></i>fa-windows</div>
+    <div><i class="fa fa-android"></i>fa-android</div>
+    <div><i class="fa fa-linux"></i>fa-linux</div>
+    <div><i class="fa fa-dribbble"></i>fa-dribbble</div>
+    <div><i class="fa fa-skype"></i>fa-skype</div>
+    <div><i class="fa fa-foursquare"></i>fa-foursquare</div>
+    <div><i class="fa fa-trello"></i>fa-trello</div>
+    <div><i class="fa fa-female"></i>fa-female</div>
+    <div><i class="fa fa-male"></i>fa-male</div>
+    <div><i class="fa fa-gittip"></i>fa-gittip</div>
+    <div><i class="fa fa-sun-o"></i>fa-sun-o</div>
+    <div><i class="fa fa-moon-o"></i>fa-moon-o</div>
+    <div><i class="fa fa-archive"></i>fa-archive</div>
+    <div><i class="fa fa-bug"></i>fa-bug</div>
+    <div><i class="fa fa-vk"></i>fa-vk</div>
+    <div><i class="fa fa-weibo"></i>fa-weibo</div>
+    <div><i class="fa fa-renren"></i>fa-renren</div>
+    <div><i class="fa fa-pagelines"></i>fa-pagelines</div>
+    <div><i class="fa fa-stack-exchange"></i>fa-stack-exchange</div>
+    <div><i class="fa fa-arrow-circle-o-right"></i>fa-arrow-circle-o-right</div>
+    <div><i class="fa fa-arrow-circle-o-left"></i>fa-arrow-circle-o-left</div>
+    <div><i class="fa fa-toggle-left"></i>fa-toggle-left</div>
+    <div><i class="fa fa-dot-circle-o"></i>fa-dot-circle-o</div>
+    <div><i class="fa fa-wheelchair"></i>fa-wheelchair</div>
+    <div><i class="fa fa-vimeo-square"></i>fa-vimeo-square</div>
+    <div><i class="fa fa-turkish-lira"></i>fa-turkish-lira</div>
+    <div><i class="fa fa-plus-square-o"></i>fa-plus-square-o</div>
+    <div><i class="fa fa-space-shuttle"></i>fa-space-shuttle</div>
+    <div><i class="fa fa-slack"></i>fa-slack</div>
+    <div><i class="fa fa-envelope-square"></i>fa-envelope-square</div>
+    <div><i class="fa fa-wordpress"></i>fa-wordpress</div>
+    <div><i class="fa fa-openid"></i>fa-openid</div>
+    <div><i class="fa fa-institution"></i>fa-institution</div>
+    <div><i class="fa fa-mortar-board"></i>fa-mortar-board</div>
+    <div><i class="fa fa-yahoo"></i>fa-yahoo</div>
+    <div><i class="fa fa-google"></i>fa-google</div>
+    <div><i class="fa fa-reddit"></i>fa-reddit</div>
+    <div><i class="fa fa-reddit-square"></i>fa-reddit-square</div>
+    <div><i class="fa fa-stumbleupon-circle"></i>fa-stumbleupon-circle</div>
+    <div><i class="fa fa-stumbleupon"></i>fa-stumbleupon</div>
+    <div><i class="fa fa-delicious"></i>fa-delicious</div>
+    <div><i class="fa fa-digg"></i>fa-digg</div>
+    <div><i class="fa fa-pied-piper-pp"></i>fa-pied-piper-pp</div>
+    <div><i class="fa fa-pied-piper-alt"></i>fa-pied-piper-alt</div>
+    <div><i class="fa fa-drupal"></i>fa-drupal</div>
+    <div><i class="fa fa-joomla"></i>fa-joomla</div>
+    <div><i class="fa fa-language"></i>fa-language</div>
+    <div><i class="fa fa-fax"></i>fa-fax</div>
+    <div><i class="fa fa-building"></i>fa-building</div>
+    <div><i class="fa fa-child"></i>fa-child</div>
+    <div><i class="fa fa-paw"></i>fa-paw</div>
+    <div><i class="fa fa-spoon"></i>fa-spoon</div>
+    <div><i class="fa fa-cube"></i>fa-cube</div>
+    <div><i class="fa fa-cubes"></i>fa-cubes</div>
+    <div><i class="fa fa-behance"></i>fa-behance</div>
+    <div><i class="fa fa-behance-square"></i>fa-behance-square</div>
+    <div><i class="fa fa-steam"></i>fa-steam</div>
+    <div><i class="fa fa-steam-square"></i>fa-steam-square</div>
+    <div><i class="fa fa-recycle"></i>fa-recycle</div>
+    <div><i class="fa fa-automobile"></i>fa-automobile</div>
+    <div><i class="fa fa-cab"></i>fa-cab</div>
+    <div><i class="fa fa-tree"></i>fa-tree</div>
+    <div><i class="fa fa-spotify"></i>fa-spotify</div>
+    <div><i class="fa fa-deviantart"></i>fa-deviantart</div>
+    <div><i class="fa fa-soundcloud"></i>fa-soundcloud</div>
+    <div><i class="fa fa-database"></i>fa-database</div>
+    <div><i class="fa fa-file-pdf-o"></i>fa-file-pdf-o</div>
+    <div><i class="fa fa-file-word-o"></i>fa-file-word-o</div>
+    <div><i class="fa fa-file-excel-o"></i>fa-file-excel-o</div>
+    <div><i class="fa fa-file-powerpoint-o"></i>fa-file-powerpoint-o</div>
+    <div><i class="fa fa-file-photo-o"></i>fa-file-photo-o</div>
+    <div><i class="fa fa-file-zip-o"></i>fa-file-zip-o</div>
+    <div><i class="fa fa-file-sound-o"></i>fa-file-sound-o</div>
+    <div><i class="fa fa-file-movie-o"></i>fa-file-movie-o</div>
+    <div><i class="fa fa-file-code-o"></i>fa-file-code-o</div>
+    <div><i class="fa fa-vine"></i>fa-vine</div>
+    <div><i class="fa fa-codepen"></i>fa-codepen</div>
+    <div><i class="fa fa-jsfiddle"></i>fa-jsfiddle</div>
+    <div><i class="fa fa-life-bouy"></i>fa-life-bouy</div>
+    <div><i class="fa fa-circle-o-notch"></i>fa-circle-o-notch</div>
+    <div><i class="fa fa-ra"></i>fa-ra</div>
+    <div><i class="fa fa-ge"></i>fa-ge</div>
+    <div><i class="fa fa-git-square"></i>fa-git-square</div>
+    <div><i class="fa fa-git"></i>fa-git</div>
+    <div><i class="fa fa-y-combinator-square"></i>fa-y-combinator-square</div>
+    <div><i class="fa fa-tencent-weibo"></i>fa-tencent-weibo</div>
+    <div><i class="fa fa-qq"></i>fa-qq</div>
+    <div><i class="fa fa-wechat"></i>fa-wechat</div>
+    <div><i class="fa fa-send"></i>fa-send</div>
+    <div><i class="fa fa-send-o"></i>fa-send-o</div>
+    <div><i class="fa fa-history"></i>fa-history</div>
+    <div><i class="fa fa-circle-thin"></i>fa-circle-thin</div>
+    <div><i class="fa fa-header"></i>fa-header</div>
+    <div><i class="fa fa-paragraph"></i>fa-paragraph</div>
+    <div><i class="fa fa-sliders"></i>fa-sliders</div>
+    <div><i class="fa fa-share-alt"></i>fa-share-alt</div>
+    <div><i class="fa fa-share-alt-square"></i>fa-share-alt-square</div>
+    <div><i class="fa fa-bomb"></i>fa-bomb</div>
+    <div><i class="fa fa-soccer-ball-o"></i>fa-soccer-ball-o</div>
+    <div><i class="fa fa-tty"></i>fa-tty</div>
+    <div><i class="fa fa-binoculars"></i>fa-binoculars</div>
+    <div><i class="fa fa-plug"></i>fa-plug</div>
+    <div><i class="fa fa-slideshare"></i>fa-slideshare</div>
+    <div><i class="fa fa-twitch"></i>fa-twitch</div>
+    <div><i class="fa fa-yelp"></i>fa-yelp</div>
+    <div><i class="fa fa-newspaper-o"></i>fa-newspaper-o</div>
+    <div><i class="fa fa-wifi"></i>fa-wifi</div>
+    <div><i class="fa fa-calculator"></i>fa-calculator</div>
+    <div><i class="fa fa-paypal"></i>fa-paypal</div>
+    <div><i class="fa fa-google-wallet"></i>fa-google-wallet</div>
+    <div><i class="fa fa-cc-visa"></i>fa-cc-visa</div>
+    <div><i class="fa fa-cc-mastercard"></i>fa-cc-mastercard</div>
+    <div><i class="fa fa-cc-discover"></i>fa-cc-discover</div>
+    <div><i class="fa fa-cc-amex"></i>fa-cc-amex</div>
+    <div><i class="fa fa-cc-paypal"></i>fa-cc-paypal</div>
+    <div><i class="fa fa-cc-stripe"></i>fa-cc-stripe</div>
+    <div><i class="fa fa-bell-slash"></i>fa-bell-slash</div>
+    <div><i class="fa fa-bell-slash-o"></i>fa-bell-slash-o</div>
+    <div><i class="fa fa-trash"></i>fa-trash</div>
+    <div><i class="fa fa-copyright"></i>fa-copyright</div>
+    <div><i class="fa fa-at"></i>fa-at</div>
+    <div><i class="fa fa-eyedropper"></i>fa-eyedropper</div>
+    <div><i class="fa fa-paint-brush"></i>fa-paint-brush</div>
+    <div><i class="fa fa-birthday-cake"></i>fa-birthday-cake</div>
+    <div><i class="fa fa-area-chart"></i>fa-area-chart</div>
+    <div><i class="fa fa-pie-chart"></i>fa-pie-chart</div>
+    <div><i class="fa fa-line-chart"></i>fa-line-chart</div>
+    <div><i class="fa fa-lastfm"></i>fa-lastfm</div>
+    <div><i class="fa fa-lastfm-square"></i>fa-lastfm-square</div>
+    <div><i class="fa fa-toggle-off"></i>fa-toggle-off</div>
+    <div><i class="fa fa-toggle-on"></i>fa-toggle-on</div>
+    <div><i class="fa fa-bicycle"></i>fa-bicycle</div>
+    <div><i class="fa fa-bus"></i>fa-bus</div>
+    <div><i class="fa fa-ioxhost"></i>fa-ioxhost</div>
+    <div><i class="fa fa-angellist"></i>fa-angellist</div>
+    <div><i class="fa fa-cc"></i>fa-cc</div>
+    <div><i class="fa fa-shekel"></i>fa-shekel</div>
+    <div><i class="fa fa-meanpath"></i>fa-meanpath</div>
+    <div><i class="fa fa-buysellads"></i>fa-buysellads</div>
+    <div><i class="fa fa-connectdevelop"></i>fa-connectdevelop</div>
+    <div><i class="fa fa-dashcube"></i>fa-dashcube</div>
+    <div><i class="fa fa-forumbee"></i>fa-forumbee</div>
+    <div><i class="fa fa-leanpub"></i>fa-leanpub</div>
+    <div><i class="fa fa-sellsy"></i>fa-sellsy</div>
+    <div><i class="fa fa-shirtsinbulk"></i>fa-shirtsinbulk</div>
+    <div><i class="fa fa-simplybuilt"></i>fa-simplybuilt</div>
+    <div><i class="fa fa-skyatlas"></i>fa-skyatlas</div>
+    <div><i class="fa fa-cart-plus"></i>fa-cart-plus</div>
+    <div><i class="fa fa-cart-arrow-down"></i>fa-cart-arrow-down</div>
+    <div><i class="fa fa-diamond"></i>fa-diamond</div>
+    <div><i class="fa fa-ship"></i>fa-ship</div>
+    <div><i class="fa fa-user-secret"></i>fa-user-secret</div>
+    <div><i class="fa fa-motorcycle"></i>fa-motorcycle</div>
+    <div><i class="fa fa-street-view"></i>fa-street-view</div>
+    <div><i class="fa fa-heartbeat"></i>fa-heartbeat</div>
+    <div><i class="fa fa-venus"></i>fa-venus</div>
+    <div><i class="fa fa-mars"></i>fa-mars</div>
+    <div><i class="fa fa-mercury"></i>fa-mercury</div>
+    <div><i class="fa fa-intersex"></i>fa-intersex</div>
+    <div><i class="fa fa-transgender-alt"></i>fa-transgender-alt</div>
+    <div><i class="fa fa-venus-double"></i>fa-venus-double</div>
+    <div><i class="fa fa-mars-double"></i>fa-mars-double</div>
+    <div><i class="fa fa-venus-mars"></i>fa-venus-mars</div>
+    <div><i class="fa fa-mars-stroke"></i>fa-mars-stroke</div>
+    <div><i class="fa fa-mars-stroke-v"></i>fa-mars-stroke-v</div>
+    <div><i class="fa fa-mars-stroke-h"></i>fa-mars-stroke-h</div>
+    <div><i class="fa fa-neuter"></i>fa-neuter</div>
+    <div><i class="fa fa-genderless"></i>fa-genderless</div>
+    <div><i class="fa fa-facebook-official"></i>fa-facebook-official</div>
+    <div><i class="fa fa-pinterest-p"></i>fa-pinterest-p</div>
+    <div><i class="fa fa-whatsapp"></i>fa-whatsapp</div>
+    <div><i class="fa fa-server"></i>fa-server</div>
+    <div><i class="fa fa-user-plus"></i>fa-user-plus</div>
+    <div><i class="fa fa-user-times"></i>fa-user-times</div>
+    <div><i class="fa fa-hotel"></i>fa-hotel</div>
+    <div><i class="fa fa-viacoin"></i>fa-viacoin</div>
+    <div><i class="fa fa-train"></i>fa-train</div>
+    <div><i class="fa fa-subway"></i>fa-subway</div>
+    <div><i class="fa fa-medium"></i>fa-medium</div>
+    <div><i class="fa fa-yc"></i>fa-yc</div>
+    <div><i class="fa fa-optin-monster"></i>fa-optin-monster</div>
+    <div><i class="fa fa-opencart"></i>fa-opencart</div>
+    <div><i class="fa fa-expeditedssl"></i>fa-expeditedssl</div>
+    <div><i class="fa fa-battery-4"></i>fa-battery-4</div>
+    <div><i class="fa fa-battery-3"></i>fa-battery-3</div>
+    <div><i class="fa fa-battery-2"></i>fa-battery-2</div>
+    <div><i class="fa fa-battery-1"></i>fa-battery-1</div>
+    <div><i class="fa fa-battery-0"></i>fa-battery-0</div>
+    <div><i class="fa fa-mouse-pointer"></i>fa-mouse-pointer</div>
+    <div><i class="fa fa-i-cursor"></i>fa-i-cursor</div>
+    <div><i class="fa fa-object-group"></i>fa-object-group</div>
+    <div><i class="fa fa-object-ungroup"></i>fa-object-ungroup</div>
+    <div><i class="fa fa-sticky-note"></i>fa-sticky-note</div>
+    <div><i class="fa fa-sticky-note-o"></i>fa-sticky-note-o</div>
+    <div><i class="fa fa-cc-jcb"></i>fa-cc-jcb</div>
+    <div><i class="fa fa-cc-diners-club"></i>fa-cc-diners-club</div>
+    <div><i class="fa fa-clone"></i>fa-clone</div>
+    <div><i class="fa fa-balance-scale"></i>fa-balance-scale</div>
+    <div><i class="fa fa-hourglass-o"></i>fa-hourglass-o</div>
+    <div><i class="fa fa-hourglass-1"></i>fa-hourglass-1</div>
+    <div><i class="fa fa-hourglass-2"></i>fa-hourglass-2</div>
+    <div><i class="fa fa-hourglass-3"></i>fa-hourglass-3</div>
+    <div><i class="fa fa-hourglass"></i>fa-hourglass</div>
+    <div><i class="fa fa-hand-grab-o"></i>fa-hand-grab-o</div>
+    <div><i class="fa fa-hand-stop-o"></i>fa-hand-stop-o</div>
+    <div><i class="fa fa-hand-scissors-o"></i>fa-hand-scissors-o</div>
+    <div><i class="fa fa-hand-lizard-o"></i>fa-hand-lizard-o</div>
+    <div><i class="fa fa-hand-spock-o"></i>fa-hand-spock-o</div>
+    <div><i class="fa fa-hand-pointer-o"></i>fa-hand-pointer-o</div>
+    <div><i class="fa fa-hand-peace-o"></i>fa-hand-peace-o</div>
+    <div><i class="fa fa-trademark"></i>fa-trademark</div>
+    <div><i class="fa fa-registered"></i>fa-registered</div>
+    <div><i class="fa fa-creative-commons"></i>fa-creative-commons</div>
+    <div><i class="fa fa-gg"></i>fa-gg</div>
+    <div><i class="fa fa-gg-circle"></i>fa-gg-circle</div>
+    <div><i class="fa fa-tripadvisor"></i>fa-tripadvisor</div>
+    <div><i class="fa fa-odnoklassniki"></i>fa-odnoklassniki</div>
+    <div><i class="fa fa-odnoklassniki-square"></i>fa-odnoklassniki-square</div>
+    <div><i class="fa fa-get-pocket"></i>fa-get-pocket</div>
+    <div><i class="fa fa-wikipedia-w"></i>fa-wikipedia-w</div>
+    <div><i class="fa fa-safari"></i>fa-safari</div>
+    <div><i class="fa fa-chrome"></i>fa-chrome</div>
+    <div><i class="fa fa-firefox"></i>fa-firefox</div>
+    <div><i class="fa fa-opera"></i>fa-opera</div>
+    <div><i class="fa fa-internet-explorer"></i>fa-internet-explorer</div>
+    <div><i class="fa fa-tv"></i>fa-tv</div>
+    <div><i class="fa fa-contao"></i>fa-contao</div>
+    <div><i class="fa fa-500px"></i>fa-500px</div>
+    <div><i class="fa fa-amazon"></i>fa-amazon</div>
+    <div><i class="fa fa-calendar-plus-o"></i>fa-calendar-plus-o</div>
+    <div><i class="fa fa-calendar-minus-o"></i>fa-calendar-minus-o</div>
+    <div><i class="fa fa-calendar-times-o"></i>fa-calendar-times-o</div>
+    <div><i class="fa fa-calendar-check-o"></i>fa-calendar-check-o</div>
+    <div><i class="fa fa-industry"></i>fa-industry</div>
+    <div><i class="fa fa-map-pin"></i>fa-map-pin</div>
+    <div><i class="fa fa-map-signs"></i>fa-map-signs</div>
+    <div><i class="fa fa-map-o"></i>fa-map-o</div>
+    <div><i class="fa fa-map"></i>fa-map</div>
+    <div><i class="fa fa-commenting"></i>fa-commenting</div>
+    <div><i class="fa fa-commenting-o"></i>fa-commenting-o</div>
+    <div><i class="fa fa-houzz"></i>fa-houzz</div>
+    <div><i class="fa fa-vimeo"></i>fa-vimeo</div>
+    <div><i class="fa fa-black-tie"></i>fa-black-tie</div>
+    <div><i class="fa fa-fonticons"></i>fa-fonticons</div>
+    <div><i class="fa fa-reddit-alien"></i>fa-reddit-alien</div>
+    <div><i class="fa fa-edge"></i>fa-edge</div>
+    <div><i class="fa fa-credit-card-alt"></i>fa-credit-card-alt</div>
+    <div><i class="fa fa-codiepie"></i>fa-codiepie</div>
+    <div><i class="fa fa-modx"></i>fa-modx</div>
+    <div><i class="fa fa-fort-awesome"></i>fa-fort-awesome</div>
+    <div><i class="fa fa-usb"></i>fa-usb</div>
+    <div><i class="fa fa-product-hunt"></i>fa-product-hunt</div>
+    <div><i class="fa fa-mixcloud"></i>fa-mixcloud</div>
+    <div><i class="fa fa-scribd"></i>fa-scribd</div>
+    <div><i class="fa fa-pause-circle"></i>fa-pause-circle</div>
+    <div><i class="fa fa-pause-circle-o"></i>fa-pause-circle-o</div>
+    <div><i class="fa fa-stop-circle"></i>fa-stop-circle</div>
+    <div><i class="fa fa-stop-circle-o"></i>fa-stop-circle-o</div>
+    <div><i class="fa fa-shopping-bag"></i>fa-shopping-bag</div>
+    <div><i class="fa fa-shopping-basket"></i>fa-shopping-basket</div>
+    <div><i class="fa fa-hashtag"></i>fa-hashtag</div>
+    <div><i class="fa fa-bluetooth"></i>fa-bluetooth</div>
+    <div><i class="fa fa-bluetooth-b"></i>fa-bluetooth-b</div>
+    <div><i class="fa fa-percent"></i>fa-percent</div>
+    <div><i class="fa fa-gitlab"></i>fa-gitlab</div>
+    <div><i class="fa fa-wpbeginner"></i>fa-wpbeginner</div>
+    <div><i class="fa fa-wpforms"></i>fa-wpforms</div>
+    <div><i class="fa fa-envira"></i>fa-envira</div>
+    <div><i class="fa fa-universal-access"></i>fa-universal-access</div>
+    <div><i class="fa fa-wheelchair-alt"></i>fa-wheelchair-alt</div>
+    <div><i class="fa fa-question-circle-o"></i>fa-question-circle-o</div>
+    <div><i class="fa fa-blind"></i>fa-blind</div>
+    <div><i class="fa fa-audio-description"></i>fa-audio-description</div>
+    <div><i class="fa fa-volume-control-phone"></i>fa-volume-control-phone</div>
+    <div><i class="fa fa-braille"></i>fa-braille</div>
+    <div><i class="fa fa-assistive-listening-systems"></i>fa-assistive-listening-systems</div>
+    <div><i class="fa fa-asl-interpreting"></i>fa-asl-interpreting</div>
+    <div><i class="fa fa-deafness"></i>fa-deafness</div>
+    <div><i class="fa fa-glide"></i>fa-glide</div>
+    <div><i class="fa fa-glide-g"></i>fa-glide-g</div>
+    <div><i class="fa fa-signing"></i>fa-signing</div>
+    <div><i class="fa fa-low-vision"></i>fa-low-vision</div>
+    <div><i class="fa fa-viadeo"></i>fa-viadeo</div>
+    <div><i class="fa fa-viadeo-square"></i>fa-viadeo-square</div>
+    <div><i class="fa fa-snapchat"></i>fa-snapchat</div>
+    <div><i class="fa fa-snapchat-ghost"></i>fa-snapchat-ghost</div>
+    <div><i class="fa fa-snapchat-square"></i>fa-snapchat-square</div>
+    <div><i class="fa fa-pied-piper"></i>fa-pied-piper</div>
+    <div><i class="fa fa-first-order"></i>fa-first-order</div>
+    <div><i class="fa fa-yoast"></i>fa-yoast</div>
+    <div><i class="fa fa-themeisle"></i>fa-themeisle</div>
   </div>
 </dialog>
 <script>
@@ -1068,8 +954,7 @@ function colorcoding(){
 function w3_getStyleValue(e,t){return window.getComputedStyle?window.getComputedStyle(e,null).getPropertyValue(t):e.currentStyle[t]}window.addEventListener&&(dragbar.addEventListener("mousedown",function(e){dragstart(e)}),dragbar.addEventListener("touchstart",function(e){dragstart(e)}),window.addEventListener("mousemove",function(e){dragmove(e)}),window.addEventListener("touchmove",function(e){dragmove(e)}),window.addEventListener("mouseup",dragend),window.addEventListener("touchend",dragend),window.addEventListener("load",fixDragBtn),window.addEventListener("load",showFrameSize)),"dark"==localStorage.getItem("preferredmode")&&(document.body.className+="darktheme"),colorcoding();
 </script>
 <script>
-function w3SetColorsByAttribute(){for(var e,t=document.getElementsByTagName("*"),r=0;r<t.length;r++)(e=t[r].getAttribute("data-w3-color"))&&(t[r].style.backgroundColor=w3color(e).toRgbString())}!function(){function r(e,t){return this instanceof r?"object"==typeof e?e:(this.attachValues(function(e){var t,r,s,i,n,a,h,u,f,o,l=[],c=[],b=[];e=k(e.toLowerCase()),n=e.substr(0,1).toUpperCase(),t=e.substr(1),h=1,"R"!=n&&"Y"!=n&&"G"!=n&&"C"!=n&&"B"!=n&&"M"!=n&&"W"!=n||isNaN(t)||6==e.length&&-1==e.indexOf(",")||(e="ncol("+e+")");3==e.length||6==e.length||isNaN(e)||(e="ncol("+e+")");0<e.indexOf(",")&&-1==e.indexOf("(")&&(e="ncol("+e+")");if("rgb"==e.substr(0,3)||"hsl"==e.substr(0,3)||"hwb"==e.substr(0,3)||"ncol"==e.substr(0,4)||"cmyk"==e.substr(0,4)){if(e="ncol"==e.substr(0,4)?(4==e.split(",").length&&-1==e.indexOf("ncola")&&(e=e.replace("ncol","ncola")),r="ncol",e.substr(4)):"cmyk"==e.substr(0,4)?(r="cmyk",e.substr(4)):(r=e.substr(0,3),e.substr(3)),n=!(s=3),"a"==e.substr(0,1).toLowerCase()?(s=4,n=!0,e=e.substr(1)):"cmyk"==r&&(s=4,5==e.split(",").length)&&(s=5,n=!0),e=(e=e.replace("(","")).replace(")",""),l=e.split(","),"rgb"==r){if(l.length!=s)return g();for(i=0;i<s;i++){if(""!=l[i]&&" "!=l[i]||(l[i]="0"),-1<l[i].indexOf("%")&&(l[i]=l[i].replace("%",""),l[i]=Number(l[i]/100),i<3)&&(l[i]=Math.round(255*l[i])),isNaN(l[i]))return g();255<parseInt(l[i])&&(l[i]=255),i<3&&(l[i]=parseInt(l[i])),3==i&&1<Number(l[i])&&(l[i]=1)}o={r:l[0],g:l[1],b:l[2]},1==n&&(h=Number(l[3]))}if("hsl"==r||"hwb"==r||"ncol"==r){for(;l.length<s;)l.push("0");for("hsl"!=r&&"hwb"!=r||360<=parseInt(l[0])&&(l[0]=0),i=1;i<s;i++){if(-1<l[i].indexOf("%")){if(l[i]=l[i].replace("%",""),l[i]=Number(l[i]),isNaN(l[i]))return g();l[i]=l[i]/100}else l[i]=Number(l[i]);1<Number(l[i])&&(l[i]=1),Number(l[i])<0&&(l[i]=0)}"hsl"==r&&(o=y(l[0],l[1],l[2]),u=Number(l[0]),f=Number(l[1])),"hwb"==r&&(o=p(l[0],l[1],l[2])),"ncol"==r&&(o=function(e,t,r){var s,i;if(i=e,isNaN(e.substr(0,1))){if(s=e.substr(0,1).toUpperCase(),""==(e=e.substr(1))&&(e=0),e=Number(e),isNaN(e))return!1;"R"==s&&(i=0+.6*e),"Y"==s&&(i=60+.6*e),"G"==s&&(i=120+.6*e),"C"==s&&(i=180+.6*e),"B"==s&&(i=240+.6*e),"M"==s&&(i=300+.6*e),"W"==s&&(i=0,t=1-e/100,r=e/100)}return p(i,t,r)}(l[0],l[1],l[2])),1==n&&(h=Number(l[3]))}if("cmyk"==r){for(;l.length<s;)l.push("0");for(i=0;i<s;i++){if(-1<l[i].indexOf("%")){if(l[i]=l[i].replace("%",""),l[i]=Number(l[i]),isNaN(l[i]))return g();l[i]=l[i]/100}else l[i]=Number(l[i]);1<Number(l[i])&&(l[i]=1),Number(l[i])<0&&(l[i]=0)}o=function(e,t,r,s){return e=255-255*Math.min(1,e*(1-s)+s),t=255-255*Math.min(1,t*(1-s)+s),r=255-255*Math.min(1,r*(1-s)+s),{r:e,g:t,b:r}}(l[0],l[1],l[2],l[3]),1==n&&(h=Number(l[4]))}}else if("ncs"==e.substr(0,3))o=function(e){var t,r,s,i,n,a,h,u;-1==(e=(e=(e=(e=(e=k(e).toUpperCase()).replace("(","")).replace(")","")).replace("NCS","NCS ")).replace(/  /g," ")).indexOf("NCS")&&(e="NCS "+e);if(null===(e=e.match(/^(?:NCS|NCS\sS)\s(\d{2})(\d{2})-(N|[A-Z])(\d{2})?([A-Z])?$/)))return!1;if(t=parseInt(e[1],10),n=parseInt(e[2],10),"N"!=(s=e[3])&&"Y"!=s&&"R"!=s&&"B"!=s&&"G"!=s)return!1;e=parseInt(e[4],10)||0,"N"!==s?(r=1.05*t-5.25,n=n,"Y"===s&&e<=60?u=1:"Y"===s&&60<e||"R"===s&&e<=80?(i="Y"===s?e-60:e+40,u=(Math.sqrt(14884-Math.pow(i,2))-22)/100):"R"===s&&80<e||"B"===s?u=0:"G"===s&&(i=e-170,u=(Math.sqrt(33800-Math.pow(i,2))-70)/100),"Y"===s&&e<=80?a=0:"Y"===s&&80<e||"R"===s&&e<=60?(i="Y"===s?e-80+20.5:e+20+20.5,a=(104-Math.sqrt(11236-Math.pow(i,2)))/100):"R"===s&&60<e||"B"===s&&e<=80?(i="R"===s?e-60-60:e+40-60,a=(Math.sqrt(1e4-Math.pow(i,2))-10)/100):"B"===s&&80<e||"G"===s&&e<=40?(i="B"===s?e-80-131:e+20-131,a=(122-Math.sqrt(19881-Math.pow(i,2)))/100):"G"===s&&40<e&&(a=0),"Y"===s?green1=(85-.85*e)/100:"R"===s&&e<=60?green1=0:"R"===s&&60<e?(i=e-60+35,green1=(67.5-Math.sqrt(5776-Math.pow(i,2)))/100):"B"===s&&e<=60?(i=+e-68.5,green1=(6.5+Math.sqrt(7044.5-Math.pow(i,2)))/100):"B"===s&&60<e||"G"===s&&e<=60?green1=.9:"G"===s&&60<e&&(green1=(90-1/8*(i=e-60))/100),i=(u+green1+a)/3,s=(i-u)*(100-n)/100+u,e=(i-green1)*(100-n)/100+green1,u=(i-a)*(100-n)/100+a,i=1/(e<s&&u<s?s:s<e&&u<e?e:s<u&&e<u?u:(s+e+u)/3),a=parseInt(s*i*(100-r)/100*255,10),h=parseInt(e*i*(100-r)/100*255,10),u=parseInt(u*i*(100-r)/100*255,10),(a=255<a?255:a)<0&&(a=0),(h=255<h?255:h)<0&&(h=0),(u=255<u?255:u)<0&&(u=0)):(n=parseInt(255*(1-t/100),10),u=h=a=n=(n=255<n?255:n)<0?0:n);return{r:a,g:h,b:u}}(e);else{for(a=!1,c=m("names"),i=0;i<c.length;i++)if(e.toLowerCase()==c[i].toLowerCase()){b=m("hexs"),a=!0,o={r:parseInt(b[i].substr(0,2),16),g:parseInt(b[i].substr(2,2),16),b:parseInt(b[i].substr(4,2),16)};break}if(0==a){for(3==(e=e.replace("#","")).length&&(e=e.substr(0,1)+e.substr(0,1)+e.substr(1,1)+e.substr(1,1)+e.substr(2,1)+e.substr(2,1)),i=0;i<e.length;i++)if(!(-1<"0123456789ABCDEFabcdef".indexOf(e.substr(i,1))))return g();for(l[0]=parseInt(e.substr(0,2),16),l[1]=parseInt(e.substr(2,2),16),l[2]=parseInt(e.substr(4,2),16),i=0;i<3;i++)if(isNaN(l[i]))return g();o={r:l[0],g:l[1],b:l[2]}}}return d(o,h,u,f)}(e)),void(t&&(t.style.backgroundColor=this.toRgbString()))):new r(e,t)}function d(e,t,r,s){var i,n,a,h;return e?(null===t&&(t=1),i=function(e,t,r){var s,i,n,a,h,u=[];for(u[0]=e/255,u[1]=t/255,u[2]=r/255,i=s=u[0],n=a=0;n<u.length-1;n++)u[n+1]<=s&&(s=u[n+1]),i<=u[n+1]&&(i=u[n+1],a=n+1);0==a&&(h=(u[1]-u[2])/(i-s));1==a&&(h=2+(u[2]-u[0])/(i-s));2==a&&(h=4+(u[0]-u[1])/(i-s));isNaN(h)&&(h=0);(h*=60)<0&&(h+=360);e=(s+i)/2,t=s==i?0:e<.5?(i-s)/(i+s):(i-s)/(2-i-s);return{h:h,s:t,l:e}}(e.r,e.g,e.b),n=function(e,t,r){e/=255,t/=255,r/=255,max=Math.max(e,t,r),min=Math.min(e,t,r),r=0==(chroma=max-min)?0:e==max?(t-r)/chroma%6*360:t==max?((r-e)/chroma+2)%6*360:((e-t)/chroma+4)%6*360;return e=min,t=1-max,{h:r,w:e,b:t}}(e.r,e.g,e.b),a=function(e,t,r){var s,i,n;e/=255,t/=255,r/=255,max=Math.max(e,t,r),e=1==(n=1-max)?i=s=0:(s=(1-e-n)/(1-n),i=(1-t-n)/(1-n),(1-r-n)/(1-n));return{c:s,m:i,y:e,k:n}}(e.r,e.g,e.b),r=r||i.h,s=s||i.s,h=function(e){for(;360<=e;)e-=360;if(e<60)return"R"+e/.6;if(e<120)return"Y"+(e-60)/.6;if(e<180)return"G"+(e-120)/.6;if(e<240)return"C"+(e-180)/.6;if(e<300)return"B"+(e-240)/.6;if(e<360)return"M"+(e-300)/.6}(r),e={red:e.r,green:e.g,blue:e.b,hue:r,sat:s,lightness:i.l,whiteness:n.w,blackness:n.b,cyan:a.c,magenta:a.m,yellow:a.y,black:a.k,ncol:h,opacity:t,valid:!0},(r=e).red=Number(r.red.toFixed(0)),r.green=Number(r.green.toFixed(0)),r.blue=Number(r.blue.toFixed(0)),r.hue=Number(r.hue.toFixed(0)),r.sat=Number(r.sat.toFixed(2)),r.lightness=Number(r.lightness.toFixed(2)),r.whiteness=Number(r.whiteness.toFixed(2)),r.blackness=Number(r.blackness.toFixed(2)),r.cyan=Number(r.cyan.toFixed(2)),r.magenta=Number(r.magenta.toFixed(2)),r.yellow=Number(r.yellow.toFixed(2)),r.black=Number(r.black.toFixed(2)),r.ncol=r.ncol.substr(0,1)+Math.round(Number(r.ncol.substr(1))),r.opacity=Number(r.opacity.toFixed(2)),r):g()}function g(){return{red:0,green:0,blue:0,hue:0,sat:0,lightness:0,whiteness:0,blackness:0,cyan:0,magenta:0,yellow:0,black:0,ncol:"R",opacity:1,valid:!1}}function m(e){return"names"==e?["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","DarkOrange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","RebeccaPurple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"]:"hexs"==e?["f0f8ff","faebd7","00ffff","7fffd4","f0ffff","f5f5dc","ffe4c4","000000","ffebcd","0000ff","8a2be2","a52a2a","deb887","5f9ea0","7fff00","d2691e","ff7f50","6495ed","fff8dc","dc143c","00ffff","00008b","008b8b","b8860b","a9a9a9","a9a9a9","006400","bdb76b","8b008b","556b2f","ff8c00","9932cc","8b0000","e9967a","8fbc8f","483d8b","2f4f4f","2f4f4f","00ced1","9400d3","ff1493","00bfff","696969","696969","1e90ff","b22222","fffaf0","228b22","ff00ff","dcdcdc","f8f8ff","ffd700","daa520","808080","808080","008000","adff2f","f0fff0","ff69b4","cd5c5c","4b0082","fffff0","f0e68c","e6e6fa","fff0f5","7cfc00","fffacd","add8e6","f08080","e0ffff","fafad2","d3d3d3","d3d3d3","90ee90","ffb6c1","ffa07a","20b2aa","87cefa","778899","778899","b0c4de","ffffe0","00ff00","32cd32","faf0e6","ff00ff","800000","66cdaa","0000cd","ba55d3","9370db","3cb371","7b68ee","00fa9a","48d1cc","c71585","191970","f5fffa","ffe4e1","ffe4b5","ffdead","000080","fdf5e6","808000","6b8e23","ffa500","ff4500","da70d6","eee8aa","98fb98","afeeee","db7093","ffefd5","ffdab9","cd853f","ffc0cb","dda0dd","b0e0e6","800080","663399","ff0000","bc8f8f","4169e1","8b4513","fa8072","f4a460","2e8b57","fff5ee","a0522d","c0c0c0","87ceeb","6a5acd","708090","708090","fffafa","00ff7f","4682b4","d2b48c","008080","d8bfd8","ff6347","40e0d0","ee82ee","f5deb3","ffffff","f5f5f5","ffff00","9acd32"]:void 0}function y(e,t,r){return{r:255*s(t=2*r-(r=r<=.5?r*(t+1):r+t-r*t),r,(e/=60)+2),g:255*s(t,r,e),b:255*s(t,r,e-2)}}function s(e,t,r){return r<0&&(r+=6),6<=r&&(r-=6),r<1?(t-e)*r+e:r<3?t:r<4?(t-e)*(4-r)+e:e}function p(e,t,r){var s,i=[],e=y(e,1,.5);for(i[0]=e.r/255,i[1]=e.g/255,i[2]=e.b/255,1<(e=t+r)&&(t=Number((t/e).toFixed(2)),r=Number((r/e).toFixed(2))),s=0;s<3;s++)i[s]*=1-t-r,i[s]+=t,i[s]=Number(255*i[s]);return{r:i[0],g:i[1],b:i[2]}}function e(e){for(var t=e.toString(16);t.length<2;)t="0"+t;return t}function k(e){return e.replace(/^\s+|\s+$/g,"")}r.prototype={toRgbString:function(){return"rgb("+this.red+", "+this.green+", "+this.blue+")"},toRgbaString:function(){return"rgba("+this.red+", "+this.green+", "+this.blue+", "+this.opacity+")"},toHwbString:function(){return"hwb("+this.hue+", "+Math.round(100*this.whiteness)+"%, "+Math.round(100*this.blackness)+"%)"},toHwbStringDecimal:function(){return"hwb("+this.hue+", "+this.whiteness+", "+this.blackness+")"},toHwbaString:function(){return"hwba("+this.hue+", "+Math.round(100*this.whiteness)+"%, "+Math.round(100*this.blackness)+"%, "+this.opacity+")"},toHslString:function(){return"hsl("+this.hue+", "+Math.round(100*this.sat)+"%, "+Math.round(100*this.lightness)+"%)"},toHslStringDecimal:function(){return"hsl("+this.hue+", "+this.sat+", "+this.lightness+")"},toHslaString:function(){return"hsla("+this.hue+", "+Math.round(100*this.sat)+"%, "+Math.round(100*this.lightness)+"%, "+this.opacity+")"},toCmykString:function(){return"cmyk("+Math.round(100*this.cyan)+"%, "+Math.round(100*this.magenta)+"%, "+Math.round(100*this.yellow)+"%, "+Math.round(100*this.black)+"%)"},toCmykStringDecimal:function(){return"cmyk("+this.cyan+", "+this.magenta+", "+this.yellow+", "+this.black+")"},toNcolString:function(){return this.ncol+", "+Math.round(100*this.whiteness)+"%, "+Math.round(100*this.blackness)+"%"},toNcolStringDecimal:function(){return this.ncol+", "+this.whiteness+", "+this.blackness},toNcolaString:function(){return this.ncol+", "+Math.round(100*this.whiteness)+"%, "+Math.round(100*this.blackness)+"%, "+this.opacity},toName:function(){var e,t,r,s=m("hexs");for(i=0;i<s.length;i++)if(e=parseInt(s[i].substr(0,2),16),t=parseInt(s[i].substr(2,2),16),r=parseInt(s[i].substr(4,2),16),this.red==e&&this.green==t&&this.blue==r)return m("names")[i];return""},toHexString:function(){return"#"+e(this.red)+e(this.green)+e(this.blue)},toRgb:function(){return{r:this.red,g:this.green,b:this.blue,a:this.opacity}},toHsl:function(){return{h:this.hue,s:this.sat,l:this.lightness,a:this.opacity}},toHwb:function(){return{h:this.hue,w:this.whiteness,b:this.blackness,a:this.opacity}},toCmyk:function(){return{c:this.cyan,m:this.magenta,y:this.yellow,k:this.black,a:this.opacity}},toNcol:function(){return{ncol:this.ncol,w:this.whiteness,b:this.blackness,a:this.opacity}},isDark:function(e){return(299*this.red+587*this.green+114*this.blue)/1e3<(e||128)},saturate:function(e){this.sat+=e/100||.1,1<this.sat&&(this.sat=1),e=d(y(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},desaturate:function(e){this.sat-=e/100||.1,this.sat<0&&(this.sat=0),e=d(y(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},lighter:function(e){this.lightness+=e/100||.1,1<this.lightness&&(this.lightness=1),e=d(y(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},darker:function(e){this.lightness-=e/100||.1,this.lightness<0&&(this.lightness=0),e=d(y(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},attachValues:function(e){this.red=e.red,this.green=e.green,this.blue=e.blue,this.hue=e.hue,this.sat=e.sat,this.lightness=e.lightness,this.whiteness=e.whiteness,this.blackness=e.blackness,this.cyan=e.cyan,this.magenta=e.magenta,this.yellow=e.yellow,this.black=e.black,this.ncol=e.ncol,this.opacity=e.opacity,this.valid=e.valid}},window.w3color=r}();
-var colorhex="#cff",color="#cff",colorObj=w3color(color);function mouseOverColor(e){document.getElementById("divpreview").style.visibility="visible",document.getElementById("divpreview").style.backgroundColor=e,document.body.style.cursor="pointer"}function mouseOutMap(){0==hh?document.getElementById("divpreview").style.visibility="hidden":hh=0,document.getElementById("divpreview").style.backgroundColor=colorObj.toHexString(),document.body.style.cursor=""}var hh=0;function clickColor(e,o,t,n){var l,c,i,n=n&&5==n?document.getElementById("html5colorpicker").value:0==e?document.getElementById("entercolor").value:e,e=w3color(n);if(colorhex=e.toHexString(),e.valid){if(clearWrongInput(),r=e.red,g=e.green,b=e.blue,document.getElementById("colornamDIV").innerHTML=e.toName()||"",document.getElementById("colorhexDIV").innerHTML=e.toHexString(),document.getElementById("colorrgbDIV").innerHTML=e.toRgbString(),document.getElementById("colorhslDIV").innerHTML=e.toHslString(),!(o&&-1!=o||t&&-1!=t))for(l=document.getElementById("colormap").getElementsByTagName("AREA"),c=0;c<l.length;c++)l[c].getAttribute("onmouseover").replace('mouseOverColor("',"").replace('")',"").toLowerCase()==colorhex&&(i=l[c].getAttribute("onclick").replace(")","").split(","),o=Number(i[1]),t=Number(i[2]));-1<o+200&&-1<t?(document.getElementById("selectedhexagon").style.top=o+"px",document.getElementById("selectedhexagon").style.left=t+"px",document.getElementById("selectedhexagon").style.visibility="visible"):(document.getElementById("divpreview").style.backgroundColor=e.toHexString(),document.getElementById("selectedhexagon").style.visibility="hidden"),document.getElementById("selectedcolor").style.backgroundColor=e.toHexString(),changeColor()}else wrongInput()}function wrongInput(){document.getElementById("entercolorDIV").className="has-error",document.getElementById("entercolor").style.background="#cff"}function clearWrongInput(){document.getElementById("entercolorDIV").className="",document.getElementById("entercolor").style.background="#cff"}function hslLum_top(){for(var e,o,t=document.getElementById("colorhexDIV").innerHTML,n=w3color(t),r=n.hue,l=n.sat,c=n.lightness,i=[],d=0;d<=20;d++)i.push(w3color("hsl("+r+","+l+","+.05*d+")"));for(i.reverse(),e="<div class='colorTable'>",d=o=0;d<i.length;d++)0==o&&Math.round(100*c)==Math.round(100*i[d].lightness)?(e+="<div style='background:"+w3color(n).toHexString()+";cursor:pointer;'><div><b>"+Math.round(100*c)+"&nbsp;&nbsp;"+w3color(n).toHexString()+"</b></div></div>",o=1):(0==o&&c>i[d].lightness&&(e+="<div style='background:"+w3color(n).toHexString()+";'><div><b>"+Math.round(100*c)+"&nbsp;&nbsp;"+w3color(n).toHexString()+"</b></div></div>",o=1),e+="<div style='background:"+i[d].toHexString()+";cursor:pointer;' onclick='clickColor(\""+i[d].toHexString()+"\")'><div>"+Math.round(100*i[d].lightness)+"&nbsp;&nbsp;"+i[d].toHexString()+"</div></div>");e+="</div>",document.getElementById("lumtopcontainer").innerHTML=e}function hslTable(e){var o,t,n,r,l,c,i,d,s=document.getElementById("colorhexDIV").innerHTML,u=w3color(s),g=u.hue,a=u.sat,m=u.lightness,h=[];for("hue"==e&&(o=24),"sat"==e&&(o=20),t=0;t<=o;t++)"hue"==e&&h.push(w3color("hsl("+15*t+","+a+","+m+")")),"sat"==e&&h.push(w3color("hsl("+g+","+.05*t+","+m+")"));for("sat"==e&&h.reverse(),n="<div style='white-space:nowrap;' class='colorTable'>",t=r=0;t<h.length;t++)l=0,"hue"==e&&(i=w3color(h[t]).hue,c=(d=g)<(i=t==h.length-1?360:i)),"sat"==e&&(i=Math.round(100*w3color(h[t]).sat),d=Number(100*a),c=i<(d=Math.round(d)),d+="%",i+="%"),d==i&&(r++,l=1),c&&r++,1==r&&(n+="<div style='cursor:pointer;background-color:"+u.toHexString()+";'><div style='text-align:center;'><b>"+d+"&nbsp;&nbsp;"+u.toHexString()+"</b></span></div></div>",r=2),0==l&&(n+="<div style='cursor:pointer;background-color:"+h[t].toHexString()+"' onclick='clickColor(\""+h[t].toHexString()+"\")'><div>"+i+"&nbsp;&nbsp;"+h[t].toHexString()+"</span></div></div>");n+="</div>","hue"==e&&(document.getElementById("huecontainer").innerHTML=n),"sat"==e&&(document.getElementById("hslsatcontainer").innerHTML=n)}function changeColor(e){hslLum_top(),hslTable("hue"),hslTable("sat")}function submitOnEnter(e){13==(keyboardKey=e.which||e.keyCode)&&clickColor(0,-1,-1)}clickColor(colorObj.toHexString());
+function w3SetColorsByAttribute(){for(var e,t=document.getElementsByTagName("*"),r=0;r<t.length;r++)(e=t[r].getAttribute("data-w3-color"))&&(t[r].style.backgroundColor=w3color(e).toRgbString())}!function(){function r(e,t){return this instanceof r?"object"==typeof e?e:(this.attachValues(function(e){var t,r,n,s,i,a,o,h,l,u,c,f,b,d,g=[],m=[],y=[],p=(e=G(e.toLowerCase())).substr(0,1).toUpperCase(),k=e.substr(1),w=1;if("rgb"==(e=0<(e=3==(e="R"!=p&&"Y"!=p&&"G"!=p&&"C"!=p&&"B"!=p&&"M"!=p&&"W"!=p||isNaN(k)||6==e.length&&-1==e.indexOf(",")?e:"ncol("+e+")").length||6==e.length||isNaN(e)?e:"ncol("+e+")").indexOf(",")&&-1==e.indexOf("(")?"ncol("+e+")":e).substr(0,3)||"hsl"==e.substr(0,3)||"hwb"==e.substr(0,3)||"ncol"==e.substr(0,4)||"cmyk"==e.substr(0,4)){if(p=!(t=3),"a"==(e="ncol"==e.substr(0,4)?(f="ncol",(e=4==e.split(",").length&&-1==e.indexOf("ncola")?e.replace("ncol","ncola"):e).substr(4)):"cmyk"==e.substr(0,4)?(f="cmyk",e.substr(4)):(f=e.substr(0,3),e.substr(3))).substr(0,1).toLowerCase()?(t=4,p=!0,e=e.substr(1)):"cmyk"==f&&(t=4,5==e.split(",").length)&&(t=5,p=!0),g=(e=(e=e.replace("(","")).replace(")","")).split(","),"rgb"==f){if(g.length!=t)return N();for(r=0;r<t;r++){if(""!=g[r]&&" "!=g[r]||(g[r]="0"),-1<g[r].indexOf("%")&&(g[r]=g[r].replace("%",""),g[r]=Number(g[r]/100),r<3)&&(g[r]=Math.round(255*g[r])),isNaN(g[r]))return N();255<parseInt(g[r])&&(g[r]=255),r<3&&(g[r]=parseInt(g[r])),3==r&&1<Number(g[r])&&(g[r]=1)}a={r:g[0],g:g[1],b:g[2]},1==p&&(w=Number(g[3]))}if("hsl"==f||"hwb"==f||"ncol"==f){for(;g.length<t;)g.push("0");for("hsl"!=f&&"hwb"!=f||360<=parseInt(g[0])&&(g[0]=0),r=1;r<t;r++){if(-1<g[r].indexOf("%")){if(g[r]=g[r].replace("%",""),g[r]=Number(g[r]),isNaN(g[r]))return N();g[r]=g[r]/100}else g[r]=Number(g[r]);1<Number(g[r])&&(g[r]=1),Number(g[r])<0&&(g[r]=0)}"hsl"==f&&(a=B(g[0],g[1],g[2]),s=Number(g[0]),i=Number(g[1])),"hwb"==f&&(a=x(g[0],g[1],g[2])),"ncol"==f&&(a=function(e,t,r){var n,s=e;if(isNaN(e.substr(0,1))){if(n=e.substr(0,1).toUpperCase(),""==(e=e.substr(1))&&(e=0),e=Number(e),isNaN(e))return!1;"R"==n&&(s=0+.6*e),"Y"==n&&(s=60+.6*e),"G"==n&&(s=120+.6*e),"C"==n&&(s=180+.6*e),"B"==n&&(s=240+.6*e),"M"==n&&(s=300+.6*e),"W"==n&&(s=0,t=1-e/100,r=e/100)}return x(s,t,r)}(g[0],g[1],g[2])),1==p&&(w=Number(g[3]))}if("cmyk"==f){for(;g.length<t;)g.push("0");for(r=0;r<t;r++){if(-1<g[r].indexOf("%")){if(g[r]=g[r].replace("%",""),g[r]=Number(g[r]),isNaN(g[r]))return N();g[r]=g[r]/100}else g[r]=Number(g[r]);1<Number(g[r])&&(g[r]=1),Number(g[r])<0&&(g[r]=0)}k=g[0],f=g[1],b=g[2],d=g[3],a={r:255-255*Math.min(1,k*(1-d)+d),g:255-255*Math.min(1,f*(1-d)+d),b:255-255*Math.min(1,b*(1-d)+d)},1==p&&(w=Number(g[4]))}}else if("ncs"==e.substr(0,3))a=null!==(k=(k=-1==(k=(k=(k=(k=(k=G(k=e).toUpperCase()).replace("(","")).replace(")","")).replace("NCS","NCS ")).replace(/  /g," ")).indexOf("NCS")?"NCS "+k:k).match(/^(?:NCS|NCS\sS)\s(\d{2})(\d{2})-(N|[A-Z])(\d{2})?([A-Z])?$/))&&(b=parseInt(k[1],10),d=parseInt(k[2],10),"N"==(p=k[3])||"Y"==p||"R"==p||"B"==p||"G"==p)&&(k=parseInt(k[4],10)||0,"N"!==p?(o=1.05*b-5.25,"Y"===p&&k<=60?c=1:"Y"===p&&60<k||"R"===p&&k<=80?(h="Y"===p?k-60:k+40,c=(Math.sqrt(14884-Math.pow(h,2))-22)/100):"R"===p&&80<k||"B"===p?c=0:"G"===p&&(h=k-170,c=(Math.sqrt(33800-Math.pow(h,2))-70)/100),"Y"===p&&k<=80?l=0:"Y"===p&&80<k||"R"===p&&k<=60?(h="Y"===p?k-80+20.5:k+20+20.5,l=(104-Math.sqrt(11236-Math.pow(h,2)))/100):"R"===p&&60<k||"B"===p&&k<=80?(h="R"===p?k-60-60:k+40-60,l=(Math.sqrt(1e4-Math.pow(h,2))-10)/100):"B"===p&&80<k||"G"===p&&k<=40?(h="B"===p?k-80-131:k+20-131,l=(122-Math.sqrt(19881-Math.pow(h,2)))/100):"G"===p&&40<k&&(l=0),"Y"===p?green1=(85-.85*k)/100:"R"===p&&k<=60?green1=0:"R"===p&&60<k?(h=k-60+35,green1=(67.5-Math.sqrt(5776-Math.pow(h,2)))/100):"B"===p&&k<=60?(h=+k-68.5,green1=(6.5+Math.sqrt(7044.5-Math.pow(h,2)))/100):"B"===p&&60<k||"G"===p&&k<=60?green1=.9:"G"===p&&60<k&&(green1=(90-1/8*(h=k-60))/100),p=((h=(c+green1+l)/3)-c)*(100-d)/100+c,c=(h-l)*(100-d)/100+l,h=1/((k=(h-green1)*(100-d)/100+green1)<p&&c<p?p:p<k&&c<k?k:p<c&&k<c?c:(p+k+c)/3),(l=255<(l=parseInt(p*h*(100-o)/100*255,10))?255:l)<0&&(l=0),(u=255<(u=parseInt(k*h*(100-o)/100*255,10))?255:u)<0&&(u=0),(c=255<(c=parseInt(c*h*(100-o)/100*255,10))?255:c)<0&&(c=0)):c=u=l=d=(d=255<(d=parseInt(255*(1-b/100),10))?255:d)<0?0:d,{r:l,g:u,b:c});else{for(n=!1,m=S("names"),r=0;r<m.length;r++)if(e.toLowerCase()==m[r].toLowerCase()){y=S("hexs"),n=!0,a={r:parseInt(y[r].substr(0,2),16),g:parseInt(y[r].substr(2,2),16),b:parseInt(y[r].substr(4,2),16)};break}if(0==n){for(3==(e=e.replace("#","")).length&&(e=e.substr(0,1)+e.substr(0,1)+e.substr(1,1)+e.substr(1,1)+e.substr(2,1)+e.substr(2,1)),r=0;r<e.length;r++)if(!(-1<"0123456789ABCDEFabcdef".indexOf(e.substr(r,1))))return N();for(g[0]=parseInt(e.substr(0,2),16),g[1]=parseInt(e.substr(2,2),16),g[2]=parseInt(e.substr(4,2),16),r=0;r<3;r++)if(isNaN(g[r]))return N();a={r:g[0],g:g[1],b:g[2]}}}return M(a,w,s,i)}(e)),void(t&&(t.style.backgroundColor=this.toRgbString()))):new r(e,t)}function M(e,t,r,n){var s,i,a,o,h,l,u,c;return e?(null===t&&(t=1),s=function(e,t,r){var n,s,i,a,o,h=[];for(h[0]=e/255,h[1]=t/255,h[2]=r/255,s=n=h[0],i=a=0;i<h.length-1;i++)h[i+1]<=n&&(n=h[i+1]),s<=h[i+1]&&(s=h[i+1],a=i+1);return 0==a&&(o=(h[1]-h[2])/(s-n)),1==a&&(o=2+(h[2]-h[0])/(s-n)),2==a&&(o=4+(h[0]-h[1])/(s-n)),isNaN(o)&&(o=0),(o*=60)<0&&(o+=360),e=(n+s)/2,{h:o,s:n==s?0:e<.5?(s-n)/(s+n):(s-n)/(2-s-n),l:e}}(e.r,e.g,e.b),l=e.r,u=e.g,c=e.b,l/=255,u/=255,c/=255,max=Math.max(l,u,c),min=Math.min(l,u,c),c={h:0==(chroma=max-min)?0:l==max?(u-c)/chroma%6*360:u==max?((c-l)/chroma+2)%6*360:((l-u)/chroma+4)%6*360,w:min,b:1-max},l=e.r,u=e.g,i=e.b,l/=255,u/=255,i/=255,l=1==(h=1-(max=Math.max(l,u,i)))?o=a=0:(a=(1-l-h)/(1-h),o=(1-u-h)/(1-h),(1-i-h)/(1-h)),u={c:a,m:o,y:l,k:h},r=r||s.h,n=n||s.s,i=function(e){for(;360<=e;)e-=360;return e<60?"R"+e/.6:e<120?"Y"+(e-60)/.6:e<180?"G"+(e-120)/.6:e<240?"C"+(e-180)/.6:e<300?"B"+(e-240)/.6:e<360?"M"+(e-300)/.6:void 0}(r),(r=e={red:e.r,green:e.g,blue:e.b,hue:r,sat:n,lightness:s.l,whiteness:c.w,blackness:c.b,cyan:u.c,magenta:u.m,yellow:u.y,black:u.k,ncol:i,opacity:t,valid:!0}).red=Number(r.red.toFixed(0)),r.green=Number(r.green.toFixed(0)),r.blue=Number(r.blue.toFixed(0)),r.hue=Number(r.hue.toFixed(0)),r.sat=Number(r.sat.toFixed(2)),r.lightness=Number(r.lightness.toFixed(2)),r.whiteness=Number(r.whiteness.toFixed(2)),r.blackness=Number(r.blackness.toFixed(2)),r.cyan=Number(r.cyan.toFixed(2)),r.magenta=Number(r.magenta.toFixed(2)),r.yellow=Number(r.yellow.toFixed(2)),r.black=Number(r.black.toFixed(2)),r.ncol=r.ncol.substr(0,1)+Math.round(Number(r.ncol.substr(1))),r.opacity=Number(r.opacity.toFixed(2)),r):N()}function N(){return{red:0,green:0,blue:0,hue:0,sat:0,lightness:0,whiteness:0,blackness:0,cyan:0,magenta:0,yellow:0,black:0,ncol:"R",opacity:1,valid:!1}}function S(e){return"names"==e?["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","DarkOrange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","RebeccaPurple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"]:"hexs"==e?["f0f8ff","faebd7","00ffff","7fffd4","f0ffff","f5f5dc","ffe4c4","000000","ffebcd","0000ff","8a2be2","a52a2a","deb887","5f9ea0","7fff00","d2691e","ff7f50","6495ed","fff8dc","dc143c","00ffff","00008b","008b8b","b8860b","a9a9a9","a9a9a9","006400","bdb76b","8b008b","556b2f","ff8c00","9932cc","8b0000","e9967a","8fbc8f","483d8b","2f4f4f","2f4f4f","00ced1","9400d3","ff1493","00bfff","696969","696969","1e90ff","b22222","fffaf0","228b22","ff00ff","dcdcdc","f8f8ff","ffd700","daa520","808080","808080","008000","adff2f","f0fff0","ff69b4","cd5c5c","4b0082","fffff0","f0e68c","e6e6fa","fff0f5","7cfc00","fffacd","add8e6","f08080","e0ffff","fafad2","d3d3d3","d3d3d3","90ee90","ffb6c1","ffa07a","20b2aa","87cefa","778899","778899","b0c4de","ffffe0","00ff00","32cd32","faf0e6","ff00ff","800000","66cdaa","0000cd","ba55d3","9370db","3cb371","7b68ee","00fa9a","48d1cc","c71585","191970","f5fffa","ffe4e1","ffe4b5","ffdead","000080","fdf5e6","808000","6b8e23","ffa500","ff4500","da70d6","eee8aa","98fb98","afeeee","db7093","ffefd5","ffdab9","cd853f","ffc0cb","dda0dd","b0e0e6","800080","663399","ff0000","bc8f8f","4169e1","8b4513","fa8072","f4a460","2e8b57","fff5ee","a0522d","c0c0c0","87ceeb","6a5acd","708090","708090","fffafa","00ff7f","4682b4","d2b48c","008080","d8bfd8","ff6347","40e0d0","ee82ee","f5deb3","ffffff","f5f5f5","ffff00","9acd32"]:void 0}function B(e,t,r){return{r:255*n(t=2*r-(r=r<=.5?r*(t+1):r+t-r*t),r,2+(e/=60)),g:255*n(t,r,e),b:255*n(t,r,e-2)}}function n(e,t,r){return r<0&&(r+=6),6<=r&&(r-=6),r<1?(t-e)*r+e:r<3?t:r<4?(t-e)*(4-r)+e:e}function x(e,t,r){var n,s=[],e=B(e,1,.5);for(s[0]=e.r/255,s[1]=e.g/255,s[2]=e.b/255,1<(e=t+r)&&(t=Number((t/e).toFixed(2)),r=Number((r/e).toFixed(2))),n=0;n<3;n++)s[n]*=1-t-r,s[n]+=t,s[n]=Number(255*s[n]);return{r:s[0],g:s[1],b:s[2]}}function e(e){for(var t=e.toString(16);t.length<2;)t="0"+t;return t}function G(e){return e.replace(/^\s+|\s+$/g,"")}r.prototype={toRgbString:function(){return"rgb("+this.red+","+this.green+","+this.blue+")"},toRgbaString:function(){return"rgba("+this.red+","+this.green+","+this.blue+","+this.opacity+")"},toHwbString:function(){return"hwb("+this.hue+","+Math.round(100*this.whiteness)+"%,"+Math.round(100*this.blackness)+"%)"},toHwbStringDecimal:function(){return"hwb("+this.hue+","+this.whiteness+","+this.blackness+")"},toHwbaString:function(){return"hwba("+this.hue+","+Math.round(100*this.whiteness)+"%,"+Math.round(100*this.blackness)+"%,"+this.opacity+")"},toHslString:function(){return"hsl("+this.hue+","+Math.round(100*this.sat)+"%,"+Math.round(100*this.lightness)+"%)"},toHslStringDecimal:function(){return"hsl("+this.hue+","+this.sat+","+this.lightness+")"},toHslaString:function(){return"hsla("+this.hue+","+Math.round(100*this.sat)+"%,"+Math.round(100*this.lightness)+"%,"+this.opacity+")"},toCmykString:function(){return"cmyk("+Math.round(100*this.cyan)+"%,"+Math.round(100*this.magenta)+"%,"+Math.round(100*this.yellow)+"%,"+Math.round(100*this.black)+"%)"},toCmykStringDecimal:function(){return"cmyk("+this.cyan+","+this.magenta+","+this.yellow+","+this.black+")"},toNcolString:function(){return this.ncol+","+Math.round(100*this.whiteness)+"%,"+Math.round(100*this.blackness)+"%"},toNcolStringDecimal:function(){return this.ncol+","+this.whiteness+","+this.blackness},toNcolaString:function(){return this.ncol+","+Math.round(100*this.whiteness)+"%,"+Math.round(100*this.blackness)+"%,"+this.opacity},toName:function(){var e,t,r,n=S("hexs");for(i=0;i<n.length;i++)if(e=parseInt(n[i].substr(0,2),16),t=parseInt(n[i].substr(2,2),16),r=parseInt(n[i].substr(4,2),16),this.red==e&&this.green==t&&this.blue==r)return S("names")[i];return""},toHexString:function(){return"#"+e(this.red)+e(this.green)+e(this.blue)},toRgb:function(){return{r:this.red,g:this.green,b:this.blue,a:this.opacity}},toHsl:function(){return{h:this.hue,s:this.sat,l:this.lightness,a:this.opacity}},toHwb:function(){return{h:this.hue,w:this.whiteness,b:this.blackness,a:this.opacity}},toCmyk:function(){return{c:this.cyan,m:this.magenta,y:this.yellow,k:this.black,a:this.opacity}},toNcol:function(){return{ncol:this.ncol,w:this.whiteness,b:this.blackness,a:this.opacity}},isDark:function(e){return(299*this.red+587*this.green+114*this.blue)/1e3<(e||128)},saturate:function(e){this.sat+=e/100||.1,1<this.sat&&(this.sat=1),e=M(B(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},desaturate:function(e){this.sat-=e/100||.1,this.sat<0&&(this.sat=0),e=M(B(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},lighter:function(e){this.lightness+=e/100||.1,1<this.lightness&&(this.lightness=1),e=M(B(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},darker:function(e){this.lightness-=e/100||.1,this.lightness<0&&(this.lightness=0),e=M(B(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},attachValues:function(e){this.red=e.red,this.green=e.green,this.blue=e.blue,this.hue=e.hue,this.sat=e.sat,this.lightness=e.lightness,this.whiteness=e.whiteness,this.blackness=e.blackness,this.cyan=e.cyan,this.magenta=e.magenta,this.yellow=e.yellow,this.black=e.black,this.ncol=e.ncol,this.opacity=e.opacity,this.valid=e.valid}},window.w3color=r}();var colorhex=color="#06f",colorObj=w3color(color),hh=0;function cc(e,t,r,n){var s,i,a,o,e=0==e?document.getElementById("input").value:e,e=w3color(e);e.red;if(colorhex=e.toHexString(),document.getElementById("cnam").innerHTML=e.toName()||"",document.getElementById("chex").innerHTML=e.toHexString(),document.getElementById("crgb").innerHTML=e.toRgbString(),document.getElementById("chsl").innerHTML=e.toHslString(),!(t&&-1!=t||r&&-1!=r))for(s=document.getElementById("colormap").getElementsByTagName("AREA"),i=0;i<s.length;i++)(a=a.replace('")',"")).toLowerCase()==colorhex&&(o=s[i].getAttribute("onclick").replace(")","").split(","),t=Number(o[1]),r=Number(o[2]));document.querySelector("body").style.setProperty("--bg",e.toHexString()),changeColor()}function hslLum_top(){for(var e="<div class='colorTable'>",t=0,r=document.getElementById("chex").innerHTML,r=w3color(r),n=r.hue,s=r.sat,i=r.lightness,a=[],o=w3color(r).toHexString(),h=0;h<=20;h++)a.push(w3color("hsl("+n+","+s+","+.05*h+")"));for(a.reverse(),h=0;h<a.length;h++)0==t&&Math.round(100*i)==Math.round(100*a[h].lightness)?(e+=`<div style='background:${o}'><b>${Math.round(100*i)} ${o}</b></div>`,t=1):(0==t&&i>a[h].lightness&&(e+=`<div style='background:${o}'><b>${Math.round(100*i)} ${o}</b></div>`,t=1),e+=`<div style='background:${a[h].toHexString()}' onclick='cc("${a[h].toHexString()}")'><i>${Math.round(100*a[h].lightness)} ${a[h].toHexString()}</i></div>`);e+="</div>",document.getElementById("lum").innerHTML=e}function hslTable(e){var t,r,n,s,i,a,o=0,h="<div class='colorTable'>",l=document.getElementById("chex").innerHTML,u=w3color(l),c=u.hue,f=u.sat,b=u.lightness,d=[];for("hue"==e&&(t=24),"sat"==e&&(t=20),a=0;a<=t;a++)"hue"==e&&d.push(w3color(`hsl(${15*a},${f},${b})`)),"sat"==e&&d.push(w3color(`hsl(${c},${.05*a},${b})`));for("sat"==e&&d.reverse(),a=0;a<d.length;a++)r=0,"hue"==e&&(s=w3color(d[a]).hue,n=(s=a==d.length-1?360:s)>(i=c)),"sat"==e&&(s=Math.round(100*w3color(d[a]).sat),i=Number(100*f),n=s<(i=Math.round(i))),i==s&&(o++,r=1),n&&o++,1==o&&(h+=`<div style='background:${u.toHexString()}'><b>${i} ${u.toHexString()}</b></div>`,o=2),0==r&&(h+=`<div style='background:${d[a].toHexString()}' onclick='cc("${d[a].toHexString()}")'><i>${s} ${d[a].toHexString()}</i></div>`);h+="</div>","hue"==e&&(document.getElementById("hue").innerHTML=h),"sat"==e&&(document.getElementById("hsl").innerHTML=h)}function changeColor(e){hslLum_top(),hslTable("hue"),hslTable("sat")}cc(colorObj.toHexString());
 </script>
 </body>
 </html>
