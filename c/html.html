@@ -1,35 +1,82 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html>
 <head>
 <meta charset="utf-8">
 <title>代码编辑器</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <link rel="stylesheet" href="fa.css">
 <style>
-*{box-sizing:border-box;}
-::-webkit-scrollbar{width:6px;}
-::-webkit-scrollbar-track{background:transparent;}
-::-webkit-scrollbar-thumb{background:#7a8ab8;border-radius:5px;height:20%;}
-::-webkit-scrollbar-thumb:hover{background:#8585ad;}
+*{box-sizing:border-box;
+    scrollbar-width:20%;
+    scrollbar-height:6px;
+    scrollbar-color:#7a8ab8 transparent;}
 body{margin:0;font-size:100%;overflow:hidden;}
-button{width:20px;height:20px;border-radius:100vw;background-color:rgba(255, 255, 255, 0.1);border:0;transition:all 0.2s ease;margin:auto;}
-#shield{display:none;top:0;left:0;width:100%;position:absolute;height:100%;z-index:4;}
-#dragbar{position:absolute;cursor:col-resize;z-index:3;padding:5px;}
-#container{width:100%;overflow:hidden;position:absolute;top:0;bottom:0;height:auto;}
+#dragbar{
+    position:absolute;
+    cursor:col-resize;
+    z-index:3;
+    padding:5px;
+    transition:background 0.3s;
+    &:hover{background:#c2cad688;backdrop-filter:blur(3px);}
+}
+#container{
+    width:100%;
+    overflow:hidden;
+    position:absolute;
+    top:0;
+    bottom:0;
+    height:auto;
+    &:has(#dragbar:active){user-select:none;pointer-events:none;}
+}
 #textareacontainer,#iframecontainer{float:left;height:100%;width:50%;}
-#textarea,#iframe{height:100%;width:100%;padding-bottom:10px;padding:0;}
-#textareawrapper{width:100%;height:100%;position:relative;}
-#iframewrapper{width:100%;height:100%;-webkit-overflow-scrolling:touch;background-color:#fff;}
-#textareaCode{background-color:#aaaaaa;font-family:consolas,"courier new",monospace;font-size:15px;height:100%;width:100%;resize:none;line-height:normal;}
+#textareaCode{
+    background-color:#aaa;
+    font-family:consolas,monospace;
+    font-size:15px;
+    height:100%;
+    width:100%;
+    resize:none;
+    line-height:normal;
+}
 #iframeResult,#iframeSource{height:100%;width:100%;}
-.trytopnav{
-    overflow:hidden;padding:0;margin:0;white-space:nowrap!important;z-index:10000;background:#000a;position:fixed;width:200px;border-radius:100vw;backdrop-filter:blur(1px);left:calc((100vw - 200px) / 2);top:2px;
-    .b1{background:#c008;margin:5px 1px 5px 5px;}
-    .b2{background:#0938;margin:5px 0;width:30px;}
-    .b3{background:#06f8;margin:5px 0;}
-    .b4{background:#cc08;margin:5px 0 5px 1px;}
-    button:hover{opacity:0.7}
-    span{display:inline-block;width:45px;color:#fff;font-family:Consolas;user-select:none;padding:5px 0;text-align:center;&:first-child{float:left!important;}&:last-child{float:right!important;}}
+#trytopnav{
+    overflow:hidden;
+    padding:0;
+    margin:0;
+    white-space:nowrap!important;
+    z-index:100;
+    background:#000a;
+    position:fixed;
+    width:200px;
+    border-radius:100vw;
+    backdrop-filter:blur(1px);
+    left:calc((100vw - 200px) / 2);
+    top:2px;
+    >div{display:inline-block;width:90px;}
+    button{
+        width:20px;
+        height:20px;
+        border-radius:10px;
+        border:0;
+        transition:0.2s;
+        margin:auto;
+        &:hover{opacity:0.7;}
+        &.b1{background:#c008;margin:5px 1px 5px 5px;}
+        &.b2{background:#0938;margin:5px 0;width:30px;}
+        &.b3{background:#06f8;margin:5px 0;}
+        &.b4{background:#cc08;margin:5px 0 5px 1px;}
+    }
+    >span{
+        display:inline-block;
+        width:45px;
+        color:#fff;
+        font-family:Consolas;
+        user-select:none;
+        padding:5px 0;
+        text-align:center;
+        &:first-child{float:left!important;}
+        &:last-child{float:right!important;}
+    }
 }
 
 .CodeMirror.cm-s-default{line-height:normal;padding:0;height:100%;width:100%;}
@@ -57,7 +104,7 @@ button{width:20px;height:20px;border-radius:100vw;background-color:rgba(255, 255
   .cm-link{color:#00c}
   .cm-error{color:#f00}
 }
-.darktheme .cm-s-default{
+[data-theme="dark"] .cm-s-default{
   .cm-keyword{color:#569CD6}
   .cm-atom{color:#C586C0}
   .cm-number{color:#B5CEA8}
@@ -86,20 +133,20 @@ button{width:20px;height:20px;border-radius:100vw;background-color:rgba(255, 255
 .CodeMirror-lines{padding:4px 0}
 .CodeMirror-gutter-filler,.CodeMirror-scrollbar-filler{background-color:#fff}
 .CodeMirror-gutters{background:#f7f7f7;white-space:nowrap;}
-.darktheme .CodeMirror-gutters{background:#222a39;}
+[data-theme="dark"] .CodeMirror-gutters{background:#222a39;}
 .CodeMirror-linenumber{padding:0 2px;min-width:20px;text-align:right;color:#999;white-space:nowrap;letter-spacing:-0.07em;}
 .CodeMirror-guttermarker{color:#000}
 .CodeMirror-guttermarker-subtle{color:#999}
 .CodeMirror-cursor{border-left:1px solid #000;border-right:none;width:0;position:absolute;pointer-events:none;}
-.darktheme .CodeMirror-cursor{border-left:1px solid #fff;}
+[data-theme="dark"] .CodeMirror-cursor{border-left:1px solid #fff;}
 .cm-tab{display:inline-block;text-decoration:inherit}
 .CodeMirror-composing{border-bottom:2px solid;background:#06f8;border-radius:5px;}
 div.CodeMirror span.CodeMirror-matchingbracket{color:#0f0}
 div.CodeMirror span.CodeMirror-nonmatchingbracket{color:#f22}
 .CodeMirror-matchingtag{background:rgba(255,150,0,.3)}
 .CodeMirror-activeline-background{background:#e8f2ff;border-radius:5px}
-.darktheme .CodeMirror-activeline-background{background:#273759;border-radius:5px}
-body.darktheme .CodeMirror{background-color:#282c34;color:#fff}
+[data-theme="dark"] .CodeMirror-activeline-background{background:#273759;border-radius:5px}
+[data-theme="dark"] .CodeMirror{background-color:#282c34;color:#fff}
 .CodeMirror-scroll{overflow:scroll!important;margin-bottom:-30px;margin-right:-50px;padding-bottom:30px;height:100%;outline:0;position:relative}
 .CodeMirror-sizer{position:relative;border-right:30px solid transparent}
 .CodeMirror-gutter-filler,.CodeMirror-hscrollbar,.CodeMirror-scrollbar-filler,.CodeMirror-vscrollbar{position:absolute;z-index:3;display:none}
@@ -123,26 +170,26 @@ body.darktheme .CodeMirror{background-color:#282c34;color:#fff}
 div.CodeMirror-cursors{visibility:hidden;position:relative;z-index:3}
 .CodeMirror-focused div.CodeMirror-cursors,div.CodeMirror-dragcursors{visibility:visible}
 .CodeMirror-selected{background:#8c8cd9;border-radius:5px}
-body.darktheme .CodeMirror-selected{background:#339}
+[data-theme="dark"] .CodeMirror-selected{background:#339}
 .CodeMirror-focused .CodeMirror-selected{background:#d7d4f0}
-body.darktheme .CodeMirror-focused .CodeMirror-selected{background:#5252e0;}
+[data-theme="dark"] .CodeMirror-focused .CodeMirror-selected{background:#5252e0;}
 .CodeMirror-crosshair{cursor:crosshair}
 .CodeMirror-foldmarker{color:#00f;text-shadow:0px 0px 2px #b9f;font-family:arial;line-height:.3;cursor:pointer}
 .CodeMirror-foldgutter{width:.7em}
 .CodeMirror-foldgutter-folded,.CodeMirror-foldgutter-open{cursor:pointer}
 .CodeMirror-foldgutter-open:after,.CodeMirror-foldgutter-folded:after{content:"·"}
 dialog{
-  overflow-x:hidden;
-  width:100vw;
-  height:100vh;
-  background:hsl(from var(--bg) h s l / 0.5);
-  transition:background 0.2s;
-  backdrop-filter:blur(5px);
-  border:none;
-  padding:0;
-  border-radius:20px;
-  font-family:Consolas,sans-serif;
-  &::-webkit-scrollbar{width:0;}
+    overflow-x:hidden;
+    width:100vw;
+    height:100vh;
+    background:hsl(from var(--bg) h s l / 0.5);
+    transition:background 0.2s;
+    backdrop-filter:blur(5px);
+    border:none;
+    padding:0;
+    border-radius:20px;
+    font-family:Consolas,sans-serif;
+    scrollbar-width:none;
     >#color{
         margin:0;
         font-family:Consolas,sans-serif;
@@ -211,675 +258,832 @@ dialog{
         }
     }
     >#icons{
-        font-family:Consolas,sans-serif;width:100%;text-align:center;line-height:20px;
-        div{display:inline-flex;width:150px;height:30px;margin:2px 0;padding:5px;background:#fff6;border-radius:8px;font-size:12px;color:#666;white-space:nowrap;overflow:hidden;}
-        i{width:30px;&::before{font-size:22px;color:#2d426c;line-height:20px;margin-right:5px;}}
+        width:100%;
+        text-align:center;
+        i{
+            width:160px;
+            height:30px;
+            display:inline-flex;
+            margin:2px 0;
+            padding:5px;
+            background:#fff6;
+            border-radius:8px;
+            white-space:nowrap;
+            overflow:hidden;
+            &::before{
+                display:block;
+                text-align:center;
+                width:26px;
+                font-size:22px;
+                color:#2d426c;
+                line-height:20px;
+                margin-right:5px;
+            }
+            &::after{
+                content:attr(class);
+                display:inline;
+                line-height:20px;
+                font-size:12px;
+                color:#666;
+                font-family:Consolas,sans-serif;
+            }
+        }
     }
 }
 </style>
 </head>
-<body>
-<div id="shield"></div>
-<a href="javascript:void(0)" id="dragbar"></a>
-<div id="container">
- <div id="textareacontainer">
-  <div id="textarea">
-   <div id="textareawrapper">
-    <div class="trytopnav" id="trytopnav">
+<body data-theme="light">
+<div id="trytopnav">
     <span id="framesizew"></span>
-    <div style="display:inline-block;width:90px">
-     <button class="b1" onclick="restack(currentStack)"></button>
-     <button class="b2" onclick="submitTryit(1);ga('send','event','runCode','click');"></button>
-     <button class="b3" onclick="retheme()"></button>
-     <button class="b4" commandfor="dialog" command="show-modal"></button>
-     </div>
-     <span id="framesizeh"></span>
+    <div>
+        <button class="b1" onclick="currentStack = !currentStack; restack(currentStack); ga('send','event','runCode','click')"></button>
+        <button class="b2" onclick="submitTryit(1);ga('send','event','runCode','click')"></button>
+        <button class="b3" onclick="retheme()"></button>
+        <button class="b4" commandfor="dialog" command="show-modal"></button>
     </div>
-    <textarea autocomplete="off" id="textareaCode" wrap="logical" spellcheck="false"></textarea>
-   </div>
-  </div>
- </div>
- <div id="iframecontainer">
-  <div id="iframe"><div id="iframewrapper"></div></div>
- </div>
+    <span id="framesizeh"></span>
+</div>
+<div id="container">
+    <div id="dragbar"></div>
+    <div id="textareacontainer">
+        <textarea autocomplete="off" wrap="logical" spellcheck="false"></textarea>
+    </div>
+    <div id="iframecontainer"></div>
 </div>
 <dialog id="dialog" closedby="any">
-  <div id="color">
-    <div><svg id='colormap' viewBox="0 0 236 200"><path fill='#036' d='M63,0,72,4,72,15,63,19,54,15,54,4' onclick='cc("#036",-200,54)'/><path fill='#369' d='M81,0,90,4,90,15,81,19,72,15,72,4' onclick='cc("#369",-200,72)'/><path fill='#36C' d='M99,0,108,4,108,15,99,19,90,15,90,4' onclick='cc("#36C",-200,90)'/><path fill='#039' d='M117,0,126,4,126,15,117,19,108,15,108,4' onclick='cc("#039",-200,108)'/><path fill='#009' d='M135,0,144,4,144,15,135,19,126,15,126,4' onclick='cc("#009",-200,126)'/><path fill='#00C' d='M153,0,162,4,162,15,153,19,144,15,144,4' onclick='cc("#00C",-200,144)'/><path fill='#006' d='M171,0,180,4,180,15,171,19,162,15,162,4' onclick='cc("#006",-200,162)'/><path fill='#066' d='M54,15,63,19,63,30,54,34,45,30,45,19' onclick='cc("#066",-185,45)'/><path fill='#069' d='M72,15,81,19,81,30,72,34,63,30,63,19' onclick='cc("#069",-185,63)'/><path fill='#09C' d='M90,15,99,19,99,30,90,34,81,30,81,19' onclick='cc("#09C",-185,81)'/><path fill='#06C' d='M108,15,117,19,117,30,108,34,99,30,99,19' onclick='cc("#06C",-185,99)'/><path fill='#03C' d='M126,15,135,19,135,30,126,34,117,30,117,19' onclick='cc("#03C",-185,117)'/><path fill='#00F' d='M144,15,153,19,153,30,144,34,135,30,135,19' onclick='cc("#00F",-185,135)'/><path fill='#33F' d='M162,15,171,19,171,30,162,34,153,30,153,19' onclick='cc("#33F",-185,153)'/><path fill='#339' d='M180,15,189,19,189,30,180,34,171,30,171,19' onclick='cc("#339",-185,171)'/><path fill='#699' d='M45,30,54,34,54,45,45,49,36,45,36,34' onclick='cc("#699",-170,36)'/><path fill='#099' d='M63,30,72,34,72,45,63,49,54,45,54,34' onclick='cc("#099",-170,54)'/><path fill='#3CC' d='M81,30,90,34,90,45,81,49,72,45,72,34' onclick='cc("#3CC",-170,72)'/><path fill='#0CF' d='M99,30,108,34,108,45,99,49,90,45,90,34' onclick='cc("#0CF",-170,90)'/><path fill='#09F' d='M117,30,126,34,126,45,117,49,108,45,108,34' onclick='cc("#09F",-170,108)'/><path fill='#06F' d='M135,30,144,34,144,45,135,49,126,45,126,34' onclick='cc("#06F",-170,126)'/><path fill='#36F' d='M153,30,162,34,162,45,153,49,144,45,144,34' onclick='cc("#36F",-170,144)'/><path fill='#33C' d='M171,30,180,34,180,45,171,49,162,45,162,34' onclick='cc("#33C",-170,162)'/><path fill='#669' d='M189,30,198,34,198,45,189,49,180,45,180,34' onclick='cc("#669",-170,180)'/><path fill='#396' d='M36,45,45,49,45,60,36,64,27,60,27,49' onclick='cc("#396",-155,27)'/><path fill='#0C9' d='M54,45,63,49,63,60,54,64,45,60,45,49' onclick='cc("#0C9",-155,45)'/><path fill='#0FC' d='M72,45,81,49,81,60,72,64,63,60,63,49' onclick='cc("#0FC",-155,63)'/><path fill='#0FF' d='M90,45,99,49,99,60,90,64,81,60,81,49' onclick='cc("#0FF",-155,81)'/><path fill='#3CF' d='M108,45,117,49,117,60,108,64,99,60,99,49' onclick='cc("#3CF",-155,99)'/><path fill='#39F' d='M126,45,135,49,135,60,126,64,117,60,117,49' onclick='cc("#39F",-155,117)'/><path fill='#69F' d='M144,45,153,49,153,60,144,64,135,60,135,49' onclick='cc("#69F",-155,135)'/><path fill='#66F' d='M162,45,171,49,171,60,162,64,153,60,153,49' onclick='cc("#66F",-155,153)'/><path fill='#60F' d='M180,45,189,49,189,60,180,64,171,60,171,49' onclick='cc("#60F",-155,171)'/><path fill='#60C' d='M198,45,207,49,207,60,198,64,189,60,189,49' onclick='cc("#60C",-155,189)'/><path fill='#393' d='M27,60,36,64,36,75,27,79,18,75,18,64' onclick='cc("#393",-140,18)'/><path fill='#0C6' d='M45,60,54,64,54,75,45,79,36,75,36,64' onclick='cc("#0C6",-140,36)'/><path fill='#0F9' d='M63,60,72,64,72,75,63,79,54,75,54,64' onclick='cc("#0F9",-140,54)'/><path fill='#6FC' d='M81,60,90,64,90,75,81,79,72,75,72,64' onclick='cc("#6FC",-140,72)'/><path fill='#6FF' d='M99,60,108,64,108,75,99,79,90,75,90,64' onclick='cc("#6FF",-140,90)'/><path fill='#6CF' d='M117,60,126,64,126,75,117,79,108,75,108,64' onclick='cc("#6CF",-140,108)'/><path fill='#9CF' d='M135,60,144,64,144,75,135,79,126,75,126,64' onclick='cc("#9CF",-140,126)'/><path fill='#99F' d='M153,60,162,64,162,75,153,79,144,75,144,64' onclick='cc("#99F",-140,144)'/><path fill='#96F' d='M171,60,180,64,180,75,171,79,162,75,162,64' onclick='cc("#96F",-140,162)'/><path fill='#93F' d='M189,60,198,64,198,75,189,79,180,75,180,64' onclick='cc("#93F",-140,180)'/><path fill='#90F' d='M207,60,216,64,216,75,207,79,198,75,198,64' onclick='cc("#90F",-140,198)'/><path fill='#060' d='M18,75,27,79,27,90,18,94,9,90,9,79' onclick='cc("#060",-125,9)'/><path fill='#0C0' d='M36,75,45,79,45,90,36,94,27,90,27,79' onclick='cc("#0C0",-125,27)'/><path fill='#0F0' d='M54,75,63,79,63,90,54,94,45,90,45,79' onclick='cc("#0F0",-125,45)'/><path fill='#6F9' d='M72,75,81,79,81,90,72,94,63,90,63,79' onclick='cc("#6F9",-125,63)'/><path fill='#9FC' d='M90,75,99,79,99,90,90,94,81,90,81,79' onclick='cc("#9FC",-125,81)'/><path fill='#CFF' d='M108,75,117,79,117,90,108,94,99,90,99,79' onclick='cc("#CFF",-125,99)'/><path fill='#CCF' d='M126,75,135,79,135,90,126,94,117,90,117,79' onclick='cc("#CCF",-125,117)'/><path fill='#C9F' d='M144,75,153,79,153,90,144,94,135,90,135,79' onclick='cc("#C9F",-125,135)'/><path fill='#C6F' d='M162,75,171,79,171,90,162,94,153,90,153,79' onclick='cc("#C6F",-125,153)'/><path fill='#C3F' d='M180,75,189,79,189,90,180,94,171,90,171,79' onclick='cc("#C3F",-125,171)'/><path fill='#C0F' d='M198,75,207,79,207,90,198,94,189,90,189,79' onclick='cc("#C0F",-125,189)'/><path fill='#90C' d='M216,75,225,79,225,90,216,94,207,90,207,79' onclick='cc("#90C",-125,207)'/><path fill='#030' d='M9,90,18,94,18,105,9,109,0,105,0,94' onclick='cc("#030",-110,0)'/><path fill='#093' d='M27,90,36,94,36,105,27,109,18,105,18,94' onclick='cc("#093",-110,18)'/><path fill='#3C3' d='M45,90,54,94,54,105,45,109,36,105,36,94' onclick='cc("#3C3",-110,36)'/><path fill='#6F6' d='M63,90,72,94,72,105,63,109,54,105,54,94' onclick='cc("#6F6",-110,54)'/><path fill='#9F9' d='M81,90,90,94,90,105,81,109,72,105,72,94' onclick='cc("#9F9",-110,72)'/><path fill='#CFC' d='M99,90,108,94,108,105,99,109,90,105,90,94' onclick='cc("#CFC",-110,90)'/><path fill='#FFF' d='M117,90,126,94,126,105,117,109,108,105,108,94' onclick='cc("#FFF",-110,108)'/><path fill='#FCF' d='M135,90,144,94,144,105,135,109,126,105,126,94' onclick='cc("#FCF",-110,126)'/><path fill='#F9F' d='M153,90,162,94,162,105,153,109,144,105,144,94' onclick='cc("#F9F",-110,144)'/><path fill='#F6F' d='M171,90,180,94,180,105,171,109,162,105,162,94' onclick='cc("#F6F",-110,162)'/><path fill='#F0F' d='M189,90,198,94,198,105,189,109,180,105,180,94' onclick='cc("#F0F",-110,180)'/><path fill='#C0C' d='M207,90,216,94,216,105,207,109,198,105,198,94' onclick='cc("#C0C",-110,198)'/><path fill='#606' d='M225,90,234,94,234,105,225,109,216,105,216,94' onclick='cc("#606",-110,216)'/><path fill='#360' d='M18,105,27,109,27,120,18,124,9,120,9,109' onclick='cc("#360",-95,9)'/><path fill='#090' d='M36,105,45,109,45,120,36,124,27,120,27,109' onclick='cc("#090",-95,27)'/><path fill='#6F3' d='M54,105,63,109,63,120,54,124,45,120,45,109' onclick='cc("#6F3",-95,45)'/><path fill='#9F6' d='M72,105,81,109,81,120,72,124,63,120,63,109' onclick='cc("#9F6",-95,63)'/><path fill='#CF9' d='M90,105,99,109,99,120,90,124,81,120,81,109' onclick='cc("#CF9",-95,81)'/><path fill='#FFC' d='M108,105,117,109,117,120,108,124,99,120,99,109' onclick='cc("#FFC",-95,99)'/><path fill='#FCC' d='M126,105,135,109,135,120,126,124,117,120,117,109' onclick='cc("#FCC",-95,117)'/><path fill='#F9C' d='M144,105,153,109,153,120,144,124,135,120,135,109' onclick='cc("#F9C",-95,135)'/><path fill='#F6C' d='M162,105,171,109,171,120,162,124,153,120,153,109' onclick='cc("#F6C",-95,153)'/><path fill='#F3C' d='M180,105,189,109,189,120,180,124,171,120,171,109' onclick='cc("#F3C",-95,171)'/><path fill='#C09' d='M198,105,207,109,207,120,198,124,189,120,189,109' onclick='cc("#C09",-95,189)'/><path fill='#939' d='M216,105,225,109,225,120,216,124,207,120,207,109' onclick='cc("#939",-95,207)'/><path fill='#330' d='M27,120,36,124,36,135,27,139,18,135,18,124' onclick='cc("#330",-80,18)'/><path fill='#690' d='M45,120,54,124,54,135,45,139,36,135,36,124' onclick='cc("#690",-80,36)'/><path fill='#9F3' d='M63,120,72,124,72,135,63,139,54,135,54,124' onclick='cc("#9F3",-80,54)'/><path fill='#CF6' d='M81,120,90,124,90,135,81,139,72,135,72,124' onclick='cc("#CF6",-80,72)'/><path fill='#FF9' d='M99,120,108,124,108,135,99,139,90,135,90,124' onclick='cc("#FF9",-80,90)'/><path fill='#FC9' d='M117,120,126,124,126,135,117,139,108,135,108,124' onclick='cc("#FC9",-80,108)'/><path fill='#F99' d='M135,120,144,124,144,135,135,139,126,135,126,124' onclick='cc("#F99",-80,126)'/><path fill='#F69' d='M153,120,162,124,162,135,153,139,144,135,144,124' onclick='cc("#F69",-80,144)'/><path fill='#F39' d='M171,120,180,124,180,135,171,139,162,135,162,124' onclick='cc("#F39",-80,162)'/><path fill='#C39' d='M189,120,198,124,198,135,189,139,180,135,180,124' onclick='cc("#C39",-80,180)'/><path fill='#909' d='M207,120,216,124,216,135,207,139,198,135,198,124' onclick='cc("#909",-80,198)'/><path fill='#663' d='M36,135,45,139,45,150,36,154,27,150,27,139' onclick='cc("#663",-65,27)'/><path fill='#9C0' d='M54,135,63,139,63,150,54,154,45,150,45,139' onclick='cc("#9C0",-65,45)'/><path fill='#CF3' d='M72,135,81,139,81,150,72,154,63,150,63,139' onclick='cc("#CF3",-65,63)'/><path fill='#FF6' d='M90,135,99,139,99,150,90,154,81,150,81,139' onclick='cc("#FF6",-65,81)'/><path fill='#FC6' d='M108,135,117,139,117,150,108,154,99,150,99,139' onclick='cc("#FC6",-65,99)'/><path fill='#F96' d='M126,135,135,139,135,150,126,154,117,150,117,139' onclick='cc("#F96",-65,117)'/><path fill='#F66' d='M144,135,153,139,153,150,144,154,135,150,135,139' onclick='cc("#F66",-65,135)'/><path fill='#F06' d='M162,135,171,139,171,150,162,154,153,150,153,139' onclick='cc("#F06",-65,153)'/><path fill='#C69' d='M180,135,189,139,189,150,180,154,171,150,171,139' onclick='cc("#C69",-65,171)'/><path fill='#936' d='M198,135,207,139,207,150,198,154,189,150,189,139' onclick='cc("#936",-65,189)'/><path fill='#996' d='M45,150,54,154,54,165,45,169,36,165,36,154' onclick='cc("#996",-50,36)'/><path fill='#CC0' d='M63,150,72,154,72,165,63,169,54,165,54,154' onclick='cc("#CC0",-50,54)'/><path fill='#FF0' d='M81,150,90,154,90,165,81,169,72,165,72,154' onclick='cc("#FF0",-50,72)'/><path fill='#FC0' d='M99,150,108,154,108,165,99,169,90,165,90,154' onclick='cc("#FC0",-50,90)'/><path fill='#F93' d='M117,150,126,154,126,165,117,169,108,165,108,154' onclick='cc("#F93",-50,108)'/><path fill='#F60' d='M135,150,144,154,144,165,135,169,126,165,126,154' onclick='cc("#F60",-50,126)'/><path fill='#F50' d='M153,150,162,154,162,165,153,169,144,165,144,154' onclick='cc("#F55",-50,144)'/><path fill='#C06' d='M171,150,180,154,180,165,171,169,162,165,162,154' onclick='cc("#C06",-50,162)'/><path fill='#603' d='M189,150,198,154,198,165,189,169,180,165,180,154' onclick='cc("#603",-50,180)'/><path fill='#963' d='M54,165,63,169,63,180,54,184,45,180,45,169' onclick='cc("#963",-35,45)'/><path fill='#C90' d='M72,165,81,169,81,180,72,184,63,180,63,169' onclick='cc("#C90",-35,63)'/><path fill='#F90' d='M90,165,99,169,99,180,90,184,81,180,81,169' onclick='cc("#F90",-35,81)'/><path fill='#C60' d='M108,165,117,169,117,180,108,184,99,180,99,169' onclick='cc("#C60",-35,99)'/><path fill='#F30' d='M126,165,135,169,135,180,126,184,117,180,117,169' onclick='cc("#F30",-35,117)'/><path fill='#F00' d='M144,165,153,169,153,180,144,184,135,180,135,169' onclick='cc("#F00",-35,135)'/><path fill='#C00' d='M162,165,171,169,171,180,162,184,153,180,153,169' onclick='cc("#C00",-35,153)'/><path fill='#903' d='M180,165,189,169,189,180,180,184,171,180,171,169' onclick='cc("#903",-35,171)'/><path fill='#630' d='M63,180,72,184,72,195,63,199,54,195,54,184' onclick='cc("#630",-20,54)'/><path fill='#960' d='M81,180,90,184,90,195,81,199,72,195,72,184' onclick='cc("#960",-20,72)'/><path fill='#C30' d='M99,180,108,184,108,195,99,199,90,195,90,184' onclick='cc("#C30",-20,90)'/><path fill='#930' d='M117,180,126,184,126,195,117,199,108,195,108,184' onclick='cc("#930",-20,108)'/><path fill='#900' d='M135,180,144,184,144,195,135,199,126,195,126,184' onclick='cc("#900",-20,126)'/><path fill='#800' d='M153,180,162,184,162,195,153,199,144,195,144,184' onclick='cc("#800",-20,144)'/><path fill='#933' d='M171,180,180,184,180,195,171,199,162,195,162,184' onclick='cc("#933",-20,162)'/></svg><div><div id="enter"><input id="input" placeholder="color" spellcheck="false"><button onclick="cc(0,-1,-1)"></button></div><div id="selected"><p id="cnam"></p><p id="chex"></p><p id="crgb"></p><p id="chsl"></p></div></div></div><div id="lum"></div><div id="hue"></div><div id="hsl"></div>
-  </div>
-  <div id="icons">
-    <div><i class="fa fa-glass"></i>fa-glass</div>
-    <div><i class="fa fa-music"></i>fa-music</div>
-    <div><i class="fa fa-search"></i>fa-search</div>
-    <div><i class="fa fa-envelope-o"></i>fa-envelope-o</div>
-    <div><i class="fa fa-heart"></i>fa-heart</div>
-    <div><i class="fa fa-star"></i>fa-star</div>
-    <div><i class="fa fa-star-o"></i>fa-star-o</div>
-    <div><i class="fa fa-user"></i>fa-user</div>
-    <div><i class="fa fa-film"></i>fa-film</div>
-    <div><i class="fa fa-th-large"></i>fa-th-large</div>
-    <div><i class="fa fa-th"></i>fa-th</div>
-    <div><i class="fa fa-th-list"></i>fa-th-list</div>
-    <div><i class="fa fa-check"></i>fa-check</div>
-    <div><i class="fa fa-remove"></i>fa-remove</div>
-    <div><i class="fa fa-search-plus"></i>fa-search-plus</div>
-    <div><i class="fa fa-search-minus"></i>fa-search-minus</div>
-    <div><i class="fa fa-power-off"></i>fa-power-off</div>
-    <div><i class="fa fa-signal"></i>fa-signal</div>
-    <div><i class="fa fa-gear"></i>fa-gear</div>
-    <div><i class="fa fa-trash-o"></i>fa-trash-o</div>
-    <div><i class="fa fa-home"></i>fa-home</div>
-    <div><i class="fa fa-file-o"></i>fa-file-o</div>
-    <div><i class="fa fa-clock-o"></i>fa-clock-o</div>
-    <div><i class="fa fa-road"></i>fa-road</div>
-    <div><i class="fa fa-download"></i>fa-download</div>
-    <div><i class="fa fa-arrow-circle-o-down"></i>fa-arrow-circle-o-down</div>
-    <div><i class="fa fa-arrow-circle-o-up"></i>fa-arrow-circle-o-up</div>
-    <div><i class="fa fa-inbox"></i>fa-inbox</div>
-    <div><i class="fa fa-play-circle-o"></i>fa-play-circle-o</div>
-    <div><i class="fa fa-rotate-right"></i>fa-rotate-right</div>
-    <div><i class="fa fa-refresh"></i>fa-refresh</div>
-    <div><i class="fa fa-list-alt"></i>fa-list-alt</div>
-    <div><i class="fa fa-lock"></i>fa-lock</div>
-    <div><i class="fa fa-flag"></i>fa-flag</div>
-    <div><i class="fa fa-headphones"></i>fa-headphones</div>
-    <div><i class="fa fa-volume-off"></i>fa-volume-off</div>
-    <div><i class="fa fa-volume-down"></i>fa-volume-down</div>
-    <div><i class="fa fa-volume-up"></i>fa-volume-up</div>
-    <div><i class="fa fa-qrcode"></i>fa-qrcode</div>
-    <div><i class="fa fa-barcode"></i>fa-barcode</div>
-    <div><i class="fa fa-tag"></i>fa-tag</div>
-    <div><i class="fa fa-tags"></i>fa-tags</div>
-    <div><i class="fa fa-book"></i>fa-book</div>
-    <div><i class="fa fa-bookmark"></i>fa-bookmark</div>
-    <div><i class="fa fa-print"></i>fa-print</div>
-    <div><i class="fa fa-camera"></i>fa-camera</div>
-    <div><i class="fa fa-font"></i>fa-font</div>
-    <div><i class="fa fa-bold"></i>fa-bold</div>
-    <div><i class="fa fa-italic"></i>fa-italic</div>
-    <div><i class="fa fa-text-height"></i>fa-text-height</div>
-    <div><i class="fa fa-text-width"></i>fa-text-width</div>
-    <div><i class="fa fa-align-left"></i>fa-align-left</div>
-    <div><i class="fa fa-align-center"></i>fa-align-center</div>
-    <div><i class="fa fa-align-right"></i>fa-align-right</div>
-    <div><i class="fa fa-align-justify"></i>fa-align-justify</div>
-    <div><i class="fa fa-list"></i>fa-list</div>
-    <div><i class="fa fa-dedent"></i>fa-dedent</div>
-    <div><i class="fa fa-indent"></i>fa-indent</div>
-    <div><i class="fa fa-video-camera"></i>fa-video-camera</div>
-    <div><i class="fa fa-photo"></i>fa-photo</div>
-    <div><i class="fa fa-pencil"></i>fa-pencil</div>
-    <div><i class="fa fa-map-marker"></i>fa-map-marker</div>
-    <div><i class="fa fa-adjust"></i>fa-adjust</div>
-    <div><i class="fa fa-tint"></i>fa-tint</div>
-    <div><i class="fa fa-edit"></i>fa-edit</div>
-    <div><i class="fa fa-share-square-o"></i>fa-share-square-o</div>
-    <div><i class="fa fa-check-square-o"></i>fa-check-square-o</div>
-    <div><i class="fa fa-arrows"></i>fa-arrows</div>
-    <div><i class="fa fa-step-backward"></i>fa-step-backward</div>
-    <div><i class="fa fa-fast-backward"></i>fa-fast-backward</div>
-    <div><i class="fa fa-backward"></i>fa-backward</div>
-    <div><i class="fa fa-play"></i>fa-play</div>
-    <div><i class="fa fa-pause"></i>fa-pause</div>
-    <div><i class="fa fa-stop"></i>fa-stop</div>
-    <div><i class="fa fa-forward"></i>fa-forward</div>
-    <div><i class="fa fa-fast-forward"></i>fa-fast-forward</div>
-    <div><i class="fa fa-step-forward"></i>fa-step-forward</div>
-    <div><i class="fa fa-eject"></i>fa-eject</div>
-    <div><i class="fa fa-chevron-left"></i>fa-chevron-left</div>
-    <div><i class="fa fa-chevron-right"></i>fa-chevron-right</div>
-    <div><i class="fa fa-plus-circle"></i>fa-plus-circle</div>
-    <div><i class="fa fa-minus-circle"></i>fa-minus-circle</div>
-    <div><i class="fa fa-times-circle"></i>fa-times-circle</div>
-    <div><i class="fa fa-check-circle"></i>fa-check-circle</div>
-    <div><i class="fa fa-question-circle"></i>fa-question-circle</div>
-    <div><i class="fa fa-info-circle"></i>fa-info-circle</div>
-    <div><i class="fa fa-crosshairs"></i>fa-crosshairs</div>
-    <div><i class="fa fa-times-circle-o"></i>fa-times-circle-o</div>
-    <div><i class="fa fa-check-circle-o"></i>fa-check-circle-o</div>
-    <div><i class="fa fa-ban"></i>fa-ban</div>
-    <div><i class="fa fa-arrow-left"></i>fa-arrow-left</div>
-    <div><i class="fa fa-arrow-right"></i>fa-arrow-right</div>
-    <div><i class="fa fa-arrow-up"></i>fa-arrow-up</div>
-    <div><i class="fa fa-arrow-down"></i>fa-arrow-down</div>
-    <div><i class="fa fa-mail-forward"></i>fa-mail-forward</div>
-    <div><i class="fa fa-expand"></i>fa-expand</div>
-    <div><i class="fa fa-compress"></i>fa-compress</div>
-    <div><i class="fa fa-plus"></i>fa-plus</div>
-    <div><i class="fa fa-minus"></i>fa-minus</div>
-    <div><i class="fa fa-asterisk"></i>fa-asterisk</div>
-    <div><i class="fa fa-exclamation-circle"></i>fa-exclamation-circle</div>
-    <div><i class="fa fa-gift"></i>fa-gift</div>
-    <div><i class="fa fa-leaf"></i>fa-leaf</div>
-    <div><i class="fa fa-fire"></i>fa-fire</div>
-    <div><i class="fa fa-eye"></i>fa-eye</div>
-    <div><i class="fa fa-eye-slash"></i>fa-eye-slash</div>
-    <div><i class="fa fa-warning"></i>fa-warning</div>
-    <div><i class="fa fa-plane"></i>fa-plane</div>
-    <div><i class="fa fa-calendar"></i>fa-calendar</div>
-    <div><i class="fa fa-random"></i>fa-random</div>
-    <div><i class="fa fa-comment"></i>fa-comment</div>
-    <div><i class="fa fa-magnet"></i>fa-magnet</div>
-    <div><i class="fa fa-chevron-up"></i>fa-chevron-up</div>
-    <div><i class="fa fa-chevron-down"></i>fa-chevron-down</div>
-    <div><i class="fa fa-retweet"></i>fa-retweet</div>
-    <div><i class="fa fa-shopping-cart"></i>fa-shopping-cart</div>
-    <div><i class="fa fa-folder"></i>fa-folder</div>
-    <div><i class="fa fa-folder-open"></i>fa-folder-open</div>
-    <div><i class="fa fa-arrows-v"></i>fa-arrows-v</div>
-    <div><i class="fa fa-arrows-h"></i>fa-arrows-h</div>
-    <div><i class="fa fa-bar-chart-o"></i>fa-bar-chart-o</div>
-    <div><i class="fa fa-twitter-square"></i>fa-twitter-square</div>
-    <div><i class="fa fa-facebook-square"></i>fa-facebook-square</div>
-    <div><i class="fa fa-camera-retro"></i>fa-camera-retro</div>
-    <div><i class="fa fa-key"></i>fa-key</div>
-    <div><i class="fa fa-gears"></i>fa-gears</div>
-    <div><i class="fa fa-comments"></i>fa-comments</div>
-    <div><i class="fa fa-thumbs-o-up"></i>fa-thumbs-o-up</div>
-    <div><i class="fa fa-thumbs-o-down"></i>fa-thumbs-o-down</div>
-    <div><i class="fa fa-star-half"></i>fa-star-half</div>
-    <div><i class="fa fa-heart-o"></i>fa-heart-o</div>
-    <div><i class="fa fa-sign-out"></i>fa-sign-out</div>
-    <div><i class="fa fa-linkedin-square"></i>fa-linkedin-square</div>
-    <div><i class="fa fa-thumb-tack"></i>fa-thumb-tack</div>
-    <div><i class="fa fa-external-link"></i>fa-external-link</div>
-    <div><i class="fa fa-sign-in"></i>fa-sign-in</div>
-    <div><i class="fa fa-trophy"></i>fa-trophy</div>
-    <div><i class="fa fa-github-square"></i>fa-github-square</div>
-    <div><i class="fa fa-upload"></i>fa-upload</div>
-    <div><i class="fa fa-lemon-o"></i>fa-lemon-o</div>
-    <div><i class="fa fa-phone"></i>fa-phone</div>
-    <div><i class="fa fa-square-o"></i>fa-square-o</div>
-    <div><i class="fa fa-bookmark-o"></i>fa-bookmark-o</div>
-    <div><i class="fa fa-phone-square"></i>fa-phone-square</div>
-    <div><i class="fa fa-twitter"></i>fa-twitter</div>
-    <div><i class="fa fa-facebook-f"></i>fa-facebook-f</div>
-    <div><i class="fa fa-github"></i>fa-github</div>
-    <div><i class="fa fa-unlock"></i>fa-unlock</div>
-    <div><i class="fa fa-credit-card"></i>fa-credit-card</div>
-    <div><i class="fa fa-feed"></i>fa-feed</div>
-    <div><i class="fa fa-hdd-o"></i>fa-hdd-o</div>
-    <div><i class="fa fa-bullhorn"></i>fa-bullhorn</div>
-    <div><i class="fa fa-bell"></i>fa-bell</div>
-    <div><i class="fa fa-certificate"></i>fa-certificate</div>
-    <div><i class="fa fa-hand-o-right"></i>fa-hand-o-right</div>
-    <div><i class="fa fa-hand-o-left"></i>fa-hand-o-left</div>
-    <div><i class="fa fa-hand-o-up"></i>fa-hand-o-up</div>
-    <div><i class="fa fa-hand-o-down"></i>fa-hand-o-down</div>
-    <div><i class="fa fa-arrow-circle-left"></i>fa-arrow-circle-left</div>
-    <div><i class="fa fa-arrow-circle-right"></i>fa-arrow-circle-right</div>
-    <div><i class="fa fa-arrow-circle-up"></i>fa-arrow-circle-up</div>
-    <div><i class="fa fa-arrow-circle-down"></i>fa-arrow-circle-down</div>
-    <div><i class="fa fa-globe"></i>fa-globe</div>
-    <div><i class="fa fa-wrench"></i>fa-wrench</div>
-    <div><i class="fa fa-tasks"></i>fa-tasks</div>
-    <div><i class="fa fa-filter"></i>fa-filter</div>
-    <div><i class="fa fa-briefcase"></i>fa-briefcase</div>
-    <div><i class="fa fa-arrows-alt"></i>fa-arrows-alt</div>
-    <div><i class="fa fa-group"></i>fa-group</div>
-    <div><i class="fa fa-chain"></i>fa-chain</div>
-    <div><i class="fa fa-cloud"></i>fa-cloud</div>
-    <div><i class="fa fa-flask"></i>fa-flask</div>
-    <div><i class="fa fa-cut"></i>fa-cut</div>
-    <div><i class="fa fa-copy"></i>fa-copy</div>
-    <div><i class="fa fa-paperclip"></i>fa-paperclip</div>
-    <div><i class="fa fa-save"></i>fa-save</div>
-    <div><i class="fa fa-square"></i>fa-square</div>
-    <div><i class="fa fa-navicon"></i>fa-navicon</div>
-    <div><i class="fa fa-list-ul"></i>fa-list-ul</div>
-    <div><i class="fa fa-list-ol"></i>fa-list-ol</div>
-    <div><i class="fa fa-strikethrough"></i>fa-strikethrough</div>
-    <div><i class="fa fa-underline"></i>fa-underline</div>
-    <div><i class="fa fa-table"></i>fa-table</div>
-    <div><i class="fa fa-magic"></i>fa-magic</div>
-    <div><i class="fa fa-truck"></i>fa-truck</div>
-    <div><i class="fa fa-pinterest"></i>fa-pinterest</div>
-    <div><i class="fa fa-pinterest-square"></i>fa-pinterest-square</div>
-    <div><i class="fa fa-google-plus-square"></i>fa-google-plus-square</div>
-    <div><i class="fa fa-google-plus"></i>fa-google-plus</div>
-    <div><i class="fa fa-money"></i>fa-money</div>
-    <div><i class="fa fa-caret-down"></i>fa-caret-down</div>
-    <div><i class="fa fa-caret-up"></i>fa-caret-up</div>
-    <div><i class="fa fa-caret-left"></i>fa-caret-left</div>
-    <div><i class="fa fa-caret-right"></i>fa-caret-right</div>
-    <div><i class="fa fa-columns"></i>fa-columns</div>
-    <div><i class="fa fa-unsorted"></i>fa-unsorted</div>
-    <div><i class="fa fa-sort-down"></i>fa-sort-down</div>
-    <div><i class="fa fa-sort-up"></i>fa-sort-up</div>
-    <div><i class="fa fa-envelope"></i>fa-envelope</div>
-    <div><i class="fa fa-linkedin"></i>fa-linkedin</div>
-    <div><i class="fa fa-rotate-left"></i>fa-rotate-left</div>
-    <div><i class="fa fa-legal"></i>fa-legal</div>
-    <div><i class="fa fa-dashboard"></i>fa-dashboard</div>
-    <div><i class="fa fa-comment-o"></i>fa-comment-o</div>
-    <div><i class="fa fa-comments-o"></i>fa-comments-o</div>
-    <div><i class="fa fa-flash"></i>fa-flash</div>
-    <div><i class="fa fa-sitemap"></i>fa-sitemap</div>
-    <div><i class="fa fa-umbrella"></i>fa-umbrella</div>
-    <div><i class="fa fa-paste"></i>fa-paste</div>
-    <div><i class="fa fa-lightbulb-o"></i>fa-lightbulb-o</div>
-    <div><i class="fa fa-exchange"></i>fa-exchange</div>
-    <div><i class="fa fa-cloud-download"></i>fa-cloud-download</div>
-    <div><i class="fa fa-cloud-upload"></i>fa-cloud-upload</div>
-    <div><i class="fa fa-user-md"></i>fa-user-md</div>
-    <div><i class="fa fa-stethoscope"></i>fa-stethoscope</div>
-    <div><i class="fa fa-suitcase"></i>fa-suitcase</div>
-    <div><i class="fa fa-bell-o"></i>fa-bell-o</div>
-    <div><i class="fa fa-coffee"></i>fa-coffee</div>
-    <div><i class="fa fa-cutlery"></i>fa-cutlery</div>
-    <div><i class="fa fa-file-text-o"></i>fa-file-text-o</div>
-    <div><i class="fa fa-building-o"></i>fa-building-o</div>
-    <div><i class="fa fa-hospital-o"></i>fa-hospital-o</div>
-    <div><i class="fa fa-ambulance"></i>fa-ambulance</div>
-    <div><i class="fa fa-medkit"></i>fa-medkit</div>
-    <div><i class="fa fa-fighter-jet"></i>fa-fighter-jet</div>
-    <div><i class="fa fa-beer"></i>fa-beer</div>
-    <div><i class="fa fa-h-square"></i>fa-h-square</div>
-    <div><i class="fa fa-plus-square"></i>fa-plus-square</div>
-    <div><i class="fa fa-angle-double-left"></i>fa-angle-double-left</div>
-    <div><i class="fa fa-angle-double-right"></i>fa-angle-double-right</div>
-    <div><i class="fa fa-angle-double-up"></i>fa-angle-double-up</div>
-    <div><i class="fa fa-angle-double-down"></i>fa-angle-double-down</div>
-    <div><i class="fa fa-angle-left"></i>fa-angle-left</div>
-    <div><i class="fa fa-angle-right"></i>fa-angle-right</div>
-    <div><i class="fa fa-angle-up"></i>fa-angle-up</div>
-    <div><i class="fa fa-angle-down"></i>fa-angle-down</div>
-    <div><i class="fa fa-desktop"></i>fa-desktop</div>
-    <div><i class="fa fa-laptop"></i>fa-laptop</div>
-    <div><i class="fa fa-tablet"></i>fa-tablet</div>
-    <div><i class="fa fa-mobile-phone"></i>fa-mobile-phone</div>
-    <div><i class="fa fa-circle-o"></i>fa-circle-o</div>
-    <div><i class="fa fa-quote-left"></i>fa-quote-left</div>
-    <div><i class="fa fa-quote-right"></i>fa-quote-right</div>
-    <div><i class="fa fa-spinner"></i>fa-spinner</div>
-    <div><i class="fa fa-circle"></i>fa-circle</div>
-    <div><i class="fa fa-mail-reply"></i>fa-mail-reply</div>
-    <div><i class="fa fa-github-alt"></i>fa-github-alt</div>
-    <div><i class="fa fa-folder-o"></i>fa-folder-o</div>
-    <div><i class="fa fa-folder-open-o"></i>fa-folder-open-o</div>
-    <div><i class="fa fa-smile-o"></i>fa-smile-o</div>
-    <div><i class="fa fa-frown-o"></i>fa-frown-o</div>
-    <div><i class="fa fa-meh-o"></i>fa-meh-o</div>
-    <div><i class="fa fa-gamepad"></i>fa-gamepad</div>
-    <div><i class="fa fa-keyboard-o"></i>fa-keyboard-o</div>
-    <div><i class="fa fa-flag-o"></i>fa-flag-o</div>
-    <div><i class="fa fa-flag-checkered"></i>fa-flag-checkered</div>
-    <div><i class="fa fa-terminal"></i>fa-terminal</div>
-    <div><i class="fa fa-code"></i>fa-code</div>
-    <div><i class="fa fa-mail-reply-all"></i>fa-mail-reply-all</div>
-    <div><i class="fa fa-star-half-empty"></i>fa-star-half-empty</div>
-    <div><i class="fa fa-location-arrow"></i>fa-location-arrow</div>
-    <div><i class="fa fa-crop"></i>fa-crop</div>
-    <div><i class="fa fa-code-fork"></i>fa-code-fork</div>
-    <div><i class="fa fa-unlink"></i>fa-unlink</div>
-    <div><i class="fa fa-question"></i>fa-question</div>
-    <div><i class="fa fa-info"></i>fa-info</div>
-    <div><i class="fa fa-exclamation"></i>fa-exclamation</div>
-    <div><i class="fa fa-superscript"></i>fa-superscript</div>
-    <div><i class="fa fa-subscript"></i>fa-subscript</div>
-    <div><i class="fa fa-eraser"></i>fa-eraser</div>
-    <div><i class="fa fa-puzzle-piece"></i>fa-puzzle-piece</div>
-    <div><i class="fa fa-microphone"></i>fa-microphone</div>
-    <div><i class="fa fa-microphone-slash"></i>fa-microphone-slash</div>
-    <div><i class="fa fa-shield"></i>fa-shield</div>
-    <div><i class="fa fa-calendar-o"></i>fa-calendar-o</div>
-    <div><i class="fa fa-fire-extinguisher"></i>fa-fire-extinguisher</div>
-    <div><i class="fa fa-rocket"></i>fa-rocket</div>
-    <div><i class="fa fa-maxcdn"></i>fa-maxcdn</div>
-    <div><i class="fa fa-chevron-circle-left"></i>fa-chevron-circle-left</div>
-    <div><i class="fa fa-chevron-circle-right"></i>fa-chevron-circle-right</div>
-    <div><i class="fa fa-chevron-circle-up"></i>fa-chevron-circle-up</div>
-    <div><i class="fa fa-chevron-circle-down"></i>fa-chevron-circle-down</div>
-    <div><i class="fa fa-html5"></i>fa-html5</div>
-    <div><i class="fa fa-css3"></i>fa-css3</div>
-    <div><i class="fa fa-anchor"></i>fa-anchor</div>
-    <div><i class="fa fa-unlock-alt"></i>fa-unlock-alt</div>
-    <div><i class="fa fa-bullseye"></i>fa-bullseye</div>
-    <div><i class="fa fa-ellipsis-h"></i>fa-ellipsis-h</div>
-    <div><i class="fa fa-ellipsis-v"></i>fa-ellipsis-v</div>
-    <div><i class="fa fa-rss-square"></i>fa-rss-square</div>
-    <div><i class="fa fa-play-circle"></i>fa-play-circle</div>
-    <div><i class="fa fa-ticket"></i>fa-ticket</div>
-    <div><i class="fa fa-minus-square"></i>fa-minus-square</div>
-    <div><i class="fa fa-minus-square-o"></i>fa-minus-square-o</div>
-    <div><i class="fa fa-level-up"></i>fa-level-up</div>
-    <div><i class="fa fa-level-down"></i>fa-level-down</div>
-    <div><i class="fa fa-check-square"></i>fa-check-square</div>
-    <div><i class="fa fa-pencil-square"></i>fa-pencil-square</div>
-    <div><i class="fa fa-external-link-square"></i>fa-external-link-square</div>
-    <div><i class="fa fa-share-square"></i>fa-share-square</div>
-    <div><i class="fa fa-compass"></i>fa-compass</div>
-    <div><i class="fa fa-toggle-down"></i>fa-toggle-down</div>
-    <div><i class="fa fa-toggle-up"></i>fa-toggle-up</div>
-    <div><i class="fa fa-toggle-right"></i>fa-toggle-right</div>
-    <div><i class="fa fa-euro"></i>fa-euro</div>
-    <div><i class="fa fa-gbp"></i>fa-gbp</div>
-    <div><i class="fa fa-dollar"></i>fa-dollar</div>
-    <div><i class="fa fa-rupee"></i>fa-rupee</div>
-    <div><i class="fa fa-cny"></i>fa-cny</div>
-    <div><i class="fa fa-ruble"></i>fa-ruble</div>
-    <div><i class="fa fa-won"></i>fa-won</div>
-    <div><i class="fa fa-bitcoin"></i>fa-bitcoin</div>
-    <div><i class="fa fa-file"></i>fa-file</div>
-    <div><i class="fa fa-file-text"></i>fa-file-text</div>
-    <div><i class="fa fa-sort-alpha-asc"></i>fa-sort-alpha-asc</div>
-    <div><i class="fa fa-sort-alpha-desc"></i>fa-sort-alpha-desc</div>
-    <div><i class="fa fa-sort-amount-asc"></i>fa-sort-amount-asc</div>
-    <div><i class="fa fa-sort-amount-desc"></i>fa-sort-amount-desc</div>
-    <div><i class="fa fa-sort-numeric-asc"></i>fa-sort-numeric-asc</div>
-    <div><i class="fa fa-sort-numeric-desc"></i>fa-sort-numeric-desc</div>
-    <div><i class="fa fa-thumbs-up"></i>fa-thumbs-up</div>
-    <div><i class="fa fa-thumbs-down"></i>fa-thumbs-down</div>
-    <div><i class="fa fa-youtube-square"></i>fa-youtube-square</div>
-    <div><i class="fa fa-youtube"></i>fa-youtube</div>
-    <div><i class="fa fa-xing"></i>fa-xing</div>
-    <div><i class="fa fa-xing-square"></i>fa-xing-square</div>
-    <div><i class="fa fa-youtube-play"></i>fa-youtube-play</div>
-    <div><i class="fa fa-dropbox"></i>fa-dropbox</div>
-    <div><i class="fa fa-stack-overflow"></i>fa-stack-overflow</div>
-    <div><i class="fa fa-instagram"></i>fa-instagram</div>
-    <div><i class="fa fa-flickr"></i>fa-flickr</div>
-    <div><i class="fa fa-adn"></i>fa-adn</div>
-    <div><i class="fa fa-bitbucket"></i>fa-bitbucket</div>
-    <div><i class="fa fa-bitbucket-square"></i>fa-bitbucket-square</div>
-    <div><i class="fa fa-tumblr"></i>fa-tumblr</div>
-    <div><i class="fa fa-tumblr-square"></i>fa-tumblr-square</div>
-    <div><i class="fa fa-long-arrow-down"></i>fa-long-arrow-down</div>
-    <div><i class="fa fa-long-arrow-up"></i>fa-long-arrow-up</div>
-    <div><i class="fa fa-long-arrow-left"></i>fa-long-arrow-left</div>
-    <div><i class="fa fa-long-arrow-right"></i>fa-long-arrow-right</div>
-    <div><i class="fa fa-apple"></i>fa-apple</div>
-    <div><i class="fa fa-windows"></i>fa-windows</div>
-    <div><i class="fa fa-android"></i>fa-android</div>
-    <div><i class="fa fa-linux"></i>fa-linux</div>
-    <div><i class="fa fa-dribbble"></i>fa-dribbble</div>
-    <div><i class="fa fa-skype"></i>fa-skype</div>
-    <div><i class="fa fa-foursquare"></i>fa-foursquare</div>
-    <div><i class="fa fa-trello"></i>fa-trello</div>
-    <div><i class="fa fa-female"></i>fa-female</div>
-    <div><i class="fa fa-male"></i>fa-male</div>
-    <div><i class="fa fa-gittip"></i>fa-gittip</div>
-    <div><i class="fa fa-sun-o"></i>fa-sun-o</div>
-    <div><i class="fa fa-moon-o"></i>fa-moon-o</div>
-    <div><i class="fa fa-archive"></i>fa-archive</div>
-    <div><i class="fa fa-bug"></i>fa-bug</div>
-    <div><i class="fa fa-vk"></i>fa-vk</div>
-    <div><i class="fa fa-weibo"></i>fa-weibo</div>
-    <div><i class="fa fa-renren"></i>fa-renren</div>
-    <div><i class="fa fa-pagelines"></i>fa-pagelines</div>
-    <div><i class="fa fa-stack-exchange"></i>fa-stack-exchange</div>
-    <div><i class="fa fa-arrow-circle-o-right"></i>fa-arrow-circle-o-right</div>
-    <div><i class="fa fa-arrow-circle-o-left"></i>fa-arrow-circle-o-left</div>
-    <div><i class="fa fa-toggle-left"></i>fa-toggle-left</div>
-    <div><i class="fa fa-dot-circle-o"></i>fa-dot-circle-o</div>
-    <div><i class="fa fa-wheelchair"></i>fa-wheelchair</div>
-    <div><i class="fa fa-vimeo-square"></i>fa-vimeo-square</div>
-    <div><i class="fa fa-turkish-lira"></i>fa-turkish-lira</div>
-    <div><i class="fa fa-plus-square-o"></i>fa-plus-square-o</div>
-    <div><i class="fa fa-space-shuttle"></i>fa-space-shuttle</div>
-    <div><i class="fa fa-slack"></i>fa-slack</div>
-    <div><i class="fa fa-envelope-square"></i>fa-envelope-square</div>
-    <div><i class="fa fa-wordpress"></i>fa-wordpress</div>
-    <div><i class="fa fa-openid"></i>fa-openid</div>
-    <div><i class="fa fa-institution"></i>fa-institution</div>
-    <div><i class="fa fa-mortar-board"></i>fa-mortar-board</div>
-    <div><i class="fa fa-yahoo"></i>fa-yahoo</div>
-    <div><i class="fa fa-google"></i>fa-google</div>
-    <div><i class="fa fa-reddit"></i>fa-reddit</div>
-    <div><i class="fa fa-reddit-square"></i>fa-reddit-square</div>
-    <div><i class="fa fa-stumbleupon-circle"></i>fa-stumbleupon-circle</div>
-    <div><i class="fa fa-stumbleupon"></i>fa-stumbleupon</div>
-    <div><i class="fa fa-delicious"></i>fa-delicious</div>
-    <div><i class="fa fa-digg"></i>fa-digg</div>
-    <div><i class="fa fa-pied-piper-pp"></i>fa-pied-piper-pp</div>
-    <div><i class="fa fa-pied-piper-alt"></i>fa-pied-piper-alt</div>
-    <div><i class="fa fa-drupal"></i>fa-drupal</div>
-    <div><i class="fa fa-joomla"></i>fa-joomla</div>
-    <div><i class="fa fa-language"></i>fa-language</div>
-    <div><i class="fa fa-fax"></i>fa-fax</div>
-    <div><i class="fa fa-building"></i>fa-building</div>
-    <div><i class="fa fa-child"></i>fa-child</div>
-    <div><i class="fa fa-paw"></i>fa-paw</div>
-    <div><i class="fa fa-spoon"></i>fa-spoon</div>
-    <div><i class="fa fa-cube"></i>fa-cube</div>
-    <div><i class="fa fa-cubes"></i>fa-cubes</div>
-    <div><i class="fa fa-behance"></i>fa-behance</div>
-    <div><i class="fa fa-behance-square"></i>fa-behance-square</div>
-    <div><i class="fa fa-steam"></i>fa-steam</div>
-    <div><i class="fa fa-steam-square"></i>fa-steam-square</div>
-    <div><i class="fa fa-recycle"></i>fa-recycle</div>
-    <div><i class="fa fa-automobile"></i>fa-automobile</div>
-    <div><i class="fa fa-cab"></i>fa-cab</div>
-    <div><i class="fa fa-tree"></i>fa-tree</div>
-    <div><i class="fa fa-spotify"></i>fa-spotify</div>
-    <div><i class="fa fa-deviantart"></i>fa-deviantart</div>
-    <div><i class="fa fa-soundcloud"></i>fa-soundcloud</div>
-    <div><i class="fa fa-database"></i>fa-database</div>
-    <div><i class="fa fa-file-pdf-o"></i>fa-file-pdf-o</div>
-    <div><i class="fa fa-file-word-o"></i>fa-file-word-o</div>
-    <div><i class="fa fa-file-excel-o"></i>fa-file-excel-o</div>
-    <div><i class="fa fa-file-powerpoint-o"></i>fa-file-powerpoint-o</div>
-    <div><i class="fa fa-file-photo-o"></i>fa-file-photo-o</div>
-    <div><i class="fa fa-file-zip-o"></i>fa-file-zip-o</div>
-    <div><i class="fa fa-file-sound-o"></i>fa-file-sound-o</div>
-    <div><i class="fa fa-file-movie-o"></i>fa-file-movie-o</div>
-    <div><i class="fa fa-file-code-o"></i>fa-file-code-o</div>
-    <div><i class="fa fa-vine"></i>fa-vine</div>
-    <div><i class="fa fa-codepen"></i>fa-codepen</div>
-    <div><i class="fa fa-jsfiddle"></i>fa-jsfiddle</div>
-    <div><i class="fa fa-life-bouy"></i>fa-life-bouy</div>
-    <div><i class="fa fa-circle-o-notch"></i>fa-circle-o-notch</div>
-    <div><i class="fa fa-ra"></i>fa-ra</div>
-    <div><i class="fa fa-ge"></i>fa-ge</div>
-    <div><i class="fa fa-git-square"></i>fa-git-square</div>
-    <div><i class="fa fa-git"></i>fa-git</div>
-    <div><i class="fa fa-y-combinator-square"></i>fa-y-combinator-square</div>
-    <div><i class="fa fa-tencent-weibo"></i>fa-tencent-weibo</div>
-    <div><i class="fa fa-qq"></i>fa-qq</div>
-    <div><i class="fa fa-wechat"></i>fa-wechat</div>
-    <div><i class="fa fa-send"></i>fa-send</div>
-    <div><i class="fa fa-send-o"></i>fa-send-o</div>
-    <div><i class="fa fa-history"></i>fa-history</div>
-    <div><i class="fa fa-circle-thin"></i>fa-circle-thin</div>
-    <div><i class="fa fa-header"></i>fa-header</div>
-    <div><i class="fa fa-paragraph"></i>fa-paragraph</div>
-    <div><i class="fa fa-sliders"></i>fa-sliders</div>
-    <div><i class="fa fa-share-alt"></i>fa-share-alt</div>
-    <div><i class="fa fa-share-alt-square"></i>fa-share-alt-square</div>
-    <div><i class="fa fa-bomb"></i>fa-bomb</div>
-    <div><i class="fa fa-soccer-ball-o"></i>fa-soccer-ball-o</div>
-    <div><i class="fa fa-tty"></i>fa-tty</div>
-    <div><i class="fa fa-binoculars"></i>fa-binoculars</div>
-    <div><i class="fa fa-plug"></i>fa-plug</div>
-    <div><i class="fa fa-slideshare"></i>fa-slideshare</div>
-    <div><i class="fa fa-twitch"></i>fa-twitch</div>
-    <div><i class="fa fa-yelp"></i>fa-yelp</div>
-    <div><i class="fa fa-newspaper-o"></i>fa-newspaper-o</div>
-    <div><i class="fa fa-wifi"></i>fa-wifi</div>
-    <div><i class="fa fa-calculator"></i>fa-calculator</div>
-    <div><i class="fa fa-paypal"></i>fa-paypal</div>
-    <div><i class="fa fa-google-wallet"></i>fa-google-wallet</div>
-    <div><i class="fa fa-cc-visa"></i>fa-cc-visa</div>
-    <div><i class="fa fa-cc-mastercard"></i>fa-cc-mastercard</div>
-    <div><i class="fa fa-cc-discover"></i>fa-cc-discover</div>
-    <div><i class="fa fa-cc-amex"></i>fa-cc-amex</div>
-    <div><i class="fa fa-cc-paypal"></i>fa-cc-paypal</div>
-    <div><i class="fa fa-cc-stripe"></i>fa-cc-stripe</div>
-    <div><i class="fa fa-bell-slash"></i>fa-bell-slash</div>
-    <div><i class="fa fa-bell-slash-o"></i>fa-bell-slash-o</div>
-    <div><i class="fa fa-trash"></i>fa-trash</div>
-    <div><i class="fa fa-copyright"></i>fa-copyright</div>
-    <div><i class="fa fa-at"></i>fa-at</div>
-    <div><i class="fa fa-eyedropper"></i>fa-eyedropper</div>
-    <div><i class="fa fa-paint-brush"></i>fa-paint-brush</div>
-    <div><i class="fa fa-birthday-cake"></i>fa-birthday-cake</div>
-    <div><i class="fa fa-area-chart"></i>fa-area-chart</div>
-    <div><i class="fa fa-pie-chart"></i>fa-pie-chart</div>
-    <div><i class="fa fa-line-chart"></i>fa-line-chart</div>
-    <div><i class="fa fa-lastfm"></i>fa-lastfm</div>
-    <div><i class="fa fa-lastfm-square"></i>fa-lastfm-square</div>
-    <div><i class="fa fa-toggle-off"></i>fa-toggle-off</div>
-    <div><i class="fa fa-toggle-on"></i>fa-toggle-on</div>
-    <div><i class="fa fa-bicycle"></i>fa-bicycle</div>
-    <div><i class="fa fa-bus"></i>fa-bus</div>
-    <div><i class="fa fa-ioxhost"></i>fa-ioxhost</div>
-    <div><i class="fa fa-angellist"></i>fa-angellist</div>
-    <div><i class="fa fa-cc"></i>fa-cc</div>
-    <div><i class="fa fa-shekel"></i>fa-shekel</div>
-    <div><i class="fa fa-meanpath"></i>fa-meanpath</div>
-    <div><i class="fa fa-buysellads"></i>fa-buysellads</div>
-    <div><i class="fa fa-connectdevelop"></i>fa-connectdevelop</div>
-    <div><i class="fa fa-dashcube"></i>fa-dashcube</div>
-    <div><i class="fa fa-forumbee"></i>fa-forumbee</div>
-    <div><i class="fa fa-leanpub"></i>fa-leanpub</div>
-    <div><i class="fa fa-sellsy"></i>fa-sellsy</div>
-    <div><i class="fa fa-shirtsinbulk"></i>fa-shirtsinbulk</div>
-    <div><i class="fa fa-simplybuilt"></i>fa-simplybuilt</div>
-    <div><i class="fa fa-skyatlas"></i>fa-skyatlas</div>
-    <div><i class="fa fa-cart-plus"></i>fa-cart-plus</div>
-    <div><i class="fa fa-cart-arrow-down"></i>fa-cart-arrow-down</div>
-    <div><i class="fa fa-diamond"></i>fa-diamond</div>
-    <div><i class="fa fa-ship"></i>fa-ship</div>
-    <div><i class="fa fa-user-secret"></i>fa-user-secret</div>
-    <div><i class="fa fa-motorcycle"></i>fa-motorcycle</div>
-    <div><i class="fa fa-street-view"></i>fa-street-view</div>
-    <div><i class="fa fa-heartbeat"></i>fa-heartbeat</div>
-    <div><i class="fa fa-venus"></i>fa-venus</div>
-    <div><i class="fa fa-mars"></i>fa-mars</div>
-    <div><i class="fa fa-mercury"></i>fa-mercury</div>
-    <div><i class="fa fa-intersex"></i>fa-intersex</div>
-    <div><i class="fa fa-transgender-alt"></i>fa-transgender-alt</div>
-    <div><i class="fa fa-venus-double"></i>fa-venus-double</div>
-    <div><i class="fa fa-mars-double"></i>fa-mars-double</div>
-    <div><i class="fa fa-venus-mars"></i>fa-venus-mars</div>
-    <div><i class="fa fa-mars-stroke"></i>fa-mars-stroke</div>
-    <div><i class="fa fa-mars-stroke-v"></i>fa-mars-stroke-v</div>
-    <div><i class="fa fa-mars-stroke-h"></i>fa-mars-stroke-h</div>
-    <div><i class="fa fa-neuter"></i>fa-neuter</div>
-    <div><i class="fa fa-genderless"></i>fa-genderless</div>
-    <div><i class="fa fa-facebook-official"></i>fa-facebook-official</div>
-    <div><i class="fa fa-pinterest-p"></i>fa-pinterest-p</div>
-    <div><i class="fa fa-whatsapp"></i>fa-whatsapp</div>
-    <div><i class="fa fa-server"></i>fa-server</div>
-    <div><i class="fa fa-user-plus"></i>fa-user-plus</div>
-    <div><i class="fa fa-user-times"></i>fa-user-times</div>
-    <div><i class="fa fa-hotel"></i>fa-hotel</div>
-    <div><i class="fa fa-viacoin"></i>fa-viacoin</div>
-    <div><i class="fa fa-train"></i>fa-train</div>
-    <div><i class="fa fa-subway"></i>fa-subway</div>
-    <div><i class="fa fa-medium"></i>fa-medium</div>
-    <div><i class="fa fa-yc"></i>fa-yc</div>
-    <div><i class="fa fa-optin-monster"></i>fa-optin-monster</div>
-    <div><i class="fa fa-opencart"></i>fa-opencart</div>
-    <div><i class="fa fa-expeditedssl"></i>fa-expeditedssl</div>
-    <div><i class="fa fa-battery-4"></i>fa-battery-4</div>
-    <div><i class="fa fa-battery-3"></i>fa-battery-3</div>
-    <div><i class="fa fa-battery-2"></i>fa-battery-2</div>
-    <div><i class="fa fa-battery-1"></i>fa-battery-1</div>
-    <div><i class="fa fa-battery-0"></i>fa-battery-0</div>
-    <div><i class="fa fa-mouse-pointer"></i>fa-mouse-pointer</div>
-    <div><i class="fa fa-i-cursor"></i>fa-i-cursor</div>
-    <div><i class="fa fa-object-group"></i>fa-object-group</div>
-    <div><i class="fa fa-object-ungroup"></i>fa-object-ungroup</div>
-    <div><i class="fa fa-sticky-note"></i>fa-sticky-note</div>
-    <div><i class="fa fa-sticky-note-o"></i>fa-sticky-note-o</div>
-    <div><i class="fa fa-cc-jcb"></i>fa-cc-jcb</div>
-    <div><i class="fa fa-cc-diners-club"></i>fa-cc-diners-club</div>
-    <div><i class="fa fa-clone"></i>fa-clone</div>
-    <div><i class="fa fa-balance-scale"></i>fa-balance-scale</div>
-    <div><i class="fa fa-hourglass-o"></i>fa-hourglass-o</div>
-    <div><i class="fa fa-hourglass-1"></i>fa-hourglass-1</div>
-    <div><i class="fa fa-hourglass-2"></i>fa-hourglass-2</div>
-    <div><i class="fa fa-hourglass-3"></i>fa-hourglass-3</div>
-    <div><i class="fa fa-hourglass"></i>fa-hourglass</div>
-    <div><i class="fa fa-hand-grab-o"></i>fa-hand-grab-o</div>
-    <div><i class="fa fa-hand-stop-o"></i>fa-hand-stop-o</div>
-    <div><i class="fa fa-hand-scissors-o"></i>fa-hand-scissors-o</div>
-    <div><i class="fa fa-hand-lizard-o"></i>fa-hand-lizard-o</div>
-    <div><i class="fa fa-hand-spock-o"></i>fa-hand-spock-o</div>
-    <div><i class="fa fa-hand-pointer-o"></i>fa-hand-pointer-o</div>
-    <div><i class="fa fa-hand-peace-o"></i>fa-hand-peace-o</div>
-    <div><i class="fa fa-trademark"></i>fa-trademark</div>
-    <div><i class="fa fa-registered"></i>fa-registered</div>
-    <div><i class="fa fa-creative-commons"></i>fa-creative-commons</div>
-    <div><i class="fa fa-gg"></i>fa-gg</div>
-    <div><i class="fa fa-gg-circle"></i>fa-gg-circle</div>
-    <div><i class="fa fa-tripadvisor"></i>fa-tripadvisor</div>
-    <div><i class="fa fa-odnoklassniki"></i>fa-odnoklassniki</div>
-    <div><i class="fa fa-odnoklassniki-square"></i>fa-odnoklassniki-square</div>
-    <div><i class="fa fa-get-pocket"></i>fa-get-pocket</div>
-    <div><i class="fa fa-wikipedia-w"></i>fa-wikipedia-w</div>
-    <div><i class="fa fa-safari"></i>fa-safari</div>
-    <div><i class="fa fa-chrome"></i>fa-chrome</div>
-    <div><i class="fa fa-firefox"></i>fa-firefox</div>
-    <div><i class="fa fa-opera"></i>fa-opera</div>
-    <div><i class="fa fa-internet-explorer"></i>fa-internet-explorer</div>
-    <div><i class="fa fa-tv"></i>fa-tv</div>
-    <div><i class="fa fa-contao"></i>fa-contao</div>
-    <div><i class="fa fa-500px"></i>fa-500px</div>
-    <div><i class="fa fa-amazon"></i>fa-amazon</div>
-    <div><i class="fa fa-calendar-plus-o"></i>fa-calendar-plus-o</div>
-    <div><i class="fa fa-calendar-minus-o"></i>fa-calendar-minus-o</div>
-    <div><i class="fa fa-calendar-times-o"></i>fa-calendar-times-o</div>
-    <div><i class="fa fa-calendar-check-o"></i>fa-calendar-check-o</div>
-    <div><i class="fa fa-industry"></i>fa-industry</div>
-    <div><i class="fa fa-map-pin"></i>fa-map-pin</div>
-    <div><i class="fa fa-map-signs"></i>fa-map-signs</div>
-    <div><i class="fa fa-map-o"></i>fa-map-o</div>
-    <div><i class="fa fa-map"></i>fa-map</div>
-    <div><i class="fa fa-commenting"></i>fa-commenting</div>
-    <div><i class="fa fa-commenting-o"></i>fa-commenting-o</div>
-    <div><i class="fa fa-houzz"></i>fa-houzz</div>
-    <div><i class="fa fa-vimeo"></i>fa-vimeo</div>
-    <div><i class="fa fa-black-tie"></i>fa-black-tie</div>
-    <div><i class="fa fa-fonticons"></i>fa-fonticons</div>
-    <div><i class="fa fa-reddit-alien"></i>fa-reddit-alien</div>
-    <div><i class="fa fa-edge"></i>fa-edge</div>
-    <div><i class="fa fa-credit-card-alt"></i>fa-credit-card-alt</div>
-    <div><i class="fa fa-codiepie"></i>fa-codiepie</div>
-    <div><i class="fa fa-modx"></i>fa-modx</div>
-    <div><i class="fa fa-fort-awesome"></i>fa-fort-awesome</div>
-    <div><i class="fa fa-usb"></i>fa-usb</div>
-    <div><i class="fa fa-product-hunt"></i>fa-product-hunt</div>
-    <div><i class="fa fa-mixcloud"></i>fa-mixcloud</div>
-    <div><i class="fa fa-scribd"></i>fa-scribd</div>
-    <div><i class="fa fa-pause-circle"></i>fa-pause-circle</div>
-    <div><i class="fa fa-pause-circle-o"></i>fa-pause-circle-o</div>
-    <div><i class="fa fa-stop-circle"></i>fa-stop-circle</div>
-    <div><i class="fa fa-stop-circle-o"></i>fa-stop-circle-o</div>
-    <div><i class="fa fa-shopping-bag"></i>fa-shopping-bag</div>
-    <div><i class="fa fa-shopping-basket"></i>fa-shopping-basket</div>
-    <div><i class="fa fa-hashtag"></i>fa-hashtag</div>
-    <div><i class="fa fa-bluetooth"></i>fa-bluetooth</div>
-    <div><i class="fa fa-bluetooth-b"></i>fa-bluetooth-b</div>
-    <div><i class="fa fa-percent"></i>fa-percent</div>
-    <div><i class="fa fa-gitlab"></i>fa-gitlab</div>
-    <div><i class="fa fa-wpbeginner"></i>fa-wpbeginner</div>
-    <div><i class="fa fa-wpforms"></i>fa-wpforms</div>
-    <div><i class="fa fa-envira"></i>fa-envira</div>
-    <div><i class="fa fa-universal-access"></i>fa-universal-access</div>
-    <div><i class="fa fa-wheelchair-alt"></i>fa-wheelchair-alt</div>
-    <div><i class="fa fa-question-circle-o"></i>fa-question-circle-o</div>
-    <div><i class="fa fa-blind"></i>fa-blind</div>
-    <div><i class="fa fa-audio-description"></i>fa-audio-description</div>
-    <div><i class="fa fa-volume-control-phone"></i>fa-volume-control-phone</div>
-    <div><i class="fa fa-braille"></i>fa-braille</div>
-    <div><i class="fa fa-assistive-listening-systems"></i>fa-assistive-listening-systems</div>
-    <div><i class="fa fa-asl-interpreting"></i>fa-asl-interpreting</div>
-    <div><i class="fa fa-deafness"></i>fa-deafness</div>
-    <div><i class="fa fa-glide"></i>fa-glide</div>
-    <div><i class="fa fa-glide-g"></i>fa-glide-g</div>
-    <div><i class="fa fa-signing"></i>fa-signing</div>
-    <div><i class="fa fa-low-vision"></i>fa-low-vision</div>
-    <div><i class="fa fa-viadeo"></i>fa-viadeo</div>
-    <div><i class="fa fa-viadeo-square"></i>fa-viadeo-square</div>
-    <div><i class="fa fa-snapchat"></i>fa-snapchat</div>
-    <div><i class="fa fa-snapchat-ghost"></i>fa-snapchat-ghost</div>
-    <div><i class="fa fa-snapchat-square"></i>fa-snapchat-square</div>
-    <div><i class="fa fa-pied-piper"></i>fa-pied-piper</div>
-    <div><i class="fa fa-first-order"></i>fa-first-order</div>
-    <div><i class="fa fa-yoast"></i>fa-yoast</div>
-    <div><i class="fa fa-themeisle"></i>fa-themeisle</div>
+    <div id="color">
+        <div>
+            <svg id='colormap' viewBox="0 0 236 200">
+                <path fill='#036' d='M63,0,72,4,72,15,63,19,54,15,54,4' onclick='cc("#036",-200,54)'/>
+                <path fill='#369' d='M81,0,90,4,90,15,81,19,72,15,72,4' onclick='cc("#369",-200,72)'/>
+                <path fill='#36C' d='M99,0,108,4,108,15,99,19,90,15,90,4' onclick='cc("#36C",-200,90)'/>
+                <path fill='#039' d='M117,0,126,4,126,15,117,19,108,15,108,4' onclick='cc("#039",-200,108)'/>
+                <path fill='#009' d='M135,0,144,4,144,15,135,19,126,15,126,4' onclick='cc("#009",-200,126)'/>
+                <path fill='#00C' d='M153,0,162,4,162,15,153,19,144,15,144,4' onclick='cc("#00C",-200,144)'/>
+                <path fill='#006' d='M171,0,180,4,180,15,171,19,162,15,162,4' onclick='cc("#006",-200,162)'/>
+                <path fill='#066' d='M54,15,63,19,63,30,54,34,45,30,45,19' onclick='cc("#066",-185,45)'/>
+                <path fill='#069' d='M72,15,81,19,81,30,72,34,63,30,63,19' onclick='cc("#069",-185,63)'/>
+                <path fill='#09C' d='M90,15,99,19,99,30,90,34,81,30,81,19' onclick='cc("#09C",-185,81)'/>
+                <path fill='#06C' d='M108,15,117,19,117,30,108,34,99,30,99,19' onclick='cc("#06C",-185,99)'/>
+                <path fill='#03C' d='M126,15,135,19,135,30,126,34,117,30,117,19' onclick='cc("#03C",-185,117)'/>
+                <path fill='#00F' d='M144,15,153,19,153,30,144,34,135,30,135,19' onclick='cc("#00F",-185,135)'/>
+                <path fill='#33F' d='M162,15,171,19,171,30,162,34,153,30,153,19' onclick='cc("#33F",-185,153)'/>
+                <path fill='#339' d='M180,15,189,19,189,30,180,34,171,30,171,19' onclick='cc("#339",-185,171)'/>
+                <path fill='#699' d='M45,30,54,34,54,45,45,49,36,45,36,34' onclick='cc("#699",-170,36)'/>
+                <path fill='#099' d='M63,30,72,34,72,45,63,49,54,45,54,34' onclick='cc("#099",-170,54)'/>
+                <path fill='#3CC' d='M81,30,90,34,90,45,81,49,72,45,72,34' onclick='cc("#3CC",-170,72)'/>
+                <path fill='#0CF' d='M99,30,108,34,108,45,99,49,90,45,90,34' onclick='cc("#0CF",-170,90)'/>
+                <path fill='#09F' d='M117,30,126,34,126,45,117,49,108,45,108,34' onclick='cc("#09F",-170,108)'/>
+                <path fill='#06F' d='M135,30,144,34,144,45,135,49,126,45,126,34' onclick='cc("#06F",-170,126)'/>
+                <path fill='#36F' d='M153,30,162,34,162,45,153,49,144,45,144,34' onclick='cc("#36F",-170,144)'/>
+                <path fill='#33C' d='M171,30,180,34,180,45,171,49,162,45,162,34' onclick='cc("#33C",-170,162)'/>
+                <path fill='#669' d='M189,30,198,34,198,45,189,49,180,45,180,34' onclick='cc("#669",-170,180)'/>
+                <path fill='#396' d='M36,45,45,49,45,60,36,64,27,60,27,49' onclick='cc("#396",-155,27)'/>
+                <path fill='#0C9' d='M54,45,63,49,63,60,54,64,45,60,45,49' onclick='cc("#0C9",-155,45)'/>
+                <path fill='#0FC' d='M72,45,81,49,81,60,72,64,63,60,63,49' onclick='cc("#0FC",-155,63)'/>
+                <path fill='#0FF' d='M90,45,99,49,99,60,90,64,81,60,81,49' onclick='cc("#0FF",-155,81)'/>
+                <path fill='#3CF' d='M108,45,117,49,117,60,108,64,99,60,99,49' onclick='cc("#3CF",-155,99)'/>
+                <path fill='#39F' d='M126,45,135,49,135,60,126,64,117,60,117,49' onclick='cc("#39F",-155,117)'/>
+                <path fill='#69F' d='M144,45,153,49,153,60,144,64,135,60,135,49' onclick='cc("#69F",-155,135)'/>
+                <path fill='#66F' d='M162,45,171,49,171,60,162,64,153,60,153,49' onclick='cc("#66F",-155,153)'/>
+                <path fill='#60F' d='M180,45,189,49,189,60,180,64,171,60,171,49' onclick='cc("#60F",-155,171)'/>
+                <path fill='#60C' d='M198,45,207,49,207,60,198,64,189,60,189,49' onclick='cc("#60C",-155,189)'/>
+                <path fill='#393' d='M27,60,36,64,36,75,27,79,18,75,18,64' onclick='cc("#393",-140,18)'/>
+                <path fill='#0C6' d='M45,60,54,64,54,75,45,79,36,75,36,64' onclick='cc("#0C6",-140,36)'/>
+                <path fill='#0F9' d='M63,60,72,64,72,75,63,79,54,75,54,64' onclick='cc("#0F9",-140,54)'/>
+                <path fill='#6FC' d='M81,60,90,64,90,75,81,79,72,75,72,64' onclick='cc("#6FC",-140,72)'/>
+                <path fill='#6FF' d='M99,60,108,64,108,75,99,79,90,75,90,64' onclick='cc("#6FF",-140,90)'/>
+                <path fill='#6CF' d='M117,60,126,64,126,75,117,79,108,75,108,64' onclick='cc("#6CF",-140,108)'/>
+                <path fill='#9CF' d='M135,60,144,64,144,75,135,79,126,75,126,64' onclick='cc("#9CF",-140,126)'/>
+                <path fill='#99F' d='M153,60,162,64,162,75,153,79,144,75,144,64' onclick='cc("#99F",-140,144)'/>
+                <path fill='#96F' d='M171,60,180,64,180,75,171,79,162,75,162,64' onclick='cc("#96F",-140,162)'/>
+                <path fill='#93F' d='M189,60,198,64,198,75,189,79,180,75,180,64' onclick='cc("#93F",-140,180)'/>
+                <path fill='#90F' d='M207,60,216,64,216,75,207,79,198,75,198,64' onclick='cc("#90F",-140,198)'/>
+                <path fill='#060' d='M18,75,27,79,27,90,18,94,9,90,9,79' onclick='cc("#060",-125,9)'/>
+                <path fill='#0C0' d='M36,75,45,79,45,90,36,94,27,90,27,79' onclick='cc("#0C0",-125,27)'/>
+                <path fill='#0F0' d='M54,75,63,79,63,90,54,94,45,90,45,79' onclick='cc("#0F0",-125,45)'/>
+                <path fill='#6F9' d='M72,75,81,79,81,90,72,94,63,90,63,79' onclick='cc("#6F9",-125,63)'/>
+                <path fill='#9FC' d='M90,75,99,79,99,90,90,94,81,90,81,79' onclick='cc("#9FC",-125,81)'/>
+                <path fill='#CFF' d='M108,75,117,79,117,90,108,94,99,90,99,79' onclick='cc("#CFF",-125,99)'/>
+                <path fill='#CCF' d='M126,75,135,79,135,90,126,94,117,90,117,79' onclick='cc("#CCF",-125,117)'/>
+                <path fill='#C9F' d='M144,75,153,79,153,90,144,94,135,90,135,79' onclick='cc("#C9F",-125,135)'/>
+                <path fill='#C6F' d='M162,75,171,79,171,90,162,94,153,90,153,79' onclick='cc("#C6F",-125,153)'/>
+                <path fill='#C3F' d='M180,75,189,79,189,90,180,94,171,90,171,79' onclick='cc("#C3F",-125,171)'/>
+                <path fill='#C0F' d='M198,75,207,79,207,90,198,94,189,90,189,79' onclick='cc("#C0F",-125,189)'/>
+                <path fill='#90C' d='M216,75,225,79,225,90,216,94,207,90,207,79' onclick='cc("#90C",-125,207)'/>
+                <path fill='#030' d='M9,90,18,94,18,105,9,109,0,105,0,94' onclick='cc("#030",-110,0)'/>
+                <path fill='#093' d='M27,90,36,94,36,105,27,109,18,105,18,94' onclick='cc("#093",-110,18)'/>
+                <path fill='#3C3' d='M45,90,54,94,54,105,45,109,36,105,36,94' onclick='cc("#3C3",-110,36)'/>
+                <path fill='#6F6' d='M63,90,72,94,72,105,63,109,54,105,54,94' onclick='cc("#6F6",-110,54)'/>
+                <path fill='#9F9' d='M81,90,90,94,90,105,81,109,72,105,72,94' onclick='cc("#9F9",-110,72)'/>
+                <path fill='#CFC' d='M99,90,108,94,108,105,99,109,90,105,90,94' onclick='cc("#CFC",-110,90)'/>
+                <path fill='#FFF' d='M117,90,126,94,126,105,117,109,108,105,108,94' onclick='cc("#FFF",-110,108)'/>
+                <path fill='#FCF' d='M135,90,144,94,144,105,135,109,126,105,126,94' onclick='cc("#FCF",-110,126)'/>
+                <path fill='#F9F' d='M153,90,162,94,162,105,153,109,144,105,144,94' onclick='cc("#F9F",-110,144)'/>
+                <path fill='#F6F' d='M171,90,180,94,180,105,171,109,162,105,162,94' onclick='cc("#F6F",-110,162)'/>
+                <path fill='#F0F' d='M189,90,198,94,198,105,189,109,180,105,180,94' onclick='cc("#F0F",-110,180)'/>
+                <path fill='#C0C' d='M207,90,216,94,216,105,207,109,198,105,198,94' onclick='cc("#C0C",-110,198)'/>
+                <path fill='#606' d='M225,90,234,94,234,105,225,109,216,105,216,94' onclick='cc("#606",-110,216)'/>
+                <path fill='#360' d='M18,105,27,109,27,120,18,124,9,120,9,109' onclick='cc("#360",-95,9)'/>
+                <path fill='#090' d='M36,105,45,109,45,120,36,124,27,120,27,109' onclick='cc("#090",-95,27)'/>
+                <path fill='#6F3' d='M54,105,63,109,63,120,54,124,45,120,45,109' onclick='cc("#6F3",-95,45)'/>
+                <path fill='#9F6' d='M72,105,81,109,81,120,72,124,63,120,63,109' onclick='cc("#9F6",-95,63)'/>
+                <path fill='#CF9' d='M90,105,99,109,99,120,90,124,81,120,81,109' onclick='cc("#CF9",-95,81)'/>
+                <path fill='#FFC' d='M108,105,117,109,117,120,108,124,99,120,99,109' onclick='cc("#FFC",-95,99)'/>
+                <path fill='#FCC' d='M126,105,135,109,135,120,126,124,117,120,117,109' onclick='cc("#FCC",-95,117)'/>
+                <path fill='#F9C' d='M144,105,153,109,153,120,144,124,135,120,135,109' onclick='cc("#F9C",-95,135)'/>
+                <path fill='#F6C' d='M162,105,171,109,171,120,162,124,153,120,153,109' onclick='cc("#F6C",-95,153)'/>
+                <path fill='#F3C' d='M180,105,189,109,189,120,180,124,171,120,171,109' onclick='cc("#F3C",-95,171)'/>
+                <path fill='#C09' d='M198,105,207,109,207,120,198,124,189,120,189,109' onclick='cc("#C09",-95,189)'/>
+                <path fill='#939' d='M216,105,225,109,225,120,216,124,207,120,207,109' onclick='cc("#939",-95,207)'/>
+                <path fill='#330' d='M27,120,36,124,36,135,27,139,18,135,18,124' onclick='cc("#330",-80,18)'/>
+                <path fill='#690' d='M45,120,54,124,54,135,45,139,36,135,36,124' onclick='cc("#690",-80,36)'/>
+                <path fill='#9F3' d='M63,120,72,124,72,135,63,139,54,135,54,124' onclick='cc("#9F3",-80,54)'/>
+                <path fill='#CF6' d='M81,120,90,124,90,135,81,139,72,135,72,124' onclick='cc("#CF6",-80,72)'/>
+                <path fill='#FF9' d='M99,120,108,124,108,135,99,139,90,135,90,124' onclick='cc("#FF9",-80,90)'/>
+                <path fill='#FC9' d='M117,120,126,124,126,135,117,139,108,135,108,124' onclick='cc("#FC9",-80,108)'/>
+                <path fill='#F99' d='M135,120,144,124,144,135,135,139,126,135,126,124' onclick='cc("#F99",-80,126)'/>
+                <path fill='#F69' d='M153,120,162,124,162,135,153,139,144,135,144,124' onclick='cc("#F69",-80,144)'/>
+                <path fill='#F39' d='M171,120,180,124,180,135,171,139,162,135,162,124' onclick='cc("#F39",-80,162)'/>
+                <path fill='#C39' d='M189,120,198,124,198,135,189,139,180,135,180,124' onclick='cc("#C39",-80,180)'/>
+                <path fill='#909' d='M207,120,216,124,216,135,207,139,198,135,198,124' onclick='cc("#909",-80,198)'/>
+                <path fill='#663' d='M36,135,45,139,45,150,36,154,27,150,27,139' onclick='cc("#663",-65,27)'/>
+                <path fill='#9C0' d='M54,135,63,139,63,150,54,154,45,150,45,139' onclick='cc("#9C0",-65,45)'/>
+                <path fill='#CF3' d='M72,135,81,139,81,150,72,154,63,150,63,139' onclick='cc("#CF3",-65,63)'/>
+                <path fill='#FF6' d='M90,135,99,139,99,150,90,154,81,150,81,139' onclick='cc("#FF6",-65,81)'/>
+                <path fill='#FC6' d='M108,135,117,139,117,150,108,154,99,150,99,139' onclick='cc("#FC6",-65,99)'/>
+                <path fill='#F96' d='M126,135,135,139,135,150,126,154,117,150,117,139' onclick='cc("#F96",-65,117)'/>
+                <path fill='#F66' d='M144,135,153,139,153,150,144,154,135,150,135,139' onclick='cc("#F66",-65,135)'/>
+                <path fill='#F06' d='M162,135,171,139,171,150,162,154,153,150,153,139' onclick='cc("#F06",-65,153)'/>
+                <path fill='#C69' d='M180,135,189,139,189,150,180,154,171,150,171,139' onclick='cc("#C69",-65,171)'/>
+                <path fill='#936' d='M198,135,207,139,207,150,198,154,189,150,189,139' onclick='cc("#936",-65,189)'/>
+                <path fill='#996' d='M45,150,54,154,54,165,45,169,36,165,36,154' onclick='cc("#996",-50,36)'/>
+                <path fill='#CC0' d='M63,150,72,154,72,165,63,169,54,165,54,154' onclick='cc("#CC0",-50,54)'/>
+                <path fill='#FF0' d='M81,150,90,154,90,165,81,169,72,165,72,154' onclick='cc("#FF0",-50,72)'/>
+                <path fill='#FC0' d='M99,150,108,154,108,165,99,169,90,165,90,154' onclick='cc("#FC0",-50,90)'/>
+                <path fill='#F93' d='M117,150,126,154,126,165,117,169,108,165,108,154' onclick='cc("#F93",-50,108)'/>
+                <path fill='#F60' d='M135,150,144,154,144,165,135,169,126,165,126,154' onclick='cc("#F60",-50,126)'/>
+                <path fill='#F50' d='M153,150,162,154,162,165,153,169,144,165,144,154' onclick='cc("#F55",-50,144)'/>
+                <path fill='#C06' d='M171,150,180,154,180,165,171,169,162,165,162,154' onclick='cc("#C06",-50,162)'/>
+                <path fill='#603' d='M189,150,198,154,198,165,189,169,180,165,180,154' onclick='cc("#603",-50,180)'/>
+                <path fill='#963' d='M54,165,63,169,63,180,54,184,45,180,45,169' onclick='cc("#963",-35,45)'/>
+                <path fill='#C90' d='M72,165,81,169,81,180,72,184,63,180,63,169' onclick='cc("#C90",-35,63)'/>
+                <path fill='#F90' d='M90,165,99,169,99,180,90,184,81,180,81,169' onclick='cc("#F90",-35,81)'/>
+                <path fill='#C60' d='M108,165,117,169,117,180,108,184,99,180,99,169' onclick='cc("#C60",-35,99)'/>
+                <path fill='#F30' d='M126,165,135,169,135,180,126,184,117,180,117,169' onclick='cc("#F30",-35,117)'/>
+                <path fill='#F00' d='M144,165,153,169,153,180,144,184,135,180,135,169' onclick='cc("#F00",-35,135)'/>
+                <path fill='#C00' d='M162,165,171,169,171,180,162,184,153,180,153,169' onclick='cc("#C00",-35,153)'/>
+                <path fill='#903' d='M180,165,189,169,189,180,180,184,171,180,171,169' onclick='cc("#903",-35,171)'/>
+                <path fill='#630' d='M63,180,72,184,72,195,63,199,54,195,54,184' onclick='cc("#630",-20,54)'/>
+                <path fill='#960' d='M81,180,90,184,90,195,81,199,72,195,72,184' onclick='cc("#960",-20,72)'/>
+                <path fill='#C30' d='M99,180,108,184,108,195,99,199,90,195,90,184' onclick='cc("#C30",-20,90)'/>
+                <path fill='#930' d='M117,180,126,184,126,195,117,199,108,195,108,184' onclick='cc("#930",-20,108)'/>
+                <path fill='#900' d='M135,180,144,184,144,195,135,199,126,195,126,184' onclick='cc("#900",-20,126)'/>
+                <path fill='#800' d='M153,180,162,184,162,195,153,199,144,195,144,184' onclick='cc("#800",-20,144)'/>
+                <path fill='#933' d='M171,180,180,184,180,195,171,199,162,195,162,184' onclick='cc("#933",-20,162)'/>
+            </svg>
+            <div>
+                <div id="enter"><input id="input" placeholder="color" spellcheck="false"><button onclick="cc(0,-1,-1)"></button></div>
+                <div id="selected"><p id="cnam"></p><p id="chex"></p><p id="crgb"></p><p id="chsl"></p></div>
+            </div>
+        </div>
+        <div id="lum"></div>
+        <div id="hue"></div>
+        <div id="hsl"></div>
+    </div>
+    <div id="icons">
+        <i class="fa-glass"></i>
+        <i class="fa-music"></i>
+        <i class="fa-search"></i>
+        <i class="fa-envelope-o"></i>
+        <i class="fa-heart"></i>
+        <i class="fa-star"></i>
+        <i class="fa-star-o"></i>
+        <i class="fa-user"></i>
+        <i class="fa-film"></i>
+        <i class="fa-th-large"></i>
+        <i class="fa-th"></i>
+        <i class="fa-th-list"></i>
+        <i class="fa-check"></i>
+        <i class="fa-remove"></i>
+        <i class="fa-search-plus"></i>
+        <i class="fa-search-minus"></i>
+        <i class="fa-power-off"></i>
+        <i class="fa-signal"></i>
+        <i class="fa-gear"></i>
+        <i class="fa-trash-o"></i>
+        <i class="fa-home"></i>
+        <i class="fa-file-o"></i>
+        <i class="fa-clock-o"></i>
+        <i class="fa-road"></i>
+        <i class="fa-download"></i>
+        <i class="fa-arrow-circle-o-down"></i>
+        <i class="fa-arrow-circle-o-up"></i>
+        <i class="fa-inbox"></i>
+        <i class="fa-play-circle-o"></i>
+        <i class="fa-rotate-right"></i>
+        <i class="fa-refresh"></i>
+        <i class="fa-list-alt"></i>
+        <i class="fa-lock"></i>
+        <i class="fa-flag"></i>
+        <i class="fa-headphones"></i>
+        <i class="fa-volume-off"></i>
+        <i class="fa-volume-down"></i>
+        <i class="fa-volume-up"></i>
+        <i class="fa-qrcode"></i>
+        <i class="fa-barcode"></i>
+        <i class="fa-tag"></i>
+        <i class="fa-tags"></i>
+        <i class="fa-book"></i>
+        <i class="fa-bookmark"></i>
+        <i class="fa-print"></i>
+        <i class="fa-camera"></i>
+        <i class="fa-font"></i>
+        <i class="fa-bold"></i>
+        <i class="fa-italic"></i>
+        <i class="fa-text-height"></i>
+        <i class="fa-text-width"></i>
+        <i class="fa-align-left"></i>
+        <i class="fa-align-center"></i>
+        <i class="fa-align-right"></i>
+        <i class="fa-align-justify"></i>
+        <i class="fa-list"></i>
+        <i class="fa-dedent"></i>
+        <i class="fa-indent"></i>
+        <i class="fa-video-camera"></i>
+        <i class="fa-photo"></i>
+        <i class="fa-pencil"></i>
+        <i class="fa-map-marker"></i>
+        <i class="fa-adjust"></i>
+        <i class="fa-tint"></i>
+        <i class="fa-edit"></i>
+        <i class="fa-share-square-o"></i>
+        <i class="fa-check-square-o"></i>
+        <i class="fa-arrows"></i>
+        <i class="fa-step-backward"></i>
+        <i class="fa-fast-backward"></i>
+        <i class="fa-backward"></i>
+        <i class="fa-play"></i>
+        <i class="fa-pause"></i>
+        <i class="fa-stop"></i>
+        <i class="fa-forward"></i>
+        <i class="fa-fast-forward"></i>
+        <i class="fa-step-forward"></i>
+        <i class="fa-eject"></i>
+        <i class="fa-chevron-left"></i>
+        <i class="fa-chevron-right"></i>
+        <i class="fa-plus-circle"></i>
+        <i class="fa-minus-circle"></i>
+        <i class="fa-times-circle"></i>
+        <i class="fa-check-circle"></i>
+        <i class="fa-question-circle"></i>
+        <i class="fa-info-circle"></i>
+        <i class="fa-crosshairs"></i>
+        <i class="fa-times-circle-o"></i>
+        <i class="fa-check-circle-o"></i>
+        <i class="fa-ban"></i>
+        <i class="fa-arrow-left"></i>
+        <i class="fa-arrow-right"></i>
+        <i class="fa-arrow-up"></i>
+        <i class="fa-arrow-down"></i>
+        <i class="fa-mail-forward"></i>
+        <i class="fa-expand"></i>
+        <i class="fa-compress"></i>
+        <i class="fa-plus"></i>
+        <i class="fa-minus"></i>
+        <i class="fa-asterisk"></i>
+        <i class="fa-exclamation-circle"></i>
+        <i class="fa-gift"></i>
+        <i class="fa-leaf"></i>
+        <i class="fa-fire"></i>
+        <i class="fa-eye"></i>
+        <i class="fa-eye-slash"></i>
+        <i class="fa-warning"></i>
+        <i class="fa-plane"></i>
+        <i class="fa-calendar"></i>
+        <i class="fa-random"></i>
+        <i class="fa-comment"></i>
+        <i class="fa-magnet"></i>
+        <i class="fa-chevron-up"></i>
+        <i class="fa-chevron-down"></i>
+        <i class="fa-retweet"></i>
+        <i class="fa-shopping-cart"></i>
+        <i class="fa-folder"></i>
+        <i class="fa-folder-open"></i>
+        <i class="fa-arrows-v"></i>
+        <i class="fa-arrows-h"></i>
+        <i class="fa-bar-chart-o"></i>
+        <i class="fa-twitter-square"></i>
+        <i class="fa-facebook-square"></i>
+        <i class="fa-camera-retro"></i>
+        <i class="fa-key"></i>
+        <i class="fa-gears"></i>
+        <i class="fa-comments"></i>
+        <i class="fa-thumbs-o-up"></i>
+        <i class="fa-thumbs-o-down"></i>
+        <i class="fa-star-half"></i>
+        <i class="fa-heart-o"></i>
+        <i class="fa-sign-out"></i>
+        <i class="fa-linkedin-square"></i>
+        <i class="fa-thumb-tack"></i>
+        <i class="fa-external-link"></i>
+        <i class="fa-sign-in"></i>
+        <i class="fa-trophy"></i>
+        <i class="fa-github-square"></i>
+        <i class="fa-upload"></i>
+        <i class="fa-lemon-o"></i>
+        <i class="fa-phone"></i>
+        <i class="fa-square-o"></i>
+        <i class="fa-bookmark-o"></i>
+        <i class="fa-phone-square"></i>
+        <i class="fa-twitter"></i>
+        <i class="fa-facebook-f"></i>
+        <i class="fa-github"></i>
+        <i class="fa-unlock"></i>
+        <i class="fa-credit-card"></i>
+        <i class="fa-feed"></i>
+        <i class="fa-hdd-o"></i>
+        <i class="fa-bullhorn"></i>
+        <i class="fa-bell"></i>
+        <i class="fa-certificate"></i>
+        <i class="fa-hand-o-right"></i>
+        <i class="fa-hand-o-left"></i>
+        <i class="fa-hand-o-up"></i>
+        <i class="fa-hand-o-down"></i>
+        <i class="fa-arrow-circle-left"></i>
+        <i class="fa-arrow-circle-right"></i>
+        <i class="fa-arrow-circle-up"></i>
+        <i class="fa-arrow-circle-down"></i>
+        <i class="fa-globe"></i>
+        <i class="fa-wrench"></i>
+        <i class="fa-tasks"></i>
+        <i class="fa-filter"></i>
+        <i class="fa-briefcase"></i>
+        <i class="fa-arrows-alt"></i>
+        <i class="fa-group"></i>
+        <i class="fa-chain"></i>
+        <i class="fa-cloud"></i>
+        <i class="fa-flask"></i>
+        <i class="fa-cut"></i>
+        <i class="fa-copy"></i>
+        <i class="fa-paperclip"></i>
+        <i class="fa-save"></i>
+        <i class="fa-square"></i>
+        <i class="fa-navicon"></i>
+        <i class="fa-list-ul"></i>
+        <i class="fa-list-ol"></i>
+        <i class="fa-strikethrough"></i>
+        <i class="fa-underline"></i>
+        <i class="fa-table"></i>
+        <i class="fa-magic"></i>
+        <i class="fa-truck"></i>
+        <i class="fa-pinterest"></i>
+        <i class="fa-pinterest-square"></i>
+        <i class="fa-google-plus-square"></i>
+        <i class="fa-google-plus"></i>
+        <i class="fa-money"></i>
+        <i class="fa-caret-down"></i>
+        <i class="fa-caret-up"></i>
+        <i class="fa-caret-left"></i>
+        <i class="fa-caret-right"></i>
+        <i class="fa-columns"></i>
+        <i class="fa-unsorted"></i>
+        <i class="fa-sort-down"></i>
+        <i class="fa-sort-up"></i>
+        <i class="fa-envelope"></i>
+        <i class="fa-linkedin"></i>
+        <i class="fa-rotate-left"></i>
+        <i class="fa-legal"></i>
+        <i class="fa-dashboard"></i>
+        <i class="fa-comment-o"></i>
+        <i class="fa-comments-o"></i>
+        <i class="fa-flash"></i>
+        <i class="fa-sitemap"></i>
+        <i class="fa-umbrella"></i>
+        <i class="fa-paste"></i>
+        <i class="fa-lightbulb-o"></i>
+        <i class="fa-exchange"></i>
+        <i class="fa-cloud-download"></i>
+        <i class="fa-cloud-upload"></i>
+        <i class="fa-user-md"></i>
+        <i class="fa-stethoscope"></i>
+        <i class="fa-suitcase"></i>
+        <i class="fa-bell-o"></i>
+        <i class="fa-coffee"></i>
+        <i class="fa-cutlery"></i>
+        <i class="fa-file-text-o"></i>
+        <i class="fa-building-o"></i>
+        <i class="fa-hospital-o"></i>
+        <i class="fa-ambulance"></i>
+        <i class="fa-medkit"></i>
+        <i class="fa-fighter-jet"></i>
+        <i class="fa-beer"></i>
+        <i class="fa-h-square"></i>
+        <i class="fa-plus-square"></i>
+        <i class="fa-angle-double-left"></i>
+        <i class="fa-angle-double-right"></i>
+        <i class="fa-angle-double-up"></i>
+        <i class="fa-angle-double-down"></i>
+        <i class="fa-angle-left"></i>
+        <i class="fa-angle-right"></i>
+        <i class="fa-angle-up"></i>
+        <i class="fa-angle-down"></i>
+        <i class="fa-desktop"></i>
+        <i class="fa-laptop"></i>
+        <i class="fa-tablet"></i>
+        <i class="fa-mobile-phone"></i>
+        <i class="fa-circle-o"></i>
+        <i class="fa-quote-left"></i>
+        <i class="fa-quote-right"></i>
+        <i class="fa-spinner"></i>
+        <i class="fa-circle"></i>
+        <i class="fa-mail-reply"></i>
+        <i class="fa-github-alt"></i>
+        <i class="fa-folder-o"></i>
+        <i class="fa-folder-open-o"></i>
+        <i class="fa-smile-o"></i>
+        <i class="fa-frown-o"></i>
+        <i class="fa-meh-o"></i>
+        <i class="fa-gamepad"></i>
+        <i class="fa-keyboard-o"></i>
+        <i class="fa-flag-o"></i>
+        <i class="fa-flag-checkered"></i>
+        <i class="fa-terminal"></i>
+        <i class="fa-code"></i>
+        <i class="fa-mail-reply-all"></i>
+        <i class="fa-star-half-empty"></i>
+        <i class="fa-location-arrow"></i>
+        <i class="fa-crop"></i>
+        <i class="fa-code-fork"></i>
+        <i class="fa-unlink"></i>
+        <i class="fa-question"></i>
+        <i class="fa-info"></i>
+        <i class="fa-exclamation"></i>
+        <i class="fa-superscript"></i>
+        <i class="fa-subscript"></i>
+        <i class="fa-eraser"></i>
+        <i class="fa-puzzle-piece"></i>
+        <i class="fa-microphone"></i>
+        <i class="fa-microphone-slash"></i>
+        <i class="fa-shield"></i>
+        <i class="fa-calendar-o"></i>
+        <i class="fa-fire-extinguisher"></i>
+        <i class="fa-rocket"></i>
+        <i class="fa-maxcdn"></i>
+        <i class="fa-chevron-circle-left"></i>
+        <i class="fa-chevron-circle-right"></i>
+        <i class="fa-chevron-circle-up"></i>
+        <i class="fa-chevron-circle-down"></i>
+        <i class="fa-html5"></i>
+        <i class="fa-css3"></i>
+        <i class="fa-anchor"></i>
+        <i class="fa-unlock-alt"></i>
+        <i class="fa-bullseye"></i>
+        <i class="fa-ellipsis-h"></i>
+        <i class="fa-ellipsis-v"></i>
+        <i class="fa-rss-square"></i>
+        <i class="fa-play-circle"></i>
+        <i class="fa-ticket"></i>
+        <i class="fa-minus-square"></i>
+        <i class="fa-minus-square-o"></i>
+        <i class="fa-level-up"></i>
+        <i class="fa-level-down"></i>
+        <i class="fa-check-square"></i>
+        <i class="fa-pencil-square"></i>
+        <i class="fa-external-link-square"></i>
+        <i class="fa-share-square"></i>
+        <i class="fa-compass"></i>
+        <i class="fa-toggle-down"></i>
+        <i class="fa-toggle-up"></i>
+        <i class="fa-toggle-right"></i>
+        <i class="fa-euro"></i>
+        <i class="fa-gbp"></i>
+        <i class="fa-dollar"></i>
+        <i class="fa-rupee"></i>
+        <i class="fa-cny"></i>
+        <i class="fa-ruble"></i>
+        <i class="fa-won"></i>
+        <i class="fa-bitcoin"></i>
+        <i class="fa-file"></i>
+        <i class="fa-file-text"></i>
+        <i class="fa-sort-alpha-asc"></i>
+        <i class="fa-sort-alpha-desc"></i>
+        <i class="fa-sort-amount-asc"></i>
+        <i class="fa-sort-amount-desc"></i>
+        <i class="fa-sort-numeric-asc"></i>
+        <i class="fa-sort-numeric-desc"></i>
+        <i class="fa-thumbs-up"></i>
+        <i class="fa-thumbs-down"></i>
+        <i class="fa-youtube-square"></i>
+        <i class="fa-youtube"></i>
+        <i class="fa-xing"></i>
+        <i class="fa-xing-square"></i>
+        <i class="fa-youtube-play"></i>
+        <i class="fa-dropbox"></i>
+        <i class="fa-stack-overflow"></i>
+        <i class="fa-instagram"></i>
+        <i class="fa-flickr"></i>
+        <i class="fa-adn"></i>
+        <i class="fa-bitbucket"></i>
+        <i class="fa-bitbucket-square"></i>
+        <i class="fa-tumblr"></i>
+        <i class="fa-tumblr-square"></i>
+        <i class="fa-long-arrow-down"></i>
+        <i class="fa-long-arrow-up"></i>
+        <i class="fa-long-arrow-left"></i>
+        <i class="fa-long-arrow-right"></i>
+        <i class="fa-apple"></i>
+        <i class="fa-windows"></i>
+        <i class="fa-android"></i>
+        <i class="fa-linux"></i>
+        <i class="fa-dribbble"></i>
+        <i class="fa-skype"></i>
+        <i class="fa-foursquare"></i>
+        <i class="fa-trello"></i>
+        <i class="fa-female"></i>
+        <i class="fa-male"></i>
+        <i class="fa-gittip"></i>
+        <i class="fa-sun-o"></i>
+        <i class="fa-moon-o"></i>
+        <i class="fa-archive"></i>
+        <i class="fa-bug"></i>
+        <i class="fa-vk"></i>
+        <i class="fa-weibo"></i>
+        <i class="fa-renren"></i>
+        <i class="fa-pagelines"></i>
+        <i class="fa-stack-exchange"></i>
+        <i class="fa-arrow-circle-o-right"></i>
+        <i class="fa-arrow-circle-o-left"></i>
+        <i class="fa-toggle-left"></i>
+        <i class="fa-dot-circle-o"></i>
+        <i class="fa-wheelchair"></i>
+        <i class="fa-vimeo-square"></i>
+        <i class="fa-turkish-lira"></i>
+        <i class="fa-plus-square-o"></i>
+        <i class="fa-space-shuttle"></i>
+        <i class="fa-slack"></i>
+        <i class="fa-envelope-square"></i>
+        <i class="fa-wordpress"></i>
+        <i class="fa-openid"></i>
+        <i class="fa-institution"></i>
+        <i class="fa-mortar-board"></i>
+        <i class="fa-yahoo"></i>
+        <i class="fa-google"></i>
+        <i class="fa-reddit"></i>
+        <i class="fa-reddit-square"></i>
+        <i class="fa-stumbleupon-circle"></i>
+        <i class="fa-stumbleupon"></i>
+        <i class="fa-delicious"></i>
+        <i class="fa-digg"></i>
+        <i class="fa-pied-piper-pp"></i>
+        <i class="fa-pied-piper-alt"></i>
+        <i class="fa-drupal"></i>
+        <i class="fa-joomla"></i>
+        <i class="fa-language"></i>
+        <i class="fa-fax"></i>
+        <i class="fa-building"></i>
+        <i class="fa-child"></i>
+        <i class="fa-paw"></i>
+        <i class="fa-spoon"></i>
+        <i class="fa-cube"></i>
+        <i class="fa-cubes"></i>
+        <i class="fa-behance"></i>
+        <i class="fa-behance-square"></i>
+        <i class="fa-steam"></i>
+        <i class="fa-steam-square"></i>
+        <i class="fa-recycle"></i>
+        <i class="fa-automobile"></i>
+        <i class="fa-cab"></i>
+        <i class="fa-tree"></i>
+        <i class="fa-spotify"></i>
+        <i class="fa-deviantart"></i>
+        <i class="fa-soundcloud"></i>
+        <i class="fa-database"></i>
+        <i class="fa-file-pdf-o"></i>
+        <i class="fa-file-word-o"></i>
+        <i class="fa-file-excel-o"></i>
+        <i class="fa-file-powerpoint-o"></i>
+        <i class="fa-file-photo-o"></i>
+        <i class="fa-file-zip-o"></i>
+        <i class="fa-file-sound-o"></i>
+        <i class="fa-file-movie-o"></i>
+        <i class="fa-file-code-o"></i>
+        <i class="fa-vine"></i>
+        <i class="fa-codepen"></i>
+        <i class="fa-jsfiddle"></i>
+        <i class="fa-life-bouy"></i>
+        <i class="fa-circle-o-notch"></i>
+        <i class="fa-ra"></i>
+        <i class="fa-ge"></i>
+        <i class="fa-git-square"></i>
+        <i class="fa-git"></i>
+        <i class="fa-y-combinator-square"></i>
+        <i class="fa-tencent-weibo"></i>
+        <i class="fa-qq"></i>
+        <i class="fa-wechat"></i>
+        <i class="fa-send"></i>
+        <i class="fa-send-o"></i>
+        <i class="fa-history"></i>
+        <i class="fa-circle-thin"></i>
+        <i class="fa-header"></i>
+        <i class="fa-paragraph"></i>
+        <i class="fa-sliders"></i>
+        <i class="fa-share-alt"></i>
+        <i class="fa-share-alt-square"></i>
+        <i class="fa-bomb"></i>
+        <i class="fa-soccer-ball-o"></i>
+        <i class="fa-tty"></i>
+        <i class="fa-binoculars"></i>
+        <i class="fa-plug"></i>
+        <i class="fa-slideshare"></i>
+        <i class="fa-twitch"></i>
+        <i class="fa-yelp"></i>
+        <i class="fa-newspaper-o"></i>
+        <i class="fa-wifi"></i>
+        <i class="fa-calculator"></i>
+        <i class="fa-paypal"></i>
+        <i class="fa-google-wallet"></i>
+        <i class="fa-cc-visa"></i>
+        <i class="fa-cc-mastercard"></i>
+        <i class="fa-cc-discover"></i>
+        <i class="fa-cc-amex"></i>
+        <i class="fa-cc-paypal"></i>
+        <i class="fa-cc-stripe"></i>
+        <i class="fa-bell-slash"></i>
+        <i class="fa-bell-slash-o"></i>
+        <i class="fa-trash"></i>
+        <i class="fa-copyright"></i>
+        <i class="fa-at"></i>
+        <i class="fa-eyedropper"></i>
+        <i class="fa-paint-brush"></i>
+        <i class="fa-birthday-cake"></i>
+        <i class="fa-area-chart"></i>
+        <i class="fa-pie-chart"></i>
+        <i class="fa-line-chart"></i>
+        <i class="fa-lastfm"></i>
+        <i class="fa-lastfm-square"></i>
+        <i class="fa-toggle-off"></i>
+        <i class="fa-toggle-on"></i>
+        <i class="fa-bicycle"></i>
+        <i class="fa-bus"></i>
+        <i class="fa-ioxhost"></i>
+        <i class="fa-angellist"></i>
+        <i class="fa-cc"></i>
+        <i class="fa-shekel"></i>
+        <i class="fa-meanpath"></i>
+        <i class="fa-buysellads"></i>
+        <i class="fa-connectdevelop"></i>
+        <i class="fa-dashcube"></i>
+        <i class="fa-forumbee"></i>
+        <i class="fa-leanpub"></i>
+        <i class="fa-sellsy"></i>
+        <i class="fa-shirtsinbulk"></i>
+        <i class="fa-simplybuilt"></i>
+        <i class="fa-skyatlas"></i>
+        <i class="fa-cart-plus"></i>
+        <i class="fa-cart-arrow-down"></i>
+        <i class="fa-diamond"></i>
+        <i class="fa-ship"></i>
+        <i class="fa-user-secret"></i>
+        <i class="fa-motorcycle"></i>
+        <i class="fa-street-view"></i>
+        <i class="fa-heartbeat"></i>
+        <i class="fa-venus"></i>
+        <i class="fa-mars"></i>
+        <i class="fa-mercury"></i>
+        <i class="fa-intersex"></i>
+        <i class="fa-transgender-alt"></i>
+        <i class="fa-venus-double"></i>
+        <i class="fa-mars-double"></i>
+        <i class="fa-venus-mars"></i>
+        <i class="fa-mars-stroke"></i>
+        <i class="fa-mars-stroke-v"></i>
+        <i class="fa-mars-stroke-h"></i>
+        <i class="fa-neuter"></i>
+        <i class="fa-genderless"></i>
+        <i class="fa-facebook-official"></i>
+        <i class="fa-pinterest-p"></i>
+        <i class="fa-whatsapp"></i>
+        <i class="fa-server"></i>
+        <i class="fa-user-plus"></i>
+        <i class="fa-user-times"></i>
+        <i class="fa-hotel"></i>
+        <i class="fa-viacoin"></i>
+        <i class="fa-train"></i>
+        <i class="fa-subway"></i>
+        <i class="fa-medium"></i>
+        <i class="fa-yc"></i>
+        <i class="fa-optin-monster"></i>
+        <i class="fa-opencart"></i>
+        <i class="fa-expeditedssl"></i>
+        <i class="fa-battery-4"></i>
+        <i class="fa-battery-3"></i>
+        <i class="fa-battery-2"></i>
+        <i class="fa-battery-1"></i>
+        <i class="fa-battery-0"></i>
+        <i class="fa-mouse-pointer"></i>
+        <i class="fa-i-cursor"></i>
+        <i class="fa-object-group"></i>
+        <i class="fa-object-ungroup"></i>
+        <i class="fa-sticky-note"></i>
+        <i class="fa-sticky-note-o"></i>
+        <i class="fa-cc-jcb"></i>
+        <i class="fa-cc-diners-club"></i>
+        <i class="fa-clone"></i>
+        <i class="fa-balance-scale"></i>
+        <i class="fa-hourglass-o"></i>
+        <i class="fa-hourglass-1"></i>
+        <i class="fa-hourglass-2"></i>
+        <i class="fa-hourglass-3"></i>
+        <i class="fa-hourglass"></i>
+        <i class="fa-hand-grab-o"></i>
+        <i class="fa-hand-stop-o"></i>
+        <i class="fa-hand-scissors-o"></i>
+        <i class="fa-hand-lizard-o"></i>
+        <i class="fa-hand-spock-o"></i>
+        <i class="fa-hand-pointer-o"></i>
+        <i class="fa-hand-peace-o"></i>
+        <i class="fa-trademark"></i>
+        <i class="fa-registered"></i>
+        <i class="fa-creative-commons"></i>
+        <i class="fa-gg"></i>
+        <i class="fa-gg-circle"></i>
+        <i class="fa-tripadvisor"></i>
+        <i class="fa-odnoklassniki"></i>
+        <i class="fa-odnoklassniki-square"></i>
+        <i class="fa-get-pocket"></i>
+        <i class="fa-wikipedia-w"></i>
+        <i class="fa-safari"></i>
+        <i class="fa-chrome"></i>
+        <i class="fa-firefox"></i>
+        <i class="fa-opera"></i>
+        <i class="fa-internet-explorer"></i>
+        <i class="fa-tv"></i>
+        <i class="fa-contao"></i>
+        <i class="fa-500px"></i>
+        <i class="fa-amazon"></i>
+        <i class="fa-calendar-plus-o"></i>
+        <i class="fa-calendar-minus-o"></i>
+        <i class="fa-calendar-times-o"></i>
+        <i class="fa-calendar-check-o"></i>
+        <i class="fa-industry"></i>
+        <i class="fa-map-pin"></i>
+        <i class="fa-map-signs"></i>
+        <i class="fa-map-o"></i>
+        <i class="fa-map"></i>
+        <i class="fa-commenting"></i>
+        <i class="fa-commenting-o"></i>
+        <i class="fa-houzz"></i>
+        <i class="fa-vimeo"></i>
+        <i class="fa-black-tie"></i>
+        <i class="fa-fonticons"></i>
+        <i class="fa-reddit-alien"></i>
+        <i class="fa-edge"></i>
+        <i class="fa-credit-card-alt"></i>
+        <i class="fa-codiepie"></i>
+        <i class="fa-modx"></i>
+        <i class="fa-fort-awesome"></i>
+        <i class="fa-usb"></i>
+        <i class="fa-product-hunt"></i>
+        <i class="fa-mixcloud"></i>
+        <i class="fa-scribd"></i>
+        <i class="fa-pause-circle"></i>
+        <i class="fa-pause-circle-o"></i>
+        <i class="fa-stop-circle"></i>
+        <i class="fa-stop-circle-o"></i>
+        <i class="fa-shopping-bag"></i>
+        <i class="fa-shopping-basket"></i>
+        <i class="fa-hashtag"></i>
+        <i class="fa-bluetooth"></i>
+        <i class="fa-bluetooth-b"></i>
+        <i class="fa-percent"></i>
+        <i class="fa-gitlab"></i>
+        <i class="fa-wpbeginner"></i>
+        <i class="fa-wpforms"></i>
+        <i class="fa-envira"></i>
+        <i class="fa-universal-access"></i>
+        <i class="fa-wheelchair-alt"></i>
+        <i class="fa-question-circle-o"></i>
+        <i class="fa-blind"></i>
+        <i class="fa-audio-description"></i>
+        <i class="fa-volume-control-phone"></i>
+        <i class="fa-braille"></i>
+        <i class="fa-assistive-listening-systems"></i>
+        <i class="fa-asl-interpreting"></i>
+        <i class="fa-deafness"></i>
+        <i class="fa-glide"></i>
+        <i class="fa-glide-g"></i>
+        <i class="fa-signing"></i>
+        <i class="fa-low-vision"></i>
+        <i class="fa-viadeo"></i>
+        <i class="fa-viadeo-square"></i>
+        <i class="fa-snapchat"></i>
+        <i class="fa-snapchat-ghost"></i>
+        <i class="fa-snapchat-square"></i>
+        <i class="fa-pied-piper"></i>
+        <i class="fa-first-order"></i>
+        <i class="fa-yoast"></i>
+        <i class="fa-themeisle"></i>
   </div>
 </dialog>
 <script>
@@ -934,108 +1138,168 @@ function setupDragging(){const d=document.getElementById("trytopnav");let e=!1,f
 !function(l){"object"==typeof exports&&"object"==typeof module?l(require("../../lib/codemirror"),require("./xml-hint")):"function"==typeof define&&define.amd?define(["../../lib/codemirror","./xml-hint"],l):l(CodeMirror)}(function(n){"use strict";var l,t="ab aa af ak sq am ar an hy as av ae ay az bm ba eu be bn bh bi bs br bg my ca ch ce ny zh cv kw co cr hr cs da dv nl dz en eo et ee fo fj fi fr ff gl ka de el gn gu ht ha he hz hi ho hu ia id ie ga ig ik io is it iu ja jv kl kn kr ks kk km ki rw ky kv kg ko ku kj la lb lg li ln lo lt lu lv gv mk mg ms ml mt mi mr mh mn na nv nb nd ne ng nn no ii nr oc oj cu om or os pa pi fa pl ps pt qu rm rn ro ru sa sc sd se sm sg sr gd sn si sk sl so st es su sw ss sv ta te tg th ti bo tk tl tn to tr ts tt tw ty ug uk ur uz ve vi vo wa cy wo fy xh yi yo za zu".split(" "),e=["_blank","_self","_top","_parent"],a=["ascii","utf-8","utf-16","latin1","latin1"],r=["get","post","put","delete"],o=["application/x-www-form-urlencoded","multipart/form-data","text/plain"],s=["all","screen","print","embossed","braille","handheld","print","projection","screen","tty","tv","speech","3d-glasses","resolution [>][<][=] [X]","device-aspect-ratio: X/Y","orientation:portrait","orientation:landscape","device-height: [X]","device-width: [X]"],u={attrs:{}},i={a:{attrs:{href:null,ping:null,type:null,media:s,target:e,hreflang:t}},abbr:u,acronym:u,address:u,applet:u,area:{attrs:{alt:null,coords:null,href:null,target:null,ping:null,media:s,hreflang:t,type:null,shape:["default","rect","circle","poly"]}},article:u,aside:u,audio:{attrs:{src:null,mediagroup:null,crossorigin:["anonymous","use-credentials"],preload:["none","metadata","auto"],autoplay:["","autoplay"],loop:["","loop"],controls:["","controls"]}},b:u,base:{attrs:{href:null,target:e}},basefont:u,bdi:u,bdo:u,big:u,blockquote:{attrs:{cite:null}},body:u,br:u,button:{attrs:{form:null,formaction:null,name:null,value:null,autofocus:["","autofocus"],disabled:["","autofocus"],formenctype:o,formmethod:r,formnovalidate:["","novalidate"],formtarget:e,type:["submit","reset","button"]}},canvas:{attrs:{width:null,height:null}},caption:u,center:u,cite:u,code:u,col:{attrs:{span:null}},colgroup:{attrs:{span:null}},command:{attrs:{type:["command","checkbox","radio"],label:null,icon:null,radiogroup:null,command:null,title:null,disabled:["","disabled"],checked:["","checked"]}},data:{attrs:{value:null}},datagrid:{attrs:{disabled:["","disabled"],multiple:["","multiple"]}},datalist:{attrs:{data:null}},dd:u,del:{attrs:{cite:null,datetime:null}},details:{attrs:{open:["","open"]}},dfn:u,dir:u,div:u,dialog:{attrs:{open:null}},dl:u,dt:u,em:u,embed:{attrs:{src:null,type:null,width:null,height:null}},eventsource:{attrs:{src:null}},fieldset:{attrs:{disabled:["","disabled"],form:null,name:null}},figcaption:u,figure:u,font:u,footer:u,form:{attrs:{action:null,name:null,"accept-charset":a,autocomplete:["on","off"],enctype:o,method:r,novalidate:["","novalidate"],target:e}},frame:u,frameset:u,h1:u,h2:u,h3:u,h4:u,h5:u,h6:u,head:{attrs:{},children:["title","base","link","style","meta","script","noscript","command"]},header:u,hgroup:u,hr:u,html:{attrs:{manifest:null},children:["head","body"]},i:u,iframe:{attrs:{src:null,srcdoc:null,name:null,width:null,height:null,sandbox:["allow-top-navigation","allow-same-origin","allow-forms","allow-scripts"],seamless:["","seamless"]}},img:{attrs:{alt:null,src:null,ismap:null,usemap:null,width:null,height:null,crossorigin:["anonymous","use-credentials"]}},input:{attrs:{alt:null,dirname:null,form:null,formaction:null,height:null,list:null,max:null,maxlength:null,min:null,name:null,pattern:null,placeholder:null,size:null,src:null,step:null,value:null,width:null,accept:["audio/*","video/*","image/*"],autocomplete:["on","off"],autofocus:["","autofocus"],checked:["","checked"],disabled:["","disabled"],formenctype:o,formmethod:r,formnovalidate:["","novalidate"],formtarget:e,multiple:["","multiple"],readonly:["","readonly"],required:["","required"],type:["hidden","text","search","tel","url","email","password","datetime","date","month","week","time","datetime-local","number","range","color","checkbox","radio","file","submit","image","reset","button"]}},ins:{attrs:{cite:null,datetime:null}},kbd:u,keygen:{attrs:{challenge:null,form:null,name:null,autofocus:["","autofocus"],disabled:["","disabled"],keytype:["RSA"]}},label:{attrs:{for:null,form:null}},legend:u,li:{attrs:{value:null}},link:{attrs:{href:null,type:null,hreflang:t,media:s,sizes:["all","16x16","16x16 32x32","16x16 32x32 64x64"]}},map:{attrs:{name:null}},mark:u,menu:{attrs:{label:null,type:["list","context","toolbar"]}},meta:{attrs:{content:null,charset:a,name:["viewport","application-name","author","description","generator","keywords"],"http-equiv":["content-language","content-type","default-style","refresh"]}},meter:{attrs:{value:null,min:null,low:null,high:null,max:null,optimum:null}},nav:u,noframes:u,noscript:u,object:{attrs:{data:null,type:null,name:null,usemap:null,form:null,width:null,height:null,typemustmatch:["","typemustmatch"]}},ol:{attrs:{reversed:["","reversed"],start:null,type:["1","a","A","i","I"]}},optgroup:{attrs:{disabled:["","disabled"],label:null}},option:{attrs:{disabled:["","disabled"],label:null,selected:["","selected"],value:null}},output:{attrs:{for:null,form:null,name:null}},p:u,param:{attrs:{name:null,value:null}},pre:u,progress:{attrs:{value:null,max:null}},q:{attrs:{cite:null}},rp:u,rt:u,ruby:u,s:u,samp:u,script:{attrs:{type:["text/javascript"],src:null,async:["","async"],defer:["","defer"],charset:a}},section:u,select:{attrs:{form:null,name:null,size:null,autofocus:["","autofocus"],disabled:["","disabled"],multiple:["","multiple"]}},small:u,source:{attrs:{src:null,type:null,media:null}},span:u,strike:u,strong:u,style:{attrs:{type:["text/css"],media:s,scoped:null}},sub:u,summary:u,sup:u,table:u,tbody:u,td:{attrs:{colspan:null,rowspan:null,headers:null}},textarea:{attrs:{dirname:null,form:null,maxlength:null,name:null,placeholder:null,rows:null,cols:null,autofocus:["","autofocus"],disabled:["","disabled"],readonly:["","readonly"],required:["","required"],wrap:["soft","hard"]}},tfoot:u,th:{attrs:{colspan:null,rowspan:null,headers:null,scope:["row","col","rowgroup","colgroup"]}},thead:u,time:{attrs:{datetime:null}},title:u,tr:u,track:{attrs:{src:null,label:null,default:null,kind:["subtitles","captions","descriptions","chapters","metadata"],srclang:t}},tt:u,u:u,ul:u,var:u,video:{attrs:{src:null,poster:null,width:null,height:null,crossorigin:["anonymous","use-credentials"],preload:["auto","metadata","none"],autoplay:["","autoplay"],mediagroup:["movie"],muted:["","muted"],controls:["","controls"]}},wbr:u},d={accesskey:["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9"],class:null,contenteditable:["true","false"],contextmenu:null,dir:["ltr","rtl","auto"],draggable:["true","false","auto"],dropzone:["copy","move","link","string:","file:"],hidden:["hidden"],id:null,inert:["inert"],itemid:null,itemprop:null,itemref:null,itemscope:["itemscope"],itemtype:null,lang:["en","es"],spellcheck:["true","false"],autocorrect:["true","false"],autocapitalize:["true","false"],style:null,tabindex:["1","2","3","4","5","6","7","8","9"],title:null,translate:["yes","no"],onclick:null,rel:["stylesheet","alternate","author","bookmark","help","license","next","nofollow","noreferrer","prefetch","prev","search","tag"]};function c(l){for(var t in d)d.hasOwnProperty(t)&&(l.attrs[t]=d[t])}for(l in c(u),i)i.hasOwnProperty(l)&&i[l]!=u&&c(i[l]);n.htmlSchema=i,n.registerHelper("hint","html",function(l,t){var e={schemaInfo:i};if(t)for(var a in t)e[a]=t[a];return n.hint.xml(l,e)})});
 </script>
 <script>
-    window.addEventListener?window.addEventListener("resize",browserResize):window.attachEvent&&window.attachEvent("onresize",browserResize);
-    var xbeforeResize=window.innerWidth;
-    function browserResize(){window.screen.availWidth<=768&&restack(window.innerWidth<window.innerHeight),fixDragBtn(),showFrameSize()}
-    var fileID="",loadSave=!1;
-    function submitTryit(){
-        var e=document.getElementById("textareaCode"),
-            t=document.getElementById("iframewrapper"),
-            a=(window.editor?.save(),document.createElement("iframe"));
-        Object.assign(a,{id:"iframeResult",name:"iframeResult",allowfullscreen:!0,style:"border: none;"}),t.innerHTML="",t.appendChild(a),loadSave?a.src="":fileID&&!loadSave?(e.value.replace(/=/gi,"w3equalsign").replace(/\+/gi,"w3plussign").replace(/script/gi,"w3scriptw3tag"),Object.assign(codeForm,{action:APP_PATHS.submit+"?x="+Math.random(),method:"post",acceptCharset:"utf-8",target:"iframeResult"})):((t=a.contentDocument||a.contentWindow.document).open(),t.write(e.value),t.close())
-    }
-    submitTryit();
-    var currentStack=!0,
-        tc=(window.screen.availWidth<=768&&window.innerWidth<window.innerHeight&&restack(!0),document.getElementById("textareacontainer")),
-        ic=document.getElementById("iframecontainer");
-    function restack(e){
-        var t=document.getElementById("textarea"),
-            a=document.getElementById("iframe"),
-            r=document.getElementById("container"),
-            n=document.getElementById("stackV"),
-            l=document.getElementById("stackH");
-        tc.className=tc.classList.remove("horizontal"),
-            ic.className=ic.classList.remove("horizontal"),
-            t.className=t.classList.remove("horizontal"),
-            a.className=a.classList.remove("horizontal"),
-            r.className=r.classList.remove("horizontal"),
-            n&&(n.className=n.classList.remove("horizontal")),
-            n&&(l.className=l.classList.remove("horizontal")),
-            stack="",
-            currentStack=e?(tc.className=tc.classList.add("horizontal"),
-                            ic.className=ic.classList.add("horizontal"),
-                            t.className=t.classList.add("horizontal"),
-                            a.className=a.classList.add("horizontal"),
-                            r.className=r.classList.add("horizontal"),
-                            n&&(n.className=n.classList.add("horizontal")),
-                            n&&(l.className=l.classList.add("horizontal")),
-                            stack=" horizontal",
-                            tc.style.height="50%",
-                            ic.style.height="50%",
-                            tc.style.width="100%",
-                            !(ic.style.width="100%")):(tc.style.height="100%",
-                                                       ic.style.height="100%",
-                                                       tc.style.width="50%",
-                                                       ic.style.width="50%",
-                                                       !0),
-            fixDragBtn(),showFrameSize()
-    }
-    function showFrameSize(){
-        document.getElementById("framesizew").innerHTML=Number(w3_getStyleValue(document.getElementById("iframeResult"),"width").replace("px","")).toFixed();
-        document.getElementById("framesizeh").innerHTML=Number(w3_getStyleValue(document.getElementById("iframeResult"),"height").replace("px","")).toFixed();
-    }
-    var stack,
-        dragging=!1,
-        dragbar=document.getElementById("dragbar");
-    function fixDragBtn(){
-        var e,t,a,r,n=Number(w3_getStyleValue(document.getElementById("container"),"top").replace("px",""));
-        " horizontal"!=stack?(dragbar.style.width="5px",
-                              textareasize=Number(w3_getStyleValue(document.getElementById("textareawrapper"),"width").replace("px","")),
-                              t=Number(w3_getStyleValue(document.getElementById("textarea"),"padding-left").replace("px","")),
-                              r=Number(w3_getStyleValue(dragbar,"width").replace("px","")),
-                              textareaheight=w3_getStyleValue(document.getElementById("textareawrapper"),"height"),
-                              a=textareasize+t+t/2-r/2,
-                              dragbar.style.top=n+"px",
-                              dragbar.style.left=a+"px",
-                              dragbar.style.height=textareaheight,
-                              dragbar.style.cursor="col-resize"
-                             ):(dragbar.style.height="5px",
-                                window.getComputedStyle?(e=window.getComputedStyle(document.getElementById("textareawrapper"),null).getPropertyValue("height"),
-                                                         textareaheight=window.getComputedStyle(document.getElementById("textareawrapper"),null).getPropertyValue("width"),
-                                                         t=window.getComputedStyle(document.getElementById("textarea"),null).getPropertyValue("padding-top"),
-                                                         r=window.getComputedStyle(dragbar,null).getPropertyValue("height")
-                                                        ):a=document.getElementById("textareawrapper").currentStyle.width,
-                                e=Number(e.replace("px","")),
-                                t=Number(t.replace("px","")),
-                                r=Number(r.replace("px","")),
-                                dragbar.style.top=(a=n+e+t+t/2)+"px",
-                                dragbar.style.left="5px",
-                                dragbar.style.width=textareaheight,dragbar.style.cursor="row-resize")
-    }
-    function dragstart(e){e.preventDefault(),dragging=!0,document.getElementById("iframecontainer")}
-    function dragmove(e){var t,a,r;dragging&&(document.getElementById("shield").style.display="block"," horizontal"!=stack?5<(a=e.pageX/window.innerWidth*100)&&a<98&&(r=100-a,tc.style.width=a+"%",ic.style.width=r+"%",fixDragBtn()):(t=Number(w3_getStyleValue(document.getElementById("container"),"top").replace("px","")),5<(a=(e.pageY-t+20)/(window.innerHeight-t+20)*100)&&a<98&&(r=100-a,tc.style.height=a+"%",ic.style.height=r+"%",fixDragBtn())),showFrameSize())}
-    function dragend(){document.getElementById("shield").style.display="none",dragging=!1;var e=navigator.vendor;window.editor&&-1==e.indexOf("Apple")&&window.editor.refresh()}
-    function retheme(){var e=document.body.className;-1<e.indexOf("darktheme")?(document.body.className=e.replace("darktheme",""),opener&&(opener.document.body.className=e.replace("darktheme","")),localStorage.setItem("preferredmode","light")):(document.body.className+=" darktheme",opener&&(opener.document.body.className+=" darktheme"),localStorage.setItem("preferredmode","dark"))}
-function colorcoding(){
-    navigator.userAgent;
-    window.editor=CodeMirror.fromTextArea(document.getElementById("textareaCode"), {
-        mode:"text/html",
-        htmlMode:!0,
-        lineWrapping:!0,
-        indentUnit:4,
-        smartIndent:!0,
-        addModeClass:!0,
-        //lineWrapping:!1,
-        lineNumbers:!0,
-        foldGutter:!0,
-        gutters:["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
-        styleActiveLine:!0
-    })
+if(window.addEventListener){window.addEventListener("resize",browserResize);}
+else if(window.attachEvent){window.attachEvent("onresize",browserResize);}
+function browserResize(){
+    window.screen.availWidth<=768&&restack(window.innerWidth<window.innerHeight);
+    fixDragBtn();
+    showFrameSize();
 }
-function w3_getStyleValue(e,t){return window.getComputedStyle?window.getComputedStyle(e,null).getPropertyValue(t):e.currentStyle[t]}window.addEventListener&&(dragbar.addEventListener("mousedown",function(e){dragstart(e)}),dragbar.addEventListener("touchstart",function(e){dragstart(e)}),window.addEventListener("mousemove",function(e){dragmove(e)}),window.addEventListener("touchmove",function(e){dragmove(e)}),window.addEventListener("mouseup",dragend),window.addEventListener("touchend",dragend),window.addEventListener("load",fixDragBtn),window.addEventListener("load",showFrameSize)),"dark"==localStorage.getItem("preferredmode")&&(document.body.className+="darktheme"),colorcoding();
+function submitTryit(){
+    const textarea=document.querySelector("textarea"),
+          wrapper=document.getElementById("iframecontainer"),
+          iframe=document.createElement("iframe");
+    window.editor?.save();
+    Object.assign(iframe,{
+        id:"iframeResult",
+        name:"iframeResult",
+        allowfullscreen:true,
+        style:"border:none;"
+    });
+    wrapper.innerHTML="";
+    wrapper.appendChild(iframe);
+    const doc=iframe.contentDocument||iframe.contentWindow.document;
+    doc.open();
+    doc.write(textarea.value);
+    doc.close();
+}
+submitTryit();
+let currentStack=true,
+    tc=document.getElementById("textareacontainer"),
+    ic=document.getElementById("iframecontainer"),
+    stack,dragging=false;
+const dragbar=document.getElementById("dragbar");
+window.screen.availWidth<=768&&window.innerWidth<window.innerHeight&&restack(!0);
+function restack(e){
+    const container=document.getElementById("container"),
+          stackV=document.getElementById("stackV"),
+          stackH=document.getElementById("stackH");
+    tc.classList.remove("horizontal");
+    ic.classList.remove("horizontal");
+    container.classList.remove("horizontal");
+    if(stackV)stackV.classList.remove("horizontal");
+    if(stackH)stackH.classList.remove("horizontal");
+    stack="";
+    if(e){
+        tc.classList.add("horizontal");
+        ic.classList.add("horizontal");
+        container.classList.add("horizontal");
+        if(stackV)stackV.classList.add("horizontal");
+        if(stackH)stackH.classList.add("horizontal");
+        stack=" horizontal";
+        tc.style.height=ic.style.height="50%";
+        tc.style.width=ic.style.width="100%";
+    }else{
+        tc.style.height=ic.style.height="100%";
+        tc.style.width=ic.style.width="50%";
+    }
+    fixDragBtn();
+    showFrameSize();
+}
+function showFrameSize(){
+    const iframe=document.getElementById("iframeResult");
+    document.getElementById("framesizew").innerHTML=Number(getSize(iframe,"width").replace("px","")).toFixed();
+    document.getElementById("framesizeh").innerHTML=Number(getSize(iframe,"height").replace("px","")).toFixed();
+}
+function fixDragBtn() {
+    const container = document.getElementById("container");
+    const containerTop = Number(getSize(container, "top").replace("px", ""));
+    const textarea = document.getElementById("textareacontainer");
+    let textareasize, textareaheight, e, t, a, r;
+    if (stack !== " horizontal") {
+        dragbar.style.width = "5px";
+        textareasize = Number(getSize(textarea, "width").replace("px", ""));
+        t = Number(getSize(textarea, "padding-left").replace("px", ""));
+        r = Number(getSize(dragbar, "width").replace("px", ""));
+        textareaheight = getSize(textarea, "height");
+        a = textareasize + t + t/2 - r/2;
+        dragbar.style.top = containerTop + "px";
+        dragbar.style.left = a + "px";
+        dragbar.style.height = textareaheight;
+        dragbar.style.cursor = "col-resize";
+    } else {
+        dragbar.style.height = "5px";
+        dragbar.style.cursor = "row-resize";
+        const containerRect = container.getBoundingClientRect();
+        const textareaRect = textarea.getBoundingClientRect();
+        const topPos = textareaRect.bottom - containerRect.top;
+        dragbar.style.top = topPos + "px";
+        dragbar.style.left = "0";
+        dragbar.style.width = containerRect.width + "px";
+    }
+}
+function dragstart(e){e.preventDefault();dragging=true;}
+function dragmove(e) {
+    if (!dragging) return;
+    let a, r;
+    if (stack !== " horizontal") {
+        a = e.pageX / window.innerWidth * 100;
+        if (a > 5 && a < 98) {
+            r = 100 - a;
+            tc.style.width = a + "%";
+            ic.style.width = r + "%";
+            fixDragBtn();
+        }
+    } else {
+        const container = document.getElementById("container");
+        const containerRect = container.getBoundingClientRect();
+        a = (e.pageY - containerRect.top) / containerRect.height * 100;
+        if (a > 5 && a < 98) {
+            r = 100 - a;
+            tc.style.height = a + "%";
+            ic.style.height = r + "%";
+            fixDragBtn();
+        }
+    }
+    showFrameSize();
+}
+function dragend(){dragging=false}
+function retheme(){
+    if(document.body.dataset.theme==='dark'){
+        delete document.body.dataset.theme;
+        if(opener)delete opener.document.body.dataset.theme;
+        localStorage.setItem("preferredmode","light");
+    }else{
+        document.body.dataset.theme='dark';
+        if(opener)opener.document.body.dataset.theme='dark';
+        localStorage.setItem("preferredmode","dark");
+    }
+}
+function getSize(e,t){return window.getComputedStyle(e,null).getPropertyValue(t);}
+if(window.addEventListener){
+    dragbar.addEventListener("mousedown",(e)=>dragstart(e));
+    dragbar.addEventListener("touchstart",(e)=>dragstart(e));
+    window.addEventListener("mousemove",(e)=>dragmove(e));
+    window.addEventListener("touchmove",(e)=>dragmove(e));
+    window.addEventListener("mouseup",dragend);
+    window.addEventListener("touchend",dragend);
+    window.addEventListener("load",fixDragBtn);
+    window.addEventListener("load",showFrameSize);
+}
+if (localStorage.getItem("preferredmode") === "dark") {
+    document.body.dataset.theme = "dark";
+} else {
+    delete document.body.dataset.theme;
+}
+window.editor=CodeMirror.fromTextArea(document.querySelector("textarea"),{
+    mode:"text/html",
+    htmlMode:true,
+    lineWrapping:true,
+    indentUnit:4,
+    smartIndent:true,
+    addModeClass:true,
+    lineNumbers:true,
+    foldGutter:true,
+    gutters:["CodeMirror-linenumbers","CodeMirror-foldgutter"],
+    styleActiveLine:true
+});
 </script>
 <script>
-function w3SetColorsByAttribute(){for(var e,t=document.getElementsByTagName("*"),r=0;r<t.length;r++)(e=t[r].getAttribute("data-w3-color"))&&(t[r].style.backgroundColor=w3color(e).toRgbString())}!function(){function r(e,t){return this instanceof r?"object"==typeof e?e:(this.attachValues(function(e){var t,r,n,s,i,a,o,h,l,u,c,f,b,d,g=[],m=[],y=[],p=(e=G(e.toLowerCase())).substr(0,1).toUpperCase(),k=e.substr(1),w=1;if("rgb"==(e=0<(e=3==(e="R"!=p&&"Y"!=p&&"G"!=p&&"C"!=p&&"B"!=p&&"M"!=p&&"W"!=p||isNaN(k)||6==e.length&&-1==e.indexOf(",")?e:"ncol("+e+")").length||6==e.length||isNaN(e)?e:"ncol("+e+")").indexOf(",")&&-1==e.indexOf("(")?"ncol("+e+")":e).substr(0,3)||"hsl"==e.substr(0,3)||"hwb"==e.substr(0,3)||"ncol"==e.substr(0,4)||"cmyk"==e.substr(0,4)){if(p=!(t=3),"a"==(e="ncol"==e.substr(0,4)?(f="ncol",(e=4==e.split(",").length&&-1==e.indexOf("ncola")?e.replace("ncol","ncola"):e).substr(4)):"cmyk"==e.substr(0,4)?(f="cmyk",e.substr(4)):(f=e.substr(0,3),e.substr(3))).substr(0,1).toLowerCase()?(t=4,p=!0,e=e.substr(1)):"cmyk"==f&&(t=4,5==e.split(",").length)&&(t=5,p=!0),g=(e=(e=e.replace("(","")).replace(")","")).split(","),"rgb"==f){if(g.length!=t)return N();for(r=0;r<t;r++){if(""!=g[r]&&" "!=g[r]||(g[r]="0"),-1<g[r].indexOf("%")&&(g[r]=g[r].replace("%",""),g[r]=Number(g[r]/100),r<3)&&(g[r]=Math.round(255*g[r])),isNaN(g[r]))return N();255<parseInt(g[r])&&(g[r]=255),r<3&&(g[r]=parseInt(g[r])),3==r&&1<Number(g[r])&&(g[r]=1)}a={r:g[0],g:g[1],b:g[2]},1==p&&(w=Number(g[3]))}if("hsl"==f||"hwb"==f||"ncol"==f){for(;g.length<t;)g.push("0");for("hsl"!=f&&"hwb"!=f||360<=parseInt(g[0])&&(g[0]=0),r=1;r<t;r++){if(-1<g[r].indexOf("%")){if(g[r]=g[r].replace("%",""),g[r]=Number(g[r]),isNaN(g[r]))return N();g[r]=g[r]/100}else g[r]=Number(g[r]);1<Number(g[r])&&(g[r]=1),Number(g[r])<0&&(g[r]=0)}"hsl"==f&&(a=B(g[0],g[1],g[2]),s=Number(g[0]),i=Number(g[1])),"hwb"==f&&(a=x(g[0],g[1],g[2])),"ncol"==f&&(a=function(e,t,r){var n,s=e;if(isNaN(e.substr(0,1))){if(n=e.substr(0,1).toUpperCase(),""==(e=e.substr(1))&&(e=0),e=Number(e),isNaN(e))return!1;"R"==n&&(s=0+.6*e),"Y"==n&&(s=60+.6*e),"G"==n&&(s=120+.6*e),"C"==n&&(s=180+.6*e),"B"==n&&(s=240+.6*e),"M"==n&&(s=300+.6*e),"W"==n&&(s=0,t=1-e/100,r=e/100)}return x(s,t,r)}(g[0],g[1],g[2])),1==p&&(w=Number(g[3]))}if("cmyk"==f){for(;g.length<t;)g.push("0");for(r=0;r<t;r++){if(-1<g[r].indexOf("%")){if(g[r]=g[r].replace("%",""),g[r]=Number(g[r]),isNaN(g[r]))return N();g[r]=g[r]/100}else g[r]=Number(g[r]);1<Number(g[r])&&(g[r]=1),Number(g[r])<0&&(g[r]=0)}k=g[0],f=g[1],b=g[2],d=g[3],a={r:255-255*Math.min(1,k*(1-d)+d),g:255-255*Math.min(1,f*(1-d)+d),b:255-255*Math.min(1,b*(1-d)+d)},1==p&&(w=Number(g[4]))}}else if("ncs"==e.substr(0,3))a=null!==(k=(k=-1==(k=(k=(k=(k=(k=G(k=e).toUpperCase()).replace("(","")).replace(")","")).replace("NCS","NCS ")).replace(/  /g," ")).indexOf("NCS")?"NCS "+k:k).match(/^(?:NCS|NCS\sS)\s(\d{2})(\d{2})-(N|[A-Z])(\d{2})?([A-Z])?$/))&&(b=parseInt(k[1],10),d=parseInt(k[2],10),"N"==(p=k[3])||"Y"==p||"R"==p||"B"==p||"G"==p)&&(k=parseInt(k[4],10)||0,"N"!==p?(o=1.05*b-5.25,"Y"===p&&k<=60?c=1:"Y"===p&&60<k||"R"===p&&k<=80?(h="Y"===p?k-60:k+40,c=(Math.sqrt(14884-Math.pow(h,2))-22)/100):"R"===p&&80<k||"B"===p?c=0:"G"===p&&(h=k-170,c=(Math.sqrt(33800-Math.pow(h,2))-70)/100),"Y"===p&&k<=80?l=0:"Y"===p&&80<k||"R"===p&&k<=60?(h="Y"===p?k-80+20.5:k+20+20.5,l=(104-Math.sqrt(11236-Math.pow(h,2)))/100):"R"===p&&60<k||"B"===p&&k<=80?(h="R"===p?k-60-60:k+40-60,l=(Math.sqrt(1e4-Math.pow(h,2))-10)/100):"B"===p&&80<k||"G"===p&&k<=40?(h="B"===p?k-80-131:k+20-131,l=(122-Math.sqrt(19881-Math.pow(h,2)))/100):"G"===p&&40<k&&(l=0),"Y"===p?green1=(85-.85*k)/100:"R"===p&&k<=60?green1=0:"R"===p&&60<k?(h=k-60+35,green1=(67.5-Math.sqrt(5776-Math.pow(h,2)))/100):"B"===p&&k<=60?(h=+k-68.5,green1=(6.5+Math.sqrt(7044.5-Math.pow(h,2)))/100):"B"===p&&60<k||"G"===p&&k<=60?green1=.9:"G"===p&&60<k&&(green1=(90-1/8*(h=k-60))/100),p=((h=(c+green1+l)/3)-c)*(100-d)/100+c,c=(h-l)*(100-d)/100+l,h=1/((k=(h-green1)*(100-d)/100+green1)<p&&c<p?p:p<k&&c<k?k:p<c&&k<c?c:(p+k+c)/3),(l=255<(l=parseInt(p*h*(100-o)/100*255,10))?255:l)<0&&(l=0),(u=255<(u=parseInt(k*h*(100-o)/100*255,10))?255:u)<0&&(u=0),(c=255<(c=parseInt(c*h*(100-o)/100*255,10))?255:c)<0&&(c=0)):c=u=l=d=(d=255<(d=parseInt(255*(1-b/100),10))?255:d)<0?0:d,{r:l,g:u,b:c});else{for(n=!1,m=S("names"),r=0;r<m.length;r++)if(e.toLowerCase()==m[r].toLowerCase()){y=S("hexs"),n=!0,a={r:parseInt(y[r].substr(0,2),16),g:parseInt(y[r].substr(2,2),16),b:parseInt(y[r].substr(4,2),16)};break}if(0==n){for(3==(e=e.replace("#","")).length&&(e=e.substr(0,1)+e.substr(0,1)+e.substr(1,1)+e.substr(1,1)+e.substr(2,1)+e.substr(2,1)),r=0;r<e.length;r++)if(!(-1<"0123456789ABCDEFabcdef".indexOf(e.substr(r,1))))return N();for(g[0]=parseInt(e.substr(0,2),16),g[1]=parseInt(e.substr(2,2),16),g[2]=parseInt(e.substr(4,2),16),r=0;r<3;r++)if(isNaN(g[r]))return N();a={r:g[0],g:g[1],b:g[2]}}}return M(a,w,s,i)}(e)),void(t&&(t.style.backgroundColor=this.toRgbString()))):new r(e,t)}function M(e,t,r,n){var s,i,a,o,h,l,u,c;return e?(null===t&&(t=1),s=function(e,t,r){var n,s,i,a,o,h=[];for(h[0]=e/255,h[1]=t/255,h[2]=r/255,s=n=h[0],i=a=0;i<h.length-1;i++)h[i+1]<=n&&(n=h[i+1]),s<=h[i+1]&&(s=h[i+1],a=i+1);return 0==a&&(o=(h[1]-h[2])/(s-n)),1==a&&(o=2+(h[2]-h[0])/(s-n)),2==a&&(o=4+(h[0]-h[1])/(s-n)),isNaN(o)&&(o=0),(o*=60)<0&&(o+=360),e=(n+s)/2,{h:o,s:n==s?0:e<.5?(s-n)/(s+n):(s-n)/(2-s-n),l:e}}(e.r,e.g,e.b),l=e.r,u=e.g,c=e.b,l/=255,u/=255,c/=255,max=Math.max(l,u,c),min=Math.min(l,u,c),c={h:0==(chroma=max-min)?0:l==max?(u-c)/chroma%6*360:u==max?((c-l)/chroma+2)%6*360:((l-u)/chroma+4)%6*360,w:min,b:1-max},l=e.r,u=e.g,i=e.b,l/=255,u/=255,i/=255,l=1==(h=1-(max=Math.max(l,u,i)))?o=a=0:(a=(1-l-h)/(1-h),o=(1-u-h)/(1-h),(1-i-h)/(1-h)),u={c:a,m:o,y:l,k:h},r=r||s.h,n=n||s.s,i=function(e){for(;360<=e;)e-=360;return e<60?"R"+e/.6:e<120?"Y"+(e-60)/.6:e<180?"G"+(e-120)/.6:e<240?"C"+(e-180)/.6:e<300?"B"+(e-240)/.6:e<360?"M"+(e-300)/.6:void 0}(r),(r=e={red:e.r,green:e.g,blue:e.b,hue:r,sat:n,lightness:s.l,whiteness:c.w,blackness:c.b,cyan:u.c,magenta:u.m,yellow:u.y,black:u.k,ncol:i,opacity:t,valid:!0}).red=Number(r.red.toFixed(0)),r.green=Number(r.green.toFixed(0)),r.blue=Number(r.blue.toFixed(0)),r.hue=Number(r.hue.toFixed(0)),r.sat=Number(r.sat.toFixed(2)),r.lightness=Number(r.lightness.toFixed(2)),r.whiteness=Number(r.whiteness.toFixed(2)),r.blackness=Number(r.blackness.toFixed(2)),r.cyan=Number(r.cyan.toFixed(2)),r.magenta=Number(r.magenta.toFixed(2)),r.yellow=Number(r.yellow.toFixed(2)),r.black=Number(r.black.toFixed(2)),r.ncol=r.ncol.substr(0,1)+Math.round(Number(r.ncol.substr(1))),r.opacity=Number(r.opacity.toFixed(2)),r):N()}function N(){return{red:0,green:0,blue:0,hue:0,sat:0,lightness:0,whiteness:0,blackness:0,cyan:0,magenta:0,yellow:0,black:0,ncol:"R",opacity:1,valid:!1}}function S(e){return"names"==e?["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","DarkOrange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","RebeccaPurple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"]:"hexs"==e?["f0f8ff","faebd7","00ffff","7fffd4","f0ffff","f5f5dc","ffe4c4","000000","ffebcd","0000ff","8a2be2","a52a2a","deb887","5f9ea0","7fff00","d2691e","ff7f50","6495ed","fff8dc","dc143c","00ffff","00008b","008b8b","b8860b","a9a9a9","a9a9a9","006400","bdb76b","8b008b","556b2f","ff8c00","9932cc","8b0000","e9967a","8fbc8f","483d8b","2f4f4f","2f4f4f","00ced1","9400d3","ff1493","00bfff","696969","696969","1e90ff","b22222","fffaf0","228b22","ff00ff","dcdcdc","f8f8ff","ffd700","daa520","808080","808080","008000","adff2f","f0fff0","ff69b4","cd5c5c","4b0082","fffff0","f0e68c","e6e6fa","fff0f5","7cfc00","fffacd","add8e6","f08080","e0ffff","fafad2","d3d3d3","d3d3d3","90ee90","ffb6c1","ffa07a","20b2aa","87cefa","778899","778899","b0c4de","ffffe0","00ff00","32cd32","faf0e6","ff00ff","800000","66cdaa","0000cd","ba55d3","9370db","3cb371","7b68ee","00fa9a","48d1cc","c71585","191970","f5fffa","ffe4e1","ffe4b5","ffdead","000080","fdf5e6","808000","6b8e23","ffa500","ff4500","da70d6","eee8aa","98fb98","afeeee","db7093","ffefd5","ffdab9","cd853f","ffc0cb","dda0dd","b0e0e6","800080","663399","ff0000","bc8f8f","4169e1","8b4513","fa8072","f4a460","2e8b57","fff5ee","a0522d","c0c0c0","87ceeb","6a5acd","708090","708090","fffafa","00ff7f","4682b4","d2b48c","008080","d8bfd8","ff6347","40e0d0","ee82ee","f5deb3","ffffff","f5f5f5","ffff00","9acd32"]:void 0}function B(e,t,r){return{r:255*n(t=2*r-(r=r<=.5?r*(t+1):r+t-r*t),r,2+(e/=60)),g:255*n(t,r,e),b:255*n(t,r,e-2)}}function n(e,t,r){return r<0&&(r+=6),6<=r&&(r-=6),r<1?(t-e)*r+e:r<3?t:r<4?(t-e)*(4-r)+e:e}function x(e,t,r){var n,s=[],e=B(e,1,.5);for(s[0]=e.r/255,s[1]=e.g/255,s[2]=e.b/255,1<(e=t+r)&&(t=Number((t/e).toFixed(2)),r=Number((r/e).toFixed(2))),n=0;n<3;n++)s[n]*=1-t-r,s[n]+=t,s[n]=Number(255*s[n]);return{r:s[0],g:s[1],b:s[2]}}function e(e){for(var t=e.toString(16);t.length<2;)t="0"+t;return t}function G(e){return e.replace(/^\s+|\s+$/g,"")}r.prototype={toRgbString:function(){return"rgb("+this.red+","+this.green+","+this.blue+")"},toRgbaString:function(){return"rgba("+this.red+","+this.green+","+this.blue+","+this.opacity+")"},toHwbString:function(){return"hwb("+this.hue+","+Math.round(100*this.whiteness)+"%,"+Math.round(100*this.blackness)+"%)"},toHwbStringDecimal:function(){return"hwb("+this.hue+","+this.whiteness+","+this.blackness+")"},toHwbaString:function(){return"hwba("+this.hue+","+Math.round(100*this.whiteness)+"%,"+Math.round(100*this.blackness)+"%,"+this.opacity+")"},toHslString:function(){return"hsl("+this.hue+","+Math.round(100*this.sat)+"%,"+Math.round(100*this.lightness)+"%)"},toHslStringDecimal:function(){return"hsl("+this.hue+","+this.sat+","+this.lightness+")"},toHslaString:function(){return"hsla("+this.hue+","+Math.round(100*this.sat)+"%,"+Math.round(100*this.lightness)+"%,"+this.opacity+")"},toCmykString:function(){return"cmyk("+Math.round(100*this.cyan)+"%,"+Math.round(100*this.magenta)+"%,"+Math.round(100*this.yellow)+"%,"+Math.round(100*this.black)+"%)"},toCmykStringDecimal:function(){return"cmyk("+this.cyan+","+this.magenta+","+this.yellow+","+this.black+")"},toNcolString:function(){return this.ncol+","+Math.round(100*this.whiteness)+"%,"+Math.round(100*this.blackness)+"%"},toNcolStringDecimal:function(){return this.ncol+","+this.whiteness+","+this.blackness},toNcolaString:function(){return this.ncol+","+Math.round(100*this.whiteness)+"%,"+Math.round(100*this.blackness)+"%,"+this.opacity},toName:function(){var e,t,r,n=S("hexs");for(i=0;i<n.length;i++)if(e=parseInt(n[i].substr(0,2),16),t=parseInt(n[i].substr(2,2),16),r=parseInt(n[i].substr(4,2),16),this.red==e&&this.green==t&&this.blue==r)return S("names")[i];return""},toHexString:function(){return"#"+e(this.red)+e(this.green)+e(this.blue)},toRgb:function(){return{r:this.red,g:this.green,b:this.blue,a:this.opacity}},toHsl:function(){return{h:this.hue,s:this.sat,l:this.lightness,a:this.opacity}},toHwb:function(){return{h:this.hue,w:this.whiteness,b:this.blackness,a:this.opacity}},toCmyk:function(){return{c:this.cyan,m:this.magenta,y:this.yellow,k:this.black,a:this.opacity}},toNcol:function(){return{ncol:this.ncol,w:this.whiteness,b:this.blackness,a:this.opacity}},isDark:function(e){return(299*this.red+587*this.green+114*this.blue)/1e3<(e||128)},saturate:function(e){this.sat+=e/100||.1,1<this.sat&&(this.sat=1),e=M(B(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},desaturate:function(e){this.sat-=e/100||.1,this.sat<0&&(this.sat=0),e=M(B(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},lighter:function(e){this.lightness+=e/100||.1,1<this.lightness&&(this.lightness=1),e=M(B(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},darker:function(e){this.lightness-=e/100||.1,this.lightness<0&&(this.lightness=0),e=M(B(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},attachValues:function(e){this.red=e.red,this.green=e.green,this.blue=e.blue,this.hue=e.hue,this.sat=e.sat,this.lightness=e.lightness,this.whiteness=e.whiteness,this.blackness=e.blackness,this.cyan=e.cyan,this.magenta=e.magenta,this.yellow=e.yellow,this.black=e.black,this.ncol=e.ncol,this.opacity=e.opacity,this.valid=e.valid}},window.w3color=r}();var colorhex=color="#06f",colorObj=w3color(color),hh=0;function cc(e,t,r,n){var s,i,a,o,e=0==e?document.getElementById("input").value:e,e=w3color(e);e.red;if(colorhex=e.toHexString(),document.getElementById("cnam").innerHTML=e.toName()||"",document.getElementById("chex").innerHTML=e.toHexString(),document.getElementById("crgb").innerHTML=e.toRgbString(),document.getElementById("chsl").innerHTML=e.toHslString(),!(t&&-1!=t||r&&-1!=r))for(s=document.getElementById("colormap").getElementsByTagName("AREA"),i=0;i<s.length;i++)(a=a.replace('")',"")).toLowerCase()==colorhex&&(o=s[i].getAttribute("onclick").replace(")","").split(","),t=Number(o[1]),r=Number(o[2]));document.querySelector("body").style.setProperty("--bg",e.toHexString()),changeColor()}function hslLum_top(){for(var e="<div class='colorTable'>",t=0,r=document.getElementById("chex").innerHTML,r=w3color(r),n=r.hue,s=r.sat,i=r.lightness,a=[],o=w3color(r).toHexString(),h=0;h<=20;h++)a.push(w3color("hsl("+n+","+s+","+.05*h+")"));for(a.reverse(),h=0;h<a.length;h++)0==t&&Math.round(100*i)==Math.round(100*a[h].lightness)?(e+=`<div style='background:${o}'><b>${Math.round(100*i)} ${o}</b></div>`,t=1):(0==t&&i>a[h].lightness&&(e+=`<div style='background:${o}'><b>${Math.round(100*i)} ${o}</b></div>`,t=1),e+=`<div style='background:${a[h].toHexString()}' onclick='cc("${a[h].toHexString()}")'><i>${Math.round(100*a[h].lightness)} ${a[h].toHexString()}</i></div>`);e+="</div>",document.getElementById("lum").innerHTML=e}function hslTable(e){var t,r,n,s,i,a,o=0,h="<div class='colorTable'>",l=document.getElementById("chex").innerHTML,u=w3color(l),c=u.hue,f=u.sat,b=u.lightness,d=[];for("hue"==e&&(t=24),"sat"==e&&(t=20),a=0;a<=t;a++)"hue"==e&&d.push(w3color(`hsl(${15*a},${f},${b})`)),"sat"==e&&d.push(w3color(`hsl(${c},${.05*a},${b})`));for("sat"==e&&d.reverse(),a=0;a<d.length;a++)r=0,"hue"==e&&(s=w3color(d[a]).hue,n=(s=a==d.length-1?360:s)>(i=c)),"sat"==e&&(s=Math.round(100*w3color(d[a]).sat),i=Number(100*f),n=s<(i=Math.round(i))),i==s&&(o++,r=1),n&&o++,1==o&&(h+=`<div style='background:${u.toHexString()}'><b>${i} ${u.toHexString()}</b></div>`,o=2),0==r&&(h+=`<div style='background:${d[a].toHexString()}' onclick='cc("${d[a].toHexString()}")'><i>${s} ${d[a].toHexString()}</i></div>`);h+="</div>","hue"==e&&(document.getElementById("hue").innerHTML=h),"sat"==e&&(document.getElementById("hsl").innerHTML=h)}function changeColor(e){hslLum_top(),hslTable("hue"),hslTable("sat")}cc(colorObj.toHexString());
+function w3SetColorsByAttribute(){for(var e,t=document.getElementsByTagName("*"),r=0;r<t.length;r++)(e=t[r].getAttribute("data-w3-color"))&&(t[r].style.backgroundColor=w3color(e).toRgbString())}!function(){function r(e,t){return this instanceof r?"object"==typeof e?e:(this.attachValues(function(e){var t,r,n,s,i,a,o,h,l,u,c,f,b,d,g=[],m=[],y=[],p=(e=G(e.toLowerCase())).substr(0,1).toUpperCase(),k=e.substr(1),w=1;if("rgb"==(e=0<(e=3==(e="R"!=p&&"Y"!=p&&"G"!=p&&"C"!=p&&"B"!=p&&"M"!=p&&"W"!=p||isNaN(k)||6==e.length&&-1==e.indexOf(",")?e:"ncol("+e+")").length||6==e.length||isNaN(e)?e:"ncol("+e+")").indexOf(",")&&-1==e.indexOf("(")?"ncol("+e+")":e).substr(0,3)||"hsl"==e.substr(0,3)||"hwb"==e.substr(0,3)||"ncol"==e.substr(0,4)||"cmyk"==e.substr(0,4)){if(p=!(t=3),"a"==(e="ncol"==e.substr(0,4)?(f="ncol",(e=4==e.split(",").length&&-1==e.indexOf("ncola")?e.replace("ncol","ncola"):e).substr(4)):"cmyk"==e.substr(0,4)?(f="cmyk",e.substr(4)):(f=e.substr(0,3),e.substr(3))).substr(0,1).toLowerCase()?(t=4,p=!0,e=e.substr(1)):"cmyk"==f&&(t=4,5==e.split(",").length)&&(t=5,p=!0),g=(e=(e=e.replace("(","")).replace(")","")).split(","),"rgb"==f){if(g.length!=t)return N();for(r=0;r<t;r++){if(""!=g[r]&&" "!=g[r]||(g[r]="0"),-1<g[r].indexOf("%")&&(g[r]=g[r].replace("%",""),g[r]=Number(g[r]/100),r<3)&&(g[r]=Math.round(255*g[r])),isNaN(g[r]))return N();255<parseInt(g[r])&&(g[r]=255),r<3&&(g[r]=parseInt(g[r])),3==r&&1<Number(g[r])&&(g[r]=1)}a={r:g[0],g:g[1],b:g[2]},1==p&&(w=Number(g[3]))}if("hsl"==f||"hwb"==f||"ncol"==f){for(;g.length<t;)g.push("0");for("hsl"!=f&&"hwb"!=f||360<=parseInt(g[0])&&(g[0]=0),r=1;r<t;r++){if(-1<g[r].indexOf("%")){if(g[r]=g[r].replace("%",""),g[r]=Number(g[r]),isNaN(g[r]))return N();g[r]=g[r]/100}else g[r]=Number(g[r]);1<Number(g[r])&&(g[r]=1),Number(g[r])<0&&(g[r]=0)}"hsl"==f&&(a=B(g[0],g[1],g[2]),s=Number(g[0]),i=Number(g[1])),"hwb"==f&&(a=x(g[0],g[1],g[2])),"ncol"==f&&(a=function(e,t,r){var n,s=e;if(isNaN(e.substr(0,1))){if(n=e.substr(0,1).toUpperCase(),""==(e=e.substr(1))&&(e=0),e=Number(e),isNaN(e))return!1;"R"==n&&(s=0+.6*e),"Y"==n&&(s=60+.6*e),"G"==n&&(s=120+.6*e),"C"==n&&(s=180+.6*e),"B"==n&&(s=240+.6*e),"M"==n&&(s=300+.6*e),"W"==n&&(s=0,t=1-e/100,r=e/100)}return x(s,t,r)}(g[0],g[1],g[2])),1==p&&(w=Number(g[3]))}if("cmyk"==f){for(;g.length<t;)g.push("0");for(r=0;r<t;r++){if(-1<g[r].indexOf("%")){if(g[r]=g[r].replace("%",""),g[r]=Number(g[r]),isNaN(g[r]))return N();g[r]=g[r]/100}else g[r]=Number(g[r]);1<Number(g[r])&&(g[r]=1),Number(g[r])<0&&(g[r]=0)}k=g[0],f=g[1],b=g[2],d=g[3],a={r:255-255*Math.min(1,k*(1-d)+d),g:255-255*Math.min(1,f*(1-d)+d),b:255-255*Math.min(1,b*(1-d)+d)},1==p&&(w=Number(g[4]))}}else if("ncs"==e.substr(0,3))a=null!==(k=(k=-1==(k=(k=(k=(k=(k=G(k=e).toUpperCase()).replace("(","")).replace(")","")).replace("NCS","NCS ")).replace(/  /g," ")).indexOf("NCS")?"NCS "+k:k).match(/^(?:NCS|NCS\sS)\s(\d{2})(\d{2})-(N|[A-Z])(\d{2})?([A-Z])?$/))&&(b=parseInt(k[1],10),d=parseInt(k[2],10),"N"==(p=k[3])||"Y"==p||"R"==p||"B"==p||"G"==p)&&(k=parseInt(k[4],10)||0,"N"!==p?(o=1.05*b-5.25,"Y"===p&&k<=60?c=1:"Y"===p&&60<k||"R"===p&&k<=80?(h="Y"===p?k-60:k+40,c=(Math.sqrt(14884-Math.pow(h,2))-22)/100):"R"===p&&80<k||"B"===p?c=0:"G"===p&&(h=k-170,c=(Math.sqrt(33800-Math.pow(h,2))-70)/100),"Y"===p&&k<=80?l=0:"Y"===p&&80<k||"R"===p&&k<=60?(h="Y"===p?k-80+20.5:k+20+20.5,l=(104-Math.sqrt(11236-Math.pow(h,2)))/100):"R"===p&&60<k||"B"===p&&k<=80?(h="R"===p?k-60-60:k+40-60,l=(Math.sqrt(1e4-Math.pow(h,2))-10)/100):"B"===p&&80<k||"G"===p&&k<=40?(h="B"===p?k-80-131:k+20-131,l=(122-Math.sqrt(19881-Math.pow(h,2)))/100):"G"===p&&40<k&&(l=0),"Y"===p?green1=(85-.85*k)/100:"R"===p&&k<=60?green1=0:"R"===p&&60<k?(h=k-60+35,green1=(67.5-Math.sqrt(5776-Math.pow(h,2)))/100):"B"===p&&k<=60?(h=+k-68.5,green1=(6.5+Math.sqrt(7044.5-Math.pow(h,2)))/100):"B"===p&&60<k||"G"===p&&k<=60?green1=.9:"G"===p&&60<k&&(green1=(90-1/8*(h=k-60))/100),p=((h=(c+green1+l)/3)-c)*(100-d)/100+c,c=(h-l)*(100-d)/100+l,h=1/((k=(h-green1)*(100-d)/100+green1)<p&&c<p?p:p<k&&c<k?k:p<c&&k<c?c:(p+k+c)/3),(l=255<(l=parseInt(p*h*(100-o)/100*255,10))?255:l)<0&&(l=0),(u=255<(u=parseInt(k*h*(100-o)/100*255,10))?255:u)<0&&(u=0),(c=255<(c=parseInt(c*h*(100-o)/100*255,10))?255:c)<0&&(c=0)):c=u=l=d=(d=255<(d=parseInt(255*(1-b/100),10))?255:d)<0?0:d,{r:l,g:u,b:c});else{for(n=!1,m=S("names"),r=0;r<m.length;r++)if(e.toLowerCase()==m[r].toLowerCase()){y=S("hexs"),n=!0,a={r:parseInt(y[r].substr(0,2),16),g:parseInt(y[r].substr(2,2),16),b:parseInt(y[r].substr(4,2),16)};break}if(0==n){for(3==(e=e.replace("#","")).length&&(e=e.substr(0,1)+e.substr(0,1)+e.substr(1,1)+e.substr(1,1)+e.substr(2,1)+e.substr(2,1)),r=0;r<e.length;r++)if(!(-1<"0123456789ABCDEFabcdef".indexOf(e.substr(r,1))))return N();for(g[0]=parseInt(e.substr(0,2),16),g[1]=parseInt(e.substr(2,2),16),g[2]=parseInt(e.substr(4,2),16),r=0;r<3;r++)if(isNaN(g[r]))return N();a={r:g[0],g:g[1],b:g[2]}}}return M(a,w,s,i)}(e)),void(t&&(t.style.backgroundColor=this.toRgbString()))):new r(e,t)}function M(e,t,r,n){var s,i,a,o,h,l,u,c;return e?(null===t&&(t=1),s=function(e,t,r){var n,s,i,a,o,h=[];for(h[0]=e/255,h[1]=t/255,h[2]=r/255,s=n=h[0],i=a=0;i<h.length-1;i++)h[i+1]<=n&&(n=h[i+1]),s<=h[i+1]&&(s=h[i+1],a=i+1);return 0==a&&(o=(h[1]-h[2])/(s-n)),1==a&&(o=2+(h[2]-h[0])/(s-n)),2==a&&(o=4+(h[0]-h[1])/(s-n)),isNaN(o)&&(o=0),(o*=60)<0&&(o+=360),e=(n+s)/2,{h:o,s:n==s?0:e<.5?(s-n)/(s+n):(s-n)/(2-s-n),l:e}}(e.r,e.g,e.b),l=e.r,u=e.g,c=e.b,l/=255,u/=255,c/=255,max=Math.max(l,u,c),min=Math.min(l,u,c),c={h:0==(chroma=max-min)?0:l==max?(u-c)/chroma%6*360:u==max?((c-l)/chroma+2)%6*360:((l-u)/chroma+4)%6*360,w:min,b:1-max},l=e.r,u=e.g,i=e.b,l/=255,u/=255,i/=255,l=1==(h=1-(max=Math.max(l,u,i)))?o=a=0:(a=(1-l-h)/(1-h),o=(1-u-h)/(1-h),(1-i-h)/(1-h)),u={c:a,m:o,y:l,k:h},r=r||s.h,n=n||s.s,i=function(e){for(;360<=e;)e-=360;return e<60?"R"+e/.6:e<120?"Y"+(e-60)/.6:e<180?"G"+(e-120)/.6:e<240?"C"+(e-180)/.6:e<300?"B"+(e-240)/.6:e<360?"M"+(e-300)/.6:void 0}(r),(r=e={red:e.r,green:e.g,blue:e.b,hue:r,sat:n,lightness:s.l,whiteness:c.w,blackness:c.b,cyan:u.c,magenta:u.m,yellow:u.y,black:u.k,ncol:i,opacity:t,valid:!0}).red=Number(r.red.toFixed(0)),r.green=Number(r.green.toFixed(0)),r.blue=Number(r.blue.toFixed(0)),r.hue=Number(r.hue.toFixed(0)),r.sat=Number(r.sat.toFixed(2)),r.lightness=Number(r.lightness.toFixed(2)),r.whiteness=Number(r.whiteness.toFixed(2)),r.blackness=Number(r.blackness.toFixed(2)),r.cyan=Number(r.cyan.toFixed(2)),r.magenta=Number(r.magenta.toFixed(2)),r.yellow=Number(r.yellow.toFixed(2)),r.black=Number(r.black.toFixed(2)),r.ncol=r.ncol.substr(0,1)+Math.round(Number(r.ncol.substr(1))),r.opacity=Number(r.opacity.toFixed(2)),r):N()}
+function N(){return{red:0,green:0,blue:0,hue:0,sat:0,lightness:0,whiteness:0,blackness:0,cyan:0,magenta:0,yellow:0,black:0,ncol:"R",opacity:1,valid:!1}}function S(e){return"names"==e?["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","DarkOrange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","RebeccaPurple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"]:"hexs"==e?["f0f8ff","faebd7","00ffff","7fffd4","f0ffff","f5f5dc","ffe4c4","000000","ffebcd","0000ff","8a2be2","a52a2a","deb887","5f9ea0","7fff00","d2691e","ff7f50","6495ed","fff8dc","dc143c","00ffff","00008b","008b8b","b8860b","a9a9a9","a9a9a9","006400","bdb76b","8b008b","556b2f","ff8c00","9932cc","8b0000","e9967a","8fbc8f","483d8b","2f4f4f","2f4f4f","00ced1","9400d3","ff1493","00bfff","696969","696969","1e90ff","b22222","fffaf0","228b22","ff00ff","dcdcdc","f8f8ff","ffd700","daa520","808080","808080","008000","adff2f","f0fff0","ff69b4","cd5c5c","4b0082","fffff0","f0e68c","e6e6fa","fff0f5","7cfc00","fffacd","add8e6","f08080","e0ffff","fafad2","d3d3d3","d3d3d3","90ee90","ffb6c1","ffa07a","20b2aa","87cefa","778899","778899","b0c4de","ffffe0","00ff00","32cd32","faf0e6","ff00ff","800000","66cdaa","0000cd","ba55d3","9370db","3cb371","7b68ee","00fa9a","48d1cc","c71585","191970","f5fffa","ffe4e1","ffe4b5","ffdead","000080","fdf5e6","808000","6b8e23","ffa500","ff4500","da70d6","eee8aa","98fb98","afeeee","db7093","ffefd5","ffdab9","cd853f","ffc0cb","dda0dd","b0e0e6","800080","663399","ff0000","bc8f8f","4169e1","8b4513","fa8072","f4a460","2e8b57","fff5ee","a0522d","c0c0c0","87ceeb","6a5acd","708090","708090","fffafa","00ff7f","4682b4","d2b48c","008080","d8bfd8","ff6347","40e0d0","ee82ee","f5deb3","ffffff","f5f5f5","ffff00","9acd32"]:void 0}
+function B(e,t,r){return{r:255*n(t=2*r-(r=r<=.5?r*(t+1):r+t-r*t),r,2+(e/=60)),g:255*n(t,r,e),b:255*n(t,r,e-2)}}function n(e,t,r){return r<0&&(r+=6),6<=r&&(r-=6),r<1?(t-e)*r+e:r<3?t:r<4?(t-e)*(4-r)+e:e}function x(e,t,r){var n,s=[],e=B(e,1,.5);for(s[0]=e.r/255,s[1]=e.g/255,s[2]=e.b/255,1<(e=t+r)&&(t=Number((t/e).toFixed(2)),r=Number((r/e).toFixed(2))),n=0;n<3;n++)s[n]*=1-t-r,s[n]+=t,s[n]=Number(255*s[n]);return{r:s[0],g:s[1],b:s[2]}}function e(e){for(var t=e.toString(16);t.length<2;)t="0"+t;return t}function G(e){return e.replace(/^\s+|\s+$/g,"")}r.prototype={toRgbString:function(){return"rgb("+this.red+","+this.green+","+this.blue+")"},toRgbaString:function(){return"rgba("+this.red+","+this.green+","+this.blue+","+this.opacity+")"},toHwbString:function(){return"hwb("+this.hue+","+Math.round(100*this.whiteness)+"%,"+Math.round(100*this.blackness)+"%)"},toHwbStringDecimal:function(){return"hwb("+this.hue+","+this.whiteness+","+this.blackness+")"},toHwbaString:function(){return"hwba("+this.hue+","+Math.round(100*this.whiteness)+"%,"+Math.round(100*this.blackness)+"%,"+this.opacity+")"},toHslString:function(){return"hsl("+this.hue+","+Math.round(100*this.sat)+"%,"+Math.round(100*this.lightness)+"%)"},toHslStringDecimal:function(){return"hsl("+this.hue+","+this.sat+","+this.lightness+")"},toHslaString:function(){return"hsla("+this.hue+","+Math.round(100*this.sat)+"%,"+Math.round(100*this.lightness)+"%,"+this.opacity+")"},toCmykString:function(){return"cmyk("+Math.round(100*this.cyan)+"%,"+Math.round(100*this.magenta)+"%,"+Math.round(100*this.yellow)+"%,"+Math.round(100*this.black)+"%)"},toCmykStringDecimal:function(){return"cmyk("+this.cyan+","+this.magenta+","+this.yellow+","+this.black+")"},toNcolString:function(){return this.ncol+","+Math.round(100*this.whiteness)+"%,"+Math.round(100*this.blackness)+"%"},toNcolStringDecimal:function(){return this.ncol+","+this.whiteness+","+this.blackness},toNcolaString:function(){return this.ncol+","+Math.round(100*this.whiteness)+"%,"+Math.round(100*this.blackness)+"%,"+this.opacity},toName:function(){var e,t,r,n=S("hexs");for(i=0;i<n.length;i++)if(e=parseInt(n[i].substr(0,2),16),t=parseInt(n[i].substr(2,2),16),r=parseInt(n[i].substr(4,2),16),this.red==e&&this.green==t&&this.blue==r)return S("names")[i];return""},toHexString:function(){return"#"+e(this.red)+e(this.green)+e(this.blue)},toRgb:function(){return{r:this.red,g:this.green,b:this.blue,a:this.opacity}},toHsl:function(){return{h:this.hue,s:this.sat,l:this.lightness,a:this.opacity}},toHwb:function(){return{h:this.hue,w:this.whiteness,b:this.blackness,a:this.opacity}},toCmyk:function(){return{c:this.cyan,m:this.magenta,y:this.yellow,k:this.black,a:this.opacity}},toNcol:function(){return{ncol:this.ncol,w:this.whiteness,b:this.blackness,a:this.opacity}},isDark:function(e){return(299*this.red+587*this.green+114*this.blue)/1e3<(e||128)},saturate:function(e){this.sat+=e/100||.1,1<this.sat&&(this.sat=1),e=M(B(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},desaturate:function(e){this.sat-=e/100||.1,this.sat<0&&(this.sat=0),e=M(B(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},lighter:function(e){this.lightness+=e/100||.1,1<this.lightness&&(this.lightness=1),e=M(B(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},darker:function(e){this.lightness-=e/100||.1,this.lightness<0&&(this.lightness=0),e=M(B(this.hue,this.sat,this.lightness),this.opacity,this.hue,this.sat),this.attachValues(e)},attachValues:function(e){this.red=e.red,this.green=e.green,this.blue=e.blue,this.hue=e.hue,this.sat=e.sat,this.lightness=e.lightness,this.whiteness=e.whiteness,this.blackness=e.blackness,this.cyan=e.cyan,this.magenta=e.magenta,this.yellow=e.yellow,this.black=e.black,this.ncol=e.ncol,this.opacity=e.opacity,this.valid=e.valid}},window.w3color=r}();
+var colorhex=color="#06f",colorObj=w3color(color),hh=0;function cc(e,t,r,n){var s,i,a,o,e=0==e?document.getElementById("input").value:e,e=w3color(e);e.red;if(colorhex=e.toHexString(),document.getElementById("cnam").innerHTML=e.toName()||"",document.getElementById("chex").innerHTML=e.toHexString(),document.getElementById("crgb").innerHTML=e.toRgbString(),document.getElementById("chsl").innerHTML=e.toHslString(),!(t&&-1!=t||r&&-1!=r))for(s=document.getElementById("colormap").getElementsByTagName("AREA"),i=0;i<s.length;i++)(a=a.replace('")',"")).toLowerCase()==colorhex&&(o=s[i].getAttribute("onclick").replace(")","").split(","),t=Number(o[1]),r=Number(o[2]));document.querySelector("body").style.setProperty("--bg",e.toHexString()),changeColor()}function hslLum_top(){for(var e="<div class='colorTable'>",t=0,r=document.getElementById("chex").innerHTML,r=w3color(r),n=r.hue,s=r.sat,i=r.lightness,a=[],o=w3color(r).toHexString(),h=0;h<=20;h++)a.push(w3color("hsl("+n+","+s+","+.05*h+")"));for(a.reverse(),h=0;h<a.length;h++)0==t&&Math.round(100*i)==Math.round(100*a[h].lightness)?(e+=`<div style='background:${o}'><b>${Math.round(100*i)} ${o}</b></div>`,t=1):(0==t&&i>a[h].lightness&&(e+=`<div style='background:${o}'><b>${Math.round(100*i)} ${o}</b></div>`,t=1),e+=`<div style='background:${a[h].toHexString()}' onclick='cc("${a[h].toHexString()}")'><i>${Math.round(100*a[h].lightness)} ${a[h].toHexString()}</i></div>`);e+="</div>",document.getElementById("lum").innerHTML=e}function hslTable(e){var t,r,n,s,i,a,o=0,h="<div class='colorTable'>",l=document.getElementById("chex").innerHTML,u=w3color(l),c=u.hue,f=u.sat,b=u.lightness,d=[];for("hue"==e&&(t=24),"sat"==e&&(t=20),a=0;a<=t;a++)"hue"==e&&d.push(w3color(`hsl(${15*a},${f},${b})`)),"sat"==e&&d.push(w3color(`hsl(${c},${.05*a},${b})`));for("sat"==e&&d.reverse(),a=0;a<d.length;a++)r=0,"hue"==e&&(s=w3color(d[a]).hue,n=(s=a==d.length-1?360:s)>(i=c)),"sat"==e&&(s=Math.round(100*w3color(d[a]).sat),i=Number(100*f),n=s<(i=Math.round(i))),i==s&&(o++,r=1),n&&o++,1==o&&(h+=`<div style='background:${u.toHexString()}'><b>${i} ${u.toHexString()}</b></div>`,o=2),0==r&&(h+=`<div style='background:${d[a].toHexString()}' onclick='cc("${d[a].toHexString()}")'><i>${s} ${d[a].toHexString()}</i></div>`);h+="</div>","hue"==e&&(document.getElementById("hue").innerHTML=h),"sat"==e&&(document.getElementById("hsl").innerHTML=h)}function changeColor(e){hslLum_top(),hslTable("hue"),hslTable("sat")}cc(colorObj.toHexString());
 </script>
+<script>document.querySelectorAll("#icons>i").forEach(e=>{e.classList.add("fa")});</script>
 </body>
 </html>
