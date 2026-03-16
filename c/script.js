@@ -116,7 +116,7 @@ document.querySelectorAll('a[href^="http"]').forEach(link=>{
     link.setAttribute('rel','noopener noreferrer');
 });
 //加载文字轮播
-const texts=["轮播文本1","轮播文本2","轮播文本3","轮播文本4"];
+const texts=["页面加载中","可能有点慢","请耐心等候","点击下方跳过","轮播文本1","轮播文本2","轮播文本3","轮播文本4"];
 let ci=0;
 const ct=document.querySelector('#loader>div>p');
 ct.textContent=texts[ci];
