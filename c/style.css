@@ -970,7 +970,7 @@ main{
         }
     }
     time{
-        background:--opa(color-mix(in oklab,var(--nav-c) 70%,var(--color)));
+        background:--opa(color-mix(in oklab,var(--nav-c) 70%,var(--color)),0.3);
         font-size:0.8em;
         padding:2.5px 5px;
         margin:0 2.5px;
