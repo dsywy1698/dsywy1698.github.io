@@ -663,23 +663,23 @@ main{
             margin:10px 30px;
             >a{
                 display:block;
-                background:hsl(from var(--t) calc(h - 30) calc(s - 20) l / 0.19);
+                text-align:left;
                 font-weight:bold;
                 text-decoration:none;
                 color:inherit;
                 font-size:1.25rem;
-                padding:10px;
-                border-radius:20px 20px 5px 5px;
-                margin:10px 0 3px 0;
+                padding:8px 15px;
+                border-radius:20px;
+                margin:5px;
+                background:linear-gradient(to right,hsl(from var(--t) calc(h - 30) calc(s - 20) l / 0.2),transparent);
             }
             >dl{
                 text-align:left;
-                background:linear-gradient(to bottom,hsl(from var(--t) calc(h - 30) calc(s - 20) l / 0.2),transparent);
                 border-radius:5px 5px 0 0;
                 padding:15px;
                 >dd{
-                    margin:7px 5px;
-                    font-weight:bold;
+                    margin:3px 1em;
+                    color:color-mix(in oklab,hsl(from var(--t) calc(h - 20) s l) 20%,var(--color));
                     position:relative;
                     &::before{
                         font-family:"icons";
@@ -690,16 +690,13 @@ main{
                     }
                 }
                 >dt{
-                    margin:3px 1em;
-                    color:color-mix(in oklab,hsl(from var(--t) calc(h - 20) s l) 20%,var(--color));
-                }
-                span{
+                    display:inline-block;
                     font-size:0.875rem;
                     background:--opa(var(--t),0.1);
                     color:--mix(var(--t));
-                    border-radius:99px;
-                    padding:5px;
-                    margin:5px 2px;
+                    border-radius:15px;
+                    padding:0 1em;
+                    margin:5px;
                     line-height:30px;
                     text-wrap:nowrap;
                 }
@@ -1090,7 +1087,7 @@ main{
             >summary::before{transform:rotate(90deg);}
         }
     }
-    .conversations>p{
+    article>p:has(>b),blockquote>p:has(>b),.writing>p:has(>b){
         text-indent:0;
         display:flex;
         >b{

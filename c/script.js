@@ -243,18 +243,6 @@ window.addEventListener('DOMContentLoaded',function(){
                 const h2Dd=document.createElement('dd');
                 h2Dd.textContent=h2.textContent;
                 h2Dl.appendChild(h2Dd);
-                const h2Des=h2.getAttribute('data-des');
-                if(h2Des){
-                    const descFragment=document.createDocumentFragment();
-                    h2Des.split(' ').forEach(desc=>{
-                        if(desc.trim()){
-                            const span=document.createElement('span');
-                            span.textContent=desc.trim();
-                            descFragment.appendChild(span);
-                        }
-                    });
-                    h2Dd.after(descFragment);
-                }
                 let neH2=h2.nextElementSibling;
                 const h3u=[];
                 while(neH2&&neH2.tagName!=='H1'&&neH2.tagName!=='H2'){
@@ -267,35 +255,39 @@ window.addEventListener('DOMContentLoaded',function(){
                     h3Dd.textContent=h3.textContent;
                     h3Dt.appendChild(h3Dd);
                     h2Dl.appendChild(h3Dt);
-                    const h3Des=h3.getAttribute('data-des');
-                    if(h3Des){
-                        const descFragment=document.createDocumentFragment();
-                        h3Des.split(' ').forEach(desc=>{
-                            if(desc.trim()){
-                                const span=document.createElement('span');
-                                span.textContent=desc.trim();
-                                descFragment.appendChild(span);
-                            }
-                        });
-                        h3Dd.after(descFragment);
-                    }
                 });
             });
             toc.appendChild(link);
             if(h2u.length>0){toc.appendChild(h2Dl);}
-            const h1Des=h1.getAttribute('data-des');
-            if(h1Des){
-                const descFragment=document.createDocumentFragment();
-                h1Des.split(' ').forEach(desc=>{
-                    if(desc.trim()){
-                        const span=document.createElement('span');
-                        span.textContent=desc.trim();
-                        descFragment.appendChild(span);
-                    }
-                });
-                h2Dl.prepend(descFragment);
-            }
         });
         header.appendChild(toc);
+    });
+});
+
+//脚注
+document.addEventListener('DOMContentLoaded',function(){
+    const mainMap=new Map();
+    document.querySelectorAll('sup[data-d]').forEach((sup, index)=>{
+        const main=sup.closest('main');
+        if(!main)return;
+        const mainId=main.id;
+        if(!mainMap.has(mainId)){mainMap.set(mainId,{element:main,notes:[]});}
+        const mainNotes=mainMap.get(mainId).notes,
+              noteInfo={sup:sup,dataD:sup.getAttribute('data-d'),order:mainNotes.length+1};
+        mainNotes.push(noteInfo);
+    });
+    mainMap.forEach((data)=>{
+        if(data.notes.length===0)return;
+        const note=document.createElement('div');
+        note.className='notes';
+        data.notes.forEach(noteInfo => {
+            const p=document.createElement('p');
+            p.textContent=`[${noteInfo.order}] ${noteInfo.dataD}`;
+            note.appendChild(p);
+        });
+        data.element.appendChild(note);
+        data.notes.forEach(noteInfo=>{
+            noteInfo.sup.textContent=`[${noteInfo.order}]`;
+        });
     });
 });
