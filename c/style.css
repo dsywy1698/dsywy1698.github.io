@@ -36,7 +36,7 @@ body{
     }
 }
 ::selection{background:--opa(var(--nav));}
-p,dt,dd,li,small{line-height:1.7em;letter-spacing:0.15em;}
+p,dt,dd,li,small,code{line-height:1.7em;letter-spacing:0.15em;}
 td{line-height:1.4em;letter-spacing:0.12em;}
 button{border:none;}
 input:focus{outline:none;}
@@ -668,7 +668,7 @@ main{
                 text-decoration:none;
                 color:inherit;
                 font-size:1.25rem;
-                padding:8px 15px;
+                padding:8px 1em;
                 border-radius:20px;
                 margin:5px;
                 background:linear-gradient(to right,hsl(from var(--t) calc(h - 30) calc(s - 20) l / 0.2),transparent);
@@ -776,7 +776,8 @@ main{
         >div{margin:auto;}
         >p{color:color-mix(in oklch,var(--gallery) 30%,var(--color));}
     }
-    .box{
+    code{
+        display:block;
         background:--opa(var(--color),0.35);
         padding:20px;
         text-align:center;
@@ -899,18 +900,6 @@ main{
         border-radius:5px;
         margin:0 2.5px;
         font-family:"font",Consolas;
-    }
-    code{
-        all:unset;
-        background:--opa(var(--q),0.4);
-        color:--txt(var(--q));
-        box-shadow:6px -6px 3px --opa(var(--q),0.3);
-        display:block;
-        border-radius:10px;
-        padding:10px;
-        text-align:center;
-        font-size:1.125rem;
-        color:color-mix(in oklch,var(--color) 70%,var(--q));
     }
     ruby{
         font-size:1.75rem;
