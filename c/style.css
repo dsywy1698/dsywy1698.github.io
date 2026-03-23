@@ -587,8 +587,8 @@ main{
         top:0;
         &:hover{opacity:0.7;}}
     img,svg,canvas,audio,video{
+        width:400px;
         max-width:100%;
-        max-height:60vh;
         border-radius:10px;
         display:block;
         margin:10px auto;
