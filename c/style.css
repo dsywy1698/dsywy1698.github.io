@@ -1156,6 +1156,14 @@ main{
         color:#303;
         font-style:italic;
     }
+    span.dataspan{
+        background:#ba57db66;
+        color:--mix(#a92dd2);
+        font-size:0.875rem;
+        padding:2px 3px;
+        border-radius:0 7px 7px 0;
+        margin-right:5px;
+    }
     mark{
         background-color:#d9b3ff80;
         padding:0 3px;
