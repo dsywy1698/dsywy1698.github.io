@@ -626,7 +626,7 @@ main{
         text-align:center;
         padding:100px 0 50px 0;
         margin:0;
-        min-height:40dvh;
+        min-height:40svh;
         background:linear-gradient(160deg,--opa(var(--t)) 0,transparent 70%);
         position:relative;
         width:100dvw;
