@@ -66,9 +66,9 @@ body[data-t="l"]{
     --blockquote:#d194ac;
     --gallery:#40dfdf;
     --article:#9898e6;
-    --writing:#abc256;
+    --writing:#d9d926;
     --timeline:#b2bfc3;
-    --table:#c9c983;
+    --table:#abc256;
 }
 body[data-t="d"]{
     --background:#00001a;
