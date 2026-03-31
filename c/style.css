@@ -605,7 +605,7 @@ main{
         border-radius:10px;
         border:0;
     }
-    ul,ol,&:not(#EVE) dl:not(.keywords,.keywords>dl,.timeline,#EVE dl){
+    ul,ol,&:not(#EVE) dl:not(header>dl,.timeline,#EVE dl){
         margin:10px 0 10px 2em;
         li,dd{
             color:--mix(var(--hr));
@@ -655,28 +655,23 @@ main{
             }
             tr>td:first-of-type{font-weight:bold;width:4em;}
         }
-        dl.keywords{
+        dl{
             background:hsl(from var(--t) calc(h - 30) calc(s - 20) l / 0.2);
             padding:15px;
             border-radius:20px;
             font-size:1rem;
             margin:10px 30px;
-            >a{
-                display:block;
-                text-align:left;
+            text-align:left;
+            >dt{
                 font-weight:bold;
-                text-decoration:none;
                 color:inherit;
-                font-size:1.25rem;
-                padding:8px 1em;
+                font-size:1.125rem;
+                line-height:30px;
+                padding:5px 1em;
                 border-radius:20px;
-                margin:5px;
-                background:linear-gradient(to right,hsl(from var(--t) calc(h - 30) calc(s - 20) l / 0.2),transparent);
+                margin:10px 5px;
+                background:linear-gradient(to right,hsl(from var(--t) calc(h - 30) calc(s - 20) l / 0.1),transparent);
             }
-            >dl{
-                text-align:left;
-                border-radius:5px 5px 0 0;
-                padding:15px;
                 >dd{
                     margin:3px 1em;
                     color:color-mix(in oklab,hsl(from var(--t) calc(h - 20) s l) 20%,var(--color));
@@ -689,7 +684,7 @@ main{
                         color:color-mix(in oklab,hsl(from var(--t) calc(h - 20) s l),var(--color));
                     }
                 }
-                >dt{
+                >span{
                     display:inline-block;
                     font-size:0.875rem;
                     background:--opa(var(--t),0.1);
@@ -697,10 +692,9 @@ main{
                     border-radius:15px;
                     padding:0 1em;
                     margin:5px;
-                    line-height:30px;
+                    line-height:25px;
                     text-wrap:nowrap;
                 }
-            }
         }
         .information{
             padding:10px;
@@ -1011,7 +1005,8 @@ main{
         }
     }
     .moments{
-        background:#fff3;
+        background:--opa(var(--color),0.1);
+        color:--txt(var(--color));
         padding:10px;
         border-radius:10px;
         >p{text-indent:0;font-size:1rem;}

@@ -138,9 +138,18 @@ function fo(){
     });
 }
 window.addEventListener("load",function(){setTimeout(fo,300);});
+//动态id
 document.addEventListener('DOMContentLoaded',function(){
-    document.querySelectorAll('main:has(>h1):not(#HOME)').forEach(m=>{
+    document.querySelectorAll('main:not(#HOME)').forEach(m=>{
         m.querySelectorAll(':scope>h1').forEach(h=>{
+            const i=`${m.id}-${h.textContent.trim().replace(/[^\w\u4e00-\u9fa5]+/g, '-').toLowerCase()}`;
+            h.setAttribute('id',i);
+        });
+        m.querySelectorAll(':scope>h2').forEach(h=>{
+            const i=`${m.id}-${h.textContent.trim().replace(/[^\w\u4e00-\u9fa5]+/g, '-').toLowerCase()}`;
+            h.setAttribute('id',i);
+        });
+        m.querySelectorAll(':scope>h3').forEach(h=>{
             const i=`${m.id}-${h.textContent.trim().replace(/[^\w\u4e00-\u9fa5]+/g, '-').toLowerCase()}`;
             h.setAttribute('id',i);
         });
@@ -148,8 +157,22 @@ document.addEventListener('DOMContentLoaded',function(){
     "function"==typeof heb&&heb();
 });
 window.addEventListener('DOMContentLoaded',function(){
+    //初始化
+    const p=localStorage.getItem('p');
+    p?document.getElementById('password').close():document.getElementById('password').showModal();
+    const t=localStorage.getItem('t');t&&(chT(t),document.querySelector(`input[name="t"][onclick*="${t}"]`).checked=!0);
+    const n=localStorage.getItem('n');n&&(chN(n),document.querySelector(`input[name="n"][onclick*="${n}"]`).checked=!0);
+    const f=localStorage.getItem('f');f&&(chF(f),document.querySelector(`input[name="f"][onclick*="${f}"]`).checked=!0);
+    const o=localStorage.getItem('o');
+    o&&(document.querySelector('body').style.setProperty("--o",o),document.getElementById('r1').value=o);
+    const b=localStorage.getItem('b');
+    b&&(document.querySelector('body').style.setProperty("--bl",b+"px"),document.getElementById('r2').value=b);
+    showPage('HOME');
+});
+window.addEventListener('DOMContentLoaded',function(){
+    const m=document.querySelectorAll('main');
     //菜单
-    document.querySelectorAll('main').forEach(main=>{
+    m.forEach(main=>{
         const mainId=main.id;
         if(mainId==='HOME')return;
         const c=document.createElement('div');
@@ -164,110 +187,72 @@ window.addEventListener('DOMContentLoaded',function(){
                 c.appendChild(link);
             }
         });
-        const navButton=document.createElement('button');
-        navButton.setAttribute('onclick',`showPage('${mainId}')`);
-        navButton.textContent=main.querySelector('header>h1')?.textContent;
-        document.querySelector('nav>div:nth-of-type(2)>div:nth-of-type(1)').appendChild(navButton);
+        const navB=document.createElement('button');
+        navB.setAttribute('onclick',`showPage('${mainId}')`);
+        navB.textContent=main.querySelector('header>h1')?.textContent;
+        document.querySelector('nav>div:nth-of-type(2)>div:nth-of-type(1)').appendChild(navB);
         document.querySelector('nav>div:nth-of-type(2)>div:nth-of-type(2)').appendChild(c);
     });
-    //初始化
-    const p=localStorage.getItem('p');
-    p?document.getElementById('password').close():document.getElementById('password').showModal();
-    const t=localStorage.getItem('t');t&&(chT(t),document.querySelector(`input[name="t"][onclick*="${t}"]`).checked=!0);
-    const n=localStorage.getItem('n');n&&(chN(n),document.querySelector(`input[name="n"][onclick*="${n}"]`).checked=!0);
-    const f=localStorage.getItem('f');f&&(chF(f),document.querySelector(`input[name="f"][onclick*="${f}"]`).checked=!0);
-    const o=localStorage.getItem('o');
-    o&&(document.querySelector('body').style.setProperty("--o",o),document.getElementById('r1').value=o);
-    const b=localStorage.getItem('b');
-    b&&(document.querySelector('body').style.setProperty("--bl",b+"px"),document.getElementById('r2').value=b);
-    showPage('HOME');
-});
-//换页
-window.addEventListener('DOMContentLoaded',function(){
-    const m=document.querySelectorAll('main');
+    //换页
     m.forEach((c,index)=>{
         const d=document.createElement('div'),
               pr=document.createElement('button'),
               ne=document.createElement('button');
         d.className='page';
         if(index>0){
-            const prevMain=m[index-1];
-            pr.setAttribute('onclick',`showPage("${prevMain.id}")`);
-            pr.textContent=prevMain.querySelector('header h1')?.textContent;
+            const prev=m[index-1];
+            pr.setAttribute('onclick',`showPage("${prev.id}")`);
+            pr.textContent=prev.querySelector('header h1')?.textContent;
         }
         if(index<m.length-1){
-            const nextMain=m[index+1];
-            ne.setAttribute('onclick',`showPage("${nextMain.id}")`);
-            ne.textContent=nextMain.querySelector('header h1')?.textContent;
+            const next=m[index+1];
+            ne.setAttribute('onclick',`showPage("${next.id}")`);
+            ne.textContent=next.querySelector('header h1')?.textContent;
         }
         d.appendChild(pr);
         d.appendChild(ne);
         c.appendChild(d);
     });
-});
-//文本复制
-document.querySelectorAll(".writing").forEach((e)=>{
-    const ele=document.createElement("button");
-    ele.className="fa fa-clone";
-    e.prepend(ele);
-    ele.onclick=function(){
-        let copy=e.querySelectorAll("h1,p");
-        text=Array.from(copy).map(e=>e.textContent.trim()).join('\n');
-        navigator.clipboard.writeText(text).then(()=>{
-            ele.className="fa fa-check";
-            setTimeout(()=>{ele.className="fa fa-clone";},500);
-        })
-    };
-});
-//header目录
-window.addEventListener('DOMContentLoaded',function(){
-    document.querySelectorAll('main').forEach(main=>{
-        const header=main.querySelector('header');
-        if(!header)return;
+    //header目录
+    m.forEach(main=>{
         const h1Ele=main.querySelectorAll('h1[id]');
         if(h1Ele.length===0)return;
-        const toc=document.createElement('dl');
-        toc.className='keywords';
+        const content=document.createElement('dl');
         h1Ele.forEach(h1=>{
-            const link=document.createElement('a');
-            link.href=`#${h1.id}`;
-            link.textContent=h1.textContent;
-            const h2Dl=document.createElement('dl');
-            let ne=h1.nextElementSibling;
-            const h2u=[];
-            while(ne&&ne.tagName!=='H1'){
-                if(ne.tagName==='H2'){h2u.push(ne);}
-                ne=ne.nextElementSibling;
+            const i1=document.createElement('dt');
+            i1.textContent=h1.textContent;
+            i1.onclick=()=>{window.location.href=`#${h1.id}`};
+            content.appendChild(i1);
+            let n1=h1.nextElementSibling;
+            const l2=[];
+            while(n1&&n1.tagName!=='H1'){
+                if(n1.tagName==='H2'){l2.push(n1);}
+                n1=n1.nextElementSibling;
             }
-            h2u.forEach(h2=>{
-                const h2Dd=document.createElement('dd');
-                h2Dd.textContent=h2.textContent;
-                h2Dl.appendChild(h2Dd);
-                let neH2=h2.nextElementSibling;
-                const h3u=[];
-                while(neH2&&neH2.tagName!=='H1'&&neH2.tagName!=='H2'){
-                    if(neH2.tagName==='H3'){h3u.push(neH2);}
-                    neH2=neH2.nextElementSibling;
+            l2.forEach(h2=>{
+                const i2=document.createElement('dd');
+                i2.textContent=h2.textContent;
+                i2.onclick=()=>{window.location.href=`#${h2.id}`};
+                content.appendChild(i2);
+                let n2=h2.nextElementSibling;
+                const l3=[];
+                while(n2&&n2.tagName!=='H1'&&n2.tagName!=='H2'){
+                    if(n2.tagName==='H3'){l3.push(n2);}
+                    n2=n2.nextElementSibling;
                 }
-                h3u.forEach(h3=>{
-                    const h3Dt=document.createElement('dt'),
-                          h3Dd=document.createElement('dd');
-                    h3Dd.textContent=h3.textContent;
-                    h3Dt.appendChild(h3Dd);
-                    h2Dl.appendChild(h3Dt);
+                l3.forEach(h3=>{
+                    const i3=document.createElement('span');
+                    i3.textContent=h3.textContent;
+                    i3.onclick=()=>{window.location.href=`#${h3.id}`};
+                    content.appendChild(i3);
                 });
             });
-            toc.appendChild(link);
-            if(h2u.length>0){toc.appendChild(h2Dl);}
         });
-        header.appendChild(toc);
+        main.querySelector('header').appendChild(content);
     });
-});
-
-//脚注
-document.addEventListener('DOMContentLoaded',function(){
+    //脚注
     const mainMap=new Map();
-    document.querySelectorAll('sup[data-d]').forEach((sup, index)=>{
+    document.querySelectorAll('sup[data-d]').forEach((sup)=>{
         const main=sup.closest('main');
         if(!main)return;
         const mainId=main.id;
@@ -290,4 +275,18 @@ document.addEventListener('DOMContentLoaded',function(){
             noteInfo.sup.textContent=`[${noteInfo.order}]`;
         });
     });
+});
+//文本复制
+document.querySelectorAll(".writing").forEach((e)=>{
+    const ele=document.createElement("button");
+    ele.className="fa fa-clone";
+    e.prepend(ele);
+    ele.onclick=function(){
+        let copy=e.querySelectorAll("h1,p");
+        text=Array.from(copy).map(e=>e.textContent.trim()).join('\n');
+        navigator.clipboard.writeText(text).then(()=>{
+            ele.className="fa fa-check";
+            setTimeout(()=>{ele.className="fa fa-clone";},500);
+        })
+    };
 });
