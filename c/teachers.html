@@ -1256,12 +1256,71 @@
     <p></p>
     <hr/>
     <h1>量化</h1>
-    <p>九班核心政治制度大致为<var>量化制为主体，多种激励方式并存</var>。</p>
-    <h2>九班量化细则</h2>
+    <p></p>
+    <h2>量化细则</h2>
     <h2>加分与扣分</h2>
     <h2>吝啬的加分</h2>
     <h2>抽奖与抽罚</h2>
     <h2>电子宠物</h2>
+    <p>班级宠物制度施行后的第一天，学生的宠物及经验值如下：</p>
+    <div id="pets"></div>
+    <style>
+    @keyframes pet{
+        0%{transform:translateY(0) scale(1)}
+        50%{transform:translateY(-8px) scale(1.03)}
+        100%{transform:translateY(0) scale(1)}
+    }
+    #pets{
+        padding:5px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;
+        >div{
+            border-radius:15px;width:220px;overflow:hidden;
+            &.a{background:#ecfdf5}&.b{background:#f7fee7}&.c{background:#fdf2f8}
+            &.d{background:#fffbeb}&.e{background:#ecfeff}&.g{background:#ecfdf5}
+            &.f{background:url(https://otf-pub-cdn.ourteacher.cc/html-kit/assets/shanhaijing-bg-spT9xtOo.jpg);background-size:cover;background-position:50% 50%}
+            >div:nth-of-type(1){
+                display:flex;align-items:center;justify-content:center;flex-direction:column;
+                padding:10px;font-size:0.75rem;aspect-ratio:4/3;animation:pet 5s ease-in-out infinite;
+                user-select:none;color:#6b7280;font-weight:bold;
+                >img{min-height:0;object-fit:contain;width:94%;height:94%;}
+            }
+            >div:nth-of-type(2){
+                padding:16px;background:#fff8;color:#111827;
+                >div{
+                    padding:10px;
+                    >div:first-child{
+                        text-align:right;margin-bottom:8px;font-size:0.75rem;font-weight:600;color:#4b5563;
+                        &::before{content:"经验值";float:left}
+                        &::after{content:"40"}
+                        >b{color:#4f46e5;&::after{content:" / ";color:#9ca3af}}
+                    }
+                    >div:last-child{
+                        border-radius:5px;background:#e5e7eb99;height:10px;
+                        >div{
+                            height:100%;border-radius:5px;position:relative;
+                            background:linear-gradient(to bottom,#fff6,#0000 50%),linear-gradient(to right,#fbbf24,#fcc79c,#f97316);
+                        }
+                    }
+                }
+            }
+            @media(width<=768px){width:200px;>div:nth-of-type(1){aspect-ratio:1/1}}
+            @media(width<=460px){width:calc(50vw - 20px);>div:nth-of-type(1){aspect-ratio:4/5}}
+        }
+    }
+    </style>
+    <script>
+    const pets=[["a","玄凤鹦鹉1","玄凤鹦鹉","王淮","21"],["b","比熊1","比熊","林芷琪","16"],["c","橘猫1","橘猫","郭沁诗","15"],["a","芦丁鸡1","芦丁鸡","黄丰泽","8"],["d","朱雀1","朱雀","江雨晴","12"],["d","狻猊1","狻猊","孔祥懿","15"],["c","虎斑猫1","虎斑猫","林钰颖","13"],["e","巴西龟1","巴西龟","倪浩宇","16"],["a","香猪1","香猪","叶弘毅","21"],["e","小海兔1","海兔","张雨希","18"],["a","柯尔鸭-1","柯尔鸭","郑诗语","18"],["d","朱雀1","朱雀","郑永泽","19"],["a","香猪1","香猪","郑致辰","17"],["c","缅因猫1","缅因猫","陈婕","16"],["d","独角兽1","独角兽","江允儿","16"],["e","巴西龟1","巴西龟","徐嘉明","17"],["e","企鹅1","企鹅","俞昕辰","14"],["e","六角恐龙1","六角恐龙","李欢颜","14"],["e","巴西龟1","巴西龟","廖成羲","17"],["b","边牧1","边牧","林奕扬","16"],["a","小土拨鼠1","土拨鼠","张桢烨","12"],["f","精卫1","精卫","朱奕辰","12"],["d","白虎1","白虎","林梓颢","12"],["g","安哥拉兔-1","安哥拉兔","郑锦熠","12"],["d","青龙1","青龙","郑炜","12"],["f","精卫1","精卫","黄恩亚","19"],["b","柯基犬1","柯基犬","林承钰","13"],["a","龙猫1","龙猫","郑熠菲","14"],["b","西高地1","西高地","方欣妍","11"],["a","小考拉1","考拉","季仁槿","16"],["a","蜥蜴1","蜥蜴","张梦琪","6"],["d","朱雀1","朱雀","颜哲铭","13"],["d","青龙1","青龙","陈子岩","13"],["d","貔貅1","貔貅","陈睿卓","15"],["d","白虎1","白虎","薛阅晨","13"],["f","精卫1","精卫","蔡华楷","17"],["f","亥猪1","亥猪","洪鑫洋","16"],["d","白虎1","白虎","游武毅","19"],["d","白虎1","白虎","崔宇臣","11"],["c","布偶猫1","布偶猫","曾好","12"],["e","企鹅1","企鹅","陆梓豪","18"],["e","巴西龟1","巴西龟","钱尚恩","12"],["d","白虎1","白虎","唐家祺","12"],["g","小狐狸1","狐狸","刘天馨","13"],["d","多肉精灵1","多肉精灵","黄桂芳","13"],["e","小海豹1","海豹","李梦妍","13"],["e","小海豹1","海豹","曹世强","12"],["d","白虎1","白虎","蒲林豪","14"]];
+    let ele=``;
+    pets.forEach(e=>{ele+=`
+    <div class="${e[0]}">
+        <div><img src="https://otf-pub-cdn.ourteacher.cc/uploads/all-pets/${e[1]}.png">${e[2]}</div>
+        <div>
+            <h3>${e[3]}</h3>
+            <div><div><b>${e[4]}</b></div><div><div style="width:calc(2.5% * ${e[4]})"></div></div></div>
+        </div>
+    </div>
+    `});
+    document.querySelector("#pets").innerHTML=ele;
+    </script>
     <p></p>
     <hr/>
     <h1>换座位</h1>
@@ -1587,7 +1646,7 @@
     
     <table>
         <tr><th>字</th><th>读音</th><th>示例</th></tr>
-        <tr><td>法</td><td><ins>huā</ins></td><td>民法/说法</td></tr>
+        <tr><td>法</td><td><ins>huā或fā</ins></td><td>民法/说法</td></tr>
         <tr><td>合</td><td><ins>hē</ins></td><td>合格/合宪性</td></tr>
         <tr><td>院</td><td><ins>yàn</ins></td><td>法院/院长</td></tr>
         <tr><td>选</td><td><ins>shěn</ins></td><td>选举</td></tr>
@@ -1599,6 +1658,7 @@
         <tr><td>各级</td><td><ins>gē jī</ins></td></tr>
         <tr><td>策略</td><td><ins>cè luò</ins></td></tr>
         <tr><td>必须</td><td><ins>bí xū</ins></td></tr>
+        <tr><td>试卷</td><td><ins>shì zhèng</ins></td></tr>
         <tr><td>行为</td><td><ins>xíng wěi</ins></td></tr>
         <tr><td>各个</td><td><ins>gē gè</ins></td></tr>
         <tr><td>包括</td><td><ins>bāo guō</ins></td></tr>
