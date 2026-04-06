@@ -210,15 +210,15 @@ body[data-th="2"] #EVE>div dd:not([data-h]){display:none;}
 }
 nav{
     position:fixed;
-    background:--opa(var(--nav));
+    background:--opa(var(--nav),0.3);
     height:40px;
-    backdrop-filter:blur(15px);
+    backdrop-filter:blur(12px);
     z-index:1;
     margin:auto;
     user-select:none;
     transition:height 0.3s;
     overflow:hidden;
-    box-shadow:0 3px 15px hsl(from var(--nav) h 20 20 / 0.3),inset 0 0 15px hsl(from var(--nav) h 20 70 / 0.2);
+    box-shadow:0 2px 17px hsl(from var(--nav) h 20 20 / 0.2),inset 0 0 15px hsl(from var(--nav) h 20 70 / 0.2);
     &::before{
         content:'';
         position:absolute;
