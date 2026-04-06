@@ -796,7 +796,7 @@ main{
                 margin:5px 0;
                 text-indent:0;}
         }
-        p{font-size:1.125rem;text-indent:2.3em;}
+        p{text-indent:2.3em;}
         >button{
             position:absolute;
             display:block;
