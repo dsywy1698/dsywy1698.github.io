@@ -31,7 +31,7 @@ body{margin:0;min-height:200vh;background: url('https://plus.unsplash.com/premiu
 </svg>
 <script>
 (function(){
-    const gamma=2.8,deadzonePx=20,edge=12;
+    const gamma=2.8,deadzonePx=20,edge=2;
     const E=(f,l)=>{const v=new Int32Array(l),z=new Float32Array(l+1);let q=0;v[0]=0;z[0]=-1e20;z[1]=1e20;for(let i=1;i<l;i++){let s=(f[i]+i*i-(f[v[q]]+v[q]*v[q]))/(2*(i-v[q]));while(s<=z[q]){if(--q<0){q=0;s=-1e20;break}s=(f[i]+i*i-(f[v[q]]+v[q]*v[q]))/(2*(i-v[q]))}q++;v[q]=i;z[q]=s;z[q+1]=1e20}q=0;const d=new Float32Array(l);for(let i=0;i<l;i++){while(z[q+1]<i)q++;const k=i-v[q];d[i]=k*k+f[v[q]]}return d};
     const D=(x,y,w,h)=>{
         const nX=x/w,nY=y/h,cR=10,cRN=cR/Math.min(w,h);
