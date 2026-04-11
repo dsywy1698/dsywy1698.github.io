@@ -878,7 +878,7 @@ main{
             &:first-child{border-top-left-radius:15px;}
             &:last-child{border-top-right-radius:15px;}
         }
-        tr>td+td:last-child,tr>th:last-child{border-right:none;}
+        tr>td:last-child,tr>th:last-child{border-right:none;}
         td,th{
             border-right:1px solid --opa(var(--table));
             padding:12px 8px;
