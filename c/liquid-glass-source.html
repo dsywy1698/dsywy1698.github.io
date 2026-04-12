@@ -89,8 +89,10 @@ body{margin:0;min-height:200vh;background: url('https://plus.unsplash.com/premiu
             ctx.closePath();
             ctx.fill();
             const idata=ctx.getImageData(0,0,w,h),data=idata.data,tot=w*h;
+            const origAlpha=new Uint8Array(tot);
+            for(let i=0;i<tot;i++) origAlpha[i]=data[4*i+3];
             const mask=new Uint8Array(tot),alpha=16;
-            for(let i=0;i<tot;i++)mask[i]=data[4*i+3]>=alpha?1:0;
+            for(let i=0;i<tot;i++) mask[i]=origAlpha[i]>=alpha?1:0;
             const bnd=new Uint8Array(tot);
             for(let y=0;y<h;y++)for(let x=0;x<w;x++){
                 const idx=y*w+x;if(!mask[idx]){bnd[idx]=0;continue}
@@ -122,15 +124,24 @@ body{margin:0;min-height:200vh;background: url('https://plus.unsplash.com/premiu
             const out=new ImageData(w,h),outD=out.data;
             for(let y=0;y<h;y++)for(let x=0;x<w;x++){
                 const idx=y*w+x,outIdx=4*idx;
-                if(!mask[idx]){outD[outIdx]=127;outD[outIdx+1]=127;outD[outIdx+2]=0;outD[outIdx+3]=255;continue}
+                if(!mask[idx]){
+                    outD[outIdx]=127;
+                    outD[outIdx+1]=127;
+                    outD[outIdx+2]=0;
+                    outD[outIdx+3]=255;
+                    continue;
+                }
                 let dp=dist[idx],t;
                 if(dp>=deadzonePx)t=0;else if(dp<=0)t=1;else t=1-dp/deadzonePx;
                 let s=Math.pow(t,gamma);s=Math.min(1,Math.max(.02,s/(1+edge*(1-t))));
                 const{dx:dx,dy:dy}=D(x,y,w,h);
-                const vx=dx*s,vy=dy*s;
+                let vx=dx*s,vy=dy*s;
+                if(dp>=deadzonePx-0.5){vx=vy=0;}
+                else{const mix=origAlpha[idx]/255.0;vx*=mix;vy*=mix;}
                 outD[outIdx]=Math.min(255,Math.max(0,Math.round(127.5+127.5*vx)));
                 outD[outIdx+1]=Math.min(255,Math.max(0,Math.round(127.5+127.5*vy)));
-                outD[outIdx+2]=0;outD[outIdx+3]=255;
+                outD[outIdx+2]=0;
+                outD[outIdx+3]=255;
             }
             const dispCv=document.createElement('canvas');
             dispCv.width=w;
