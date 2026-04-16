@@ -621,13 +621,12 @@ main{
     p:not(#EVE p){margin:10px 0;}
     small{opacity:0.7;}
     >header{
-        --t:var(--header,transparent);
         font-size:2rem;
         text-align:center;
         padding:100px 0 50px 0;
         margin:0;
         min-height:40svh;
-        background:linear-gradient(160deg,--opa(var(--t)) 0,transparent 70%);
+        background:linear-gradient(160deg,--opa(var(--header)) 0,transparent 70%);
         position:relative;
         width:100dvw;
         top:0;
@@ -636,8 +635,8 @@ main{
         bottom:5px;
         >span{
             font-size:0.875rem;
-            background:--opa(var(--t),0.4);
-            color:--mix(var(--t));
+            background:--opa(var(--header),0.4);
+            color:--mix(var(--header));
             border-radius:99px;
             padding:5px 7px;
             display:inline-block;
@@ -646,8 +645,8 @@ main{
         >table{
             font-size:initial;
             margin:20px auto;
-            background:--opa(var(--t),0.2);
-            color:--txt(var(--t));
+            background:--opa(var(--header),0.2);
+            color:--txt(var(--header));
             width:clamp(260px,70%,400px);
             td{
                 border:none;
@@ -657,7 +656,7 @@ main{
             tr>td:first-of-type{font-weight:bold;width:4em;}
         }
         dl{
-            background:hsl(from var(--t) calc(h - 30) calc(s - 20) l / 0.2);
+            background:hsl(from var(--header) calc(h - 30) calc(s - 20) l / 0.2);
             padding:15px;
             border-radius:20px;
             font-size:1rem;
@@ -671,25 +670,25 @@ main{
                 padding:5px 1em;
                 border-radius:20px;
                 margin:10px 5px;
-                background:linear-gradient(to right,hsl(from var(--t) calc(h - 30) calc(s - 20) l / 0.1),transparent);
+                background:linear-gradient(to right,hsl(from var(--header) calc(h - 30) calc(s - 20) l / 0.1),transparent);
             }
                 >dd{
                     margin:3px 1em;
-                    color:color-mix(in oklab,hsl(from var(--t) calc(h - 20) s l) 20%,var(--color));
+                    color:color-mix(in oklab,hsl(from var(--header) calc(h - 20) s l) 20%,var(--color));
                     position:relative;
                     &::before{
                         font-family:"icons";
                         font-size:1.125rem;
                         margin-right:3px;
                         content:"\f101";
-                        color:color-mix(in oklab,hsl(from var(--t) calc(h - 20) s l),var(--color));
+                        color:color-mix(in oklab,hsl(from var(--header) calc(h - 20) s l),var(--color));
                     }
                 }
                 >span{
                     display:inline-block;
                     font-size:0.875rem;
-                    background:--opa(var(--t),0.1);
-                    color:--mix(var(--t));
+                    background:--opa(var(--header),0.1);
+                    color:--mix(var(--header));
                     border-radius:15px;
                     padding:0 1em;
                     margin:5px;
@@ -703,7 +702,7 @@ main{
             /*添加外号、名言模块*/
         }
     }
-    article{
+    article,.moments{
         background:--opa(var(--article));
         color:--txt(var(--article));
         padding:13px;
@@ -857,11 +856,6 @@ main{
             }
         }
     }
-    .notes{
-        padding:10px;
-        opacity:0.6;
-        font-size:0.875rem;
-    }
     table{
         width:100%;
         overflow-x:auto;
@@ -890,73 +884,28 @@ main{
         all:unset;
         background:--mix(var(--dialog));
         font-weight:normal;
-        color:color-mix(in oklch,var(--dialog),var(--background) 20%);
+        color:color-mix(in oklch,var(--dialog),var(--background) 30%);
         padding:1.5px 2.5px;
         border-radius:5px;
         margin:0 2.5px;
         font-family:"font",Consolas;
     }
-    ruby{
-        font-size:1.75rem;
-        >rt{
-            background:--opa(--mix(var(--q)),0.1);
-            border-radius:10px;
-            font-size:1rem;
-            margin:2.5px;
-            padding:2.5px 5px;
-            text-align:center;
-            letter-spacing:normal;
-        }
+    p time{
+        display:inline-block;
+        vertical-align:top;
+        background:--opa(var(--color),0.1);
+        font-size:10px;
+        line-height:16px;
+        height:16px;
+        padding:0 4px;
+        margin:0 2px;
+        border-radius:9px;
+        color:--txt(var(--color));
     }
-    .page{
-        display:flex;
-        width:calc(100% - 40px);
-        margin:20px;
-        justify-content:center;
-        user-select:none;
-        >button{
-            display:block;
-            border:none;
-            color:color-mix(in oklch,var(--color) 80%,var(--dialog));
-            padding:10px 25px;
-            font-size:1.125rem;
-            border-radius:20px;
-            width:50%;
-            margin:10px;
-            &:empty{display:none;}
-            &:first-child{
-                background:linear-gradient(to left,--opa(var(--dialog),0.4),--opa(var(--dialog),0.1));
-                text-align:right;
-                &::after{
-                    font-family:"icons";
-                    content:"\f100";
-                    font-size:1.5rem;
-                    opacity:0.6;
-                    float:left;
-                }
-                &::before{content:"上页-";}
-            }
-            &:last-child{
-                background:linear-gradient(to right,--opa(var(--dialog),0.4),--opa(var(--dialog),0.1));
-                text-align:left;
-                &::after{
-                    font-family:"icons";
-                    content:"\f101";
-                    font-size:1.5rem;
-                    opacity:0.6;
-                    float:right;
-                }
-                &::before{content:"下页-";}
-            }
-        }
-    }
-    time{
-        background:--opa(color-mix(in oklab,var(--nav-c) 70%,var(--color)),0.3);
+    article>time{
+        display:block;
         font-size:0.8em;
-        padding:2.5px 5px;
-        margin:0 2.5px;
-        border-radius:99px;
-        color:color-mix(in oklch,var(--nav-c) 30%,var(--color));
+        color:--opa(var(--color));
     }
     .wechat{
         padding:15px 10px;
@@ -1005,49 +954,12 @@ main{
             padding:2px 7px;
         }
     }
-    .moments{
-        background:--opa(var(--color),0.1);
-        color:--txt(var(--color));
-        padding:10px;
-        border-radius:10px;
-        >p{text-indent:0;font-size:1rem;}
-        >b{
-            font-weight:bold;
-            color:#576b95;
-            display:block;
-            margin-top:10px;
-        }
-        >div{
-            background:#f7f7f799;
-            border-radius:7px;
-            margin:5px;
-            >div{
-                >span{color:#576b95;&:last-child::after{content:"：";}}
-                color:#000;
-                padding:5px;
-                border-bottom:1px solid #dedede99;
-                &:empty{display:none;&::before{display:none;}}
-            }
-            >div:first-child{
-                color:#576b95;
-                &::before{
-                    content:"\f08a";
-                    font-family:"icons";
-                    padding-right:10px;
-                }
-            }
-            >div:last-child{border:none;}
-        }
-        >time{background:transparent;opacity:0.6;}
-    }
     details{
         display:block;
         background:--opa(var(--color),0.1);
         color:--txt();
         border-radius:15px;
         padding:5px 15px;
-        transition:height 0.3s;
-        interpolate-size:allow-keywords;
         height:40px;
         overflow:hidden;
         >summary{
@@ -1062,7 +974,7 @@ main{
                 display:inline-block;
                 text-align:center;
                 color:--mix();
-                transition:0.3s;
+                transition:0.2s;
                 content:"\f054";
                 margin-right:10px;
             }
@@ -1081,6 +993,53 @@ main{
             text-wrap:nowrap;
             padding:0 0.5em;
         }
+    }
+    .page{
+        display:flex;
+        width:calc(100% - 40px);
+        margin:20px;
+        justify-content:center;
+        user-select:none;
+        >button{
+            display:block;
+            border:none;
+            color:color-mix(in oklch,var(--color) 80%,var(--dialog));
+            padding:10px 25px;
+            font-size:1.125rem;
+            border-radius:20px;
+            width:50%;
+            margin:10px;
+            &:empty{display:none;}
+            &:first-child{
+                background:linear-gradient(to left,--opa(var(--dialog),0.4),--opa(var(--dialog),0.1));
+                text-align:right;
+                &::after{
+                    font-family:"icons";
+                    content:"\f100";
+                    font-size:1.5rem;
+                    opacity:0.6;
+                    float:left;
+                }
+                &::before{content:"上页-";}
+            }
+            &:last-child{
+                background:linear-gradient(to right,--opa(var(--dialog),0.4),--opa(var(--dialog),0.1));
+                text-align:left;
+                &::after{
+                    font-family:"icons";
+                    content:"\f101";
+                    font-size:1.5rem;
+                    opacity:0.6;
+                    float:right;
+                }
+                &::before{content:"下页-";}
+            }
+        }
+    }
+    .notes{
+        padding:10px;
+        opacity:0.6;
+        font-size:0.875rem;
     }
 }
 #EVE{
