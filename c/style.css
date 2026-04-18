@@ -119,7 +119,7 @@ body[data-t="n"]{
     --table:#7a5c1f;
 }
 @function --opa(--c:#fff,--o:0.5){
-    result:lch(from var(--c) l c h / var(--o));
+    result:hsl(from var(--c) h s l / var(--o));
 }
 @function --mix(--a:var(--background),--b:var(--color)){
     result:color-mix(in oklch,var(--a),var(--b));
@@ -269,43 +269,7 @@ nav{
                 background-size:cover;
                 margin:0 5px;
             }
-            >div{
-                display:none;
-                background:#fff2;
-                border-radius:15px;
-                height:30px;
-                padding:0 5px;
-                margin-left:5px;
-                box-shadow:0 2px 10px hsl(from var(--nav) h 40 20 / 0.2);
-                transition:0.3s;
-                opacity:1;
-                width:100px;
-                overflow:hidden;
-                text-wrap:nowrap;
-                @starting-style{width:0;opacity:0;}
-                >button{
-                    width:20px;
-                    height:20px;
-                    margin:5px 0;
-                    border-radius:50%;
-                    background:#f904;
-                    transition:0.3s;
-                    opacity:0.5;
-                    &.active{opacity:1;}
-                    color:--mix(#f90);
-                }
-                >input{
-                    position:relative;
-                    height:30px;
-                    width:80px;
-                    background:transparent;
-                    border:none;
-                    padding:0 5px;
-                    &::placeholder{color:--mix((--nav));opacity:0.4;}
-                }
-            }
         }
-        
     }
     >div:nth-of-type(2){
         height:0;
@@ -491,10 +455,7 @@ body[data-n="2"] nav{
                 transition:opacity 0.2s;
                 margin:5px;
                 &:hover{opacity:1;}
-                &::-webkit-slider-track{
-                    height:10px;
-                    border-radius:5px;
-                }
+                &::-webkit-slider-track{height:10px;border-radius:5px;}
                 &::-webkit-slider-thumb{
                     -webkit-appearance:none;
                     appearance:none;
@@ -504,10 +465,7 @@ body[data-n="2"] nav{
                     border-radius:50%;
                     cursor:pointer;
                 }
-                &::-moz-range-track{
-                    height:10px;
-                    border-radius:5px;
-                }
+                &::-moz-range-track{height:10px;border-radius:5px;}
                 &::-moz-range-thumb{
                     width:20px;
                     height:20px;
@@ -722,7 +680,7 @@ main{
         color:--txt(var(--q));
         box-shadow:0 0 20px --opa(var(--q),0.4);
         font-size:1.5625rem;
-        text-wrap:pretty;
+        text-wrap:balance;
         display:block;
         text-align:center;
         padding:8px;
@@ -808,6 +766,15 @@ main{
             transition:opacity 0.3s;
             &:hover{opacity:0.7;}
             &::before{color:--mix(var(--writing),#0008);}
+        }
+    }
+    article>p:has(>b),blockquote>p:has(>b),.writing>p:has(>b){
+        text-indent:0!important;
+        display:flex;
+        >b{
+            display:block;
+            text-wrap:nowrap;
+            padding:0 0.5em;
         }
     }
     .timeline{
@@ -984,16 +951,6 @@ main{
             >summary::before{transform:rotate(90deg);}
         }
     }
-    article>p:has(>b),blockquote>p:has(>b),.writing>p:has(>b){
-        text-indent:0;
-        display:flex;
-        >b{
-            display:block;
-            float:left;
-            text-wrap:nowrap;
-            padding:0 0.5em;
-        }
-    }
     .page{
         display:flex;
         width:calc(100% - 40px);
@@ -1020,7 +977,6 @@ main{
                     opacity:0.6;
                     float:left;
                 }
-                &::before{content:"上页-";}
             }
             &:last-child{
                 background:linear-gradient(to right,--opa(var(--dialog),0.4),--opa(var(--dialog),0.1));
@@ -1032,7 +988,6 @@ main{
                     opacity:0.6;
                     float:right;
                 }
-                &::before{content:"下页-";}
             }
         }
     }
@@ -1043,6 +998,42 @@ main{
     }
 }
 #EVE{
+    >aside{
+        position:sticky;
+        z-index:1;
+        top:50px;
+        right:0;
+        margin-left:auto;
+        padding:0 5px;
+        width:120px;
+        height:30px;
+        overflow:hidden;
+        text-wrap:nowrap;
+        background:--opa(var(--nav));
+        border-radius:15px;
+        box-shadow:0 2px 10px --opa(var(--color),0.1);
+        backdrop-filter:blur(3px);
+        >button{
+            width:20px;
+            height:20px;
+            margin:5px 0;
+            border-radius:50%;
+            background:#f904;
+            transition:0.3s;
+            opacity:0.5;
+            &.active{opacity:1;}
+            color:--mix(#f90);
+        }
+        >input{
+            position:relative;
+            height:30px;
+            width:80px;
+            background:transparent;
+            border:none;
+            padding:0 5px;
+            &::placeholder{color:--mix((--nav));opacity:0.4;}
+        }
+    }
     >h1{
         background:#0995;
         color:--txt(#099);

@@ -17,9 +17,7 @@
     <div><input placeholder="输入密码"/><button onclick="ep()">OK</button></div>
     <p><strong>提示 </strong>提示文本</p>
 </dialog>
-<div id="loader">
-    <div><p>文本1</p><button onclick="fo()">跳过</button></div>
-</div>
+<div id="loader"><div><p></p><button onclick="fo()">跳过</button></div></div>
 <div id="bigger">窗口过大</div>
 <div id="smaller">窗口过小</div>
 <nav>
@@ -29,42 +27,41 @@
             <button onclick="document.querySelector('nav>div:nth-of-type(2)').classList.toggle('active')" class="fa fa-navicon"></button>
             <button onclick="showPage('HOME')" id="logo"></button>
             <button commandfor="setting" command="show-modal" class="fa fa-gear"></button>
-            <div><button onclick="hot()">热</button><input type="text" placeholder="搜索..." oninput="search()" maxlength="10" spellcheck="false"/></div>
         </div>
         <button onclick="window.scrollTo(0,document.documentElement.scrollHeight)"></button>
     </div>
     <div><div></div><hr/><div></div></div>
 </nav>
 <div id="main">
-    <dialog id="setting" closedby="any">
-        <div>设置<button onclick="localStorage.clear();ubg();location.reload(true);">重置</button></div>
-        <div>
-            <span>主题</span>
-            <input type="radio" name="t" onclick="chT('l')" title="浅">
-            <input type="radio" name="t" onclick="chT('d')" title="深">
-            <input type="radio" name="t" onclick="chT('b')" title="蓝">
-            <input type="radio" name="t" onclick="chT('n')" title="夜">
-        </div>
-        <div>
-            <span>导航栏</span>
-            <input type="radio" name="n" onclick="chN('1')" title="经典">
-            <input type="radio" name="n" onclick="chN('2')" title="胶囊" checked>
-        </div>
-        <div>
-            <span>内容过滤</span>
-            <input type="radio" name="f" onclick="chF('0')" title="无">
-            <input type="radio" name="f" onclick="chF('1')" title="一">
-            <input type="radio" name="f" onclick="chF('2')" title="二">
-            <input type="radio" name="f" onclick="chF('3')" title="三" checked>
-        </div>
-        <div>
-            <span>背景图片</span>
-            <button onclick="ubg()">清除</button>
-            <button onclick="cbg()">添加</button>
-            <div><span>透明度</span><input type="range" max="1" min="0" step="0.1" id="r1"/></div>
-            <div><span>虚化</span><input type="range" max="30" min="0" step="3" id="r2"/></div>
-        </div>
-    </dialog>
+<dialog id="setting" closedby="any">
+    <div>设置<button onclick="localStorage.clear();ubg();location.reload(true);">重置</button></div>
+    <div>
+        <span>主题</span>
+        <input type="radio" name="t" onclick="chT('l')" title="浅">
+        <input type="radio" name="t" onclick="chT('d')" title="深">
+        <input type="radio" name="t" onclick="chT('b')" title="蓝">
+        <input type="radio" name="t" onclick="chT('n')" title="夜">
+    </div>
+    <div>
+        <span>导航栏</span>
+        <input type="radio" name="n" onclick="chN('1')" title="经典">
+        <input type="radio" name="n" onclick="chN('2')" title="胶囊" checked>
+    </div>
+    <div>
+        <span>内容过滤</span>
+        <input type="radio" name="f" onclick="chF('0')" title="无">
+        <input type="radio" name="f" onclick="chF('1')" title="一">
+        <input type="radio" name="f" onclick="chF('2')" title="二">
+        <input type="radio" name="f" onclick="chF('3')" title="三" checked>
+    </div>
+    <div>
+        <span>背景图片</span>
+        <button onclick="ubg()">清除</button>
+        <button onclick="cbg()">添加</button>
+        <div><span>透明度</span><input type="range" max="1" min="0" step="0.1" id="r1"/></div>
+        <div><span>虚化</span><input type="range" max="30" min="0" step="3" id="r2"/></div>
+    </div>
+</dialog>
 <main id="HOME">
 <header><h1>首页</h1></header>
     <hr/>
@@ -99,7 +96,6 @@
         <tr><td>标题</td><td>描述文本</td></tr>
     </table>
     <q>文本文本文本文本</q>
-    <div class="gallery"><img src="1"/><p>文本文本</p></div>
     <div class="wechat" style="--a:'a';--b:'b'">
         <p class="b">文本文本</p>
         <p class="a">文本文本文本</p>
@@ -113,6 +109,7 @@
 </main>
 <main id="EVE">
 <header><h1>日志</h1></header>
+<aside><button onclick="hot()">热</button><input type="text" placeholder="搜索..." oninput="search()" maxlength="15" spellcheck="false"/></aside>
 <h1 id="event-dyymm">日期</h1>
 <div time="1">
     <p>文本</p>

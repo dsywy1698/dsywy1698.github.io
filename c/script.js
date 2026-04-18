@@ -4,7 +4,7 @@ function ep(){
     "123"===e?(localStorage.setItem("p","true"),document.getElementById("password").close()):document.querySelector("#password input").style.background="#f004";
 }
 //页面切换
-function showPage(e){
+function applyRoute(e,a){
     const n=document.getElementById(e);
     document.querySelectorAll("main").forEach(e=>{e.style.display="none"});
     window.scrollTo({top:0,behavior:"auto"});
@@ -12,9 +12,34 @@ function showPage(e){
     document.querySelectorAll("nav button").forEach(e=>{e.classList.remove("active")});
     document.querySelector(`nav button[onclick*="${e}"]`).classList.add("active");
     n&&(n.style.display="block");
-    document.querySelector("nav>div:nth-of-type(1)>div>div").style.display="EVE"==e?"block":"none";
     document.getElementById(e+"-l").style.display="block";
+    if(e==="EVE"&&typeof heb==="function"){setTimeout(heb,60);}
 }
+function showPage(e,a){
+    applyRoute(e,a);
+    const hash=a?`#${e}-${a}`:`#${e}`;
+    if(window.location.hash!==hash){ history.pushState(null,'',hash);}
+}
+function handleRoute(){
+    const hash=window.location.hash.slice(1);
+    if(!hash){applyRoute('HOME');return;}
+    const parts=hash.split('-');
+    const page=parts[0];
+    const anchor=parts.length>1?parts.slice(1).join('-'):null;
+    let currentPage='HOME';
+    document.querySelectorAll("main").forEach(e=>{"block"===e.style.display&&(currentPage=e.id)});
+    if(page&&document.getElementById(page)){
+        if(page===currentPage&&anchor){
+            const target=document.getElementById(page+"-"+anchor);
+            target&&setTimeout(()=>{target.scrollIntoView({behavior:"smooth",block:"start"})},50);
+            return;
+        }
+        applyRoute(page, anchor);
+    }
+    else{applyRoute('HOME');}
+}
+window.addEventListener('popstate',handleRoute);
+window.addEventListener('hashchange',handleRoute);
 //关闭菜单
 document.addEventListener("click",function(t){
     var e=document.querySelector("nav>div:nth-of-type(2)"),
@@ -60,10 +85,10 @@ function ubg(){
 request.onupgradeneeded=function(e){(db=e.target.result).objectStoreNames.contains("bg")||db.createObjectStore("bg",{keyPath:"id"})};
 request.onsuccess=function(e){db=e.target.result,lbg()};
 //替代图像
-document.querySelectorAll("img").forEach(o=>{o.onerror=function(){this.classList.add("broken");this.src=""}});
-//日志页逻辑
+document.querySelectorAll("img").forEach(o=>{o.onerror=function(){this.classList.add("broken");this.src=null}});
+//日志逻辑
 function search(){
-    var e=document.querySelector("nav input").value.trim(),
+    var e=document.querySelector("#EVE>aside>input").value.trim(),
         t=document.getElementById("EVE");
     if (t&&"none"!==window.getComputedStyle(t).display){
         if(t=t.querySelectorAll("p,dd"),e){
@@ -84,9 +109,9 @@ function search(){
     }
 }
 function hot(){
-    const d=document.querySelector("nav>div:nth-of-type(1)>div>div>button").classList.contains('active');
+    const d=document.querySelector("#EVE>aside>button").classList.contains('active');
     d?document.body.setAttribute("data-th","1"):document.body.setAttribute("data-th","2");
-    document.querySelector("nav>div:nth-of-type(1)>div>div>button").classList.toggle("active");
+    document.querySelector("#EVE>aside>button").classList.toggle("active");
     heb();
 }
 function heb(){
@@ -110,12 +135,12 @@ obs.observe(document.getElementById("EVE"),{
     attributes:!0,
     attributeFilter:["style"]
 });
-//外部链接在新页面打开
+//外部链接
 document.querySelectorAll('a[href^="http"]').forEach(link=>{
     link.setAttribute('target','_blank');
     link.setAttribute('rel','noopener noreferrer');
 });
-//加载文字轮播
+//文字轮播
 const texts=["页面加载中","可能有点慢","请耐心等候","点击下方跳过","轮播文本1","轮播文本2","轮播文本3","轮播文本4"];
 let ci=0;
 const ct=document.querySelector('#loader>div>p');
@@ -140,7 +165,7 @@ function fo(){
 window.addEventListener("load",function(){setTimeout(fo,300);});
 //动态id
 document.addEventListener('DOMContentLoaded',function(){
-    document.querySelectorAll('main:not(#HOME)').forEach(m=>{
+    document.querySelectorAll('main').forEach(m=>{
         m.querySelectorAll(':scope>h1').forEach(h=>{
             const i=`${m.id}-${h.textContent.trim().replace(/[^\w\u4e00-\u9fa5]+/g, '-').toLowerCase()}`;
             h.setAttribute('id',i);
@@ -155,19 +180,6 @@ document.addEventListener('DOMContentLoaded',function(){
         });
     });
     "function"==typeof heb&&heb();
-});
-window.addEventListener('DOMContentLoaded',function(){
-    //初始化
-    const p=localStorage.getItem('p');
-    p?document.getElementById('password').close():document.getElementById('password').showModal();
-    const t=localStorage.getItem('t');t&&(chT(t),document.querySelector(`input[name="t"][onclick*="${t}"]`).checked=!0);
-    const n=localStorage.getItem('n');n&&(chN(n),document.querySelector(`input[name="n"][onclick*="${n}"]`).checked=!0);
-    const f=localStorage.getItem('f');f&&(chF(f),document.querySelector(`input[name="f"][onclick*="${f}"]`).checked=!0);
-    const o=localStorage.getItem('o');
-    o&&(document.querySelector('body').style.setProperty("--o",o),document.getElementById('r1').value=o);
-    const b=localStorage.getItem('b');
-    b&&(document.querySelector('body').style.setProperty("--bl",b+"px"),document.getElementById('r2').value=b);
-    showPage('HOME');
 });
 window.addEventListener('DOMContentLoaded',function(){
     const m=document.querySelectorAll('main');
@@ -275,6 +287,7 @@ window.addEventListener('DOMContentLoaded',function(){
             noteInfo.sup.textContent=`[${noteInfo.order}]`;
         });
     });
+    handleRoute();
 });
 //文本复制
 document.querySelectorAll(".writing").forEach((e)=>{
@@ -289,4 +302,19 @@ document.querySelectorAll(".writing").forEach((e)=>{
             setTimeout(()=>{ele.className="fa fa-clone";},500);
         })
     };
+});
+window.addEventListener('DOMContentLoaded',function(){
+    //初始化
+    const o=localStorage.getItem('o');
+    o&&(document.querySelector('body').style.setProperty("--o",o),document.getElementById('r1').value=o);
+    const b=localStorage.getItem('b');
+    b&&(document.querySelector('body').style.setProperty("--bl",b+"px"),document.getElementById('r2').value=b);
+    const p=localStorage.getItem('p');
+    p?document.getElementById('password').close():document.getElementById('password').showModal();
+    const t=localStorage.getItem('t');
+    t&&(chT(t),document.querySelector(`input[name="t"][onclick*="${t}"]`).checked=!0);
+    const n=localStorage.getItem('n');
+    n&&(chN(n),document.querySelector(`input[name="n"][onclick*="${n}"]`).checked=!0);
+    const f=localStorage.getItem('f');
+    f&&(chF(f),document.querySelector(`input[name="f"][onclick*="${f}"]`).checked=!0);
 });
