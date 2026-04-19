@@ -12,24 +12,15 @@
     <link rel="stylesheet" href="style.css"/>
     <style>
     #lyymy{
-        margin:auto;
-        background:#013a;
-        border-radius:10px;
-        width:260px;
-        height:300px;
-        padding:5px;
+        margin:auto;padding:5px;
+        width:260px;height:300px;
+        background:#013a;border-radius:10px;
         >div{
-            width:60px;
-            height:100px;
-            margin:5px;
-            border-radius:7px;
-            position:absolute;
-            backdrop-filter:blur(2px);
-            writing-mode:vertical-lr;
-            text-align:center;
-            line-height:60px;
-            font-size:1.25rem;
-            color:#cc98;
+            width:60px;height:100px;color:#cc98;
+            margin:5px;position:absolute;
+            border-radius:7px;backdrop-filter:blur(2px);
+            writing-mode:vertical-lr;text-align:center;
+            line-height:60px;font-size:1.25rem;
             &:nth-child(even){background:#8848}
             &:nth-child(odd){background:#433c2380}
             &:nth-of-type(1){transform:translate(10px,10px)}
@@ -42,34 +33,23 @@
             &:nth-of-type(8){transform:translate(170px,130px)}
         }
         >span{
-            width:20px;
-            height:20px;
-            border-radius:10px;
-            display:block;
-            position:absolute;
+            width:20px;height:20px;
+            border-radius:10px;background:#c30;
+            display:block;position:absolute;
             transform:translate(25px,20px);
-            background:#c30;
             animation:lyymy 20s linear infinite;
         }
         >i{
-            width:260px;
-            height:40px;
-            background:#6308;
-            backdrop-filter:blur(2px);
-            position:absolute;
-            display:block;
+            width:260px;height:40px;
+            background:#6308;backdrop-filter:blur(2px);
+            position:absolute;display:block;
             transform:translate(-25px,240px) skew(45deg,0);
             border-radius:10px 10px 0 0;
             &::before{
-                position:absolute;
-                width:30px;
-                height:30px;
-                background:#c608;
-                border-radius:5px 5px 0 0;
-                display:block;
-                content:"";
-                left:115px;
-                top:10px;
+                position:absolute;display:block;
+                width:30px;height:30px;
+                background:#c608;border-radius:5px 5px 0 0;
+                content:"";left:115px;top:10px;
             }
         }
     }
@@ -184,32 +164,10 @@
     <p>猝不及防的降温则开启了“百万撤离”的序幕。医务室的热闹程度和小卖部不相上下，七、八班的合并更是宣告了此次流感的严重程度。</p>
     <p>人文方面——上流人士脱颖而出，以实际行动展现富豪风范；徐嘉明一举成名，荣获“玻璃王”美誉。</p>
     <div class="btn" style="--btn:#708a92" onclick="showPage('AIG')">爱国有方</div>
-    <style>
-        .btn{
-            background:--opa(var(--btn));
-            padding:20px;
-            border-radius:15px;
-            height:150px;
-            font-size:2.25rem;
-            font-weight:bold;
-            position:relative;
-            &::before{
-                position:absolute;
-                display:block;
-                content:'点击进入';
-                bottom:30px;
-                font-size:1rem;
-                font-weight:normal;
-                background:linear-gradient(to right,color-mix(in oklab,var(--btn) 30%,var(--color) 20%),transparent);
-                padding:5px 15px;
-                border-radius:99px 0 0 99px;
-                color:--txt(var(--btn));
-            }
-        }
-    </style>
+<style>.btn{background:--opa(var(--btn));padding:20px;border-radius:15px;height:150px;font-size:2.25rem;font-weight:bold;position:relative;&::before{position:absolute;display:block;content:'点击进入';bottom:30px;font-size:1rem;font-weight:normal;background:linear-gradient(to right,color-mix(in oklab,var(--btn) 30%,var(--color) 20%),transparent);padding:5px 15px;border-radius:99px 0 0 99px;color:--txt(var(--btn));}}</style>
 </main>
-<main id="LON">
-<header style="--header:#005100">
+<main id="LON" style="--header:#005100">
+<header>
     <h1>龙翔</h1>
     <span>初一</span>
     <table>
@@ -389,7 +347,7 @@
 </svg>
 <p>左边的楼有6层、右边有5层。</p>
 <p>每层楼有两个楼梯口、两侧各有一个厕所、厕所门口有若干水池，走廊有防盗网和晾衣杆。</p>
-<p>进入宿舍区域的路左侧为<var>凌云楼</var>，没人知道其作用。凌云楼前有楼梯和红色的“爱国宣言”板块，上面写的宣誓内容即为闭营仪式时宣誓的部分内容。只是第一天学生在此遇见辅导员，快到中午时学生闻到这栋楼附近散发粗饭菜香味。</p>
+<p>进入宿舍区域的路左侧为<var>凌云楼</var>，没人知道其作用。凌云楼前有楼梯和红色的“爱国宣言”板块，上面写的宣誓内容即为闭营仪式时宣誓的部分内容。只是第一天学生在此遇见辅导员，快到中午时学生闻到这栋楼附近散发出饭菜香味。</p>
 <h2>食堂</h2>
 <p>龙翔有两个食堂，分别是<var>一号食堂</var>和<var>二号食堂</var>，位于多功能大厅旁边。</p>
 <p>二号食堂很大，整体呈长条形。学生都在二号食堂吃饭（下文“食堂”均指二号食堂）。二号食堂的出口前面就是一号食堂。大家除了在里面训练过一次外就没有再进去。而在一号食堂训练的期间，辅导员甚至踩在桌子上指挥训练，可见这个食堂已经不承担用餐的功能了。</p>
@@ -1244,8 +1202,8 @@
 <p>显然，这并不是初中阶段唯一的一次社会实践。那到了初二，大家又会来到哪个地方呢？我们拭目以待。</p>
 <hr/>
 </main>
-<main id="AIG">
-<header style="--header:#708a92">
+<main id="AIG" style="--header:#708a92">
+<header>
     <h1>爱国有方</h1>
     <span>初二</span>
     <table>
@@ -2049,23 +2007,20 @@
 <p>然后就发生了后面的“迁徙”，徐嘉明还因此得到了“玻璃王”这一称号。当晚集合时，教官通知事项，说道：</p>
 <q>今天，已经有一个同学把那个玻璃磕碎了。</q>
 <p>叶弘毅也因此发现了一件奇怪的事：五楼没有504，直接从503跳到505。但这并未流传开来，也没有形成传说。</p>
-<div data-f="3">
-    <h2>最“淫乱”的宿舍</h2>
-    <p>男生宿舍这边，301（503）宿舍的风气算是最好的，其他几间宿舍多少有点“淫乱”。</p>
-    <p>其中最“淫乱”的当属303，甚至被一些人称为“妓院”。其乱象的高潮是第四天，有人听说303正在分享零食，见者有份，于是慕名而来。结果一进去就被里面的人有组织、有计划地开始“抠B”。</p>
-    <p>他们早已分配好响应职位，一有人进来就各司其职，分别抓住目标的不同部位，并由剩余的人扒裤子，还会出现“掏警棍”的现象。具体职位如下：</p>
-    <table>
-        <tr><th>姓名</th><th>职位</th></tr>
-        <tr><td>洪鑫洋</td><td>局长</td></tr>
-        <tr><td>唐家祺</td><td>典狱长</td></tr>
-        <tr><td>崔宇臣</td><td rowspan="4">狱警</td></tr>
-        <tr><td>陈子岩</td></tr>
-        <tr><td>林梓颢</td></tr>
-        <tr><td>颜哲铭</td></tr>
-    </table>
-    <p>除此之外，洪鑫洋和唐家祺还真枪实弹地“道观”并成功射出。其中洪鑫洋两发，唐家祺一发<sup data-d="别人说的。"></sup>。</p>
-    <p>如果将“淫乱”现象进行分级，则301（503）是最和谐的，303最乱，其他为中等。</p>
-</div>
+<h2 data-f="3">最“淫乱”的宿舍</h2>
+<p data-f="3">男生宿舍这边，301（503）宿舍的风气算是最好的，其他几间宿舍多少有点“淫乱”。</p>
+<p data-f="3">其中最“淫乱”的当属303，甚至被一些人称为“妓院”。其乱象的高潮是第四天，有人听说303正在分享零食，见者有份，于是慕名而来。结果一进去就被里面的人有组织、有计划地开始“抠B”。</p>
+<p data-f="3">他们早已分配好响应职位，一有人进来就各司其职，分别抓住目标的不同部位，并由剩余的人扒裤子，还会出现“掏警棍”的现象。具体职位如下：</p>
+<table data-f="3">
+    <tr><th>姓名</th><th>职位</th></tr>
+    <tr><td>洪鑫洋</td><td>局长</td></tr>
+    <tr><td>唐家祺</td><td>典狱长</td></tr>
+    <tr><td>崔宇臣</td><td rowspan="4">狱警</td></tr>
+    <tr><td>陈子岩</td></tr>
+    <tr><td>林梓颢</td></tr>
+    <tr><td>颜哲铭</td></tr>
+</table>
+<p data-f="3">如果将“淫乱”现象进行分级，则301（503）是最和谐的，303最乱，其他为中等。</p>
 <h2>上流人士的自白</h2>
 <p>林奕扬位于302宿舍，他在爱国有方的五天内发表了多个“炸裂”言论。</p>
 <h3>富豪人设</h3>
@@ -2174,8 +2129,6 @@
 <p>第四晚，朱奕辰在宿舍将他和陈梦玲的事情几乎全部说出来。</p>
 <p>蒲林豪经常说：“下雪了！下雪了！”其来源是这样的：</p>
 <article><p>一次玩海龟汤，汤面大概是“床上下雪了”，汤底是这样的：屋顶上有一大堆蛆，这些蛆掉落下来，看起来像下雪了。</p></article>
-<p>第五天学生到操场进行闭营仪式的路上，大巴车以及开进来停靠在路边。某辆大巴上有贴纸，上面写“发财”以及：</p>
-<q>男人哪有避风港 钞票才是真梦想</q>
 <hr/>
 <h1>离开</h1>
 <h2>闭营仪式</h2>
@@ -2266,11 +2219,12 @@
 <p>吃完午饭，学生进行最后的准备。</p>
 <p>闭营仪式一结束，学生就去吃午饭了，因此早在11:45，全体学生便带上行李，进行最后一次集合！</p>
 <p>在宿舍准备时，学生发现楼下又有一个新的学校到达了，显然是小学生。</p>
-<p>闭营仪式进行时，就有车辆鱼贯进入营地，停成一排。由于请假的学生较多，车辆的安排比较混乱，一些班级被迫被拆散或拼车，所幸9班所有学生都在同一辆车上。</p>
+<p>闭营仪式进行时，就有车辆鱼贯进入营地，停成一排。由于请假的学生较多，车辆的安排比较混乱，一些班级被迫被拆散或拼车，所幸九班所有学生都在同一辆车上。不过10班有3人和九班拼车。</p>
 <p>教官拿着一张纸，逐个班级安排车辆，安排完的方阵立刻出发，同时告知车辆序号及车牌号后3位。</p>
-<p>12:04，9班安排完毕，和另一个班的几位学生拼车，出发。</p>
+<p>12:04，9班车辆安排完毕。</p>
+<p>车就停在体验汉诺塔的地方。上车后，刘老师清点了一下座位，发现座位数量不对，就和司机争吵起来。司机表示：自己的座位不是座位吗？</p>
 <p>12:13，9班所在车辆启动。</p>
-<p>行驶过程中出现了一个插曲。司机跟着前面的一辆大巴在高速上开啊开，发现前车走错路了，就这样开到长乐，又得绕回来。</p>
+<p>行驶过程中出现了一个插曲。司机跟着前面的一辆大巴在高速上开着，发现前车走错路了，就这样开到长乐，又得绕回来。</p>
 <p>司机不止一次地向坐在第一排的刘老师和另一班班主任吐槽，说不敢跟前面的车了，并已经在寻找正确的路。这导致返程的用时比来时多了半个小时左右。</p>
 <p>在高速上绕了不知多久，前方的景致终于令学生熟悉。大巴跨过鳌峰大桥，终于开到了四十中。</p>
 <p>由于路太堵，车辆没法经过四十中门口，只能转弯，但刘老师已经通知家长在大门左侧等候了。刘老师执意要司机绕路绕到门口，于是大巴又经过海通广场，左转，前进一段距离后掉头，拐进四十中的那条路，成功来到指定地点。</p>
