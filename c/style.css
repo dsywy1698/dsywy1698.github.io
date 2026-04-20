@@ -650,10 +650,40 @@ main{
                 text-wrap:nowrap;
             }
         }
-        .information{
-            padding:10px;
+        >div{
+            padding:10px 15px;
             border-radius:15px;
-            /*添加外号、名言模块*/
+            background:hsl(from var(--header) calc(h - 10) calc(s - 20) l / 0.2);
+            display:flex;
+            flex-direction:column;
+            margin:10px 30px;
+            &::before{
+                position:relative;
+                content:"外号";
+                display:block;
+                color:--mix(var(--header),var(--color));
+                background:hsl(from var(--header) calc(h - 30) calc(s - 20) l / 0.4);
+                top:-10px;
+                left:-15px;
+                width:120px;
+                border-radius:15px 0;
+                font-size:1.25rem;
+                padding:7px;
+            }
+            >h1{
+                font-size:1.125rem;
+                background:hsl(from var(--header) calc(h - 30) calc(s - 20) l / 0.3);
+                padding:6px 1em;
+                width:160px;
+                border-radius:99px;
+                margin:5px;
+            }
+            >p{
+                font-size:1rem;
+                text-indent:2.3em;
+                text-align:left;
+                color:--txt(var(--header));
+            }
         }
     }
     article{
@@ -1111,7 +1141,7 @@ main{
             dd{text-indent:2em;}
             dt{text-indent:2em;font-weight:bold;}
             >dl{
-                margin-left:1em;
+                margin:5px 0 0 1em;
                 background:linear-gradient(135deg,#0001,transparent);
                 padding:5px 10px;
                 border-radius:10px;
