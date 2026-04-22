@@ -163,6 +163,57 @@ function fo(){
     });
 }
 window.addEventListener("load",function(){setTimeout(fo,300);});
+//自定义audio控件
+(function(){
+    function dur(o){return isNaN(o)||void 0===o||o<0?"0:00":Math.floor(o/60)+":"+(Math.floor(o%60)<10?"0"+Math.floor(o%60):Math.floor(o%60))}
+    function replaceAudio(ele){
+        ele.style.display='none';
+        const div=document.createElement('div');
+        div.className='audio';
+        div.innerHTML=`<button></button><input type="range" min="0" max="1" step="any" value="0"><span>0:00</span>`;
+        ele.insertAdjacentElement('afterend',div);
+        div._boundAudio=ele;
+        const btn=div.querySelector('button');
+        const bar=div.querySelector('input');
+        const timeSpan=div.querySelector('span');
+        function updateDisplay(){
+            if(ele.paused){timeSpan.textContent=isNaN(ele.duration)?'0:00':dur(ele.duration)}
+            else{timeSpan.textContent=isNaN(ele.currentTime)?'0:00':dur(ele.currentTime)}
+        }
+        function onTimeUpdate() {
+            bar.value=(!ele.duration||isNaN(ele.duration))?0:ele.currentTime||0;
+            updateDisplay();
+            btn.className=ele.paused?"fa fa-play":"fa fa-pause";
+        }
+        function onLoadedMetadata() {
+            const total=ele.duration;
+            if(isNaN(total)||total===Infinity){bar.max=1;timeSpan.textContent='0:00';}
+            else{bar.max=total;bar.value>total&&(bar.value=total);timeSpan.textContent=dur(total);}
+        }
+        function onEnded(){btn.className='fa fa-play';ele.currentTime=0;bar.value=0;updateDisplay();}
+        function onPlay(){btn.className='fa fa-pause';updateDisplay();}
+        function onPause(){btn.className='fa fa-play';updateDisplay();}
+        function onError(){timeSpan.textContent='0:00';bar.max=1;bar.value=0;btn.className='fa fa-play';}
+        function onInput(e){isNaN(parseFloat(bar.value))||(ele.currentTime=parseFloat(bar.value),updateDisplay());}
+        function onClick(e){
+            e.stopPropagation();
+            ele.paused?ele.play().catch(()=>{btn.className="fa fa-play"}):ele.pause();
+        }
+        ele.addEventListener('timeupdate',onTimeUpdate);
+        ele.addEventListener('loadedmetadata',onLoadedMetadata);
+        ele.addEventListener('ended',onEnded);
+        ele.addEventListener('play',onPlay);
+        ele.addEventListener('pause',onPause);
+        ele.addEventListener('error',onError);
+        bar.addEventListener('input',onInput);
+        btn.addEventListener('click',onClick);
+        1<=ele.readyState&&onLoadedMetadata();
+        onTimeUpdate();
+    }
+    window.addEventListener('DOMContentLoaded',function(){
+        document.querySelectorAll('audio').forEach(function(a){replaceAudio(a);});
+    });
+})();
 //动态id
 document.addEventListener('DOMContentLoaded',function(){
     document.querySelectorAll('main').forEach(m=>{

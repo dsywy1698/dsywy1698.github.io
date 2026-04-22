@@ -1012,6 +1012,55 @@ main{
             >summary::before{transform:rotate(90deg);}
         }
     }
+    .audio{
+        display:flex;
+        align-items:center;
+        gap:8px;
+        width:300px;
+        height:50px;
+        padding:8px 12px;
+        margin:9px auto;
+        background:--opa(var(--gallery));
+        border-radius:25px;
+        >button{
+            background:transparent;
+            border:none;
+            width:34px;
+            height:34px;
+            color:--txt(var(--gallery));
+            opacity:0.7;
+            transition:0.2s;
+            &:hover{opacity:1;}
+        }
+        >input{
+            flex:1;
+            height:7px;
+            -webkit-appearance:none;
+            background:--opa(var(--gallery));
+            border-radius:5px;
+            &:focus{outline:none;}
+            &::-webkit-slider-thumb{
+                -webkit-appearance:none;
+                width:12px;
+                height:12px;
+                background:--opa(var(--color));
+                border-radius:50%;
+                border:none;
+            }
+            &::-moz-range-thumb{
+                width:12px;
+                height:12px;
+                background:--opa(var(--color));
+                border-radius:50%;
+                border:none;
+            }
+        }
+        >span{
+            width:40px;
+            text-align:center;
+            color:--txt(var(--gallery));
+        }
+    }
     .page{
         display:flex;
         width:calc(100% - 40px);
