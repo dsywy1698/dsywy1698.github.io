@@ -1,7 +1,7 @@
 <!DOCTYPE html><html><head><title>标题</title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><meta name="robots" content="noindex,nofollow"/><meta name="referrer" content="no-referrer"/><link rel="stylesheet" href="fa.css"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/><link rel="icon" href="9.png"/><link rel="stylesheet" href="style.css"/><style></style></head><body data-t="l" data-n="2" data-f="3"><dialog id="password"><div><input placeholder="输入密码"/><button onclick="ep()">OK</button></div><p><strong>提示 </strong>提示文本</p></dialog><div id="loader"><div><p>文本1</p><button onclick="fo()">跳过</button></div></div><div id="bigger">窗口过大</div><div id="smaller">窗口过小</div><nav><div><button onclick="window.scrollTo(0,0)"></button><div><button onclick="document.querySelector('nav>div:nth-of-type(2)').classList.toggle('active')" class="fa fa-navicon"></button><button onclick="showPage('HOME')" id="logo"></button><button commandfor="setting" command="show-modal" class="fa fa-gear"></button></div><button onclick="window.scrollTo(0,document.documentElement.scrollHeight)"></button></div><div><div></div><hr/><div></div></div></nav><div id="main"><dialog id="setting" closedby="any"><div>设置<button onclick="localStorage.clear();ubg();location.reload(true);">重置</button></div><div><span>主题</span><input type="radio" name="t" onclick="chT('l')" title="浅"><input type="radio" name="t" onclick="chT('d')" title="深"><input type="radio" name="t" onclick="chT('b')" title="蓝"><input type="radio" name="t" onclick="chT('n')" title="夜"></div><div><span>导航栏</span><input type="radio" name="n" onclick="chN('1')" title="经典"><input type="radio" name="n" onclick="chN('2')" title="胶囊" checked></div><div><span>内容过滤</span><input type="radio" name="f" onclick="chF('0')" title="无"><input type="radio" name="f" onclick="chF('1')" title="一"><input type="radio" name="f" onclick="chF('2')" title="二"><input type="radio" name="f" onclick="chF('3')" title="三" checked></div><div><span>背景图片</span><button onclick="ubg()">清除</button><button onclick="cbg()">上传</button><div><span>透明度</span><input type="range" max="1" min="0" step="0.1" id="r1"/></div><div><span>虚化</span><input type="range" max="30" min="0" step="3" id="r2"/></div></div></dialog>
 <main id="HOME"><header><h1>首页</h1></header><hr/><p>页面开发中，敬请期待。</p></main>
-<main id="EVE">
-<header style="--header:#ec13b6"><h1>八卦</h1></header>
+<main id="EVE" style="--header:#ec13b6">
+<header><h1>八卦</h1></header>
 <search><button onclick="hot()">热</button><input type="text" placeholder="搜索..." oninput="search()" maxlength="15" spellcheck="false"/></search>
 <details>
     <summary>说明</summary>
@@ -3133,6 +3133,26 @@
 </div>
 <div time="22">
     <p>生物考试（学校自己考）前的生物课上，师：“（卷子）是25年的厦门卷。”有人：“快！快！快！”郑永泽迅速从包里掏出一本真题卷，翻找里面的厦门卷题目（他刷过这套卷子）。师：“还真有人带啊！不应该说的。”课上到一半，师→郑永泽：“不要看啊，我要收卷子了。先保管，不要给别人看。”然后暂时没收这本书。</p>
+    <p>学生掀起去图书馆热潮，“拿代书板”成为经典，陆梓豪借到《回首文革》。</p>
+</div>
+<div time="23">
+    <p data-f="1">语文老师讲卷子时在黑板上写“积积态度”不久，生：“黑板上写错了！”师：“哦，积积态（笑）……你们真的很严谨，非常严谨，点赞。”</p>
+    <p>林梓颢午餐中吃到一块有乳头的猪肉，然后蒲林豪（同桌）夹走肉，将旁边部分吃掉。</p>
+    <p>中午排跑操队形。</p>
+    <p>林芷琪、郑致辰、数学老师撞衫（浅蓝色衬衫）。</p>
+    <p>讲评数学试卷。25题中分(1)①②、(2)三小题，总分15分。师：“第①题四分，第②题五分。”洪鑫洋：“所以第(2)小题才4分？”</p>
+    <p>大课间大批学生前去借书，图书馆阿姨：“出去！”</p>
+    <dl>
+        <dt>物理课：</dt>
+        <dd>郑致辰：“呃！——”师：“你有病啊！”（笑）</dd>
+        <dd>师：“李允儿，蔡华楷！”</dd>
+    </dl>
+    <dl>
+        <dt>地理课：</dt>
+        <dd>讲完对经济的促进作用这题，洪鑫洋：“这不随便蒙就能蒙对吗？”</dd>
+        <dd>师：“妍菲？是叫妍菲吗？”</dd>
+        <dd data-f="1">师：“这条河叫钦江。”陆梓豪：“江（青）……”（笑）师：“什么东西？”</dd>
+    </dl>
 </div>
 <!--
 <div time="">
