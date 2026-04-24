@@ -88,7 +88,7 @@ request.onsuccess=function(e){db=e.target.result,lbg()};
 document.querySelectorAll("img").forEach(o=>{o.onerror=function(){this.classList.add("broken");this.src=null}});
 //日志逻辑
 function search(){
-    var e=document.querySelector("#EVE>aside>input").value.trim(),
+    var e=document.querySelector("#EVE>search>input").value.trim(),
         t=document.getElementById("EVE");
     if (t&&"none"!==window.getComputedStyle(t).display){
         if(t=t.querySelectorAll("p,dd"),e){
@@ -109,9 +109,9 @@ function search(){
     }
 }
 function hot(){
-    const d=document.querySelector("#EVE>aside>button").classList.contains('active');
+    const d=document.querySelector("#EVE>search>button").classList.contains('active');
     d?document.body.setAttribute("data-th","1"):document.body.setAttribute("data-th","2");
-    document.querySelector("#EVE>aside>button").classList.toggle("active");
+    document.querySelector("#EVE>search>button").classList.toggle("active");
     heb();
 }
 function heb(){
@@ -123,7 +123,11 @@ function heb(){
         e.style.display=t?"none":"";});
     document.querySelectorAll("#EVE>h1").forEach(e=>{
         let t=e.nextElementSibling,l=!1;
-        for(;t&&"H1"!==t.tagName;){"none"!==t.style.display&&(l=!0);t=t.nextElementSibling;}
+        for(;t&&"H1"!==t.tagName;){
+            const a="DIV"===t.tagName&&!t.classList.contains("page")&&!t.classList.contains("notes");
+            if(a&&"none"!==t.style.display){l=!0;break;}
+            t=t.nextElementSibling;
+        }
         e.style.display=l?"":"none";
     });
 }
