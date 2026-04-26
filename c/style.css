@@ -888,7 +888,7 @@ main{
             &:first-child{border-top-left-radius:15px;}
             &:last-child{border-top-right-radius:15px;}
         }
-        tr>td+td:last-child,tr>th+th:last-child{border-right:none;}
+        tr>:is(td+td:last-child,th+th:last-child,td:only-child,th:only-child){border-right:none;}
         td,th{
             border-right:1px solid --opa(var(--table));
             padding:12px 8px;
@@ -949,7 +949,7 @@ main{
             padding:5px 7.5px;
             min-width:0;
             max-width:80%;
-            text-indent:0;
+            text-indent:0!important;
             &.a{background:#95ec69aa;}
             &.b,&.c,&.d{ background:#fffa;}
         }
@@ -1050,12 +1050,12 @@ main{
             &.t{
                 background:#f906;color:--txt(#f90);
                 &::before{content:'\f21e';color:#fec;}
-                &::after{content:'火热';}
+                &::after{content:'蜜月期';}
             }
             &.f{
                 background:#0c06;color:--txt(#0c0);
                 &::before{content:'\f10c';color:#9f9;}
-                &::after{content:'沉寂';}
+                &::after{content:'已分手';}
             }
         }
     }
