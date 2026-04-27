@@ -212,7 +212,7 @@ nav{
     position:fixed;
     background:--opa(var(--nav),0.3);
     height:40px;
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(9px);
     z-index:2;
     margin:auto;
     user-select:none;
