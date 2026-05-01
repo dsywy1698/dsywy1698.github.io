@@ -495,7 +495,7 @@ main{
         border-radius:1px;
         margin:15px 10px;
         padding:0.8px;
-        background:linear-gradient(to right,transparent 0%,var(--hr) 20%,var(--hr) 80%,transparent 100%);
+        background:linear-gradient(to right,transparent 0%,hsl(from var(--header) h 50 50 / 0.5) 20%,hsl(from var(--header) h 50 50 / 0.5) 80%,transparent 100%);
     }
     a{
         color:var(--link);
@@ -567,11 +567,11 @@ main{
     ul,ol,&:not(#EVE) dl:not(header>dl,.timeline,#EVE dl){
         margin:10px 0 10px 2em;
         li,dd{
-            color:--mix(var(--hr));
+            color:--mix(var(--header));
             opacity:0.9;
         }
         dt{
-            color:--mix(var(--link));
+            color:--opa(var(--color),0.8);
             font-size:0.875rem;
             opacity:0.8;
             margin-left:1em;
