@@ -873,25 +873,19 @@ main{
     }
     table{
         width:100%;
-        overflow-x:auto;
-        border-radius:12px;
+        overflow:hidden;
+        border-radius:15px;
         border-collapse:collapse;
         background:--opa(var(--table),0.3);
-        td{
-            border-top:1px solid --opa(var(--table),0.7);
-            text-align:center;
-        }
+        td{text-align:center;}
         th{
             font-size:1.125rem;
             background:--opa(var(--table),0.4);
             color:--txt(var(--table));
-            &:first-child{border-top-left-radius:15px;}
-            &:last-child{border-top-right-radius:15px;}
         }
-        tr>:is(td+td:last-child,th+th:last-child,td:only-child,th:only-child){border-right:none;}
         td,th{
-            border-right:1px solid --opa(var(--table));
-            padding:12px 8px;
+            outline:1px solid --opa(var(--table));
+            padding:12px 6px;
             min-width:3em;
         }
     }
