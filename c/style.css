@@ -287,6 +287,7 @@ nav{
             padding:5px;
             overflow-y:auto;
             position:relative;
+            mask-image:linear-gradient(to bottom,transparent,#000 10px,#000 calc(100% - 10px),transparent);
         }
         >div:nth-of-type(1){
             width:160px;
@@ -887,6 +888,7 @@ main{
             outline:1px solid --opa(var(--table));
             padding:12px 6px;
             min-width:3em;
+            text-wrap:balance;
         }
     }
     var{

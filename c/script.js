@@ -171,7 +171,6 @@ window.addEventListener("load",function(){setTimeout(fo,300);});
 (function(){
     function dur(o){return isNaN(o)||void 0===o||o<0?"0:00":Math.floor(o/60)+":"+(Math.floor(o%60)<10?"0"+Math.floor(o%60):Math.floor(o%60))}
     function replaceAudio(ele){
-        ele.style.display='none';
         const div=document.createElement('div');
         div.className='audio';
         div.innerHTML=`<button></button><input type="range" min="0" max="1" step="any" value="0"><span>0:00</span>`;
