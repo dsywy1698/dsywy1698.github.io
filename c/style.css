@@ -601,6 +601,22 @@ main{
             padding:5px 7px;
             display:inline-block;
             margin:5px;
+            &.w{
+                &:before{font-family:"icons";content:"\f221";}
+                background:#c395;
+                color:--mix(var(--color),#c39);
+                padding:5px;
+                width:26px;
+                height:26px;
+            }
+            &.m{
+                &:before{font-family:"icons";content:"\f222";}
+                background:#0080ff55;
+                color:--mix(var(--color),#0080ff);
+                padding:5px;
+                width:26px;
+                height:26px;
+            }
         }
         >table{
             font-size:initial;
@@ -608,7 +624,7 @@ main{
             background:--opa(var(--header),0.2);
             color:--txt(var(--header));
             width:calc(100% - 60px);
-            td{border:none;text-align:left;padding:10px;}
+            td{outline:none!important;text-align:left;padding:10px;}
             tr>td:first-of-type{font-weight:bold;width:4em;}
         }
         dl{
