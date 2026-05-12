@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="style.css"/>
     <style></style>
 </head>
-<body data-t="l" data-n="2" data-f="3">
+<body data-t="l" data-f="3">
 <dialog id="password">
     <div><input placeholder="输入密码"/><button onclick="ep()">OK</button></div>
     <p><strong>提示 </strong>提示文本</p>
@@ -23,15 +23,13 @@
     <div id="bigger">窗口过大</div>
     <div id="smaller">窗口过小</div>
     <nav>
+        <button onclick="showPage('HOME')"></button>
         <div>
-        <button onclick="window.scrollTo(0,0)"></button>
-        <div>
+            <button onclick="window.scrollTo(0,0)"></button>
             <button onclick="document.querySelector('nav>div:nth-of-type(2)').classList.toggle('active')" class="fa fa-navicon"></button>
-            <button onclick="showPage('HOME')" id="logo"></button>
             <button commandfor="setting" command="show-modal" class="fa fa-gear"></button>
+            <button onclick="window.scrollTo(0,document.documentElement.scrollHeight)"></button>
         </div>
-        <button onclick="window.scrollTo(0,document.documentElement.scrollHeight)"></button>
-    </div>
         <div><div></div><hr/><div></div></div>
     </nav>
     <div id="main">
@@ -43,12 +41,6 @@
             <input type="radio" name="t" onclick="chT('d')" title="深">
             <input type="radio" name="t" onclick="chT('b')" title="蓝">
             <input type="radio" name="t" onclick="chT('n')" title="夜">
-        </div>
-        <div>
-            <span>导航栏</span>
-            <input type="radio" name="n" onclick="chN('1')" title="经典">
-            <input type="radio" name="n" onclick="chN('2')" title="胶囊" checked>
-            <input type="radio" name="n" onclick="chN('3')" title="极简">
         </div>
         <div>
             <span>内容过滤</span>

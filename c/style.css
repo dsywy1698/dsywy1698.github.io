@@ -27,12 +27,27 @@ body{
     &::before{
         content:'';
         position:fixed;
+        display:block;
         left:0;
         width:100dvw;
         height:100lvh;
         z-index:-1;
         backdrop-filter:blur(var(--bl,0));
         background:--opa(var(--background),var(--o,1));
+    }
+    &::after{
+        content:'';
+        position:fixed;
+        display:block;
+        left:0;
+        top:0;
+        width:100%;
+        height:70px;
+        z-index:1;
+        pointer-events:none;
+        backdrop-filter:blur(4px);
+        mask:linear-gradient(to bottom,#000 0,#000 20px,#000d 40px,#000b 50px,#0000 70px);
+        background:linear-gradient(to bottom,#0004,#0001,#0000);
     }
 }
 ::selection{background:--opa(var(--nav));}
@@ -145,7 +160,7 @@ body[data-th="2"] #EVE>div dd:not([data-h]){display:none;}
     background:--opa(var(--background));
     text-align:center;
     color:var(--color);
-    z-index:4;
+    z-index:5;
     >div{
         display:flex;
         background:var(--background);
@@ -177,7 +192,7 @@ body[data-th="2"] #EVE>div dd:not([data-h]){display:none;}
     background:var(--background);
     width:100dvw;
     height:100dvh;
-    z-index:3;
+    z-index:4;
     overflow:hidden;
     position:fixed;
     top:0;
@@ -210,52 +225,66 @@ body[data-th="2"] #EVE>div dd:not([data-h]){display:none;}
 }
 nav{
     position:fixed;
-    background:--opa(var(--nav),0.3);
-    height:40px;
-    backdrop-filter:blur(9px);
-    z-index:2;
-    margin:auto;
+    z-index:3;
     user-select:none;
-    transition:height 0.3s;
-    overflow:hidden;
-    box-shadow:0 2px 17px hsl(from var(--nav) h 20 20 / 0.2),inset 0 0 15px hsl(from var(--nav) h 20 70 / 0.2);
-    &::before{
-        content:'';
-        position:absolute;
-        top:0;
-        left:0;
-        width:100%;
-        pointer-events:none;
-        z-index:-1;
-        height:40px;
-        opacity:0.4;
-        background:linear-gradient(to right,--opa(var(--nav)) calc(100% - 5px),transparent 100%);
-        transform-origin:left center;
-        animation-name:progress;
-        animation-timing-function:linear;
-        animation-timeline:scroll(root block);
+    >button,>div:nth-of-type(1){
+        position:fixed;
+        border-radius:20px;
+        backdrop-filter:blur(7px);
+        box-shadow:0 2px 14px hsl(from var(--nav) h 20 20 / 0.2),inset 0 0 15px hsl(from var(--nav) h 20 70 / 0.2);
     }
-    &:has(>div:nth-of-type(2).active){height:400px;}
+    >button{
+        display:block;
+        width:34px;
+        height:34px;
+        left:10px;
+        top:10px;
+        background-image:url("image/9.webp");
+        background-position:50% 50%;
+        background-size:cover;
+        opacity:0.8;
+        transition:0.3s;
+        &:hover{opacity:1;}
+    }
     >div:nth-of-type(1){
-        display:flex;
-        justify-content:space-between;
+        width:120px;
         height:40px;
-        >button{
-            background:transparent;
-            width:40px;
+        right:7px;
+        top:7px;
+        background:--opa(var(--nav),0.3);
+        display:flex;
+        justify-content:space-around;
+        align-items:center;
+        overflow:hidden;
+        &::before{
+            content:'';
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            pointer-events:none;
+            z-index:-1;
             height:40px;
+            opacity:0.4;
+            background:--opa(var(--nav));
+            transform-origin:left center;
+            animation-name:progress;
+            animation-timing-function:linear;
+            animation-timeline:scroll(root block);
         }
-        >div{
-            margin:5px;
-            display:flex;
-            justify-content:center;
-            >button{
+        >button{
+            display:block;
+            background:transparent;
+            transition:0.3s;
+            opacity:0.8;
+            &:nth-of-type(1),&:nth-of-type(4){
+                width:30px;
+                height:40px;
+            }
+            &:nth-of-type(2),&:nth-of-type(3){
                 width:30px;
                 height:30px;
                 border-radius:50%;
-                background:transparent;
-                transition:0.3s;
-                opacity:0.8;
                 &:hover{opacity:1;}
                 &::before{
                     color:var(--nav-c);
@@ -263,25 +292,25 @@ nav{
                     line-height:30px;
                 }
             }
-            #logo{
-                background-image:url("image/9.webp");
-                background-position:50% 50%;
-                background-size:cover;
-                margin:0 5px;
-            }
         }
     }
     >div:nth-of-type(2){
-        height:0;
-        opacity:0;
-        transition:0.3s;
-        background:linear-gradient(#fff2,transparent);
+        position:fixed;
+        width:calc(100dvw - 20px);
+        height:350px;
         overflow:hidden;
-        margin:5px;
+        top:60px;
+        left:10px;
         border-radius:15px;
         display:flex;
         overflow:hidden;
-        &.active{height:350px;opacity:1;}
+        transform:scale(0.2);
+        transform-origin:calc(100% - 75px) 0%;
+        opacity:0;
+        transition:0.3s cubic-bezier(0.25,0.1,0.35,1.2);
+        background:--opa(var(--nav),0.3);
+        backdrop-filter:blur(4px);
+        &.active{opacity:1;transform:scale(1);}
         >div{
             height:340px;
             padding:5px;
@@ -340,44 +369,6 @@ nav{
                 }
             }
         }
-    }
-}
-body[data-n="1"] nav{
-    top:0;
-    left:0;
-    width:100dvw;
-}
-body[data-n="2"] nav{
-    top:7px;
-    left:7px;
-    width:calc(100dvw - 14px);
-    border-radius:20px;
-}
-body[data-n="3"]{
-    &::before{
-        content:"";
-        position:fixed;
-        top:0;
-        left:0;
-        width:100%;
-        height:70px;
-        display:block;
-        z-index:1;
-        pointer-events:none;
-        backdrop-filter:blur(4px);
-        -webkit-mask:linear-gradient(to bottom,#000 0%,#000 25%,#0000 100%);
-        mask:linear-gradient(to bottom,#000 0%,#000 25%,#0000 100%);
-        background:linear-gradient(to bottom,#0003,#0001,#0000);
-    }
-    nav{
-        width:40px;
-        top:7px;
-        right:7px;
-        border-radius:20px;
-        backdrop-filter:blur(7px);
-        transition:height 0.3s,width 0.3s;
-        box-shadow:none;
-        &:has(>div:nth-of-type(2).active){width:calc(100dvw - 14px);}
     }
 }
 @keyframes progress{
@@ -1226,23 +1217,21 @@ main{
 #EVE{
     >search{
         position:sticky;
-        z-index:1;
-        top:50px;
-        right:0;
-        margin-left:auto;
-        padding:0 5px;
+        z-index:2;
+        top:10px;
+        left:54px;
         width:120px;
-        height:30px;
+        height:34px;
         overflow:hidden;
         text-wrap:nowrap;
         background:--opa(var(--nav));
-        border-radius:15px;
+        border-radius:17px;
         box-shadow:0 2px 10px --opa(var(--color),0.1);
         backdrop-filter:blur(3px);
         >button{
-            width:20px;
-            height:20px;
-            margin:5px 0;
+            width:24px;
+            height:24px;
+            margin:5px;
             border-radius:50%;
             background:#f904;
             transition:0.3s;
@@ -1253,10 +1242,9 @@ main{
         >input{
             position:relative;
             height:30px;
-            width:80px;
+            width:86px;
             background:transparent;
             border:none;
-            padding:0 5px;
             &::placeholder{color:--mix((--nav));opacity:0.4;}
         }
     }
@@ -1356,81 +1344,7 @@ footer{
 @media (width>=1600px),(height>=900px){
     #bigger{display:flex;}
     #password,#main,#loader,nav{display:none!important;}
-}/*
-@media (width>=768px){
-    body{
-        display:flex;
-        height:100dvh;
-        gap:10px;
-        justify-content:center;
-        padding:10px;
-        &::before{display:none;}
-    }
-    #setting>div:nth-of-type(3){display:none;}
-    nav{
-        position:static;
-        width:300px;
-        height:100%;
-        border-radius:20px!important;
-        inset:0;
-        backdrop-filter:blur(var(--bl,0));
-        background:--opa(var(--background),var(--o,0.3));
-        box-shadow:0 0 7px 2px --opa(var(--color),0.1);
-        &::before{display:none;}
-        >div:first-child{
-            position:absolute;
-            background:--opa(var(--nav),0.2);
-            right:5px;
-            top:5px;
-            z-index:2;
-            border-radius:20px;
-            >button{display:none;}
-            >div{
-                width:100%;
-                display:flex;
-                flex-direction:row-reverse;
-                justify-content:space-between;
-                >button:first-child{display:none;}
-            }
-        }
-        >div:last-child{
-            display:flex;
-            height:100%;
-            opacity:1;
-            pointer-events:all;
-            flex-direction:column;
-            background:transparent;
-            >div:first-child{
-                width:100%;
-                height:250px;
-                >button.active{background:#fff1;}
-            }
-            >div:last-child{height:100%;}
-            >hr{
-                width:100%;
-                height:2px;
-                background:linear-gradient(to right,transparent 0%,var(--nav) 20%,var(--nav) 80%,transparent 100%);
-            }
-        }
-    }
-    main{
-        position:static;
-        min-height:0;
-        height:100%;
-        width:calc(100dvw - 320px);
-        border-radius:20px;
-        overflow:hidden auto;
-        backdrop-filter:blur(var(--bl,0));
-        background:--opa(var(--background),var(--o,1));
-        scrollbar-width:initial;
-        scrollbar-color:--opa(var(--hr)) transparent;
-        scroll-behavior:smooth;
-        box-shadow:0 0 7px 2px --opa(var(--color),0.1);
-        *[id]{scroll-margin-top:10px;}
-        >header{width:calc(100% + 20px);}
-    }
-    footer{display:none;}
-}*/
+}
 @media (width<=600px){
     .page{
         flex-wrap:wrap;

@@ -48,7 +48,6 @@ document.addEventListener("click",function(t){
 });
 //主题切换
 function chT(e){document.body.setAttribute("data-t",e),localStorage.setItem("t",e);}
-function chN(e){document.body.setAttribute("data-n",e),localStorage.setItem("n",e);}
 function chF(e){document.body.setAttribute("data-tf",e),localStorage.setItem("f",e);search();}
 document.getElementById('r1').addEventListener('input',function(){
     document.querySelector('body').style.setProperty("--o",this.value);
@@ -367,8 +366,6 @@ window.addEventListener('DOMContentLoaded',function(){
     p?document.getElementById('password').close():document.getElementById('password').showModal();
     const t=localStorage.getItem('t');
     t&&(chT(t),document.querySelector(`input[name="t"][onclick*="${t}"]`).checked=!0);
-    const n=localStorage.getItem('n');
-    n&&(chN(n),document.querySelector(`input[name="n"][onclick*="${n}"]`).checked=!0);
     const f=localStorage.getItem('f');
     f&&(chF(f),document.querySelector(`input[name="f"][onclick*="${f}"]`).checked=!0);
 });
