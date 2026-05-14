@@ -45,8 +45,8 @@ body{
         height:70px;
         z-index:1;
         pointer-events:none;
-        backdrop-filter:blur(4px);
-        mask:linear-gradient(to bottom,#000 0,#000 20px,#000d 40px,#000b 50px,#0000 70px);
+        backdrop-filter:blur(3px);
+        mask:linear-gradient(to bottom,#000 0,#000 20px,#000d 40px,#0000 70px);
         background:linear-gradient(to bottom,#0004,#0001,#0000);
     }
 }
