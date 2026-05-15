@@ -45,7 +45,7 @@ body{
         height:70px;
         z-index:1;
         pointer-events:none;
-        backdrop-filter:blur(3px);
+        backdrop-filter:blur(2px);
         mask:linear-gradient(to bottom,#000 0,#000 20px,#000d 40px,#0000 70px);
         background:linear-gradient(to bottom,#0004,#0001,#0000);
     }
@@ -425,6 +425,15 @@ nav{
             -webkit-appearance:none;
             -moz-appearance:none;
             appearance:none;
+        }
+        &:nth-of-type(2)>input[type="radio"]{
+            width:24px;
+            height:24px;
+            margin:3px 5px;
+            border-radius:12px;
+            &:checked{outline:2px solid --opa(var(--dialog));}
+        }
+        &:nth-of-type(3)>input[type="radio"]{
             height:30px;
             min-width:30px;
             border-radius:13px;
@@ -448,13 +457,10 @@ nav{
         }
         >button{
             height:30px;
-            background:--opa(var(--dialog),0.1);
-            color:color-mix(in oklch,var(--dialog) 10%,var(--color));
-            border-radius:15px;
+            background:transparent;
+            color:--mix(var(--dialog));
             padding:0 10px;
-            line-height:30px;
             font-size:16px;
-            margin-left:2.5px;
         }
         >div{
             width:100%;
@@ -462,35 +468,25 @@ nav{
             margin-top:5px;
             >span{line-height:30px;margin-left:15px;float:left;}
             >input{
-                -webkit-appearance:none;
-                -moz-appearance:none;
                 appearance:none;
                 width:100px;
                 height:20px;
                 border-radius:10px;
-                background:--opa(var(--dialog),0.7);
+                background:--opa(var(--dialog));
                 outline:none;
-                opacity:0.7;
-                transition:opacity 0.2s;
                 margin:5px;
-                &:hover{opacity:1;}
-                &::-webkit-slider-track{height:10px;border-radius:5px;}
                 &::-webkit-slider-thumb{
-                    -webkit-appearance:none;
                     appearance:none;
-                    width:20px;
+                    width:15px;
                     height:20px;
                     background:--mix(var(--dialog));
-                    border-radius:50%;
-                    cursor:pointer;
+                    border-radius:9px;
                 }
-                &::-moz-range-track{height:10px;border-radius:5px;}
                 &::-moz-range-thumb{
-                    width:20px;
+                    width:15px;
                     height:20px;
                     background:--mix(var(--dialog));
-                    border-radius:50%;
-                    cursor:pointer;
+                    border-radius:9px;
                 }
             }
         }
@@ -1033,60 +1029,24 @@ main{
             top:40px;
         }
     }
-    .love{
-        background:--opa(var(--header),0.3);
+    h4{
+        background:--opa(var(--header),0.2);
         padding:20px;
         border-radius:20px;
-        >h1{
-            font-size:1.75rem;
-            margin-bottom:20px;
-            >i:before{
-                position:static;
-                display:inline-block;
-                font-family:"icons";
-                content:"\f0c1";
-                font-style:normal;
-                font-size:0.8em;
-                margin:0 10px;
-                color:var(--header);
-                transform:rotate(-45deg);
-            }
-        }
-        >p{
-            display:flex;
-            justify-content:space-between;
-            border-radius:10px;
-            padding:10px 20px;
-            &::before{display:block;position:static;font-family:"icons";}
-            &::after{display:block;position:static;}
-        }
-        >p:nth-of-type(1){
-            background:#c3f6;color:--txt(#c3f);
-            &::before{content:'\f073';color:#fcf;}
-        }
-        >p:nth-of-type(2){
-            &.t{
-                background:#06f6;color:--txt(#06f);
-                &::before{content:'\f004';color:#6cf;}
-                &::after{content:'可信';}
-            }
-            &.f{
-                background:#c006;color:--txt(#c00);
-                &::before{content:'\f08a';color:#c99;}
-                &::after{content:'真实性存疑';}
-            }
-        }
-        >p:nth-of-type(3){
-            &.t{
-                background:#f906;color:--txt(#f90);
-                &::before{content:'\f21e';color:#fec;}
-                &::after{content:'蜜月期';}
-            }
-            &.f{
-                background:#0c06;color:--txt(#0c0);
-                &::before{content:'\f10c';color:#9f9;}
-                &::after{content:'已分手';}
-            }
+        font-size:1.75rem;
+        margin-bottom:20px;
+        display:flex;
+        justify-content:space-around;
+        >i:before{
+            position:static;
+            display:inline-block;
+            font-family:"icons";
+            content:"\f0c1";
+            font-style:normal;
+            font-size:0.8em;
+            margin:0 10px;
+            color:var(--header);
+            transform:rotate(-45deg);
         }
     }
     details{
@@ -1142,12 +1102,12 @@ main{
         >input{
             flex:1;
             height:7px;
-            -webkit-appearance:none;
+            appearance:none;
             background:--opa(var(--gallery));
             border-radius:5px;
             &:focus{outline:none;}
             &::-webkit-slider-thumb{
-                -webkit-appearance:none;
+                appearance:none;
                 width:12px;
                 height:12px;
                 background:--opa(var(--color));

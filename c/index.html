@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="fa.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="icon" href="image/9.webp"/>
-    <link rel="stylesheet" href="test.css"/>
+    <link rel="stylesheet" href="style.css"/>
     <style></style>
 </head>
 <body data-t="l" data-tf="3">
@@ -35,10 +35,10 @@
     <div>设置<button onclick="localStorage.clear();ubg();location.reload(true);">重置</button></div>
     <div>
         <span>主题</span>
-        <input type="radio" name="t" onclick="chT('l')" title="浅">
-        <input type="radio" name="t" onclick="chT('d')" title="深">
-        <input type="radio" name="t" onclick="chT('b')" title="蓝">
-        <input type="radio" name="t" onclick="chT('n')" title="夜">
+        <input type="radio" name="t" onclick="chT('l')" style="background:#f1f3f4" checked>
+        <input type="radio" name="t" onclick="chT('d')" style="background:#00001a">
+        <input type="radio" name="t" onclick="chT('b')" style="background:#0066ff">
+        <input type="radio" name="t" onclick="chT('n')" style="background:#000033">
     </div>
     <div>
         <span>内容过滤</span>
@@ -48,10 +48,10 @@
         <input type="radio" name="f" onclick="chF('3')" title="三" checked>
     </div>
     <div>
-        <span>背景图片</span>
-        <button onclick="ubg()">清除</button>
-        <button onclick="cbg()">添加</button>
-        <div><span>透明度</span><input type="range" max="1" min="0" step="0.1" id="r1"/></div>
+        <span>背景</span>
+        <button onclick="ubg()" class="fa fa-trash-o"></button>
+        <button onclick="cbg()" class="fa fa-plus-circle"></button>
+        <div><span>透明</span><input type="range" max="1" min="0" step="0.1" id="r1"/></div>
         <div><span>虚化</span><input type="range" max="30" min="0" step="3" id="r2"/></div>
     </div>
 </dialog>
@@ -75,18 +75,7 @@
     <h1>一级标题</h1>
     <h2>二级标题</h2>
     <h3>三级标题</h3>
-    <div class="love">
-        <h1>恋情<i></i>模块</h1>
-        <p>时间</p>
-        <p class="f"></p>
-        <p class="f"></p>
-    </div>
-    <div class="love">
-        <h1>恋情<i></i>模块</h1>
-        <p>时间</p>
-        <p class="t"></p>
-        <p class="t"></p>
-    </div>
+    <h4>恋情<i></i>模块</h4>
     <p>文本<time>时间</time><var>文本</var><sup data-d="附注文本"></sup>。</p>
     <div class="division"></div>
     <ul><li>无序</li><li>无序</li></ul>
