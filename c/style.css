@@ -303,7 +303,6 @@ nav{
         left:10px;
         border-radius:15px;
         display:flex;
-        overflow:hidden;
         transform:scale(0.2);
         transform-origin:calc(100% - 75px) 0%;
         opacity:0;
@@ -312,47 +311,50 @@ nav{
         backdrop-filter:blur(4px);
         &.active{opacity:1;transform:scale(1);}
         >div{
-            height:340px;
-            padding:5px;
+            height:350px;
             overflow-y:auto;
-            position:relative;
             mask-image:linear-gradient(to bottom,transparent,#000 10px,#000 calc(100% - 10px),transparent);
         }
         >div:nth-of-type(1){
             width:160px;
+            padding:5px 0 5px 7px;
             >button{
                 display:block;
                 width:100%;
                 text-align:left;
                 font-size:1.125rem;
-                padding:5px 15px;
-                border-radius:99px;
+                padding:5px 0 5px 15px;
                 margin-top:5px;
                 background:transparent;
                 text-wrap:nowrap;
-                overflow:hidden;
-                &:hover{background:#fff1;}
+                position:relative;
                 &.active{
-                    background:linear-gradient(to right,#fff1,transparent);
+                    background:linear-gradient(to left,#fff1 10px,#0000);
                     pointer-events:none;
+                    &::before,&::after{
+                        display:block;
+                        content:'';
+                        position:absolute;
+                        width:10px;
+                        height:10px;
+                        right:0;
+                    }
+                    &::before{
+                        top:-10px;
+                        background:radial-gradient(circle at top left,transparent 10px,#fff1 10px);
+                    }
+                    &::after{
+                        bottom:-10px;
+                        background:radial-gradient(circle at bottom left,transparent 10px,#fff1 10px);
+                    }
                 }
             }
         }
-        hr{
-            display:block;
-            border:none;
-            width:3px;
-            height:330px;
-            margin:5px 0;
-            background:linear-gradient(to bottom,transparent 0%,var(--nav) 20%,var(--nav) 80%,transparent 100%);
-            opacity:0.3;
-        }
         >div:nth-of-type(2){
             width:100%;
+            padding:5px 7px;
+            background:linear-gradient(to right,#fff1 0,transparent 40px);
             >div{
-                position:relative;
-                padding-left:7.5px;
-                margin-left:5px;
                 >a{
                     display:block;
                     text-decoration:none;
