@@ -329,7 +329,7 @@ nav{
                 text-wrap:nowrap;
                 position:relative;
                 &.active{
-                    background:linear-gradient(to left,#fff1 10px,#0000);
+                    background:linear-gradient(to left,--opa(var(--color),0.05) 10px,#0000);
                     pointer-events:none;
                     &::before,&::after{
                         display:block;
@@ -341,11 +341,11 @@ nav{
                     }
                     &::before{
                         top:-10px;
-                        background:radial-gradient(circle at top left,transparent 10px,#fff1 10px);
+                        background:radial-gradient(circle at top left,transparent 10px,--opa(var(--color),0.05) 10px);
                     }
                     &::after{
                         bottom:-10px;
-                        background:radial-gradient(circle at bottom left,transparent 10px,#fff1 10px);
+                        background:radial-gradient(circle at bottom left,transparent 10px,--opa(var(--color),0.05) 10px);
                     }
                 }
             }
@@ -353,7 +353,7 @@ nav{
         >div:nth-of-type(2){
             width:100%;
             padding:5px 7px;
-            background:linear-gradient(to right,#fff1 0,transparent 40px);
+            background:linear-gradient(to right,--opa(var(--color),0.05) 0,transparent 40px);
             >div{
                 >a{
                     display:block;
