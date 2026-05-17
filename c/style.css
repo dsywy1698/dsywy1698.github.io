@@ -229,8 +229,6 @@ nav{
     >button,>div:nth-of-type(1){
         position:fixed;
         border-radius:20px;
-        backdrop-filter:blur(7px);
-        box-shadow:0 2px 14px hsl(from var(--nav) h 20 20 / 0.2),inset 0 0 15px hsl(from var(--nav) h 20 70 / 0.2);
     }
     >button{
         display:block;
@@ -243,6 +241,8 @@ nav{
         background-size:cover;
         opacity:0.8;
         transition:0.3s;
+        backdrop-filter:blur(7px);
+        box-shadow:0 2px 14px hsl(from var(--nav) h 20 20 / 0.2);
         &:hover{opacity:1;}
     }
     >div:nth-of-type(1){
@@ -255,6 +255,8 @@ nav{
         justify-content:space-around;
         align-items:center;
         overflow:hidden;
+        backdrop-filter:url(#glass);
+        box-shadow:0 2px 14px hsl(from var(--nav) h 20 20 / 0.2),inset 2px 2px 5px #0002,inset -2px -2px 5px #fff2;
         &::before{
             content:'';
             position:absolute;
@@ -308,7 +310,8 @@ nav{
         transition:0.3s cubic-bezier(0.25,0.1,0.35,1.2);
         background:--opa(var(--nav),0.3);
         backdrop-filter:blur(4px);
-        &.active{opacity:1;transform:scale(1);}
+        pointer-events:none;
+        &.active{opacity:1;transform:scale(1);pointer-events:all;}
         >div{
             height:350px;
             overflow-y:auto;
