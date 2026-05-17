@@ -69,69 +69,68 @@ input:focus{outline:none;}
 }
 #bigger{font-size:5rem;}
 #smaller{font-size:1.2rem;}
-body[data-t="l"]{
-    --background:#f1f3f4;
-    --color:#212121;
-    --nav:#abb5ba;
-    --nav-c:#507c95;
+body[data-t="1"]{
+    --background:#fdf8f0;
+    --color:#333;
+    --base:#d9b48b;
+    --nav:#e6e0d4;
     --dialog:#bcae8f;
-    --hr:#6a9daf;
-    --link:#0a0ac2;
-    --q:#6b7d36;
-    --blockquote:#d194ac;
-    --gallery:#40dfdf;
-    --article:#9898e6;
-    --writing:#d9d926;
-    --timeline:#b2bfc3;
-    --table:#abc256;
+    --quote:#a3a329;
+    --content:#999966;
 }
-body[data-t="d"]{
-    --background:#00001a;
-    --color:#eff5f5;
-    --nav:#3d495c;
-    --nav-c:#b3bccc;
-    --dialog:#bcae8f;
-    --hr:#85c2e0;
-    --link:#8ca6f2;
-    --q:#a2842a;
-    --blockquote:#5c5c3d;
-    --gallery:#2d2d86;
-    --article:#2e6d6d;
-    --writing:#673e74;
-    --timeline:#19384d;
-    --table:#4d4d19;
+body[data-t="2"]{
+    --background:#f1f5ed;
+    --color:#3d3d36;
+    --base:#8ba888;
+    --nav:#c5d4c4;
+    --dialog:#8db380;
+    --quote:#81b814;
+    --content:#39ac73;
 }
-body[data-t="b"]{
-    --background:#0066ff;
-    --color:#ffffff;
-    --nav:#ccffff;
-    --nav-c:#3366cc;
-    --dialog:#198cb3;
-    --hr:#ccffff;
-    --link:#f0f075;
-    --q:#ff66b3;
-    --blockquote:#ff80ff;
-    --gallery:#0099cc;
-    --article:#66c2ff;
-    --writing:#2d5986;
-    --timeline:#5aa4ae;
-    --table:#28bd98;
+body[data-t="3"]{
+    --background:#fef7ea;
+    --color:#4d3b30;
+    --base:#c47e7e;
+    --nav:#eccb93;
+    --dialog:#d19494;
+    --quote:#d96e26;
+    --content:#eb9947;
 }
-body[data-t="n"]{
-    --background:#000033;
-    --color:#ecf2f9;
+body[data-t="4"]{
+    --background:#f3f5f9;
+    --color:#2b3e48;
+    --base:#7c9eb2;
+    --nav:#b3d1e6;
+    --dialog:#88d2f6;
+    --quote:#1fadad;
+    --content:#ababed;
+}
+body[data-t="5"]{
+    --background:#f8f5fc;
+    --color:#3e3a46;
+    --base:#b8a9c9;
+    --nav:#d9c3ef;
+    --dialog:#c6b0e8;
+    --quote:#cc9ae5;
+    --content:#d9c7d4;
+}
+body[data-t="6"]{
+    --background:#130e06;
+    --color:#fbf4e9;
+    --base:#8a5b0f;
+    --nav:#6d5b12;
+    --dialog:#776222;
+    --quote:#818131;
+    --content:#7a4d1f;
+}
+body[data-t="7"]{
+    --background:#050a15;
+    --color:#eaeffa;
+    --base:#0f4d8a;
     --nav:#999900;
-    --nav-c:#ffffcc;
-    --dialog:#5b2aef;
-    --hr:#ad88f6;
-    --link:#ffff99;
-    --q:#a3cb34;
-    --blockquote:#981b59;
-    --gallery:#0f8a8a;
-    --article:#803399;
-    --writing:#0066cc;
-    --timeline:#1f42ad;
-    --table:#7a5c1f;
+    --dialog:#1212a1;
+    --quote:#92b62f;
+    --content:#4e1f93;
 }
 @function --opa(--c:#fff,--o:0.5){
     result:hsl(from var(--c) h s l / var(--o));
@@ -287,7 +286,7 @@ nav{
                 border-radius:50%;
                 &:hover{opacity:1;}
                 &::before{
-                    color:var(--nav-c);
+                    color:--mix(var(--nav));
                     font-size:20px;
                     line-height:30px;
                 }
@@ -515,9 +514,9 @@ main{
         background:linear-gradient(to right,transparent 0%,hsl(from var(--header) h 50 50 / 0.5) 20%,hsl(from var(--header) h 50 50 / 0.5) 80%,transparent 100%);
     }
     a{
-        color:var(--link);
+        color:hsl(from --mix(var(--base)) h 80 l);
         text-decoration-style:dotted;
-        &:hover{color:--opa(var(--link),0.8);}
+        &:hover{opacity:0.8;}
     }
     >h1{
         margin:10px 0 20px 2.5px;
@@ -557,7 +556,7 @@ main{
     }
     sup[class="fa fa-external-link"]{
         font-size:0.7em;
-        color:var(--link);
+        color:var(--text);
         vertical-align:super;
         position:relative;
         top:0;
@@ -575,7 +574,7 @@ main{
     }
     .broken{
         display:block;
-        background:--opa(var(--nav));
+        background:--opa(var(--base));
         width:260px;
         height:180px;
         border-radius:10px;
@@ -669,7 +668,7 @@ main{
                     font-size:1.125rem;
                     margin-right:3px;
                     content:"\f101";
-                    color:color-mix(in oklab,hsl(from var(--header) calc(h - 20) s l),var(--color));
+                    color:--mix(hsl(from var(--header) calc(h - 20) s l));
                 }
             }
             >span{
@@ -721,11 +720,11 @@ main{
         }
     }
     article{
-        background:--opa(var(--article));
-        color:--txt(var(--article));
+        background:--opa(var(--base));
+        color:--txt(var(--base));
         padding:13px;
         border-radius:15px;
-        box-shadow:0 0 10px --opa(var(--article),0.4);
+        box-shadow:0 0 10px --opa(var(--base),0.4);
         >p{text-indent:2.3em;}
         >h1{text-align:center;margin:5px auto;}
         >time{
@@ -757,9 +756,9 @@ main{
         >div:last-child{border:none;}
     }
     q{
-        background:color-mix(in oklch,hsl(from var(--q) h 80 l) 40%,hsl(from var(--background) h 0 l) 10%);
-        color:--txt(var(--q));
-        box-shadow:0 0 20px --opa(var(--q),0.4);
+        background:color-mix(in oklch,hsl(from var(--quote) h 80 l) 40%,hsl(from var(--background) h 0 l) 10%);
+        color:--txt(var(--quote));
+        box-shadow:0 0 20px --opa(var(--quote),0.4);
         font-size:1.5625rem;
         text-wrap:balance;
         display:block;
@@ -769,20 +768,20 @@ main{
         &::before{
             font-family:"icons";
             content:"\f10d";
-            color:var(--q);
+            color:var(--quote);
             padding-right:10px;
         }
         &::after{
             font-family:"icons";
             content:"\f10e";
-            color:var(--q);
+            color:var(--quote);
             padding-left:10px;
         }
     }
     blockquote{
         position:relative;
-        background:linear-gradient(to right,--opa(var(--blockquote)),--opa(var(--blockquote)),transparent);
-        color:--txt(var(--blockquote));
+        background:linear-gradient(to right,--opa(var(--quote)),--opa(var(--quote)),transparent);
+        color:--txt(var(--quote));
         padding:20px;
         border-radius:20px;
         &::before{
@@ -792,12 +791,12 @@ main{
             width:10px;
             top:13px;
             bottom:13px;
-            background:var(--blockquote);
+            background:var(--quote);
             border-radius:5px;
         }
     }
     .gallery{
-        background:linear-gradient(--opa(var(--gallery),0.7),--opa(var(--gallery),0.3));
+        background:linear-gradient(--opa(var(--content),0.7),--opa(var(--content),0.3));
         padding:15px;
         border-radius:15px;
         text-align:center;
@@ -807,11 +806,11 @@ main{
             border-radius:10px;
         }
         >div{margin:auto;}
-        >p{color:color-mix(in oklch,var(--gallery) 30%,var(--color));}
+        >p{color:color-mix(in oklch,var(--content) 30%,var(--color));}
     }
     code{
         display:block;
-        background:color-mix(in oklch,var(--header) 7%,var(--color) 33%);
+        background:color-mix(in oklch,var(--header) 7%,var(--color) 23%);
         padding:20px;
         text-align:center;
         border-radius:15px;
@@ -820,8 +819,8 @@ main{
         >p{margin:0;}
     }
     .writing{
-        background:linear-gradient(to bottom,--opa(var(--writing)),--opa(var(--writing),0.3));
-        color:--txt(var(--writing));
+        background:linear-gradient(to bottom,--opa(var(--content)),--opa(var(--content),0.3));
+        color:--txt(var(--content));
         padding:20px;
         border-radius:20px;
         position:relative;
@@ -842,11 +841,11 @@ main{
             width:30px;
             height:30px;
             right:20px;
-            background:color-mix(in oklch,var(--writing),#fff5);
+            background:color-mix(in oklch,var(--content),#fff5);
             border-radius:10px;
             transition:opacity 0.3s;
             &:hover{opacity:0.7;}
-            &::before{color:--mix(var(--writing),#0008);}
+            &::before{color:--mix(var(--content),#0008);}
         }
     }
     article>p:has(>b),blockquote>p:has(>b),.writing>p:has(>b){
@@ -859,7 +858,7 @@ main{
         }
     }
     .timeline{
-        background:linear-gradient(135deg,--opa(var(--timeline)),--opa(var(--timeline),0.2));
+        background:linear-gradient(135deg,--opa(var(--base),0.4),--opa(var(--base),0.2));
         padding:15px;
         border-radius:15px;
         display:block;
@@ -871,7 +870,7 @@ main{
             top:10px;
             bottom:10px;
             width:5px;
-            background:linear-gradient(to bottom,transparent 0,color-mix(in oklab,var(--timeline),#fff5) 15px,color-mix(in oklab,var(--timeline),#fff5) calc(100% - 15px),transparent 100%);
+            background:linear-gradient(to bottom,transparent 0,color-mix(in oklab,var(--base),#fff5) 15px,color-mix(in oklab,var(--base),#fff5) calc(100% - 15px),transparent 100%);
         }
         >dt{
             background:--opa(var(--color),0.2);
@@ -885,7 +884,7 @@ main{
         }
         >dd{
             background:linear-gradient(to right,--opa(var(--color),0.1),transparent);
-            color:--txt(var(--timeline));
+            color:--txt(var(--base));
             padding:0 10px;
             margin:15px 30px;
             line-height:36px;
@@ -898,7 +897,7 @@ main{
                 width:20px;
                 height:20px;
                 border-radius:50%;
-                background:var(--timeline);
+                background:var(--base);
                 left:-27.5px;
                 top:8px;
             }
@@ -909,15 +908,15 @@ main{
         overflow:hidden;
         border-radius:15px;
         border-collapse:collapse;
-        background:--opa(var(--table),0.3);
+        background:hsl(from var(--base) h calc(s + 10) l / 0.3);
         td{text-align:center;}
         th{
             font-size:1.125rem;
-            background:--opa(var(--table),0.4);
-            color:--txt(var(--table));
+            background:hsl(from var(--base) h calc(s + 15) l / 0.4);
+            color:--txt(var(--base));
         }
         td,th{
-            outline:1px solid --opa(var(--table));
+            outline:1px solid hsl(from var(--base) h calc(s + 10) l / 0.5);
             padding:12px 6px;
             min-width:3em;
             text-wrap:balance;
@@ -925,9 +924,9 @@ main{
     }
     var{
         all:unset;
-        background:--mix(var(--dialog));
+        background:--mix(var(--base));
         font-weight:normal;
-        color:color-mix(in oklch,var(--dialog),var(--background) 30%);
+        color:color-mix(in oklch,var(--base),var(--background) 40%);
         padding:1.5px 2.5px;
         border-radius:5px;
         margin:0 2.5px;
@@ -1089,14 +1088,14 @@ main{
         height:50px;
         padding:8px 12px;
         margin:9px auto;
-        background:--opa(var(--gallery));
+        background:--opa(var(--content));
         border-radius:25px;
         >button{
             background:transparent;
             border:none;
             width:34px;
             height:34px;
-            color:--txt(var(--gallery));
+            color:--txt(var(--content));
             opacity:0.7;
             transition:0.2s;
             &:hover{opacity:1;}
@@ -1105,7 +1104,7 @@ main{
             flex:1;
             height:7px;
             appearance:none;
-            background:--opa(var(--gallery));
+            background:--opa(var(--content));
             border-radius:5px;
             &:focus{outline:none;}
             &::-webkit-slider-thumb{
@@ -1127,7 +1126,7 @@ main{
         >span{
             width:40px;
             text-align:center;
-            color:--txt(var(--gallery));
+            color:--txt(var(--content));
         }
     }
     .page{

@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="fa.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="icon" href="image/9.webp"/>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="test.css"/>
     <style></style>
 </head>
-<body data-t="l" data-tf="3">
+<body data-t="1" data-tf="3">
 <dialog id="password">
     <div><input placeholder="输入密码"/><button onclick="ep()">OK</button></div>
     <p><strong>提示 </strong>提示文本</p>
@@ -35,10 +35,13 @@
     <div>设置<button onclick="localStorage.clear();ubg();location.reload(true);">重置</button></div>
     <div>
         <span>主题</span>
-        <input type="radio" name="t" onclick="chT('l')" style="background:#f1f3f4" checked>
-        <input type="radio" name="t" onclick="chT('d')" style="background:#00001a">
-        <input type="radio" name="t" onclick="chT('b')" style="background:#0066ff">
-        <input type="radio" name="t" onclick="chT('n')" style="background:#000033">
+        <input type="radio" name="t" onclick="chT('1')" style="background:#d9b48b" checked>
+        <input type="radio" name="t" onclick="chT('2')" style="background:#8ba888">
+        <input type="radio" name="t" onclick="chT('3')" style="background:#c47e7e">
+        <input type="radio" name="t" onclick="chT('4')" style="background:#7c9eb2">
+        <input type="radio" name="t" onclick="chT('5')" style="background:#b8a9c9">
+        <input type="radio" name="t" onclick="chT('6')" style="background:#8a5b0f">
+        <input type="radio" name="t" onclick="chT('7')" style="background:#0f4d8a">
     </div>
     <div>
         <span>内容过滤</span>
@@ -76,10 +79,11 @@
     <h2>二级标题</h2>
     <h3>三级标题</h3>
     <h4>恋情<i></i>模块</h4>
-    <p>文本<time>时间</time><var>文本</var><sup data-d="附注文本"></sup>。</p>
+    <p>文本<time>时间</time><var>文本</var><sup data-d="附注文本"></sup><a href="#">链接</a>。</p>
     <div class="division"></div>
     <ul><li>无序</li><li>无序</li></ul>
     <dl><dd>列表</dd><dt>文本</dt><dd>列表</dd><dt>文本</dt></dl>
+    <dl class="timeline"><dd>列表</dd><dt>文本</dt><dd>列表</dd><dt>文本</dt></dl>
     <article><p>文本文本文本文本</p></article>
     <code><p>文本文本文本文本<sup data-d="附注文本2"></sup></p></code>
     <blockquote><p>文本文本文本文本</p></blockquote>
@@ -89,6 +93,10 @@
         <tr><td>标题</td><td>描述文本</td></tr>
         <tr><td>标题</td><td>描述文本</td></tr>
     </table>
+    <div class="gallery">
+        <img src="image/40.webp">
+        <p>文本</p>
+    </div>
     <q>文本文本文本文本</q>
     <aside style="--a:'a';--b:'b'">
         <p class="b">文本文本</p>

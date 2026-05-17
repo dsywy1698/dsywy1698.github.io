@@ -1,4 +1,4 @@
-//密码（abc）
+//密码
 function ep(){
     var e=document.querySelector("#password input").value;
     "123"===e?(localStorage.setItem("p","true"),document.getElementById("password").close()):document.querySelector("#password input").style.background="#f004";
