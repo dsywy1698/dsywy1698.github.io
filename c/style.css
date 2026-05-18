@@ -256,7 +256,7 @@ nav{
         align-items:center;
         overflow:hidden;
         backdrop-filter:url(#glass);
-        box-shadow:0 2px 14px hsl(from var(--nav) h 20 20 / 0.2),inset 2px 2px 5px #0002,inset -2px -2px 5px #fff2;
+        box-shadow:0 2px 14px hsl(from var(--nav) h 20 20 / 0.2),inset 1px 1px 1px 1px #fff2,inset -1px -1px 1.3px #fff2;
         &::before{
             content:'';
             position:absolute;
@@ -1233,7 +1233,7 @@ main{
         padding:15px 8px 10px 8px;
         border-radius:15px;
         width:100%;
-        background:#9df5;
+        background:#9df4;
         position:relative;
         &:not(#EVE-未记录准确日期+div)::before{
             content:attr(time);
@@ -1249,12 +1249,17 @@ main{
             font-weight:700;
             background:#6cfd;
             color:#000;
+            backdrop-filter:blur(1px);
         }
+        &.sp1{background:#cfc4;&::before{background:#9f9d!important}}
+        &.sp2{background:#fec4;&::before{background:#fd9d!important}}
+        &.sp3{background:#fce4;&::before{background:#f9dd!important}}
+        &.sp4{background:#fc94;&::before{background:#f93d!important}}
         >p{padding:2.5px 0;text-indent:2em;}
         >dl{
             margin:10px 3px 3px 15px;
             padding:5px 10px;
-            background:linear-gradient(135deg,#fff3,#fff1);
+            background:linear-gradient(135deg,#fff2,#0000);
             border-radius:15px;
             dd{text-indent:2em;}
             dt{text-indent:2em;font-weight:bold;}
@@ -1265,10 +1270,6 @@ main{
                 border-radius:10px;
             }
         }
-        &.sp1{background:#cfc5;&::before{background:#9f9d!important}}
-        &.sp2{background:#fec5;&::before{background:#fd9d!important}}
-        &.sp3{background:#fce5;&::before{background:#f9dd!important}}
-        &.sp4{background:#fc95;&::before{background:#f93d!important}}
     }
     .hot{
         background:#ececc680!important;
@@ -1276,7 +1277,7 @@ main{
         >dd{text-indent:0;>b{color:red;}}
     }
     .mt{
-        background:#f9f8!important;
+        background:linear-gradient(135deg,#f9f8,#f9f6)!important;
         color:#303;
         font-style:italic;
     }
