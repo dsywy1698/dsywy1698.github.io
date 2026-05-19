@@ -256,7 +256,7 @@ nav{
         align-items:center;
         overflow:hidden;
         backdrop-filter:url(#glass);
-        box-shadow:0 2px 14px hsl(from var(--nav) h 20 20 / 0.2),inset 1px 1px 1px 1px #fff2,inset -1px -1px 1.3px #fff2;
+        box-shadow:0 2px 14px hsl(from var(--nav) h 20 20 / 0.2),inset 0 0 4px #fff1;
         &::before{
             content:'';
             position:absolute;
