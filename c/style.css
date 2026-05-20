@@ -690,35 +690,37 @@ main{
             padding:10px 15px;
             border-radius:15px;
             background:hsl(from var(--header) calc(h - 10) calc(s - 20) l / 0.2);
-            display:flex;
-            flex-direction:column;
             margin:10px 30px;
-            &::before{
-                position:relative;
-                content:"外号";
-                display:block;
-                color:--mix(var(--header),var(--color));
-                background:hsl(from var(--header) calc(h - 30) calc(s - 20) l / 0.4);
-                top:-10px;
-                left:-15px;
-                width:120px;
-                border-radius:15px 0;
-                font-size:1.25rem;
-                padding:7px;
-            }
-            >h1{
-                font-size:1.125rem;
-                background:hsl(from var(--header) calc(h - 30) calc(s - 20) l / 0.3);
-                padding:6px 1em;
-                width:160px;
-                border-radius:99px;
-                margin:5px;
-            }
-            >p{
-                font-size:1rem;
-                text-indent:2.3em;
-                text-align:left;
-                color:--txt(var(--header));
+            .nickname{
+                display:flex;
+                flex-direction:column;
+                &::before{
+                    position:relative;
+                    content:"外号";
+                    display:block;
+                    color:--mix(var(--header),var(--color));
+                    background:hsl(from var(--header) calc(h - 30) calc(s - 20) l / 0.4);
+                    top:-10px;
+                    left:-15px;
+                    width:120px;
+                    border-radius:15px 0;
+                    font-size:1.25rem;
+                    padding:7px;
+                }
+                >h1{
+                    font-size:1.125rem;
+                    background:hsl(from var(--header) calc(h - 30) calc(s - 20) l / 0.3);
+                    padding:6px 1em;
+                    width:160px;
+                    border-radius:99px;
+                    margin:5px;
+                }
+                >p{
+                    font-size:1rem;
+                    text-indent:2.3em;
+                    text-align:left;
+                    color:--txt(var(--header));
+                }
             }
         }
     }
@@ -817,7 +819,6 @@ main{
         padding:20px;
         text-align:center;
         border-radius:15px;
-        color:#000;
         font-size:110%;
         >p{margin:0;}
     }
