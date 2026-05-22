@@ -1260,13 +1260,13 @@ main{
         >dl{
             margin:10px 3px 3px 15px;
             padding:5px 10px;
-            background:linear-gradient(135deg,#fff2,#0000);
+            background:linear-gradient(135deg,--opa(var(--color),0.1),#0000);
             border-radius:15px;
             dd{text-indent:2em;}
             dt{text-indent:2em;font-weight:bold;}
             >dl{
                 margin:5px 0 0 1em;
-                background:linear-gradient(135deg,#0001,transparent);
+                background:linear-gradient(135deg,--opa(var(--background),0.1),#0000);
                 padding:5px 10px;
                 border-radius:10px;
             }
