@@ -51,10 +51,11 @@ body{
     }
 }
 ::selection{background:--opa(var(--nav));}
+code,var,button,input{font-family:'font','微软雅黑',sans-serif;}
 p,dt,dd,li,small,code{line-height:1.7em;letter-spacing:0.15em;}
 td{line-height:1.4em;letter-spacing:0.12em;}
-button{border:none;font-family:'font','微软雅黑',sans-serif;}
-input{font-family:'font','微软雅黑',sans-serif;&:focus{outline:none}}
+button{border:none;}
+input:focus{outline:none}
 #bigger,#smaller{
     display:none;
     justify-content:center;
