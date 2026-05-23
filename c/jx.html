@@ -112,31 +112,34 @@
 </nav>
 <div id="main">
 <dialog id="setting" closedby="any">
-    <div>设置<button onclick="localStorage.clear();ubg();location.reload(true);">重置</button></div>
-    <div>
-        <span>主题</span>
-        <input type="radio" name="t" onclick="chT('1')" style="background:#d9b48b" checked>
-        <input type="radio" name="t" onclick="chT('2')" style="background:#8ba888">
-        <input type="radio" name="t" onclick="chT('3')" style="background:#c47e7e">
-        <input type="radio" name="t" onclick="chT('4')" style="background:#7c9eb2">
-        <input type="radio" name="t" onclick="chT('5')" style="background:#b8a9c9">
-        <input type="radio" name="t" onclick="chT('6')" style="background:#8a5b0f">
-        <input type="radio" name="t" onclick="chT('7')" style="background:#0f4d8a">
+    <header>设置<button onclick="localStorage.clear();ubg();location.reload(true);">重置</button></header>
+    <div>主题
+        <div>
+            <input type="radio" name="t" onclick="chT('1')" style="background:#d9b48b" checked>
+            <input type="radio" name="t" onclick="chT('2')" style="background:#8ba888">
+            <input type="radio" name="t" onclick="chT('3')" style="background:#c47e7e">
+            <input type="radio" name="t" onclick="chT('4')" style="background:#7c9eb2">
+            <input type="radio" name="t" onclick="chT('5')" style="background:#b8a9c9">
+            <input type="radio" name="t" onclick="chT('6')" style="background:#8a5b0f">
+            <input type="radio" name="t" onclick="chT('7')" style="background:#0f4d8a">
+        </div>
     </div>
-    <div>
-        <span>内容过滤</span>
-        <input type="radio" name="f" onclick="chF('0')" title="无">
-        <input type="radio" name="f" onclick="chF('1')" title="一">
-        <input type="radio" name="f" onclick="chF('2')" title="二">
-        <input type="radio" name="f" onclick="chF('3')" title="三" checked>
+    <div>内容过滤
+        <div>
+            <input type="radio" name="f" onclick="chF('0')" title="无">
+            <input type="radio" name="f" onclick="chF('1')" title="一">
+            <input type="radio" name="f" onclick="chF('2')" title="二">
+            <input type="radio" name="f" onclick="chF('3')" title="三" checked>
+        </div>
     </div>
-    <div>
-        <span>背景</span>
-        <button onclick="ubg()" class="fa fa-trash-o"></button>
-        <button onclick="cbg()" class="fa fa-plus-circle"></button>
-        <div><span>透明</span><input type="range" max="1" min="0" step="0.1" id="r1"/></div>
-        <div><span>虚化</span><input type="range" max="30" min="0" step="3" id="r2"/></div>
+    <div>背景
+        <div>
+            <button onclick="ubg()" class="fa fa-trash-o"></button>
+            <button onclick="cbg()" class="fa fa-plus-circle"></button>
+        </div>
     </div>
+    <div>透明<input type="range" max="1" min="0" step="0.1" id="r1"/></div>
+    <div>虚化<input type="range" max="30" min="0" step="3" id="r2"/></div>
 </dialog>
 <main id="HOME">
 <header style="--header:#000"><h1>社会实践</h1></header>

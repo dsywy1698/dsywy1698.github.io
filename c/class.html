@@ -35,31 +35,34 @@
 </nav>
 <div id="main">
 <dialog id="setting" closedby="any">
-    <div>设置<button onclick="localStorage.clear();ubg();location.reload(true);">重置</button></div>
-    <div>
-        <span>主题</span>
-        <input type="radio" name="t" onclick="chT('1')" style="background:#d9b48b" checked>
-        <input type="radio" name="t" onclick="chT('2')" style="background:#8ba888">
-        <input type="radio" name="t" onclick="chT('3')" style="background:#c47e7e">
-        <input type="radio" name="t" onclick="chT('4')" style="background:#7c9eb2">
-        <input type="radio" name="t" onclick="chT('5')" style="background:#b8a9c9">
-        <input type="radio" name="t" onclick="chT('6')" style="background:#8a5b0f">
-        <input type="radio" name="t" onclick="chT('7')" style="background:#0f4d8a">
+    <header>设置<button onclick="localStorage.clear();ubg();location.reload(true);">重置</button></header>
+    <div>主题
+        <div>
+            <input type="radio" name="t" onclick="chT('1')" style="background:#d9b48b" checked>
+            <input type="radio" name="t" onclick="chT('2')" style="background:#8ba888">
+            <input type="radio" name="t" onclick="chT('3')" style="background:#c47e7e">
+            <input type="radio" name="t" onclick="chT('4')" style="background:#7c9eb2">
+            <input type="radio" name="t" onclick="chT('5')" style="background:#b8a9c9">
+            <input type="radio" name="t" onclick="chT('6')" style="background:#8a5b0f">
+            <input type="radio" name="t" onclick="chT('7')" style="background:#0f4d8a">
+        </div>
     </div>
-    <div>
-        <span>内容过滤</span>
-        <input type="radio" name="f" onclick="chF('0')" title="无">
-        <input type="radio" name="f" onclick="chF('1')" title="一">
-        <input type="radio" name="f" onclick="chF('2')" title="二">
-        <input type="radio" name="f" onclick="chF('3')" title="三" checked>
+    <div>内容过滤
+        <div>
+            <input type="radio" name="f" onclick="chF('0')" title="无">
+            <input type="radio" name="f" onclick="chF('1')" title="一">
+            <input type="radio" name="f" onclick="chF('2')" title="二">
+            <input type="radio" name="f" onclick="chF('3')" title="三" checked>
+        </div>
     </div>
-    <div>
-        <span>背景</span>
-        <button onclick="ubg()" class="fa fa-trash-o"></button>
-        <button onclick="cbg()" class="fa fa-plus-circle"></button>
-        <div><span>透明</span><input type="range" max="1" min="0" step="0.1" id="r1"/></div>
-        <div><span>虚化</span><input type="range" max="30" min="0" step="3" id="r2"/></div>
+    <div>背景
+        <div>
+            <button onclick="ubg()" class="fa fa-trash-o"></button>
+            <button onclick="cbg()" class="fa fa-plus-circle"></button>
+        </div>
     </div>
+    <div>透明<input type="range" max="1" min="0" step="0.1" id="r1"/></div>
+    <div>虚化<input type="range" max="30" min="0" step="3" id="r2"/></div>
 </dialog>
 <main id="HOME">
 <header><h1>首页</h1></header>
@@ -413,18 +416,62 @@
     <p>老师将歌谱发了下来。不过歌谱的制作显然不是那么好，比如浮点、括号、连音线之类的符号还是画出来的。</p>
     <p>然后，音乐老师给大家试听了一些校歌，刘老师也将校歌原唱和伴奏都发到了群里。</p>
     <p>除了这次班班有歌声，校歌就再没有出现过，参与感非常低。</p>
+    <h2>师生</h2>
+    <p><var>谢钟清</var>是四十中校长。</p>
+    <p>四十中对接以下小学：</p>
+    <ul>
+        <li>仓实小</li>
+        <li>东升小学</li>
+        <li>高湖小学</li>
+        <li>江边小学</li>
+    </ul>
+    <p>即，几乎所有学生都来自这四所小学。</p>
     <h2>官网</h2>
     <p>四十中官网：</p>
     <code><a href="https://wgw.weixiao100.com.cn/custom/wgw/index?schoolCode=92500135036">https://<wbr>wgw.weixiao100.com.cn/<wbr>custom/wgw/index?<wbr>schoolCode=92500135036</a></code>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <h2>学生</h2>
-    <h2>教师</h2>
+    <p>官网中记录了四十中的新闻——不过不完整，例如初二到爱国有方社会实践的事件根本没有。</p>
+    <p>对于一些主要的事件，可以通过“搜索”找到，下面列举一些：</p>
+    <ul>
+        <li><a href="https://wgw.weixiao100.com.cn/custom/wgw/content?schoolCode=92500135036&templateType=3&menuid=323313&detailid=2774076">2024-2025元旦汇演</a></li>
+        <li><a href="https://wgw.weixiao100.com.cn/custom/wgw/content?schoolCode=92500135036&templateType=3&menuid=323313&detailid=2923996">2025-2026元旦汇演</a></li>
+        <li><a href="https://wgw.weixiao100.com.cn/custom/wgw/content?schoolCode=92500135036&templateType=3&menuid=323313&detailid=2724446">2024运动会</a></li>
+        <li><a href="https://wgw.weixiao100.com.cn/custom/wgw/content?schoolCode=92500135036&templateType=3&menuid=323313&detailid=2885802">2025运动会</a></li>
+        <li><a href="https://wgw.weixiao100.com.cn/custom/wgw/content?schoolCode=92500135036&templateType=3&menuid=323313&detailid=2726886">2024国庆节活动</a></li>
+        <li><a href="https://wgw.weixiao100.com.cn/custom/wgw/content?schoolCode=92500135036&templateType=3&menuid=323313&detailid=2838095">班班有歌声</a></li>
+        <li><a href="https://wgw.weixiao100.com.cn/custom/wgw/content?schoolCode=92500135036&templateType=3&menuid=323313&detailid=2756165">班班有朗诵</a></li>
+        <li><a href="https://wgw.weixiao100.com.cn/custom/wgw/content?schoolCode=92500135036&templateType=3&menuid=323313&detailid=2756152">龙翔社会实践</a></li>
+        <li><a href="https://wgw.weixiao100.com.cn/custom/wgw/content?schoolCode=92500135036&templateType=3&menuid=323313&detailid=2840607">六一</a></li>
+    </ul>
+    <p>点开官网的“学校风光”，三张校园“照骗”出现在页面上。</p>
+    <p>这三张照片和首页的轮播图一样，全都不是四十中的照片。而想要真正走近四十中——</p>
     <hr/>
     <h1>基础设施</h1>
+    <p>早期的四十中并非如当前一样。</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <h2>周边</h2>
+    <p>四十中的正门位于先锋路旁。</p>
+    <h3>限行</h3>
+    <p>这条路只有两条机动车道和两条非机动车道，比主干道狭窄，因此每到高峰期必然拥堵。究其原因：</p>
+    <dl>
+        <dt>道路狭窄</dt>
+        <dt>小轿车的堵塞</dt>
+        <dd>小轿车是拥堵的重要原因之一。在上下学的高峰期，轿车会被大量电动车和行人堵在路中间，无法行进，同时进一步压缩道路空间。</dd>
+        <dt>两所学校同时上下学</dt>
+        <dd>四十中和仓实小的正门在同一路上。虽然两所学校上下学的时间不同，但偶尔会出现同时放学的情况，加剧拥堵</dd>
+        <dt>雨天的拥堵</dt>
+        <dd>每逢雨天，校门口的交通必然变成一团浆糊。这时连电动车都难以行进。</dd>
+    </dl>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <h3>麦德龙臭水沟</h3>
+    <p>四十中西边紧挨仓实小；南边隔着一条河，对面为麦德龙。</p>
+    <p>而这条河就很有故事。</p>
+    <h3>自行车的停放</h3>
     <h2>校门</h2>
     <h3>正门（西门）</h3>
     <h3>侧门（南门）</h3>
@@ -448,6 +495,7 @@
     <h2>贩卖机</h2>
     <h2>四十中三坏</h2>
     <h3>主席台上的屏幕</h3><!--花屏/少掉一半-->
+    <img src="https://oss.weixiao100.com.cn/wgw/third/92500135036/image/20250601/17487674928223546.jpeg?x-oss-process=image/resize,w_768"/>
     <h3>不响的铃声</h3><!--跑操铃响-->
     <h3>变幻莫测的电压</h3>
     <hr/>

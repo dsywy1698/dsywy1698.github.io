@@ -62,7 +62,7 @@ let db;
 const request=indexedDB.open("bgDB",1);
 function lbg(){
     const e=db.transaction(["bg"],"readonly").objectStore("bg").get(1);
-    e.onsuccess=function(){e.result&&(document.body.style.backgroundImage=`url(${e.result.image})`)}
+    e.onsuccess=function(){e.result&&(document.body.style.backgroundImage=`url(${e.result.image})`)};
 }
 function cbg(){
     var e=document.createElement("input");
@@ -73,6 +73,7 @@ function cbg(){
         e&&((t=new FileReader).onload=function(e){
             db.transaction(["bg"],"readwrite").objectStore("bg").put({id:1,image:e.target.result});
             document.body.style.backgroundImage=`url(${e.target.result})`;
+            document.querySelectorAll("#setting>div>input[type='range']").forEach(e=>{e.disabled=false});
         },t.readAsDataURL(e))
     }
     e.click();
@@ -80,6 +81,7 @@ function cbg(){
 function ubg(){
     db.transaction(["bg"],"readwrite").objectStore("bg").delete(1);
     document.body.style.backgroundImage="";
+    document.querySelectorAll("#setting>div>input[type='range']").forEach(e=>{e.disabled=true});
 }
 request.onupgradeneeded=function(e){(db=e.target.result).objectStoreNames.contains("bg")||db.createObjectStore("bg",{keyPath:"id"})};
 request.onsuccess=function(e){db=e.target.result,lbg()};
@@ -368,4 +370,5 @@ window.addEventListener('DOMContentLoaded',function(){
     t&&(chT(t),document.querySelector(`input[name="t"][onclick*="${t}"]`).checked=!0);
     const f=localStorage.getItem('f');
     f&&(chF(f),document.querySelector(`input[name="f"][onclick*="${f}"]`).checked=!0);
+    setTimeout(()=>{document.querySelectorAll("#setting>div>input[type='range']").forEach(e=>{e.disabled=(!document.body.style.backgroundImage?true:false)})},1000);
 });
