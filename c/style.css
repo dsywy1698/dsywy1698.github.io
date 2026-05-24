@@ -305,11 +305,11 @@ nav{
         left:10px;
         border-radius:15px;
         display:flex;
-        transform:scale(0.2);
+        transform:scale(0.1);
         transform-origin:calc(100% - 75px) 0%;
         opacity:0;
-        transition:0.3s cubic-bezier(0.25,0.1,0.35,1.2);
-        background:--opa(var(--nav),0.3);
+        transition:0.4s cubic-bezier(0.40, 0.40, 0.20, 1.10);
+        background:--opa(var(--nav),0.2);
         backdrop-filter:blur(4px);
         pointer-events:none;
         &.active{opacity:1;transform:scale(1);pointer-events:all;}
@@ -1134,18 +1134,24 @@ main{
         margin:20px;
         justify-content:center;
         user-select:none;
+        @media(width<=420px){
+            flex-wrap:wrap;
+            width:100%;
+            margin:20px 0;
+            >button{width:100%!important;}
+        }
         >button{
             display:block;
             border:none;
             color:color-mix(in oklch,var(--color) 80%,var(--dialog));
             padding:10px 25px;
             font-size:1.125rem;
-            border-radius:20px;
+            border-radius:18px;
             width:50%;
             margin:10px;
             &:empty{display:none;}
             &:first-child{
-                background:linear-gradient(to left,--opa(var(--dialog),0.4),--opa(var(--dialog),0.1));
+                background:linear-gradient(to left,--opa(var(--dialog),0.2),#0000);
                 text-align:right;
                 &::after{
                     font-family:"icons";
@@ -1156,7 +1162,7 @@ main{
                 }
             }
             &:last-child{
-                background:linear-gradient(to right,--opa(var(--dialog),0.4),--opa(var(--dialog),0.1));
+                background:linear-gradient(to right,--opa(var(--dialog),0.2),#0000);
                 text-align:left;
                 &::after{
                     font-family:"icons";
@@ -1184,7 +1190,7 @@ main{
         height:34px;
         overflow:hidden;
         text-wrap:nowrap;
-        background:--opa(var(--nav));
+        background:--opa(var(--nav),0.3);
         border-radius:17px;
         box-shadow:0 2px 10px --opa(var(--color),0.1);
         backdrop-filter:blur(3px);
@@ -1229,7 +1235,7 @@ main{
         padding:15px 8px 10px 8px;
         border-radius:15px;
         width:100%;
-        background:#9df4;
+        background:#9df3;
         position:relative;
         &:not(#EVE-未记录准确日期+div)::before{
             content:attr(time);
@@ -1247,21 +1253,21 @@ main{
             color:#000;
             backdrop-filter:blur(1px);
         }
-        &.sp1{background:#cfc4;&::before{background:#9f9d!important}}
-        &.sp2{background:#fec4;&::before{background:#fd9d!important}}
-        &.sp3{background:#fce4;&::before{background:#f9dd!important}}
-        &.sp4{background:#fc94;&::before{background:#f93d!important}}
+        &.sp1{background:#cfc3;&::before{background:#9f9d!important}}
+        &.sp2{background:#fec3;&::before{background:#fd9d!important}}
+        &.sp3{background:#fce3;&::before{background:#f9dd!important}}
+        &.sp4{background:#fc93;&::before{background:#f93d!important}}
         >p{padding:2.5px 0;text-indent:2em;}
         >dl{
             margin:10px 3px 3px 15px;
             padding:5px 10px;
-            background:linear-gradient(135deg,--opa(var(--color),0.1),#0000);
+            background:linear-gradient(to right,--opa(var(--color),0.1),#0000);
             border-radius:15px;
             dd{text-indent:2em;}
             dt{text-indent:2em;font-weight:bold;}
             >dl{
                 margin:5px 0 0 1em;
-                background:linear-gradient(135deg,--opa(var(--background),0.1),#0000);
+                background:linear-gradient(to right,--opa(var(--background),0.1),#0000);
                 padding:5px 10px;
                 border-radius:10px;
             }
@@ -1273,8 +1279,8 @@ main{
         >dd{text-indent:0;>b{color:red;}}
     }
     .mt{
-        background:linear-gradient(135deg,#f9f8,#f9f6)!important;
-        color:#303;
+        background:linear-gradient(135deg,#f9f3,#f9f1)!important;
+        color:color-mix(in oklch,#f0f 10%,var(--color));
         font-style:italic;
     }
     mark{
@@ -1305,14 +1311,6 @@ footer{
 @media (width>=1600px),(height>=900px){
     #bigger{display:flex;}
     #password,#main,#loader,nav{display:none!important;}
-}
-@media (width<=600px){
-    .page{
-        flex-wrap:wrap;
-        width:100%;
-        margin:20px 0;
-        >button{width:100%!important;}
-    }
 }
 @media (width<=320px),(height<=300px){
     #smaller{display:flex;}
