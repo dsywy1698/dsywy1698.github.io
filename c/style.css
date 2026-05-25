@@ -1288,20 +1288,7 @@ main{
         padding:0 3px;
         border-radius:6px;
     }
-    [data-un]::before{
-        content:"?";
-        position:relative;
-        display:inline-flex;
-        background:#f008;
-        color:#fcc;
-        border-radius:50%;
-        text-indent:0;
-        margin-right:5px;
-        width:1.3em;
-        height:1.3em;
-        justify-content:center;
-        align-items:center;
-    }
+    [data-un]{text-decoration:wavy underline #f006 1px;}
 }
 footer{
     padding:30dvh 30px 50px 30px;
