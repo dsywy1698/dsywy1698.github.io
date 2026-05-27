@@ -685,7 +685,7 @@ main{
             border-radius:15px;
             background:hsl(from var(--header) calc(h - 10) calc(s - 20) l / 0.2);
             margin:10px 30px;
-            .nickname{
+            &.nickname{
                 display:flex;
                 flex-direction:column;
                 &::before{
