@@ -18,7 +18,7 @@ function applyRoute(e,a){
 function showPage(e,a){
     applyRoute(e,a);
     const hash=a?`#${e}-${a}`:`#${e}`;
-    if(window.location.hash!==hash){ history.pushState(null,'',hash);}
+    if(window.location.hash!==hash){history.pushState(null,'',hash);}
 }
 function handleRoute(){
     const hash=window.location.hash.slice(1);

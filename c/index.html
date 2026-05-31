@@ -14,8 +14,8 @@
 </head>
 <body data-t="1" data-tf="3">
 <dialog id="password">
-    <div><input placeholder="输入密码"/><button onclick="ep()">OK</button></div>
-    <p><strong>提示 </strong>提示文本</p>
+    <div><input placeholder="输入密码"/><button onclick="ep()" class="fa fa-arrow-right"></button></div>
+    <p><strong>提示 </strong>提示文本，提示文本，提示文本，提示文本，提示文本，提示文本，提示文本，提示文本。</p>
 </dialog>
 <div id="loader"><div><p></p><button onclick="fo()">跳过</button></div></div>
 <div id="bigger">窗口过大</div>
@@ -36,13 +36,12 @@
     <header>设置<button onclick="localStorage.clear();ubg();location.reload(true);">重置</button></header>
     <div>主题
         <div>
-            <input type="radio" name="t" onclick="chT('1')" style="background:#d9b48b" checked>
-            <input type="radio" name="t" onclick="chT('2')" style="background:#8ba888">
-            <input type="radio" name="t" onclick="chT('3')" style="background:#c47e7e">
-            <input type="radio" name="t" onclick="chT('4')" style="background:#7c9eb2">
-            <input type="radio" name="t" onclick="chT('5')" style="background:#b8a9c9">
-            <input type="radio" name="t" onclick="chT('6')" style="background:#8a5b0f">
-            <input type="radio" name="t" onclick="chT('7')" style="background:#0f4d8a">
+            <input type="radio" name="t" onclick="chT('1')" style="background:#dbba84" checked>
+            <input type="radio" name="t" onclick="chT('2')" style="background:#eb9947">
+            <input type="radio" name="t" onclick="chT('3')" style="background:#7c9eb2">
+            <input type="radio" name="t" onclick="chT('4')" style="background:#b39fc6">
+            <input type="radio" name="t" onclick="chT('5')" style="background:#1b5998">
+            <input type="radio" name="t" onclick="chT('6')" style="background:#0f4d8a">
         </div>
     </div>
     <div>内容过滤
@@ -84,7 +83,6 @@
     <h3>三级标题</h3>
     <h4>恋情<i></i>模块</h4>
     <p>文本<time>时间</time><var>文本</var><sup data-d="附注文本"></sup><a href="#">链接</a>。</p>
-    <div class="division"></div>
     <ul><li>无序</li><li>无序</li></ul>
     <dl><dd>列表</dd><dt>文本</dt><dd>列表</dd><dt>文本</dt></dl>
     <dl class="timeline"><dd>列表</dd><dt>文本</dt><dd>列表</dd><dt>文本</dt></dl>
