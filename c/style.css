@@ -722,7 +722,7 @@ main{
             margin-left:1em;
         }
     }
-    div,article,blockquote,q,code,table,details,aside,.timeline{
+    >div,article,blockquote,q,code,table,details,aside,.timeline{
         padding:var(--padding);
         margin:var(--margin);
         border-radius:var(--rm);
@@ -998,6 +998,7 @@ main{
     }
     .comment{
         background:#f7f7f788;
+        border-radius:var(--rs);
         >div{
             >span{color:#576b95;&:last-child::after{content:"：";}}
             color:#000;
