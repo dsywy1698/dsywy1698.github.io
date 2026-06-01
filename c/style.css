@@ -924,9 +924,9 @@ main{
     }
     var{
         all:unset;
-        background:--mix(var(--base));
+        background:color-mix(in oklch,var(--base) 30%,var(--background) 50%);
         font-weight:normal;
-        color:color-mix(in oklch,var(--base),var(--background) 40%);
+        color:--mix(var(--base));
         padding:1.5px 2.5px;
         border-radius:5px;
         margin:0 2.5px;
