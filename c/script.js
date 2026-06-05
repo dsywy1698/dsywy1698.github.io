@@ -319,13 +319,13 @@ window.addEventListener('DOMContentLoaded',function(){
     });
     //脚注
     const mainMap=new Map();
-    document.querySelectorAll('sup[data-d]').forEach((sup)=>{
+    document.querySelectorAll('sup[title]').forEach((sup)=>{
         const main=sup.closest('main');
         if(!main)return;
         const mainId=main.id;
         if(!mainMap.has(mainId)){mainMap.set(mainId,{element:main,notes:[]});}
         const mainNotes=mainMap.get(mainId).notes,
-              noteInfo={sup:sup,dataD:sup.getAttribute('data-d'),order:mainNotes.length+1};
+              noteInfo={sup:sup,dataD:sup.getAttribute('title'),order:mainNotes.length+1};
         mainNotes.push(noteInfo);
     });
     mainMap.forEach((data)=>{
