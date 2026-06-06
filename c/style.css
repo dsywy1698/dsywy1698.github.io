@@ -1232,6 +1232,7 @@ main{
         &.sp2{background:#fec3;&::before{background:#fd9d!important}}
         &.sp3{background:#fce3;&::before{background:#f9dd!important}}
         &.sp4{background:#fc93;&::before{background:#f93d!important}}
+        &.sp5{background:#cc03;&::before{background:#cc0d!important}}
         >p{padding:2.5px 0;text-indent:2em;}
         >dl{
             margin:10px 3px 3px 15px;
