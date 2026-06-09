@@ -59,7 +59,7 @@ body{
 }
 ::selection{background:--opa(var(--nav));}
 code,var,button,input{font-family:'font','微软雅黑',sans-serif;}
-p,dt,dd,li,small,code{line-height:1.7em;letter-spacing:0.15em;}
+p,dt,dd,li,small,code,b{line-height:1.7em;letter-spacing:0.15em;}
 td{line-height:1.4em;letter-spacing:0.12em;}
 button{border:none;}
 input:focus{outline:none}
@@ -727,14 +727,11 @@ main{
         margin:var(--margin);
         border-radius:var(--rm);
     }
-    :is(article,blockquote,.writing)>p:has(>b){
-        text-indent:0!important;
-        display:flex;
-        >b{
-            display:block;
-            text-wrap:nowrap;
-            padding:0 0.5em;
-        }
+    :is(article,blockquote):has(>b){
+        display:grid;
+        grid-template-columns:auto 1fr;
+        >b{text-wrap:nowrap;margin:10px 5px;}
+        >p{text-indent:0;}
     }
     article{
         background:--opa(var(--base));
