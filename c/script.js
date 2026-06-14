@@ -47,8 +47,8 @@ document.addEventListener("click",function(t){
     e.classList.contains("active")&&t.target!==n&&e.classList.remove("active");
 });
 //主题切换
-function chT(e){document.body.setAttribute("data-t",e),localStorage.setItem("t",e);}
-function chF(e){document.body.setAttribute("data-tf",e),localStorage.setItem("f",e);search();}
+function chT(e){document.documentElement.setAttribute("data-t",e),localStorage.setItem("t",e);}
+function chF(e){document.documentElement.setAttribute("data-f",e),localStorage.setItem("f",e);search();}
 document.getElementById('r1').addEventListener('input',function(){
     document.querySelector('body').style.setProperty("--o",this.value);
     localStorage.setItem("o",this.value);
@@ -111,7 +111,7 @@ function search(){
 }
 function hot(){
     const d=document.querySelector("#EVE>search>button").classList.contains('active');
-    d?document.body.setAttribute("data-th","1"):document.body.setAttribute("data-th","2");
+    d?document.documentElement.setAttribute("data-th","1"):document.documentElement.setAttribute("data-th","2");
     document.querySelector("#EVE>search>button").classList.toggle("active");
     heb();
 }
@@ -145,7 +145,7 @@ document.querySelectorAll('a[href^="http"]').forEach(link=>{
     link.setAttribute('target','_blank');
     link.setAttribute('rel','noopener noreferrer');
 });
-//文字轮播
+//加载动画
 const texts=["页面加载中","请耐心等候","点击下方跳过","轮播文本1","轮播文本2","轮播文本3","轮播文本4"];
 let ci=0;
 const ct=document.querySelector('#loader>div>p');
@@ -156,7 +156,6 @@ function roT(){
     setTimeout(()=>{ct.textContent=texts[ci];ct.style.opacity='1';},200);
 }
 setInterval(roT,1000);
-//加载动画
 function fo(){
     const t=document.getElementById("loader"),o=performance.now();
     let a;
@@ -332,7 +331,7 @@ window.addEventListener('DOMContentLoaded',function(){
         if(data.notes.length===0)return;
         const note=document.createElement('div');
         note.className='notes';
-        data.notes.forEach(noteInfo => {
+        data.notes.forEach(noteInfo=>{
             const p=document.createElement('p');
             p.textContent=`[${noteInfo.order}] ${noteInfo.dataD}`;
             note.appendChild(p);
@@ -354,7 +353,7 @@ document.querySelectorAll(".writing").forEach((e)=>{
         text=Array.from(copy).map(e=>e.textContent.trim()).join('\n');
         navigator.clipboard.writeText(text).then(()=>{
             ele.className="fa fa-check";
-            setTimeout(()=>{ele.className="fa fa-clone";},500);
+            setTimeout(()=>{ele.className="fa fa-clone"},500);
         })
     };
 });

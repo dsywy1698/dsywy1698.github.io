@@ -62,7 +62,7 @@ code,var,button,input{font-family:'font','微软雅黑',sans-serif;}
 p,dt,dd,li,small,code,b{line-height:1.7em;letter-spacing:0.15em;}
 td{line-height:1.4em;letter-spacing:0.12em;}
 button{border:none;}
-input:focus{outline:none}
+input:focus{outline:none;}
 #bigger,#smaller{
     display:none;
     justify-content:center;
@@ -77,7 +77,7 @@ input:focus{outline:none}
 }
 #bigger{font-size:5rem;}
 #smaller{font-size:1.2rem;}
-body[data-t="1"]{
+html[data-t="1"]{
     --background:#fdf8f0;
     --color:#30271d;
     --base:#dbba84;
@@ -86,7 +86,7 @@ body[data-t="1"]{
     --quote:#b6c982;
     --content:#d9d9a6;
 }
-body[data-t="2"]{
+html[data-t="2"]{
     --background:#fef7ea;
     --color:#2f241d;
     --base:#eb9947;
@@ -95,7 +95,7 @@ body[data-t="2"]{
     --quote:#d9ac26;
     --content:#e2c836;
 }
-body[data-t="3"]{
+html[data-t="3"]{
     --background:#f3f5f9;
     --color:#1d2b30;
     --base:#7c9eb2;
@@ -104,7 +104,7 @@ body[data-t="3"]{
     --quote:#29a3a3;
     --content:#ababed;
 }
-body[data-t="4"]{
+html[data-t="4"]{
     --background:#f8f5fc;
     --color:#25222a;
     --base:#b39fc6;
@@ -113,33 +113,26 @@ body[data-t="4"]{
     --quote:#d590d5;
     --content:#edabcc;
 }
-body[data-t="5"]{
+html[data-t="5"]{
     --background:#040415;
     --color:#ededf8;
     --base:#1b5998;
-    --nav:#3939c6;
-    --dialog:#107070;
-    --quote:#5b2e9e;
-    --content:#107070;
-}
-body[data-t="6"]{
-    --background:#050a15;
-    --color:#eaeffa;
-    --base:#0f4d8a;
     --nav:#999900;
     --dialog:#1212a1;
-    --quote:#92b62f;
-    --content:#4e1f93;
+    --quote:#6e862d;
+    --content:#5d3894;
 }
+html[data-f="1"] *[data-f3],
+html[data-f="2"] *[data-f3],
+html[data-f="2"] *[data-f2],
+html[data-f="3"] *[data-f3],
+html[data-f="3"] *[data-f2],
+html[data-f="3"] *[data-f1],
+html[data-th="2"] #EVE>div p:not([data-h]),
+html[data-th="2"] #EVE>div dd:not([data-h]){display:none;}
 @function --opa(--c,--o:0.5){result:hsl(from var(--c) h s l / var(--o));}
 @function --mix(--a,--b:var(--color)){result:color-mix(in oklch,var(--a),var(--b));}
 @function --txt(--c){result:color-mix(in oklch,var(--c) 10%,var(--color));}
-body[data-tf="1"] *[data-f="3"],
-body[data-tf="2"] *[data-f="3"],
-body[data-tf="2"] *[data-f="2"],
-body[data-tf="3"] *[data-f],
-body[data-th="2"] #EVE>div p:not([data-h]),
-body[data-th="2"] #EVE>div dd:not([data-h]){display:none;}
 #password{
     border:none;
     top:50%;
@@ -221,6 +214,7 @@ nav{
     >button,>div:nth-of-type(1){
         position:fixed;
         border-radius:20px;
+        backdrop-filter:blur(7px);
     }
     >button{
         display:block;
@@ -233,7 +227,6 @@ nav{
         background-size:cover;
         opacity:0.8;
         transition:0.3s;
-        backdrop-filter:blur(7px);
         box-shadow:0 2px 14px hsl(from var(--nav) h 20 20 / 0.2);
         &:hover{opacity:1;}
     }
@@ -247,8 +240,7 @@ nav{
         justify-content:space-around;
         align-items:center;
         overflow:hidden;
-        backdrop-filter:url(#glass);
-        box-shadow:0 2px 14px hsl(from var(--nav) h 20 20 / 0.2),inset 0 0 4px #fff1;
+        box-shadow:0 2px 14px hsl(from var(--nav) h 20 20 / 0.2),inset 0 0 7px #fff1;
         &::before{
             content:'';
             position:absolute;
@@ -385,12 +377,12 @@ nav{
     user-select:none;
     color:color-mix(in oklch,var(--dialog) 10%,var(--color));
     opacity:1;
-    transition:transform 0.2s,opacity 0.2s;
-    @starting-style{transform:translate(-50%,calc(-50% + 20px));opacity:0;}
+    transition:opacity 0.2s;
+    @starting-style{opacity:0;}
     &::backdrop{
         background:#0004;
         backdrop-filter:blur(2px);
-        transition:0.3s;
+        transition:0.2s;
         @starting-style{
             background:transparent;
             backdrop-filter:blur(0);
@@ -431,7 +423,7 @@ nav{
             min-width:30px;
             border-radius:var(--rs);
             position:relative;
-            transition:opacity 0.3s,margin 0.3s;
+            transition:opacity 0.3s;
             opacity:0.3;
             &::before{
                 content:attr(title);
@@ -439,21 +431,19 @@ nav{
                 width:30px;
                 height:30px;
                 line-height:30px;
-                margin:0 8px;
+                margin:0 6px;
                 color:color-mix(in oklch,var(--dialog) 20%,var(--color));
             }
             &:checked{
                 opacity:1;
-                margin:0 2.5px;
                 background:--opa(var(--dialog),0.3);
             }
         }
-        >div>button{
-            height:30px;
-            background:transparent;
-            color:--mix(var(--dialog));
-            padding:0 10px;
-            font-size:16px;
+        >div>svg{
+            width:20px;
+            height:20px;
+            stroke:--mix(var(--dialog));
+            margin:5px;
         }
         &:has(>input[type="range"]:disabled){
             opacity:0.5;
@@ -921,7 +911,7 @@ main{
     }
     var{
         all:unset;
-        background:color-mix(in oklch,var(--base) 30%,var(--background) 50%);
+        background:color-mix(in oklch,var(--base) 30%,var(--background) 40%);
         font-weight:normal;
         color:--mix(var(--base));
         padding:1.5px 2.5px;

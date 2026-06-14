@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-t="1" data-f="2">
 <head>
     <title>标题</title>
     <meta charset="UTF-8"/>
@@ -8,11 +8,11 @@
     <meta name="referrer" content="no-referrer"/>
     <link rel="stylesheet" href="fa.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link rel="icon" href="9.png"/>
+    <link rel="icon" href="image/9.webp"/>
     <link rel="stylesheet" href="style.css"/>
     <style></style>
 </head>
-<body data-t="1" data-f="3">
+<body>
 <dialog id="password">
     <div><input placeholder="输入密码"/><button onclick="ep()" class="fa fa-arrow-right"></button></div>
     <p><strong>提示 </strong>提示文本，提示文本，提示文本，提示文本，提示文本，提示文本，提示文本，提示文本。</p>
@@ -20,7 +20,6 @@
 <div id="loader"><div><p></p><button onclick="fo()">跳过</button></div></div>
 <div id="bigger">窗口过大</div>
 <div id="smaller">窗口过小</div>
-<svg color-interpolation-filters="sRGB" style="display:none"><defs><filter id="glass"><feGaussianBlur stdDeviation="1" result="blur"></feGaussianBlur><feImage x="0" y="0" width="120" height="40" result="map" id="dynamicDispMap" href="data:image/png;base64,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"></feImage><feDisplacementMap in="blur" in2="map" scale="82" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap></filter></defs></svg>
 <nav>
     <button onclick="showPage('HOME')"></button>
     <div>
@@ -31,7 +30,6 @@
     </div>
     <div><div></div><div></div></div>
 </nav>
-<div id="main">
 <dialog id="setting" closedby="any">
     <header>设置<button onclick="localStorage.clear();ubg();location.reload(true);">重置</button></header>
     <div>主题
@@ -41,21 +39,19 @@
             <input type="radio" name="t" onclick="chT('3')" style="background:#7c9eb2">
             <input type="radio" name="t" onclick="chT('4')" style="background:#b39fc6">
             <input type="radio" name="t" onclick="chT('5')" style="background:#1b5998">
-            <input type="radio" name="t" onclick="chT('6')" style="background:#0f4d8a">
         </div>
     </div>
     <div>内容过滤
         <div>
             <input type="radio" name="f" onclick="chF('0')" title="无">
-            <input type="radio" name="f" onclick="chF('1')" title="一">
-            <input type="radio" name="f" onclick="chF('2')" title="二">
-            <input type="radio" name="f" onclick="chF('3')" title="三" checked>
+            <input type="radio" name="f" onclick="chF('1')" title="松">
+            <input type="radio" name="f" onclick="chF('2')" title="紧" checked>
         </div>
     </div>
     <div>背景
         <div>
-            <button onclick="ubg()" class="fa fa-trash-o"></button>
-            <button onclick="cbg()" class="fa fa-plus-circle"></button>
+            <svg onclick="cbg()" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4v12M4 10h12"/></svg>
+            <svg onclick="ubg()" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5L5 15M5 5L15 15"/></svg>
         </div>
     </div>
     <div>透明<input type="range" max="1" min="0" step="0.1" id="r1"/></div>
@@ -968,7 +964,6 @@
 </main>
 <main id="EVE"></main>
 <footer><h1>页面到底了！</h1></footer>
-</div>
 <script src="script.js"></script>
 </body>
 </html>
