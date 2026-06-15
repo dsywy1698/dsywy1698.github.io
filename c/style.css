@@ -502,9 +502,10 @@ main{
             border-radius:50px;
             padding:5px 7px;
             display:inline-block;
-            margin:5px;
+            margin:5px 3px;
+            line-height:26px;
             &.w{
-                &:before{font-family:"icons";content:"\f221";}
+                &:before{content:"♂";}
                 background:#c395;
                 color:--mix(var(--color),#c39);
                 padding:5px;
@@ -512,22 +513,13 @@ main{
                 height:26px;
             }
             &.m{
-                &:before{font-family:"icons";content:"\f222";}
+                &:before{content:"♀";}
                 background:#0080ff55;
                 color:--mix(var(--color),#0080ff);
                 padding:5px;
                 width:26px;
                 height:26px;
             }
-        }
-        >table{
-            font-size:initial;
-            margin:20px 30px;
-            background:--opa(var(--header),0.2);
-            color:--txt(var(--header));
-            width:calc(100% - 60px);
-            td{outline:none!important;text-align:left;padding:10px;}
-            tr>td:first-of-type{font-weight:bold;width:4em;}
         }
         dl{
             background:hsl(from var(--header) calc(h - 30) calc(s - 20) l / 0.2);
@@ -570,41 +562,82 @@ main{
                 text-wrap:nowrap;
             }
         }
-        >div{
+        >h-nick,>h-gantt{
+            display:block;
             padding:10px 15px;
             border-radius:var(--rm);
             background:hsl(from var(--header) calc(h - 10) calc(s - 20) l / 0.2);
             margin:10px 30px;
-            &.nickname{
-                display:flex;
-                flex-direction:column;
-                &::before{
-                    position:relative;
-                    content:"外号";
-                    display:block;
-                    color:--mix(var(--header),var(--color));
-                    background:hsl(from var(--header) calc(h - 30) calc(s - 20) l / 0.4);
-                    top:-10px;
-                    left:-15px;
-                    width:120px;
-                    border-radius:15px 0;
-                    font-size:1.25rem;
-                    padding:7px;
-                }
-                >h1{
-                    font-size:1.125rem;
-                    background:hsl(from var(--header) calc(h - 30) calc(s - 20) l / 0.3);
-                    padding:6px 1em;
-                    width:160px;
-                    border-radius:99px;
-                    margin:5px;
-                }
-                >p{
-                    font-size:1rem;
-                    text-indent:2.3em;
-                    text-align:left;
-                    color:--txt(var(--header));
-                }
+        }
+        >h-nick{
+            display:flex;
+            flex-direction:column;
+            &::before{
+                position:relative;
+                content:"外号";
+                display:block;
+                color:--mix(var(--header),var(--color));
+                background:hsl(from var(--header) calc(h - 30) calc(s - 20) l / 0.4);
+                top:-10px;
+                left:-15px;
+                width:120px;
+                border-radius:15px 0;
+                font-size:1.25rem;
+                padding:7px;
+            }
+            >h1{
+                font-size:1.125rem;
+                background:hsl(from var(--header) calc(h - 30) calc(s - 20) l / 0.3);
+                padding:6px 1em;
+                width:160px;
+                border-radius:99px;
+                margin:5px;
+            }
+            >p{
+                font-size:1rem;
+                text-indent:2.3em;
+                text-align:left;
+                color:--txt(var(--header));
+            }
+        }
+        >h-gantt{
+            position:relative;
+            height:40px;
+            overflow:hidden;
+            border-radius:20px;
+            &::before{
+                position:absolute;
+                content:"任教时段";
+                display:block;
+                inset:0;
+                color:--txt(var(--header));
+                font-size:1.125rem;
+                line-height:40px;
+                text-align:left;
+                padding-left:10px;
+                background:linear-gradient(to right,
+                    --opa(var(--header),0.1) calc(50% / 3),
+                    --opa(var(--header),0.2) calc(50% / 3),
+                    --opa(var(--header),0.2) calc(100% / 3),
+                    --opa(var(--header),0.1) calc(100% / 3),
+                    --opa(var(--header),0.1) 50%,
+                    --opa(var(--header),0.2) 50%,
+                    --opa(var(--header),0.2) calc(200% / 3),
+                    --opa(var(--header),0.1) calc(200% / 3),
+                    --opa(var(--header),0.1) calc(250% / 3),
+                    --opa(var(--header),0.2) calc(250% / 3)
+                );
+            }
+            &::after{
+                position:absolute;
+                content:"";
+                display:block;
+                background:--opa(var(--header));
+                left:calc(5px + 50% / 3 * var(--gantt-s));
+                right:calc(5px + 100% - 50% / 3 * var(--gantt-e));
+                top:5px;
+                bottom:5px;
+                border-radius:15px;
             }
         }
     }
