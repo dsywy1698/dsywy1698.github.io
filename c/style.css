@@ -603,39 +603,39 @@ main{
             height:40px;
             overflow:hidden;
             border-radius:20px;
-            &::before{
-                position:absolute;
-                content:"任教时段";
-                display:block;
-                inset:0;
-                color:--txt(var(--header));
-                font-size:1.125rem;
-                line-height:40px;
-                text-align:left;
-                padding-left:10px;
-                background:linear-gradient(to right,
-                    --opa(var(--header),0.1) calc(50% / 3),
-                    --opa(var(--header),0.2) calc(50% / 3),
-                    --opa(var(--header),0.2) calc(100% / 3),
-                    --opa(var(--header),0.1) calc(100% / 3),
-                    --opa(var(--header),0.1) 50%,
-                    --opa(var(--header),0.2) 50%,
-                    --opa(var(--header),0.2) calc(200% / 3),
-                    --opa(var(--header),0.1) calc(200% / 3),
-                    --opa(var(--header),0.1) calc(250% / 3),
-                    --opa(var(--header),0.2) calc(250% / 3)
-                );
-            }
-            &::after{
+            color:--txt(var(--header));
+            font-size:1.125rem;
+            vertical-align:center;
+            text-align:left;
+            padding-left:10px;
+            background:linear-gradient(to right,
+                --opa(var(--header),0.1) calc(50% / 3),
+                --opa(var(--header),0.2) calc(50% / 3),
+                --opa(var(--header),0.2) calc(100% / 3),
+                --opa(var(--header),0.1) calc(100% / 3),
+                --opa(var(--header),0.1) 50%,
+                --opa(var(--header),0.2) 50%,
+                --opa(var(--header),0.2) calc(200% / 3),
+                --opa(var(--header),0.1) calc(200% / 3),
+                --opa(var(--header),0.1) calc(250% / 3),
+                --opa(var(--header),0.2) calc(250% / 3)
+            );
+            &::before,&::after{
                 position:absolute;
                 content:"";
                 display:block;
                 background:--opa(var(--header));
-                left:calc(5px + 50% / 3 * var(--gantt-s));
-                right:calc(5px + 100% - 50% / 3 * var(--gantt-e));
-                top:5px;
-                bottom:5px;
-                border-radius:15px;
+                top:0;
+                bottom:0;
+                border-radius:20px;
+            }
+            &::before{
+                left:calc(50% / 3 * var(--gantt-s));
+                right:calc(100% - 50% / 3 * var(--gantt-e));
+            }
+            &::after{
+                left:calc(50% / 3 * var(--gantt-s2));
+                right:calc(100% - 50% / 3 * var(--gantt-e2));
             }
         }
     }
