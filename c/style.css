@@ -1251,6 +1251,7 @@ main{
         &.sp3{background:#fce3;&::before{background:#f9dd!important}}
         &.sp4{background:#fc93;&::before{background:#f93d!important}}
         &.sp5{background:#cc03;&::before{background:#cc0d!important}}
+        &.sp6{background:linear-gradient(135deg,#f803,#fc33);color:color-mix(in oklch,#f80 30%,var(--color));&::before{background:#f80d!important}}
         >p{padding:2.5px 0;text-indent:2em;}
         >dl{
             margin:10px 3px 3px 15px;
@@ -1277,6 +1278,25 @@ main{
         color:color-mix(in oklch,#f0f 10%,var(--color));
         font-style:italic;
     }
+    .ex{
+        position:relative;
+        height:40px;
+        &::before{
+            display:block;
+            content:attr(title);
+            position:absolute;
+            z-index:-1;
+            top:-15px;
+            left:-8px;
+            right:-8px;
+            background:linear-gradient(to bottom,#fa06,#0000);
+            color:--mix(#fa0);
+            line-height:50px;
+            border-radius:var(--rm) var(--rm) 0 0;
+            text-align:center;
+            text-indent:0;
+        }
+    }
     mark{
         background-color:#d9b3ff80;
         padding:0 3px;
@@ -1291,9 +1311,9 @@ footer{
 }
 @media (width>=1600px),(height>=900px){
     #bigger{display:flex;}
-    #password,#main,#loader,nav{display:none!important;}
+    body>*:not(#bigger){display:none!important;}
 }
 @media (width<=320px),(height<=300px){
     #smaller{display:flex;}
-    #password,#main,#loader,nav{display:none!important;}
+    body>*:not(#smaller){display:none!important;}
 }
