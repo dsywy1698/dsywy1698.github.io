@@ -106,14 +106,14 @@ html[data-t="4"]{
     --color:#25222a;
     --base:#b39fc6;
     --nav:#ccc0f2;
-    --quote:#9696e9;/*#d98cd9*/
+    --quote:#9696e9;
     --content:#edabcc;
 }
 html[data-t="5"]{
     --background:#040415;
     --color:#ededf8;
     --base:#16599c;
-    --nav:#999900;/*#1212a1*/
+    --nav:#999900;
     --quote:#6e862d;
     --content:#5d3894;
 }
@@ -492,25 +492,26 @@ main{
             font-size:0.875rem;
             background:--opa(var(--header),0.4);
             color:--mix(var(--header));
-            border-radius:50px;
+            border-radius:14px;
             padding:0 7px;
             display:inline-block;
-            margin:5px 2px;
+            margin:2px;
             line-height:28px;
-            &.w{
-                &:before{font-family:"icons";content:"\f221";}
-                background:#c395;
-                color:--mix(#c39);
-                width:26px;
-                height:26px;
-            }
-            &.m{
-                &:before{font-family:"icons";content:"\f222";}
-                background:#0080ff55;
-                color:--mix(#0080ff);
-                width:26px;
-                height:26px;
-            }
+            height:28px;
+        }
+        >h-m,>h-w{
+            width:28px;
+            height:28px;
+            display:inline-block;
+            margin:2px;
+            position:relative;
+            top:11px;/*（只是缓兵之计）*/
+        }
+        >h-m{
+            background-image:url("data:image/svg+xml,%3Csvg width='28' height='28' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='28' height='28' fill='%2308f5' rx='14' x='0' y='0'%3E%3C/rect%3E%3Cpath d='M11 11 A 6 6 0 0 1 11 23 A 6 6 0 0 1 11 11 M15.3 12.7 L 21 7 M17 7 L 21 7 L 21 11' stroke='%2308f' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        }
+        >h-w{
+            background-image:url("data:image/svg+xml,%3Csvg width='28' height='28' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='28' height='28' fill='%23c395' rx='14' x='0' y='0'%3E%3C/rect%3E%3Cpath d='M14 5 A 6 6 0 0 1 14 17 A 6 6 0 0 1 14 5 M14 17 L 14 23 M12 21 L 16 21' stroke='%23c39' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
         }
         dl{
             background:hsl(from var(--header) calc(h - 30) calc(s - 20) l / 0.2);
