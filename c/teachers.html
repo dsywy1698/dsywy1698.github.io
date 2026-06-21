@@ -400,11 +400,19 @@
     <code>缝隙</code>
     <p>你能联想到什么？拿出一张纸，把它们写下来。</p>
     <p>有没有人主动来分享？你来。</p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
+    <p>大家说出了各种各样的答案：</p>
+    <ul>
+        <li>阳光从树叶间洒下的缝隙</li>
+        <li>字与字之间的缝隙</li>
+        <li>书本间的缝隙</li>
+        <li>瓷砖的缝隙</li>
+        <li>灰暗人生中一抹光穿过的缝隙</li>
+        <li>……</li>
+    </ul>
     <h1>上课风格</h1>
+    <p></p>
+    <p></p>
+    <p></p>
     <h2>“仪式”</h2>
     <h2>抽背</h2>
     <h2>放音乐</h2>
@@ -766,18 +774,9 @@
     <p>小测的正面有八行。一般地，刘老师出题格式如下：</p>
     <!--八下：听写在前，音标在后-->
     <style>
-    .test{
-        width:100%;
-        overflow-x:auto;
-        >table{
-            background:--opa(color-mix(in oklch,var(--base) 80%,var(--color)));
-            tr:first-child>td{border-top:none!important;}
-            td{text-align:left;padding:12px 4px;text-wrap:nowrap;}
-            td[colspan="4"]{border-right:none;}
-        }
-    }
+        .test td{text-align:left;min-width:150px;outline:none;font-family:sans-serif;>var{font-family:sans-serif}}
     </style>
-    <div class="test"><table>
+    <table class="scroll test">
     <tr>
         <td>1.<var>音标</var></td>
         <td>2.<var>音标</var></td>
@@ -806,11 +805,11 @@
     <tr><td colspan="4">18.<var>句子</var></td></tr>
     <tr><td colspan="4">19.<var>句子</var></td></tr>
     <tr><td colspan="4">20.<var>句子</var></td></tr>
-    </table></div>
+    </table>
     <p>接下来逐个分析。</p>
     <h3>音标与听写</h3>
     <p>正常1~4题为<var>看音标写单词</var>，5~8题为<var>听写单词</var>。有时，这两个板块的题目数量会有所增减，增减数量在2题以内。例如：</p>
-    <div class="test"><table>
+    <table class="scroll test">
     <tr>
         <td>1.<var>音标</var></td>
         <td>2.<var>音标</var></td>
@@ -829,36 +828,33 @@
         <td>11.<var>词组</var></td>
         <td>12.<var>词组</var></td>
     </tr>
-    <tr><td colspan="4">……</td></tr>
-    </table></div>
+    </table>
     <p>听写单词的时机一般在小测的后半段，但有时刘老师会等到倒计时结束后才想起听写。不过也有开始没多久就进行听写的情况。</p>
     <!--八下有时：小测开始时听写-->
     <p>因此，一般听写部分先只写个题号，然后空着写接下来的题。</p>
     <p>听写时，刘老师会拿英语书寻找单词。听写的单词不与看音标写单词的单词重复，如有重复刘老师会换词。</p>
     <p>当刘老师开始念听写题的题号时，标志着听写开始，学生停止写其他部分，准备听写。每个单词读2~3遍。</p>
     <p>讲单词时给的相关变形也会考，这些词跟在主单词后。刘老师会以这些形式要求学生写出相关变形：</p>
-    <div class="test"><table>
+    <table class="scroll test">
     <tr>
         <td>1.<var>音标</var>&amp;adj.&amp;adv.</td>
         <td>2.<var>音标</var>&amp;...</td>
         <td>3.<var>音标</var>&amp;pl</td>
         <td>4.<var>音标</var>&amp;v.ed&amp;n.&amp;v.ing</td>
     </tr>
-    <tr><td colspan="4">……</td></tr>
-    </table></div>
+    </table>
     <p>以第一题为例，意思就是写出音标代表的单词后，在后面再写出其形容词和副词形式。</p>
     <p>听写时的提醒形式如下：</p>
     <code><p>【单词】，以及它的【变形】。</p></code>
     <p>后来，提醒的形式进行了一番升级。原本有提醒“adj”、“n”之类的变形类型，升级后直接变成<var>→</var>，每出现一个“→”代表需写出它的一种变形。针对上面的题目，升级后的格式就是这样：</p>
-    <div class="test"><table>
+    <table class="scroll test">
     <tr>
         <td>1.<var>音标</var>→ →</td>
         <td>2.<var>音标</var>→</td>
         <td>3.<var>音标</var>→</td>
         <td>4.<var>音标</var>→ → →</td>
     </tr>
-    <tr><td colspan="4">……</td></tr>
-    </table></div>
+    </table>
     <p>听写时的提醒形式如下：</p>
     <code><p>【单词】，以及它的（【个数】）相关变形。</p></code>
     <h3>词组</h3>
@@ -866,30 +862,25 @@
     <p>很多时候，一种意思在英语中有多种相同的表达方法。刘老师为了让大家写出全部的表达，会在中文后加上<var>（2种）</var>或<var>（3种）</var>。</p>
     <p>一些词组，意思相近或相反，于是放在同一题目中，用<var>/</var>隔开，也就是在同一体内写两个词组。</p>
     <p>上面两种情况在真正的题目中就是长这样：</p>
-    <div class="test"><table>
-    <tr><td colspan="4">……</td></tr>
+    <table class="scroll test">
     <tr>
         <td>9.参加（3种）</td>
-        <td>10.离……近/离……远</td>
-        <td>11.向某人寻求帮助（2种）</td>
+        <td>10.和……相似/不同</td>
+        <td>11.向他寻求帮助（2种）</td>
         <td>12.喜欢某事/做某事</td>
     </tr>
-    <tr><td colspan="4">……</td></tr>
-    </table></div>
+    </table>
     <p>随着时间流逝，该格式也有所升级。原先的<var>（2种）</var>或<var>（3种）</var>变得更加简洁，变成了<var>（2）</var>或<var>（3）</var>。</p>
-    <div class="test"><table>
-    <tr><td colspan="4">……</td></tr>
+    <table class="scroll test">
     <tr>
         <td>9.参加（3）</td>
-        <td>10.离……近/离……远</td>
-        <td>11.向某人寻求帮助（2）</td>
+        <td>10.和……相似/不同</td>
+        <td>11.向他寻求帮助（2）</td>
         <td>12.喜欢某事/做某事</td>
     </tr>
-    <tr><td colspan="4">……</td></tr>
-    </table></div>
+    </table>
     <p>一些词组占用空间很长，刘老师会视情况允许跨格写词组；有时小测的题目中，一行写的词组数量会减少，以适应个别词组的空间。例如：</p>
-    <div class="test"><table>
-    <tr><td colspan="4">……</td></tr>
+    <table class="scroll test">
     <tr>
         <td>9.<var>词组</var></td>
         <td>10.<var>词组</var></td>
@@ -905,8 +896,7 @@
         <td colspan="2">16.<var>长词组</var></td>
         <td colspan="2">17.<var>长词组</var></td>
     </tr>
-    <tr><td colspan="4">……</td></tr>
-    </table></div>
+    </table>
     <h3>句子</h3>
     <p>句子题目来源于<var>校本</var>以及<var>笔记</var>中。考法：给出中文，写出句子。</p>
     <p>校本中的句子大多直接考原句，即使修改也只是细微变化（一般改变名词成分），整体结构不变；笔记中的句子注重灵活应用，不过经常考抄在笔记中的例子。</p>
@@ -920,16 +910,14 @@
     <dl>
         <dt>写在原来第8题的地方</dt>
         <dd>刘老师会直接听写，不特别强调“这是积累本单词”。这样一来，英语书中的单词就会少考一个。</dd>
-        <div class="test"><table>
-        <tr><td colspan="4">……</td></tr>
+        <table class="scroll test">
         <tr>
             <td>5.<var>听写</var></td>
             <td>6.<var>听写</var></td>
             <td>7.<var>听写</var></td>
             <td>8.<var>积累本</var></td>
         </tr>
-        <tr><td colspan="4">……</td></tr>
-        </table></div>
+        </table>
         <dt>写在第8题右侧</dt>
         <dt>写在标题（“英语作业纸”）左侧</dt>
         <dd>这一题就被刘老师称为“0.5题”。</dd>
@@ -1230,7 +1218,7 @@
     <h3>卫生工具</h3>
     <h3>室外</h3>
     <h3>室内</h3>
-    <h2>其他</h2>
+    <h2>其他职务</h2>
     <p></p>
     <hr/>
     <h1>收作业小组</h1>
