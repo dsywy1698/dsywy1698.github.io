@@ -739,7 +739,8 @@ main{
             margin-left:1em;
         }
     }
-    >div,article,blockquote,q,code,table,details,aside,.timeline{
+    >div,article,blockquote,q,code,table,details,aside,m-chat,m-materials,.timeline{
+        display:block;
         padding:var(--padding);
         margin:var(--margin);
         border-radius:var(--rm);
@@ -815,6 +816,7 @@ main{
         overflow:hidden;
         padding:0;
         border-collapse:collapse;
+        display:table;
         background:hsl(from var(--base) h calc(s + 10) l / 0.3);
         td{text-align:center;}
         th{
@@ -828,12 +830,12 @@ main{
             min-width:3em;
             text-wrap:balance;
         }
-        @media(width<768px){
+        @media (width<768px){
             &.scroll{
                 overflow-x:auto;
                 display:block;
                 mask-image:linear-gradient(to right,#0008,#000 20px,#000 calc(100% - 20px),#0008);
-                td{
+                \td{
                     padding:8px 10px;
                     width:200px;
                     text-wrap:nowrap;
@@ -869,7 +871,7 @@ main{
             >summary::before{transform:rotate(90deg);}
         }
     }
-    aside{
+    m-chat{
         display:flex;
         flex-direction:column;
         background:--opa(var(--color),0.1);
@@ -946,6 +948,18 @@ main{
             padding:2px;
             width:inherit;
             top:40px;
+        }
+    }
+    m-materials{
+        background:--opa(var(--header),0.2);
+        color:--txt(var(--header));
+        &::before{
+            content:"资料";
+            display:block;
+            position:static;
+            font-weight:bold;
+            font-size:1.5rem;
+            margin-bottom:5px;
         }
     }
     var{
@@ -1279,7 +1293,7 @@ main{
         color:color-mix(in oklch,#f0f 10%,var(--color));
         font-style:italic;
     }
-    .ex{
+    p.ex{
         position:relative;
         height:40px;
         &::before{
@@ -1296,6 +1310,17 @@ main{
             border-radius:var(--rm) var(--rm) 0 0;
             text-align:center;
             text-indent:0;
+        }
+    }
+    div.ex{
+        background:#fc01;
+        padding:15px;
+        border-radius:var(--rm);
+        margin-left:2em;
+        >p::after{
+            display:block;
+            content:attr(title);
+            position:static;
         }
     }
     mark{
