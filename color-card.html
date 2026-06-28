@@ -3,277 +3,148 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>自定义配色卡</title>
+<title>色卡</title>
 <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <style>
-:root{
-    --bg:#f5f7fa;
-    --text:#1f2937;
-    --primary:#4f46e5;
-    --shadow:0 2px 8px #0001;
-    --transition:0.2s ease;
-}
-[data-theme="dark"]{
-    --bg:#0d1117;
-    --text:#e6edf3;
-    --primary:#6366f1;
-    --shadow:0 2px 8px #fff1;
-}
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',Roboto,sans-serif;
-}
+:root{--bg:#f5f7fa;--text:#1f2937;--primary:#4f46e5;--transition:0.2s ease;}
+[data-theme="dark"]{--bg:#0d1117;--text:#e6edf3;--primary:#6366f1;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Roboto,sans-serif;}
 body{
-    background:var(--bg);
-    color:var(--text);
-    min-height:100vh;
-    padding-top:60px;
-    line-height:1.5;
+    background:var(--bg);color:var(--text);
+    min-height:100vh;padding-top:60px;line-height:1.5;
     transition:background var(--transition),color var(--transition);
 }
 input{
-    background:hsl(from var(--text) h s l / 0.1);
-    border:none;
-    border-radius:20px;
-    padding:8px 14px;
-    color:var(--text);
-    outline:none;
-    font-size:14px;
-    transition:var(--transition);
-    &:focus{
-        border-color:var(--primary);
-        box-shadow:0 0 0 2px rgba(79,70,229,0.2);
-    }
+    font-size:14px;padding:8px 14px;border-radius:20px;
+    border:none;outline:none;transition:var(--transition);
+    background:hsl(from var(--text) h s l / 0.1);color:var(--text);
+    &::placeholder{color:hsl(from var(--text) h s l / 0.5)}
+    &:focus{border-color:var(--primary);box-shadow:0 0 0 2px hsl(from var(--primary) h s l / 0.2);}
 }
-button{
-    border:none;
-    cursor:pointer;
-    transition:var(--transition);
-}
-header{
-    position:fixed;
-    top:12px;
-    right:12px;
-    height:46px;
+button{border:none;cursor:pointer;transition:var(--transition);background:transparent;}
+nav{
+    box-shadow:0 1px 5px hsl(from var(--text) h s l / 0.2);
     background:hsl(from var(--text) h s l / 0.2);
-    backdrop-filter:blur(12px);
-    display:flex;
-    padding:7px;
-    box-shadow:var(--shadow);
-    z-index:10;
-    border-radius:40px;
-    >input{
-        width:100px;
-        height:32px;
-    }
+    backdrop-filter:blur(12px);border-radius:40px;
+    position:fixed;z-index:1;top:12px;right:12px;
+    height:46px;padding:7px;display:flex;
+    >input{width:100px;height:32px;}
     >button{
-        height:32px;
-        width:32px;
-        border-radius:30px;
-        font-size:14px;
-        color:var(--text);
-        background:transparent;
+        width:32px;height:32px;font-size:14px;border-radius:30px;color:var(--text);
         &:hover{background:hsl(from var(--text) h s l / 0.1);}
     }
 }
-main{max-width:1200px;margin:0 auto;padding:0;}
+main{max-width:900px;margin:0 auto;padding:0;}
 .color-group{
-    overflow:hidden;
     >div:first-child{
-        padding:12px 20px;
-        margin:8px;
-        border-radius:99px;
         background:hsl(from var(--text) h s l / 0.05);
-        cursor:pointer;
-        transition:var(--transition);
-        font-weight:600;
+        margin:8px;padding:12px 20px;border-radius:99px;
+        transition:var(--transition);cursor:pointer;font-weight:600;
         &:hover{background:hsl(from var(--text) h s l / 0.1);}
     }
     >div:last-child{
-        padding:18px 20px;
-        margin:8px;
-        border-radius:20px;
-        display:flex;
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:16px;
-        min-height:90px;
-        transition:var(--transition);
+        margin:8px;padding:18px 20px;border-radius:20px;
+        display:flex;flex-wrap:wrap;justify-content:center;
+        min-height:90px;gap:16px;transition:var(--transition);
         &.drag-over{background:hsl(from var(--primary) h s l / 0.1);}
     }
 }
 .color-card{
-    width:150px;
-    height:130px;
-    border-radius:16px;
-    padding:16px;
-    font-weight:600;
-    cursor:pointer;
-    position:relative;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    &.selected{outline:4px dotted var(--primary);}
+    width:150px;height:130px;border-radius:16px;
+    padding:16px;font-weight:600;cursor:pointer;
+    display:flex;flex-direction:column;justify-content:space-between;
+    &.selected{outline:2px dashed var(--primary);}
     >div:last-child{font-size:13px;opacity:0.8;font-weight:400;}
 }
 dialog{
-    background:hsl(from var(--bg) h s l / 0.8);
-    color:var(--text);
-    border:none;
-    border-radius:20px;
-    padding:28px 32px;
-    width:clamp(200px,80%,600px);
-    backdrop-filter:blur(8px);
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    opacity:1;
-    transition:var(--transition);
+    transform:translate(-50%,-50%);transition:var(--transition);
+    background:hsl(from var(--bg) h s l / 0.8);color:var(--text);
+    width:clamp(200px,80%,600px);backdrop-filter:blur(8px);opacity:1;
+    border:none;border-radius:20px;padding:28px 32px;top:50%;left:50%;
     @starting-style{opacity:0;}
     &::backdrop{
-        background:#0002;
-        backdrop-filter:blur(4px);
-        transition:var(--transition);
-        @starting-style{
-            background:transparent;
-            backdrop-filter:blur(0);
-        }
+        background:#0002;backdrop-filter:blur(4px);transition:var(--transition);
+        @starting-style{background:#0000;backdrop-filter:blur(0);}
     }
-    h3{
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        margin-bottom:18px;
-        >h3{font-size:20px;}
-        >button{
-            background:none;
-            font-size:26px;
-            color:hsl(from var(--text) h s l / 0.8);
-            padding:0 4px;
-            &:hover{color:#f87171;}
-        }
-    }
-    >div:first-child{margin-bottom:22px;}
+    h3{margin-bottom:18px;font-size:20px;}
     >div:last-child{
-        display:flex;
-        justify-content:flex-end;
-        gap:10px;
-        flex-wrap:wrap;
+        margin-top:12px;gap:10px;display:flex;justify-content:flex-end;flex-wrap:wrap;
         >button{
-            padding:8px 18px;
-            border-radius:30px;
-            font-size:14px;
-            color:var(--text);
+            border-radius:30px;font-size:14px;padding:8px 18px;
+            background:hsl(from var(--text) h s l / 0.1);color:var(--text);
             &:hover{filter:brightness(1.1);}
-            &.secondary{background:hsl(from var(--text) h s l / 0.1)}
             &.primary{background:hsl(from var(--primary) h s l / 0.6)}
             &.danger{background:#f8717188}
         }
     }
+    input{width:100%;}
 }
 .color-info-grid{
-    margin-bottom:12px;
-    background:hsl(from var(--bg) h s l / 0.5);
-    padding:8px 12px;
-    border-radius:20px;
-    >div{text-align:center;font-family:consolas;cursor:pointer;}
+    background:hsl(from var(--bg) h s l / 0.1);margin-bottom:12px;padding:8px 12px;border-radius:20px;
+    >p{text-align:center;font-family:consolas;cursor:pointer;}
 }
-.group-form-group{margin-bottom:18px;}
-.group-form-group>label{display:block;margin-bottom:6px;font-weight:500;font-size:14px;}
-.group-form-group>input{width:100%;padding:10px 16px;border-radius:30px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);color:var(--text);font-size:15px;outline:none;}
-.group-form-group>input:focus{border-color:var(--primary);}
-.initial-colors-container{display:flex;flex-direction:column;gap:8px;margin-bottom:8px;}
-.initial-colors-container>div{display:flex;gap:8px;}
-.initial-colors-container>div>input:first-child{flex:1;}
-.initial-colors-container>div>input:last-child{flex:1;}
-.add-color-btn{background:transparent;padding:8px;text-align:center;cursor:pointer;transition:var(--transition);color:color-mix(in srgb,var(--text) 60%,transparent);border:1px dashed rgba(255,255,255,0.1);border-radius:30px;font-size:13px;}
-.add-color-btn:hover{color:var(--primary);border-color:var(--primary);}
+.initial-colors-container>div{display:flex;gap:8px;margin:8px 0;>input{flex:1}}
+.add-color-btn{
+    color:hsl(from var(--text) h s l / 0.7);border:1px dashed hsl(from var(--text) h s l / 0.1);
+    width:100%;text-align:center;font-size:13px;margin-top:8px;padding:8px;border-radius:30px;
+    &:hover{color:var(--primary);border-color:var(--primary);}
+}
 #toastContainer{
-    position:fixed;
-    top:initial;
-    left:initial;
-    bottom:24px;
-    right:24px;
-    transform:none;
-    border-radius:12px;
-    padding:10px 20px;
-    width:auto;
-    background:hsl(from var(--text) h s l / 0.2);
-    color:var(--text);
-    transition:opacity 0.3s ease;
-    &.success{border-left-color:#34d399;}
-    &.error{border-left-color:#f87171;}
+    background:hsl(from var(--text) h s l / 0.2);color:var(--text);padding:10px 20px;
+    position:fixed;bottom:24px;right:24px;transform:none;border-radius:12px;
+    width:auto;top:initial;left:initial;transition:var(--transition);
 }
-.theme-toggle{background:transparent;border:none;color:var(--text);font-size:18px;cursor:pointer;padding:4px 8px;border-radius:30px;transition:var(--transition);opacity:0.6;}
-.theme-toggle:hover{opacity:1;background:rgba(255,255,255,0.06);}
+@media(width<=400px){.color-group>div:last-child{gap:8px;padding:16px 8px;}}
+@media(width<=360px){.color-card{width:120px;height:120px;}nav{left:12px;justify-content:space-around;}}
 </style>
 </head>
 <body>
-<header>
+<nav>
     <input type="text" placeholder="新颜色" maxlength="7" id="colorInput">
     <button class="fa fa-plus" id="createColorBtn"></button>
     <button class="fa fa-folder" id="createGroupBtn"></button>
     <button class="fa fa-trash" id="deleteBtn"></button>
     <button class="fa fa-moon-o" id="themeToggle"></button>
-</header>
+</nav>
 <main id="groupsContainer"></main>
 <dialog id="colorInfoDialog">
     <h3>颜色信息</h3>
     <div>
-        <div class="color-preview" id="modalColorPreview"></div>
-        <div class="color-info-grid">
-            <div id="modalHex" data-target="modalHex"></div>
-            <div id="modalRgb" data-target="modalRgb"></div>
-            <div id="modalHsl" data-target="modalHsl"></div>
-        </div>
-        <input type="text" id="modalColorName" placeholder="颜色名称（可选）">
+        <div class="color-info-grid"><p id="modalHex"></p><p id="modalRgb"></p><p id="modalHsl"></p></div>
+        <input type="text" id="modalColorName" placeholder="名称">
     </div>
     <div>
-        <button class="secondary" id="cancelColorInfo">取消</button>
-        <button class="primary" id="saveColorName">保存</button>
+        <button id="cancelColorInfo">取消</button>
+        <button id="saveColorName" class="primary">保存</button>
     </div>
 </dialog>
 <dialog id="createGroupDialog">
     <h3>新建分组</h3>
     <div>
-        <div class="group-form-group">
-            <label>分组名称</label>
-            <input type="text" id="groupNameInput" placeholder="输入分组名称">
-        </div>
-        <div class="group-form-group">
-            <label>初始颜色（可选）</label>
-            <div class="initial-colors-container" id="initialColorsContainer">
-                <div><input type="text" class="color-code-input" placeholder="颜色值"><input type="text" class="color-name-input" placeholder="名称（可选）"></div>
-            </div>
-            <div class="add-color-btn" id="addInitialColorBtn"><i class="fa fa-plus"></i> 添加颜色</div>
-        </div>
+        <input type="text" id="groupNameInput" placeholder="分组名称">
+        <div class="initial-colors-container" id="initialColorsContainer"></div>
+        <button class="add-color-btn" id="addInitialColorBtn">添加颜色</button>
     </div>
     <div>
-        <button class="secondary" id="cancelCreateGroup">取消</button>
-        <button class="primary" id="confirmCreateGroup">创建</button>
+        <button id="cancelCreateGroup">取消</button>
+        <button id="confirmCreateGroup" class="primary">创建</button>
     </div>
 </dialog>
 <dialog id="editGroupDialog">
     <h3>编辑分组</h3>
+    <div><input type="text" id="editGroupNameInput" placeholder="分组名称"></div>
     <div>
-        <div class="group-form-group">
-            <input type="text" id="editGroupNameInput" placeholder="分组名称">
-        </div>
-    </div>
-    <div>
-        <button class="secondary" id="cancelEditGroup">取消</button>
-        <button class="primary" id="saveGroupName">保存</button>
-        <button class="secondary" id="exportGroupBtn">导出</button>
-        <button class="danger" id="deleteGroupBtn">删除</button>
+        <button id="cancelEditGroup">取消</button>
+        <button id="exportGroupBtn">导出</button>
+        <button id="saveGroupName" class="primary">保存</button>
+        <button id="deleteGroupBtn" class="danger">删除</button>
     </div>
 </dialog>
 <dialog id="toastContainer"></dialog>
 <script>
 // ---- 数据 ----
-let colorCards=[], colorGroups=[], selectedColorIds=new Set(), isDeleteMode=false;
-let currentEditingColorId=null, currentEditingGroupId=null, draggedColorId=null;
+let colorCards=[],colorGroups=[],selectedColorIds=new Set(),isDeleteMode=false;
+let currentEditingColorId=currentEditingGroupId=draggedColorId=null;
 const DEFAULT_GROUP_ID='__default__';
 // ---- DOM refs ----
 const $=s=>document.querySelector(s),
@@ -318,7 +189,8 @@ const rgb2hsl=(r,g,b)=>{r/=255;g/=255;b/=255;let M=Math.max(r,g,b),m=Math.min(r,
 const contrast=c=>{let r=hex2rgb(c);return(r.r*299+r.g*587+r.b*114)/1000>128?'#000':'#fff';};
 const save=()=>{localStorage.setItem('colorCards',JSON.stringify(colorCards));localStorage.setItem('colorGroups',JSON.stringify(colorGroups));};
 const load=()=>{
-    let c=localStorage.getItem('colorCards'),g=localStorage.getItem('colorGroups');
+    let c=localStorage.getItem('colorCards'),
+        g=localStorage.getItem('colorGroups');
     if(c)colorCards=JSON.parse(c);
     if(g)colorGroups=JSON.parse(g);
     if(!colorGroups.some(g=>g.id===DEFAULT_GROUP_ID)){
@@ -328,16 +200,15 @@ const load=()=>{
     let validIds=new Set(colorGroups.map(g=>g.id));
     colorCards.forEach(c=>{if(!c.groupId||!validIds.has(c.groupId))c.groupId=DEFAULT_GROUP_ID;});
 };
-const toast=(msg,type='success')=>{
+const toast=(msg)=>{
     toastContainer.show();
     toastContainer.innerHTML=msg;
     setTimeout(()=>{toastContainer.close()},2000);
 };
-const copy=(t)=>{navigator.clipboard.writeText(t).then(()=>toast('已复制','success')).catch(()=>toast('复制失败','error'));};
+const copy=(t)=>{navigator.clipboard.writeText(t).then(()=>toast('已复制')).catch(()=>toast('复制失败'));};
 // ---- render ----
 function renderGroups(){
     groupsContainer.innerHTML='';
-    // 按创建顺序显示，默认分组在前
     let sorted=[...colorGroups].sort((a,b)=>a.id===DEFAULT_GROUP_ID?-1:b.id===DEFAULT_GROUP_ID?1:0);
     sorted.forEach(g=>{
         let wrap=document.createElement('div');
@@ -357,8 +228,10 @@ function renderGroups(){
     });
 }
 function createCardEl(card){
-    let el=document.createElement('div');el.className='color-card'+(selectedColorIds.has(card.id)?' selected':'');
-    el.style.backgroundColor=card.color;el.style.color=contrast(card.color);
+    let el=document.createElement('div');
+    el.className='color-card'+(selectedColorIds.has(card.id)?' selected':'');
+    el.style.backgroundColor=card.color;
+    el.style.color=contrast(card.color);
     el.innerHTML=`<div>${card.name||'色卡'}</div><div>${card.color}</div>`;
     el.dataset.colorId=card.id;
     el.addEventListener('click',()=>{isDeleteMode?toggleSelect(card.id):openColorInfo(card.id);});
@@ -367,29 +240,34 @@ function createCardEl(card){
     return el;
 }
 function toggleSelect(id){selectedColorIds.has(id)?selectedColorIds.delete(id):selectedColorIds.add(id);renderGroups();}
-function moveColor(cid,gid){let c=colorCards.find(x=>x.id===cid);if(c){c.groupId=gid;save();renderGroups();let gn=colorGroups.find(x=>x.id===gid)?.name||'分组';toast(`已移至 ${gn}`,'success');}}
+function moveColor(cid,gid){let c=colorCards.find(x=>x.id===cid);if(c){c.groupId=gid;save();renderGroups();let gn=colorGroups.find(x=>x.id===gid)?.name||'分组';toast(`已移至 ${gn}`);}}
 // ---- modals helpers ----
 function openDialog(d){d.showModal();}
 function closeDialog(d){d.close();}
 // ---- color info ----
 function openColorInfo(id){
-    let c=colorCards.find(x=>x.id===id);if(!c)return;
+    let c=colorCards.find(x=>x.id===id);
+    if(!c)return;
     currentEditingColorId=id;
-    colorInfoDialog.style.background=`linear-gradient(to bottom,${c.color} 30px,${c.color}80 120px)`;
+    colorInfoDialog.style.background=`linear-gradient(to bottom,${c.color}e0,${c.color}80)`;
+    colorInfoDialog.style.color=contrast(c.color);
     modalHex.textContent=c.color;
-    let rgb=hex2rgb(c.color);modalRgb.textContent=`rgb(${rgb.r},${rgb.g},${rgb.b})`;
-    let hsl=rgb2hsl(rgb.r,rgb.g,rgb.b);modalHsl.textContent=`hsl(${Math.round(hsl.h)},${Math.round(hsl.s)}%,${Math.round(hsl.l)}%)`;
+    let rgb=hex2rgb(c.color);
+    modalRgb.textContent=`rgb(${rgb.r},${rgb.g},${rgb.b})`;
+    let hsl=rgb2hsl(rgb.r,rgb.g,rgb.b);
+    modalHsl.textContent=`hsl(${Math.round(hsl.h)},${Math.round(hsl.s)}%,${Math.round(hsl.l)}%)`;
     modalColorName.value=c.name||'';
     openDialog(colorInfoDialog);
 }
 function saveColorNameFn(){
     if(!currentEditingColorId)return;
     let c=colorCards.find(x=>x.id===currentEditingColorId);
-    if(c){c.name=modalColorName.value.trim();save();renderGroups();closeDialog(colorInfoDialog);toast('名称已保存','success');}
+    if(c){c.name=modalColorName.value.trim();save();renderGroups();closeDialog(colorInfoDialog);toast('名称已保存');}
 }
 // ---- create group ----
 function createGroupFn(){
-    let name=groupNameInput.value.trim();if(!name){toast('请输入分组名称','error');return;}
+    let name=groupNameInput.value.trim();
+    if(!name){toast('请输入分组名称');return;}
     let g={id:uid(),name:name,createdAt:new Date().toISOString()};
     colorGroups.push(g);
     let inputs=initialColorsContainer.querySelectorAll('.initial-color-input');
@@ -400,43 +278,59 @@ function createGroupFn(){
         if(cv&&validHex(cv))valid.push({color:normHex(cv),name:nm||''});
     });
     valid.forEach(v=>{colorCards.push({id:uid(),color:v.color,name:v.name,groupId:g.id,createdAt:new Date().toISOString()});});
-    save();renderGroups();
-    groupNameInput.value='';initialColorsContainer.innerHTML=`<div class="initial-color-input"><input type="text" class="color-code-input" placeholder="颜色值"><input type="text" class="color-name-input" placeholder="名称（可选）"></div>`;
-    closeDialog(createGroupDialog);toast('分组创建成功','success');
+    save();
+    renderGroups();
+    groupNameInput.value='';
+    initialColorsContainer.innerHTML=`<div class="initial-color-input"><input type="text" class="color-code-input" placeholder="颜色值" maxlength="7"><input type="text" class="color-name-input" placeholder="名称（可选）" maxlength="10"></div>`;
+    closeDialog(createGroupDialog);
+    toast('分组创建成功');
 }
 // ---- edit group ----
 function openEditGroup(gid){
-    let g=colorGroups.find(x=>x.id===gid);if(!g){toast('未找到分组','error');return;}
-    currentEditingGroupId=gid;editGroupNameInput.value=g.name;openDialog(editGroupDialog);editGroupNameInput.focus();
-    // 默认分组不可删除
+    let g=colorGroups.find(x=>x.id===gid);
+    if(!g){toast('未找到分组');return;}
+    currentEditingGroupId=gid;
+    editGroupNameInput.value=g.name;
+    openDialog(editGroupDialog);
+    editGroupNameInput.focus();
     deleteGroupBtn.style.display=gid===DEFAULT_GROUP_ID?'none':'inline-block';
 }
 function saveGroupNameFn(){
     if(!currentEditingGroupId)return;
-    let g=colorGroups.find(x=>x.id===currentEditingGroupId);if(!g)return;
-    let n=editGroupNameInput.value.trim();if(!n){toast('请输入名称','error');return;}
-    g.name=n;save();renderGroups();closeDialog(editGroupDialog);toast('已更新','success');
+    let g=colorGroups.find(x=>x.id===currentEditingGroupId);
+    if(!g)return;
+    let n=editGroupNameInput.value.trim();
+    if(!n){toast('请输入名称');return;}
+    g.name=n;
+    save();
+    renderGroups();
+    closeDialog(editGroupDialog);
+    toast('已更新');
 }
 function deleteGroupFlow(){
-    if(!currentEditingGroupId||currentEditingGroupId===DEFAULT_GROUP_ID){toast('默认分组不可删除','error');return;}
+    if(!currentEditingGroupId||currentEditingGroupId===DEFAULT_GROUP_ID){toast('默认分组不可删除');return;}
     let gid=currentEditingGroupId;
     colorCards=colorCards.filter(c=>c.groupId!==gid);
     colorGroups=colorGroups.filter(g=>g.id!==gid);
     currentEditingGroupId=null;
-    save();renderGroups();closeDialog(editGroupDialog);toast('分组已删除','success');
+    save();renderGroups();closeDialog(editGroupDialog);
+    toast('分组已删除');
 }
 function exportGroupFn(){
-    if(!currentEditingGroupId){toast('请先选择分组','error');return;}
+    if(!currentEditingGroupId){toast('请先选择分组');return;}
     let g=colorGroups.find(x=>x.id===currentEditingGroupId);if(!g)return;
     let cols=colorCards.filter(c=>c.groupId===g.id);
-    if(!cols.length){toast('该分组无颜色可导出','error');return;}
-    let html=`<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${g.name}</title><style>body{margin:0;padding:20px;font-family:sans-serif;}.wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;}.card{width:130px;height:130px;border-radius:14px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}.nm{font-size:14px;margin-bottom:4px;}.cd{font-size:12px;font-weight:600;}</style></head><body><div class="wrap">`;
-    cols.forEach(c=>{let tc=contrast(c.color);html+=`<div class="card" style="background:${c.color};color:${tc};"><div class="nm">${c.name||'色卡'}</div><div class="cd">${c.color}</div></div>`;});
-    html+=`</div></body></html>`;
-    let blob=new Blob([html],{type:'text/html'}), url=URL.createObjectURL(blob);
-    let a=document.createElement('a');a.href=url;a.download=`色卡-${g.name.replace(/\s+/g,'-').toLowerCase()}.html`;
-    document.body.appendChild(a);a.click();setTimeout(()=>{document.body.removeChild(a);URL.revokeObjectURL(url);},100);
-    toast('导出成功','success');
+    if(!cols.length){toast('该分组无颜色可导出');return;}
+    let html=`<!DOCTYPE html><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${g.name}</title><style>body{padding:16px;font-family:sans-serif;display:flex;flex-wrap:wrap;gap:16px;justify-content:center}div{width:110px;height:110px;border-radius:16px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 2px 8px #0001}b,p{margin:0;padding:0}p{font-size:13px;opacity:0.8}</style>`;
+    cols.forEach(c=>{let tc=contrast(c.color);html+=`<div style="background:${c.color};color:${tc}"><b>${c.name||'色卡'}</b><p>${c.color}</p></div>`;});
+    let blob=new Blob([html],{type:'text/html'}),url=URL.createObjectURL(blob);
+    let a=document.createElement('a');
+    a.href=url;
+    a.download=`${g.name.replace(/\s+/g,'-').toLowerCase()}.html`;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(()=>{document.body.removeChild(a);URL.revokeObjectURL(url);},100);
+    toast('导出成功');
 }
 // ---- theme ----
 function toggleTheme(){
@@ -457,7 +351,14 @@ function loadTheme(){
 function toggleDeleteMode(){
     isDeleteMode=!isDeleteMode;
     if(isDeleteMode){deleteBtn.classList.add('active');deleteBtn.className='fa fa-check';selectedColorIds.clear();}
-    else{if(selectedColorIds.size){colorCards=colorCards.filter(c=>!selectedColorIds.has(c.id));selectedColorIds.clear();save();}deleteBtn.classList.remove('active');deleteBtn.className='fa fa-trash';}
+    else{
+        if(selectedColorIds.size){
+            colorCards=colorCards.filter(c=>!selectedColorIds.has(c.id));
+            selectedColorIds.clear();save();
+        }
+        deleteBtn.classList.remove('active');
+        deleteBtn.className='fa fa-trash';
+    }
     renderGroups();
 }
 // ---- init ----
@@ -466,11 +367,11 @@ function init(){
     // events
     createColorBtn.addEventListener('click',()=>{
         let v=colorInput.value.trim().toLowerCase();
-        if(!validHex(v)){toast('请输入有效16进制颜色','error');return;}
+        if(!validHex(v)){toast('请输入有效16进制颜色');return;}
         let n=normHex(v);
-        if(colorCards.some(c=>c.color===n)){toast('颜色已存在','error');return;}
+        if(colorCards.some(c=>c.color===n)){toast('颜色已存在');return;}
         colorCards.push({id:uid(),color:n,name:'',groupId:DEFAULT_GROUP_ID,createdAt:new Date().toISOString()});
-        save();renderGroups();colorInput.value='';toast('色卡已创建','success');
+        save();renderGroups();colorInput.value='';toast('色卡已创建');
     });
     colorInput.addEventListener('keypress',e=>{if(e.key==='Enter')createColorBtn.click();});
     createGroupBtn.addEventListener('click',()=>{openDialog(createGroupDialog);});
@@ -479,7 +380,7 @@ function init(){
     // color info
     cancelColorInfo.addEventListener('click',()=>closeDialog(colorInfoDialog));
     saveColorNameBtn.addEventListener('click',saveColorNameFn);
-    document.querySelectorAll('#colorInfoDialog span').forEach(b=>b.addEventListener('click',function(){let t=document.getElementById(this.dataset.target);if(t)copy(t.textContent);}));
+    document.querySelectorAll('#colorInfoDialog p').forEach(b=>b.addEventListener('click',function(){copy(b.textContent)}));
     // create group
     cancelCreateGroup.addEventListener('click',()=>closeDialog(createGroupDialog));
     confirmCreateGroup.addEventListener('click',createGroupFn);
