@@ -1261,12 +1261,11 @@ main{
             color:#000;
             backdrop-filter:blur(1px);
         }
-        &.sp1{background:#cfc3;&::before{background:#9f9d!important}}
-        &.sp2{background:#fec3;&::before{background:#fd9d!important}}
-        &.sp3{background:#fce3;&::before{background:#f9dd!important}}
-        &.sp4{background:#fc93;&::before{background:#f93d!important}}
-        &.sp5{background:#cc03;&::before{background:#cc0d!important}}
-        &.sp6{background:linear-gradient(135deg,#f803,#fc33);color:color-mix(in oklch,#f80 30%,var(--color));&::before{background:#f80d!important}}
+        &.rz-sp{background:#cfc3;&::before{background:#9f9d!important}}
+        &.rz-jx{background:#fec3;&::before{background:#fd9d!important}}
+        &.rz-we{background:#fce3;&::before{background:#f9dd!important}}
+        &.rz-ex{background:#fc93;&::before{background:#f93d!important}}
+        &.rz-me{background:linear-gradient(135deg,#f803,#fc33);color:color-mix(in oklch,#f80 30%,var(--color));&::before{background:#f80d!important}}
         >p{padding:2.5px 0;text-indent:2em;}
         >dl{
             margin:10px 3px 3px 15px;

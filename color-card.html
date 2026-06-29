@@ -19,7 +19,7 @@ input{
     border:none;outline:none;transition:var(--transition);
     background:hsl(from var(--text) h s l / 0.1);color:var(--text);
     &::placeholder{color:hsl(from var(--text) h s l / 0.5)}
-    &:focus{border-color:var(--primary);box-shadow:0 0 0 2px hsl(from var(--primary) h s l / 0.2);}
+    &:focus{box-shadow:0 0 0 2px hsl(from var(--primary) h s l / 0.2);}
 }
 button{border:none;cursor:pointer;transition:var(--transition);background:transparent;}
 nav{
@@ -37,10 +37,17 @@ nav{
 main{max-width:900px;margin:0 auto;padding:0;}
 .color-group{
     >div:first-child{
-        background:hsl(from var(--text) h s l / 0.05);
-        margin:8px;padding:12px 20px;border-radius:99px;
-        transition:var(--transition);cursor:pointer;font-weight:600;
+        background:hsl(from var(--text) h s l / 0.05);gap:10px;
+        margin:8px;padding:8px 20px 8px 10px;border-radius:25px;
+        transition:var(--transition);height:50px;font-weight:600;
+        display:flex;align-items:center;justify-content:space-between;
         &:hover{background:hsl(from var(--text) h s l / 0.1);}
+        >input{font-size:inherit;font-weight:600;border-radius:20px;width:120px;height:34px;padding:0 0 0 10px;}
+        >span{cursor:text;padding-left:10px;}
+        button{
+            width:34px;height:34px;font-size:14px;color:var(--text);
+            &:hover{opacity:0.8;}&[class="fa fa-trash"]{color:#f8717180;}
+        }
     }
     >div:last-child{
         margin:8px;padding:18px 20px;border-radius:20px;
@@ -121,23 +128,13 @@ dialog{
 <dialog id="createGroupDialog">
     <h3>新建分组</h3>
     <div>
-        <input type="text" id="groupNameInput" placeholder="分组名称">
+        <input type="text" id="groupNameInput" placeholder="分组名称" maxlength="10">
         <div class="initial-colors-container" id="initialColorsContainer"></div>
         <button class="add-color-btn" id="addInitialColorBtn">添加颜色</button>
     </div>
     <div>
         <button id="cancelCreateGroup">取消</button>
         <button id="confirmCreateGroup" class="primary">创建</button>
-    </div>
-</dialog>
-<dialog id="editGroupDialog">
-    <h3>编辑分组</h3>
-    <div><input type="text" id="editGroupNameInput" placeholder="分组名称"></div>
-    <div>
-        <button id="cancelEditGroup">取消</button>
-        <button id="exportGroupBtn">导出</button>
-        <button id="saveGroupName" class="primary">保存</button>
-        <button id="deleteGroupBtn" class="danger">删除</button>
     </div>
 </dialog>
 <dialog id="toastContainer"></dialog>
@@ -166,20 +163,11 @@ const colorInfoDialog=$('#colorInfoDialog'),
       saveColorNameBtn=$('#saveColorName');
 // create group
 const createGroupDialog=$('#createGroupDialog'),
-      closeCreateGroup=$('#closeCreateGroup'),
       cancelCreateGroup=$('#cancelCreateGroup'),
       groupNameInput=$('#groupNameInput'),
       initialColorsContainer=$('#initialColorsContainer'),
       addInitialColorBtn=$('#addInitialColorBtn'),
       confirmCreateGroup=$('#confirmCreateGroup');
-// edit group
-const editGroupDialog=$('#editGroupDialog'),
-      closeEditGroup=$('#closeEditGroup'),
-      cancelEditGroup=$('#cancelEditGroup'),
-      editGroupNameInput=$('#editGroupNameInput'),
-      saveGroupNameBtn=$('#saveGroupName'),
-      deleteGroupBtn=$('#deleteGroupBtn'),
-      exportGroupBtn=$('#exportGroupBtn');
 // ---- helpers ----
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
 const validHex=c=>/^(#[A-Fa-f0-9]{6}|#[A-Fa-f0-9]{3}|[A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(c);
@@ -194,7 +182,7 @@ const load=()=>{
     if(c)colorCards=JSON.parse(c);
     if(g)colorGroups=JSON.parse(g);
     if(!colorGroups.some(g=>g.id===DEFAULT_GROUP_ID)){
-        colorGroups.unshift({id:DEFAULT_GROUP_ID,name:'默认分组',createdAt:new Date().toISOString()});
+        colorGroups.unshift({id:DEFAULT_GROUP_ID,name:'默认分组'});
         save();
     }
     let validIds=new Set(colorGroups.map(g=>g.id));
@@ -215,13 +203,75 @@ function renderGroups(){
         wrap.className='color-group';
         wrap.dataset.groupId=g.id;
         let head=document.createElement('div');
-        head.innerHTML=g.name;
+        let display=document.createElement('span');
+        display.textContent=g.name;
+        display.dataset.gid=g.id;
+        let input=document.createElement('input');
+        input.type='text';
+        input.value=g.name;
+        input.dataset.gid=g.id;
+        input.maxLength=10;
+        input.style.display='none';
+        let actions=document.createElement('div');
+        let exportBtn=document.createElement('button');
+        exportBtn.className='fa fa-download';
+        exportBtn.dataset.gid=g.id;
+        let delBtn=document.createElement('button');
+        delBtn.className='fa fa-trash';
+        delBtn.dataset.gid=g.id;
+        if(g.id===DEFAULT_GROUP_ID){delBtn.style.display='none';}
+        actions.appendChild(exportBtn);
+        actions.appendChild(delBtn);
+        head.appendChild(display);
+        head.appendChild(input);
+        head.appendChild(actions);
         let body=document.createElement('div');
         body.dataset.groupId=g.id;
         let cols=colorCards.filter(c=>c.groupId===g.id);
         if(cols.length){cols.forEach(c=>body.appendChild(createCardEl(c)));}
         wrap.appendChild(head);wrap.appendChild(body);
         groupsContainer.appendChild(wrap);
+        let isEditing=false;
+        const startEdit=()=>{
+            if(isEditing)return;
+            isEditing=true;
+            display.style.display='none';
+            input.style.display='inline-block';
+            input.value=g.name;
+            input.focus();
+        };
+        const finishEdit=(saveName=true)=>{
+            if(!isEditing)return;
+            isEditing=false;
+            let newName=saveName?input.value.trim():g.name;
+            if(saveName&&newName&&newName!==g.name){
+                g.name=newName;
+                display.textContent=newName;
+                save();
+                toast('已更新');
+            }else if(saveName&&!newName){
+                toast('名称不能为空');
+                display.textContent=g.name;
+                input.value=g.name;
+            }else{
+                display.textContent=g.name;
+                input.value=g.name;
+            }
+            display.style.display='inline-block';
+            input.style.display='none';
+            renderGroups();
+        };
+        display.addEventListener('click',startEdit);
+        input.addEventListener('blur',()=>finishEdit(true));
+        input.addEventListener('keydown',e=>{
+            if(e.key==='Enter'){e.preventDefault();input.blur();}
+            if(e.key==='Escape'){e.preventDefault();finishEdit(false);}
+        });
+        // export
+        exportBtn.addEventListener('click',e=>{e.stopPropagation();exportGroupFn(g.id);});
+        // delete
+        delBtn.addEventListener('click',e=>{e.stopPropagation();deleteGroupFlow(g.id);});
+        // drag drop
         body.addEventListener('dragover',e=>{e.preventDefault();body.classList.add('drag-over');});
         body.addEventListener('dragleave',()=>body.classList.remove('drag-over'));
         body.addEventListener('drop',e=>{e.preventDefault();body.classList.remove('drag-over');if(draggedColorId){moveColor(draggedColorId,g.id);draggedColorId=null;}});
@@ -268,7 +318,7 @@ function saveColorNameFn(){
 function createGroupFn(){
     let name=groupNameInput.value.trim();
     if(!name){toast('请输入分组名称');return;}
-    let g={id:uid(),name:name,createdAt:new Date().toISOString()};
+    let g={id:uid(),name:name};
     colorGroups.push(g);
     let inputs=initialColorsContainer.querySelectorAll('.initial-color-input');
     let valid=[];
@@ -277,7 +327,7 @@ function createGroupFn(){
         let nm=inp.querySelector('.color-name-input')?.value.trim();
         if(cv&&validHex(cv))valid.push({color:normHex(cv),name:nm||''});
     });
-    valid.forEach(v=>{colorCards.push({id:uid(),color:v.color,name:v.name,groupId:g.id,createdAt:new Date().toISOString()});});
+    valid.forEach(v=>{colorCards.push({id:uid(),color:v.color,name:v.name,groupId:g.id});});
     save();
     renderGroups();
     groupNameInput.value='';
@@ -285,40 +335,18 @@ function createGroupFn(){
     closeDialog(createGroupDialog);
     toast('分组创建成功');
 }
-// ---- edit group ----
-function openEditGroup(gid){
-    let g=colorGroups.find(x=>x.id===gid);
-    if(!g){toast('未找到分组');return;}
-    currentEditingGroupId=gid;
-    editGroupNameInput.value=g.name;
-    openDialog(editGroupDialog);
-    editGroupNameInput.focus();
-    deleteGroupBtn.style.display=gid===DEFAULT_GROUP_ID?'none':'inline-block';
-}
-function saveGroupNameFn(){
-    if(!currentEditingGroupId)return;
-    let g=colorGroups.find(x=>x.id===currentEditingGroupId);
-    if(!g)return;
-    let n=editGroupNameInput.value.trim();
-    if(!n){toast('请输入名称');return;}
-    g.name=n;
-    save();
-    renderGroups();
-    closeDialog(editGroupDialog);
-    toast('已更新');
-}
-function deleteGroupFlow(){
-    if(!currentEditingGroupId||currentEditingGroupId===DEFAULT_GROUP_ID){toast('默认分组不可删除');return;}
-    let gid=currentEditingGroupId;
+// ---- group actions ----
+function deleteGroupFlow(gid){
+    if(!gid||gid===DEFAULT_GROUP_ID){toast('默认分组不可删除');return;}
+    if(!confirm(`确定要删除分组「${colorGroups.find(g=>g.id===gid)?.name}」及其所有色卡吗？`))return;
     colorCards=colorCards.filter(c=>c.groupId!==gid);
     colorGroups=colorGroups.filter(g=>g.id!==gid);
-    currentEditingGroupId=null;
-    save();renderGroups();closeDialog(editGroupDialog);
+    save();renderGroups();
     toast('分组已删除');
 }
-function exportGroupFn(){
-    if(!currentEditingGroupId){toast('请先选择分组');return;}
-    let g=colorGroups.find(x=>x.id===currentEditingGroupId);if(!g)return;
+function exportGroupFn(gid){
+    if(!gid){toast('请选择分组');return;}
+    let g=colorGroups.find(x=>x.id===gid);if(!g)return;
     let cols=colorCards.filter(c=>c.groupId===g.id);
     if(!cols.length){toast('该分组无颜色可导出');return;}
     let html=`<!DOCTYPE html><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${g.name}</title><style>body{padding:16px;font-family:sans-serif;display:flex;flex-wrap:wrap;gap:16px;justify-content:center}div{width:110px;height:110px;border-radius:16px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 2px 8px #0001}b,p{margin:0;padding:0}p{font-size:13px;opacity:0.8}</style>`;
@@ -364,24 +392,21 @@ function toggleDeleteMode(){
 // ---- init ----
 function init(){
     load();loadTheme();renderGroups();
-    // events
     createColorBtn.addEventListener('click',()=>{
         let v=colorInput.value.trim().toLowerCase();
         if(!validHex(v)){toast('请输入有效16进制颜色');return;}
         let n=normHex(v);
         if(colorCards.some(c=>c.color===n)){toast('颜色已存在');return;}
-        colorCards.push({id:uid(),color:n,name:'',groupId:DEFAULT_GROUP_ID,createdAt:new Date().toISOString()});
+        colorCards.push({id:uid(),color:n,name:'',groupId:DEFAULT_GROUP_ID});
         save();renderGroups();colorInput.value='';toast('色卡已创建');
     });
     colorInput.addEventListener('keypress',e=>{if(e.key==='Enter')createColorBtn.click();});
     createGroupBtn.addEventListener('click',()=>{openDialog(createGroupDialog);});
     deleteBtn.addEventListener('click',toggleDeleteMode);
     themeToggle.addEventListener('click',toggleTheme);
-    // color info
     cancelColorInfo.addEventListener('click',()=>closeDialog(colorInfoDialog));
     saveColorNameBtn.addEventListener('click',saveColorNameFn);
     document.querySelectorAll('#colorInfoDialog p').forEach(b=>b.addEventListener('click',function(){copy(b.textContent)}));
-    // create group
     cancelCreateGroup.addEventListener('click',()=>closeDialog(createGroupDialog));
     confirmCreateGroup.addEventListener('click',createGroupFn);
     addInitialColorBtn.addEventListener('click',()=>{
@@ -389,19 +414,6 @@ function init(){
         d.innerHTML='<input type="text" class="color-code-input" placeholder="颜色值"><input type="text" class="color-name-input" placeholder="名称（可选）">';
         initialColorsContainer.appendChild(d);d.querySelector('.color-code-input').focus();
     });
-    // edit group
-    cancelEditGroup.addEventListener('click',()=>{closeDialog(editGroupDialog);currentEditingGroupId=null;});
-    saveGroupNameBtn.addEventListener('click',saveGroupNameFn);
-    deleteGroupBtn.addEventListener('click',deleteGroupFlow);
-    exportGroupBtn.addEventListener('click',exportGroupFn);
-    // group edit trigger (delegation)
-    groupsContainer.addEventListener('click',e=>{
-        let btn=e.target.closest('[data-action="editGroup"]');
-        if(btn){e.preventDefault();let gid=btn.dataset.gid;if(gid)openEditGroup(gid);}
-        let head=e.target.closest('.color-group>div:first-child');
-        if(head&&!e.target.closest('button')){let gid=head.parentElement?.dataset.groupId;if(gid)openEditGroup(gid);}
-    });
-    // close dialogs on backdrop click
     document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',function(e){if(e.target===this)this.close();}));
 }
 document.addEventListener('DOMContentLoaded',init);
