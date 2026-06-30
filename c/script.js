@@ -344,7 +344,7 @@ window.addEventListener('DOMContentLoaded',function(){
     handleRoute();
 });
 //文本复制
-document.querySelectorAll(".writing").forEach((e)=>{
+document.querySelectorAll("m-writing").forEach((e)=>{
     const ele=document.createElement("button");
     ele.className="fa fa-clone";
     e.prepend(ele);
