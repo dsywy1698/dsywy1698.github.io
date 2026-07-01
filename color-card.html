@@ -6,8 +6,8 @@
 <title>色卡</title>
 <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <style>
-:root{--bg:#f5f7fa;--text:#1f2937;--primary:#4f46e5;--transition:0.2s ease;}
-[data-theme="dark"]{--bg:#0d1117;--text:#e6edf3;--primary:#6366f1;}
+:root{--bg:#f5f7fa;--text:#1f2937;--transition:0.2s;}
+[data-theme="dark"]{--bg:#0d1117;--text:#e6edf3;}
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Roboto,sans-serif;}
 body{
     background:var(--bg);color:var(--text);
@@ -19,16 +19,14 @@ input,textarea{
     border:none;outline:none;transition:var(--transition);
     background:hsl(from var(--text) h s l / 0.1);color:var(--text);
     &::placeholder{color:hsl(from var(--text) h s l / 0.5)}
-    &:focus{box-shadow:0 0 0 2px hsl(from var(--primary) h s l / 0.2);}
 }
 button{border:none;cursor:pointer;transition:var(--transition);background:transparent;}
 nav{
-    box-shadow:0 1px 5px hsl(from var(--text) h s l / 0.2);
-    background:hsl(from var(--text) h s l / 0.2);
+    background:color-mix(in srgb,var(--text) 20%,var(--bg) 30%);
     backdrop-filter:blur(12px);border-radius:40px;
     position:fixed;z-index:1;top:12px;right:12px;
     height:46px;padding:7px;display:flex;
-    >input{width:100px;height:32px;}
+    >input{width:90px;height:32px;margin-right:4px;}
     >button{
         width:32px;height:32px;font-size:14px;border-radius:30px;color:var(--text);
         &:hover{background:hsl(from var(--text) h s l / 0.1);}
@@ -41,7 +39,6 @@ main{max-width:900px;margin:0 auto;padding:0;}
         margin:8px;padding:8px 20px 8px 10px;border-radius:25px;
         transition:var(--transition);height:50px;font-weight:600;
         display:flex;align-items:center;justify-content:space-between;
-        &:hover{background:hsl(from var(--text) h s l / 0.1);}
         >input{font-size:inherit;font-weight:600;border-radius:20px;width:120px;height:34px;padding:0 0 0 10px;}
         >span{cursor:text;padding-left:10px;}
         button{
@@ -53,56 +50,55 @@ main{max-width:900px;margin:0 auto;padding:0;}
         margin:8px;padding:18px 20px;border-radius:20px;
         display:flex;flex-wrap:wrap;justify-content:center;
         min-height:90px;gap:16px;transition:var(--transition);
-        &.drag-over{background:hsl(from var(--primary) h s l / 0.1);}
+        &.drag-over{background:hsl(from var(--text) h s l / 0.05);}
     }
 }
 .color-card{
     width:150px;height:130px;border-radius:16px;
-    padding:16px;font-weight:600;cursor:pointer;
+    padding:12px;font-weight:600;cursor:pointer;
     display:flex;flex-direction:column;justify-content:space-between;
-    &.selected{outline:2px dashed var(--primary);}
-    >div:last-child{font-size:13px;opacity:0.8;font-weight:400;}
+    &.selected{outline:2px dashed #4346ef;}
+    >*{padding:4px;margin:0;}
+    >.color-name{cursor:text;font-size:16px;}
+    >input{
+        font-size:16px;font-weight:600;
+        outline:1px dashed #4346ef;color:inherit;background:#0000;
+    }
+    >.color-value{font-size:13px;opacity:0.8;font-weight:400;cursor:pointer;}
 }
 dialog{
-    transform:translate(-50%,-50%);transition:var(--transition);
-    background:hsl(from var(--bg) h s l / 0.8);color:var(--text);
+    transform:translate(-50%,-50%);transition:var(--transition);color:var(--text);
+    background:color-mix(in srgb,var(--text) 10%,var(--bg) 70%);
     width:clamp(200px,80%,600px);backdrop-filter:blur(8px);opacity:1;
     border:none;border-radius:20px;padding:28px 32px;top:50%;left:50%;
     @starting-style{opacity:0;}
     &::backdrop{
-        background:#0002;backdrop-filter:blur(4px);transition:var(--transition);
+        background:#0002;backdrop-filter:blur(2px);transition:var(--transition);
         @starting-style{background:#0000;backdrop-filter:blur(0);}
     }
-    h3{margin-bottom:18px;font-size:20px;}
-    >div:last-child{
-        margin-top:12px;gap:10px;display:flex;
-        justify-content:flex-end;flex-wrap:wrap;
-        >button{
-            border-radius:30px;font-size:14px;padding:8px 18px;
-            background:hsl(from var(--text) h s l / 0.1);color:var(--text);
-            &:hover{filter:brightness(1.1);}
-            &.primary{background:hsl(from var(--primary) h s l / 0.6)}
-            &.danger{background:#f8717188}
-        }
+    h3{
+        margin-bottom:18px;font-size:20px;
+        >span{float:right;opacity:0.6;user-select:none;&:hover{opacity:0.8;}}
+    }
+    >button{
+        border-radius:30px;font-size:14px;padding:8px 18px;
+        background:#4346ef60;color:var(--text);width:100%;
+        &:hover{background:#4346ef80;}
     }
     input{width:100%;}
     textarea{
-        width:100%;height:120px;padding:12px 14px;margin-top:8px;
+        width:100%;height:120px;padding:12px 14px;margin:8px 0;
         font-family:consolas;resize:none;scrollbar-width:none;
         border-radius:16px;line-height:1.7;
     }
 }
-.color-value{
-    background:hsl(from var(--bg) h s l / 0.1);margin-bottom:12px;padding:8px 12px;border-radius:20px;
-    >p{text-align:center;font-family:consolas;cursor:pointer;}
-}
 #toastContainer{
-    background:hsl(from var(--text) h s l / 0.2);color:var(--text);padding:10px 20px;
-    position:fixed;bottom:24px;right:24px;transform:none;border-radius:12px;
-    width:auto;top:initial;left:initial;transition:var(--transition);
+    background:color-mix(in srgb,var(--text) 20%,var(--bg) 30%);border-radius:12px;
+    position:fixed;bottom:24px;right:24px;transform:none;padding:10px 20px;
+    width:auto;top:initial;left:initial;transition:var(--transition);color:var(--text);
 }
 @media(width<=400px){.color-group>div:last-child{gap:8px;padding:16px 8px;}}
-@media(width<=360px){.color-card{width:120px;height:120px;}nav{left:12px;justify-content:space-around;}}
+@media(width<=360px){.color-card{width:120px;height:120px;}}
 </style>
 </head>
 <body>
@@ -114,29 +110,18 @@ dialog{
     <button class="fa fa-moon-o" id="themeToggle"></button>
 </nav>
 <main id="groupsContainer"></main>
-<dialog id="colorInfoDialog">
-    <h3>颜色信息</h3>
-    <div class="color-value"><p id="modalHex"></p><p id="modalRgb"></p><p id="modalHsl"></p></div>
-    <input type="text" id="modalColorName" placeholder="名称">
-    <div>
-        <button id="cancelColorInfo">取消</button>
-        <button id="saveColorName" class="primary">保存</button>
-    </div>
-</dialog>
 <dialog id="createGroupDialog">
-    <h3>新建分组</h3>
+    <h3>新建分组<span id="cancelCreateGroup">&times;</span></h3>
     <input type="text" id="groupNameInput" placeholder="分组名称" maxlength="10">
-    <textarea id="initialColorsTextarea" placeholder="格式：颜色值 颜色名（可选）&#10;每行一个颜色&#10;示例：#ffffff 白色"></textarea>
-    <div>
-        <button id="cancelCreateGroup">取消</button>
-        <button id="confirmCreateGroup" class="primary">创建</button>
-    </div>
+    <textarea id="initialColorsTextarea" placeholder="初始颜色（每行一个）&#10;格式：颜色值 颜色名"></textarea>
+    <button id="confirmCreateGroup" class="primary">创建</button>
 </dialog>
 <dialog id="toastContainer"></dialog>
 <script>
 // ---- 数据 ----
 let colorCards=[],colorGroups=[],selectedColorIds=new Set(),isDeleteMode=false;
 let currentEditingColorId=currentEditingGroupId=draggedColorId=null;
+let colorDisplayMode='hex';
 const DEFAULT_GROUP_ID='__default__';
 // ---- DOM refs ----
 const $=s=>document.querySelector(s),
@@ -148,14 +133,6 @@ const colorInput=$('#colorInput'),
       groupsContainer=$('#groupsContainer'),
       toastContainer=$('#toastContainer'),
       themeToggle=$('#themeToggle');
-// color info
-const colorInfoDialog=$('#colorInfoDialog'),
-      cancelColorInfo=$('#cancelColorInfo'),
-      modalHex=$('#modalHex'),
-      modalRgb=$('#modalRgb'),
-      modalHsl=$('#modalHsl'),
-      modalColorName=$('#modalColorName'),
-      saveColorNameBtn=$('#saveColorName');
 // create group
 const createGroupDialog=$('#createGroupDialog'),
       cancelCreateGroup=$('#cancelCreateGroup'),
@@ -169,6 +146,12 @@ const normHex=c=>{if(!c.startsWith('#'))c='#'+c;if(c.length===4)return '#'+c[1]+
 const hex2rgb=h=>{h=h.replace('#','');let n=parseInt(h,16);return{r:(n>>16)&255,g:(n>>8)&255,b:n&255};};
 const rgb2hsl=(r,g,b)=>{r/=255;g/=255;b/=255;let M=Math.max(r,g,b),m=Math.min(r,g,b),d=M-m,h,s,l=(M+m)/2;if(d===0)h=s=0;else{s=l>0.5?d/(2-M-m):d/(M+m);switch(M){case r:h=(g-b)/d+(g<b?6:0);break;case g:h=(b-r)/d+2;break;case b:h=(r-g)/d+4;}h/=6;}return{h:h*360,s:s*100,l:l*100};};
 const contrast=c=>{let r=hex2rgb(c);return(r.r*299+r.g*587+r.b*114)/1000>128?'#000':'#fff';};
+const formatColor=(c,mode)=>{
+    let rgb=hex2rgb(c);
+    if(mode==='rgb')return `rgb(${rgb.r},${rgb.g},${rgb.b})`;
+    if(mode==='hsl'){let hsl=rgb2hsl(rgb.r,rgb.g,rgb.b);return `hsl(${Math.round(hsl.h)},${Math.round(hsl.s)}%,${Math.round(hsl.l)}%)`;}
+    return c;
+};
 const save=()=>{localStorage.setItem('colorCards',JSON.stringify(colorCards));localStorage.setItem('colorGroups',JSON.stringify(colorGroups));};
 const load=()=>{
     let c=localStorage.getItem('colorCards'),
@@ -197,7 +180,8 @@ function renderGroups(){
         let cardsHtml=cols.map(c=>{
             let cls='color-card'+(selectedColorIds.has(c.id)?' selected':'');
             let tc=contrast(c.color);
-            return `<div class="${cls}" style="background:${c.color};color:${tc}" data-color-id="${c.id}"><div>${c.name||'色卡'}</div><div>${c.color}</div></div>`;
+            let displayVal=formatColor(c.color,colorDisplayMode);
+            return `<div class="${cls}" style="background:${c.color};color:${tc}" data-color-id="${c.id}"><div class="color-name" data-cid="${c.id}">${c.name||'色卡'}</div><input type="text" value="${g.name}" data-gid="${g.id}" maxlength="10" style="display:none"><div class="color-value" data-cid="${c.id}">${displayVal}</div></div>`;
         }).join('');
         let delDisplay=g.id===DEFAULT_GROUP_ID?'none':'';
         html+=`
@@ -263,20 +247,69 @@ function renderGroups(){
             if(e.key==='Enter'){e.preventDefault();input.blur();}
             if(e.key==='Escape'){e.preventDefault();finishEdit(false);}
         });
-        // copy group
         copyBtn.addEventListener('click',e=>{e.stopPropagation();copyGroup(g.id);});
-        // export
         exportBtn.addEventListener('click',e=>{e.stopPropagation();exportGroupFn(g.id);});
-        // delete
         delBtn.addEventListener('click',e=>{e.stopPropagation();deleteGroupFlow(g.id);});
-        // drag drop
         body.addEventListener('dragover',e=>{e.preventDefault();body.classList.add('drag-over');});
         body.addEventListener('dragleave',()=>body.classList.remove('drag-over'));
         body.addEventListener('drop',e=>{e.preventDefault();body.classList.remove('drag-over');if(draggedColorId){moveColor(draggedColorId,g.id);draggedColorId=null;}});
-        // 色卡点击
         body.querySelectorAll('.color-card').forEach(el=>{
             let cid=el.dataset.colorId;
-            el.addEventListener('click',()=>{isDeleteMode?toggleSelect(cid):openColorInfo(cid);});
+            let nameEl=el.querySelector('.color-name');
+            let valEl=el.querySelector('.color-value');
+            let nameInput=el.querySelector('input');
+            let c=colorCards.find(x=>x.id===cid);
+            let isNameEditing=false;
+            el.addEventListener('click',(e)=>{
+                if(e.target.classList.contains('color-name')||e.target.classList.contains('color-value'))return;
+                copy(valEl.textContent);
+                isDeleteMode?toggleSelect(cid):null;
+            });
+            const startNameEdit=()=>{
+                if(isNameEditing)return;
+                isNameEditing=true;
+                nameEl.style.display='none';
+                nameInput.style.display='block';
+                nameInput.value=c.name;
+                nameInput.focus();
+            };
+            const finishNameEdit=(saveColorName=true)=>{
+                if(!isNameEditing)return;
+                isNameEditing=false;
+                let newColorName=saveColorName?nameInput.value.trim():c.name;
+                if(saveColorName&&newColorName&&newColorName!==c.name){
+                    c.name=newColorName;
+                    nameEl.textContent=newColorName;
+                    save();
+                    toast('已更新');
+                }else if(saveColorName&&!newColorName){
+                    toast('名称不能为空');
+                    nameEl.textContent=c.name;
+                    nameInput.value=c.name;
+                }else{
+                    nameEl.textContent=c.name;
+                    nameInput.value=c.name;
+                }
+                nameEl.style.display='block';
+                nameInput.style.display='none';
+                renderGroups();
+            };
+            nameEl.addEventListener('click',startNameEdit);
+            nameInput.addEventListener('blur',()=>finishNameEdit(true));
+            nameInput.addEventListener('keydown',e=>{
+                if(e.key==='Enter'){e.preventDefault();nameInput.blur();}
+                if(e.key==='Escape'){e.preventDefault();finishNameEdit(false);}
+            });
+            // 颜色值点击切换模式
+            valEl.addEventListener('click',(e)=>{
+                e.stopPropagation();
+                if(isDeleteMode)return;
+                let modes=['hex','rgb','hsl'];
+                let idx=modes.indexOf(colorDisplayMode);
+                colorDisplayMode=modes[(idx+1)%modes.length];
+                renderGroups();
+                toast(`显示模式: ${colorDisplayMode.toUpperCase()}`);
+            });
             el.draggable=true;
             el.addEventListener('dragstart',e=>{draggedColorId=cid;e.dataTransfer.setData('text/plain',cid);});
         });
@@ -287,26 +320,6 @@ function moveColor(cid,gid){let c=colorCards.find(x=>x.id===cid);if(c){c.groupId
 // ---- modals helpers ----
 function openDialog(d){d.showModal();}
 function closeDialog(d){d.close();}
-// ---- color info ----
-function openColorInfo(id){
-    let c=colorCards.find(x=>x.id===id);
-    if(!c)return;
-    currentEditingColorId=id;
-    colorInfoDialog.style.background=`linear-gradient(to bottom,${c.color}e0,${c.color}80)`;
-    colorInfoDialog.style.color=contrast(c.color);
-    modalHex.textContent=c.color;
-    let rgb=hex2rgb(c.color);
-    modalRgb.textContent=`rgb(${rgb.r},${rgb.g},${rgb.b})`;
-    let hsl=rgb2hsl(rgb.r,rgb.g,rgb.b);
-    modalHsl.textContent=`hsl(${Math.round(hsl.h)},${Math.round(hsl.s)}%,${Math.round(hsl.l)}%)`;
-    modalColorName.value=c.name||'';
-    openDialog(colorInfoDialog);
-}
-function saveColorNameFn(){
-    if(!currentEditingColorId)return;
-    let c=colorCards.find(x=>x.id===currentEditingColorId);
-    if(c){c.name=modalColorName.value.trim();save();renderGroups();closeDialog(colorInfoDialog);toast('名称已保存');}
-}
 // ---- parse batch colors ----
 function parseBatchColors(text){
     let lines=text.split('\n').map(l=>l.trim()).filter(l=>l);
@@ -349,7 +362,7 @@ function copyGroup(gid){
     let cols=colorCards.filter(c=>c.groupId===gid);
     if(!cols.length){toast('分组为空，无法复制');return;}
     let text=cols.map(c=>`${c.color}${c.name?' '+c.name:''}`).join('\n');
-    navigator.clipboard.writeText(text).then(()=>toast('已复制')).catch(()=>toast('复制失败'));
+    copy(text);
 }
 // ---- group actions ----
 function deleteGroupFlow(gid){
@@ -419,9 +432,6 @@ function init(){
     createGroupBtn.addEventListener('click',()=>{openDialog(createGroupDialog);});
     deleteBtn.addEventListener('click',toggleDeleteMode);
     themeToggle.addEventListener('click',toggleTheme);
-    cancelColorInfo.addEventListener('click',()=>closeDialog(colorInfoDialog));
-    saveColorNameBtn.addEventListener('click',saveColorNameFn);
-    document.querySelectorAll('#colorInfoDialog p').forEach(b=>b.addEventListener('click',function(){copy(b.textContent)}));
     cancelCreateGroup.addEventListener('click',()=>closeDialog(createGroupDialog));
     confirmCreateGroup.addEventListener('click',createGroupFn);
     document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',function(e){if(e.target===this)this.close();}));
@@ -430,4 +440,3 @@ document.addEventListener('DOMContentLoaded',init);
 </script>
 </body>
 </html>
-```
