@@ -8,62 +8,50 @@
 <style>
 :root{--bg:#f5f7fa;--text:#1f2937;--transition:0.2s;}
 [data-theme="dark"]{--bg:#0d1117;--text:#e6edf3;}
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Roboto,sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:consolas,'Segoe UI',Roboto,sans-serif;}
 body{
-    background:var(--bg);color:var(--text);
-    min-height:100vh;padding-top:60px;line-height:1.5;
-    transition:background var(--transition),color var(--transition);
+    background:var(--bg);color:var(--text);min-height:100vh;padding-top:60px;
+    transition:background var(--transition),color var(--transition);line-height:1.5;
 }
 input,textarea{
-    font-size:14px;padding:8px 14px;border-radius:20px;
-    border:none;outline:none;transition:var(--transition);
-    background:hsl(from var(--text) h s l / 0.1);color:var(--text);
+    border:none;outline:none;transition:var(--transition);font-size:14px;padding:8px 14px;
+    background:hsl(from var(--text) h s l / 0.1);color:var(--text);border-radius:20px;
     &::placeholder{color:hsl(from var(--text) h s l / 0.5)}
 }
-button{border:none;cursor:pointer;transition:var(--transition);background:transparent;}
+button{
+    border:none;cursor:pointer;transition:var(--transition);background:#0000;
+    color:var(--text);font-size:14px;border-radius:30px;&:hover{opacity:0.8;}
+}
 nav{
     background:color-mix(in srgb,var(--text) 20%,var(--bg) 30%);
-    backdrop-filter:blur(12px);border-radius:40px;
-    position:fixed;z-index:1;top:12px;right:12px;
-    height:46px;padding:7px;display:flex;
+    backdrop-filter:blur(12px);border-radius:40px;display:flex;
+    position:fixed;z-index:1;top:12px;right:12px;padding:7px;height:46px;
     >input{width:90px;height:32px;margin-right:4px;}
-    >button{
-        width:32px;height:32px;font-size:14px;border-radius:30px;color:var(--text);
-        &:hover{background:hsl(from var(--text) h s l / 0.1);}
-    }
+    >button{width:32px;height:32px;}
 }
-main{max-width:900px;margin:0 auto;padding:0;}
+main{max-width:900px;margin:0 auto;}
 .color-group{
     >div:first-child{
-        background:hsl(from var(--text) h s l / 0.05);gap:10px;
-        margin:8px;padding:8px 20px 8px 10px;border-radius:25px;
-        transition:var(--transition);height:50px;font-weight:600;
-        display:flex;align-items:center;justify-content:space-between;
-        >input{font-size:inherit;font-weight:600;border-radius:20px;width:120px;height:34px;padding:0 0 0 10px;}
+        padding:8px 20px 8px 10px;border-radius:25px;height:50px;font-weight:600;
+        background:hsl(from var(--text) h s l / 0.05);transition:var(--transition);
+        display:flex;align-items:center;justify-content:space-between;gap:10px;margin:8px;
+        >input{font-size:inherit;font-weight:600;width:120px;height:34px;padding:0 0 0 10px;}
         >span{cursor:text;padding-left:10px;}
-        button{
-            width:34px;height:34px;font-size:14px;color:var(--text);
-            &:hover{opacity:0.8;}&[class="fa fa-trash"]{color:#f8717180;}
-        }
+        button{width:34px;height:34px;&[class="fa fa-trash"]{color:#f8717180;}}
     }
     >div:last-child{
-        margin:8px;padding:18px 20px;border-radius:20px;
-        display:flex;flex-wrap:wrap;justify-content:center;
-        min-height:90px;gap:16px;transition:var(--transition);
+        margin:8px;padding:18px 20px;border-radius:20px;display:flex;flex-wrap:wrap;
+        min-height:90px;gap:16px;transition:var(--transition);justify-content:center;
         &.drag-over{background:hsl(from var(--text) h s l / 0.05);}
     }
 }
 .color-card{
-    width:150px;height:130px;border-radius:16px;
-    padding:12px;font-weight:600;cursor:pointer;
-    display:flex;flex-direction:column;justify-content:space-between;
+    width:150px;height:130px;border-radius:16px;font-weight:600;cursor:pointer;
+    display:flex;flex-direction:column;justify-content:space-between;padding:12px;
     &.selected{outline:2px dashed #4346ef;}
     >*{padding:4px;margin:0;}
     >.color-name{cursor:text;font-size:16px;}
-    >input{
-        font-size:16px;font-weight:600;
-        outline:1px dashed #4346ef;color:inherit;background:#0000;
-    }
+    >input{font-size:16px;font-weight:600;color:inherit;background:hsl(from currentColor h s l / 0.2);}
     >.color-value{font-size:13px;opacity:0.8;font-weight:400;cursor:pointer;}
 }
 dialog{
@@ -73,29 +61,17 @@ dialog{
     border:none;border-radius:20px;padding:28px 32px;top:50%;left:50%;
     @starting-style{opacity:0;}
     &::backdrop{
-        background:#0002;backdrop-filter:blur(2px);transition:var(--transition);
+        background:#0002;backdrop-filter:blur(1px);transition:var(--transition);
         @starting-style{background:#0000;backdrop-filter:blur(0);}
     }
-    h3{
-        margin-bottom:18px;font-size:20px;
-        >span{float:right;opacity:0.6;user-select:none;&:hover{opacity:0.8;}}
-    }
-    >button{
-        border-radius:30px;font-size:14px;padding:8px 18px;
-        background:#4346ef60;color:var(--text);width:100%;
-        &:hover{background:#4346ef80;}
-    }
-    input{width:100%;}
-    textarea{
-        width:100%;height:120px;padding:12px 14px;margin:8px 0;
-        font-family:consolas;resize:none;scrollbar-width:none;
-        border-radius:16px;line-height:1.7;
-    }
+    >*{width:100%;margin:4px 0;}
+    >h3{font-size:20px;>span{float:right;opacity:0.6;user-select:none;&:hover{opacity:0.8;}}}
+    >textarea{height:120px;resize:none;scrollbar-width:none;line-height:1.7;}
+    >button{padding:8px 18px;background:#4346ef60;}
 }
-#toastContainer{
-    background:color-mix(in srgb,var(--text) 20%,var(--bg) 30%);border-radius:12px;
-    position:fixed;bottom:24px;right:24px;transform:none;padding:10px 20px;
-    width:auto;top:initial;left:initial;transition:var(--transition);color:var(--text);
+#toastContainer.active{
+    background:color-mix(in srgb,var(--text) 20%,var(--bg) 30%);position:fixed;bottom:24px;right:24px;
+    border-radius:12px;backdrop-filter:blur(3px);color:var(--text);padding:10px 20px;width:auto;
 }
 @media(width<=400px){.color-group>div:last-child{gap:8px;padding:16px 8px;}}
 @media(width<=360px){.color-card{width:120px;height:120px;}}
@@ -105,18 +81,18 @@ dialog{
 <nav>
     <input type="text" placeholder="新颜色" maxlength="7" id="colorInput">
     <button class="fa fa-plus" id="createColorBtn"></button>
-    <button class="fa fa-folder" id="createGroupBtn"></button>
+    <button class="fa fa-folder" onclick="document.querySelector('dialog').showModal()"></button>
     <button class="fa fa-trash" id="deleteBtn"></button>
     <button class="fa fa-moon-o" id="themeToggle"></button>
 </nav>
-<main id="groupsContainer"></main>
-<dialog id="createGroupDialog">
-    <h3>新建分组<span id="cancelCreateGroup">&times;</span></h3>
-    <input type="text" id="groupNameInput" placeholder="分组名称" maxlength="10">
+<main></main>
+<dialog>
+    <h3>新建分组<span onclick="document.querySelector('dialog').close()">&times;</span></h3>
+    <input id="groupNameInput" placeholder="分组名称" maxlength="10">
     <textarea id="initialColorsTextarea" placeholder="初始颜色（每行一个）&#10;格式：颜色值 颜色名"></textarea>
-    <button id="confirmCreateGroup" class="primary">创建</button>
+    <button id="confirmCreateGroup">创建</button>
 </dialog>
-<dialog id="toastContainer"></dialog>
+<div id="toastContainer"></div>
 <script>
 // ---- 数据 ----
 let colorCards=[],colorGroups=[],selectedColorIds=new Set(),isDeleteMode=false;
@@ -130,13 +106,11 @@ const colorInput=$('#colorInput'),
       createColorBtn=$('#createColorBtn'),
       createGroupBtn=$('#createGroupBtn'),
       deleteBtn=$('#deleteBtn'),
-      groupsContainer=$('#groupsContainer'),
+      groupsContainer=$('main'),
       toastContainer=$('#toastContainer'),
       themeToggle=$('#themeToggle');
 // create group
-const createGroupDialog=$('#createGroupDialog'),
-      cancelCreateGroup=$('#cancelCreateGroup'),
-      groupNameInput=$('#groupNameInput'),
+const groupNameInput=$('#groupNameInput'),
       initialColorsTextarea=$('#initialColorsTextarea'),
       confirmCreateGroup=$('#confirmCreateGroup');
 // ---- helpers ----
@@ -166,11 +140,11 @@ const load=()=>{
     colorCards.forEach(c=>{if(!c.groupId||!validIds.has(c.groupId))c.groupId=DEFAULT_GROUP_ID;});
 };
 const toast=(msg)=>{
-    toastContainer.show();
+    toastContainer.classList.add('active');
     toastContainer.innerHTML=msg;
-    setTimeout(()=>{toastContainer.close()},2000);
+    setTimeout(()=>{toastContainer.classList.remove('active')},2000);
 };
-const copy=(t)=>{navigator.clipboard.writeText(t).then(()=>toast('已复制')).catch(()=>toast('复制失败'));};
+const copy=(t)=>{navigator.clipboard.writeText(t).then(()=>toast('已复制'))};
 // ---- render ----
 function renderGroups(){
     let html='';
@@ -181,7 +155,12 @@ function renderGroups(){
             let cls='color-card'+(selectedColorIds.has(c.id)?' selected':'');
             let tc=contrast(c.color);
             let displayVal=formatColor(c.color,colorDisplayMode);
-            return `<div class="${cls}" style="background:${c.color};color:${tc}" data-color-id="${c.id}"><div class="color-name" data-cid="${c.id}">${c.name||'色卡'}</div><input type="text" value="${g.name}" data-gid="${g.id}" maxlength="10" style="display:none"><div class="color-value" data-cid="${c.id}">${displayVal}</div></div>`;
+            return `
+<div class="${cls}" style="background:${c.color};color:${tc}" data-color-id="${c.id}">
+    <div class="color-name" data-cid="${c.id}">${c.name||'色卡'}</div>
+    <input value="${g.name}" data-gid="${g.id}" maxlength="10" style="display:none">
+    <div class="color-value" data-cid="${c.id}">${displayVal}</div>
+</div>`;
         }).join('');
         let delDisplay=g.id===DEFAULT_GROUP_ID?'none':'';
         html+=`
@@ -224,19 +203,9 @@ function renderGroups(){
             if(!isEditing)return;
             isEditing=false;
             let newName=saveName?input.value.trim():g.name;
-            if(saveName&&newName&&newName!==g.name){
-                g.name=newName;
-                display.textContent=newName;
-                save();
-                toast('已更新');
-            }else if(saveName&&!newName){
-                toast('名称不能为空');
-                display.textContent=g.name;
-                input.value=g.name;
-            }else{
-                display.textContent=g.name;
-                input.value=g.name;
-            }
+            if(saveName&&newName&&newName!==g.name){g.name=newName;display.textContent=newName;save();}
+            else if(saveName&&!newName){display.textContent=g.name;input.value=g.name;}
+            else{display.textContent=g.name;input.value=g.name;}
             display.style.display='inline-block';
             input.style.display='none';
             renderGroups();
@@ -277,19 +246,9 @@ function renderGroups(){
                 if(!isNameEditing)return;
                 isNameEditing=false;
                 let newColorName=saveColorName?nameInput.value.trim():c.name;
-                if(saveColorName&&newColorName&&newColorName!==c.name){
-                    c.name=newColorName;
-                    nameEl.textContent=newColorName;
-                    save();
-                    toast('已更新');
-                }else if(saveColorName&&!newColorName){
-                    toast('名称不能为空');
-                    nameEl.textContent=c.name;
-                    nameInput.value=c.name;
-                }else{
-                    nameEl.textContent=c.name;
-                    nameInput.value=c.name;
-                }
+                if(saveColorName&&newColorName&&newColorName!==c.name){c.name=newColorName;nameEl.textContent=newColorName;save();}
+                else if(saveColorName&&!newColorName){nameEl.textContent=c.name;nameInput.value=c.name;}
+                else{nameEl.textContent=c.name;nameInput.value=c.name;}
                 nameEl.style.display='block';
                 nameInput.style.display='none';
                 renderGroups();
@@ -300,7 +259,6 @@ function renderGroups(){
                 if(e.key==='Enter'){e.preventDefault();nameInput.blur();}
                 if(e.key==='Escape'){e.preventDefault();finishNameEdit(false);}
             });
-            // 颜色值点击切换模式
             valEl.addEventListener('click',(e)=>{
                 e.stopPropagation();
                 if(isDeleteMode)return;
@@ -308,7 +266,6 @@ function renderGroups(){
                 let idx=modes.indexOf(colorDisplayMode);
                 colorDisplayMode=modes[(idx+1)%modes.length];
                 renderGroups();
-                toast(`显示模式: ${colorDisplayMode.toUpperCase()}`);
             });
             el.draggable=true;
             el.addEventListener('dragstart',e=>{draggedColorId=cid;e.dataTransfer.setData('text/plain',cid);});
@@ -316,9 +273,8 @@ function renderGroups(){
     });
 }
 function toggleSelect(id){selectedColorIds.has(id)?selectedColorIds.delete(id):selectedColorIds.add(id);renderGroups();}
-function moveColor(cid,gid){let c=colorCards.find(x=>x.id===cid);if(c){c.groupId=gid;save();renderGroups();let gn=colorGroups.find(x=>x.id===gid)?.name||'分组';toast(`已移至 ${gn}`);}}
+function moveColor(cid,gid){let c=colorCards.find(x=>x.id===cid);if(c){c.groupId=gid;save();renderGroups();let gn=colorGroups.find(x=>x.id===gid)?.name||'分组';}}
 // ---- modals helpers ----
-function openDialog(d){d.showModal();}
 function closeDialog(d){d.close();}
 // ---- parse batch colors ----
 function parseBatchColors(text){
@@ -329,7 +285,7 @@ function parseBatchColors(text){
         let colorVal,name;
         if(parts){colorVal=parts[1].trim();name=parts[2].trim();}
         else{colorVal=line.trim();name='';}
-        if(!validHex(colorVal)){toast(`格式错误`);return null;}
+        if(!validHex(colorVal)){toast('格式错误');return null;}
         result.push({color:normHex(colorVal),name:name});
     }
     return result;
@@ -360,7 +316,7 @@ function copyGroup(gid){
     let g=colorGroups.find(x=>x.id===gid);
     if(!g)return;
     let cols=colorCards.filter(c=>c.groupId===gid);
-    if(!cols.length){toast('分组为空，无法复制');return;}
+    if(!cols.length){toast('分组无内容可复制');return;}
     let text=cols.map(c=>`${c.color}${c.name?' '+c.name:''}`).join('\n');
     copy(text);
 }
@@ -426,15 +382,13 @@ function init(){
         let n=normHex(v);
         if(colorCards.some(c=>c.color===n)){toast('颜色已存在');return;}
         colorCards.push({id:uid(),color:n,name:'',groupId:DEFAULT_GROUP_ID});
-        save();renderGroups();colorInput.value='';toast('色卡已创建');
+        save();renderGroups();colorInput.value='';
     });
     colorInput.addEventListener('keypress',e=>{if(e.key==='Enter')createColorBtn.click();});
-    createGroupBtn.addEventListener('click',()=>{openDialog(createGroupDialog);});
     deleteBtn.addEventListener('click',toggleDeleteMode);
     themeToggle.addEventListener('click',toggleTheme);
-    cancelCreateGroup.addEventListener('click',()=>closeDialog(createGroupDialog));
     confirmCreateGroup.addEventListener('click',createGroupFn);
-    document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',function(e){if(e.target===this)this.close();}));
+    document.querySelector('dialog').addEventListener('click',function(e){if(e.target===this)this.close();});
 }
 document.addEventListener('DOMContentLoaded',init);
 </script>
