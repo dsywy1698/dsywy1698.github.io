@@ -556,44 +556,36 @@ main{
                 text-wrap:nowrap;
             }
         }
-        >h-nick,>h-gantt{
+        >h-nick,>h-gantt,h-saying{
             display:block;
             padding:10px 15px;
             border-radius:var(--rm);
             background:hsl(from var(--header) calc(h - 10) calc(s - 20) l / 0.2);
             margin:10px 30px;
         }
-        >h-nick{
-            display:flex;
-            flex-direction:column;
+        >h-nick,>h-saying{
+            text-align:left;
             &::before{
-                position:relative;
-                content:"外号";
+                position:static;
                 display:block;
                 color:--mix(var(--header),var(--color));
-                background:hsl(from var(--header) calc(h - 30) calc(s - 20) l / 0.4);
-                top:-10px;
-                left:-15px;
-                width:120px;
-                border-radius:15px 0;
                 font-size:1.25rem;
                 padding:7px;
             }
-            >h1{
+            >p{
                 font-size:1.125rem;
                 background:hsl(from var(--header) calc(h - 30) calc(s - 20) l / 0.3);
-                padding:6px 1em;
-                width:160px;
-                border-radius:99px;
-                margin:10px 5px 0 5px;
-            }
-            >p{
-                font-size:0.875rem;
-                text-indent:2.3em;
-                text-align:left;
-                color:--txt(var(--header));
+                padding:4px 1em;
+                line-height:22px;
+                border-radius:15px;
+                margin:5px;
             }
         }
+        >h-nick{
+            &::before{content:"外号";}
+            >p{text-wrap:nowrap;}
+        }
+        >h-saying::before{content:"名言";}
         >h-gantt{
             position:relative;
             height:40px;

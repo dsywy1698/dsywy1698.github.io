@@ -87,19 +87,17 @@ dialog{
 </nav>
 <main></main>
 <dialog>
-    <h3>新建分组<span onclick="document.querySelector('dialog').close()">&times;</span></h3>
+    <h3>新建分组<span onclick="document.querySelector('dialog').close()">×</span></h3>
     <input id="groupNameInput" placeholder="分组名称" maxlength="10">
     <textarea id="initialColorsTextarea" placeholder="初始颜色（每行一个）&#10;格式：颜色值 颜色名"></textarea>
     <button id="confirmCreateGroup">创建</button>
 </dialog>
 <div id="toastContainer"></div>
 <script>
-// ---- 数据 ----
 let colorCards=[],colorGroups=[],selectedColorIds=new Set(),isDeleteMode=false;
 let currentEditingColorId=currentEditingGroupId=draggedColorId=null;
 let colorDisplayMode='hex';
 const DEFAULT_GROUP_ID='__default__';
-// ---- DOM refs ----
 const $=s=>document.querySelector(s),
       $$=s=>document.querySelectorAll(s);
 const colorInput=$('#colorInput'),
@@ -108,12 +106,10 @@ const colorInput=$('#colorInput'),
       deleteBtn=$('#deleteBtn'),
       groupsContainer=$('main'),
       toastContainer=$('#toastContainer'),
-      themeToggle=$('#themeToggle');
-// create group
-const groupNameInput=$('#groupNameInput'),
+      themeToggle=$('#themeToggle'),
+      groupNameInput=$('#groupNameInput'),
       initialColorsTextarea=$('#initialColorsTextarea'),
       confirmCreateGroup=$('#confirmCreateGroup');
-// ---- helpers ----
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
 const validHex=c=>/^(#[A-Fa-f0-9]{6}|#[A-Fa-f0-9]{3}|[A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(c);
 const normHex=c=>{if(!c.startsWith('#'))c='#'+c;if(c.length===4)return '#'+c[1]+c[1]+c[2]+c[2]+c[3]+c[3];return c;};
@@ -145,7 +141,6 @@ const toast=(msg)=>{
     setTimeout(()=>{toastContainer.classList.remove('active')},2000);
 };
 const copy=(t)=>{navigator.clipboard.writeText(t).then(()=>toast('已复制'))};
-// ---- render ----
 function renderGroups(){
     let html='';
     let sorted=[...colorGroups].sort((a,b)=>a.id===DEFAULT_GROUP_ID?-1:b.id===DEFAULT_GROUP_ID?1:0);
@@ -178,7 +173,6 @@ function renderGroups(){
 </div>`;
     });
     groupsContainer.innerHTML=html;
-    // 事件绑定
     groupsContainer.querySelectorAll('.color-group').forEach(wrap=>{
         let gid=wrap.dataset.groupId;
         let g=colorGroups.find(x=>x.id===gid);
@@ -231,10 +225,11 @@ function renderGroups(){
             let isNameEditing=false;
             el.addEventListener('click',(e)=>{
                 if(e.target.classList.contains('color-name')||e.target.classList.contains('color-value'))return;
-                copy(valEl.textContent);
-                isDeleteMode?toggleSelect(cid):null;
+                if(!isDeleteMode)copy(valEl.textContent);
+                else toggleSelect(cid);
             });
             const startNameEdit=()=>{
+                if(isDeleteMode)return;
                 if(isNameEditing)return;
                 isNameEditing=true;
                 nameEl.style.display='none';
@@ -274,9 +269,6 @@ function renderGroups(){
 }
 function toggleSelect(id){selectedColorIds.has(id)?selectedColorIds.delete(id):selectedColorIds.add(id);renderGroups();}
 function moveColor(cid,gid){let c=colorCards.find(x=>x.id===cid);if(c){c.groupId=gid;save();renderGroups();let gn=colorGroups.find(x=>x.id===gid)?.name||'分组';}}
-// ---- modals helpers ----
-function closeDialog(d){d.close();}
-// ---- parse batch colors ----
 function parseBatchColors(text){
     let lines=text.split('\n').map(l=>l.trim()).filter(l=>l);
     let result=[];
@@ -290,7 +282,6 @@ function parseBatchColors(text){
     }
     return result;
 }
-// ---- create group ----
 function createGroupFn(){
     let name=groupNameInput.value.trim();
     if(!name){toast('请输入分组名称');return;}
@@ -308,10 +299,9 @@ function createGroupFn(){
     renderGroups();
     groupNameInput.value='';
     initialColorsTextarea.value='';
-    closeDialog(createGroupDialog);
+    document.querySelector('dialog').close();
     toast('分组创建成功');
 }
-// ---- copy group ----
 function copyGroup(gid){
     let g=colorGroups.find(x=>x.id===gid);
     if(!g)return;
@@ -320,7 +310,6 @@ function copyGroup(gid){
     let text=cols.map(c=>`${c.color}${c.name?' '+c.name:''}`).join('\n');
     copy(text);
 }
-// ---- group actions ----
 function deleteGroupFlow(gid){
     if(!confirm('确定删除分组？此操作不可撤销！'))return;
     colorCards=colorCards.filter(c=>c.groupId!==gid);
@@ -344,7 +333,6 @@ function exportGroupFn(gid){
     setTimeout(()=>{document.body.removeChild(a);URL.revokeObjectURL(url);},100);
     toast('导出成功');
 }
-// ---- theme ----
 function toggleTheme(){
     let dark=document.documentElement.getAttribute('data-theme')==='dark';
     document.documentElement.setAttribute('data-theme',dark?'':'dark');
@@ -359,7 +347,6 @@ function loadTheme(){
     }
     else{themeToggle.className='fa fa-moon-o';}
 }
-// ---- delete mode ----
 function toggleDeleteMode(){
     isDeleteMode=!isDeleteMode;
     if(isDeleteMode){deleteBtn.classList.add('active');deleteBtn.className='fa fa-check';selectedColorIds.clear();}
@@ -373,7 +360,6 @@ function toggleDeleteMode(){
     }
     renderGroups();
 }
-// ---- init ----
 function init(){
     load();loadTheme();renderGroups();
     createColorBtn.addEventListener('click',()=>{
