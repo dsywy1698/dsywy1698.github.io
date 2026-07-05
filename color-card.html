@@ -39,10 +39,9 @@ main{max-width:900px;margin:0 auto;}
         >span{cursor:text;padding-left:10px;}
         button{width:34px;height:34px;&[class="fa fa-trash"]{color:#f8717180;}}
     }
-    >div:last-child{
+    >div:last-child{&.drag-over{background:hsl(from var(--text) h s l / 0.05);}
         margin:8px;padding:18px 20px;border-radius:20px;display:flex;flex-wrap:wrap;
         min-height:90px;gap:16px;transition:var(--transition);justify-content:center;
-        &.drag-over{background:hsl(from var(--text) h s l / 0.05);}
     }
 }
 .color-card{
@@ -60,18 +59,19 @@ dialog{
     width:clamp(200px,80%,600px);backdrop-filter:blur(8px);opacity:1;
     border:none;border-radius:20px;padding:28px 32px;top:50%;left:50%;
     @starting-style{opacity:0;}
-    &::backdrop{
+    &::backdrop{@starting-style{background:#0000;backdrop-filter:blur(0);}
         background:#0002;backdrop-filter:blur(1px);transition:var(--transition);
-        @starting-style{background:#0000;backdrop-filter:blur(0);}
     }
     >*{width:100%;margin:4px 0;}
     >h3{font-size:20px;>span{float:right;opacity:0.6;user-select:none;&:hover{opacity:0.8;}}}
     >textarea{height:120px;resize:none;scrollbar-width:none;line-height:1.7;}
     >button{padding:8px 18px;background:#4346ef60;}
 }
-#toastContainer.active{
-    background:color-mix(in srgb,var(--text) 20%,var(--bg) 30%);position:fixed;bottom:24px;right:24px;
-    border-radius:12px;backdrop-filter:blur(3px);color:var(--text);padding:10px 20px;width:auto;
+#toastContainer{display:none;
+    &.active{
+        background:color-mix(in srgb,var(--text) 20%,var(--bg) 30%);position:fixed;bottom:24px;right:24px;
+        border-radius:12px;backdrop-filter:blur(3px);color:var(--text);padding:10px 20px;width:auto;display:block;
+    }
 }
 @media(width<=400px){.color-group>div:last-child{gap:8px;padding:16px 8px;}}
 @media(width<=360px){.color-card{width:120px;height:120px;}}
