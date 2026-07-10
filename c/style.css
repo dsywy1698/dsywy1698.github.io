@@ -732,7 +732,7 @@ main{
         }
     }
     >div,article,blockquote,q,code,table,details,aside,figure,
-    m-chat,m-materials,m-comment,m-writing,.timeline{
+    m-chat,m-materials,m-comment,m-writing,m-gantt,.timeline{
         display:block;
         padding:var(--padding);
         margin:var(--margin);
@@ -1044,6 +1044,47 @@ main{
             transform:rotate(-45deg);
         }
     }
+    m-gantt{
+        position:relative;
+        overflow:hidden;
+        border-radius:20px;
+        color:--txt(var(--header));
+        font-size:1.125rem;
+        vertical-align:center;
+        text-align:left;
+        padding-left:10px;
+        background:linear-gradient(to right,
+            --opa(var(--header),0.1) calc(50% / 3),
+            --opa(var(--header),0.2) calc(50% / 3),
+            --opa(var(--header),0.2) calc(100% / 3),
+            --opa(var(--header),0.1) calc(100% / 3),
+            --opa(var(--header),0.1) 50%,
+            --opa(var(--header),0.2) 50%,
+            --opa(var(--header),0.2) calc(200% / 3),
+            --opa(var(--header),0.1) calc(200% / 3),
+            --opa(var(--header),0.1) calc(250% / 3),
+            --opa(var(--header),0.2) calc(250% / 3)
+        );
+        >div{
+            &::before,&::after{
+                position:absolute;
+                content:"";
+                display:block;
+                background:--opa(var(--header));
+                top:0;
+                bottom:0;
+                border-radius:20px;
+            }
+            &::before{
+                left:calc(50% / 3 * var(--gantt-s));
+                right:calc(100% - 50% / 3 * var(--gantt-e));
+            }
+            &::after{
+                left:calc(50% / 3 * var(--gantt-s2));
+                right:calc(100% - 50% / 3 * var(--gantt-e2));
+            }
+        }
+    }
     .timeline{
         background:linear-gradient(135deg,--opa(var(--base),0.4),--opa(var(--base),0.2));
         display:block;
@@ -1305,7 +1346,7 @@ main{
         color:color-mix(in oklch,#f0f 10%,var(--color));
         font-style:italic;
     }
-    p.ex{
+    .ex{
         position:relative;
         height:40px;
         &::before{
@@ -1322,17 +1363,6 @@ main{
             border-radius:var(--rm) var(--rm) 0 0;
             text-align:center;
             text-indent:0;
-        }
-    }
-    div.ex{
-        background:#fc01;
-        padding:15px;
-        border-radius:var(--rm);
-        margin-left:2em;
-        >p::after{
-            display:block;
-            content:attr(title);
-            position:static;
         }
     }
     mark{
