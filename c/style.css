@@ -12,8 +12,6 @@
     --rl:20px;
     --rm:16px;
     --rs:10px;
-    --padding:15px;
-    --margin:10px 0;
 }
 *{
     box-sizing:border-box;
@@ -734,8 +732,8 @@ main{
     >div,article,blockquote,q,code,table,details,aside,figure,
     m-chat,m-materials,m-comment,m-writing,m-gantt,.timeline{
         display:block;
-        padding:var(--padding);
-        margin:var(--margin);
+        padding:15px;
+        margin:10px 0;
         border-radius:var(--rm);
     }
     :is(article,blockquote):has(>b){
@@ -1274,7 +1272,7 @@ main{
         margin-right:10px;
     }
     >div:not(.page){
-        margin:var(--margin);
+        margin:10px 0;
         padding:15px 8px 10px 8px;
         border-radius:var(--rm);
         width:100%;

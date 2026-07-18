@@ -57,10 +57,116 @@
     <div>透明<input type="range" max="1" min="0" step="0.1" id="r1"/></div>
     <div>虚化<input type="range" max="30" min="0" step="3" id="r2"/></div>
 </dialog>
+<style>
+#HOME{
+    >header{
+        height:200dvh;
+        display:block;
+        padding:0;
+        >div:first-child{
+            position:sticky;
+            top:0;
+            height:100dvh;
+            animation:home-header ease-in-out forwards;
+            animation-timeline:scroll(nearest);
+            animation-range:0% 30%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            >h1{
+                z-index:1;
+                font-size:5rem;
+                text-align:center;
+            }
+            >span{
+                position:absolute;
+                display:block;
+                font-size:1rem;
+                bottom:20px;
+                background:--opa(var(--background));
+                z-index:1;
+                padding:4px 16px;
+                border-radius:50px;
+                animation:home-toast ease-in-out forwards;
+                animation-timeline:scroll(nearest);
+                animation-range:0% 5%;
+            }
+            &::before,&::after{
+                position:absolute;
+                content:"";
+                display:block;
+                width:100%;
+                aspect-ratio:2/1;
+                z-index:0;
+                filter:blur(2px);
+            }
+            &::before{background:url("image/40.webp") no-repeat bottom left / cover;top:0;}
+            &::after{background:url("image/9.webp") no-repeat top left / cover;bottom:0;}
+        }
+        >div:last-child{
+            height:100dvh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+            >div{
+                opacity:0;
+                transform:scale(0.7);
+                background:--opa(var(--background));
+                border-radius:var(--rl);
+                animation:home-box ease-in-out forwards;
+                animation-timeline:scroll(nearest);
+                animation-range:25% 30%;
+                transform-origin:center;
+            }
+        }
+    }
+}
+@keyframes home-header{0%{opacity:1;}100%{opacity:0;}}
+@keyframes home-toast{0%{bottom:20px;}100%{bottom:-100px;}}
+@keyframes home-box{
+    0%{opacity:0;transform:scale(0.7);}
+    100%{opacity:1;transform:scale(1);}
+}
+</style>
 <main id="HOME">
-<header><h1>首页</h1></header>
-    <hr/>
-    <p>页面开发中，敬请期待。</p>
+    <header>
+        <div><h1>九班</h1><span>--向下滑动解锁更多--</span></div>
+        <div>
+            <div><p>毕业已经</p><b>0天</b></div>
+        </div>
+    </header>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
+    <p>这是首页。页面开发中，敬请期待。</p>
 </main>
 <main id="PRE" style="--header:#006699">
 <header><h1>九班简史</h1></header>
@@ -578,23 +684,69 @@
     <p>点开官网的“学校风光”，三张校园“照骗”出现在页面上。</p>
     <p>这三张照片和首页的轮播图一样，全都不是四十中的照片。而想要真正走近四十中——</p>
     <h1>基础设施</h1>
-<svg width="500" viewBox="0 0 500 600">
-    <path fill="#0002" d="M50 30 L410 30 440 402 50 522 Z"/><!--四十中-->
-    <path fill="#f994" d="M50 30 L410 30 422 185 50 185 Z"/><!--操场-->
+<svg width="500" viewBox="0 0 500 550">
+    <path fill="#0002" d="M50 30 410 30 440 402 50 522 Z"/><!--四十中-->
+    <path fill="#f994" d="M50 30 410 30 422 185 50 185 Z"/><!--操场-->
     <rect fill="#0938" x="87" y="55" width="300" height="110" rx="55"/><!--操场内圈-->
     <rect fill="#ecda" x="54" y="31" width="355" height="24"/><!--操场棚子-->
-    <path fill="#c608" d="M383 250 L414 252 413 326 381 325 381 320 330 320 328 352 302 351 303 319 264 318 263 335 237 335 240 217 273 217 273 230 270 234 270 243 265 247 263 300 304 301 306 232 336 233 334 310 381 310 Z"/><!--1、2号楼-->
+    <path fill="#0002" d="M233 384 330 384 335 398 233 428 Z"/><!--生物园-->
+    <path fill="#0002" d="M380 344 417 344 417 373 380 383 Z"/><!--地理园-->
+    <rect fill="#0906" x="90" y="180" width="30" height="30" rx="15"/>
+    <rect fill="#0906" x="115" y="180" width="30" height="30" rx="15"/>
+    <rect fill="#0906" x="140" y="180" width="30" height="30" rx="15"/>
+    <rect fill="#0906" x="165" y="180" width="30" height="30" rx="15"/>
+    <rect fill="#0906" x="190" y="180" width="30" height="30" rx="15"/>
+    <!--操场左树木-->
+    <rect fill="#0906" x="290" y="180" width="30" height="30" rx="15"/>
+    <rect fill="#0906" x="315" y="180" width="30" height="30" rx="15"/>
+    <rect fill="#0906" x="340" y="180" width="30" height="30" rx="15"/>
+    <rect fill="#0906" x="365" y="180" width="30" height="30" rx="15"/>
+    <rect fill="#0906" x="300" y="200" width="30" height="30" rx="15"/>
+    <rect fill="#0906" x="325" y="200" width="30" height="30" rx="15"/>
+    <rect fill="#0906" x="350" y="200" width="30" height="30" rx="15"/>
+    <rect fill="#0906" x="375" y="200" width="30" height="30" rx="15"/>
+    <rect fill="#0906" x="335" y="220" width="30" height="30" rx="15"/>
+    <rect fill="#0906" x="360" y="220" width="30" height="30" rx="15"/>
+    <!--操场右树木-->
+    <rect fill="#0906" x="346" y="250" width="12" height="12" rx="6"/>
+    <rect fill="#0906" x="346" y="262" width="12" height="12" rx="6"/>
+    <rect fill="#0906" x="346" y="274" width="12" height="12" rx="6"/>
+    <rect fill="#0906" x="346" y="286" width="12" height="12" rx="6"/>
+    <rect fill="#0906" x="346" y="298" width="12" height="12" rx="6"/>
+    <rect fill="#0906" x="358" y="250" width="12" height="12" rx="6"/>
+    <rect fill="#0906" x="358" y="262" width="12" height="12" rx="6"/>
+    <rect fill="#0906" x="358" y="274" width="12" height="12" rx="6"/>
+    <rect fill="#0906" x="358" y="286" width="12" height="12" rx="6"/>
+    <rect fill="#0906" x="358" y="298" width="12" height="12" rx="6"/>
+    <!--1、2号楼间树木-->
+    <rect fill="#0906" x="315" y="380" width="20" height="20" rx="10"/>
+    <rect fill="#0906" x="295" y="385" width="20" height="20" rx="10"/>
+    <rect fill="#0906" x="275" y="385" width="20" height="20" rx="10"/>
+    <rect fill="#0906" x="255" y="390" width="20" height="20" rx="10"/>
+    <rect fill="#0906" x="235" y="390" width="20" height="20" rx="10"/>
+    <rect fill="#0906" x="235" y="410" width="20" height="20" rx="10"/>
+    <!--生物园树木-->
+    <rect fill="#c608" x="383" y="250" width="30" height="75"/><!--1号楼-->
+    <rect fill="#c608" x="333" y="310" width="50" height="10"/><!--连廊-->
+    <rect fill="#c608" x="303" y="232" width="30" height="120"/><!--2号楼-->
+    <rect fill="#c608" x="263" y="300" width="40" height="20"/><!--连廊-->
+    <rect fill="#c608" x="233" y="215" width="30" height="120"/><!--3号楼-->
+    <path fill="#c308" d="M233 335 303 335 303 360 295 360 295 384 233 384 Z"/><!--阶梯教室-->
+    <path fill="#c608" d="M170 335 210 335 210 358 193 358 193 408 210 408 210 430 170 430 Z"/><!--4号楼-->
     <rect fill="#c608" x="157" y="214" width="23" height="96"/><!--5号楼-->
-    <path fill="#c608" d="M171 335 L210 335 210 358 193 359 193 408 210 408 210 429 171 429 Z"/><!--？？楼-->
-    <path fill="#aa58" d="M68 263 L115 263 115 292 99 292 99 450 129 451 129 479 96 479 71 455 Z"/><!--高中楼-->
+    <path fill="#aa58" d="M70 263 L115 263 115 292 100 292 100 450 130 450 130 479 96 479 70 455 Z"/>
+    <path fill="#0000" stroke-width="2" stroke="#aa55" d="M129 450 129 409 114 409 114 292"/>
+    <rect fill="#aa55" x="100" y="330" width="14" height="80"/><!--高中楼-->
     <rect fill="#c308" x="50" y="200" width="31" height="43"/><!--厕所-->
     <rect fill="#ddc8" x="346" y="351" width="22" height="22" rx="11"/><!--喷泉-->
-    <path fill="#c308" d="M232 335 L301 335 301 360 296 361 295 384 231 384 Z"/><!--阶梯教室-->
-    <path fill="#0008" d="M382 394 L424 381 432 404 388 417 Z"/><!--大门左侧-->
-    <path fill="#0008" d="M163 461 L344 406 351 429 169 485 Z"/><!--大门右侧-->
-    <path fill="#0000" stroke-width="3" stroke="#f63" d="M50 243 L50 30 410 30 422 185"/><!--围栏-->
-    <path fill="#0000" stroke-width="3" stroke="#f63" d="M425 215 L440 402 388 417"/><!--围栏2-->
-    <path fill="#0000" stroke-width="3" stroke="#f63" d="M351 429 L50 522 50 263"/><!--围栏3-->
+    <path stroke-width="22" stroke="#0008" d="M347 417 166 473"/><!--大门左-->
+    <path stroke-width="22" stroke="#0008" d="M385 405 430 392"/><!--大门右-->
+    <path stroke-width="10" stroke="#68c3" d="M347 417 385 405"/><!--正门-->
+    <path stroke-width="7" stroke="#68c3" d="M422 185 425 215"/><!--侧门-->
+    <path stroke-width="5" stroke="#68c3" d="M50 263 50 243"/><!--送餐处-->
+    <path fill="#0000" stroke-width="3" stroke="#f63" d="M50 243 50 30 410 30 422 185"/><!--围栏-->
+    <path fill="#0000" stroke-width="3" stroke="#f63" d="M425 215 440 402 388 417"/><!--围栏2-->
+    <path fill="#0000" stroke-width="3" stroke="#f63" d="M351 429 50 522 50 263"/><!--围栏3-->
 </svg>
     <p>早期的四十中并非和现在一样。在建校初期，教学楼的外墙是白色的；而差异最大是是校门。之前的校门口，一半是“福州四十中”的招牌，一半是出入口；改造后的校门融合了古建筑的相关元素，同时进出的空间更大了。</p>
     <p>两根梁前面各有一株植物；梁上分别写着：</p>
@@ -623,10 +775,16 @@
     <p>这样一来，四十中门口的交通状况缓解不少；但偶尔会因为一些原因，导致拥堵仍然发生。最典型的情况是下雨天的放学时刻。</p>
     <h3>麦德龙臭水沟</h3>
     <p>四十中西边紧挨仓实小；南边隔着一条河，对面为麦德龙。</p>
-    <p>而这条河就很有故事。它是一条臭水沟——水很浑浊，当然味道倒是不大。在九班，这条河就被称为“麦德龙臭水沟”，经常被大家调侃。</p>
-    <p></p>
-    <p></p>
+    <p>臭水沟靠四十中的岸边有一条小路，四十中的侧门就位于小路边；靠近先锋路的岸边是人行道。</p>
+    <p>而这条河很有故事。它是一条臭水沟——水很浑浊，当然味道倒是不大。在九班，这条河就被称为“麦德龙臭水沟”，经常被大家调侃。</p>
     <h3>自行车的停放</h3>
+    <p>很多人会骑自行车上下学，自行车的摆放自然成了一个难题。</p>
+    <p>对此，四十中多次强调了自行车停放和禁停的位置。首先，四十中校门两侧的人行道是不能停放自行车的。</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
     <h2>校门</h2>
     <h3>正门（西门）</h3>
     <h3>侧门（南门）</h3>
