@@ -13,7 +13,7 @@
     <style>
     #lyymy{
         margin:auto;padding:5px;
-        width:260px;height:300px;
+        width:260px;height:300px;position:relative;
         background:#013a;border-radius:10px;
         >div{
             width:60px;height:100px;color:#cc98;
@@ -21,16 +21,12 @@
             border-radius:7px;backdrop-filter:blur(2px);
             writing-mode:vertical-lr;text-align:center;
             line-height:60px;font-size:1.25rem;
-            &:nth-child(even){background:#8848}
-            &:nth-child(odd){background:#433c2380}
-            &:nth-of-type(1){transform:translate(10px,10px)}
-            &:nth-of-type(2){transform:translate(0,0)}
-            &:nth-of-type(3){transform:translate(10px,140px)}
-            &:nth-of-type(4){transform:translate(0,130px)}
-            &:nth-of-type(5){transform:translate(180px,10px)}
-            &:nth-of-type(6){transform:translate(170px,0)}
-            &:nth-of-type(7){transform:translate(180px,140px)}
-            &:nth-of-type(8){transform:translate(170px,130px)}
+            box-shadow:10px 10px #433c2380;
+            background:#8848;position:absolute;
+            &:nth-of-type(1){top:0;left:0;}
+            &:nth-of-type(2){top:0;right:20px;}
+            &:nth-of-type(3){bottom:40px;left:0;}
+            &:nth-of-type(4){bottom:40px;right:20px;}
         }
         >span{
             width:20px;height:20px;
@@ -2045,7 +2041,7 @@
 </article>
 <p data-f1>正抢得不可开交，林奕扬又一次惊醒，疑惑为什么到了这里。</p>
 <figure data-f1>
-    <div id="lyymy"><div></div><div>林奕扬</div><div></div><div>陆梓豪</div><div></div><div>蔡华楷</div><div></div><div>郑致辰</div><span></span><i></i></div>
+    <div id="lyymy"><div>林奕扬</div><div>蔡华楷</div><div>陆梓豪</div><div>郑致辰</div><span></span><i></i></div>
     <small>图例：<span style="background:#c30;color:#fff;border-radius:5px;padding:0 5px;">梦游</span> <span style="background:#33c;color:#fff;border-radius:5px;padding:0 5px;">醒来</span> <span style="background:#460;color:#fff;border-radius:5px;padding:0 5px;">睡着</span></small>
     <p>林奕扬梦游路径</p>
 </figure>
