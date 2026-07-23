@@ -1,7 +1,7 @@
 //密码
 function ep(){
     var e=document.querySelector("#password input").value;
-    "123"===e?(localStorage.setItem("p","true"),document.getElementById("password").close()):document.querySelector("#password input").style.background="#f004";
+    "basin"===e?(localStorage.setItem("p","true"),document.getElementById("password").close()):document.querySelector("#password input").style.background="#f004";
 }
 //页面切换
 function applyRoute(e,a){
