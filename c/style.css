@@ -26,8 +26,8 @@ body{
     background-repeat:no-repeat!important;
     background-size:cover!important;
     background-attachment:fixed!important;
-    background:var(--background);
-    color:var(--color);
+    background:var(--bg);
+    color:var(--text);
     font-family:'font','微软雅黑',sans-serif;
     &::before{
         content:'';
@@ -38,7 +38,7 @@ body{
         height:100lvh;
         z-index:-1;
         backdrop-filter:blur(var(--bl,0));
-        background:--opa(var(--background),var(--o,1));
+        background:--opa(var(--bg),var(--o,1));
     }
     &::after{
         content:'';
@@ -76,40 +76,40 @@ input:focus{outline:none;}
 #bigger{font-size:5rem;}
 #smaller{font-size:1.2rem;}
 html[data-t="1"]{
-    --background:#fdf8f0;
-    --color:#30271d;
+    --bg:#fdf8f0;
+    --text:#30271d;
     --base:#dbba84;
     --nav:#f2d9a6;
     --quote:#b6c982;
     --content:#d9d9a6;
 }
 html[data-t="2"]{
-    --background:#fef7ea;
-    --color:#2f241d;
+    --bg:#fef7ea;
+    --text:#2f241d;
     --base:#eb9947;
     --nav:#e8c17d;
     --quote:#d9ac26;
     --content:#e2c836;
 }
 html[data-t="3"]{
-    --background:#f3f5f9;
-    --color:#1d2b30;
+    --bg:#f3f5f9;
+    --text:#1d2b30;
     --base:#7c9eb2;
     --nav:#96d4e9;
     --quote:#29a3a3;
     --content:#ababed;
 }
 html[data-t="4"]{
-    --background:#f8f5fc;
-    --color:#25222a;
+    --bg:#f8f5fc;
+    --text:#25222a;
     --base:#b39fc6;
     --nav:#ccc0f2;
     --quote:#9696e9;
     --content:#edabcc;
 }
 html[data-t="5"]{
-    --background:#040415;
-    --color:#ededf8;
+    --bg:#040415;
+    --text:#ededf8;
     --base:#16599c;
     --nav:#999900;
     --quote:#6e862d;
@@ -124,8 +124,7 @@ html[data-f="3"] *[data-f1],
 html[data-th="2"] #EVE>div p:not([data-h]),
 html[data-th="2"] #EVE>div dd:not([data-h]){display:none;}
 @function --opa(--c,--o:0.5){result:hsl(from var(--c) h s l / var(--o));}
-@function --mix(--a,--b:var(--color)){result:color-mix(in oklch,var(--a),var(--b));}
-@function --txt(--c){result:color-mix(in oklch,var(--c) 10%,var(--color));}
+@function --txt(--c){result:color-mix(in oklch,var(--c) 10%,var(--text));}
 #password{
     border:none;
     top:50%;
@@ -134,12 +133,12 @@ html[data-th="2"] #EVE>div dd:not([data-h]){display:none;}
     width:300px;
     background:#0000;
     text-align:center;
-    color:var(--color);
+    color:var(--text);
     z-index:5;
-    &::backdrop{background:--opa(var(--color),0.2);backdrop-filter:blur(15px);}
+    &::backdrop{background:--opa(var(--text),0.2);backdrop-filter:blur(15px);}
     >div{
         display:flex;
-        background:color-mix(in oklch,var(--base) 20%,var(--background));
+        background:color-mix(in oklch,var(--base) 20%,var(--bg));
         width:250px;
         height:50px;
         margin:auto;
@@ -160,13 +159,13 @@ html[data-th="2"] #EVE>div dd:not([data-h]){display:none;}
             border-radius:20px;
             font-size:1.25rem;
             background:--opa(var(--base));
-            color:--mix(var(--base));
+            color:color-mix(in oklch,var(--text),var(--base));
         }
     }
     >p{margin:15px;}
 }
 #loader{
-    background:var(--background);
+    background:var(--bg);
     width:100dvw;
     height:100dvh;
     z-index:4;
@@ -183,7 +182,7 @@ html[data-th="2"] #EVE>div dd:not([data-h]){display:none;}
         width:100vw;
         text-align:center;
         >p{
-            color:--mix(var(--nav));
+            color:color-mix(in oklch,var(--text),var(--nav));
             transition:opacity 0.2s;
             margin:10px 0;
             padding:0;
@@ -191,7 +190,7 @@ html[data-th="2"] #EVE>div dd:not([data-h]){display:none;}
         }
         >button{
             background:--opa(var(--nav));
-            color:--mix(var(--nav));
+            color:color-mix(in oklch,var(--text),var(--nav));
             font-size:1.125rem;
             padding:2.5px 15px;
             line-height:30px;
@@ -265,7 +264,7 @@ nav{
                 border-radius:50%;
                 &:hover{opacity:1;}
                 &::before{
-                    color:--mix(var(--nav));
+                    color:color-mix(in oklch,var(--text),var(--nav));
                     font-size:20px;
                     line-height:30px;
                 }
@@ -309,7 +308,7 @@ nav{
                 text-wrap:nowrap;
                 position:relative;
                 &.active{
-                    background:linear-gradient(to left,--opa(var(--color),0.05) 10px,#0000);
+                    background:linear-gradient(to left,--opa(var(--text),0.05) 10px,#0000);
                     pointer-events:none;
                     &::before,&::after{
                         display:block;
@@ -321,11 +320,11 @@ nav{
                     }
                     &::before{
                         top:-10px;
-                        background:radial-gradient(circle at top left,transparent 10px,--opa(var(--color),0.05) 10px);
+                        background:radial-gradient(circle at top left,transparent 10px,--opa(var(--text),0.05) 10px);
                     }
                     &::after{
                         bottom:-10px;
-                        background:radial-gradient(circle at bottom left,transparent 10px,--opa(var(--color),0.05) 10px);
+                        background:radial-gradient(circle at bottom left,transparent 10px,--opa(var(--text),0.05) 10px);
                     }
                 }
             }
@@ -333,7 +332,7 @@ nav{
         >div:nth-of-type(2){
             width:100%;
             padding:5px 7px;
-            background:--opa(var(--color),0.05);
+            background:--opa(var(--text),0.05);
             >div{
                 >a{
                     display:block;
@@ -369,7 +368,7 @@ nav{
     background:--opa(var(--nav),0.3);
     backdrop-filter:blur(5px);
     user-select:none;
-    color:color-mix(in oklch,var(--nav) 10%,var(--color));
+    color:color-mix(in oklch,var(--nav) 10%,var(--text));
     opacity:1;
     transition:opacity 0.2s;
     @starting-style{opacity:0;}
@@ -426,7 +425,7 @@ nav{
                 height:30px;
                 line-height:30px;
                 margin:0 6px;
-                color:color-mix(in oklch,var(--nav) 20%,var(--color));
+                color:color-mix(in oklch,var(--nav) 20%,var(--text));
             }
             &:checked{
                 opacity:1;
@@ -436,7 +435,7 @@ nav{
         >div>svg{
             width:20px;
             height:20px;
-            stroke:--mix(var(--nav));
+            stroke:color-mix(in oklch,var(--text),var(--nav));
             margin:5px;
         }
         &:has(>input[type="range"]:disabled){opacity:0.5;}
@@ -451,13 +450,13 @@ nav{
                 appearance:none;
                 width:15px;
                 height:20px;
-                background:--mix(var(--nav));
+                background:color-mix(in oklch,var(--text),var(--nav));
                 border-radius:9px;
             }
             &::-moz-range-thumb{
                 width:15px;
                 height:20px;
-                background:--mix(var(--nav));
+                background:color-mix(in oklch,var(--text),var(--nav));
                 border-radius:9px;
             }
         }
@@ -491,7 +490,7 @@ main{
         >span{
             font-size:0.875rem;
             background:--opa(var(--header),0.4);
-            color:--mix(var(--header));
+            color:color-mix(in oklch,var(--text),var(--header));
             border-radius:14px;
             padding:0 7px;
             display:inline-block;
@@ -532,21 +531,21 @@ main{
             }
             >dd{
                 margin:3px 1em;
-                color:color-mix(in oklab,hsl(from var(--header) calc(h - 20) s l) 20%,var(--color));
+                color:color-mix(in oklab,hsl(from var(--header) calc(h - 20) s l) 20%,var(--text));
                 position:relative;
                 &::before{
                     font-family:"icons";
                     font-size:1.125rem;
                     margin-right:3px;
                     content:"\f101";
-                    color:--mix(hsl(from var(--header) calc(h - 20) s l));
+                    color:color-mix(in oklch,var(--text),hsl(from var(--header) calc(h - 20) s l));
                 }
             }
             >span{
                 display:inline-block;
                 font-size:0.875rem;
                 background:--opa(var(--header),0.1);
-                color:--mix(var(--header));
+                color:color-mix(in oklch,var(--header),var(--text));
                 border-radius:var(--rm);
                 padding:0 1em;
                 margin:5px;
@@ -566,7 +565,7 @@ main{
             &::before{
                 position:static;
                 display:block;
-                color:--mix(var(--header),var(--color));
+                color:color-mix(in oklch,var(--text),var(--header));
                 font-size:1.25rem;
                 padding:7px;
             }
@@ -631,14 +630,14 @@ main{
         time{
             display:inline-block;
             vertical-align:top;
-            background:--opa(var(--color),0.1);
+            background:--opa(var(--text),0.1);
             font-size:10px;
             line-height:16px;
             height:16px;
             padding:0 4px;
             margin:0 2px;
             border-radius:var(--rs);
-            color:--txt(var(--color));
+            color:--txt(var(--text));
         }
     }
     hr{
@@ -649,7 +648,7 @@ main{
         background:linear-gradient(to right,transparent 0%,hsl(from var(--header) h 50 50 / 0.5) 20%,hsl(from var(--header) h 50 50 / 0.5) 80%,transparent 100%);
     }
     a{
-        color:hsl(from --mix(var(--base)) h 80 l);
+        color:hsl(from color-mix(in oklch,var(--text),var(--base)) h 80 l);
         text-decoration-style:dotted;
         &:hover{opacity:0.8;}
     }
@@ -671,7 +670,7 @@ main{
         position:relative;
         display:inline-block;
         width:auto;
-        color:--mix(--opa(var(--header)));
+        color:color-mix(in oklch,var(--text),--opa(var(--header)));
         margin:8px 5px;
         &::after{
             background:--opa(var(--header),0.3);
@@ -719,18 +718,21 @@ main{
     ul,ol,&:not(#EVE) dl:not(header>dl,.timeline,#EVE dl){
         margin:10px 0 10px 2em;
         li,dt{
-            color:--mix(var(--header));
+            color:color-mix(in oklch,var(--text),var(--header));
             opacity:0.9;
         }
+        dt{
+            display:list-item;
+            list-style-type:disc;
+        }
         dd{
-            color:--opa(var(--color),0.8);
+            color:--opa(var(--text),0.8);
             font-size:0.875rem;
             opacity:0.8;
-            margin-left:1em;
         }
     }
     >div,article,blockquote,q,code,table,details,aside,figure,
-    m-chat,m-materials,m-comment,m-writing,m-gantt,.timeline{
+    m-chat,m-comment,m-writing,m-gantt,.timeline{
         display:block;
         padding:15px;
         margin:10px 0;
@@ -753,7 +755,7 @@ main{
             padding:3px 7px;
             display:block;
             font-size:0.8em;
-            color:--opa(var(--color));
+            color:--opa(var(--text));
         }
     }
     blockquote{
@@ -796,10 +798,10 @@ main{
     }
     code{
         display:block;
-        background:color-mix(in oklch,var(--header) 5%,var(--color) 10%);
+        background:color-mix(in oklch,var(--header) 5%,var(--text) 10%);
         text-align:center;
         font-size:1.125rem;
-        color:color-mix(in oklch,var(--header) 7%,var(--color));
+        color:color-mix(in oklch,var(--header) 7%,var(--text));
         text-wrap:balance;
         >p{margin:0;}
     }
@@ -840,7 +842,7 @@ main{
         height:50px;
         padding:10px 13px;
         overflow:hidden;
-        background:--opa(var(--color),0.1);
+        background:--opa(var(--text),0.1);
         >summary{
             font-weight:bold;
             list-style:none;
@@ -852,7 +854,7 @@ main{
                 height:30px;
                 display:inline-block;
                 text-align:center;
-                color:--mix();
+                color:color-mix(in oklch,var(--text) 80%,var(--base));
                 transition:0.2s;
                 content:"\f054";
                 margin-right:10px;
@@ -868,12 +870,12 @@ main{
         text-align:center;
         >img{max-width:600px;width:100%;}
         >div{margin:auto;}
-        >p{color:color-mix(in oklch,var(--content) 30%,var(--color));}
+        >p{color:color-mix(in oklch,var(--content) 30%,var(--text));}
     }
     m-chat{
         display:flex;
         flex-direction:column;
-        background:--opa(var(--color),0.1);
+        background:--opa(var(--text),0.1);
         >p,>div{
             position:relative;
             border-radius:var(--rs);
@@ -949,20 +951,8 @@ main{
             top:40px;
         }
     }
-    m-materials{
-        background:--opa(var(--header),0.2);
-        color:--txt(var(--header));
-        &::before{
-            content:"资料";
-            display:block;
-            position:static;
-            font-weight:bold;
-            font-size:1.5rem;
-            margin-bottom:5px;
-        }
-    }
     m-comment{
-        background:hsl(from var(--color) h s l / 0.1);
+        background:hsl(from var(--text) h s l / 0.1);
         border-radius:var(--rs);
         padding:0;
         >div{
@@ -971,7 +961,7 @@ main{
                 &:last-child::after{content:"：";}
             }
             padding:5px;
-            border-bottom:1px solid hsl(from var(--color) h s l / 0.2);
+            border-bottom:1px solid hsl(from var(--text) h s l / 0.2);
             &:empty{display:none;&::before{display:none;}}
         }
         >div:first-child{
@@ -1009,14 +999,14 @@ main{
             border-radius:var(--rs);
             transition:opacity 0.3s;
             &:hover{opacity:0.7;}
-            &::before{color:--mix(var(--content),#0008);}
+            &::before{color:color-mix(in oklch,var(--content),#0008);}
         }
     }
     var{
         all:unset;
-        background:color-mix(in oklch,var(--base) 30%,var(--background) 40%);
+        background:color-mix(in oklch,var(--base) 30%,var(--bg) 40%);
         font-weight:normal;
-        color:--mix(var(--base));
+        color:color-mix(in oklch,var(--text),var(--base));
         padding:1.5px 2.5px;
         border-radius:5px;
         margin:0 2.5px;
@@ -1097,7 +1087,7 @@ main{
             background:linear-gradient(to bottom,transparent 0,color-mix(in oklab,var(--base),#fff5) 15px,color-mix(in oklab,var(--base),#fff5) calc(100% - 15px),transparent 100%);
         }
         >dt{
-            background:--opa(var(--color),0.2);
+            background:--opa(var(--text),0.2);
             padding:0 30px;
             line-height:40px;
             font-size:1.125rem;
@@ -1107,7 +1097,7 @@ main{
             width:auto;
         }
         >dd{
-            background:linear-gradient(to right,--opa(var(--color),0.1),transparent);
+            background:linear-gradient(to right,--opa(var(--text),0.1),transparent);
             color:--txt(var(--base));
             padding:0 10px;
             margin:15px 30px;
@@ -1158,14 +1148,14 @@ main{
                 appearance:none;
                 width:12px;
                 height:12px;
-                background:--opa(var(--color));
+                background:--opa(var(--text));
                 border-radius:50%;
                 border:none;
             }
             &::-moz-range-thumb{
                 width:12px;
                 height:12px;
-                background:--opa(var(--color));
+                background:--opa(var(--text));
                 border-radius:50%;
                 border:none;
             }
@@ -1191,7 +1181,7 @@ main{
         >button{
             display:block;
             border:none;
-            color:color-mix(in oklch,var(--color) 80%,var(--nav));
+            color:color-mix(in oklch,var(--text) 80%,var(--nav));
             padding:10px 25px;
             font-size:1.125rem;
             border-radius:var(--rl);
@@ -1233,7 +1223,7 @@ main{
         text-wrap:nowrap;
         background:--opa(var(--nav),0.3);
         border-radius:17px;
-        box-shadow:0 2px 10px --opa(var(--color),0.1);
+        box-shadow:0 2px 10px --opa(var(--text),0.1);
         backdrop-filter:blur(7px);
         >button{
             width:24px;
@@ -1241,10 +1231,10 @@ main{
             margin:5px;
             border-radius:50%;
             background:#f904;
+            color:color-mix(in oklch,var(--text),#f90);
             transition:0.3s;
             opacity:0.5;
             &.active{opacity:1;}
-            color:--mix(#f90);
         }
         >input{
             position:relative;
@@ -1252,7 +1242,7 @@ main{
             width:86px;
             background:transparent;
             border:none;
-            &::placeholder{color:--mix((--nav));opacity:0.4;}
+            &::placeholder{color:color-mix(in oklch,var(--text),(--nav));opacity:0.4;}
         }
     }
     >h1{
@@ -1298,18 +1288,18 @@ main{
         &.rz-jx{background:#fec3;&::before{background:#fd9d!important}}
         &.rz-we{background:#fce3;&::before{background:#f9dd!important}}
         &.rz-ex{background:#fc93;&::before{background:#f93d!important}}
-        &.rz-me{background:linear-gradient(135deg,#f803,#fc33);color:color-mix(in oklch,#f80 30%,var(--color));&::before{background:#f80d!important}}
+        &.rz-me{background:linear-gradient(135deg,#f803,#fc33);color:color-mix(in oklch,#f80 30%,var(--text));&::before{background:#f80d!important}}
         >p{padding:2.5px 0;text-indent:2em;}
         >dl{
             margin:10px 3px 3px 15px;
             padding:5px 10px;
-            background:linear-gradient(to right,--opa(var(--color),0.1),#0000);
+            background:linear-gradient(to right,--opa(var(--text),0.1),#0000);
             border-radius:var(--rm);
             dd{text-indent:2em;}
             dt{text-indent:2em;font-weight:bold;}
             >dl{
                 margin:5px 0 0 1em;
-                background:linear-gradient(to right,--opa(var(--background),0.1),#0000);
+                background:linear-gradient(to right,--opa(var(--bg),0.1),#0000);
                 padding:5px 10px;
                 border-radius:var(--rs);
             }
@@ -1329,7 +1319,7 @@ main{
                 width:4px;
                 top:8px;
                 bottom:8px;
-                background:--opa(var(--color));
+                background:--opa(var(--text));
                 border-radius:2px;
             }
         }
@@ -1341,7 +1331,7 @@ main{
     }
     .mt{
         background:linear-gradient(135deg,#f9f3,#f9f1)!important;
-        color:color-mix(in oklch,#f0f 10%,var(--color));
+        color:color-mix(in oklch,#f0f 10%,var(--text));
         font-style:italic;
     }
     .ex{
@@ -1356,7 +1346,7 @@ main{
             left:-8px;
             right:-8px;
             background:linear-gradient(to bottom,#fa06,#0000);
-            color:--mix(#fa0);
+            color:color-mix(in oklch,var(--text),#fa0);
             line-height:50px;
             border-radius:var(--rm) var(--rm) 0 0;
             text-align:center;
