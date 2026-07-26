@@ -206,7 +206,7 @@ nav{
     >button,>div:nth-of-type(1){
         position:fixed;
         border-radius:20px;
-        backdrop-filter:blur(7px);
+        backdrop-filter:blur(10px);
     }
     >button{
         display:block;
@@ -272,27 +272,27 @@ nav{
         }
     }
     >div:nth-of-type(2){
-        position:fixed;
-        width:calc(100dvw - 20px);
-        max-width:400px;
-        height:350px;
+        pointer-events:none;
         overflow:hidden;
-        top:60px;
-        right:10px;
-        border-radius:var(--rm);
+        position:fixed;
         display:flex;
+        right:10px;
+        top:60px;
         transform:scale(0.1);
         transform-origin:calc(100% - 75px) 0%;
+        width:calc(100dvw - 20px);
+        max-width:280px;
+        height:350px;
         opacity:0;
-        transition:0.4s cubic-bezier(0.40, 0.40, 0.20, 1.10);
-        background:--opa(var(--nav),0.2);
-        backdrop-filter:blur(5px);
-        pointer-events:none;
+        border-radius:var(--rm);
+        backdrop-filter:blur(4px);
+        background:--opa(var(--nav),0.4);
+        transition:opacity 0.4s,transform 0.4s cubic-bezier(0.4,0.4,0.2,1.1);
         &.active{opacity:1;transform:scale(1);pointer-events:all;}
         >div{
             height:350px;
             overflow-y:auto;
-            mask-image:linear-gradient(to bottom,transparent,#000 10px,#000 calc(100% - 10px),transparent);
+            mask-image:linear-gradient(to bottom,#0000,#000 10px,#000 calc(100% - 10px),#0000);
         }
         >div:nth-of-type(1){
             width:160px;
@@ -304,7 +304,7 @@ nav{
                 font-size:1.125rem;
                 padding:5px 0 5px 15px;
                 margin-top:5px;
-                background:transparent;
+                background:#0000;
                 text-wrap:nowrap;
                 position:relative;
                 &.active{
@@ -333,21 +333,19 @@ nav{
             width:100%;
             padding:5px 7px;
             background:--opa(var(--text),0.05);
-            >div{
-                >a{
-                    display:block;
-                    text-decoration:none;
-                    height:40px;
-                    padding:2.5px 10px;
-                    border-radius:22.5px;
-                    line-height:35px;
-                    background:transparent;
-                    margin:2.5px 0;
-                    color:inherit;
-                    text-wrap:nowrap;
-                    overflow:hidden;
-                    &:hover{background:#fff1;}
-                }
+            >div>a{
+                display:block;
+                text-decoration:none;
+                height:40px;
+                padding:2.5px 10px;
+                border-radius:22.5px;
+                line-height:35px;
+                background:#0000;
+                margin:2.5px 0;
+                color:inherit;
+                text-wrap:nowrap;
+                overflow:hidden;
+                &:hover{background:#fff1;}
             }
         }
     }
@@ -375,11 +373,9 @@ nav{
     &::backdrop{
         background:#0004;
         backdrop-filter:blur(2px);
-        transition:0.2s;
-        @starting-style{
-            background:transparent;
-            backdrop-filter:blur(0);
-        }
+        opacity:1;
+        transition:0.1s;
+        @starting-style{opacity:0;}
     }
     >header{
         font-weight:bold;
