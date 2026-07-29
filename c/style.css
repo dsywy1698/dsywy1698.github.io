@@ -466,7 +466,7 @@ main{
     opacity:1;
     @starting-style{
         opacity:0;
-        >*:not(header),>header>*{transform:translateY(15px)}
+        >header>*{transform:translateY(15px)}
     }
     *[id]{scroll-margin-top:55px;}
     >*:not(header),>header>*{transform:0;transition:transform 1s;}
