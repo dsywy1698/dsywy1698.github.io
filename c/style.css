@@ -517,18 +517,17 @@ main{
             text-align:left;
             >dt{
                 font-weight:bold;
-                color:inherit;
                 font-size:1.125rem;
                 line-height:30px;
                 padding:5px 1em;
                 border-radius:var(--rl);
                 margin:10px 5px;
-                background:linear-gradient(to right,hsl(from var(--header) calc(h - 30) calc(s - 20) l / 0.1),transparent);
-            }
-            >dd{
-                margin:3px 1em;
+                background:linear-gradient(to right,hsl(from var(--header) calc(h - 30) calc(s - 20) l / 0.1),#0000,#0000);
                 color:color-mix(in oklab,hsl(from var(--header) calc(h - 20) s l) 20%,var(--text));
                 position:relative;
+            }
+            >dd{
+                margin:5px 1em;
                 &::before{
                     font-family:"icons";
                     font-size:1.125rem;
@@ -634,6 +633,7 @@ main{
             margin:0 2px;
             border-radius:var(--rs);
             color:--txt(var(--text));
+            text-indent:0;
         }
     }
     hr{
