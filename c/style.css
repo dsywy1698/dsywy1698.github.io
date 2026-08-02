@@ -1361,11 +1361,11 @@ footer{
     background:linear-gradient(transparent 0,#0008 30dvh);
     color:#fffa;
 }
-@media (width>=1600px),(height>=900px){
+@media (width>=1800px),(height>=1200px){
     #bigger{display:flex;}
     body>*:not(#bigger){display:none!important;}
 }
-@media (width<=320px),(height<=300px){
+@media (width<=320px),(height<=200px){
     #smaller{display:flex;}
     body>*:not(#smaller){display:none!important;}
 }
