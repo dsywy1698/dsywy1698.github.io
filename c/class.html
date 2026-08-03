@@ -60,16 +60,16 @@
 <style>
 #HOME{
     >header{
-        height:200dvh;
+        height:200lvh;
         display:block;
         padding:0;
         >div:first-child{
             position:sticky;
             top:0;
             height:100dvh;
-            animation:home-header ease-in-out forwards;
-            animation-timeline:scroll(nearest);
-            animation-range:0% 30%;
+            animation:i-header ease-in-out forwards;
+            animation-timeline:scroll();
+            animation-range:0% 20%;
             display:flex;
             justify-content:center;
             align-items:center;
@@ -88,7 +88,7 @@
                 background:hsl(from var(--bg) h s l / 0.5);
                 padding:4px 20px;
                 border-radius:50px;
-                animation:home-toast ease-in-out forwards;
+                animation:i-toast ease-in-out forwards;
                 animation-timeline:scroll(nearest);
                 animation-range:0% 5%;
             }
@@ -121,7 +121,7 @@
                 transform:scale(0.7);
                 background:color-mix(in oklch,var(--bg) 20%,var(--base) 40%);
                 border-radius:var(--rl);
-                animation:home-box ease-in-out forwards;
+                animation:i-box ease-in-out forwards;
                 animation-timeline:view();
                 animation-range:entry 90% entry 140%;
                 transform-origin:center;
@@ -145,13 +145,16 @@
         }
     }
 }
-@keyframes home-header{to{opacity:0;}}
-@keyframes home-toast{to{transform:translate(0,100px) scale(0.7);opacity:0;}}
-@keyframes home-box{
-    0%{opacity:0;transform:scale(0.7);}
-    100%{opacity:1;transform:scale(1);}
-}
+@keyframes i-header{to{opacity:0;}}
+@keyframes i-toast{to{transform:translate(0,100px) scale(0.7);opacity:0;}}
+@keyframes i-box{to{opacity:1;transform:scale(1);}}
     #LIT>h2{opacity:0;height:0;}
+    i-hot,i-jx
+    {
+        display:block;
+        >div{
+        }
+    }
 </style>
 <main id="HOME">
     <header>
@@ -162,13 +165,97 @@
         <div>
             <div><p>毕业已经</p><b>0天</b></div>
             <div><p>阅读九班档案</p><button onclick="showPage('PRE')">GO</button></div>
+            <div><p>九班八卦</p></div>
         </div>
     </header>
     <p>这是首页。页面开发中，敬请期待。</p>
     <h2>热门文章</h2>
+    <i-hot>
+        <div>
+            <h1>洪鑫洋</h1>
+            <p>未来是你们的，但现在未必。</p>
+        </div>
+        <div>
+            <h1>英语1</h1>
+            <p>Close your books and test.</p>
+        </div>
+        <div>
+            <h1>四十中</h1>
+            <p>四季常青，阳光灿烂</p>
+        </div>
+    </i-hot>
+    <style>
+        i-hot{
+            >div{
+                background:hsl(from var(--quote) h s l / 0.2);
+                text-align:center;
+                margin:10px auto;
+                border-radius:var(--rl);
+                padding:20px 15px;
+                max-width:400px;
+                aspect-ratio:21/9;
+                display:flex;
+                flex-direction:column;
+                justify-content:space-around;
+            }
+        }
+        i-jx{
+            height:300dvh;
+            position:relative;
+            left:-10px;
+            right:-10px;
+            top:-100dvh;
+            width:100dvw;
+            padding-top:100dvh;
+            margin-bottom:-100dvh;
+            animation:i-jx-title ease-in-out forwards;
+            animation-timeline:view();
+            animation-range:entry 0% exit 100%;
+            >div{
+                opacity:0;
+                transform:scale(0.8);
+                height:100dvh;
+                animation:i-jx-box ease-in-out forwards;
+                animation-timeline:view();
+                animation-range:entry 0% exit 100%;
+                display:flex;
+                flex-direction:column;
+                justify-content:center;
+                align-items:center;
+                gap:15px;
+                &:htn-of-type(1){background-image:url();}
+                &:htn-of-type(2){background-image:url();}
+                >h1{font-size:5rem;}
+            }
+        }
+        @keyframes i-jx-title{
+            0%{background:#0000;}
+            25%{background:#0000;}
+            40%{background:#00510066;}
+            55%{background:#00510066;}
+            60%{background:#708a9266;}
+            75%{background:#708a9266;}
+            100%{background:#708a9266;}
+        }
+        @keyframes i-jx-box{
+            30%{opacity:1;transform:scale(1)}
+            80%{opacity:1;transform:scale(1)}
+            100%{opacity:0;}
+        }
+    </style>
     <h2>八卦</h2>
     <h2>校园</h2>
     <h2>军训</h2>
+    <i-jx>
+        <div>
+            <h1>龙翔</h1>
+            <b>福建龙翔国防教育基地</b>
+        </div>
+        <div>
+            <h1>爱国有方</h1>
+            <b>罗源县爱国有方综合实践营地</b>
+        </div>
+    </i-jx>
     <h2>老师</h2>
     <h2>学生</h2>
     <h2>档案</h2>
@@ -2374,11 +2461,11 @@
 <p>每满100字，方格下面都会有手写的标志（“100”、“200”、“300”等）。整张作文纸最多能写约800字。最底部也有空白方框区域，应该是用来写评语的。</p>
     <h2>答题卡</h2>
     <p>四十中的答题卡和作文纸一样从未变化、不断传承。</p>
-    <p>答题卡的纸质和印刷质量和作文纸差不多，均优于灰色练习。</p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
+    <p>答题卡的纸质和印刷质量和作文纸差不多，均优于灰色纸。</p>
+    <p>语文答题卡外是一大张，其余所有答题卡都是小张的，答题卡无论大小张都比灰色纸的同样规格更大。</p>
+    <p>那数学答题卡呢？很简单，数学根本没用过这种答题卡，月考、开门考等考试中，数学题几乎都写在试卷上。</p>
+    <p>整张答题卡周围有一排排的黑色方块，用来校准。</p>
+    <p>答题卡的标题部分，左边是</p>
     <p></p>
     <p></p>
     <p></p>
@@ -2415,7 +2502,19 @@
     <p>四十中的常规考试有开门考、月考、期中考、期末考。一个学期的考试大概这么安排：</p>
     <ol><li>开门考</li><li>月考</li><li>期中考</li><li>月考</li><li>期末考</li></ol>
     <h2>月考</h2>
-    <p>月考是四十中自行组织的考试，因此阵容很小。</p>
+    <p>月考是四十中自行组织的考试，因此规模很小。</p>
+    <p>常规的月考只考语文、数学、英语，初二以后加一个物理，初三以后加一个化学。</p>
+    <p>好几次老师预告“可能会考政史地生”，结果只考了一次。那次的一整天都在考试。地理、生物和政治、历史各合并成一组，共享1小时的考试时间。考试时，先发第一科试卷，30分钟后收卷，立刻发第二科试卷。每科的考试时间只有半小时，题目会少很多。</p>
+    <p>考试时间分两种情况：</p>
+    <dl>
+        <dt>晚托</dt>
+        <dd>利用每天的晚托完成考试，不需要占用上课时间。第七节下课后，所有人做好考试准备。<br>晚托只有1小时，尽管减少了题目，英语、数学等学科还是很多人来不及，因此考试时间通常会延长5~10分钟，也就是放学时间被延迟了。</dd>
+        <dt>一整天</dt>
+        <dd>一天之内考完所有科目，时间比期中考和期末考都要紧凑。上午7:40就开始考语文，时间是完整的2小时；考完后过10分钟开始考数学，2小时后收卷、吃饭。</dd>
+    </dl>
+    <p>在考试开始前，所有人要收好书包，将文具袋之外的所有物品放到教室外面；每一组起来一个学生发挡板。</p>
+    <p></p>
+    <p></p>
     <p></p>
     <p></p>
     <h2>开门考</h2>
