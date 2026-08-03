@@ -815,7 +815,7 @@ main{
             color:--txt(var(--base));
         }
         td,th{
-            outline:1px solid hsl(from var(--base) h calc(s + 10) l / 0.5);
+            outline:0.5px solid hsl(from var(--base) h calc(s + 10) l / 0.5);
             padding:12px 6px;
             min-width:3em;
             text-wrap:balance;
