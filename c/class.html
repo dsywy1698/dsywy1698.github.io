@@ -68,8 +68,8 @@
             top:0;
             height:100dvh;
             animation:i-header ease-in-out forwards;
-            animation-timeline:scroll();
-            animation-range:0% 20%;
+            animation-timeline:view();
+            animation-range:entry 50% exit 0%;
             display:flex;
             justify-content:center;
             align-items:center;
@@ -149,12 +149,9 @@
 @keyframes i-toast{to{transform:translate(0,100px) scale(0.7);opacity:0;}}
 @keyframes i-box{to{opacity:1;transform:scale(1);}}
     #LIT>h2{opacity:0;height:0;}
-    i-hot,i-jx
-    {
-        display:block;
-        >div{
-        }
-    }
+    
+    i-hot,i-jx,i-event
+    {display:block;}
 </style>
 <main id="HOME">
     <header>
@@ -184,6 +181,21 @@
             <p>四季常青，阳光灿烂</p>
         </div>
     </i-hot>
+    <i-event>
+        <div>
+            <h1>八卦</h1>
+            <p>记录了九班的每日大小事件</p>
+            <button>GO</button>
+        </div>
+        <div>
+            <button>七上</button>
+            <button>七下</button>
+            <button>八上</button>
+            <button>八下</button>
+            <button>九上</button>
+            <button>九下</button>
+        </div>
+    </i-event>
     <style>
         i-hot{
             >div{
@@ -199,6 +211,61 @@
                 justify-content:space-around;
             }
         }
+        i-event{
+            position:relative;
+            left:-10px;
+            right:-10px;
+            width:100dvw;
+            height:100lvh;
+            padding:15lvh 0;
+            display:flex;
+            gap:20px;
+            >div{
+                background:hsl(from var(--base) h s l / 0.3);
+                height:70lvh;
+                flex-shrink:0;
+                animation:i-event ease-in-out forwards;
+                animation-timeline:view();
+                animation-range:entry 50% entry 100%;
+                opacity:0;
+                display:flex;
+                flex-direction:column;
+                justify-content:center;
+                gap:20px;
+                &:first-child{
+                    align-items:center;
+                    border-radius:0 var(--rl) var(--rl) 0;
+                    flex-basis:180px;
+                    transform:translate(-100px,0);
+                    >h1{font-size:4rem;}
+                    >p{text-wrap:balance;text-align:center;}
+                    >button{
+                        background:hsl(from var(--bg) h s l / 0.3);
+                        padding:15px 30px;
+                        border-radius:var(--rm);
+                        font-size:2.5rem;
+                        font-weight:bold;
+                    }
+                }
+                &:last-child{
+                    align-items:flex-end;
+                    border-radius:var(--rl) 0 0 var(--rl);
+                    transform:translate(100px,0);
+                    flex:1;
+                    padding-left:35px;
+                    >button{
+                        display:block;
+                        width:100%;
+                        background:hsl(from var(--bg) h s l / 0.3);
+                        padding:15px 0 15px 30px;
+                        text-align:left;
+                        border-radius:99px 0 0 99px;
+                        font-size:1.625rem;
+                    }
+                }
+            }
+        }
+        @keyframes i-event{to{opacity:1;transform:translate(0);}}
         i-jx{
             height:300dvh;
             position:relative;
@@ -206,12 +273,26 @@
             right:-10px;
             top:-100dvh;
             width:100dvw;
-            padding-top:100dvh;
             margin-bottom:-100dvh;
             animation:i-jx-title ease-in-out forwards;
             animation-timeline:view();
             animation-range:entry 0% exit 100%;
+            &::before{
+                content:'';
+                position:sticky;
+                top:0;
+                display:block;
+                background:url('image/龙翔地图.webp') no-repeat bottom left / cover;
+                width:100dvw;
+                height:100dvh;
+                mask-image:linear-gradient(to bottom,#0000,#000a);
+                animation:i-jx-pic ease-in-out forwards;
+                animation-range:entry 100% entry 200%;
+                animation-timeline:view();
+                opacity:0;
+            }
             >div{
+                position:relative;
                 opacity:0;
                 transform:scale(0.8);
                 height:100dvh;
@@ -222,38 +303,54 @@
                 flex-direction:column;
                 justify-content:center;
                 align-items:center;
-                gap:15px;
-                &:htn-of-type(1){background-image:url();}
-                &:htn-of-type(2){background-image:url();}
+                gap:5px;
+                &:nth-of-type(1){color:#fff;>p{background:#0002;}}
+                &:nth-of-type(2){color:#000;>p{background:#fff2;}}
                 >h1{font-size:5rem;}
+                >b{margin:20px 0;}
+                >p{
+                    line-height:20px;
+                    border-radius:15px;
+                    padding:5px 15px;
+                    text-wrap:nowrap;
+                    text-align:center;
+                }
             }
         }
         @keyframes i-jx-title{
             0%{background:#0000;}
             25%{background:#0000;}
-            40%{background:#00510066;}
-            55%{background:#00510066;}
-            60%{background:#708a9266;}
-            75%{background:#708a9266;}
-            100%{background:#708a9266;}
+            40%{background:#005100;}
+            55%{background:#005100;}
+            60%{background:#9aacb1;}
+            75%{background:#9aacb1;}
+            100%{background:#9aacb1;}
         }
         @keyframes i-jx-box{
             30%{opacity:1;transform:scale(1)}
             80%{opacity:1;transform:scale(1)}
             100%{opacity:0;}
         }
+        @keyframes i-jx-pic{to{opacity:1;}}
     </style>
-    <h2>八卦</h2>
     <h2>校园</h2>
     <h2>军训</h2>
     <i-jx>
         <div>
             <h1>龙翔</h1>
             <b>福建龙翔国防教育基地</b>
+            <p>小碎步跺响！一秒50下！</p>
+            <p>四十中，起床——</p>
+            <p>初中部？操！</p>
+            <p>第一项科目：<br>稍息立正、跨立立正。</p>
         </div>
         <div>
             <h1>爱国有方</h1>
             <b>罗源县爱国有方综合实践营地</b>
+            <p>稍息！军体拳！格斗准备！</p>
+            <p>脑子里永远有任务<br>眼睛里永远有敌人</p>
+            <p>这是一个晴朗的早晨<br>鸽哨声伴着起床号音</p>
+            <p>同学们请注意<br>现在是集合时间！</p>
         </div>
     </i-jx>
     <h2>老师</h2>
@@ -1970,7 +2067,7 @@
 <p>融德时代的保温箱里都会放一个装满热水的塑料袋，应该是用来保温。偶尔塑料袋会被人弄破，导致保温箱底部全是水。</p>
 <h2>汤桶</h2>
 <p>每个班有一桶汤。汤桶呈圆柱形，表面是红色塑料，两侧用卡扣固定，内胆为不锈钢材质。</p>
-<p>汤桶上也有密封条。菜多多汤桶密封条和保温箱箱体和盖子间的密封条大同小异。</p>
+<p>汤桶上也有密封条。菜多多汤桶密封条相比保温箱箱体和盖子间的密封条少了最后的两行。</p>
 <p>融德时代的汤桶密封条是长条形的，印刷质量显然更好，由上至下分别是融德时代的logo、公司名“福建融德时代餐饮管理有限公司”、一个被盖章（章是印刷上去的）的“封”字。logo和文字都是橙色的。</p>
 <p>与汤桶配套的是一次性塑料碗和汤勺。汤勺整体巨大，也是不锈钢材质，前端被塑料袋（融德时代用的是保鲜膜）包裹。一次性塑料碗是学生盛汤的碗，每次每个班都会配备一摞。</p>
 <h2>餐盒</h2>
@@ -2523,6 +2620,7 @@
     <p></p>
     <p></p>
     <h2>期中（末）考</h2><!--校内期中质量检查——期中进阶练习-->
+    <h3>动员大会</h3>
     <h2>其他重大考试</h2>
 </main>
 <main id="ACT" style="--header:#ff8800">
