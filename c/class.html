@@ -59,10 +59,11 @@
 </dialog>
 <style>
 #HOME{
+    padding:0;
     >header{
         height:200dvh;
         display:block;
-        padding:0;
+        text-align:center;
         >div:first-child{
             position:sticky;
             top:0;
@@ -212,17 +213,13 @@
             }
         }
         i-event{
-            position:relative;
-            left:-10px;
-            right:-10px;
-            width:100dvw;
-            height:100dvh;
-            padding:15dvh 0;
+            padding:50px 0;
             display:flex;
             gap:20px;
+            overflow:hidden; 
             >div{
                 background:hsl(from var(--base) h s l / 0.3);
-                height:70dvh;
+                height:500px;
                 flex-shrink:0;
                 animation:i-event ease-in-out forwards;
                 animation-timeline:view();
@@ -260,17 +257,15 @@
                         padding:15px 0 15px 30px;
                         text-align:left;
                         border-radius:99px 0 0 99px;
-                        font-size:1.625rem;
+                        font-size:1.375rem;
                     }
                 }
             }
         }
         @keyframes i-event{to{opacity:1;transform:translate(0);}}
         i-jx{
-            height:300dvh;
             position:relative;
-            left:-10px;
-            right:-10px;
+            height:300dvh;
             top:-100dvh;
             width:100dvw;
             margin-bottom:-100dvh;

@@ -470,7 +470,7 @@ main{
     }
     *[id]{scroll-margin-top:55px;}
     >*:not(header),>header>*{transform:0;transition:transform 1s;}
-    >header{
+    &:not(#HOME)>header{
         font-size:2rem;
         text-align:center;
         padding:100px 0 50px 0;
