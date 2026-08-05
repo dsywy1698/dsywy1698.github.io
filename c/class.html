@@ -60,6 +60,21 @@
 <style>
 #HOME{
     padding:0;
+    >h2{
+        margin:15px 30px;
+        position:relative;
+        &::before{
+            position:absolute;
+            display:inline-block;
+            content:"";
+            background:hsl(from var(--base) h s l / 0.5);
+            width:10px;
+            left:-20px;
+            border-radius:5px;
+            top:5px;
+            bottom:5px;
+        }
+    }
     >header{
         height:200dvh;
         display:block;
@@ -70,7 +85,7 @@
             height:100dvh;
             animation:i-header ease-in-out forwards;
             animation-timeline:view();
-            animation-range:entry 50% exit 0%;
+            animation-range:entry 55% exit 0%;
             display:flex;
             justify-content:center;
             align-items:center;
@@ -90,7 +105,7 @@
                 padding:4px 20px;
                 border-radius:50px;
                 animation:i-toast ease-in-out forwards;
-                animation-timeline:scroll(nearest);
+                animation-timeline:scroll();
                 animation-range:0% 5%;
             }
             &::before,&::after{
@@ -120,7 +135,6 @@
             >div{
                 opacity:0;
                 transform:scale(0.7);
-                background:color-mix(in oklch,var(--bg) 20%,var(--base) 40%);
                 border-radius:var(--rl);
                 animation:i-box ease-in-out forwards;
                 animation-timeline:view();
@@ -128,19 +142,55 @@
                 transform-origin:center;
                 padding:12px 20px;
                 width:clamp(300px,70dvw,500px);
-                >p{
-                    font-size:1.375rem;
+                >p{font-size:1.375rem;}
+                &:nth-child(1){
+                    background:hsl(from var(--base) h s l / 0.3);
+                    >b{
+                        display:block;
+                        font-size:2.5rem;
+                        font-weight:bold;
+                        margin:auto;
+                    }
                 }
-                >button{
-                    background:--opa(var(--base),0.3);
-                    padding:8px 24px;
-                    border-radius:var(--rm);
+                &:nth-child(2){
+                    background:hsl(from var(--quote) h s l / 0.3);
+                    >button{
+                        background:hsl(from var(--quote) h s l / 0.3);
+                        padding:10px 25px;
+                        border-radius:var(--rm);
+                        display:block;
+                        font-size:2.5rem;
+                        font-weight:bold;
+                        margin:auto;
+                    }
                 }
-                >button,>b{
-                    display:block;
-                    font-size:2.5rem;
-                    font-weight:bold;
-                    margin:auto;
+                &:nth-child(3){
+                    background:hsl(from var(--content) h s l / 0.3);
+                    >div{
+                        background:hsl(from var(--text) h s l / 0.1);
+                        padding:20px;
+                        border-radius:var(--rl);
+                        >span{
+                            text-wrap:nowrap;
+                            display:inline-block;
+                            padding:5px 10px;
+                            line-height:20px;
+                            border-radius:15px;
+                            margin:5px;
+                            &:nth-of-type(4n){background:hsl(from var(--base) h s l / 0.3)}
+                            &:nth-of-type(4n+1){background:hsl(from var(--quote) h s l / 0.3)}
+                            &:nth-of-type(4n+2){background:hsl(from var(--nav) h s l / 0.3)}
+                            &:nth-of-type(4n+3){background:hsl(from var(--content) h s l / 0.3)}
+                        }
+                    }
+                    >button{
+                        color:color-mix(in oklch,var(--text),var(--content));
+                        background:#0000;
+                        padding:5px;
+                        display:block;
+                        font-size:1rem;
+                        margin:auto;
+                    }
                 }
             }
         }
@@ -158,47 +208,33 @@
     <header>
         <div>
             <div><h1>九班</h1><p>一个班级档案库</p></div>
-            <span>向下滑动探索更多</span>
+            <span>滑动探索更多</span>
         </div>
         <div>
-            <div><p>毕业已经</p><b>0天</b></div>
+            <div><p>毕业已经</p><b>0</b></div>
             <div><p>阅读九班档案</p><button onclick="showPage('PRE')">GO</button></div>
-            <div><p>九班八卦</p></div>
+            <div><p>九班词云</p><div>
+                <span>霸者天下</span><span>维京传奇</span>
+                <span>军体拳</span><span>508</span>
+                <span>馒头仙人</span><span>防伪标志</span>
+                <span>厕所爱豆</span><span>芹菜</span>
+                </div><button>换一批</button></div>
         </div>
     </header>
-    <p>这是首页。页面开发中，敬请期待。</p>
     <h2>热门文章</h2>
     <i-hot>
-        <div>
-            <h1>洪鑫洋</h1>
-            <p>未来是你们的，但现在未必。</p>
-        </div>
-        <div>
-            <h1>英语1</h1>
-            <p>Close your books and test.</p>
-        </div>
-        <div>
-            <h1>四十中</h1>
-            <p>四季常青，阳光灿烂</p>
-        </div>
+        <div><h1>洪鑫洋</h1><p>未来是你们的，但现在未必。</p></div>
+        <div><h1>英语1</h1><p>Close your books and test.</p></div>
+        <div><h1>四十中</h1><p>四季常青，阳光灿烂</p></div>
     </i-hot>
     <i-event>
-        <div>
-            <h1>八卦</h1>
-            <p>记录了九班的每日大小事件</p>
-            <button>GO</button>
-        </div>
-        <div>
-            <button>七上</button>
-            <button>七下</button>
-            <button>八上</button>
-            <button>八下</button>
-            <button>九上</button>
-            <button>九下</button>
-        </div>
+        <h1>八卦</h1>
+        <p>记录了九班的每日大小事件</p>
+        <button>GO</button>
     </i-event>
     <style>
         i-hot{
+            padding:10px 15px;
             >div{
                 background:hsl(from var(--quote) h s l / 0.2);
                 text-align:center;
@@ -214,55 +250,29 @@
         }
         i-event{
             padding:50px 0;
+            margin:20px 30px 20px 0;
+            overflow:hidden;
+            background:hsl(from var(--base) h s l / 0.3);
+            animation:i-event ease-in-out forwards;
+            animation-timeline:scroll();
+            animation-range:0% 100%;
             display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
             gap:20px;
-            overflow:hidden; 
-            >div{
-                background:hsl(from var(--base) h s l / 0.3);
-                height:500px;
-                flex-shrink:0;
-                animation:i-event ease-in-out forwards;
-                animation-timeline:view();
-                animation-range:entry 50% entry 100%;
-                opacity:0;
-                display:flex;
-                flex-direction:column;
-                justify-content:center;
-                gap:20px;
-                &:first-child{
-                    align-items:center;
-                    border-radius:0 var(--rl) var(--rl) 0;
-                    flex-basis:180px;
-                    transform:translate(-100px,0);
-                    >h1{font-size:4rem;}
-                    >p{text-wrap:balance;text-align:center;}
-                    >button{
-                        background:hsl(from var(--bg) h s l / 0.3);
-                        padding:15px 30px;
-                        border-radius:var(--rm);
-                        font-size:2.5rem;
-                        font-weight:bold;
-                    }
-                }
-                &:last-child{
-                    align-items:flex-end;
-                    border-radius:var(--rl) 0 0 var(--rl);
-                    transform:translate(100px,0);
-                    flex:1;
-                    padding-left:35px;
-                    >button{
-                        display:block;
-                        width:100%;
-                        background:hsl(from var(--bg) h s l / 0.3);
-                        padding:15px 0 15px 30px;
-                        text-align:left;
-                        border-radius:99px 0 0 99px;
-                        font-size:1.375rem;
-                    }
-                }
+            border-radius:0 var(--rl) var(--rl) 0;
+            flex-basis:180px;
+            >h1{font-size:4rem;}
+            >p{text-wrap:balance;text-align:center;}
+            >button{
+                background:hsl(from var(--bg) h s l / 0.3);
+                padding:15px 30px;
+                border-radius:var(--rm);
+                font-size:2.5rem;
+                font-weight:bold;
             }
         }
-        @keyframes i-event{to{opacity:1;transform:translate(0);}}
         i-jx{
             position:relative;
             height:300dvh;
@@ -299,8 +309,8 @@
                 justify-content:center;
                 align-items:center;
                 gap:5px;
-                &:nth-of-type(1){color:#fff;>p{background:#0002;}}
-                &:nth-of-type(2){color:#000;>p{background:#fff2;}}
+                &:nth-of-type(1){color:#fff;>p{background:#0002}>button{background:#0508}}
+                &:nth-of-type(2){color:#000;>p{background:#fff2}>button{background:#abb8}}
                 >h1{font-size:5rem;}
                 >b{margin:20px 0;}
                 >p{
@@ -310,16 +320,24 @@
                     text-wrap:nowrap;
                     text-align:center;
                 }
+                >button{
+                    display:block;
+                    padding:15px 30px;
+                    border-radius:var(--rm);
+                    font-size:1.75rem;
+                    font-weight:bold;
+                    margin-top:10px;
+                }
             }
         }
         @keyframes i-jx-title{
             0%{background:#0000;}
             25%{background:#0000;}
-            40%{background:#005100;}
-            55%{background:#005100;}
-            60%{background:#9aacb1;}
-            75%{background:#9aacb1;}
-            100%{background:#9aacb1;}
+            40%{background:#050;}
+            55%{background:#050;}
+            60%{background:#abb;}
+            75%{background:#abb;}
+            100%{background:#abb;}
         }
         @keyframes i-jx-box{
             30%{opacity:1;transform:scale(1)}
@@ -337,15 +355,17 @@
             <p>小碎步跺响！一秒50下！</p>
             <p>四十中，起床——</p>
             <p>初中部？操！</p>
-            <p>第一项科目：<br>稍息立正、跨立立正。</p>
+            <p>稍息！立正！稍息！立正！</p>
+            <button>GO</button>
         </div>
         <div>
             <h1>爱国有方</h1>
             <b>罗源县爱国有方综合实践营地</b>
             <p>稍息！军体拳！格斗准备！</p>
+            <p>保持？安静！</p>
             <p>脑子里永远有任务<br>眼睛里永远有敌人</p>
-            <p>这是一个晴朗的早晨<br>鸽哨声伴着起床号音</p>
-            <p>同学们请注意<br>现在是集合时间！</p>
+            <p>同学们请注意，<br>现在是集合时间！</p>
+            <button>GO</button>
         </div>
     </i-jx>
     <h2>老师</h2>
@@ -751,10 +771,10 @@
 <p>操场的跑道规格为<var>300米/圈</var>。</p>
 <p>跑道中央规划了多个球场，从左到右依次为：</p>
 <table>
-    <tr><td>排球场</td><td>排球场充分利用了弯道的空间，实际上排球场根本没有用作练习排球，倒是经常被用来练习篮球运球绕杆等。</td></tr>
+    <tr><td>羽毛球场</td><td>羽毛球场充分利用了弯道的空间，实际上羽毛球场根本没有用作练习羽毛球，倒是经常被用来练习篮球运球绕杆等。</td></tr>
     <tr><td>足球场</td><td>由于场地限制，足球场不可能做得标准，但场上的线条都在。</td></tr>
     <tr><td>篮球场</td><td>这里一连规划了三个篮球场，球场的大小也有缩水。</td></tr>
-    <tr><td>排球场</td><td>同最左边的排球场。</td></tr>
+    <tr><td>羽毛球场</td><td>同最左边的羽毛球场。</td></tr>
 </table>
 <p>足球场和篮球场分别配有球门和球架。球架始终固定，但球门经常因为大小活动被移动位置。</p>
 <p>在靠近学校边缘的一侧，有一个巨大、条形的白色棚子，用于遮阳。棚子有且只有在一侧设置多根支撑柱。</p>
@@ -1137,7 +1157,7 @@
     <path fill="#0000" stroke-width="2" stroke="#c60" d="M82 187 82 257"/>
     <path fill="#0000" stroke-width="2" stroke="#c60" d="M82 287 82 357"/>
 </svg>
-<h3>教室</h3>
+<h3>实验楼教室</h3>
 <p>两栋楼的实验室大同小异。</p>
 <p>每排都有四张桌子，左右两张桌子靠在一起，由此形成每排的两张长桌。正常一张长桌坐4个人，而这里的桌面很宽，五个人坐都不成问题。</p>
 <p>桌面均为青绿色，前面和左右侧有绿色的塑料挡条，固定挡条的螺丝经常拆掉，使挡条可以滑动，甚至直接消失。</p>
@@ -1160,6 +1180,8 @@
 <p>另一种教室九班只去过一次，是中考英语口语人机对话考试的地方，设备显然更好。每个人都有独立的单桌，四张单桌拼成长桌，桌子前方和左右有蓝色围挡，围挡上还有头戴式耳机。这里的系统是<var>Windows 7</var>。</p>
 <p>讲台上的教师电脑，系统均为<var>Windows 7</var>。</p>
 <p>和常规的电脑室一样，这里的电脑被老师操控，老师可以广播、发送文件，一般情况下网络被关闭。</p>
+<h3>小篮球场</h3>
+<p>三、五号楼间还有两个较小的篮球场，各配备一个球架。地面上的标线已经看不清楚。</p>
 <h2>高中楼</h2>
 <p>高中楼共十层，外表的装修没有其他楼房那样死板。例如走廊外面有类似多米诺骨牌的格子，两侧是红棕色的栅格装饰。</p>
 <p>初中部接触高中楼的唯一机会便是中考，只有这时，大家才能到高中楼复习。</p>
@@ -1174,9 +1196,9 @@
     <li>八下开学时的春联书写和游园活动在此开展</li>
     <li>如果科艺节当天下雨，架空层就是跳蚤市场活动的备用场地。</li>
 </ul>
-<p>当然，架空层中间也有一个房间，里面是楼梯间和电梯，是通往楼上的重要通道。</p><!--
+<p>当然，架空层中间也有一个房间，里面是楼梯间和电梯，是通往楼上的重要通道。</p>
 <p>在架空层外的一个围挡外，写着</p>
-<code>三雅学校<br>男生儒雅<br>女生<br>校园高雅</code>-->
+<code>三雅学校<br>男生儒雅<br>女生优雅<br>校园高雅</code>
 <h3>地下停车场</h3>
 <p>架空层右边有一个地下停车场的入口，通往四十中的地下停车场。</p>
 <p>九班的男生在初一准备“中考送祝福”活动<time>2025年6月17日</time>时，为了拿红毯，需要前往停车场。</p>
