@@ -134,16 +134,17 @@ i-header{
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    gap:12px;
+    gap:15px;
+    padding:50px 0;
     >div{
         opacity:0;
         transform:scale(0.7);
         border-radius:var(--rl);
         animation:i-box ease-in-out forwards;
         animation-timeline:view();
-        animation-range:entry 90% entry 140%;
+        animation-range:entry 90% entry 120%;
         transform-origin:center;
-        padding:12px 20px;
+        padding:10px 20px;
         width:clamp(300px,70dvw,500px);
         text-align:center;
         >p{font-size:1.375rem;}
@@ -157,18 +158,6 @@ i-header{
             }
         }
         &:nth-child(2){
-            background:hsl(from var(--quote) h s l / 0.3);
-            >button{
-                background:hsl(from var(--quote) h s l / 0.3);
-                padding:10px 25px;
-                border-radius:var(--rm);
-                display:block;
-                font-size:2.5rem;
-                font-weight:bold;
-                margin:auto;
-            }
-        }
-        &:nth-child(3){
             background:hsl(from var(--content) h s l / 0.3);
             >div{
                 background:hsl(from var(--text) h s l / 0.1);
@@ -196,6 +185,18 @@ i-header{
                 margin:auto;
             }
         }
+        &:nth-child(3){
+            background:hsl(from var(--quote) h s l / 0.3);
+            >button{
+                background:hsl(from var(--quote) h s l / 0.3);
+                padding:10px 25px;
+                border-radius:var(--rm);
+                display:block;
+                font-size:2.5rem;
+                font-weight:bold;
+                margin:auto;
+            }
+        }
     }
 }
 @keyframes i-header{to{opacity:0;}}
@@ -215,11 +216,11 @@ i-header{
     </header>
         <i-header>
             <div><p>毕业已经</p><b id="graduation">0</b></div>
-            <div><p>阅读九班档案</p><button onclick="showPage('PRE')">GO</button></div>
             <div><p>九班词云</p>
                 <div id="display"></div>
                 <button  onclick="toggleWords()">换一批</button>
             </div>
+            <div><p>阅读九班档案</p><button onclick="showPage('PRE')">GO</button></div>
         </i-header>
     <script>
 function updateTime(){
@@ -244,7 +245,23 @@ function toggleWords(){
         "丁欧文","死猪不怕开水烫","调整坐姿","军体拳","格斗准备",
         "脑子里永远有任务","眼睛里永远有敌人","肩膀上永远有责任","胸膛里永远有激情",
         "当那一天来临","保持内裤干燥","玻璃王",
-        "外滩","穷人的代步工具","东方树叶","上流人士"
+        "外滩","穷人的代步工具","东方树叶","上流人士",
+        "妈妈洗脚","防伪标志","磨刀霍霍向鑫洋","哇——","咦——",
+        "我没马，我骑小电驴","拼好课","缝隙","晓得？","我的天哪","太过分了","天时不如地利",
+        "以行践言","崇拜",
+        
+        "小水滴","练习册要跟进做","试卷拿出来","预习复习",
+        "啧啧啧","不说了不说了","听课听课","小混混","练习册要跟进做","书要多读","教材要熟悉",
+        "冯老师爱徒","准备小测","我爱历史！","blin豪","屌丝集团","确立毛 形成毛",
+        "重男轻女","撒哈拉女人洗澡","好姐妹","青于蓝",
+        "乐乐课堂","四一男","隔壁位","五块钱","一中门口有两个乞丐","闭麦",
+        "地方性甲沟炎","血管爆炸","骨髓疏松症","生奇宝贝","蓝本",
+        "赢在中考","赢在中专","白本","芥末刚抹可疏通",
+        
+        "铅笔","过水笔","插座插到屁股上","烧焦了","这可是肾衰的表现",
+        "后视症","掉头","现在是下课状态","繁体字","以羊为大",
+        "女子把男子鸡割了","保持安静","60A","电击小子","跳起来，然后休克了","砖头",
+        "水仙","张叔叔","兵王","航拍中国"
     ];
     let a=[...w];
     for(let i=a.length-1;i>0;i--){
@@ -496,7 +513,36 @@ toggleWords();
 <p>当然如果想要用其他名牌也行，只要能让老师看到名字。</p>
 <p>新生训练结束后，还隔着两天的周末。这个周末，所有人准备好个人物品，准备迎接9月2日的开学。</p>
 <h1>大事件</h1>
-<h1>九班名词</h1>
+<h1>九班词典</h1>
+    <table>
+        <tr><th>词语</th><th>释义</th></tr>
+        <tr><td>教工天团</td><td>四十中在活动中唱歌的一群老师</td></tr>
+        <tr><td>麦德龙臭水沟</td><td>四十中旁的河道</td></tr>
+        <tr><td>草履虫培养液</td><td>2、3号楼间的水池</td></tr>
+        <tr><td>特色餐</td><td>融德时代每周的特色餐品</td></tr>
+        <tr><td>霸者天下</td><td>由鲁大师产生的流氓软件</td></tr>
+        <tr><td>维京传奇</td><td>由鲁大师产生的流氓软件</td></tr>
+        <tr><td>年糕壁纸</td><td>有美女壁纸、动态壁纸的流氓软件</td></tr>
+        <tr><td>三件套</td><td>床单、枕套、被套</td></tr>
+        <tr><td>三折被</td><td>龙翔经典被子</td></tr>
+        <tr><td>508</td><td>龙翔传说中死过三人的宿舍</td></tr>
+        <tr><td>辟邪馒头</td><td>龙翔振兴楼306门后的馒头</td></tr>
+        <tr><td>馒头仙人</td><td>龙翔馒头的别称</td></tr>
+        <tr><td>钉钉仙人</td><td>龙翔馒头被收走后颜哲铭放的铁钉</td></tr>
+        <tr><td>玻璃王</td><td>徐嘉明撞碎爱国有方玻璃后产生的外号</td></tr>
+        <tr><td>上流人士</td><td>林奕扬在爱国有方的自称</td></tr>
+        <tr><td>防伪标志</td><td>方老师发明的防提前写小测的标记</td></tr>
+        <tr><td>拼好课</td><td>周五晚托上半节语文、半节英语</td></tr>
+        <tr><td>以行践言</td><td>陈老师的微信昵称</td></tr>
+        <tr><td>乐乐课堂</td><td>生物课看的视频</td></tr>
+        <tr><td>隔壁位</td><td>某人的同桌</td></tr>
+        <tr><td>五块钱</td><td>载玻片</td></tr>
+        <tr><td>白本</td><td>小中考复习时发的生物材料</td></tr>
+        <tr><td>蓝本</td><td>生物小测用的蓝色材料</td></tr>
+        <tr><td>砖头</td><td>位图的像素</td></tr>
+        <tr><td>张叔叔</td><td>劳技课视频中的人物</td></tr>
+        <tr><td>兵王</td><td>劳技课视频中的人物</td></tr>
+    </table>
 </main>
 <main id="SCH" style="--header:#1a4c93">
 <header><h1>四十中</h1></header>
