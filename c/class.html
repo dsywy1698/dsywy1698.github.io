@@ -61,62 +61,41 @@
 #HOME{
     padding:0;
     >h2{
-        margin:15px 30px;
-        position:relative;
+        margin:15px 30px;position:relative;
         &::before{
-            position:absolute;
-            display:inline-block;
-            content:"";
+            position:absolute;display:inline-block;content:"";
+            width:10px;left:-20px;top:5px;bottom:5px;
             background:hsl(from var(--base) h s l / 0.5);
-            width:10px;
-            left:-20px;
             border-radius:5px;
-            top:5px;
-            bottom:5px;
         }
     }
     >header{
-        height:200dvh;
-        display:block;
-        text-align:center;
-        margin-bottom:-100dvh;
+        display:block;text-align:center;
+        height:200dvh;margin-bottom:-100dvh;
         >div{
-            position:sticky;
-            top:0;
-            height:100dvh;
+            position:sticky;display:flex;justify-content:center;align-items:center;
+            top:0;height:100dvh;
             animation:i-header ease-in-out forwards;
             animation-timeline:view();
             animation-range:entry 55% exit 0%;
-            display:flex;
-            justify-content:center;
-            align-items:center;
             >div{
-                backdrop-filter:blur(5px);
                 padding:12px 20px;
-                border-radius:var(--rm);
+                backdrop-filter:blur(5px);border-radius:var(--rm);
                 >h1{font-size:5rem;margin-bottom:12px;}
                 >p{font-size:1.5rem;}
             }
             >span{
-                position:absolute;
-                display:block;
-                font-size:1rem;
-                bottom:20px;
+                position:absolute;display:block;
+                bottom:20px;padding:4px 20px;
                 background:hsl(from var(--bg) h s l / 0.5);
-                padding:4px 20px;
-                border-radius:50px;
+                font-size:1rem;border-radius:50px;
                 animation:i-toast ease-in-out forwards;
                 animation-timeline:scroll();
                 animation-range:0% 5%;
             }
             &::before,&::after{
-                position:absolute;
-                content:"";
-                z-index:-1;
-                display:block;
-                width:100%;
-                aspect-ratio:2/1;
-                filter:blur(2px);
+                position:absolute;content:"";z-index:-1;display:block;
+                width:100%;aspect-ratio:2/1;filter:blur(2px);
             }
             &::before{background:url("image/40.webp") no-repeat bottom left / cover;top:0;}
             &::after{background:url("image/9.webp") no-repeat top left / cover;bottom:0;}
@@ -129,83 +108,142 @@
     }
 }
 i-header{
-    min-height:100dvh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    gap:15px;
-    padding:50px 0;
+    display:flex;justify-content:center;align-items:center;flex-direction:column;
+    gap:15px;min-height:100dvh;padding:50px 0;
     >div{
-        opacity:0;
-        transform:scale(0.7);
-        border-radius:var(--rl);
+        text-align:center;padding:10px 20px;width:clamp(300px,70dvw,500px);
+        opacity:0;transform:scale(0.7);transform-origin:center;border-radius:var(--rl);
         animation:i-box ease-in-out forwards;
         animation-timeline:view();
         animation-range:entry 90% entry 120%;
-        transform-origin:center;
-        padding:10px 20px;
-        width:clamp(300px,70dvw,500px);
-        text-align:center;
         >p{font-size:1.375rem;}
         &:nth-child(1){
             background:hsl(from var(--base) h s l / 0.3);
-            >b{
-                display:block;
-                font-size:2.5rem;
-                font-weight:bold;
-                margin:auto;
-            }
+            >b{display:block;font-size:2.5rem;font-weight:bold;margin:auto;}
         }
         &:nth-child(2){
             background:hsl(from var(--content) h s l / 0.3);
             >div{
                 background:hsl(from var(--text) h s l / 0.1);
-                padding:20px;
-                border-radius:var(--rl);
+                padding:20px;border-radius:var(--rl);
                 >span{
-                    text-wrap:nowrap;
-                    display:inline-block;
-                    padding:5px 10px;
-                    line-height:20px;
-                    border-radius:15px;
-                    margin:5px;
-                    &:nth-of-type(4n){background:hsl(from var(--base) h s l / 0.3)}
-                    &:nth-of-type(4n+1){background:hsl(from var(--quote) h s l / 0.3)}
-                    &:nth-of-type(4n+2){background:hsl(from var(--nav) h s l / 0.3)}
-                    &:nth-of-type(4n+3){background:hsl(from var(--content) h s l / 0.3)}
+                    text-wrap:nowrap;display:block;padding:5px 0;
+                    &:nth-of-type(1),&:nth-of-type(5){font-size:1rem;color:color-mix(in oklch,var(--text),var(--quote))}
+                    &:nth-of-type(2),&:nth-of-type(4){font-size:1.25rem;color:color-mix(in oklch,var(--text),var(--base))}
+                    &:nth-of-type(3){font-size:1.75rem;color:color-mix(in oklch,var(--text),var(--nav))}
                 }
             }
             >button{
-                color:color-mix(in oklch,var(--text),var(--content));
-                background:#0000;
-                padding:5px;
-                display:block;
-                font-size:1rem;
-                margin:auto;
+                display:block;margin:auto;padding:15px 0 5px 0;
+                color:var(--text);background:#0000;opacity:0.5;font-size:1rem;
             }
         }
-        &:nth-child(3){
-            background:hsl(from var(--quote) h s l / 0.3);
-            >button{
-                background:hsl(from var(--quote) h s l / 0.3);
-                padding:10px 25px;
-                border-radius:var(--rm);
-                display:block;
-                font-size:2.5rem;
-                font-weight:bold;
-                margin:auto;
-            }
+        &:nth-child(3){background:hsl(from var(--quote) h s l / 0.3);>button{background:hsl(from var(--quote) h s l / 0.3);}}
+        &:nth-child(4){background:hsl(from var(--nav) h s l / 0.3);>button{background:hsl(from var(--nav) h s l / 0.3);}}
+        &:nth-child(3)>button,&:nth-child(4)>button{
+            padding:10px 25px;
+            border-radius:var(--rm);
+            display:block;
+            font-size:2.5rem;
+            font-weight:bold;
+            margin:auto;
         }
     }
 }
 @keyframes i-header{to{opacity:0;}}
 @keyframes i-toast{to{transform:translate(0,100px) scale(0.7);opacity:0;}}
 @keyframes i-box{to{opacity:1;transform:scale(1);}}
-    #LIT>h2{opacity:0;height:0;}
-    
-    i-hot,i-jx,i-event
-    {display:block;}
+i-hot{
+    display:block;
+    padding:10px 15px;
+    >div{
+        background:hsl(from var(--quote) h s l / 0.2);
+        text-align:center;
+        margin:10px auto;
+        border-radius:var(--rl);
+        padding:20px 15px;
+        max-width:400px;
+        aspect-ratio:21/9;
+        display:flex;
+        flex-direction:column;
+        justify-content:space-around;
+    }
+}
+i-jx{
+    display:block;
+    position:relative;
+    height:300dvh;
+    top:-100dvh;
+    width:100dvw;
+    margin-bottom:-100dvh;
+    animation:i-jx-title ease-in-out forwards;
+    animation-timeline:view();
+    animation-range:entry 0% exit 100%;
+    &::before{
+        content:'';
+        position:sticky;
+        top:0;
+        display:block;
+        background:url('image/龙翔地图.webp') no-repeat bottom left / cover;
+        width:100dvw;
+        height:100dvh;
+        mask-image:linear-gradient(to bottom,#0000,#000a);
+        animation:i-jx-pic ease-in-out forwards;
+        animation-range:entry 100% entry 200%;
+        animation-timeline:view();
+        opacity:0;
+    }
+    >div{
+        position:relative;
+        opacity:0;
+        transform:scale(0.8);
+        height:100dvh;
+        animation:i-jx-box ease-in-out forwards;
+        animation-timeline:view();
+        animation-range:entry 0% exit 100%;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        gap:5px;
+        &:nth-of-type(1){color:#fff;>p{background:#0002}>button{background:#0508}}
+        &:nth-of-type(2){color:#000;>p{background:#fff2}>button{background:#abb8}}
+        >h1{font-size:5rem;}
+        >b{margin:20px 0;}
+        >p{
+            line-height:20px;
+            border-radius:15px;
+            padding:5px 15px;
+            text-wrap:nowrap;
+            text-align:center;
+        }
+        >button{
+            display:block;
+            padding:15px 30px;
+            border-radius:var(--rm);
+            font-size:1.75rem;
+            font-weight:bold;
+            margin-top:10px;
+        }
+    }
+}
+@keyframes i-jx-title{
+    0%{background:#0000;}
+    25%{background:#0000;}
+    40%{background:#050;}
+    55%{background:#050;}
+    60%{background:#abb;}
+    75%{background:#abb;}
+    100%{background:#abb;}
+}
+@keyframes i-jx-box{
+    30%{opacity:1;transform:scale(1)}
+    80%{opacity:1;transform:scale(1)}
+    100%{opacity:0;}
+}
+@keyframes i-jx-pic{to{opacity:1;}}
+
+#LIT>h2{opacity:0;height:0;}
 </style>
 <main id="HOME">
     <header>
@@ -214,189 +252,21 @@ i-header{
             <span>滑动探索更多</span>
         </div>
     </header>
-        <i-header>
-            <div><p>毕业已经</p><b id="graduation">0</b></div>
-            <div><p>九班词云</p>
-                <div id="display"></div>
-                <button  onclick="toggleWords()">换一批</button>
-            </div>
-            <div><p>阅读九班档案</p><button onclick="showPage('PRE')">GO</button></div>
-        </i-header>
-    <script>
-function updateTime(){
-    const START=new Date('2027-07-01');
-    document.querySelector('#graduation').textContent=Math.floor((Date.now()-START.getTime())/86400000);
-}
-updateTime();
-setInterval(updateTime,60000);
-function toggleWords(){
-    const w=[
-        "走向辉煌","教工天团","麦德龙臭水沟","草履虫培养液","代书板","三雅学校",
-        "早抄","课前三分钟","冬季长跑","评比组","培优班","布置考场","清校时间已到","脑师",
-        "华威菜多多","融德时代","密封条","么么脆鸡排","特色餐",
-        "灰色练习","出题人","审核人",
-        "霸者天下","维京传奇","年糕壁纸","动态壁纸","鲁大师",
-        "辅导员","王文浩","振兴楼","尚武楼","崇军楼","自强楼","队列方阵","感恩的心","国家","炮排",
-        "稍息立正","跨立立正","停止间转法","军姿十分钟","向前对正","小碎步跺响","一秒50下",
-        "优秀标兵","60个项目","三件套","三折被",
-        "508","辟邪馒头","馒头仙人","钉钉仙人",
-        "恩亚歌","我想带您看盛世中国","玉埔村","简普寨山庄",
-        "以炮明志","磨砺青春，升华自我",
-        "丁欧文","死猪不怕开水烫","调整坐姿","军体拳","格斗准备",
-        "脑子里永远有任务","眼睛里永远有敌人","肩膀上永远有责任","胸膛里永远有激情",
-        "当那一天来临","保持内裤干燥","玻璃王",
-        "外滩","穷人的代步工具","东方树叶","上流人士",
-        "妈妈洗脚","防伪标志","磨刀霍霍向鑫洋","哇——","咦——",
-        "我没马，我骑小电驴","拼好课","缝隙","晓得？","我的天哪","太过分了","天时不如地利",
-        "以行践言","崇拜",
-        
-        "小水滴","练习册要跟进做","试卷拿出来","预习复习",
-        "啧啧啧","不说了不说了","听课听课","小混混","练习册要跟进做","书要多读","教材要熟悉",
-        "冯老师爱徒","准备小测","我爱历史！","blin豪","屌丝集团","确立毛 形成毛",
-        "重男轻女","撒哈拉女人洗澡","好姐妹","青于蓝",
-        "乐乐课堂","四一男","隔壁位","五块钱","一中门口有两个乞丐","闭麦",
-        "地方性甲沟炎","血管爆炸","骨髓疏松症","生奇宝贝","蓝本",
-        "赢在中考","赢在中专","白本","芥末刚抹可疏通",
-        
-        "铅笔","过水笔","插座插到屁股上","烧焦了","这可是肾衰的表现",
-        "后视症","掉头","现在是下课状态","繁体字","以羊为大",
-        "女子把男子鸡割了","保持安静","60A","电击小子","跳起来，然后休克了","砖头",
-        "水仙","张叔叔","兵王","航拍中国"
-    ];
-    let a=[...w];
-    for(let i=a.length-1;i>0;i--){
-        let j=Math.floor(Math.random()*(i+1));
-        [a[i],a[j]]=[a[j],a[i]];
-    }
-    document.querySelector('#display').innerHTML=a.slice(0,8).map(s=>`<span>${s}</span>`).join('');
-}
-toggleWords();
-    </script>
-    <h2>热门文章</h2>
+    <i-header>
+        <div><p>毕业已经</p><b id="graduation">0</b></div>
+        <div><p>九班词云</p>
+            <div id="display"></div>
+            <button  onclick="toggleWords()">换一批</button>
+        </div>
+        <div><p>阅读九班档案</p><button onclick="showPage('PRE')">GO</button></div>
+        <div><p>九班八卦</p><button onclick="showPage('PRE')">GO</button></div>
+    </i-header>
+    <h2>热门</h2>
     <i-hot>
         <div><h1>洪鑫洋</h1><p>未来是你们的，但现在未必。</p></div>
         <div><h1>英语1</h1><p>Close your books and test.</p></div>
         <div><h1>四十中</h1><p>四季常青，阳光灿烂</p></div>
     </i-hot>
-    <i-event>
-        <h1>八卦</h1>
-        <p>记录了九班的每日大小事件</p>
-        <button>GO</button>
-    </i-event>
-    <style>
-        i-hot{
-            padding:10px 15px;
-            >div{
-                background:hsl(from var(--quote) h s l / 0.2);
-                text-align:center;
-                margin:10px auto;
-                border-radius:var(--rl);
-                padding:20px 15px;
-                max-width:400px;
-                aspect-ratio:21/9;
-                display:flex;
-                flex-direction:column;
-                justify-content:space-around;
-            }
-        }
-        i-event{
-            padding:50px 0;
-            margin:20px 30px 20px 0;
-            overflow:hidden;
-            background:hsl(from var(--base) h s l / 0.3);
-            animation:i-event ease-in-out forwards;
-            animation-timeline:scroll();
-            animation-range:0% 100%;
-            display:flex;
-            flex-direction:column;
-            justify-content:center;
-            align-items:center;
-            gap:20px;
-            border-radius:0 var(--rl) var(--rl) 0;
-            flex-basis:180px;
-            >h1{font-size:4rem;}
-            >p{text-wrap:balance;text-align:center;}
-            >button{
-                background:hsl(from var(--bg) h s l / 0.3);
-                padding:15px 30px;
-                border-radius:var(--rm);
-                font-size:2.5rem;
-                font-weight:bold;
-            }
-        }
-        i-jx{
-            position:relative;
-            height:300dvh;
-            top:-100dvh;
-            width:100dvw;
-            margin-bottom:-100dvh;
-            animation:i-jx-title ease-in-out forwards;
-            animation-timeline:view();
-            animation-range:entry 0% exit 100%;
-            &::before{
-                content:'';
-                position:sticky;
-                top:0;
-                display:block;
-                background:url('image/龙翔地图.webp') no-repeat bottom left / cover;
-                width:100dvw;
-                height:100dvh;
-                mask-image:linear-gradient(to bottom,#0000,#000a);
-                animation:i-jx-pic ease-in-out forwards;
-                animation-range:entry 100% entry 200%;
-                animation-timeline:view();
-                opacity:0;
-            }
-            >div{
-                position:relative;
-                opacity:0;
-                transform:scale(0.8);
-                height:100dvh;
-                animation:i-jx-box ease-in-out forwards;
-                animation-timeline:view();
-                animation-range:entry 0% exit 100%;
-                display:flex;
-                flex-direction:column;
-                justify-content:center;
-                align-items:center;
-                gap:5px;
-                &:nth-of-type(1){color:#fff;>p{background:#0002}>button{background:#0508}}
-                &:nth-of-type(2){color:#000;>p{background:#fff2}>button{background:#abb8}}
-                >h1{font-size:5rem;}
-                >b{margin:20px 0;}
-                >p{
-                    line-height:20px;
-                    border-radius:15px;
-                    padding:5px 15px;
-                    text-wrap:nowrap;
-                    text-align:center;
-                }
-                >button{
-                    display:block;
-                    padding:15px 30px;
-                    border-radius:var(--rm);
-                    font-size:1.75rem;
-                    font-weight:bold;
-                    margin-top:10px;
-                }
-            }
-        }
-        @keyframes i-jx-title{
-            0%{background:#0000;}
-            25%{background:#0000;}
-            40%{background:#050;}
-            55%{background:#050;}
-            60%{background:#abb;}
-            75%{background:#abb;}
-            100%{background:#abb;}
-        }
-        @keyframes i-jx-box{
-            30%{opacity:1;transform:scale(1)}
-            80%{opacity:1;transform:scale(1)}
-            100%{opacity:0;}
-        }
-        @keyframes i-jx-pic{to{opacity:1;}}
-    </style>
     <h2>校园</h2>
     <h2>军训</h2>
     <i-jx>
@@ -415,10 +285,60 @@ toggleWords();
             <p>稍息！军体拳！格斗准备！</p>
             <p>保持？安静！</p>
             <p>脑子里永远有任务<br>眼睛里永远有敌人</p>
-            <p>同学们请注意，<br>现在是集合时间！</p>
             <button>GO</button>
         </div>
     </i-jx>
+    <script>
+function updateTime(){
+    const START=new Date('2027-07-01');
+    document.querySelector('#graduation').textContent=Math.floor((Date.now()-START.getTime())/86400000);
+}
+updateTime();
+setInterval(updateTime,60000);
+function toggleWords(){
+    const w=[
+        "走向辉煌","教工天团","麦德龙臭水沟","草履虫培养液","代书板",
+        "三雅学校","早抄","课前三分钟","冬季长跑","评比组",
+        "培优班","布置考场","清校时间已到","脑师","华威菜多多",
+        "融德时代","密封条","么么脆鸡排","特色餐","灰色练习",
+        "出题人","审核人",
+        "霸者天下","维京传奇","年糕壁纸","动态壁纸","鲁大师",
+        "辅导员","王文浩","振兴楼","尚武楼","崇军楼","自强楼","队列方阵","感恩的心","国家","炮排",
+        "稍息立正","跨立立正","停止间转法","军姿十分钟","向前对正","小碎步跺响","一秒50下",
+        "优秀标兵","60个项目","三件套","三折被",
+        "508","辟邪馒头","馒头仙人","钉钉仙人",
+        "恩亚歌","玉埔村","简普寨山庄",
+        "以炮明志","磨砺青春，升华自我",
+        "丁欧文","死猪不怕开水烫","调整坐姿","军体拳","格斗准备",
+        "脑子里永远有任务","眼睛里永远有敌人","肩膀上永远有责任","胸膛里永远有激情",
+        "当那一天来临","保持内裤干燥","玻璃王",
+        "外滩","穷人的代步工具","东方树叶","上流人士",
+        "妈妈洗脚","防伪标志","磨刀霍霍向鑫洋","哇——","咦——",
+        "我没马，我骑小电驴","拼好课","缝隙","晓得？","我的天哪","太过分了","天时不如地利",
+        "以行践言","崇拜",
+        
+        "小水滴","试卷拿出来","预习复习",
+        "啧啧啧","不说了不说了","听课听课","小混混","练习册要跟进做","书要多读","教材要熟悉",
+        "冯老师爱徒","准备小测","我爱历史","blin豪","屌丝集团","确立毛 形成毛",
+        "重男轻女","撒哈拉女人洗澡","好姐妹","青于蓝",
+        "乐乐课堂","四一男","隔壁位","五块钱","一中门口两个乞丐","闭麦",
+        "地方性甲沟炎","血管爆炸","骨髓疏松症","生奇宝贝","蓝本",
+        "赢在中考","赢在中专","白本","芥末刚抹可疏通",
+        "绿色通道","蓝色通道",
+        "铅笔","过水笔","插座插到屁股上","烧焦了","肾衰的表现",
+        "后视症","掉头","现在是下课状态","繁体字","以羊为大",
+        "保持安静","60A","电击小子","跳起来，然后休克了","砖头",
+        "水仙","张叔叔","兵王","航拍中国"
+    ];
+    let a=[...w];
+    for(let i=a.length-1;i>0;i--){
+        let j=Math.floor(Math.random()*(i+1));
+        [a[i],a[j]]=[a[j],a[i]];
+    }
+    document.querySelector('#display').innerHTML=a.slice(0,5).map(s=>`<span>${s}</span>`).join('');
+}
+toggleWords();
+    </script>
     <h2>老师</h2>
     <h2>学生</h2>
     <h2>档案</h2>
