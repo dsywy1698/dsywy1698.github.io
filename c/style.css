@@ -825,7 +825,7 @@ main{
                 overflow-x:auto;
                 display:block;
                 mask-image:linear-gradient(to right,#0008,#000 20px,#000 calc(100% - 20px),#0008);
-                \td{
+                td{
                     padding:8px 10px;
                     width:200px;
                     text-wrap:nowrap;
