@@ -1,0 +1,934 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>HTML钢琴</title><style>
+*{box-sizing:border-box;user-select:none;font-family:sans-serif;}
+body{margin:0;padding:0;background:#0f0f1a;overflow:hidden;display:flex;flex-direction:column;height:100dvh;}
+.ctrl{
+    position:fixed;z-index:1;display:flex;height:40px;padding:4px;gap:4px;
+    background:#fff1;border-radius:20px;backdrop-filter:blur(5px);top:8px;right:8px;
+    >button{
+        background:#fff0;color:#fff;border-radius:16px;overflow:hidden;
+        font-size:14px;cursor:pointer;text-wrap:nowrap;transition:0.2s;
+        width:56px;height:32px;border:none;&:hover,&.act{background:#fff1}
+        &#showUse{width:32px;background:#fff1;flex-shrink:0;&:hover+div{display:block}}
+    }
+    >div{
+        position:fixed;right:8px;top:52px;display:none;font-size:14px;width:160px;padding:4px;
+        background:#14181f;color:#fff;backdrop-filter:blur(5px);border-radius:12px;
+        >p{margin:0 4px;padding:4px;}
+        >p>b{background:#fff1;padding:0 8px;border-radius:4px;margin-left:12px;}
+    }
+}
+textarea{
+    flex:1;border:none;border-radius:4px;line-height:1.5;min-height:60px;font-size:14px;
+    resize:none;width:100%;outline:none;font-family:consolas,monospace;scrollbar-width:none;
+    mask-image:linear-gradient(to bottom,#0000 0,#000 10px,#000 calc(100% - 10px),#0000 100%);
+    background:#0000;color:#cdd;padding:56px 10px 6px 10px;&:disabled{opacity:0.4;}
+}
+.piano{width:100dvw;height:240px;overflow-x:auto;flex-shrink:0;position:relative;
+    >div{display:flex;width:1300px;height:160px;
+        >b{
+            position:relative;cursor:pointer;overflow:hidden;padding-bottom:10px;display:flex;
+            justify-content:center;align-items:flex-end;font-weight:normal;transition:0.1s;
+            border-radius:0 0 5px 5px;&.active,&:active{background:#993!important;}
+        }
+        &:first-child>b{width:25px;height:160px;
+            &:nth-child(7n+1){background:#e3e3f3}
+            &:nth-child(7n+2){background:#eeeeff}
+            &:nth-child(7n+3){background:#ababbb}
+            &:nth-child(7n+4){background:#b6b6c6}
+            &:nth-child(7n+5){background:#c1c1d1}
+            &:nth-child(7n+6){background:#ccccdd}
+            &:nth-child(7n+7){background:#d9d9e9}
+            &.c4{font-weight:bold}
+        }
+        &:last-child{margin-top:-160px;padding:0 10px;
+            >b{width:20px;height:100px;margin-left:5px;background:#211;color:#0000;}
+            >b[data-e]{pointer-events:none;opacity:0;}
+        }
+    }
+}
+@media(width>=1300px){.piano>div{width:100dvw;&:first-child>b{width:100%!important}&:last-child{padding:0 calc(100dvw/104);>b{width:calc(100dvw/104*3);margin:0 calc(100dvw/312)}}}}
+@media(width<356px){.ctrl{left:8px;>button:not(#showUse){width:100%}}}
+</style></head><body>
+<div class="ctrl">
+    <button id="recBtn">记录</button>
+    <button id="playBtn">演奏</button>
+    <button id="clearBtn">清空</button>
+    <button id="notationBtn">音名</button>
+    <button id="bpmBtn">120</button>
+    <button id="showUse">?</button>
+    <div>
+        <p>十六分音符<b>//</b></p>
+        <p>八分音符<b>/</b></p>
+        <p>四分音符<b></b></p>
+        <p>附点四分<b>.</b></p>
+        <p>附点八分<b>/.</b><b>./</b></p>
+        <p>复附点四分<b>..</b></p>
+        <p>延长线<b>-</b></p>
+        <p>和弦<b>_</b></p>
+        <p>多声部<b>[]</b></p>
+        <p>注释<b>()</b></p>
+        <p>小节线<b>|</b></p>
+    </div>
+</div>
+<textarea id="tx" spellcheck="false"></textarea>
+<div class="piano"><div></div><div></div></div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // ===音频引擎===
+    var actx = null;
+
+    function getAudioCtx() {
+        if (!actx) actx = new(window.AudioContext || window.webkitAudioContext)();
+        if (actx.state === "suspended") actx.resume();
+        return actx;
+    }
+
+    // ===音名频率表===
+    var freqMap = {
+        "A0": 27.5,
+        "A#0": 29.14,
+        "B0": 30.87,
+        "C1": 32.7,
+        "C#1": 34.65,
+        "D1": 36.71,
+        "D#1": 38.89,
+        "E1": 41.2,
+        "F1": 43.65,
+        "F#1": 46.25,
+        "G1": 49,
+        "G#1": 51.91,
+        "A1": 55,
+        "A#1": 58.27,
+        "B1": 61.74,
+        "C2": 65.41,
+        "C#2": 69.3,
+        "D2": 73.42,
+        "D#2": 77.78,
+        "E2": 82.41,
+        "F2": 87.31,
+        "F#2": 92.5,
+        "G2": 98,
+        "G#2": 103.83,
+        "A2": 110,
+        "A#2": 116.54,
+        "B2": 123.47,
+        "C3": 130.81,
+        "C#3": 138.59,
+        "D3": 146.83,
+        "D#3": 155.56,
+        "E3": 164.81,
+        "F3": 174.61,
+        "F#3": 185,
+        "G3": 196,
+        "G#3": 207.65,
+        "A3": 220,
+        "A#3": 233.08,
+        "B3": 246.94,
+        "C4": 261.63,
+        "C#4": 277.18,
+        "D4": 293.66,
+        "D#4": 311.13,
+        "E4": 329.63,
+        "F4": 349.23,
+        "F#4": 369.99,
+        "G4": 392,
+        "G#4": 415.3,
+        "A4": 440,
+        "A#4": 466.16,
+        "B4": 493.88,
+        "C5": 523.25,
+        "C#5": 554.37,
+        "D5": 587.33,
+        "D#5": 622.25,
+        "E5": 659.26,
+        "F5": 698.46,
+        "F#5": 739.99,
+        "G5": 783.99,
+        "G#5": 830.61,
+        "A5": 880,
+        "A#5": 932.33,
+        "B5": 987.77,
+        "C6": 1046.5,
+        "C#6": 1108.73,
+        "D6": 1174.66,
+        "D#6": 1244.51,
+        "E6": 1318.51,
+        "F6": 1396.91,
+        "F#6": 1479.98,
+        "G6": 1567.98,
+        "G#6": 1661.22,
+        "A6": 1760,
+        "A#6": 1864.66,
+        "B6": 1975.53,
+        "C7": 2093,
+        "C#7": 2217.46,
+        "D7": 2349.32,
+        "D#7": 2489.02,
+        "E7": 2637.02,
+        "F7": 2793.83,
+        "F#7": 2959.96,
+        "G7": 3135.96,
+        "G#7": 3322.44,
+        "A7": 3520,
+        "A#7": 3729.31,
+        "B7": 3951.07,
+        "C8": 4186.01
+    };
+
+    function getFrequency(name) {
+        if (freqMap[name]) return freqMap[name];
+        if (name.indexOf('#') !== -1) {
+            var base = name.replace('#', '');
+            var match = base.match(/^([A-Ga-g])(\d+)$/);
+            if (!match) return null;
+            var letter = match[1].toUpperCase();
+            var octave = parseInt(match[2]);
+            var posMap = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+            var pos = posMap[letter];
+            if (pos === undefined) return null;
+            pos += 1;
+            var semi = octave * 12 + pos;
+            var a4Semi = 4 * 12 + 9;
+            return 440 * Math.pow(2, (semi - a4Semi) / 12);
+        }
+        return null;
+    }
+
+    // ===音色===
+    function playPianoNote(ctx, freq, dur, now) {
+        [
+            [1, 0.38, 0],
+            [1, 0.16, 1.2],
+            [2, 0.22, -0.8],
+            [3, 0.10, 1.8],
+            [4, 0.05, -1.5]
+        ].forEach(function(p) {
+            var osc = ctx.createOscillator();
+            var gain = ctx.createGain();
+            osc.type = "sine";
+            osc.frequency.setValueAtTime(freq * p[0] + p[2], now);
+            gain.gain.setValueAtTime(0.7 * p[1], now);
+            gain.gain.exponentialRampToValueAtTime(3e-4, now + dur);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now);
+            osc.stop(now + dur);
+        });
+        var osc2 = ctx.createOscillator();
+        var gain2 = ctx.createGain();
+        osc2.type = "triangle";
+        osc2.frequency.setValueAtTime(5.3 * freq, now);
+        osc2.frequency.exponentialRampToValueAtTime(1.1 * freq, now + 0.04);
+        gain2.gain.setValueAtTime(0.06, now);
+        gain2.gain.exponentialRampToValueAtTime(1e-4, now + 0.05);
+        osc2.connect(gain2);
+        gain2.connect(ctx.destination);
+        osc2.start(now);
+        osc2.stop(now + 0.06);
+    }
+
+    function playNote(name, durOverride) {
+        var freq = getFrequency(name);
+        if (!freq) return;
+        var ctx = getAudioCtx();
+        var now = ctx.currentTime;
+        var dur = durOverride || (0.35 + (1.6 - 18e-5 * (freq - 27.5)));
+        if (dur < 0.08) dur = 0.08;
+        playPianoNote(ctx, freq, dur, now);
+    }
+
+    // ===记谱法转换===
+    var NOTATION_LIST = ['pitch', 'solfa'];
+    var NOTATION_LABEL = { pitch: '音名', solfa: '唱名' };
+    var currentNotation = 'pitch';
+
+    function scanAndReplace(text, converter) {
+        var result = '';
+        var i = 0;
+        while (i < text.length) {
+            var ch = text[i];
+            if ((ch >= 'A' && ch <= 'G') || (ch >= 'a' && ch <= 'g')) {
+                var start = i;
+                i++;
+                if (i < text.length && text[i] === '#') i++;
+                if (i < text.length && text[i] >= '0' && text[i] <= '8') i++;
+                var token = text.substring(start, i);
+                result += converter(token, 'pitch');
+            } else if (ch >= '1' && ch <= '7') {
+                var start = i;
+                i++;
+                if (i < text.length && text[i] === '#') i++;
+                while (i < text.length && (text[i] === "'" || text[i] === ',')) i++;
+                var token = text.substring(start, i);
+                result += converter(token, 'solfa');
+            } else {
+                result += ch;
+                i++;
+            }
+        }
+        return result;
+    }
+
+    function pitchToSolfaConverter(token, type) {
+        if (type === 'solfa') return token;
+        var letter = token[0].toUpperCase();
+        var hasSharp = token.indexOf('#') !== -1;
+        var num = parseInt(token.replace(/[A-Ga-g#]/g, ''));
+        if (isNaN(num)) return token;
+        var base = { C: 1, D: 2, E: 3, F: 4, G: 5, A: 6, B: 7 };
+        var solfaNum = base[letter];
+        if (!solfaNum) return token;
+        var offset = num - 4;
+        var result = solfaNum.toString();
+        if (hasSharp) result += '#';
+        if (offset > 0) result += "'".repeat(offset);
+        else if (offset < 0) result += ",".repeat(-offset);
+        return result;
+    }
+
+    function solfaToPitchConverter(token, type) {
+        if (type === 'pitch') return token;
+        var num = parseInt(token[0]);
+        var hasSharp = token.indexOf('#') !== -1;
+        var quotes = (token.match(/'/g) || []).length;
+        var commas = (token.match(/,/g) || []).length;
+        var offset = quotes - commas;
+        var octave = 4 + offset;
+        var letterMap = { 1: 'C', 2: 'D', 3: 'E', 4: 'F', 5: 'G', 6: 'A', 7: 'B' };
+        var letter = letterMap[num];
+        if (!letter) return token;
+        var result = letter;
+        if (hasSharp) result += '#';
+        result += octave;
+        return result;
+    }
+
+    function pitchToSolfa(text) {
+        return scanAndReplace(text, function(token, type) {
+            if (type === 'solfa') return token;
+            return pitchToSolfaConverter(token, type);
+        });
+    }
+
+    function solfaToPitch(text) {
+        return scanAndReplace(text, function(token, type) {
+            if (type === 'pitch') return token;
+            return solfaToPitchConverter(token, type);
+        });
+    }
+
+    function getNotationName(pitchName) {
+        if (currentNotation === 'pitch') return pitchName;
+        return pitchToSolfaConverter(pitchName, 'pitch');
+    }
+
+    function switchNotation(newMode) {
+        if (isPlaying || isRecording) return;
+        if (newMode === currentNotation) return;
+        var text = tx.value;
+        if (currentNotation === 'pitch' && newMode === 'solfa') {
+            tx.value = pitchToSolfa(text);
+        } else if (currentNotation === 'solfa' && newMode === 'pitch') {
+            tx.value = solfaToPitch(text);
+        }
+        currentNotation = newMode;
+        notationBtn.textContent = NOTATION_LABEL[newMode];
+    }
+
+    // ===键盘构建===
+    var whiteNames = ["A0", "B0", "C1", "D1", "E1", "F1", "G1", "A1", "B1", "C2", "D2", "E2", "F2", "G2", "A2",
+        "B2", "C3", "D3", "E3", "F3", "G3", "A3", "B3", "C4", "D4", "E4", "F4", "G4", "A4", "B4",
+        "C5", "D5", "E5", "F5", "G5", "A5", "B5", "C6", "D6", "E6", "F6", "G6", "A6", "B6",
+        "C7", "D7", "E7", "F7", "G7", "A7", "B7", "C8"
+    ];
+    var blackNames = ["A#0", null, "C#1", "D#1", null, "F#1", "G#1", "A#1", null, "C#2", "D#2", null, "F#2",
+        "G#2", "A#2", null, "C#3", "D#3", null, "F#3", "G#3", "A#3", null, "C#4", "D#4", null,
+        "F#4", "G#4", "A#4", null, "C#5", "D#5", null, "F#5", "G#5", "A#5", null, "C#6", "D#6",
+        null, "F#6", "G#6", "A#6", null, "C#7", "D#7", null, "F#7", "G#7", "A#7", null
+    ];
+    var wc = document.querySelector(".piano>div:first-child");
+    var bc = document.querySelector(".piano>div:last-child");
+    var keyMap = {};
+    whiteNames.forEach(function(name) {
+        var el = document.createElement("b");
+        el.textContent = name;
+        if (name === "C4") el.className = "c4";
+        wc.appendChild(el);
+        keyMap[name] = el;
+    });
+    blackNames.forEach(function(name) {
+        var el = document.createElement("b");
+        if (name === null) {
+            el.setAttribute("data-e", "");
+        } else {
+            el.textContent = name;
+        }
+        bc.appendChild(el);
+        if (name) keyMap[name] = el;
+    });
+
+    // ===DOM引用===
+    var tx = document.getElementById("tx");
+    var recBtn = document.getElementById("recBtn");
+    var playBtn = document.getElementById("playBtn");
+    var clearBtn = document.getElementById("clearBtn");
+    var bpmBtn = document.getElementById("bpmBtn");
+    var notationBtn = document.getElementById("notationBtn");
+
+    // ===状态===
+    var isRecording = false;
+    var isPlaying = false;
+    var playTimer = null;
+    var playSeq = [];
+    var playIdx = 0;
+    var stopFlag = false;
+
+    var multiPartTimers = [];
+    var multiPartStates = [];
+    var multiPartActive = false;
+
+    //BPM控制
+    var currentBpm = 120;
+    var bpmPresets = [60, 90, 120, 140, 180, 240, 360, 480];
+    var bpmIndex = 2;
+
+    function getBaseDur() {
+        var v = currentBpm;
+        if (v < 40) v = 40;
+        if (v > 480) v = 480;
+        return 60 / v;
+    }
+
+    function cycleBpm() {
+        bpmIndex = (bpmIndex + 1) % bpmPresets.length;
+        currentBpm = bpmPresets[bpmIndex];
+        bpmBtn.textContent = currentBpm;
+    }
+
+    // ===语法解析器===
+    var parseError = false;
+
+    function isNoteLetter(c) {
+        return (c >= 'A' && c <= 'G') || (c >= 'a' && c <= 'g');
+    }
+
+    function isWhitespace(c) {
+        return c === ' ' || c === '\n' || c === '\r' || c === '\t';
+    }
+
+    function removeComments(text) {
+        var result = '';
+        var i = 0;
+        while (i < text.length) {
+            if (text[i] === '(') {
+                i++;
+                while (i < text.length && text[i] !== ')') i++;
+                if (i < text.length) i++;
+            } else {
+                result += text[i];
+                i++;
+            }
+        }
+        return result;
+    }
+
+    function parseDurationModifiers(text, pos, errorRef) {
+        var i = pos;
+        var baseVal = 1;
+        var dashCount = 0;
+        var hasBase = false;
+
+        if (i + 1 < text.length) {
+            var two = text[i] + text[i + 1];
+            if (two === '//') { baseVal = 0.25; i += 2; hasBase = true; } else
+            if (two === '/.') { baseVal = 0.75; i += 2; hasBase = true; } else
+            if (two === './') { baseVal = 0.75; i += 2; hasBase = true; } else
+            if (two === '..') { baseVal = 1.75; i += 2; hasBase = true; }
+        }
+
+        if (!hasBase) {
+            if (i < text.length && text[i] === '/') { baseVal = 0.5; i++; hasBase = true; } else
+            if (i < text.length && text[i] === '.') { baseVal = 1.5; i++; hasBase = true; }
+        }
+
+        while (i < text.length && text[i] === '-') {
+            dashCount++;
+            i++;
+        }
+
+        if (i < text.length) {
+            var next = text[i];
+            var isLegalNext = isWhitespace(next) || next === '|' || next === ')' || next === ']' ||
+                              next === '[' || next === '_' || isNoteLetter(next) || next === '0';
+            if (!isLegalNext && next !== '.' && next !== '/' && next !== '-') {
+                errorRef.value = true;
+                return { dur: 0, pos: i };
+            }
+            if (next === '.' || next === '/' || next === '-') {
+                errorRef.value = true;
+                return { dur: 0, pos: i };
+            }
+        }
+
+        return { dur: baseVal + dashCount, pos: i };
+    }
+
+    function parseNoteName(text, pos, errorRef) {
+        var i = pos;
+        if (i >= text.length) return null;
+        var c = text[i];
+        if (!isNoteLetter(c)) return null;
+        var name = c.toUpperCase();
+        i++;
+        if (i < text.length && text[i] === '#') {
+            name += '#';
+            i++;
+        }
+        if (i < text.length && text[i] >= '0' && text[i] <= '8') {
+            name += text[i];
+            i++;
+        } else {
+            errorRef.value = true;
+            return null;
+        }
+        if (!getFrequency(name)) {
+            errorRef.value = true;
+            return null;
+        }
+        return { name: name, pos: i };
+    }
+
+    function parseChordOrSingle(text, pos, errorRef) {
+        var i = pos;
+        var names = [];
+        var totalDur = 1;
+
+        while (true) {
+            var noteRes = parseNoteName(text, i, errorRef);
+            if (!noteRes) {
+                errorRef.value = true;
+                return null;
+            }
+            names.push(noteRes.name);
+            i = noteRes.pos;
+
+            if (i < text.length && text[i] === '_') {
+                i++;
+                continue;
+            } else {
+                var durRes = parseDurationModifiers(text, i, errorRef);
+                if (errorRef.value) return null;
+                totalDur = durRes.dur;
+                i = durRes.pos;
+                break;
+            }
+        }
+
+        if (names.length === 0) {
+            errorRef.value = true;
+            return null;
+        }
+
+        return {
+            type: names.length === 1 ? 'n' : 'c',
+            names: names,
+            dur: totalDur,
+            pos: i
+        };
+    }
+
+    function parseSequence(text) {
+        var errorRef = { value: false };
+        var events = [];
+        var i = 0;
+        var len = text.length;
+
+        function skipIgnored() {
+            while (i < len) {
+                var c = text[i];
+                if (isWhitespace(c) || c === '|') {
+                    i++;
+                } else if (c === '(') {
+                    i++;
+                    while (i < len && text[i] !== ')') i++;
+                    if (i < len) i++;
+                } else {
+                    break;
+                }
+            }
+        }
+
+        while (i < len && !errorRef.value) {
+            skipIgnored();
+            if (i >= len) break;
+
+            var c = text[i];
+
+            if (c === '0') {
+                i++;
+                var durRes = parseDurationModifiers(text, i, errorRef);
+                if (errorRef.value) break;
+                events.push({ t: 'r', dur: durRes.dur });
+                i = durRes.pos;
+                continue;
+            }
+
+            if (isNoteLetter(c)) {
+                var chordRes = parseChordOrSingle(text, i, errorRef);
+                if (errorRef.value || !chordRes) break;
+                events.push({ t: chordRes.type, names: chordRes.names, dur: chordRes.dur });
+                i = chordRes.pos;
+                continue;
+            }
+
+            if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
+                i++;
+                continue;
+            }
+            if (c >= '1' && c <= '8') {
+                i++;
+                continue;
+            }
+
+            errorRef.value = true;
+            break;
+        }
+
+        if (errorRef.value) return [];
+        return events;
+    }
+
+    // ===多声部===
+    function parseMultiPart(text) {
+        var cleaned = removeComments(text);
+
+        var hasBracket = cleaned.indexOf('[') !== -1 && cleaned.indexOf(']') !== -1;
+        if (!hasBracket) {
+            var seq = parseSequence(cleaned);
+            if (seq.length === 0 && cleaned.trim() !== '') {
+                return { valid: false, parts: [], error: '解析失败' };
+            }
+            return { valid: true, parts: [{ events: seq }] };
+        }
+
+        var partsText = [];
+        var depth = 0;
+        var current = '';
+        var inBracket = false;
+        var nested = false;
+
+        for (var idx = 0; idx < cleaned.length; idx++) {
+            var ch = cleaned[idx];
+            if (ch === '[') {
+                if (inBracket) {
+                    nested = true;
+                    break;
+                }
+                inBracket = true;
+                depth = 1;
+                current = '';
+            } else if (ch === ']') {
+                if (!inBracket) continue;
+                depth--;
+                if (depth === 0) {
+                    inBracket = false;
+                    if (current.trim() !== '') {
+                        partsText.push(current.trim());
+                    }
+                    current = '';
+                } else {
+                    current += ch;
+                }
+            } else {
+                if (inBracket) {
+                    current += ch;
+                }
+            }
+        }
+
+        if (nested) return { valid: false, parts: [], error: '不允许嵌套方括号' };
+        if (inBracket) return { valid: false, parts: [], error: '方括号未闭合' };
+        if (partsText.length === 0) return { valid: false, parts: [], error: '方括号内无内容' };
+
+        var parts = [];
+        for (var p = 0; p < partsText.length; p++) {
+            var ev = parseSequence(partsText[p]);
+            if (ev.length === 0 && partsText[p].trim() !== '') {
+                return { valid: false, parts: [], error: '声部' + (p + 1) + '解析失败' };
+            }
+            parts.push({ events: ev });
+        }
+
+        return { valid: true, parts: parts };
+    }
+
+    // ===播放控制===
+    function clearHighlights() {
+        document.querySelectorAll(".piano b.active").forEach(function(el) {
+            el.classList.remove("active");
+        });
+    }
+
+    function highlightKey(name) {
+        var el = keyMap[name];
+        if (el) el.classList.add("active");
+    }
+
+    function highlightKeys(names) {
+        names.forEach(function(name) { highlightKey(name); });
+    }
+
+    function stopPlay() {
+        isPlaying = false;
+        stopFlag = true;
+        if (playTimer) {
+            clearTimeout(playTimer);
+            playTimer = null;
+        }
+        stopMultiPart();
+        playBtn.textContent = "演奏";
+        playBtn.classList.remove("act");
+        tx.disabled = false;
+        clearHighlights();
+        document.querySelectorAll(".piano b:not([data-e])").forEach(function(el) {
+            el.style.pointerEvents = "auto";
+        });
+    }
+
+    function stopMultiPart() {
+        multiPartActive = false;
+        multiPartTimers.forEach(function(t) {
+            if (t) clearTimeout(t);
+        });
+        multiPartTimers = [];
+        multiPartStates.forEach(function(s) {
+            if (s.activeKeys) {
+                s.activeKeys.forEach(function(el) { el.classList.remove('active'); });
+                s.activeKeys = [];
+            }
+        });
+        multiPartStates = [];
+        clearHighlights();
+    }
+
+    //单声部
+    function doStep() {
+        if (stopFlag || !isPlaying || playIdx >= playSeq.length) {
+            stopPlay();
+            return;
+        }
+        clearHighlights();
+        var item = playSeq[playIdx];
+        var baseDur = getBaseDur();
+        var actualDur = baseDur * (item.dur || 1);
+
+        if (item.t === 'n') {
+            var name = item.names[0];
+            playNote(name);
+            highlightKey(name);
+        } else if (item.t === 'c') {
+            var names = item.names;
+            names.forEach(function(nm) { playNote(nm); });
+            highlightKeys(names);
+        }
+
+        playIdx++;
+        playTimer = setTimeout(function() {
+            doStep();
+        }, actualDur * 1000);
+    }
+
+    //多声部
+    function playPart(partIdx) {
+        if (!multiPartActive) return;
+        var state = multiPartStates[partIdx];
+        if (!state || state.done) return;
+
+        if (state.activeKeys) {
+            state.activeKeys.forEach(function(el) {
+                el.classList.remove('active');
+            });
+            state.activeKeys = [];
+        }
+
+        var events = state.events;
+        var idx = state.idx;
+        if (idx >= events.length) {
+            state.done = true;
+            var allDone = multiPartStates.every(function(s) { return s.done; });
+            if (allDone) {
+                stopPlay();
+            }
+            return;
+        }
+
+        var item = events[idx];
+        var baseDur = getBaseDur();
+        var actualDur = baseDur * (item.dur || 1);
+
+        var activeEls = [];
+
+        if (item.t === 'n') {
+            var name = item.names[0];
+            playNote(name);
+            var el = keyMap[name];
+            if (el) { el.classList.add('active'); activeEls.push(el); }
+        } else if (item.t === 'c') {
+            var names = item.names;
+            names.forEach(function(nm) { playNote(nm); });
+            names.forEach(function(nm) {
+                var el = keyMap[nm];
+                if (el) { el.classList.add('active'); activeEls.push(el); }
+            });
+        }
+
+        state.activeKeys = activeEls;
+        state.idx++;
+        var timer = setTimeout(function() {
+            playPart(partIdx);
+        }, actualDur * 1000);
+        multiPartTimers[partIdx] = timer;
+    }
+
+    function startMultiPart(parts) {
+        if (parts.length === 0) return;
+
+        getAudioCtx();
+        isPlaying = true;
+        stopFlag = false;
+        multiPartActive = true;
+        multiPartTimers = [];
+        multiPartStates = [];
+
+        for (var i = 0; i < parts.length; i++) {
+            var evts = parts[i].events || [];
+            multiPartStates.push({
+                events: evts,
+                idx: 0,
+                done: false,
+                activeKeys: []
+            });
+            multiPartTimers.push(null);
+        }
+
+        playBtn.textContent = "停止";
+        playBtn.classList.add("act");
+        tx.disabled = true;
+        document.querySelectorAll(".piano b:not([data-e])").forEach(function(el) {
+            el.style.pointerEvents = "none";
+        });
+
+        for (var j = 0; j < parts.length; j++) {
+            playPart(j);
+        }
+    }
+
+    function startPlay() {
+        var txt = tx.value;
+        if (currentNotation === 'solfa') {
+            txt = solfaToPitch(txt);
+        }
+
+        if (isPlaying) {
+            stopPlay();
+            return;
+        }
+
+        var multiResult = parseMultiPart(txt);
+        if (!multiResult.valid) {
+            if (txt.trim() === '') return;
+            alert("语法错误\n" + (multiResult.error || ''));
+            return;
+        }
+
+        if (multiResult.parts.length === 1) {
+            var seq = multiResult.parts[0].events;
+            if (seq.length === 0) {
+                alert("声部内容为空");
+                return;
+            }
+            getAudioCtx();
+            isPlaying = true;
+            stopFlag = false;
+            playSeq = seq;
+            playIdx = 0;
+            playBtn.textContent = "停止";
+            playBtn.classList.add("act");
+            tx.disabled = true;
+            document.querySelectorAll(".piano b:not([data-e])").forEach(function(el) {
+                el.style.pointerEvents = "none";
+            });
+            doStep();
+            return;
+        }
+
+        startMultiPart(multiResult.parts);
+    }
+
+    // ===录音===
+    function toggleRecord() {
+        if (isPlaying) return;
+        isRecording = !isRecording;
+        recBtn.textContent = isRecording ? "停止" : "记录";
+        recBtn.classList.toggle("act", isRecording);
+        if (isRecording) tx.focus();
+    }
+
+    function onKeyClick(name) {
+        if (isPlaying) return;
+        if (getFrequency(name)) {
+            playNote(name);
+            if (isRecording) {
+                var notation = getNotationName(name);
+                tx.value += notation;
+                tx.scrollTop = tx.scrollHeight;
+            }
+        }
+    }
+
+    // ===事件绑定===
+    document.querySelectorAll(".piano b:not([data-e])").forEach(function(el) {
+        el.addEventListener("click", function() {
+            onKeyClick(this.textContent);
+        });
+        el.addEventListener("touchstart", function(e) {
+            e.preventDefault();
+            onKeyClick(this.textContent);
+        }, { passive: false });
+    });
+
+    recBtn.addEventListener("click", toggleRecord);
+    playBtn.addEventListener("click", startPlay);
+
+    clearBtn.addEventListener("click", function() {
+        if (!isPlaying) {
+            tx.value = "";
+            tx.focus();
+        }
+    });
+    
+    bpmBtn.addEventListener("click", cycleBpm);
+
+    notationBtn.addEventListener("click", function() {
+        var idx = NOTATION_LIST.indexOf(currentNotation);
+        idx = (idx + 1) % NOTATION_LIST.length;
+        switchNotation(NOTATION_LIST[idx]);
+    });
+
+    document.body.addEventListener("touchmove", function(e) {
+        if (e.target.tagName === "B") e.preventDefault();
+    }, { passive: false });
+
+    tx.addEventListener("keydown", function(e) {
+        if (isPlaying) e.preventDefault();
+    });
+
+    // ===初始化===
+    notationBtn.textContent = NOTATION_LABEL[currentNotation];
+    bpmBtn.textContent = currentBpm;   // 显示初始 BPM
+    tx.focus();
+
+});
+</script></body></html>

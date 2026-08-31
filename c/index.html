@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="1">
+<head>
+    <title>标题</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="robots" content="noindex,nofollow"/>
+    <meta name="referrer" content="no-referrer"/>
+    <link rel="stylesheet" href="fa.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="icon" href="image/9.webp"/>
+    <link rel="stylesheet" href="style.css"/>
+    <style></style>
+</head>
+<body>
+<nav>
+    <button onclick="showPage('HOME')"></button>
+    <div id="bar">
+        <div onclick="window.scrollTo({top:0,behavior:'smooth'})"></div>
+        <button><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6 20 6M4 12 20 12M4 18 20 18"/></svg></button>
+        <button><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="8"/></svg></button>
+        <div onclick="window.scrollTo({top:document.documentElement.scrollHeight,behavior:'smooth'})"></div>
+    </div>
+    <div id="search">
+        <button>热</button>
+        <input type="text" placeholder="搜索" maxlength="15" spellcheck="false"/>
+    </div>
+    <div id="menu">
+        <div></div>
+        <div></div>
+    </div>
+    <div id="setting">
+        <div>
+            <input type="radio" name="t" id="t1" style="background:#dbba84">
+            <input type="radio" name="t" id="t2" style="background:#eb9947">
+            <input type="radio" name="t" id="t3" style="background:#7c9eb2">
+            <input type="radio" name="t" id="t4" style="background:#b39fc6">
+            <input type="radio" name="t" id="t5" style="background:#e8a0b4">
+            <input type="radio" name="t" id="t6" style="background:#1b5998">
+            <input type="radio" name="t" id="t7" style="background:#4a2c6a">
+        </div>
+        <div>
+            <button id="updatebgBtn">添加背景</button>
+            <button id="updateDataBtn">上传文件</button>
+        </div>
+        <input type="range" max="1" min="0" step="0.1" value="1" id="r1" title="透明度"/>
+        <input type="range" max="30" min="0" step="3" value="0" id="r2" title="模糊度"/>
+        <div>
+            <button id="deletebgBtn">删除背景</button>
+            <button id="deleteDataBtn">删除文件</button>
+        </div>
+    </div>
+</nav>
+<div id="root">
+    <main id="HOME" data-title="首页">
+<div style="padding:20px;text-align:center"><h1>页面开发中</h1><p>此页面为首页，请上传文案文件后继续</p></div>
+    </main>
+</div>
+<footer><h1>页面到底了！</h1></footer>
+<script src="script.js"></script>
+</body>
+</html>

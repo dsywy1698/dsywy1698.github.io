@@ -1,0 +1,569 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>色卡</title>
+<style>
+:root{--bg:#f5f7fa;--text:#1f2937;--t:0.2s;}
+[data-theme="dark"]{--bg:#0d1117;--text:#e6edf3;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif;user-select:none;}
+body{
+    min-height:100vh;padding-top:36px;background:var(--bg);
+    color:var(--text);transition:var(--t);line-height:1.5;
+}
+input,textarea{
+    border:none;outline:none;padding:8px 12px;font-size:14px;
+    color:var(--text);border-radius:18px;transition:var(--t);
+    background:hsl(from var(--text) h s l / 0.1);
+    &::placeholder{color:hsl(from var(--text) h s l / 0.5)}
+}
+button{
+    border:none;color:var(--text);background:#0000;
+    border-radius:30px;transition:var(--t);
+}
+nav{
+    position:fixed;z-index:1;top:8px;right:8px;display:flex;gap:4px;
+    >*{background:color-mix(in srgb,var(--text) 20%,var(--bg) 40%);height:36px;backdrop-filter:blur(9px);}
+    >input{width:88px;}
+    >button{width:36px;>svg{transition:transform var(--t);}&:hover{background:hsl(from var(--text) h s l / 0.2);}}
+}
+main{display:flex;flex-direction:column;gap:8px;align-items:center;padding:8px;}
+details{
+    width:100%;max-width:700px;margin:8px;border-radius:24px;transition:var(--t);
+    &.active{background:hsl(from var(--text) h s l / 0.05);}
+    >div{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;padding:16px 8px;}
+}
+summary{
+    display:flex;align-items:center;justify-content:space-between;gap:8px;
+    width:100%;height:48px;padding:8px;border-radius:24px;font-weight:600;
+    background:hsl(from var(--text) h s l / 0.05);transition:var(--t);
+    >input{
+        width:120px;height:32px;padding:0 0 0 8px;font-size:16px;
+        line-height:32px;font-weight:600;color:var(--text);
+        background:#0000;transition:var(--t);
+        &:focus{background:hsl(from var(--text) h s l / 0.1);pointer-events:auto;}
+    }
+    >button{width:36px;height:36px;margin:6px 0;font-size:14px;}
+}
+details>div>div{
+    display:flex;flex-direction:column;justify-content:space-between;
+    width:150px;height:140px;padding:12px;background:var(--card);
+    border-radius:16px;font-weight:600;color:contrast-color(var(--card));
+    >*{padding:4px;margin:0;}
+    >input{
+        font-size:16px;font-weight:600;
+        color:inherit;background:#0000;
+        border-radius:20px;transition:var(--t);
+        &:focus{background:hsl(from currentColor h s l / 0.1);}
+    }
+    >p{font-size:13px;font-weight:400;font-family:consolas,monospace;opacity:0.8;}
+}
+@media(width<=400px){details>div{gap:8px;}}
+@media(width<=360px){details>div>div{width:calc(50% - 4px);}}
+dialog{
+    position:fixed;top:48px;right:8px;left:auto;transform:none;z-index:1;
+    width:168px;height:120px;border:none;color:var(--text);border-radius:18px;
+    background:color-mix(in srgb,var(--text) 20%,var(--bg) 40%);
+    transition:var(--t);backdrop-filter:blur(8px);opacity:1;
+    @starting-style{opacity:0;}
+    >textarea{width:100%;height:100%;resize:none;background:#0000;scrollbar-width:none;line-height:1.7;}
+    >button{
+        position:absolute;bottom:4px;right:4px;
+        width:32px;height:32px;padding:4px;background:#44f8;
+        &:hover{background:#44fa;}&:disabled{opacity:0.6;}
+    }
+}
+#delete{
+    position:fixed;bottom:0;right:0;width:90px;height:90px;background:#f009;
+    opacity:0;border-radius:90% 0 0 0;backdrop-filter:blur(5px);
+    transition:var(--t);&.active{opacity:1;}
+}
+</style>
+</head>
+<body data-theme="light">
+<nav>
+    <input type="text" placeholder="新颜色" maxlength="7">
+    <button id="createColor"><svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 12v12M12 18h12"/></svg></button>
+    <button onclick="toggleTheme()"><svg width="36" height="36" ><path d="M18 10a8 8 0 1 0 0 16Z" fill="currentColor"/><rect x="10" y="10" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" rx="8"/></svg></button>
+</nav>
+<dialog>
+    <textarea placeholder="初始颜色"></textarea>
+    <button disabled><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></button>
+</dialog>
+<main></main>
+<div id="delete"></div>
+<script>
+//=====数据与状态=====
+let state={
+  groups:[],
+  theme:'light',
+  groupCounter:0,
+  cardCounter:0,
+  dragData:null,
+  colorMode:'hex'
+};
+//=====工具函数=====
+const normalizeHex=hex=>{
+  if(!hex)return null;
+  hex=hex.trim();
+  if(hex.startsWith('#'))hex=hex.substring(1);
+  if(hex.length===3)hex=hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+  if(hex.length===6&&/^[0-9a-f]{6}$/.test(hex.toLowerCase()))return '#'+hex.toLowerCase();
+  return null;
+};
+const hexToRgb=hex=>{
+  hex=hex.replace('#','');
+  if(hex.length===3)hex=hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+  if(hex.length!==6)return null;
+  const r=parseInt(hex.substring(0,2),16);
+  const g=parseInt(hex.substring(2,4),16);
+  const b=parseInt(hex.substring(4,6),16);
+  if(isNaN(r)||isNaN(g)||isNaN(b))return null;
+  return {r,g,b};
+};
+const rgbToHsl=(r,g,b)=>{
+  r/=255;g/=255;b/=255;
+  const max=Math.max(r,g,b),min=Math.min(r,g,b);
+  let h,s,l=(max+min)/2;
+  if(max===min){h=s=0;}
+  else{
+    const d=max-min;
+    s=l>0.5?d/(2-max-min):d/(max+min);
+    switch(max){
+      case r:h=(g-b)/d+(g<b?6:0);break;
+      case g:h=(b-r)/d+2;break;
+      case b:h=(r-g)/d+4;break;
+    }
+    h/=6;
+  }
+  return {h:Math.round(h*360),s:Math.round(s*100),l:Math.round(l*100)};
+};
+const formatColor=(hex,mode)=>{
+  if(mode==='hex')return hex;
+  const rgb=hexToRgb(hex);
+  if(!rgb)return hex;
+  if(mode==='rgb')return `rgb(${rgb.r},${rgb.g},${rgb.b})`;
+  if(mode==='hsl'){
+    const hsl=rgbToHsl(rgb.r,rgb.g,rgb.b);
+    return `hsl(${hsl.h},${hsl.s}%,${hsl.l}%)`;
+  }
+  return hex;
+};
+const nextGroupId=()=>{state.groupCounter++;return 'group-'+state.groupCounter;};
+const nextCardId=()=>{state.cardCounter++;return 'card-'+state.cardCounter;};
+const findGroup=id=>state.groups.find(g=>g.id===id);
+const findGroupIndex=id=>state.groups.findIndex(g=>g.id===id);
+const findCard=id=>{
+  for(let g of state.groups){
+    let idx=g.cards.findIndex(c=>c.id===id);
+    if(idx>-1)return {group:g,card:g.cards[idx],groupIndex:state.groups.indexOf(g),cardIndex:idx};
+  }
+  return null;
+};
+const isValidName=name=>!/[ "'<>:,\[\]{}]/.test(name);
+//=====存储=====
+const saveState=()=>{
+  localStorage.setItem('colorCardData',JSON.stringify({
+    groups:state.groups,theme:state.theme,
+    groupCounter:state.groupCounter,cardCounter:state.cardCounter,
+    colorMode:state.colorMode
+  }));
+};
+const loadState=()=>{
+  let raw=localStorage.getItem('colorCardData');
+  if(!raw)return null;
+  try{let data=JSON.parse(raw);if(data.groups&&Array.isArray(data.groups))return data;}catch(e){}
+  return null;
+};
+//=====初始化=====
+const initDefault=()=>{
+  state.groups=[{id:'group-1',name:'默认分组',isDefault:true,open:true,cards:[]}];
+  state.groupCounter=1;state.cardCounter=1;state.theme='light';
+  state.colorMode='hex';
+};
+const loadOrInit=()=>{
+  let data=loadState();
+  if(data){
+    state.groups=data.groups;state.theme=data.theme||'light';
+    state.groupCounter=data.groupCounter||1;state.cardCounter=data.cardCounter||1;
+    state.colorMode=data.colorMode||'hex';
+    let maxG=0,maxC=0;
+    state.groups.forEach(g=>{
+      let gn=parseInt(g.id.replace('group-',''));if(gn>maxG)maxG=gn;
+      g.cards.forEach(c=>{let cn=parseInt(c.id.replace('card-',''));if(cn>maxC)maxC=cn;});
+    });
+    if(state.groupCounter<maxG+1)state.groupCounter=maxG+1;
+    if(state.cardCounter<maxC+1)state.cardCounter=maxC+1;
+  }else initDefault();
+  document.body.dataset.theme=state.theme;
+};
+//=====渲染=====
+const renderAll=()=>{
+  let main=document.querySelector('main');
+  let html='';
+  state.groups.forEach(g=>{
+    let isDefault=g.isDefault||false;
+    let cardsHtml=g.cards.map(c=>{
+      let displayColor=formatColor(c.color,state.colorMode);
+      return `<div id="${c.id}" style="--card:${c.color}" draggable="true">
+        <input type="text" value="${c.name}" maxlength="5">
+        <p>${displayColor}</p>
+      </div>`;
+    }).join('');
+    html+=`<details id="${g.id}" ${g.open?'open':''}>
+      <summary draggable="${isDefault?'false':'true'}">
+        <input type="text" value="${g.name}" maxlength="10" ${isDefault?'disabled':''}>
+        <button><svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="15" y="15" width="12" height="12" rx="2"/><path d="M12 22Q10 22 10 20L10 12Q10 10 12 10 L20 10Q22 10 22 12"/></svg></button>
+      </summary>
+      <div>${cardsHtml}</div>
+    </details>`;
+  });
+  main.innerHTML=html;
+  main.querySelectorAll('details input').forEach(inp=>{
+    inp.addEventListener('blur',onNameBlur);
+    inp.addEventListener('keydown',e=>{if(e.key==='Enter')e.target.blur();});
+  });
+  main.querySelectorAll('details summary button').forEach(btn=>{
+    let timer=null;
+    btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (timer) {
+            clearTimeout(timer);
+            timer=null;
+            let gid=this.closest('details').id;
+            exportGroupHTML(gid);
+            return;
+        }
+        timer=setTimeout(()=>{
+            timer=null;
+            let gid=this.closest('details').id;
+            copyGroup(gid);
+        }, 200);
+    });
+  });
+  main.querySelectorAll('details>div>div p').forEach(p=>{
+    p.addEventListener('click',e=>{
+      e.stopPropagation();
+      navigator.clipboard.writeText(e.target.textContent).catch(()=>{});
+    });
+    p.addEventListener('dblclick',e=>{
+      e.stopPropagation();
+      const modes=['hex','rgb','hsl'];
+      let idx=modes.indexOf(state.colorMode);
+      state.colorMode=modes[(idx+1)%modes.length];
+      saveState();
+      renderAll();
+    });
+  });
+  main.querySelectorAll('details').forEach(d=>{
+    d.addEventListener('toggle',()=>{
+      let g=findGroup(d.id);if(g){g.open=d.open;saveState();}
+    });
+  });
+  updateDeleteBtn();
+  saveState();
+};
+//=====失焦处理=====
+const onNameBlur=function(){
+  let val=this.value.trim();
+  let cardDiv=this.closest('div[id]');
+  if(cardDiv){
+    let found=findCard(cardDiv.id);
+    if(found){
+      let oldName=found.card.name;
+      if(val===''||!isValidName(val)){this.value=oldName;return;}
+      if(found.card.name!==val){found.card.name=val;saveState();}
+      return;
+    }
+  }
+  let details=this.closest('details');
+  if(details){
+    let g=findGroup(details.id);
+    if(g){
+      if(g.isDefault){this.value=g.name;return;}
+      let oldName=g.name;
+      if(val===''||!isValidName(val)){this.value=oldName;return;}
+      if(g.name!==val){g.name=val;saveState();}
+    }
+  }
+};
+//=====复制分组=====
+const copyGroup=(groupId)=>{
+  let g=findGroup(groupId);
+  if(!g||!g.cards.length)return;
+  let text=g.cards.map(c=>c.color+' '+c.name).join('\n');
+  navigator.clipboard.writeText(text).catch(()=>{});
+};
+//=====导出=====
+const exportGroupHTML=(groupId)=>{
+  let g=findGroup(groupId);
+  if(!g||g.cards.length===0)return;
+  let name=g.name;
+  let cardsHtml=g.cards.map(c=>{
+    let bg=c.color;
+    let hex=bg.replace('#','');
+    let r=parseInt(hex.substring(0,2),16);
+    let g0=parseInt(hex.substring(2,4),16);
+    let b=parseInt(hex.substring(4,6),16);
+    let brightness=(r*299+g0*587+b*114)/1000;
+    let textColor=brightness>128?'#000':'#fff';
+    return `<div style="background:${bg};color:${textColor}"><b>${c.name}</b><p>${bg}</p></div>`;
+  }).join('');
+  let html=`<!DOCTYPE html><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${name}</title><style>body{padding:16px;font-family:sans-serif;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}div{width:110px;height:110px;border-radius:16px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 2px 8px #0001}b,p{margin:0;padding:0}p{font-size:13px;opacity:0.8}</style>${cardsHtml}`;
+  let blob=new Blob([html],{type:'text/html'});
+  let url=URL.createObjectURL(blob);
+  let a=document.createElement('a');
+  a.href=url;
+  a.download=name+'.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+};
+//=====更新删除按钮=====
+const updateDeleteBtn=()=>{
+  let del=document.getElementById('delete');
+  if(del)del.classList.toggle('active',!!state.dragData);
+};
+//=====主题切换=====
+const toggleTheme=()=>{
+  state.theme=state.theme==='dark'?'light':'dark';
+  document.body.dataset.theme=state.theme;
+  saveState();
+};
+//=====创建分组=====
+const createGroup=(name,colors)=>{
+  name=name.trim();
+  if(!name||!isValidName(name))return null;
+  let gid=nextGroupId();
+  let cards=[];
+  if(colors&&Array.isArray(colors)){
+    let sliceColors=colors.slice(0,20);
+    sliceColors.forEach(c=>{
+      let hex=normalizeHex(c.value);
+      if(hex){
+        let cardName=c.name||'色卡';
+        if(cardName.length>5) cardName=cardName.substring(0,5);
+        cards.push({id:nextCardId(),name:cardName,color:hex});
+      }
+    });
+  }
+  let group={id:gid,name,isDefault:false,open:true,cards};
+  let insertIdx=1;
+  state.groups.splice(insertIdx,0,group);
+  renderAll();
+  return group;
+};
+//=====创建色卡=====
+const createCard=(color,name)=>{
+  let hex=normalizeHex(color);
+  if(!hex)return null;
+  let defaultGroup=state.groups.find(g=>g.isDefault);
+  if(!defaultGroup)return null;
+  let card={id:nextCardId(),name:name||'色卡',color:hex};
+  defaultGroup.cards.push(card);
+  renderAll();
+  return card;
+};
+//=====删除=====
+const deleteGroup=id=>{
+  let g=findGroup(id);
+  if(!g||g.isDefault)return false;
+  let idx=findGroupIndex(id);
+  if(idx<0)return false;
+  state.groups.splice(idx,1);
+  renderAll();
+  return true;
+};
+const deleteCard=id=>{
+  let found=findCard(id);
+  if(!found)return false;
+  found.group.cards.splice(found.cardIndex,1);
+  renderAll();
+  return true;
+};
+//=====拖拽核心=====
+const moveItem=(arr,srcIdx,tgtIdx)=>{
+  if(srcIdx===tgtIdx)return;
+  let item=arr.splice(srcIdx,1)[0];
+  let insertPos=srcIdx<tgtIdx?tgtIdx:tgtIdx;
+  arr.splice(insertPos,0,item);
+};
+// 事件委托
+document.addEventListener('dragstart',e=>{
+  let target=e.target;
+  let cardDiv=target.closest('div[id]');
+  let summary=target.closest('summary');
+  let details=target.closest('details');
+  if(cardDiv){
+    let found=findCard(cardDiv.id);
+    if(!found)return;
+    state.dragData={type:'card',id:cardDiv.id,groupId:found.group.id,groupIndex:found.groupIndex,cardIndex:found.cardIndex};
+    e.dataTransfer.effectAllowed='move';
+    e.dataTransfer.setData('text/plain',cardDiv.id);
+    updateDeleteBtn();
+  }else if(summary&&details){
+    let g=findGroup(details.id);
+    if(!g||g.isDefault){e.preventDefault();return;}
+    state.dragData={type:'group',id:details.id,groupIndex:findGroupIndex(details.id)};
+    e.dataTransfer.effectAllowed='move';
+    e.dataTransfer.setData('text/plain',details.id);
+    updateDeleteBtn();
+  }
+});
+document.addEventListener('dragend',e=>{
+  document.querySelectorAll('details.active').forEach(d=>d.classList.remove('active'));
+  state.dragData=null;
+  updateDeleteBtn();
+});
+document.addEventListener('dragover',e=>{
+  e.preventDefault();
+  e.dataTransfer.dropEffect='move';
+  let target=e.target.closest('details');
+  if(target&&state.dragData){target.classList.add('active');}
+});
+document.addEventListener('dragleave',e=>{
+  let target=e.target.closest('details');
+  if(target)target.classList.remove('active');
+});
+document.addEventListener('drop',e=>{
+  e.preventDefault();
+  if(!state.dragData)return;
+  let target=e.target;
+  let cardTarget=target.closest('div[id]');
+  let detailsTarget=target.closest('details');
+  let isDeleteZone=target.closest('#delete');
+  if(isDeleteZone)return;
+  let drag=state.dragData;
+  if(drag.type==='card'){
+    if(cardTarget){
+      let found=findCard(cardTarget.id);
+      if(!found)return;
+      let srcGroup=findGroup(drag.groupId);
+      if(!srcGroup)return;
+      let srcIdx=drag.cardIndex;
+      let tgtGroup=found.group;
+      let tgtIdx=found.cardIndex;
+      if(srcGroup.id===tgtGroup.id){
+        if(srcIdx!==tgtIdx){
+          moveItem(srcGroup.cards,srcIdx,tgtIdx);
+          renderAll();
+        }
+      }else{
+        let card=srcGroup.cards.splice(srcIdx,1)[0];
+        let insertIdx=tgtIdx+1;
+        tgtGroup.cards.splice(insertIdx,0,card);
+        renderAll();
+      }
+    }else if(detailsTarget){
+      let tgtGroup=findGroup(detailsTarget.id);
+      if(!tgtGroup)return;
+      let srcGroup=findGroup(drag.groupId);
+      if(!srcGroup)return;
+      if(srcGroup.id===tgtGroup.id)return;
+      let card=srcGroup.cards.splice(drag.cardIndex,1)[0];
+      tgtGroup.cards.push(card);
+      renderAll();
+    }
+  }else if(drag.type==='group'){
+    if(detailsTarget){
+      let tgtGroup=findGroup(detailsTarget.id);
+      if(!tgtGroup||tgtGroup.isDefault)return;
+      let srcGroup=findGroup(drag.id);
+      if(!srcGroup||srcGroup.isDefault)return;
+      let srcIdx=findGroupIndex(drag.id);
+      let tgtIdx=findGroupIndex(tgtGroup.id);
+      if(srcIdx<0||tgtIdx<0||srcIdx===tgtIdx)return;
+      moveItem(state.groups,srcIdx,tgtIdx);
+      renderAll();
+    }
+  }
+  state.dragData=null;
+  updateDeleteBtn();
+});
+// 删除区
+const delZone=document.getElementById('delete');
+delZone.addEventListener('dragover',e=>{e.preventDefault();e.dataTransfer.dropEffect='move';});
+delZone.addEventListener('drop',e=>{
+  e.preventDefault();
+  if(!state.dragData)return;
+  let drag=state.dragData;
+  if(drag.type==='card')deleteCard(drag.id);
+  else if(drag.type==='group')deleteGroup(drag.id);
+  state.dragData=null;
+  updateDeleteBtn();
+});
+//=====对话框=====
+const dialog=document.querySelector('dialog');
+const dialogTextarea=dialog.querySelector('textarea');
+const dialogBtn=dialog.querySelector('button');
+const navInput=document.querySelector('nav input');
+const checkDialog=()=>{
+  let name=navInput.value.trim();
+  let text=dialogTextarea.value;
+  let validName=!!name&&isValidName(name);
+  let validColors=true;
+  if(text){
+    let lines=text.split('\n');
+    for(let line of lines){
+      line=line.trim();
+      if(!line)continue;
+      let parts=line.split(/\s+/);
+      if(!normalizeHex(parts[0])){validColors=false;break;}
+    }
+  }
+  dialogBtn.disabled=!(validName&&validColors);
+};
+navInput.addEventListener('input',checkDialog);
+dialogTextarea.addEventListener('input',checkDialog);
+dialogBtn.addEventListener('click',()=>{
+  if(dialogBtn.disabled)return;
+  let name=navInput.value.trim();
+  let text=dialogTextarea.value.trim();
+  let colors=[];
+  if(text){
+    text.split('\n').forEach(line=>{
+      line=line.trim();
+      if(!line)return;
+      let parts=line.split(/\s+/);
+      let hex=normalizeHex(parts[0]);
+      if(hex)colors.push({value:hex,name:parts.slice(1).join(' ')||'色卡'});
+    });
+  }
+  navInput.value='';
+  dialogTextarea.value='';
+  dialogBtn.disabled=true;
+  dialog.close();
+  createGroup(name,colors);
+});
+dialog.addEventListener('close',()=>{
+  document.querySelector('#createColor svg').style.transform='';
+  navInput.placeholder='新颜色';
+  navInput.value='';
+  checkDialog();
+});
+//=====创建色卡按钮=====
+document.getElementById('createColor').addEventListener('click', function() {
+  const svg=this.querySelector('svg');
+  if(dialog.open){dialog.close();return;}
+  let val=navInput.value.trim();
+  navInput.value='';
+  let hex=normalizeHex(val);
+  if(hex){
+    createCard(hex);
+    svg.style.transform='';
+  }else{
+    dialog.show();
+    svg.style.transform='rotate(45deg)';
+    navInput.placeholder='新分组';
+    checkDialog();
+  }
+});
+//=====启动=====
+loadOrInit();
+renderAll();
+</script>
+</body>
+</html>

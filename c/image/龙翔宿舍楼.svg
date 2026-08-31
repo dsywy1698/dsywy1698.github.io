@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 470">
+    <rect x="10" y="30" width="70" height="200" fill="#faa" rx="10"/>
+    <rect x="280" y="30" width="70" height="200" fill="#faa" rx="10"/>
+    <rect x="10" y="250" width="70" height="200" fill="#adf" rx="10"/>
+    <rect x="280" y="250" width="70" height="200" fill="#adf" rx="10"/>
+    <rect x="80" y="10" width="200" height="50" fill="#fc9" rx="5"/>
+    <text x="150" y="43" font-size="20" fill="#000">小卖部</text>
+    <text x="25" y="95" font-size="40" fill="#800">尚</text>
+    <text x="25" y="195" font-size="40" fill="#800">武</text>
+    <text x="295" y="95" font-size="40" fill="#800">自</text>
+    <text x="295" y="195" font-size="40" fill="#800">强</text>
+    <text x="25" y="315" font-size="40" fill="#048">崇</text>
+    <text x="25" y="415" font-size="40" fill="#048">军</text>
+    <text x="295" y="315" font-size="40" fill="#048">振</text>
+    <text x="295" y="415" font-size="40" fill="#048">兴</text>
+    <rect x="90" y="430" width="30" height="20" fill="#f60" rx="5"/>
+    <rect x="240" y="430" width="30" height="20" fill="#f60" rx="5"/>
+
+</svg>
