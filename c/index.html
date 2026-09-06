@@ -8,10 +8,7 @@
     <meta name="referrer" content="no-referrer"/>
     <link rel="icon" href="image/9.webp"/>
     <style>
-@font-face{
-    font-family:'font';
-    src:url('font.ttf') format('truetype');
-}
+@font-face{font-family:'font';src:url('font.ttf') format('truetype');}
 *{
     box-sizing:border-box;
     margin:0;
@@ -25,8 +22,8 @@ html[data-theme="2"]{--seed:1;--primary:#eb9947;--secondary:#e2c836;}
 html[data-theme="3"]{--seed:1;--primary:#7c9eb2;--secondary:#2c96a0;}
 html[data-theme="4"]{--seed:1;--primary:#b39fc6;--secondary:#a69fdf;}
 html[data-theme="5"]{--seed:1;--primary:#ebaddc;--secondary:#e8a0b4;}
-html[data-theme="6"]{--seed:-1;--primary:#16599c;--secondary:#6b7d36;}
-html[data-theme="7"]{--seed:-1;--primary:#4a2c6a;--secondary:#503040;}
+html[data-theme="6"]{--seed:-1;--primary:#16599c;--secondary:#5c6b2e;}
+html[data-theme="7"]{--seed:-1;--primary:#4a2c6a;--secondary:#60394d;}
 body{
     background-position:50% 0lvh!important;
     background-repeat:no-repeat!important;
@@ -339,7 +336,7 @@ main>h3{
         background:hsl(from var(--theme) h 40 calc(50 - 30 * var(--seed)) / 0.3);
     }
 }
-h4{text-align:center;font-size:1.375rem;}
+h4{text-align:center;font-size:1.875rem;}
 p{margin:10px 0;}
 a{
     color:hsl(from var(--primary) h 80 calc(50 - 20 * var(--seed)));
@@ -393,7 +390,7 @@ article,q,code,table,details,.writing,.timeline{
 }
 article{
     background:hsl(from var(--primary) h s l / 0.4);
-    color:hsl(from var(--primary) h 30 calc(50 - 40 * var(--seed)));
+    color:hsl(from var(--primary) h 20 calc(50 - 40 * var(--seed)));
     >p{text-indent:2.26em;}
     &:has(>b){
         display:grid;
@@ -402,10 +399,14 @@ article{
         >p{text-indent:0!important;margin:0!important;}
         >b{text-wrap:nowrap;text-align:right;font-weight:bold;}
     }
+    &.warning{
+        background:#f003;
+        color:hsl(0 10 calc(50 - 30 * var(--seed)));
+    }
 }
 q{
     background:hsl(from var(--secondary) h s l / 0.4);
-    color:hsl(from var(--secondary) h 40 calc(50 - 30 * var(--seed)));
+    color:hsl(from var(--secondary) h 25 calc(50 - 30 * var(--seed)));
     font-size:1.5625rem;
     text-wrap:balance;
     text-align:center;
@@ -431,7 +432,7 @@ table{
     th{
         font-size:1.125rem;
         background:hsl(from var(--primary) h s l / 0.4);
-        color:hsl(from var(--primary) h calc(s + 10) calc(50 - 30 * var(--seed)));
+        color:hsl(from var(--primary) h 30 calc(50 - 30 * var(--seed)));
     }
     td,th{
         outline:0.5px solid hsl(from var(--primary) h s calc(50 + 20 * var(--seed)));
@@ -449,8 +450,8 @@ table{
     }
 }
 .writing{
-    background:linear-gradient(to bottom,hsl(from var(--secondary) h s l / 0.5),hsl(from var(--secondary) h s l / 0.3));
-    color:hsl(from var(--secondary) h 20 calc(50 - 30 * var(--seed)));
+    background:hsl(from var(--secondary) h s l / 0.4);
+    color:hsl(from var(--secondary) h 10 calc(50 - 30 * var(--seed)));
     h4{
         text-align:center;
         font-size:2.5rem;
@@ -1153,16 +1154,16 @@ function parseDocument(text){
     for(const rawLine of lines){
         const line=rawLine;
         if(line.trim()==='====='){
-            if(currentPage!==null) pages.push(currentPage);
+            if(currentPage!==null)pages.push(currentPage);
             currentPage=null;
             state='metadata';
             continue;
         }
         if(state==='metadata'){
-            if(line.trim()==='') continue;
+            if(line.trim()==='')continue;
             const parts=line.trim().split(/\s+/);
             if(parts.length>=3){
-                const title=parts.slice(0, -2).join(' ');
+                const title=parts.slice(0,-2).join(' ');
                 const id=parts[parts.length-2];
                 const theme=parts[parts.length-1];
                 currentPage={metadata:{title,id,theme},contentLines:[]};
