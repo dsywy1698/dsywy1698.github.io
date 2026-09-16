@@ -20,10 +20,9 @@ html{font-size:100%;color-scheme:light dark;}
 html[data-theme="1"]{--seed:1;--primary:#dbba84;--secondary:#b4c587;}
 html[data-theme="2"]{--seed:1;--primary:#eb9947;--secondary:#e2c836;}
 html[data-theme="3"]{--seed:1;--primary:#7c9eb2;--secondary:#2c96a0;}
-html[data-theme="4"]{--seed:1;--primary:#b39fc6;--secondary:#a69fdf;}
-html[data-theme="5"]{--seed:1;--primary:#ebaddc;--secondary:#e8a0b4;}
-html[data-theme="6"]{--seed:-1;--primary:#16599c;--secondary:#5c6b2e;}
-html[data-theme="7"]{--seed:-1;--primary:#4a2c6a;--secondary:#60394d;}
+html[data-theme="4"]{--seed:1;--primary:#b39fc6;--secondary:#ebaddc;}
+html[data-theme="5"]{--seed:-1;--primary:#16599c;--secondary:#2e616b;}
+html[data-theme="6"]{--seed:-1;--primary:#58357e;--secondary:#60394d;}
 body{
     background-position:50% 0lvh!important;
     background-repeat:no-repeat!important;
@@ -392,7 +391,7 @@ article,q,code,table,details,.writing,.timeline{
 article{
     background:hsl(from var(--primary) h s l / 0.4);
     color:hsl(from var(--primary) h 20 calc(50 - 40 * var(--seed)));
-    >p{text-indent:2.26em;}
+    &:not(.warning)>p{text-indent:2.26em;}
     &:has(>b){
         display:grid;
         gap:4px;
@@ -520,6 +519,43 @@ table{
             background:var(--primary);
             left:-24px;
             top:calc(50% - 6px);
+        }
+    }
+}
+.audio{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    width:280px;
+    height:40px;
+    margin:auto;
+    padding:4px;
+    border-radius:20px;
+    background:hsl(from var(--secondary) h s l / 0.5);
+    >button{
+        flex-shrink:0;
+        width:32px;
+        height:32px;
+        background:hsl(from var(--secondary) h s l / 0.7);
+        border-radius:18px;
+        transition:0.2s;
+        &.play{background:hsl(from var(--primary) h s l / 0.7);}
+    }
+    >input{
+        appearance:none;
+        width:100%;
+        height:24px;
+        margin:4px;
+        border-radius:12px;
+        background:hsl(from var(--secondary) h s l / 0.3);
+        &::-webkit-slider-thumb{
+            appearance:none;
+            width:24px;height:24px;border-radius:12px;
+            background:hsl(from var(--secondary) h s calc(50 - 10 * var(--seed)) / 0.4);
+        }
+        &::-webkit-range-thumb{
+            width:24px;height:24px;border-radius:12px;
+            background:hsl(from var(--secondary) h s calc(50 - 10 * var(--seed)) / 0.4);
         }
     }
 }
@@ -771,8 +807,8 @@ footer{
     <button onclick="showPage('HOME')"></button>
     <div id="bar">
         <div onclick="window.scrollTo({top:0,behavior:'smooth'})"></div>
-        <button><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6 20 6M4 12 20 12M4 18 20 18"/></svg></button>
-        <button><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="8"/></svg></button>
+        <button><svg width="24" height="24"><path d="M4 6 20 6M4 12 20 12M4 18 20 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button><svg width="24" height="24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2.5"/></svg></button>
         <div onclick="window.scrollTo({top:document.documentElement.scrollHeight,behavior:'smooth'})"></div>
     </div>
     <div id="search">
@@ -789,9 +825,8 @@ footer{
             <input type="radio" name="t" id="t2" style="background:#eb9947">
             <input type="radio" name="t" id="t3" style="background:#7c9eb2">
             <input type="radio" name="t" id="t4" style="background:#b39fc6">
-            <input type="radio" name="t" id="t5" style="background:#e8a0b4">
-            <input type="radio" name="t" id="t6" style="background:#1b5998">
-            <input type="radio" name="t" id="t7" style="background:#4a2c6a">
+            <input type="radio" name="t" id="t5" style="background:#1b5998">
+            <input type="radio" name="t" id="t6" style="background:#58357e">
         </div>
         <div>
             <button id="updatebgBtn">添加背景</button>
@@ -807,7 +842,29 @@ footer{
 </nav>
 <div id="root">
     <main id="HOME" data-title="首页">
-<div style="padding:20px;text-align:center"><h1>页面开发中</h1><p>此页面为首页，请上传文案文件后继续</p></div>
+<div style="padding:12px;">
+    <div style="padding:20px;text-align:center"><h1>页面开发中</h1><p>此页面为首页，请上传文案文件后继续</p></div>
+    <hr>
+    <h1>使用指南</h1>
+    <p>页面仍在开发中，部分功能可能变动，以最新功能为准。</p>
+    <p>请使用最新版浏览器，旧版浏览器不兼容部分功能。</p>
+    <p>在手机端浏览效果最佳。</p>
+    <h2>文案</h2>
+    <p>网站不存储任何文案数据，所有数据均需要用户上传。上传后，浏览器将文案解析为相应富文本格式，并持久化存储。</p>
+    <article class="warning"><p>清除浏览数据、更换浏览器、重装浏览器后，文案数据和个性化数据将被清除，需重新上传。</p></article>
+    <p>文案文件会根据实际情况发布，也可以根据语法，自己编写文案。</p>
+    <p>文案文件为纯文本格式，即使不上传到网站也可以直接阅读，但文本中会出现一些代码。</p>
+    <p>想要上传文案，请点击右上角的圆形按钮，然后点击“上传文件”按钮。</p>
+    <article class="warning"><p>如果上传了无法被解析的文件，页面将会报错。</p></article>
+    <p>每次只支持单个文件。如果多次上传文件，之前上传的文件会被覆盖。</p>
+    <p>点击“清除文件”按钮，可以删除文案数据。</p>
+    <h2>功能</h2>
+    <p>网站支持设置主题和壁纸。</p>
+    <p>点击右上角的圆形按钮，可以在弹出的面板中选择主题、上传背景图片、调节背景透明度和模糊度。</p>
+    <p>上传文件后，点击右上角的三条横线可以打开菜单，通过菜单打开相应页面。也可以通过链接和“上一页”、“下一页”按钮切换页面。</p>
+    <p>点击左上角班徽，回到首页。</p>
+    <p>点击右上角胶囊的左侧，回到页面顶部；点击胶囊右侧，回到页面底部。</p>
+</div>
     </main>
 </div>
 <footer><h1>页面到底了！</h1></footer>
@@ -1489,6 +1546,28 @@ document.querySelectorAll('a[href^="http"]').forEach(link=>{
     link.setAttribute('target','_blank');
     link.setAttribute('rel','noopener noreferrer');
 });
+//===自定义音频控件===
+function replaceAudio(){
+    document.querySelectorAll('audio').forEach(audio=>{
+        const wrapper=document.createElement('div');
+        wrapper.className='audio';
+        wrapper.innerHTML=`<button></button><input type="range" min="0" max="100" value="0" step="0.1">`;
+        const btn=wrapper.querySelector('button');
+        const progress=wrapper.querySelector('input');
+        btn.addEventListener('click',()=>{
+            if(audio.paused){audio.play();btn.classList.add('play');}
+            else{audio.pause();btn.classList.remove('play');}
+        });
+        audio.addEventListener('timeupdate',()=>{
+            if(audio.duration)progress.value=(audio.currentTime/audio.duration)*100;
+        });
+        progress.addEventListener('input',()=>{
+            if(audio.duration)audio.currentTime=(progress.value/100)*audio.duration;
+        });
+        audio.addEventListener('ended',()=>{btn.classList.remove('play');progress.value=0;});
+        audio.parentNode.replaceChild(wrapper,audio);
+    });
+}
 //===初始化===
 function initApp(){
     pageData=extractStructure();
@@ -1501,6 +1580,7 @@ function initApp(){
     else{localStorage.setItem('setting',JSON.stringify(settings));}
     applySettings();
     applyBG();
+    replaceAudio();
 }
 window.addEventListener('DOMContentLoaded',function(){
     restoreFromDB().then(()=>{initApp()}).catch(()=>{deleteDB();initApp()});
