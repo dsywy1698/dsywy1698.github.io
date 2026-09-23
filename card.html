@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -20,7 +19,7 @@ input,textarea,button{
 input,textarea{padding:8px 12px;&::placeholder{color:#576375a0;}}
 nav{
   position:fixed;z-index:1;top:8px;right:8px;display:flex;gap:4px;
-  >*{background:color-mix(in srgb,var(--text) 15%,var(--bg) 60%);height:36px;backdrop-filter:blur(9px);}
+  >*{background:color-mix(in srgb,var(--text) 10%,var(--bg) 70%);height:36px;backdrop-filter:blur(9px);}
   >input{width:88px;font-size:14px;}
   >button{width:36px;}
 }
@@ -33,10 +32,9 @@ details{
 summary{
   display:flex;align-items:center;justify-content:space-between;padding:4px;
   width:100%;height:40px;border-radius:20px;font-weight:600;background:#57637520;
-  >input{
-    width:120px;height:32px;padding:0 0 0 12px;line-height:32px;font-weight:600;
-    &:focus{background:#57637520;}
-  }
+  >input{width:120px;height:32px;padding:0 0 0 12px;line-height:32px;font-weight:600;}
+  >input:focus{background:#57637520;}
+  >button{width:28px;height:28px;margin-right:2px;background:#57637520;}
 }
 details>div>div{
   display:flex;flex-direction:column;justify-content:space-between;
@@ -51,9 +49,34 @@ details>div>div{
 textarea{
   position:fixed;top:48px;right:8px;z-index:1;width:168px;height:120px;opacity:0;
   backdrop-filter:blur(9px);resize:none;pointer-events:none;
-  background:color-mix(in srgb,var(--text) 15%,var(--bg) 60%);font-size:14px;
+  background:color-mix(in srgb,var(--text) 10%,var(--bg) 70%);font-size:14px;
   &.show{opacity:1;pointer-events:auto;}
 }
+aside{
+  opacity:0;pointer-events:none;
+  position:fixed;z-index:2;top:48px;right:8px;
+  display:flex;flex-direction:column;width:168px;height:540px;
+  background:color-mix(in srgb,var(--bg) 60%,var(--preview) 20%);
+  backdrop-filter:blur(9px);border-radius:18px;padding:8px;gap:8px;
+  &.show{opacity:1;pointer-events:auto;}
+  >*{flex-shrink:0;}
+  >p{line-height:16px;font-size:15px;text-align:center;font-family:consolas,monospace;}
+  >div{display:flex;justify-content:center;gap:12px;}
+  >div>input{
+    height:360px;width:36px;padding:4px;border-radius:18px;
+    appearance:none;writing-mode:vertical-lr;
+    &::-webkit-slider-thumb{
+      appearance:none;background:var(--preview);border-radius:14px;
+      width:28px;height:28px;box-shadow:0 0 5px #0008,0 0 5px #fff8;
+    }
+    &::-webkit-range-thumb{
+      background:var(--preview);border-radius:14px;
+      width:28px;height:28px;box-shadow:0 0 5px #0008,0 0 5px #fff8;
+    }
+  }
+  >div>svg{height:80px;}
+  >div>div{width:48px;height:80px;background:var(--preview);border-radius:12px;}
+}   
 #delete{
   position:fixed;bottom:0;right:0;width:90px;height:90px;opacity:0;
   background:#f009;border-radius:90% 0 0 0;backdrop-filter:blur(5px);
@@ -63,14 +86,48 @@ textarea{
 </head>
 <body data-theme="light">
 <nav>
-  <input type="text" placeholder="新颜色" maxlength="7">
+  <input type="text" placeholder="新颜色" maxlength="19">
   <button id="createColor"><svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 12v12M12 18h12"/></svg></button>
-  <button onclick="toggleTheme()"><svg width="36" height="36" ><path d="M18 10a8 8 0 1 0 0 16Z" fill="currentColor"/><circle cx="18" cy="18" r="8" stroke="currentColor" stroke-width="2" fill="none"/></svg></button>
+  <button id="functions"><svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="7.4"/></svg></button>
 </nav>
 <textarea placeholder="新颜色"></textarea>
+<aside>
+  <div>
+    <svg viewBox="0 0 90 80">
+      <defs><path id="b" d="M0,0,9,4,9,15,0,19,-9,15,-9,4"></path></defs>
+      <use href="#b" x="27" y="00" fill="#0aa"></use>
+      <use href="#b" x="45" y="00" fill="#05a"></use>
+      <use href="#b" x="63" y="00" fill="#00a"></use>
+      <use href="#b" x="18" y="15" fill="#0a5"></use>
+      <use href="#b" x="36" y="15" fill="#5ff"></use>
+      <use href="#b" x="54" y="15" fill="#55f"></use>
+      <use href="#b" x="72" y="15" fill="#50a"></use>
+      <use href="#b" x="09" y="30" fill="#0a0"></use>
+      <use href="#b" x="27" y="30" fill="#5f5"></use>
+      <use href="#b" x="45" y="30" fill="#fff"></use>
+      <use href="#b" x="63" y="30" fill="#f5f"></use>
+      <use href="#b" x="81" y="30" fill="#a0a"></use>
+      <use href="#b" x="18" y="45" fill="#5a0"></use>
+      <use href="#b" x="36" y="45" fill="#ff5"></use>
+      <use href="#b" x="54" y="45" fill="#f55"></use>
+      <use href="#b" x="72" y="45" fill="#a05"></use>
+      <use href="#b" x="27" y="60" fill="#aa0"></use>
+      <use href="#b" x="45" y="60" fill="#a50"></use>
+      <use href="#b" x="63" y="60" fill="#a00"></use>
+    </svg>
+    <div></div>
+  </div>
+  <p id="hex">#000000</p><p id="rgb">rgb(0,0,0)</p><p id="hsl">hsl(0,0%,0%)</p>
+  <div>
+    <input type="range" min="0" max="360" step="1" id="range-h">
+    <input type="range" min="0" max="100" step="1" id="range-s">
+    <input type="range" min="0" max="100" step="1" id="range-l">
+  </div>
+</aside>
 <main></main>
 <div id="delete"></div>
 <script>
+//=====状态与工具=====
 let state={
   groups:[],
   theme:'light',
@@ -79,6 +136,7 @@ let state={
   dragData:null,
   colorMode:'hex'
 };
+const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
 const normalizeHex=hex=>{
   if(!hex)return null;
   hex=hex.trim();
@@ -88,13 +146,12 @@ const normalizeHex=hex=>{
   return null;
 };
 const hexToRgb=hex=>{
+  hex=normalizeHex(hex);
+  if(!hex)return null;
   hex=hex.replace('#','');
-  if(hex.length===3)hex=hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
-  if(hex.length!==6)return null;
   const r=parseInt(hex.substring(0,2),16);
   const g=parseInt(hex.substring(2,4),16);
   const b=parseInt(hex.substring(4,6),16);
-  if(isNaN(r)||isNaN(g)||isNaN(b))return null;
   return {r,g,b};
 };
 const rgbToHsl=(r,g,b)=>{
@@ -114,6 +171,72 @@ const rgbToHsl=(r,g,b)=>{
   }
   return {h:Math.round(h*360),s:Math.round(s*100),l:Math.round(l*100)};
 };
+const hslToRgb=(h,s,l)=>{
+  h=(((h%360)+360)%360)/360;s/=100;l/=100;
+  if(s===0){const v=Math.round(l*255);return {r:v,g:v,b:v};}
+  const q=l<0.5?l*(1+s):l+s-l*s,p=2*l-q;
+  const f=t=>{
+    if(t<0)t+=1;
+    if(t>1)t-=1;
+    if(t<1/6)return p+(q-p)*6*t;
+    if(t<1/2)return q;
+    if(t<2/3)return p+(q-p)*(2/3-t)*6;
+    return p;
+  };
+  return {r:Math.round(f(h+1/3)*255),g:Math.round(f(h)*255),b:Math.round(f(h-1/3)*255)};
+};
+const rgbToHex=(r,g,b)=>'#'+[r,g,b].map(v=>clamp(Math.round(v),0,255).toString(16).padStart(2,'0')).join('');
+const hslToHex=(h,s,l)=>{const {r,g,b}=hslToRgb(h,s,l);return rgbToHex(r,g,b);};
+const parseHsl=raw=>{
+  let str=raw.toLowerCase().replace(/^hsl\s*\(?/,'').replace(/\)$/,'');
+  str=str.replace(/,/g,' ').trim();
+  const parts=str.split(/\s+/).filter(Boolean);
+  if(parts.length!==3)return null;
+  const h=parseFloat(parts[0]);
+  const s=parseFloat(parts[1].replace('%',''));
+  const l=parseFloat(parts[2].replace('%',''));
+  if([h,s,l].some(isNaN))return null;
+  if(h<0||h>360||s<0||s>100||l<0||l>100)return null;
+  return hslToHex(h,s,l);
+};
+const parseRgb=raw=>{
+  if(/%/.test(raw))return null;
+  let str=raw.toLowerCase().replace(/^rgb\s*\(?/,'').replace(/\)$/,'');
+  str=str.replace(/,/g,' ').trim();
+  const parts=str.split(/\s+/).filter(Boolean);
+  if(parts.length!==3)return null;
+  const r=parseFloat(parts[0]);
+  const g=parseFloat(parts[1]);
+  const b=parseFloat(parts[2]);
+  if([r,g,b].some(isNaN))return null;
+  if(r<0||r>255||g<0||g>255||b<0||b>255)return null;
+  return rgbToHex(r,g,b);
+};
+const parseColorInput=input=>{
+  if(typeof input!=='string')return null;
+  const raw=input.trim();
+  if(!raw)return null;
+  if(!/^[a-zA-Z0-9\s()#,%]+$/.test(raw))return null;
+  const hasComma=raw.includes(',');
+  const hasSpace=/\s/.test(raw);
+  const hasPercent=raw.includes('%');
+  if(/hsl/i.test(raw)||hasPercent){
+    const hex=parseHsl(raw);
+    if(hex)return hex;
+  }
+  if(/rgb/i.test(raw)||(hasComma&&!hasPercent)){
+    const hex=parseRgb(raw);
+    if(hex)return hex;
+  }
+  if(hasSpace){
+    const parts=raw.replace(/[(),]/g,' ').trim().split(/\s+/).filter(Boolean);
+    if(parts.length===3){
+      const hex=hasPercent?parseHsl(raw):parseRgb(raw);
+      if(hex)return hex;
+    }
+  }
+  return normalizeHex(raw);
+};
 const formatColor=(hex,mode)=>{
   if(mode==='hex')return hex;
   const rgb=hexToRgb(hex);
@@ -124,6 +247,22 @@ const formatColor=(hex,mode)=>{
     return `hsl(${hsl.h},${hsl.s}%,${hsl.l}%)`;
   }
   return hex;
+};
+const bindClickDbl=(el,onClick,onDblClick,delay=200)=>{
+  let timer=null;
+  el.addEventListener('click',e=>{
+    e.stopPropagation();
+    if(timer){
+      clearTimeout(timer);
+      timer=null;
+      onDblClick(el);
+    }else{
+      timer=setTimeout(()=>{
+        timer=null;
+        onClick(el);
+      },delay);
+    }
+  });
 };
 const nextGroupId=()=>{state.groupCounter++;return 'group-'+state.groupCounter;};
 const nextCardId=()=>{state.cardCounter++;return 'card-'+state.cardCounter;};
@@ -137,7 +276,6 @@ const findCard=id=>{
   return null;
 };
 const isValidName=name=>!/[ "'<>:,\[\]{}]/.test(name);
-//=====存储=====
 const saveState=()=>{
   localStorage.setItem('colorCardData',JSON.stringify({
     groups:state.groups,theme:state.theme,
@@ -173,7 +311,6 @@ const loadOrInit=()=>{
   }else initDefault();
   document.body.dataset.theme=state.theme;
 };
-//=====渲染=====
 const renderAll=()=>{
   let main=document.querySelector('main');
   let html='';
@@ -189,7 +326,7 @@ const renderAll=()=>{
     html+=`<details id="${g.id}" ${g.open?'open':''}>
       <summary draggable="${isDefault?'false':'true'}">
         <input type="text" value="${g.name}" maxlength="10" ${isDefault?'disabled':''}>
-        <button><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="15" y="15" width="12" height="12" rx="2"/><path d="M12 22Q10 22 10 20L10 12Q10 10 12 10 L20 10Q22 10 22 12"/></svg></button>
+        <button></button>
       </summary>
       <div>${cardsHtml}</div>
     </details>`;
@@ -200,36 +337,22 @@ const renderAll=()=>{
     inp.addEventListener('keydown',e=>{if(e.key==='Enter')e.target.blur();});
   });
   main.querySelectorAll('details summary button').forEach(btn=>{
-    let timer=null;
-    btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        if(timer){
-            clearTimeout(timer);
-            timer=null;
-            let gid=this.closest('details').id;
-            exportGroupHTML(gid);
-            return;
-        }
-        timer=setTimeout(()=>{
-            timer=null;
-            let gid=this.closest('details').id;
-            copyGroup(gid);
-        }, 200);
-    });
+    bindClickDbl(btn,
+      el=>{copyGroup(el.closest('details').id);},
+      el=>{exportGroupHTML(el.closest('details').id);}
+    );
   });
   main.querySelectorAll('details>div>div p').forEach(p=>{
-    p.addEventListener('click',e=>{
-      e.stopPropagation();
-      navigator.clipboard.writeText(e.target.textContent).catch(()=>{});
-    });
-    p.addEventListener('dblclick',e=>{
-      e.stopPropagation();
-      const modes=['hex','rgb','hsl'];
-      let idx=modes.indexOf(state.colorMode);
-      state.colorMode=modes[(idx+1)%modes.length];
-      saveState();
-      renderAll();
-    });
+    bindClickDbl(p,
+      el=>{navigator.clipboard.writeText(el.textContent).catch(()=>{});},
+      el=>{
+        const modes=['hex','rgb','hsl'];
+        let idx=modes.indexOf(state.colorMode);
+        state.colorMode=modes[(idx+1)%modes.length];
+        saveState();
+        renderAll();
+      }
+    );
   });
   main.querySelectorAll('details').forEach(d=>{
     d.addEventListener('toggle',()=>{
@@ -239,7 +362,7 @@ const renderAll=()=>{
   updateDeleteBtn();
   saveState();
 };
-//=====失焦处理=====
+//=====名称修改=====
 const onNameBlur=function(){
   let val=this.value.trim();
   let cardDiv=this.closest('div[id]');
@@ -263,14 +386,13 @@ const onNameBlur=function(){
     }
   }
 };
-//=====复制分组=====
+//=====分组按钮=====
 const copyGroup=(groupId)=>{
   let g=findGroup(groupId);
   if(!g||!g.cards.length)return;
   let text=g.cards.map(c=>c.color+' '+c.name).join('\n');
   navigator.clipboard.writeText(text).catch(()=>{});
 };
-//=====导出=====
 const exportGroupHTML=(groupId)=>{
   let g=findGroup(groupId);
   if(!g||g.cards.length===0)return;
@@ -296,18 +418,7 @@ const exportGroupHTML=(groupId)=>{
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 };
-//=====更新删除按钮=====
-const updateDeleteBtn=()=>{
-  let del=document.getElementById('delete');
-  if(del)del.classList.toggle('active',!!state.dragData);
-};
-//=====主题切换=====
-const toggleTheme=()=>{
-  state.theme=state.theme==='dark'?'light':'dark';
-  document.body.dataset.theme=state.theme;
-  saveState();
-};
-//=====创建分组=====
+//=====创建=====
 const createGroup=(name,colors)=>{
   name=name.trim();
   if(!name||!isValidName(name))return null;
@@ -316,7 +427,7 @@ const createGroup=(name,colors)=>{
   if(colors&&Array.isArray(colors)){
     let sliceColors=colors.slice(0,20);
     sliceColors.forEach(c=>{
-      let hex=normalizeHex(c.value);
+      let hex=parseColorInput(c.value);
       if(hex){
         let cardName=c.name||'色卡';
         if(cardName.length>5) cardName=cardName.substring(0,5);
@@ -330,9 +441,8 @@ const createGroup=(name,colors)=>{
   renderAll();
   return group;
 };
-//=====创建色卡=====
 const createCard=(color,name)=>{
-  let hex=normalizeHex(color);
+  let hex=parseColorInput(color);
   if(!hex)return null;
   let defaultGroup=state.groups.find(g=>g.isDefault);
   if(!defaultGroup)return null;
@@ -357,6 +467,10 @@ const deleteCard=id=>{
   found.group.cards.splice(found.cardIndex,1);
   renderAll();
   return true;
+};
+const updateDeleteBtn=()=>{
+  let del=document.getElementById('delete');
+  if(del)del.classList.toggle('active',!!state.dragData);
 };
 //=====拖拽=====
 const moveItem=(arr,srcIdx,tgtIdx)=>{
@@ -467,12 +581,17 @@ delZone.addEventListener('drop',e=>{
   state.dragData=null;
   updateDeleteBtn();
 });
-//=====创建=====
+//=====导航栏按钮=====
 document.getElementById('createColor').addEventListener('click',function(){
   const textarea=document.querySelector('textarea');
+  const aside=document.querySelector('aside');
   const navInput=document.querySelector('nav input');
   let name=navInput.value.trim();
-  if(textarea.classList.contains('show')){
+  let hex=parseColorInput(name);
+  if(aside.classList.contains('show')){
+    if(hex)previewColor(hex);
+  }
+  else if(textarea.classList.contains('show')){
     let text=textarea.value.trim();
     textarea.classList.remove('show');
     navInput.placeholder='新颜色';
@@ -482,7 +601,7 @@ document.getElementById('createColor').addEventListener('click',function(){
         line=line.trim();
         if(!line)return;
         let parts=line.split(/\s+/);
-        let hex=normalizeHex(parts[0]);
+        let hex=parseColorInput(parts[0]);
         if(!hex)return;
         colors.push({value:hex,name:parts.slice(1).join(' ')||'色卡'});
       });
@@ -490,15 +609,84 @@ document.getElementById('createColor').addEventListener('click',function(){
     if(!!name&&isValidName(name))createGroup(name,colors);
   }
   else{
-    let hex=normalizeHex(name);
     if(hex)createCard(hex);
     else{textarea.value='';textarea.classList.add('show');navInput.placeholder='新分组';}
   }
   navInput.value='';
 });
+bindClickDbl(document.querySelector('#functions'),
+  ()=>{
+    const s=document.querySelector('aside');
+    s.classList.toggle('show');
+    document.querySelector('textarea').classList.remove('show');
+    document.querySelector('nav input').placeholder=s.classList.contains('show')?'颜色值':'新颜色';
+  },
+  ()=>{
+    state.theme=state.theme==='dark'?'light':'dark';
+    document.body.dataset.theme=state.theme;
+    saveState();
+  }
+);
+//=====色板=====
+let previewHex='#61a8d6';
+const asideEl=document.querySelector('aside');
+const previewEls={
+  hex:document.getElementById('hex'),
+  rgb:document.getElementById('rgb'),
+  hsl:document.getElementById('hsl')
+};
+const rangeEls={
+  h:document.getElementById('range-h'),
+  s:document.getElementById('range-s'),
+  l:document.getElementById('range-l')
+};
+const rangeGradient=(axis,h,s,l,steps=12)=>{
+  let stops=[];
+  for(let i=0;i<=steps;i++){
+    const t=i/steps;
+    const pos=`calc(18px + (100% - 36px) * ${t.toFixed(4)})`;
+    stops.push(`${hslToHex(axis==='h'?t*360:h,axis==='s'?t*100:s,axis==='l'?t*100:l)} ${pos}`);
+  }
+  return `linear-gradient(to bottom,${stops.join(',')})`;
+};
+const setRanges=(h,s,l)=>{
+  rangeEls.h.value=h;rangeEls.s.value=s;rangeEls.l.value=l;
+  rangeEls.h.style.background=rangeGradient('h',h,s,l);
+  rangeEls.s.style.background=rangeGradient('s',h,s,l);
+  rangeEls.l.style.background=rangeGradient('l',h,s,l);
+};
+const previewColor=(color,fromSlider)=>{
+  const hex=parseColorInput(color);
+  if(!hex)return;
+  const rgb=hexToRgb(hex);
+  let hsl=rgbToHsl(rgb.r,rgb.g,rgb.b);
+  if(fromSlider)hsl={h:+rangeEls.h.value,s:+rangeEls.s.value,l:+rangeEls.l.value};
+  setRanges(hsl.h,hsl.s,hsl.l);
+  previewHex=hex;
+  previewEls.hex.textContent=hex;
+  previewEls.rgb.textContent=`rgb(${rgb.r},${rgb.g},${rgb.b})`;
+  previewEls.hsl.textContent=`hsl(${hsl.h},${hsl.s}%,${hsl.l}%)`;
+  asideEl.style.setProperty('--preview',hex);
+};
+['h','s','l'].forEach(k=>{
+  rangeEls[k].addEventListener('input',()=>{
+    previewColor(hslToHex(+rangeEls.h.value,+rangeEls.s.value,+rangeEls.l.value),true);
+  });
+});
+document.querySelector('aside svg').addEventListener('click',e=>{
+  const fill=e.target.getAttribute&&e.target.getAttribute('fill');
+  if(fill)previewColor(fill);
+});
+Object.values(previewEls).forEach(p=>{
+  bindClickDbl(p,
+    el=>{navigator.clipboard.writeText(el.textContent).catch(()=>{});},
+    ()=>createCard(previewHex)
+  );
+});
 //=====启动=====
 loadOrInit();
 renderAll();
+previewColor(previewHex);
 </script>
 </body>
 </html>
