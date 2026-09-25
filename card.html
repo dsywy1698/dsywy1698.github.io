@@ -5,41 +5,39 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>色卡</title>
 <style>
-:root{--bg:#f5f7fa;--text:#1f2937;}
-[data-theme="dark"]{--bg:#0d1117;--text:#e6edf3;}
+:root{--bg:#f5f7fa;--text:#1f2937;--nav:#a7b0beb0;}
+[data-theme="dark"]{--bg:#0d1117;--text:#e6edf3;--nav:#29313db0;}
 *{
-  margin:0;padding:0;font-family:sans-serif;scrollbar-width:none;
-  user-select:none;transition:0.2s;box-sizing:border-box;
+  margin:0;padding:0;user-select:none;font-family:sans-serif;
+  transition:0.2s;box-sizing:border-box;scrollbar-width:none;
 }
 body{background:var(--bg);color:var(--text);line-height:1.5;}
 input,textarea,button{
   border:none;outline:none;background:#0000;color:var(--text);
   border-radius:18px;font-size:16px;
 }
-input,textarea{padding:8px 12px;&::placeholder{color:#576375a0;}}
+input,textarea{padding:8px 12px;&::placeholder{color:#567a;}}
 nav{
   position:fixed;z-index:1;top:8px;right:8px;display:flex;gap:4px;
-  >*{background:color-mix(in srgb,var(--text) 10%,var(--bg) 70%);height:36px;backdrop-filter:blur(9px);}
+  >*{background:var(--nav);height:36px;backdrop-filter:blur(9px);}
   >input{width:88px;font-size:14px;}
-  >button{width:36px;}
+  >button{width:36px;>svg{stroke:currentColor;stroke-width:2px;fill:#0000;width:36px;height:36px;}}
 }
-main{display:flex;flex-direction:column;gap:8px;align-items:center;padding:44px 8px;}
+main{max-width:700px;margin:auto;padding:44px 8px;}
 details{
-  width:100%;max-width:700px;margin:8px;border-radius:20px;
-  &.active{background:#57637518;}
+  width:100%;margin:8px 0;border-radius:20px;&.active{background:#5672;}
   >div{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;padding:16px 8px;}
 }
 summary{
   display:flex;align-items:center;justify-content:space-between;padding:4px;
-  width:100%;height:40px;border-radius:20px;font-weight:600;background:#57637520;
+  width:100%;height:40px;border-radius:20px;font-weight:600;background:#5672;
   >input{width:120px;height:32px;padding:0 0 0 12px;line-height:32px;font-weight:600;}
-  >input:focus{background:#57637520;}
-  >button{width:28px;height:28px;margin-right:2px;background:#57637520;}
+  >input:focus{background:#5672;}
+  >button{width:28px;height:28px;margin-right:2px;background:#5672;}
 }
 details>div>div{
   display:flex;flex-direction:column;justify-content:space-between;
-  width:150px;height:140px;padding:12px;background:var(--card);
-  border-radius:16px;font-weight:600;color:contrast-color(var(--card));
+  width:150px;height:140px;padding:12px;border-radius:16px;font-weight:600;
   >*{padding:4px;margin:0;}
   >input{font-weight:600;color:inherit;&:focus{background:hsl(from currentColor h s l / 0.1);}}
   >p{font-size:13px;font-weight:400;font-family:consolas,monospace;opacity:0.8;}
@@ -49,33 +47,31 @@ details>div>div{
 textarea{
   position:fixed;top:48px;right:8px;z-index:1;width:168px;height:120px;opacity:0;
   backdrop-filter:blur(9px);resize:none;pointer-events:none;
-  background:color-mix(in srgb,var(--text) 10%,var(--bg) 70%);font-size:14px;
+  background:var(--nav);font-size:14px;
   &.show{opacity:1;pointer-events:auto;}
 }
 aside{
   opacity:0;pointer-events:none;
   position:fixed;z-index:2;top:48px;right:8px;
-  display:flex;flex-direction:column;width:168px;height:540px;
+  display:flex;flex-direction:column;width:168px;height:524px;
   background:color-mix(in srgb,var(--bg) 60%,var(--preview) 20%);
   backdrop-filter:blur(9px);border-radius:18px;padding:8px;gap:8px;
-  &.show{opacity:1;pointer-events:auto;}
-  >*{flex-shrink:0;}
-  >p{line-height:16px;font-size:15px;text-align:center;font-family:consolas,monospace;}
+  &.show{opacity:1;pointer-events:auto;}>*{flex-shrink:0;}
+  >p{line-height:14px;font-size:14px;text-align:center;font-family:consolas,monospace;}
   >div{display:flex;justify-content:center;gap:12px;}
   >div>input{
     height:360px;width:36px;padding:4px;border-radius:18px;
     appearance:none;writing-mode:vertical-lr;
     &::-webkit-slider-thumb{
       appearance:none;background:var(--preview);border-radius:14px;
-      width:28px;height:28px;box-shadow:0 0 5px #0008,0 0 5px #fff8;
+      width:28px;height:28px;box-shadow:0 0 5px #80808080;
     }
     &::-webkit-range-thumb{
       background:var(--preview);border-radius:14px;
-      width:28px;height:28px;box-shadow:0 0 5px #0008,0 0 5px #fff8;
+      width:28px;height:28px;box-shadow:0 0 5px #80808080;
     }
   }
-  >div>svg{height:80px;}
-  >div>div{width:48px;height:80px;background:var(--preview);border-radius:12px;}
+  >div>div{width:58px;height:70px;background:var(--preview);border-radius:12px;}
 }   
 #delete{
   position:fixed;bottom:0;right:0;width:90px;height:90px;opacity:0;
@@ -87,47 +83,46 @@ aside{
 <body data-theme="light">
 <nav>
   <input type="text" placeholder="新颜色" maxlength="19">
-  <button id="createColor"><svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 12v12M12 18h12"/></svg></button>
-  <button id="functions"><svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="7.4"/></svg></button>
+  <button id="create"><svg><path d="M18 12v12M12 18h12" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button id="function"><svg><circle cx="18" cy="18" r="7.4"/></svg></button>
 </nav>
 <textarea placeholder="新颜色"></textarea>
 <aside>
   <div>
-    <svg viewBox="0 0 90 80">
-      <defs><path id="b" d="M0,0,9,4,9,15,0,19,-9,15,-9,4"></path></defs>
-      <use href="#b" x="27" y="00" fill="#0aa"></use>
-      <use href="#b" x="45" y="00" fill="#05a"></use>
-      <use href="#b" x="63" y="00" fill="#00a"></use>
-      <use href="#b" x="18" y="15" fill="#0a5"></use>
-      <use href="#b" x="36" y="15" fill="#5ff"></use>
-      <use href="#b" x="54" y="15" fill="#55f"></use>
-      <use href="#b" x="72" y="15" fill="#50a"></use>
-      <use href="#b" x="09" y="30" fill="#0a0"></use>
-      <use href="#b" x="27" y="30" fill="#5f5"></use>
-      <use href="#b" x="45" y="30" fill="#fff"></use>
-      <use href="#b" x="63" y="30" fill="#f5f"></use>
-      <use href="#b" x="81" y="30" fill="#a0a"></use>
-      <use href="#b" x="18" y="45" fill="#5a0"></use>
-      <use href="#b" x="36" y="45" fill="#ff5"></use>
-      <use href="#b" x="54" y="45" fill="#f55"></use>
-      <use href="#b" x="72" y="45" fill="#a05"></use>
-      <use href="#b" x="27" y="60" fill="#aa0"></use>
-      <use href="#b" x="45" y="60" fill="#a50"></use>
-      <use href="#b" x="63" y="60" fill="#a00"></use>
+    <svg width="80" viewBox="0 0 80 70">
+      <circle cx="24" cy="07" r="7" fill="#0cc"/>
+      <circle cx="40" cy="07" r="7" fill="#05c"/>
+      <circle cx="56" cy="07" r="7" fill="#00c"/>
+      <circle cx="16" cy="21" r="7" fill="#0c5"/>
+      <circle cx="32" cy="21" r="7" fill="#8ff"/>
+      <circle cx="48" cy="21" r="7" fill="#88f"/>
+      <circle cx="64" cy="21" r="7" fill="#50c"/>
+      <circle cx="08" cy="35" r="7" fill="#0c0"/>
+      <circle cx="24" cy="35" r="7" fill="#8f8"/>
+      <circle cx="40" cy="35" r="7" fill="#fff"/>
+      <circle cx="56" cy="35" r="7" fill="#f8f"/>
+      <circle cx="72" cy="35" r="7" fill="#c0c"/>
+      <circle cx="16" cy="49" r="7" fill="#5c0"/>
+      <circle cx="32" cy="49" r="7" fill="#ff8"/>
+      <circle cx="48" cy="49" r="7" fill="#f88"/>
+      <circle cx="64" cy="49" r="7" fill="#c05"/>
+      <circle cx="24" cy="63" r="7" fill="#cc0"/>
+      <circle cx="40" cy="63" r="7" fill="#c50"/>
+      <circle cx="56" cy="63" r="7" fill="#c00"/>
     </svg>
     <div></div>
   </div>
-  <p id="hex">#000000</p><p id="rgb">rgb(0,0,0)</p><p id="hsl">hsl(0,0%,0%)</p>
+  <p id="hex"></p><p id="rgb"></p><p id="hsl"></p>
   <div>
-    <input type="range" min="0" max="360" step="1" id="range-h">
-    <input type="range" min="0" max="100" step="1" id="range-s">
-    <input type="range" min="0" max="100" step="1" id="range-l">
+    <input type="range" min="0" max="360" step="1" id="h">
+    <input type="range" min="0" max="100" step="1" id="s">
+    <input type="range" min="0" max="100" step="1" id="l">
   </div>
 </aside>
 <main></main>
 <div id="delete"></div>
 <script>
-//=====状态与工具=====
+//状态与工具
 let state={
   groups:[],
   theme:'light',
@@ -213,21 +208,14 @@ const parseRgb=raw=>{
   return rgbToHex(r,g,b);
 };
 const parseColorInput=input=>{
-  if(typeof input!=='string')return null;
   const raw=input.trim();
   if(!raw)return null;
   if(!/^[a-zA-Z0-9\s()#,%]+$/.test(raw))return null;
   const hasComma=raw.includes(',');
   const hasSpace=/\s/.test(raw);
   const hasPercent=raw.includes('%');
-  if(/hsl/i.test(raw)||hasPercent){
-    const hex=parseHsl(raw);
-    if(hex)return hex;
-  }
-  if(/rgb/i.test(raw)||(hasComma&&!hasPercent)){
-    const hex=parseRgb(raw);
-    if(hex)return hex;
-  }
+  if(/hsl/i.test(raw)||hasPercent){const hex=parseHsl(raw);if(hex)return hex;}
+  if(/rgb/i.test(raw)||(hasComma&&!hasPercent)){const hex=parseRgb(raw);if(hex)return hex;}
   if(hasSpace){
     const parts=raw.replace(/[(),]/g,' ').trim().split(/\s+/).filter(Boolean);
     if(parts.length===3){
@@ -248,21 +236,17 @@ const formatColor=(hex,mode)=>{
   }
   return hex;
 };
-const bindClickDbl=(el,onClick,onDblClick,delay=200)=>{
+const bindClickDbl=(el,onClick,onDblClick)=>{
   let timer=null;
   el.addEventListener('click',e=>{
     e.stopPropagation();
-    if(timer){
-      clearTimeout(timer);
-      timer=null;
-      onDblClick(el);
-    }else{
-      timer=setTimeout(()=>{
-        timer=null;
-        onClick(el);
-      },delay);
-    }
+    if(timer){clearTimeout(timer);timer=null;onDblClick(el);}
+    else{timer=setTimeout(()=>{timer=null;onClick(el);},200);}
   });
+};
+const getContrastColor=hex=>{
+  const rgb=hexToRgb(hex);
+  return (rgb.r*299+rgb.g*587+rgb.b*114)/1000>128?'#000':'#fff';
 };
 const nextGroupId=()=>{state.groupCounter++;return 'group-'+state.groupCounter;};
 const nextCardId=()=>{state.cardCounter++;return 'card-'+state.cardCounter;};
@@ -275,7 +259,7 @@ const findCard=id=>{
   }
   return null;
 };
-const isValidName=name=>!/[ "'<>:,\[\]{}]/.test(name);
+const isValidName=name=>!/["'<>{}]/.test(name);
 const saveState=()=>{
   localStorage.setItem('colorCardData',JSON.stringify({
     groups:state.groups,theme:state.theme,
@@ -289,7 +273,7 @@ const loadState=()=>{
   try{let data=JSON.parse(raw);if(data.groups&&Array.isArray(data.groups))return data;}catch(e){}
   return null;
 };
-//=====初始化=====
+//初始化
 const initDefault=()=>{
   state.groups=[{id:'group-1',name:'默认分组',isDefault:true,open:true,cards:[]}];
   state.groupCounter=1;state.cardCounter=1;state.theme='light';
@@ -318,15 +302,13 @@ const renderAll=()=>{
     let isDefault=g.isDefault||false;
     let cardsHtml=g.cards.map(c=>{
       let displayColor=formatColor(c.color,state.colorMode);
-      return `<div id="${c.id}" style="--card:${c.color}" draggable="true">
-        <input type="text" value="${c.name}" maxlength="5">
-        <p>${displayColor}</p>
+      return `<div id="${c.id}" style="background:${c.color};color:${getContrastColor(c.color)}" draggable="true">
+        <input type="text" value="${c.name}" maxlength="7"><p>${displayColor}</p>
       </div>`;
     }).join('');
     html+=`<details id="${g.id}" ${g.open?'open':''}>
       <summary draggable="${isDefault?'false':'true'}">
-        <input type="text" value="${g.name}" maxlength="10" ${isDefault?'disabled':''}>
-        <button></button>
+        <input type="text" value="${g.name}" maxlength="10" ${isDefault?'disabled':''}><button></button>
       </summary>
       <div>${cardsHtml}</div>
     </details>`;
@@ -336,7 +318,7 @@ const renderAll=()=>{
     inp.addEventListener('blur',onNameBlur);
     inp.addEventListener('keydown',e=>{if(e.key==='Enter')e.target.blur();});
   });
-  main.querySelectorAll('details summary button').forEach(btn=>{
+  main.querySelectorAll('summary button').forEach(btn=>{
     bindClickDbl(btn,
       el=>{copyGroup(el.closest('details').id);},
       el=>{exportGroupHTML(el.closest('details').id);}
@@ -345,24 +327,21 @@ const renderAll=()=>{
   main.querySelectorAll('details>div>div p').forEach(p=>{
     bindClickDbl(p,
       el=>{navigator.clipboard.writeText(el.textContent).catch(()=>{});},
-      el=>{
+      ()=>{
         const modes=['hex','rgb','hsl'];
-        let idx=modes.indexOf(state.colorMode);
-        state.colorMode=modes[(idx+1)%modes.length];
+        state.colorMode=modes[(modes.indexOf(state.colorMode)+1)%modes.length];
         saveState();
         renderAll();
       }
     );
   });
   main.querySelectorAll('details').forEach(d=>{
-    d.addEventListener('toggle',()=>{
-      let g=findGroup(d.id);if(g){g.open=d.open;saveState();}
-    });
+    d.addEventListener('toggle',()=>{let g=findGroup(d.id);if(g){g.open=d.open;saveState();}});
   });
   updateDeleteBtn();
   saveState();
 };
-//=====名称修改=====
+//名称修改
 const onNameBlur=function(){
   let val=this.value.trim();
   let cardDiv=this.closest('div[id]');
@@ -386,7 +365,7 @@ const onNameBlur=function(){
     }
   }
 };
-//=====分组按钮=====
+//分组按钮
 const copyGroup=(groupId)=>{
   let g=findGroup(groupId);
   if(!g||!g.cards.length)return;
@@ -400,14 +379,10 @@ const exportGroupHTML=(groupId)=>{
   let cardsHtml=g.cards.map(c=>{
     let bg=c.color;
     let hex=bg.replace('#','');
-    let r=parseInt(hex.substring(0,2),16);
-    let g0=parseInt(hex.substring(2,4),16);
-    let b=parseInt(hex.substring(4,6),16);
-    let brightness=(r*299+g0*587+b*114)/1000;
-    let textColor=brightness>128?'#000':'#fff';
+    let textColor=getContrastColor(hex);
     return `<div style="background:${bg};color:${textColor}"><b>${c.name}</b><p>${bg}</p></div>`;
   }).join('');
-  let html=`<!DOCTYPE html><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${name}</title><style>body{padding:16px;font-family:sans-serif;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}div{width:110px;height:110px;border-radius:16px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 2px 8px #0001}b,p{margin:0;padding:0}p{font-size:13px;opacity:0.8}</style>${cardsHtml}`;
+  let html=`<!DOCTYPE html><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${name}</title><style>body{padding:16px;font-family:sans-serif;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}div{width:110px;height:110px;border-radius:16px;padding:20px;display:flex;flex-direction:column;justify-content:space-between}b,p{margin:0;padding:0}p{font-size:13px;opacity:0.8}</style>${cardsHtml}`;
   let blob=new Blob([html],{type:'text/html'});
   let url=URL.createObjectURL(blob);
   let a=document.createElement('a');
@@ -418,7 +393,7 @@ const exportGroupHTML=(groupId)=>{
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 };
-//=====创建=====
+//创建
 const createGroup=(name,colors)=>{
   name=name.trim();
   if(!name||!isValidName(name))return null;
@@ -451,7 +426,7 @@ const createCard=(color,name)=>{
   renderAll();
   return card;
 };
-//=====删除=====
+//删除
 const deleteGroup=id=>{
   let g=findGroup(id);
   if(!g||g.isDefault)return false;
@@ -468,11 +443,8 @@ const deleteCard=id=>{
   renderAll();
   return true;
 };
-const updateDeleteBtn=()=>{
-  let del=document.getElementById('delete');
-  if(del)del.classList.toggle('active',!!state.dragData);
-};
-//=====拖拽=====
+const updateDeleteBtn=()=>document.getElementById('delete').classList.toggle('active',!!state.dragData);
+//拖拽
 const moveItem=(arr,srcIdx,tgtIdx)=>{
   if(srcIdx===tgtIdx)return;
   let item=arr.splice(srcIdx,1)[0];
@@ -534,10 +506,7 @@ document.addEventListener('drop',e=>{
       let tgtGroup=found.group;
       let tgtIdx=found.cardIndex;
       if(srcGroup.id===tgtGroup.id){
-        if(srcIdx!==tgtIdx){
-          moveItem(srcGroup.cards,srcIdx,tgtIdx);
-          renderAll();
-        }
+        if(srcIdx!==tgtIdx){moveItem(srcGroup.cards,srcIdx,tgtIdx);renderAll();}
       }else{
         let card=srcGroup.cards.splice(srcIdx,1)[0];
         let insertIdx=tgtIdx+1;
@@ -581,16 +550,14 @@ delZone.addEventListener('drop',e=>{
   state.dragData=null;
   updateDeleteBtn();
 });
-//=====导航栏按钮=====
-document.getElementById('createColor').addEventListener('click',function(){
+//导航栏按钮
+document.getElementById('create').addEventListener('click',function(){
   const textarea=document.querySelector('textarea');
   const aside=document.querySelector('aside');
   const navInput=document.querySelector('nav input');
   let name=navInput.value.trim();
   let hex=parseColorInput(name);
-  if(aside.classList.contains('show')){
-    if(hex)previewColor(hex);
-  }
+  if(aside.classList.contains('show')){if(hex)previewColor(hex);}
   else if(textarea.classList.contains('show')){
     let text=textarea.value.trim();
     textarea.classList.remove('show');
@@ -607,14 +574,12 @@ document.getElementById('createColor').addEventListener('click',function(){
       });
     }
     if(!!name&&isValidName(name))createGroup(name,colors);
+    navInput.value='';
   }
-  else{
-    if(hex)createCard(hex);
-    else{textarea.value='';textarea.classList.add('show');navInput.placeholder='新分组';}
-  }
-  navInput.value='';
+  else if(hex){createCard(hex);navInput.value='';}
+  else{textarea.value='';textarea.classList.add('show');navInput.placeholder='新分组';}
 });
-bindClickDbl(document.querySelector('#functions'),
+bindClickDbl(document.querySelector('#function'),
   ()=>{
     const s=document.querySelector('aside');
     s.classList.toggle('show');
@@ -627,33 +592,25 @@ bindClickDbl(document.querySelector('#functions'),
     saveState();
   }
 );
-//=====色板=====
+//色板
 let previewHex='#61a8d6';
-const asideEl=document.querySelector('aside');
 const previewEls={
   hex:document.getElementById('hex'),
   rgb:document.getElementById('rgb'),
   hsl:document.getElementById('hsl')
 };
 const rangeEls={
-  h:document.getElementById('range-h'),
-  s:document.getElementById('range-s'),
-  l:document.getElementById('range-l')
+  h:document.getElementById('h'),
+  s:document.getElementById('s'),
+  l:document.getElementById('l')
 };
-const rangeGradient=(axis,h,s,l,steps=12)=>{
+const rangeGradient=(axis,h,s,l)=>{
   let stops=[];
-  for(let i=0;i<=steps;i++){
-    const t=i/steps;
-    const pos=`calc(18px + (100% - 36px) * ${t.toFixed(4)})`;
-    stops.push(`${hslToHex(axis==='h'?t*360:h,axis==='s'?t*100:s,axis==='l'?t*100:l)} ${pos}`);
+  for(let i=0;i<=12;i++){
+    const t=i/12;
+    stops.push(`${hslToHex(axis==='h'?t*360:h,axis==='s'?t*100:s,axis==='l'?t*100:l)} calc(18px + (100% - 36px) * ${t.toFixed(4)})`);
   }
   return `linear-gradient(to bottom,${stops.join(',')})`;
-};
-const setRanges=(h,s,l)=>{
-  rangeEls.h.value=h;rangeEls.s.value=s;rangeEls.l.value=l;
-  rangeEls.h.style.background=rangeGradient('h',h,s,l);
-  rangeEls.s.style.background=rangeGradient('s',h,s,l);
-  rangeEls.l.style.background=rangeGradient('l',h,s,l);
 };
 const previewColor=(color,fromSlider)=>{
   const hex=parseColorInput(color);
@@ -661,12 +618,15 @@ const previewColor=(color,fromSlider)=>{
   const rgb=hexToRgb(hex);
   let hsl=rgbToHsl(rgb.r,rgb.g,rgb.b);
   if(fromSlider)hsl={h:+rangeEls.h.value,s:+rangeEls.s.value,l:+rangeEls.l.value};
-  setRanges(hsl.h,hsl.s,hsl.l);
+  rangeEls.h.value=hsl.h;rangeEls.s.value=hsl.s;rangeEls.l.value=hsl.l;
+  rangeEls.h.style.background=rangeGradient('h',hsl.h,hsl.s,hsl.l);
+  rangeEls.s.style.background=rangeGradient('s',hsl.h,hsl.s,hsl.l);
+  rangeEls.l.style.background=rangeGradient('l',hsl.h,hsl.s,hsl.l);
   previewHex=hex;
   previewEls.hex.textContent=hex;
   previewEls.rgb.textContent=`rgb(${rgb.r},${rgb.g},${rgb.b})`;
   previewEls.hsl.textContent=`hsl(${hsl.h},${hsl.s}%,${hsl.l}%)`;
-  asideEl.style.setProperty('--preview',hex);
+  document.querySelector('aside').style.setProperty('--preview',hex);
 };
 ['h','s','l'].forEach(k=>{
   rangeEls[k].addEventListener('input',()=>{
@@ -677,13 +637,11 @@ document.querySelector('aside svg').addEventListener('click',e=>{
   const fill=e.target.getAttribute&&e.target.getAttribute('fill');
   if(fill)previewColor(fill);
 });
-Object.values(previewEls).forEach(p=>{
-  bindClickDbl(p,
-    el=>{navigator.clipboard.writeText(el.textContent).catch(()=>{});},
-    ()=>createCard(previewHex)
-  );
+document.querySelector('aside>div>div').addEventListener('click',()=>{createCard(previewHex)});
+document.querySelectorAll('aside>p').forEach(p=>{
+  p.addEventListener('click',()=>{navigator.clipboard.writeText(p.textContent).catch(()=>{})});
 });
-//=====启动=====
+//启动
 loadOrInit();
 renderAll();
 previewColor(previewHex);
