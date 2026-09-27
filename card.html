@@ -16,12 +16,13 @@ input,textarea,button{
   border:none;outline:none;background:#0000;color:var(--text);
   border-radius:18px;font-size:16px;
 }
+svg{stroke-linecap:round;stroke-linejoin:round;}
 input,textarea{padding:8px 12px;&::placeholder{color:#567a;}}
 nav{
   position:fixed;z-index:1;top:8px;right:8px;display:flex;gap:4px;
   >*{background:var(--nav);height:36px;backdrop-filter:blur(9px);}
   >input{width:88px;font-size:14px;}
-  >button{width:36px;>svg{stroke:currentColor;stroke-width:2px;fill:#0000;width:36px;height:36px;}}
+  >button{width:36px;>svg{stroke:currentColor;stroke-width:1.3px;fill:#0000;}}
 }
 main{max-width:700px;margin:auto;padding:44px 8px;}
 details{
@@ -33,7 +34,7 @@ summary{
   width:100%;height:40px;border-radius:20px;font-weight:600;background:#5672;
   >input{width:120px;height:32px;padding:0 0 0 12px;line-height:32px;font-weight:600;}
   >input:focus{background:#5672;}
-  >button{width:28px;height:28px;margin-right:2px;background:#5672;}
+  >button{width:32px;height:32px;svg{stroke:#567a;stroke-width:1px;fill:#0000;}}
 }
 details>div>div{
   display:flex;flex-direction:column;justify-content:space-between;
@@ -66,49 +67,47 @@ aside{
       appearance:none;background:var(--preview);border-radius:14px;
       width:28px;height:28px;box-shadow:0 0 5px #80808080;
     }
-    &::-webkit-range-thumb{
-      background:var(--preview);border-radius:14px;
-      width:28px;height:28px;box-shadow:0 0 5px #80808080;
-    }
   }
   >div>div{width:58px;height:70px;background:var(--preview);border-radius:12px;}
-}   
-#delete{
-  position:fixed;bottom:0;right:0;width:90px;height:90px;opacity:0;
-  background:#f009;border-radius:90% 0 0 0;backdrop-filter:blur(5px);
-  &.active{opacity:1;}
 }
+#delete,#preview{
+  position:fixed;bottom:8px;width:60px;height:60px;opacity:0;border-radius:30px;
+  backdrop-filter:blur(5px);&.active{opacity:1;}
+  >svg{stroke:currentColor;stroke-width:0.7px;fill:#0000;}
+}
+#delete{right:8px;background:#f008;}
+#preview{left:8px;background:#00f8;}
 </style>
 </head>
 <body data-theme="light">
 <nav>
   <input type="text" placeholder="新颜色" maxlength="19">
-  <button id="create"><svg><path d="M18 12v12M12 18h12" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-  <button id="function"><svg><circle cx="18" cy="18" r="7.4"/></svg></button>
+  <button id="create"><svg viewBox="0 0 24 24"><path d="M12 8 12 16M8 12 16 12"/></svg></button>
+  <button id="function"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/></svg></button>
 </nav>
 <textarea placeholder="新颜色"></textarea>
 <aside>
   <div>
     <svg width="80" viewBox="0 0 80 70">
-      <circle cx="24" cy="07" r="7" fill="#0cc"/>
-      <circle cx="40" cy="07" r="7" fill="#05c"/>
-      <circle cx="56" cy="07" r="7" fill="#00c"/>
-      <circle cx="16" cy="21" r="7" fill="#0c5"/>
-      <circle cx="32" cy="21" r="7" fill="#8ff"/>
-      <circle cx="48" cy="21" r="7" fill="#88f"/>
-      <circle cx="64" cy="21" r="7" fill="#50c"/>
-      <circle cx="08" cy="35" r="7" fill="#0c0"/>
-      <circle cx="24" cy="35" r="7" fill="#8f8"/>
-      <circle cx="40" cy="35" r="7" fill="#fff"/>
-      <circle cx="56" cy="35" r="7" fill="#f8f"/>
-      <circle cx="72" cy="35" r="7" fill="#c0c"/>
-      <circle cx="16" cy="49" r="7" fill="#5c0"/>
-      <circle cx="32" cy="49" r="7" fill="#ff8"/>
-      <circle cx="48" cy="49" r="7" fill="#f88"/>
-      <circle cx="64" cy="49" r="7" fill="#c05"/>
-      <circle cx="24" cy="63" r="7" fill="#cc0"/>
-      <circle cx="40" cy="63" r="7" fill="#c50"/>
-      <circle cx="56" cy="63" r="7" fill="#c00"/>
+      <circle fill="#0cc" r="7" cx="24" cy="7"/>
+      <circle fill="#05c" r="7" cx="40" cy="7"/>
+      <circle fill="#00c" r="7" cx="56" cy="7"/>
+      <circle fill="#0c5" r="7" cx="16" cy="21"/>
+      <circle fill="#8ff" r="7" cx="32" cy="21"/>
+      <circle fill="#88f" r="7" cx="48" cy="21"/>
+      <circle fill="#50c" r="7" cx="64" cy="21"/>
+      <circle fill="#0c0" r="7" cx="08" cy="35"/>
+      <circle fill="#8f8" r="7" cx="24" cy="35"/>
+      <circle fill="#fff" r="7" cx="40" cy="35"/>
+      <circle fill="#f8f" r="7" cx="56" cy="35"/>
+      <circle fill="#c0c" r="7" cx="72" cy="35"/>
+      <circle fill="#5c0" r="7" cx="16" cy="49"/>
+      <circle fill="#ff8" r="7" cx="32" cy="49"/>
+      <circle fill="#f88" r="7" cx="48" cy="49"/>
+      <circle fill="#c05" r="7" cx="64" cy="49"/>
+      <circle fill="#cc0" r="7" cx="24" cy="63"/>
+      <circle fill="#c50" r="7" cx="40" cy="63"/>
+      <circle fill="#c00" r="7" cx="56" cy="63"/>
     </svg>
     <div></div>
   </div>
@@ -120,7 +119,8 @@ aside{
   </div>
 </aside>
 <main></main>
-<div id="delete"></div>
+<div id="delete"><svg viewBox="0 0 24 24"><path d="M8 9 16 9M9 9 10 16 14 16 15 9M11 7 13 7"/></svg></div>
+<div id="preview"><svg viewBox="0 0 24 24"><path d="M7 12Q12 6 17 12 12 18 7 12M12 11.5 12 12.5"/></svg></div>
 <script>
 //状态与工具
 let state={
@@ -308,7 +308,8 @@ const renderAll=()=>{
     }).join('');
     html+=`<details id="${g.id}" ${g.open?'open':''}>
       <summary draggable="${isDefault?'false':'true'}">
-        <input type="text" value="${g.name}" maxlength="10" ${isDefault?'disabled':''}><button></button>
+        <input type="text" value="${g.name}" maxlength="10" ${isDefault?'disabled':''}>
+        <button><svg viewBox="0 0 24 24"><rect x="10" y="10" width="8" height="8" rx="2"/><path d="M8 14Q6 14 6 12L6 8Q6 6 8 6 L12 6Q14 6 14 8"/></svg></button>
       </summary>
       <div>${cardsHtml}</div>
     </details>`;
@@ -338,10 +339,10 @@ const renderAll=()=>{
   main.querySelectorAll('details').forEach(d=>{
     d.addEventListener('toggle',()=>{let g=findGroup(d.id);if(g){g.open=d.open;saveState();}});
   });
-  updateDeleteBtn();
+  updateBtn();
   saveState();
 };
-//名称修改
+//重命名
 const onNameBlur=function(){
   let val=this.value.trim();
   let cardDiv=this.closest('div[id]');
@@ -365,7 +366,7 @@ const onNameBlur=function(){
     }
   }
 };
-//分组按钮
+//复制和导出
 const copyGroup=(groupId)=>{
   let g=findGroup(groupId);
   if(!g||!g.cards.length)return;
@@ -393,7 +394,7 @@ const exportGroupHTML=(groupId)=>{
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 };
-//创建
+//创建和删除
 const createGroup=(name,colors)=>{
   name=name.trim();
   if(!name||!isValidName(name))return null;
@@ -426,7 +427,6 @@ const createCard=(color,name)=>{
   renderAll();
   return card;
 };
-//删除
 const deleteGroup=id=>{
   let g=findGroup(id);
   if(!g||g.isDefault)return false;
@@ -443,8 +443,12 @@ const deleteCard=id=>{
   renderAll();
   return true;
 };
-const updateDeleteBtn=()=>document.getElementById('delete').classList.toggle('active',!!state.dragData);
 //拖拽
+const updateBtn=()=>{
+  const drag=state.dragData;
+  document.getElementById('delete').classList.toggle('active',!!drag);
+  document.getElementById('preview').classList.toggle('active',!!(drag&&drag.type==='card'));
+};
 const moveItem=(arr,srcIdx,tgtIdx)=>{
   if(srcIdx===tgtIdx)return;
   let item=arr.splice(srcIdx,1)[0];
@@ -462,40 +466,59 @@ document.addEventListener('dragstart',e=>{
     state.dragData={type:'card',id:cardDiv.id,groupId:found.group.id,groupIndex:found.groupIndex,cardIndex:found.cardIndex};
     e.dataTransfer.effectAllowed='move';
     e.dataTransfer.setData('text/plain',cardDiv.id);
-    updateDeleteBtn();
+    updateBtn();
   }else if(summary&&details){
     let g=findGroup(details.id);
     if(!g||g.isDefault){e.preventDefault();return;}
     state.dragData={type:'group',id:details.id,groupIndex:findGroupIndex(details.id)};
     e.dataTransfer.effectAllowed='move';
     e.dataTransfer.setData('text/plain',details.id);
-    updateDeleteBtn();
+    updateBtn();
   }
 });
 document.addEventListener('dragend',e=>{
   document.querySelectorAll('details.active').forEach(d=>d.classList.remove('active'));
   state.dragData=null;
-  updateDeleteBtn();
-});
-document.addEventListener('dragover',e=>{
-  e.preventDefault();
-  e.dataTransfer.dropEffect='move';
-  let target=e.target.closest('details');
-  if(target&&state.dragData)target.classList.add('active');
+  updateBtn();
 });
 document.addEventListener('dragleave',e=>{
   let target=e.target.closest('details');
   if(target)target.classList.remove('active');
 });
+document.addEventListener('dragover',e=>{
+  e.preventDefault();
+  e.dataTransfer.dropEffect='move';
+  const detailsTarget=e.target.closest('details');
+  if(detailsTarget&&state.dragData)detailsTarget.classList.add('active');
+});
 document.addEventListener('drop',e=>{
   e.preventDefault();
   if(!state.dragData)return;
-  let target=e.target;
-  let cardTarget=target.closest('div[id]');
-  let detailsTarget=target.closest('details');
-  let isDeleteZone=target.closest('#delete');
-  if(isDeleteZone)return;
-  let drag=state.dragData;
+  const target=e.target;
+  const drag=state.dragData;
+  if(target.closest('#delete')){
+    if(drag.type==='card')deleteCard(drag.id);
+    else if(drag.type==='group')deleteGroup(drag.id);
+    state.dragData=null;
+    updateBtn();
+    return;
+  }
+  if(target.closest('#preview')){
+    if(drag.type==='card'){
+      const found=findCard(drag.id);
+      if(found){
+        document.querySelector('aside').classList.add('show');
+        document.querySelector('textarea').classList.remove('show');
+        document.querySelector('nav input').placeholder='颜色值';
+        previewColor(found.card.color);
+      }
+    }
+    state.dragData=null;
+    updateBtn();
+    return;
+  }
+  const cardTarget=target.closest('div[id]');
+  const detailsTarget=target.closest('details');
   if(drag.type==='card'){
     if(cardTarget){
       let found=findCard(cardTarget.id);
@@ -537,18 +560,7 @@ document.addEventListener('drop',e=>{
     }
   }
   state.dragData=null;
-  updateDeleteBtn();
-});
-const delZone=document.getElementById('delete');
-delZone.addEventListener('dragover',e=>{e.preventDefault();e.dataTransfer.dropEffect='move';});
-delZone.addEventListener('drop',e=>{
-  e.preventDefault();
-  if(!state.dragData)return;
-  let drag=state.dragData;
-  if(drag.type==='card')deleteCard(drag.id);
-  else if(drag.type==='group')deleteGroup(drag.id);
-  state.dragData=null;
-  updateDeleteBtn();
+  updateBtn();
 });
 //导航栏按钮
 document.getElementById('create').addEventListener('click',function(){
