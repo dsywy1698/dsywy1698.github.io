@@ -287,22 +287,17 @@ main{
     --theme:var(--primary);
     min-height:100vh;
     background:linear-gradient(160deg,hsl(from var(--theme) h s l / 0.4),#0000 60vh);
-    *[id]{scroll-margin-top:40px;}
-}
-main:not(#HOME){
     padding:12px;
+    *[id]{scroll-margin-top:40px;}
     @media(width>=768px){padding:12px 100px;}
-    &::before{
-        position:static;
-        display:block;
-        margin:80px 8px 40px 8px;
-        content:attr(data-title);
-        font-weight:bold;
-        font-size:4rem;
-        text-align:center;
-    }
 }
 main>h1{
+    padding:80px 8px 40px 8px;
+    font-weight:bold;
+    font-size:4rem;
+    text-align:center;
+}
+main>h2{
     margin:12px 0 20px 20px;
     font-size:1.875rem;
     position:relative;
@@ -313,12 +308,12 @@ main>h1{
         border-radius:6px;
     }
 }
-main>h2{
+main>h3{
     font-size:1.5rem;
     margin:16px 0;
     letter-spacing:0.1em;
 }
-main>h3{
+main>h4{
     position:relative;
     display:inline-block;
     width:auto;
@@ -329,14 +324,14 @@ main>h3{
         position:absolute;
         content:'';
         left:-4px;
-        top:1.6ex;
+        top:1.5ex;
         right:-4px;
         height:12px;
         border-radius:6px;
-        background:hsl(from var(--theme) h 40 calc(50 - 30 * var(--seed)) / 0.3);
+        background:hsl(from var(--theme) h 40 calc(50 - 30 * var(--seed)) / 0.2);
     }
 }
-h4{text-align:center;font-size:1.875rem;}
+main>h5{font-size:1.125rem;}
 p{margin:10px 0;}
 a{
     color:hsl(from var(--primary) h 80 calc(50 - 20 * var(--seed)));
@@ -355,14 +350,9 @@ small{opacity:0.7;}
 hr{
     border:0;
     border-radius:1px;
-    margin:15px 10px;
-    padding:0.8px;
-    background:linear-gradient(to right,
-        #0000 0%,
-        hsl(from var(--theme) h 50 50 / 0.5) 20%,
-        hsl(from var(--theme) h 50 50 / 0.5) 80%,
-        #0000 100%
-    );
+    margin:25px;
+    padding:1px;
+    background:hsl(from var(--theme) h 50 50 / 0.3);
 }
 ul,ol,main:not(#EVE)>dl{
     margin:8px 0 8px 2em;
@@ -382,14 +372,14 @@ main svg,img,audio,video{
     display:block;
     margin:12px auto;
 }
-article,q,code,table,details,.writing,.timeline{
+article,q,code,table,details{
     display:block;
     margin:12px 0;
     padding:16px;
     border-radius:16px;
 }
 article{
-    background:hsl(from var(--primary) h s l / 0.4);
+    background:hsl(from var(--primary) h s l / 0.3);
     color:hsl(from var(--primary) h 20 calc(50 - 40 * var(--seed)));
     &:not(.warning)>p{text-indent:2.26em;}
     &:has(>b){
@@ -397,21 +387,73 @@ article{
         gap:4px;
         grid-template-columns:auto 1fr;
         >p{text-indent:0!important;margin:0!important;}
-        >b{text-wrap:nowrap;text-align:right;font-weight:bold;}
+        >b{text-wrap:nowrap;text-align:right;font-weight:bold;opacity:0.6;}
     }
     &.warning{
         background:#f003;
         color:hsl(0 10 calc(50 - 30 * var(--seed)));
     }
+    h6{text-align:center;font-size:1.875rem;}
+}
+article:has(>dl){
+    background:hsl(from var(--secondary) h s l / 0.2);
+    position:relative;
+    &::before{
+        content:'';
+        position:absolute;
+        left:24px;
+        top:0;
+        bottom:0;
+        width:4px;
+        background:hsl(from var(--secondary) h s l / 0.5);
+    }
+    dt{
+        background:#80808030;
+        padding:0 32px;
+        line-height:40px;
+        font-size:1.125rem;
+        margin:0 20px;
+        border-radius:20px;
+        display:inline-block;
+        width:auto;
+    }
+    dd{
+        background:linear-gradient(to right,#80808020,#0000);
+        color:hsl(from var(--secondary) h 20 calc(50 - 30 * var(--seed)));
+        padding:4px 12px;
+        margin:12px 28px;
+        border-radius:16px;
+        position:relative;
+        &::before{
+            content:'';
+            position:absolute;
+            display:block;
+            width:12px;
+            height:12px;
+            border-radius:50%;
+            background:var(--secondary);
+            left:-24px;
+            top:calc(50% - 6px);
+        }
+    }
 }
 q{
-    background:hsl(from var(--secondary) h s l / 0.4);
-    color:hsl(from var(--secondary) h 25 calc(50 - 30 * var(--seed)));
-    font-size:1.5625rem;
-    text-wrap:balance;
-    text-align:center;
-    padding:8px;
-    &::before,&::after{display:none;}
+    color:hsl(from var(--secondary) h 25 calc(50 - 20 * var(--seed)));
+    font-size:1.375rem;
+    font-weight:500;
+    padding:4px 16px;
+    position:relative;
+    &::before{
+        position:absolute;
+        left:0;
+        top:8px;
+        bottom:8px;
+        content:'';
+        width:6px;
+        border-radius:3px;
+        background:hsl(from var(--secondary) h s l / 0.4);
+    }
+    &::after{display:none;}
 }
 code{
     background:hsl(from var(--theme) h 20 calc(50 - 10 * var(--seed)) / 0.2);
@@ -446,79 +488,6 @@ table{
             display:block;
             mask-image:linear-gradient(to right,#0008,#000 20px,#000 calc(100% - 20px),#0008);
             td,th{padding:8px;width:200px;text-wrap:nowrap;}
-        }
-    }
-}
-.writing{
-    background:hsl(from var(--secondary) h s l / 0.4);
-    color:hsl(from var(--secondary) h 10 calc(50 - 30 * var(--seed)));
-    h4{
-        text-align:center;
-        font-size:2.5rem;
-        margin:16px 0;
-    }
-    strong{
-        display:block;
-        opacity:0.8;
-        font-size:0.875rem;
-        text-align:center;
-        font-weight:bold;
-        margin:4px 0;
-        text-indent:0;
-    }
-    p{text-indent:2.26em;}
-    &:has(>b){
-        display:grid;
-        gap:4px;
-        grid-template-columns:auto 1fr;
-        >p{text-indent:0!important;margin:0!important;}
-        >b{text-wrap:nowrap;text-align:right;font-weight:bold;}
-        >h4,>p:has(strong),>hr{grid-column:span 2;}
-    }
-}
-.timeline{
-    background:linear-gradient(135deg,hsl(from var(--primary) h s l / 0.3),hsl(from var(--primary) h s l / 0.2));
-    position:relative;
-    &::before{
-        content:'';
-        position:absolute;
-        left:24px;
-        top:0;
-        bottom:0;
-        width:4px;
-        background:linear-gradient(to bottom,
-            #0000 0,
-            hsl(from var(--primary) h s l / 0.5) 16px,
-            hsl(from var(--primary) h s l / 0.5) calc(100% - 15px),
-            #0000 100%);
-    }
-    dt{
-        background:#80808030;
-        padding:0 32px;
-        line-height:40px;
-        font-size:1.125rem;
-        margin:0 20px;
-        border-radius:20px;
-        display:inline-block;
-        width:auto;
-    }
-    dd{
-        background:linear-gradient(to right,#80808020,#0000);
-        color:hsl(from var(--primary) h 20 calc(50 - 30 * var(--seed)));
-        padding:4px 12px;
-        margin:12px 28px;
-        border-radius:16px;
-        position:relative;
-        &::before{
-            content:'';
-            position:absolute;
-            display:block;
-            width:12px;
-            height:12px;
-            border-radius:50%;
-            background:var(--primary);
-            left:-24px;
-            top:calc(50% - 6px);
         }
     }
 }
@@ -723,7 +692,7 @@ footer{
 
 
 #EVENT{
-    >h1{
+    >h2{
         margin:24px 16px;
         padding:8px;
         color:hsl(from var(--primary) h 20 calc(50 - 30 * var(--seed)));
@@ -842,29 +811,22 @@ footer{
 </nav>
 <div id="root">
     <main id="HOME" data-title="首页">
-<div style="padding:12px;">
     <div style="padding:20px;text-align:center"><h1>页面开发中</h1><p>此页面为首页，请上传文案文件后继续</p></div>
     <hr>
-    <h1>使用指南</h1>
-    <p>页面仍在开发中，部分功能可能变动，以最新功能为准。</p>
-    <p>请使用最新版浏览器，旧版浏览器不兼容部分功能。</p>
-    <p>在手机端浏览效果最佳。</p>
-    <h2>文案</h2>
-    <p>网站不存储任何文案数据，所有数据均需要用户上传。上传后，浏览器将文案解析为相应富文本格式，并持久化存储。</p>
-    <article class="warning"><p>清除浏览数据、更换浏览器、重装浏览器后，文案数据和个性化数据将被清除，需重新上传。</p></article>
-    <p>文案文件会根据实际情况发布，也可以根据语法，自己编写文案。</p>
-    <p>文案文件为纯文本格式，即使不上传到网站也可以直接阅读，但文本中会出现一些代码。</p>
-    <p>想要上传文案，请点击右上角的圆形按钮，然后点击“上传文件”按钮。</p>
-    <article class="warning"><p>如果上传了无法被解析的文件，页面将会报错。</p></article>
-    <p>每次只支持单个文件。如果多次上传文件，之前上传的文件会被覆盖。</p>
-    <p>点击“清除文件”按钮，可以删除文案数据。</p>
-    <h2>功能</h2>
-    <p>网站支持设置主题和壁纸。</p>
-    <p>点击右上角的圆形按钮，可以在弹出的面板中选择主题、上传背景图片、调节背景透明度和模糊度。</p>
-    <p>上传文件后，点击右上角的三条横线可以打开菜单，通过菜单打开相应页面。也可以通过链接和“上一页”、“下一页”按钮切换页面。</p>
-    <p>点击左上角班徽，回到首页。</p>
-    <p>点击右上角胶囊的左侧，回到页面顶部；点击胶囊右侧，回到页面底部。</p>
-</div>
+    <h2>使用指南</h2>
+    <p>页面仍在开发中，部分功能可能变动。<br>旧版浏览器不兼容部分功能。<br>在手机端浏览效果最佳。</p>
+    <p>以下为点击操作：</p>
+    <ul>
+        <li>点击左上角班徽：回到首页</li>
+        <li>点击胶囊的左侧：回到页面顶部</li>
+        <li>点击胶囊的右侧：回到页面底部</li>
+        <li>点击胶囊圆圈按钮：弹出面板，可设置主题、设置背景、上传文案</li>
+        <li>点击胶囊三横线按钮：打开菜单，可打开相应页面</li>
+    </ul>
+    <p>清除浏览数据、更换浏览器、重装浏览器后，<strong>文案和个性化数据将被清除</strong>。</p>
+    <p>网站不含任何文案，文案均需要用户上传。如果无法解析上传的文件，页面将会报错。</p>
+    <p>只支持同时上传单个文件，新上传的文件将覆盖旧文件。</p>
+    <p>文案文件为纯文本格式，可直接阅读，文本中可能出现一些代码。</p>
     </main>
 </div>
 <footer><h1>页面到底了！</h1></footer>
@@ -954,6 +916,7 @@ function restoreFromDB(){
     }).catch(()=>{deleteDB();});
 }
 //===文本解析===
+const LIST_RE=/^( {0,1})([-+]|\d+\.) /;
 function processEscape(line){
     let result='',i=0;
     const specials='#-+:{}[]|*^$\\!<>';
@@ -1016,7 +979,7 @@ function parseList(items){
         if(items[idx].indent===0){topIndices.push(idx);}
     }
     if(topIndices.length===0)return html;
-    let outerTag=items[topIndices[0]].marker==='-'?'ul':'ol';
+    let outerTag=/^\d+\.$/.test(items[topIndices[0]].marker)?'ol':'ul';
     html+=`<${outerTag}>`;
     for(let t=0;t<topIndices.length;t++){
         let idx=topIndices[t];
@@ -1028,7 +991,7 @@ function parseList(items){
         }
         html+=`<li>${parseInlineA(top.content)}</li>`;
         if(subItems.length>0){
-            let innerTag=subItems[0].marker==='-'?'ul':'ol';
+            let innerTag=/^\d+\.$/.test(subItems[0].marker)?'ol':'ul';
             html+=`<${innerTag}>`;
             for(let sub of subItems){
                 html+=`<li>${parseInlineA(sub.content)}</li>`;
@@ -1039,11 +1002,33 @@ function parseList(items){
     html+=`</${outerTag}>`;
     return html;
 }
+function isDdLine(line){return line.startsWith(': ');}
+function isBlockStart(line){
+    const t=line.trim();
+    if(t==='')return true;
+    if(line.startsWith('|')&&line.endsWith('|')&&line.length>1)return true;
+    if(line.startsWith(' ')&&line.length>2)return true;
+    if(LIST_RE.test(line))return true;
+    if(isDdLine(line))return true;
+    if(/^!\[(.*?)\]\((.*?)\)$/.test(t))return true;
+    if(t==='---')return true;
+    if(/^#{1,6} /.test(t))return true;
+    if(t.startsWith('> '))return true;
+    if(t.startsWith('= '))return true;
+    return false;
+}
+function isDlStart(lines,i){
+    const line=lines[i];
+    if(isDdLine(line))return true;
+    const next=lines[i+1];
+    if(next===undefined)return false;
+    return !isBlockStart(line)&&isDdLine(next);
+}
 function parseDl(lines){
     let html='<dl>';
     for(let line of lines){
-        if(line.startsWith(':: ')){html+=`<dt>${parseInlineA(line.slice(3))}</dt>`;}
-        else if(line.startsWith(': ')){html+=`<dd>${parseInlineA(line.slice(2))}</dd>`;}
+        if(isDdLine(line)){html+=`<dd>${parseInlineA(line.slice(2))}</dd>`;}
+        else{html+=`<dt>${parseInlineA(line.trim())}</dt>`;}
     }
     html+='</dl>';
     return html;
@@ -1063,7 +1048,7 @@ function parseArticle(lines){
     return `<article${classAttr}>${innerHtml}</article>`;
 }
 function parseContentA(lines,insideArticle){
-    let html='', i=0;
+    let html='',i=0;
     const inline=parseInlineA;
     while(i<lines.length){
         let line=lines[i];
@@ -1074,7 +1059,7 @@ function parseContentA(lines,insideArticle){
             while(i<lines.length&&lines[i].startsWith('|')&&lines[i].endsWith('|')){
                 rows.push(lines[i]);i++;
             }
-            html+=parseTable(rows,'A');
+            html+=parseTable(rows);
             continue;
         }
         if(line.startsWith(' ')&&line.length>2){
@@ -1082,26 +1067,30 @@ function parseContentA(lines,insideArticle){
             while(i<lines.length&&lines[i].startsWith(' ')&&lines[i].length>2){
                 indented.push(lines[i]);i++;
             }
-            html+=parseArticle(indented,'A');
+            html+=parseArticle(indented);
             continue;
         }
-        if(line.match(/^( {0,1})([-+]) /)){
+        if(LIST_RE.test(line)){
             let items=[];
             while(i<lines.length){
-                let m=lines[i].match(/^( {0,1})([-+]) /);
+                let m=lines[i].match(LIST_RE);
                 if(!m)break;
                 items.push({indent:m[1].length,marker:m[2],content:lines[i].slice(m[0].length)});
                 i++;
             }
-            html+=parseList(items,'A');
+            html+=parseList(items);
             continue;
         }
-        if(line.match(/^: /)||line.match(/^:: /)){
+        if(isDlStart(lines,i)){
             let dlLines=[];
-            while(i<lines.length&&(lines[i].match(/^: /)||lines[i].match(/^:: /))){
-                dlLines.push(lines[i]);i++;
+            while(i<lines.length){
+                let cur=lines[i];
+                if(isDdLine(cur)){dlLines.push(cur);i++;continue;}
+                let next=lines[i+1];
+                if(!isBlockStart(cur)&&next!==undefined&&isDdLine(next)){dlLines.push(cur);i++;continue;}
+                break;
             }
-            html+=parseDl(dlLines,'A');
+            html+=parseDl(dlLines);
             continue;
         }
         let imgMatch=trimmed.match(/^!\[(.*?)\]\((.*?)\)$/);
@@ -1110,27 +1099,26 @@ function parseContentA(lines,insideArticle){
         let hMatch=trimmed.match(/^(#{1,6}) /);
         if(hMatch){
             let level=hMatch[1].length;
-            let content=line.slice(hMatch[0].length);
+            let content=trimmed.slice(hMatch[0].length);
             html+=`<h${level}>${inline(content)}</h${level}>`;
             i++;continue;
         }
         if(trimmed.startsWith('> ')){
-            html+=`<q>${inline(line.slice(2))}</q>`;
+            html+=`<q>${inline(trimmed.slice(2))}</q>`;
             i++;continue;
         }
         if(trimmed.startsWith('= ')){
-            html+=`<code>${inline(line.slice(2))}</code>`;
+            html+=`<code>${inline(trimmed.slice(2))}</code>`;
             i++;continue;
         }
         let pContent=line;
         if(insideArticle){
             const colonIndex=pContent.indexOf(' : ');
-            if(colonIndex!==-1) {
-                const leftPart = pContent.substring(0, colonIndex).trim();
-                const rightPart = pContent.substring(colonIndex + 3).trim();
-                html += `<b>${inline(leftPart)}</b><p>${inline(rightPart)}</p>`;
-                i++;
-                continue;
+            if(colonIndex!==-1){
+                const leftPart=pContent.substring(0,colonIndex).trim();
+                const rightPart=pContent.substring(colonIndex+3).trim();
+                html+=`<b>${inline(leftPart)}</b><p>${inline(rightPart)}</p>`;
+                i++;continue;
             }
         }
         html+=`<p>${inline(pContent)}</p>`;i++;
@@ -1150,11 +1138,11 @@ function parseContentB(lines){
                 let line=innerLines[j];
                 let trimmed=line.trim();
                 if(trimmed===''){j++;continue;}
-                if(trimmed.startsWith('# ')){
-                    innerHtml+=`<h1>${inline(line.slice(2))}</h1>`;
+                if(trimmed.startsWith('## ')){
+                    innerHtml+=`<h2>${inline(trimmed.slice(2))}</h2>`;
                     j++;continue;
                 }
-                let hot=false, unsure=false;
+                let hot=false,unsure=false;
                 let contentLine=line;
                 if(trimmed.startsWith('!')){
                     hot=true;
@@ -1177,10 +1165,9 @@ function parseContentB(lines){
     for(let line of lines){
         let trimmed=line.trim();
         if(trimmed==='')continue;
-        if(trimmed.startsWith('# ')){
+        if(trimmed.startsWith('## ')){
             closeDiv();
-            let content=line.slice(2);
-            html+=`<h1>${inline(content)}</h1>`;
+            html+=`<h2>${inline(trimmed.slice(2))}</h2>`;
             continue;
         }
         if(trimmed.startsWith('$ ')){
@@ -1190,57 +1177,48 @@ function parseContentB(lines){
             if(parts){
                 let date=parts[0]||'';
                 let classes=parts.slice(1);
-                currentDiv={time:date, classes:classes, contentLines:[]};
+                currentDiv={time:date,classes:classes,contentLines:[]};
             }else{
-                currentDiv={time:'', classes:[], contentLines:[]};
+                currentDiv={time:'',classes:[],contentLines:[]};
             }
             continue;
         }
-        if(!currentDiv){
-            currentDiv={time:'', classes:[], contentLines:[]};
-        }
+        if(!currentDiv){currentDiv={time:'',classes:[],contentLines:[]};}
         currentDiv.contentLines.push(line);
     }
     closeDiv();
     return html;
 }
+function parsePageHead(line){
+    const m=line.match(/^#\s+(.*?)\s*\{([^}]*)\}\s*$/);
+    if(!m)return null;
+    const params=m[2].split(',');
+    return {
+        title:processEscape(m[1].trim()),
+        id:(params[0]||'').trim(),
+        theme:(params[1]||'').trim()
+    };
+}
 function parseDocument(text){
     const pages=[];
     const lines=text.split(/\r?\n/);
     let currentPage=null;
-    let state='metadata';
     for(const rawLine of lines){
-        const line=rawLine;
-        if(line.trim()==='====='){
+        const head=parsePageHead(rawLine);
+        if(head){
             if(currentPage!==null)pages.push(currentPage);
-            currentPage=null;
-            state='metadata';
+            currentPage={metadata:head,contentLines:[]};
             continue;
         }
-        if(state==='metadata'){
-            if(line.trim()==='')continue;
-            const parts=line.trim().split(/\s+/);
-            if(parts.length>=3){
-                const title=parts.slice(0,-2).join(' ');
-                const id=parts[parts.length-2];
-                const theme=parts[parts.length-1];
-                currentPage={metadata:{title,id,theme},contentLines:[]};
-                state='content';
-            }else{
-                currentPage={metadata:{title:'',id:'',theme:''},contentLines:[]};
-                state='content';
-            }
-        }else if(state==='content'){
-            if(currentPage!==null) currentPage.contentLines.push(line);
-        }
+        if(currentPage!==null)currentPage.contentLines.push(rawLine);
     }
-    if(currentPage!==null) pages.push(currentPage);
+    if(currentPage!==null)pages.push(currentPage);
     return pages.map(page=>{
         const processed=page.contentLines.map(line=>processEscape(line));
-        let html='';
-        if(page.metadata.id==='EVENT'){html=parseContentB(processed);}
-        else{html=parseContentA(processed,false);}
-        return {id:page.metadata.id, title:page.metadata.title, theme:page.metadata.theme, html};
+        let html=`<h1>${parseInlineA(page.metadata.title)}</h1>`;
+        if(page.metadata.id==='EVENT'){html+=parseContentB(processed);}
+        else{html+=parseContentA(processed,false);}
+        return {id:page.metadata.id,title:page.metadata.title,theme:page.metadata.theme,html};
     });
 }
 function renderPages(pages){
@@ -1250,6 +1228,7 @@ function renderPages(pages){
         const main=document.createElement('main');
         main.id=page.id;
         main.dataset.title=page.title;
+        main.dataset.theme=page.theme;
         main.style.setProperty('--theme',page.theme);
         main.innerHTML=page.html;
         document.getElementById('root').appendChild(main);
@@ -1260,7 +1239,7 @@ function extractStructure(){
     const result=[];
     document.querySelectorAll('main').forEach((main)=>{
         const structure=[];
-        main.querySelectorAll(':scope>h1,:scope>h2,:scope>h3').forEach((el,index)=>{
+        main.querySelectorAll(':scope>h2,:scope>h3,:scope>h4').forEach((el,index)=>{
             el.id=main.id+'-'+(index+1);
             structure.push({
                 element:el.tagName.toLowerCase(),
@@ -1336,8 +1315,8 @@ function generateMenu(){
     currentPage.structure.forEach(item=>{
         const clickAttr=`onclick="showPage('${currentPageId}',${item.index})"`;
         let tag='';
-        if(item.element==='h1')tag='button';
-        else if(item.element==='h2')tag='p';
+        if(item.element==='h2')tag='button';
+        else if(item.element==='h3')tag='p';
         else return;
         headingHtml+=`<${tag} ${clickAttr}>${item.text}</${tag}>`;
     });
@@ -1357,9 +1336,9 @@ function generateContents(){
         pageInfo.structure.forEach(item=>{
             const clickAttr=`onclick="showPage('${pageId}',${item.index})"`;
             let tag='';
-            if(item.element==='h1')tag='dt';
-            else if(item.element==='h2')tag='dd';
-            else if(item.element==='h3')tag='span';
+            if(item.element==='h2')tag='dt';
+            else if(item.element==='h3')tag='dd';
+            else if(item.element==='h4')tag='span';
             if(tag)htmlParts.push(`<${tag} ${clickAttr}>${item.text}</${tag}>`);
         });
         if(htmlParts.length>0){
@@ -1508,37 +1487,37 @@ function filterEventContent(){
         div.style.display=hasVisible?'':'none';
     });
     const children=eventMain.children;
-    let currentH1=null;
+    let currentH2=null;
     let divsInRange=[];
     for(let i=0;i<children.length;i++){
         const child=children[i];
-        if(child.tagName==='H1'){
-            if(currentH1!==null){
+        if(child.tagName==='H2'){
+            if(currentH2!==null){
                 let allHidden=true;
                 if(divsInRange.length===0){allHidden=false;}
                 else{for(let div of divsInRange){if(div.style.display!=='none'){allHidden=false;break;}}}
-                currentH1.style.display=(allHidden&&divsInRange.length>0)?'none':'';
+                currentH2.style.display=(allHidden&&divsInRange.length>0)?'none':'';
             }
-            currentH1=child;
+            currentH2=child;
             divsInRange=[];
         }
         else if(child.classList&&child.classList.contains('pages')){
-            if(currentH1!==null){
+            if(currentH2!==null){
                 let allHidden=true;
                 if(divsInRange.length===0){allHidden=false;}
                 else{for(let div of divsInRange){if(div.style.display!=='none'){allHidden=false;break;}}}
-                currentH1.style.display=(allHidden&&divsInRange.length>0)?'none':'';
+                currentH2.style.display=(allHidden&&divsInRange.length>0)?'none':'';
             }
-            currentH1=null;
+            currentH2=null;
             divsInRange=[];
         }
         else if(child.tagName==='DIV'&&!child.classList.contains('pages')){divsInRange.push(child);}
     }
-    if(currentH1!==null){
+    if(currentH2!==null){
         let allHidden=true;
-        if(divsInRange.length===0){allHidden = false;}
+        if(divsInRange.length===0){allHidden=false;}
         else{for(let div of divsInRange){if(div.style.display!=='none'){allHidden=false;break;}}}
-        currentH1.style.display=(allHidden&&divsInRange.length>0)?'none':'';
+        currentH2.style.display=(allHidden&&divsInRange.length>0)?'none':'';
     }
 }
 //===外部链接===
