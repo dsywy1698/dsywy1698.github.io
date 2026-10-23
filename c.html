@@ -272,6 +272,7 @@ article.timeline{
     left:24px;top:0;bottom:0;width:4px;
     background:hsl(from var(--secondary) h s l / 0.5);
   }
+  >p{display:none;}
   dt{
     display:inline-block;width:auto;
     margin:0 20px;padding:0 32px;
@@ -659,7 +660,7 @@ function release(str){
   return out;
 }
 function processEscape(line){
-  const specials='#-+:{}[]|*^$\\!<>';
+  const specials='#|*$\\<>';
   return line.replace(/\\([\s\S]?)/g,(m,c)=>c===''?'':(specials.includes(c)?c:'<br>'+c));
 }
 function parseInlineA(str){
@@ -667,7 +668,6 @@ function parseInlineA(str){
   str=str.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
   str=str.replace(/\*(.*?)\*/g,'<em>$1</em>');
   str=str.replace(/\$(.*?)\$/g,'<small>$1</small>');
-  str=str.replace(/\^(.*?)\^/g,'<sup>$1</sup>');
   return str;
 }
 function parseInlineB(str){
@@ -695,25 +695,65 @@ function isTableBlock(str){
 }
 function parseTable(str){
   const inline=parseInlineA;
-  let cls='';
-  str=str.replace(/^[^\S\n]*\|::\|[^\S\n]*\n?/,()=>{cls=' class="scroll"';return '';});
-  let rows='';
+  let scroll=false,headRow=false,headCol=false;
+  const mat=[];
+  const cellAbove=(r,c)=>{
+    for(let i=r;i>=0;i--){const cell=mat[i]&&mat[i][c];if(cell&&!cell.skip)return cell;}
+    return null;
+  };
+  const cellLeft=(r,c)=>{
+    for(let i=c-1;i>=0;i--){const cell=mat[r]&&mat[r][i];if(cell&&!cell.skip)return cell;}
+    return null;
+  };
+  let r=0;
   for(let line of str.split('\n')){
     const row=line.trim();
     if(!/^\|.*\|$/.test(row))continue;
+    const raw=row.slice(1,-1).split('|');
+    if(!mat.length&&raw.length===1&&!/[^\S\n]/.test(raw[0])&&/^[rcs]{1,3}$/.test(raw[0])&&new Set(raw[0]).size===raw[0].length){
+      scroll=raw[0].includes('s');
+      headRow=raw[0].includes('r');
+      headCol=raw[0].includes('c');
+      continue;
+    }
+    mat[r]=mat[r]||[];
+    let c=0;
+    for(let cell of raw){
+      while(mat[r][c])c++;
+      let content=cell.trim();
+      if(content===''){
+        const n=cell.length-2;
+        if(n===1){
+          const up=cellAbove(r-1,c);
+          if(up)up.rowspan++;
+          mat[r][c]={skip:true};
+          c++;continue;
+        }
+        if(n>1){
+          const left=cellLeft(r,c);
+          if(left)left.colspan++;
+          mat[r][c]={skip:true};
+          c++;continue;
+        }
+      }
+      mat[r][c]={content,rowspan:1,colspan:1,th:(headRow&&r===0)||(headCol&&c===0)};
+      c++;
+    }
+    r++;
+  }
+  let rows='';
+  for(let i=0;i<mat.length;i++){
     let cells='';
-    for(let cell of row.slice(1,-1).split('|')){
-      const l=cell.match(/^\s*/)[0].length;
-      const r=cell.match(/\s*$/)[0].length;
-      let c=cell.trim(),th=false;
-      if(c.startsWith(':')){th=true;c=c.slice(1).trim();}
-      const at=(l>0?` rowspan="${l+1}"`:'')+(r>0?` colspan="${r+1}"`:'');
-      const tag=th?'th':'td';
-      cells+=`<${tag}${at}>${inline(c)}</${tag}>`;
+    for(let j=0;j<(mat[i]||[]).length;j++){
+      const cell=mat[i][j];
+      if(!cell||cell.skip)continue;
+      const at=(cell.rowspan>1?` rowspan="${cell.rowspan}"`:'')+(cell.colspan>1?` colspan="${cell.colspan}"`:'');
+      const tag=cell.th?'th':'td';
+      cells+=`<${tag}${at}>${inline(cell.content)}</${tag}>`;
     }
     rows+=`<tr>${cells}</tr>`;
   }
-  return `<table${cls}>${rows}</table>`;
+  return `<table${scroll?' class="scroll"':''}>${rows}</table>`;
 }
 function listTag(block){
   const m=block.match(/^ ?([-+]|\d+\.) /);
