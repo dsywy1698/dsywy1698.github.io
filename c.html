@@ -245,10 +245,7 @@ ul,ol,main>dl{
   dt{display:list-item;list-style-type:disc;}
   dd{font-size:0.875rem;opacity:0.8;}
 }
-main svg,img,audio,video{
-  display:block;margin:12px auto;
-  width:400px;max-width:100%;border-radius:16px;
-}
+main svg,img,audio,video{display:block;margin:12px auto;width:100%;max-width:500px;border-radius:16px;}
 article,q,code{
   display:block;margin:12px 0;
   padding:16px;border-radius:16px;
@@ -551,11 +548,11 @@ footer{
 </nav>
 <div id="root">
   <main id="HOME" data-title="首页">
-  <div style="padding:20px;text-align:center"><h1>页面开发中</h1><p>此页面为首页，请上传文案文件后继续</p></div>
+  <div style="padding:20px;text-align:center"><h1>页面开发中</h1><p>此页面为首页，请上传文案后继续</p></div>
   <hr>
   <h2>使用指南</h2>
   <p>页面仍在开发中，部分功能可能变动。<br>旧版浏览器不兼容部分功能。<br>在手机端浏览效果最佳。</p>
-  <p>以下为点击操作：</p>
+  <p>页面中的按钮：</p>
   <ul>
     <li>点击左上角班徽：回到首页</li>
     <li>点击胶囊的左侧：回到页面顶部</li>
@@ -563,10 +560,9 @@ footer{
     <li>点击胶囊圆圈按钮：弹出面板，可设置主题、设置背景、上传文案</li>
     <li>点击胶囊三横线按钮：打开菜单，可打开相应页面</li>
   </ul>
-  <p>清除浏览数据、更换浏览器、重装浏览器后，<strong>文案和个性化数据将被清除</strong>。</p>
-  <p>网站不含任何文案，文案均需要用户上传。如果无法解析上传的文件，页面将会报错。</p>
+  <p>清除浏览数据、更换或重装浏览器后，<strong>数据将被清除</strong>。</p>
+  <p>网站不储存文案，均需要自行上传。文案文件为纯文本格式，可直接阅读。</p>
   <p>只支持同时上传单个文件，新上传的文件将覆盖旧文件。</p>
-  <p>文案文件为纯文本格式，可直接阅读，文本中可能出现一些代码。</p>
   </main>
 </div>
 <footer><h1>页面到底了！</h1></footer>
@@ -583,8 +579,7 @@ function openDB(){
       const db=event.target.result;
       for(const storeName of Object.values(STORES)){
         if(!db.objectStoreNames.contains(storeName)){
-          const store=db.createObjectStore(storeName);
-          if(storeName===STORES.bg){store.keyPath='id';}
+          db.createObjectStore(storeName);
         }
       }
     };
@@ -604,8 +599,10 @@ function withStore(storeName,mode,run){
   }));
 }
 function saveData(storeName,key,value){
-  const data=storeName===STORES.bg?{id:key,data:value}:value;
-  return withStore(storeName,'readwrite',store=>store.put(data,key)).then(()=>{});
+  return withStore(storeName,'readwrite',store=>{
+    const data=storeName===STORES.bg?{id:key,data:value}:value;
+    return store.keyPath===null?store.put(data,key):store.put(data);
+  }).then(()=>{});
 }
 function loadData(storeName,key){
   return withStore(storeName,'readonly',store=>store.get(key)).then(result=>{
@@ -631,25 +628,41 @@ function pickFile(accept,onLoad,asText){
   const inp=document.createElement('input');
   inp.type='file';
   inp.accept=accept;
-  inp.onchange=function(e){
-    const file=e.target.files[0];
-    if(!file)return;
+  inp.style.display='none';
+  const cleanup=()=>{inp.onchange=null;inp.remove();};
+  inp.onchange=function(){
+    const file=this.files&&this.files[0];
+    if(!file){cleanup();return;}
     const reader=new FileReader();
-    reader.onload=function(ev){onLoad(ev.target.result)};
+    reader.onload=function(ev){
+      const result=ev.target.result;
+      cleanup();
+      onLoad(result);
+    };
+    reader.onerror=function(){cleanup();alert('文件读取失败。');};
     asText?reader.readAsText(file,'UTF-8'):reader.readAsDataURL(file);
   };
+  inp.addEventListener('cancel',cleanup);
+  document.body.appendChild(inp);
   inp.click();
 }
 function processText(text){
+  let pages;
+  try{pages=parseDocument(text);}
+  catch(e){alert('文案解析失败。');return;}
   saveData(STORES.text,KEYS.text,text).then(()=>{
-    renderPages(parseDocument(text));
+    renderPages(pages);
     initApp();
-  }).catch(()=>{deleteDB()});
+  }).catch(e=>{deleteDB();});
 }
 function restoreFromDB(){
   return loadData(STORES.text,KEYS.text).then(text=>{
-    if(text)renderPages(parseDocument(text));
-  }).catch(()=>{deleteDB()});
+    if(!text)return;
+    let pages;
+    try{pages=parseDocument(text);}
+    catch(e){return;}
+    renderPages(pages);
+  }).catch(e=>{deleteDB();});
 }
 //===文本解析===
 let STASH=[];
@@ -658,10 +671,6 @@ function release(str){
   let out=str;
   while(out.indexOf('\u0000')!==-1)out=out.replace(/\u0000(\d+)\u0000/g,(m,i)=>STASH[+i]||'');
   return out;
-}
-function processEscape(line){
-  const specials='#|*$\\<>';
-  return line.replace(/\\([\s\S]?)/g,(m,c)=>c===''?'':(specials.includes(c)?c:'<br>'+c));
 }
 function parseInlineA(str){
   str=str.replace(/\[([^\]]*)\]\(([^)]*)\)/g,'<a href="$2">$1</a>');
@@ -755,20 +764,27 @@ function parseTable(str){
   }
   return `<table${scroll?' class="scroll"':''}>${rows}</table>`;
 }
-function listTag(block){
-  const m=block.match(/^ ?([-+]|\d+\.) /);
-  return m&&/^\d/.test(m[1])?'ol':'ul';
-}
 function parseList(str){
   const inline=parseInlineA;
-  const body=str
-    .replace(/(?:^ (?:[-+]|\d+\.) [^\n]*\n?)+/gm,sub=>{
-      const tag=listTag(sub);
-      return hold(`<${tag}>`+sub.replace(/^ (?:[-+]|\d+\.) ([^\n]*)$/gm,(x,c)=>`<li>${inline(c)}</li>`)+`</${tag}>`)+'\n';
-    })
-    .replace(/^([-+]|\d+\.) ([^\n]*)$/gm,(x,marker,c)=>`<li>${inline(c)}</li>`);
-  const tag=listTag(str);
-  return `<${tag}>${body.replace(/\n/g,'')}</${tag}>`;
+  const root={indent:-1,children:[]};
+  const stack=[root];
+  for(const line of str.split('\n')){
+    const m=line.match(/^( *)(-|\d+\.) (.*)$/);
+    if(!m)continue;
+    const indent=m[1].length;
+    const node={indent:indent,ordered:/^\d/.test(m[2]),text:m[3],children:[]};
+    while(stack.length>1&&stack[stack.length-1].indent>=indent)stack.pop();
+    stack[stack.length-1].children.push(node);
+    stack.push(node);
+  }
+  const render=function render(list){
+    if(!list.length)return '';
+    const tag=list[0].ordered?'ol':'ul';
+    return '<'+tag+'>'+list.map(n=>
+      '<li>'+inline(n.text)+render(n.children)+'</li>'
+    ).join('')+'</'+tag+'>';
+  };
+  return render(root.children);
 }
 function parseArticle(str){
   let cls='',body=str;
@@ -828,11 +844,11 @@ function parseDocument(text){
   const parts=text.split(PAGE_HEAD);
   const pages=[];
   for(let k=1;k+2<parts.length;k+=3){
-    const title=processEscape(parts[k].trim());
+    const title=parts[k].trim();
     const params=parts[k+1].split(',');
     const id=(params[0]||'').trim();
     const theme=(params[1]||'').trim();
-    const content=parts[k+2].replace(/^.*$/gm,l=>processEscape(l));
+    const content=parts[k+2].replace(/^.*$/gm,l=>l.replace(/\\/g,'<br>'));
     const html=`<h1>${parseInlineA(title)}</h1>`+(id==='EVENT'?parseContentB(content):parseContentA(content,false));
     pages.push({id,title,theme,html});
   }
@@ -861,13 +877,8 @@ function extractStructure(){
     const structure=[];
     main.querySelectorAll(':scope>h2,:scope>h3,:scope>h4').forEach((el,index)=>{
       el.id=main.id+'-'+(index+1);
-      structure.push({
-        element:el.tagName.toLowerCase(),
-        text:el.textContent,
-        index:index+1,
-        id:el.id
-      });
-      el.addEventListener('click',()=>{showPage(main.id,index+1);});
+      structure.push({element:el.tagName.toLowerCase(),text:el.textContent,index:index+1,id:el.id});
+      el.onclick=()=>{showPage(main.id,index+1);};
     });
     result.push({title:main.dataset.title,id:main.id,structure:structure});
   });
@@ -884,9 +895,11 @@ function handleHashChange(){
   pageData.find(p=>p.id===page)?showPage(page,id):showPage('HOME');
 }
 function showPage(page,id){
-  const updateHash=(hashValue)=>{
+  pauseAllAudio();
+  const updateHash=(hashValue,replace)=>{
     const newHash=`#${hashValue}`;
-    if(window.location.hash!==newHash)history.pushState(null,'',newHash);
+    if(window.location.hash===newHash)return;
+    replace?history.replaceState(null,'',newHash):history.pushState(null,'',newHash);
   };
   document.querySelectorAll('main').forEach(main=>{main.style.display='none';});
   let targetMain=null;
@@ -897,8 +910,8 @@ function showPage(page,id){
     if(element){targetMain=element.closest('main');targetId=fullId;}
   }
   if(!targetMain){targetMain=document.querySelector(`main#${page}`);}
-  if(!targetMain){targetMain=document.querySelector('main#HOME');updateHash('HOME');}
-  else{updateHash((id&&targetId)?`${page}-${id}`:page);}
+  if(!targetMain){targetMain=document.getElementById('HOME');updateHash('HOME',true);}
+  else{updateHash((id&&targetId)?`${page}-${id}`:page,!window.location.hash);}
   targetMain.style.display='block';
   if(id&&targetId){
     const target=document.getElementById(targetId);
@@ -935,6 +948,7 @@ function generateContents(){
   document.querySelectorAll('main').forEach(main=>{
     const container=main.querySelector('.content');
     if(!container)return;
+    container.querySelectorAll(':scope>dl[data-generated]').forEach(dl=>dl.remove());
     const pageId=main.id;
     if(pageId==='HOME')return;
     const pageInfo=pageData.find(p=>p.id===pageId);
@@ -947,6 +961,7 @@ function generateContents(){
     },[]);
     if(htmlParts.length>0){
       const dl=document.createElement('dl');
+      dl.dataset.generated='1';
       dl.innerHTML=htmlParts.join('');
       container.appendChild(dl);
     }
@@ -957,6 +972,7 @@ function generateNavigation(){
   document.querySelectorAll('main').forEach(main=>{
     const pageId=main.id;
     if(pageId==='HOME')return;
+    main.querySelectorAll(':scope>div.pages').forEach(d=>d.remove());
     const dataIndex=pageData.findIndex(p=>p.id===pageId);
     const prevPage=pageData[dataIndex-1];
     const nextPage=pageData[dataIndex+1];
@@ -990,8 +1006,11 @@ document.addEventListener('click',function(e){
 });
 //===个性化===
 async function applyBG(){
-  const data=await loadData(STORES.bg,KEYS.bg);
-  document.body.style.backgroundImage=data?`url(${data})`:'';
+  try{
+    const data=await loadData(STORES.bg,KEYS.bg);
+    document.body.style.backgroundImage=data?`url(${data})`:'';
+  }
+  catch(e){document.body.style.backgroundImage='';}
 }
 let settings={theme:'1',opacity:1,blur:0};
 function applySettings(){
@@ -1021,13 +1040,13 @@ bindRange('r1','opacity');
 bindRange('r2','blur');
 document.getElementById('updatebgBtn').addEventListener('click',()=>{
   pickFile('image/*',async data=>{
-    await saveData(STORES.bg,KEYS.bg,data);
-    await applyBG();
+    try{
+      await saveData(STORES.bg,KEYS.bg,data);
+      await applyBG();
+    }catch(e){alert('背景保存失败。');}
   });
 });
-document.getElementById('updateDataBtn').addEventListener('click',()=>{
-  pickFile('.txt',processText,true);
-});
+document.getElementById('updateDataBtn').addEventListener('click',()=>{pickFile('.txt',processText,true);});
 document.getElementById('deletebgBtn').addEventListener('click',async()=>{
   await deleteData(STORES.bg,KEYS.bg);
   await applyBG();
@@ -1084,25 +1103,52 @@ function filterEventContent(){
   closeH2();
 }
 //===音频控件与链接===
+let audioPlayers=[];
+function pauseAllAudio(){
+  audioPlayers.forEach(p=>{
+    if(!p.audio.paused)p.audio.pause();
+    p.btn.classList.remove('play');
+  });
+}
 function replaceElement(){
+  pauseAllAudio();
+  audioPlayers=[];
   document.querySelectorAll('audio').forEach(audio=>{
+    if(audio.closest('.audio'))return;
     const wrapper=document.createElement('div');
     wrapper.className='audio';
     wrapper.innerHTML=`<button></button><input type="range" min="0" max="100" value="0" step="0.1">`;
     const btn=wrapper.querySelector('button');
     const progress=wrapper.querySelector('input');
+    const parent=audio.parentNode;
+    let seeking=false;
+    const okay=()=>isFinite(audio.duration)&&audio.duration>0;
     btn.addEventListener('click',()=>{
-      if(audio.paused){audio.play();btn.classList.add('play');}
-      else{audio.pause();btn.classList.remove('play');}
+      if(audio.paused){
+        const pr=audio.play();
+        if(pr&&typeof pr.catch==='function')pr.catch(e=>{});
+      }
+      else{audio.pause();}
     });
     audio.addEventListener('timeupdate',()=>{
-      if(audio.duration)progress.value=(audio.currentTime/audio.duration)*100;
+      if(seeking||!okay())return;
+      progress.value=(audio.currentTime/audio.duration)*100;
     });
-    progress.addEventListener('input',()=>{
-      if(audio.duration)audio.currentTime=(progress.value/100)*audio.duration;
+    audio.addEventListener('loadedmetadata',()=>{
+      if(okay())progress.value=(audio.currentTime/audio.duration)*100;
     });
+    progress.addEventListener('input',()=>{seeking=true;});
+    progress.addEventListener('change',()=>{
+      seeking=false;
+      if(okay())audio.currentTime=(progress.value/100)*audio.duration;
+    });
+    audio.addEventListener('play',()=>{btn.classList.add('play')});
+    audio.addEventListener('pause',()=>{btn.classList.remove('play')});
     audio.addEventListener('ended',()=>{btn.classList.remove('play');progress.value=0;});
-    audio.parentNode.replaceChild(wrapper,audio);
+    audio.style.display='none';
+    parent.insertBefore(wrapper,audio);
+    wrapper.appendChild(audio);
+    audioPlayers.push({audio:audio,btn:btn});
   });
   document.querySelectorAll('a[href^="http"]').forEach(link=>{
     link.setAttribute('target','_blank');
