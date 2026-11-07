@@ -10,11 +10,8 @@
   <style>
 @font-face{font-family:'font';src:url('font.ttf') format('truetype');}
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  color:inherit;
-  scrollbar-width:none;
+  box-sizing:border-box; margin:0;padding:0;
+  color:inherit;scrollbar-width:none;
 }
 html{font-size:100%;color-scheme:light dark;}
 html[data-theme="1"]{--primary:#dbba84;--secondary:#b4c587;--seed:1;}
@@ -24,10 +21,10 @@ html[data-theme="4"]{--primary:#b39fc6;--secondary:#ebaddc;--seed:1;}
 html[data-theme="5"]{--primary:#16599c;--secondary:#2e616b;--seed:-1;}
 html[data-theme="6"]{--primary:#694785;--secondary:#753e5a;--seed:-1;}
 body{
-  background-position:50% 0lvh!important;
-  background-repeat:no-repeat!important;
-  background-size:cover!important;
-  background-attachment:fixed!important;
+  background-position:50% 0;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-attachment:fixed;
   background-color:hsl(from var(--primary) h 30 calc(50 + 46 * var(--seed)));
   color:hsl(from var(--primary) h 20 calc(50 - 44 * var(--seed)));
   font-family:'font','微软雅黑',sans-serif;
@@ -47,62 +44,40 @@ svg{letter-spacing:initial;line-height:initial;}
 button,input{border:none;transition:opacity 0.2s;}
 input:focus{outline:none;}
 input::placeholder{color:hsl(from currentColor h 10 l / 0.4);}
-button:hover{opacity:0.8;}
 button:disabled{opacity:0.6;}
+button>svg{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2;}
 
 nav{position:fixed;z-index:3;user-select:none;}
+#goTop{position:fixed;width:100%;height:32px;top:0;}
+#goBottom{position:fixed;width:100%;height:32px;bottom:0;}
 nav>button{
-  position:fixed;left:8px;top:8px;
-  display:block;width:32px;height:32px;
-  border-radius:16px;
-  backdrop-filter:blur(10px);
-  background-image:url("image/9.webp");
-  background-position:50% 50%;
-  background-size:cover;
-  &:hover{opacity:1;}
+  position:fixed;top:6px;width:36px;height:36px;border-radius:18px;
+  color:hsl(from var(--primary) h 20 calc(50 - 10 * var(--seed)));
+  background:hsl(from var(--primary) h s l / 0.6);
+  backdrop-filter:blur(6px);padding:7px;
 }
-#bar{
-  position:fixed;right:8px;top:6px;
-  overflow:hidden;display:flex;
-  width:112px;height:36px;
-  background:hsl(from var(--primary) h s calc(l + 5 * var(--seed)) / 0.6);
-  backdrop-filter:blur(6px);border-radius:18px;
-  &::before{
-    position:absolute;top:0;left:0;
-    z-index:-1;content:'';
-    width:100%;height:36px;
-    background:hsl(from var(--primary) h 60 50 / 0.5);
-    pointer-events:none;opacity:0.2;
-    transform-origin:left center;
-    animation-name:progress;
-    animation-timing-function:linear;
-    animation-timeline:scroll(root block);
-  }
-  >div{width:24px;height:36px;}
-  >button{
-    display:block;padding:6px 4px;
-    width:32px;height:36px;
-    line-height:30px;background:#0000;
-    color:hsl(from var(--primary) h 20 calc(50 - 10 * var(--seed)));
-  }
+@keyframes progress{from{stroke-dashoffset:100;}to{stroke-dashoffset:0;}}
+#goHome{background:none;left:6px;backdrop-filter:none;padding:0;}
+#goHome>svg>path{
+  stroke:var(--primary);animation-timeline:scroll(root block);
+  animation-name:progress;animation-timing-function:linear;
+  stroke-width:4;stroke-dasharray:100;stroke-dashoffset:100;
 }
-@keyframes progress{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+#showSetting{right:6px;}
+#showMenu{right:48px;}
+#hot{right:90px;}
+#hot.active{
+  background:hsl(32 80 calc(50 + 10 * var(--seed)) / 0.5);
+  color:hsl(32 20 calc(50 - 20 * var(--seed)));
+}
 #search{
-  position:fixed;left:44px;top:8px;display:none;gap:4px;
-  button,input{
-    height:32px;border-radius:16px;backdrop-filter:blur(6px);
-    background:hsl(from var(--primary) h s calc(l + 5 * var(--seed)) / 0.6);
-    color:hsl(from var(--primary) h 20 calc(50 - 10 * var(--seed)));
-  }
-  button{width:32px;}
-  button.active{
-    background:hsl(32 80 calc(50 + 10 * var(--seed)) / 0.5);
-    color:hsl(32 20 calc(50 - 20 * var(--seed)));
-  }
-  input{width:80px;padding:0 8px;}
+  position:fixed;top:8px;left:44px;padding:0 8px;
+  width:80px;height:32px;border-radius:16px;backdrop-filter:blur(6px);
+  background:hsl(from var(--primary) h s calc(l + 5 * var(--seed)) / 0.6);
+  color:hsl(from var(--primary) h 20 calc(50 - 10 * var(--seed)));
 }
 #menu,#setting{
-  position:fixed;right:8px;top:48px;
+  position:fixed;right:6px;top:48px;
   background:hsl(from var(--primary) h s calc(l + 5 * var(--seed)) / 0.6);
   border-radius:16px;backdrop-filter:blur(4px);
   opacity:0;pointer-events:none;transform:scale(0.2);
@@ -111,11 +86,11 @@ nav>button{
 }
 #menu{
   display:flex;width:260px;height:320px;
-  transform-origin:calc(100% - 64px) 0%;
+  transform-origin:calc(100% - 56px) 0%;
   >div{overflow-y:auto!important;height:100%;}
   >div>button{
     display:block;width:100%;margin:2px 0;overflow:hidden;
-    text-align:left;text-wrap:nowrap;background:#0000;
+    text-align:left;text-wrap:nowrap;background:none;
   }
   >div:nth-of-type(1){
     width:140px;padding:4px 0;background:#80808010;border-radius:16px;
@@ -131,7 +106,7 @@ nav>button{
 #setting{
   display:flex;flex-direction:column;gap:4px;
   width:200px;height:auto;padding:4px 8px 8px 12px;
-  transform-origin:calc(100% - 32px) 0%;
+  transform-origin:calc(100% - 16px) 0%;
   >div{display:flex;justify-content:space-between;align-items:center;gap:4px;}
   >div>p{width:3em;margin:0 auto 0 0;line-height:32px;}
   input[type="radio"]{
@@ -142,10 +117,7 @@ nav>button{
     width:32px;height:32px;border-radius:16px;
     background:hsl(from var(--primary) h s l / 0.3);
   }
-  button>svg{
-    width:32px;fill:none;stroke:currentColor;stroke-width:1px;
-    stroke-linecap:round;stroke-linejoin:round;
-  }
+  button>svg{stroke-width:1;}
   #deleteDataBtn,#deletebgBtn{
     background:#f003;
     color:hsl(0 70 calc(50 - 40 * var(--seed)));
@@ -191,17 +163,16 @@ main>h2{
 }
 main>h3{font-size:1.5rem;margin:16px 0;letter-spacing:0.1em;}
 main>h4{
-  position:relative;display:inline-block;
-  width:auto;margin:8px 4px 12px 4px;font-size:1.125rem;
+  position:relative;width:fit-content;
+  margin:8px 4px 12px 4px;font-size:1.125rem;
   color:hsl(from var(--theme) h 20 calc(50 - 20 * var(--seed)));
   &::after{
     position:absolute;content:'';
     left:-4px;top:1.5ex;right:-4px;
     height:12px;border-radius:6px;
-    background:hsl(from var(--theme) h 40 calc(50 - 30 * var(--seed)) / 0.2);
+    background:hsl(from var(--theme) h 40 50 / 0.2);
   }
 }
-main>h5{font-size:1.125rem;}
 p{margin:10px 0;}
 a{
   color:hsl(from var(--primary) h 80 calc(50 - 20 * var(--seed)));
@@ -218,11 +189,19 @@ hr{
   margin:25px;padding:1px;border:0;border-radius:1px;
   background:hsl(from var(--theme) h 50 50 / 0.3);
 }
-ul,ol,main>dl{
+ul,ol{
   margin:8px 0 8px 2em;
-  li,dt{color:hsl(from var(--theme) h 30 calc(50 - 30 * var(--seed)))}
-  dt{display:list-item;list-style-type:disc;}
-  dd{font-size:0.875rem;opacity:0.8;}
+  li{color:hsl(from var(--theme) h 30 calc(50 - 30 * var(--seed)))}
+}
+main>dl{
+  margin:8px;
+  dd{font-size:0.875rem;opacity:0.8;margin:4px 8px;}
+  dt{
+    color:hsl(from var(--theme) h 30 calc(50 - 30 * var(--seed)));
+    font-weight:600;
+    text-decoration:underline dotted hsl(from var(--theme) h 30 50 / 0.5);
+    text-underline-offset:4px;
+  }
 }
 main svg,img,audio,video{display:block;margin:12px auto;width:100%;max-width:500px;border-radius:16px;}
 article{
@@ -274,11 +253,10 @@ table{
     background:hsl(from var(--primary) h s l / 0.2);
     color:hsl(from var(--primary) h 30 calc(50 - 30 * var(--seed)));
   }
-}
-table.scroll{
-  min-width:100%;width:auto;
-  mask-image:linear-gradient(to right,#0008,#000 20px,#000 calc(100% - 20px),#0008);
-  td,th{text-wrap:nowrap;}
+  &:has(tr>:nth-child(4)){
+    min-width:100%;width:auto;
+    td,th{text-wrap:nowrap;}
+  }
 }
 article:is(.nick,.warning)>p:first-child{
   margin:0 8px 8px 8px;font-size:1.375rem;
@@ -363,11 +341,11 @@ code{
       display:block;content:'';
       width:8px;height:20px;
       border-radius:3px;
-      background:#0000;
+      background:none;
     }
     &::before{left:0;}
     &::after{right:0;}
-    &.play{background:#0000;}
+    &.play{background:none;}
     &.play::before,&.play::after{background:hsl(from var(--secondary) h s l / 0.7);}
   }
   >input{
@@ -456,11 +434,7 @@ footer{
     &.rz-mid-exam{background:#f80b;}
   }
   p{margin:16px 8px;}
-  p>b{
-    margin-right:4px;padding:4px;border-radius:8px;
-    background:hsl(from var(--primary) h s l / 0.2);
-    color:hsl(from var(--primary) h 20 calc(50 - 20 * var(--seed)));
-  }
+  p>b{margin-right:0.5em;color:hsl(from var(--primary) h 20 calc(50 - 20 * var(--seed)));}
   p>i{
     position:relative;display:block;
     margin-left:8px;padding-left:12px;
@@ -476,18 +450,22 @@ footer{
   </style>
 </head>
 <body>
+<svg style="display:none">
+  <defs>
+    <path id="i-flame" d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"></path>
+    <path id="i-menu" d="M4 6 20 6M4 12 20 12M4 18 20 18"/>
+    <path id="i-gear" d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z M16 12a4 4 0 1 1-8 0 4 4 0 1 1 8 0z"></path>
+  </defs>
+</svg>
 <nav>
-  <button onclick="showPage('HOME')"></button>
-  <div id="bar">
-    <div onclick="window.scrollTo({top:0,behavior:'smooth'})"></div>
-    <button><svg width="24" height="24"><path d="M4 6 20 6M4 12 20 12M4 18 20 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-    <button><svg width="24" height="24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2.5"/></svg></button>
-    <div onclick="window.scrollTo({top:document.documentElement.scrollHeight,behavior:'smooth'})"></div>
+  <div id="goTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"></div>
+  <div id="goBottom" onclick="window.scrollTo({top:document.documentElement.scrollHeight,behavior:'smooth'})"></div>
+  <button id="goHome" onclick="showPage('HOME')"><svg viewBox="0 0 36 36"><path pathLength="100" d="M18 2 A16 16 0 1 1 18 34 A16 16 0 1 1 18 2"/><image href="image/9.webp" x="4" y="4" width="28" height="28"/></svg></button>
+  <input id="search" type="text" placeholder="搜索" maxlength="15" spellcheck="false"/>
   </div>
-  <div id="search">
-    <button>热</button>
-    <input type="text" placeholder="搜索" maxlength="15" spellcheck="false"/>
-  </div>
+  <button id="hot"><svg viewBox="0 0 24 24"><use href="#i-flame"/></svg></button>
+  <button id="showMenu"><svg viewBox="0 0 24 24"><use href="#i-menu"/></svg></button>
+  <button id="showSetting"><svg viewBox="0 0 24 24"><use href="#i-gear"/></svg></svg></button>
   <div id="menu">
     <div></div>
     <div></div>
@@ -521,18 +499,11 @@ footer{
   <div style="padding:20px;text-align:center"><h1>页面开发中</h1><p>此页面为首页，请上传文案后继续</p></div>
   <hr>
   <h2>使用指南</h2>
-  <p>页面仍在开发中，部分功能可能变动。<br>旧版浏览器不兼容部分功能。<br>在手机端浏览效果最佳。</p>
-  <p>页面中的按钮：</p>
-  <ul>
-    <li>点击左上角班徽：回到首页</li>
-    <li>点击胶囊的左侧：回到页面顶部</li>
-    <li>点击胶囊的右侧：回到页面底部</li>
-    <li>点击胶囊圆圈按钮：弹出面板，可设置主题、设置背景、上传文案</li>
-    <li>点击胶囊三横线按钮：打开菜单，可打开相应页面</li>
-  </ul>
-  <p>清除浏览数据、更换或重装浏览器后，<strong>数据将被清除</strong>。</p>
-  <p>网站不储存文案，均需要自行上传。文案文件为纯文本格式，可直接阅读。</p>
-  <p>只支持同时上传单个文件，新上传的文件将覆盖旧文件。</p>
+  <p>页面仍在开发中，部分功能可能变动。</p>
+  <p>旧版浏览器不兼容部分功能，在手机端浏览效果最佳。</p>
+  <p>点击最上方回顶部，点击最下方回底部。</p>
+  <p>网站不储存文案，均需要自行上传。文案为纯文本文件，可直接阅读。</p>
+  <p>只支持上传单个文件，新文件将覆盖旧文件。清除浏览数据、更换或重装浏览器后，<strong>数据将被清除</strong>。</p>
   </main>
 </div>
 <footer><h1>页面到底了！</h1></footer>
@@ -674,7 +645,7 @@ function isTableBlock(str){
 }
 function parseTable(str){
   const inline=parseInlineA;
-  let scroll=false,headRow=false,headCol=false;
+  let headRow=false,headCol=false;
   const mat=[];
   const cellAbove=(r,c)=>{
     for(let i=r;i>=0;i--){const cell=mat[i]&&mat[i][c];if(cell&&!cell.skip)return cell;}
@@ -690,7 +661,6 @@ function parseTable(str){
     if(!/^\|.*\|$/.test(row))continue;
     const raw=row.slice(1,-1).split('|');
     if(!mat.length&&raw.length===1&&!/[^\S\n]/.test(raw[0])&&/^[rcs]{1,3}$/.test(raw[0])&&new Set(raw[0]).size===raw[0].length){
-      scroll=raw[0].includes('s');
       headRow=raw[0].includes('r');
       headCol=raw[0].includes('c');
       continue;
@@ -732,7 +702,7 @@ function parseTable(str){
     }
     rows+=`<tr>${cells}</tr>`;
   }
-  return `<table${scroll?' class="scroll"':''}>${rows}</table>`;
+  return `<table>${rows}</table>`;
 }
 function parseList(str){
   const inline=parseInlineA;
@@ -891,7 +861,8 @@ function showPage(page,id){
   generateMenu();
   document.querySelectorAll('#menu button').forEach(e=>{e.classList.remove('active')});
   document.querySelector(`#menu button[onclick*="${page}"]`)?.classList.add('active');
-  document.querySelector('#search').style.display=page==='EVENT'?'flex':'none';
+  document.querySelector('#hot').style.display=page==='EVENT'?'block':'none'
+  document.querySelector('#search').style.display=page==='EVENT'?'block':'none';;
 }
 //===菜单生成===
 const navAttr=(page,index)=>`onclick="showPage('${page}'${index?`,${index}`:''})"`;
@@ -955,8 +926,8 @@ function generateNavigation(){
   });
 }
 //===开关菜单===
-const menuBtn=document.querySelector('#bar button:first-of-type');
-const settingBtn=document.querySelector('#bar button:last-of-type');
+const menuBtn=document.querySelector('#showMenu');
+const settingBtn=document.querySelector('#showSetting');
 const menu=document.getElementById('menu');
 const setting=document.getElementById('setting');
 document.addEventListener('click',function(e){
@@ -1031,11 +1002,11 @@ document.getElementById('deleteDataBtn').addEventListener('click',function(){
 //===日志页面===
 let hotMode=false;
 let searchText='';
-document.querySelector('#search>input').addEventListener('input',function(){
+document.querySelector('#search').addEventListener('input',function(){
   searchText=this.value;
   filterEventContent();
 });
-document.querySelector('#search>button').addEventListener('click',function(){
+document.querySelector('#hot').addEventListener('click',function(){
   hotMode=!hotMode;
   this.classList.toggle('active');
   filterEventContent();
