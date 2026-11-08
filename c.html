@@ -48,8 +48,20 @@ button:disabled{opacity:0.6;}
 button>svg{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2;}
 
 nav{position:fixed;z-index:3;user-select:none;}
-#goTop{position:fixed;width:100%;height:32px;top:0;}
-#goBottom{position:fixed;width:100%;height:32px;bottom:0;}
+#n-top,#n-bottom{position:fixed;width:100%;height:32px;}
+#n-top{
+  top:0;backdrop-filter:blur(1px);
+  mask-image:linear-gradient(to bottom,#000,#0000);
+}
+nav::before,nav::after{
+  position:fixed;top:0;z-index:-1;display:block;
+  width:100%;content:'';backdrop-filter:blur(1px);
+  background:linear-gradient(to bottom,#0003,#0001,#0000);
+  mask-image:linear-gradient(to bottom,#000,#000,#0000);
+}
+nav::before{height:52px;}
+nav::after{height:60px;}
+#n-bottom{bottom:0;}
 nav>button{
   position:fixed;top:6px;width:36px;height:36px;border-radius:18px;
   color:hsl(from var(--primary) h 20 calc(50 - 10 * var(--seed)));
@@ -57,20 +69,20 @@ nav>button{
   backdrop-filter:blur(6px);padding:7px;
 }
 @keyframes progress{from{stroke-dashoffset:100;}to{stroke-dashoffset:0;}}
-#goHome{background:none;left:6px;backdrop-filter:none;padding:0;}
-#goHome>svg>path{
+#n-home{background:none;left:6px;backdrop-filter:none;padding:0;}
+#n-home>svg>path{
   stroke:var(--primary);animation-timeline:scroll(root block);
   animation-name:progress;animation-timing-function:linear;
   stroke-width:4;stroke-dasharray:100;stroke-dashoffset:100;
 }
-#showSetting{right:6px;}
-#showMenu{right:48px;}
-#hot{right:90px;}
-#hot.active{
+#n-setting{right:6px;}
+#n-menu{right:48px;}
+#n-hot{right:90px;}
+#n-hot.active{
   background:hsl(32 80 calc(50 + 10 * var(--seed)) / 0.5);
   color:hsl(32 20 calc(50 - 20 * var(--seed)));
 }
-#search{
+#n-search{
   position:fixed;top:8px;left:44px;padding:0 8px;
   width:80px;height:32px;border-radius:16px;backdrop-filter:blur(6px);
   background:hsl(from var(--primary) h s calc(l + 5 * var(--seed)) / 0.6);
@@ -114,11 +126,11 @@ nav>button{
     &:checked{opacity:1;outline:2px dotted hsl(from var(--primary) h s l / 0.5);}
   }
   button{
-    width:32px;height:32px;border-radius:16px;
+    width:32px;height:32px;border-radius:16px;padding:7px;
     background:hsl(from var(--primary) h s l / 0.3);
+    >svg{stroke-width:1.5;}
   }
-  button>svg{stroke-width:1;}
-  #deleteDataBtn,#deletebgBtn{
+  #p-delete-data,#p-delete-bg{
     background:#f003;
     color:hsl(0 70 calc(50 - 40 * var(--seed)));
   }
@@ -410,12 +422,12 @@ code{
   display:flex;justify-content:center;flex-wrap:wrap;
   width:100%;padding:20px;gap:16px;user-select:none;
   >button{
-    display:block;width:200px;padding:12px 24px;
+    display:flex;justify-content:space-between;
+    width:200px;padding:12px 24px;line-height:20px;
     background:hsl(from var(--primary) h s l / 0.2);
     color:hsl(from currentColor h s l / 0.8);
     font-size:1.125rem;border-radius:16px;
-    &:last-child{text-align:left;}
-    &:first-child{text-align:right;}
+    >svg{width:20px;height:20px;margin:0;opacity:0.6;}
   }
 }
 footer{
@@ -452,20 +464,23 @@ footer{
 <body>
 <svg style="display:none">
   <defs>
-    <path id="i-flame" d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"></path>
+    <path id="i-flame" d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"/>
     <path id="i-menu" d="M4 6 20 6M4 12 20 12M4 18 20 18"/>
-    <path id="i-gear" d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z M16 12a4 4 0 1 1-8 0 4 4 0 1 1 8 0z"></path>
+    <path id="i-gear" d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z M16 12a4 4 0 1 1-8 0 4 4 0 1 1 8 0z"/>
+    <path id="i-plus" d="M5 12h14M12 5v14"/>
+    <path id="i-trash" d="M10 11v6M14 11v6M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+    <path id="i-right" d="m9 18 6-6-6-6"/>
+    <path id="i-left" d="m15 18-6-6 6-6"/>
   </defs>
 </svg>
 <nav>
-  <div id="goTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"></div>
-  <div id="goBottom" onclick="window.scrollTo({top:document.documentElement.scrollHeight,behavior:'smooth'})"></div>
-  <button id="goHome" onclick="showPage('HOME')"><svg viewBox="0 0 36 36"><path pathLength="100" d="M18 2 A16 16 0 1 1 18 34 A16 16 0 1 1 18 2"/><image href="image/9.webp" x="4" y="4" width="28" height="28"/></svg></button>
-  <input id="search" type="text" placeholder="搜索" maxlength="15" spellcheck="false"/>
-  </div>
-  <button id="hot"><svg viewBox="0 0 24 24"><use href="#i-flame"/></svg></button>
-  <button id="showMenu"><svg viewBox="0 0 24 24"><use href="#i-menu"/></svg></button>
-  <button id="showSetting"><svg viewBox="0 0 24 24"><use href="#i-gear"/></svg></svg></button>
+  <div id="n-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"></div>
+  <div id="n-bottom" onclick="window.scrollTo({top:document.documentElement.scrollHeight,behavior:'smooth'})"></div>
+  <button id="n-home" onclick="showPage('HOME')"><svg viewBox="0 0 36 36"><path pathLength="100" d="M18 2 A16 16 0 1 1 18 34 A16 16 0 1 1 18 2"/><image href="image/9.webp" x="4" y="4" width="28" height="28"/></svg></button>
+  <input id="n-search" type="text" placeholder="搜索" maxlength="15" spellcheck="false"/>
+  <button id="n-hot"><svg viewBox="0 0 24 24"><use href="#i-flame"/></svg></button>
+  <button id="n-menu"><svg viewBox="0 0 24 24"><use href="#i-menu"/></svg></button>
+  <button id="n-setting"><svg viewBox="0 0 24 24"><use href="#i-gear"/></svg></button>
   <div id="menu">
     <div></div>
     <div></div>
@@ -474,24 +489,24 @@ footer{
     <div>
       <p>主题</p>
       <input type="radio" name="t" id="t1" style="background:#dbba84">
-      <input type="radio" name="t" id="t2" style="background:#eb9947">
-      <input type="radio" name="t" id="t3" style="background:#7c9eb2">
+      <input type="radio" name="t" id="t2" style="background:#e9a663">
+      <input type="radio" name="t" id="t3" style="background:#70a4c7">
       <input type="radio" name="t" id="t4" style="background:#b39fc6">
-      <input type="radio" name="t" id="t5" style="background:#1b5998">
-      <input type="radio" name="t" id="t6" style="background:#58357e">
+      <input type="radio" name="t" id="t5" style="background:#16599c">
+      <input type="radio" name="t" id="t6" style="background:#694785">
     </div>
     <div>
       <p>文案</p>
-      <button id="updateDataBtn"><svg viewBox="0 0 24 24"><path d="M12 8 12 16M8 12 16 12"/></svg></button>
-      <button id="deleteDataBtn"><svg viewBox="0 0 24 24"><path d="M8 9 16 9M9 9 10 16 14 16 15 9M11 7 13 7"/></svg></button>
+      <button id="p-update-data"><svg viewBox="0 0 24 24"><use href="#i-plus"/></svg></button>
+      <button id="p-delete-data"><svg viewBox="0 0 24 24"><use href="#i-trash"/></svg></button>
     </div>
     <div>
       <p>背景</p>
-      <button id="updatebgBtn"><svg viewBox="0 0 24 24"><path d="M12 8 12 16M8 12 16 12"/></svg></button>
-      <button id="deletebgBtn"><svg viewBox="0 0 24 24"><path d="M8 9 16 9M9 9 10 16 14 16 15 9M11 7 13 7"/></svg></button>
+      <button id="p-update-bg"><svg viewBox="0 0 24 24"><use href="#i-plus"/></svg></button>
+      <button id="p-delete-bg"><svg viewBox="0 0 24 24"><use href="#i-trash"/></svg></button>
     </div>
-    <div><p>透明</p><input type="range" max="1" min="0" step="0.1" value="1" id="r1"/></div>
-    <div><p>虚化</p><input type="range" max="30" min="0" step="3" value="0" id="r2"/></div>
+    <div><p>透明</p><input type="range" max="1" min="0" step="0.1" value="1" id="p-opacity"/></div>
+    <div><p>虚化</p><input type="range" max="30" min="0" step="3" value="0" id="p-blur"/></div>
   </div>
 </nav>
 <div id="root">
@@ -503,7 +518,7 @@ footer{
   <p>旧版浏览器不兼容部分功能，在手机端浏览效果最佳。</p>
   <p>点击最上方回顶部，点击最下方回底部。</p>
   <p>网站不储存文案，均需要自行上传。文案为纯文本文件，可直接阅读。</p>
-  <p>只支持上传单个文件，新文件将覆盖旧文件。清除浏览数据、更换或重装浏览器后，<strong>数据将被清除</strong>。</p>
+  <p>只支持上传单个文件，新文件将覆盖旧文件。清除浏览数据、更换或重装浏览器后，数据将被清除。</p>
   </main>
 </div>
 <footer><h1>页面到底了！</h1></footer>
@@ -607,7 +622,6 @@ function restoreFromDB(){
 }
 //===文本解析===
 let STASH=[];
-function hold(html){return '\u0000'+(STASH.push(html)-1)+'\u0000';}
 function release(str){
   let out=str;
   while(out.indexOf('\u0000')!==-1)out=out.replace(/\u0000(\d+)\u0000/g,(m,i)=>STASH[+i]||'');
@@ -627,7 +641,7 @@ function parseInlineB(str){
   return str;
 }
 const BLOCK_RE=new RegExp([
-  '(?<article>(?:^ .{2,}\\n?)+)',
+  '(?<article>(?:^ {2}\\S[^\\n]*\\n?)+)',
   '(?<list>(?:^ ?(?:[-+]|\\d+\\.) [^\\n]*\\n?)+)',
   '(?<dl>(?:(?:^(?!(?: |: |> |=|#{1,6} |!\\[|\\||---|- |\\+ |\\d+\\. ))[^\\n]+\\n)?(?:^: [^\\n]*\\n?)+)+)',
   '(?<img>^!\\[([^\\]]*)\\]\\(([^)]*)\\)$)',
@@ -641,11 +655,10 @@ function isTableBlock(str){
   const lines=str.split('\n').filter(l=>l.trim()!=='');
   if(!lines.length)return false;
   const ind=Math.min(...lines.map(l=>l.match(/^ */)[0].length));
-  return lines.every(l=>/^\|.*\|$/.test(l.slice(ind).trim()));
+  return lines.every(l=>/^\|\s.*\s\|$/.test(l.slice(ind).trim()));
 }
 function parseTable(str){
   const inline=parseInlineA;
-  let headRow=false,headCol=false;
   const mat=[];
   const cellAbove=(r,c)=>{
     for(let i=r;i>=0;i--){const cell=mat[i]&&mat[i][c];if(cell&&!cell.skip)return cell;}
@@ -658,34 +671,44 @@ function parseTable(str){
   let r=0;
   for(let line of str.split('\n')){
     const row=line.trim();
-    if(!/^\|.*\|$/.test(row))continue;
-    const raw=row.slice(1,-1).split('|');
-    if(!mat.length&&raw.length===1&&!/[^\S\n]/.test(raw[0])&&/^[rcs]{1,3}$/.test(raw[0])&&new Set(raw[0]).size===raw[0].length){
-      headRow=raw[0].includes('r');
-      headCol=raw[0].includes('c');
-      continue;
+    if(!/^\|\s.*\s\|$/.test(row))continue;
+    const cells=[];
+    let start=null;
+    for(let i=0;i<row.length;i++){
+      if(row[i]!=='|')continue;
+      const prev=i>0?row[i-1]:'';
+      const next=i<row.length-1?row[i+1]:'';
+      const isStart=i===0&&/\s/.test(next);
+      const isEnd=i===row.length-1&&/\s/.test(prev);
+      const isInner=i>0&&i<row.length-1&&/\s/.test(prev)&&/\s/.test(next);
+      if(!(isStart||isEnd||isInner))continue;
+      if(isStart){start=i+1;continue;}
+      if(start!==null)cells.push(row.slice(start,i));
+      start=i+1;
     }
+    if(!cells.length)continue;
     mat[r]=mat[r]||[];
     let c=0;
-    for(let cell of raw){
+    for(let seg of cells){
       while(mat[r][c])c++;
-      let content=cell.trim();
-      if(content===''){
-        const n=cell.length-2;
-        if(n===1){
+      const left=(seg.match(/^ */)||[''])[0].length;
+      const right=(seg.match(/ *$/)||[''])[0].length;
+      if(/^ *$/.test(seg)){
+        const n=seg.length;
+        if(n===2){
           const up=cellAbove(r-1,c);
-          if(up)up.rowspan++;
-          mat[r][c]={skip:true};
-          c++;continue;
+          if(up){up.rowspan++;mat[r][c]={skip:true};c++;continue;}
+        }else if(n>=3){
+          const leftCell=cellLeft(r,c);
+          if(leftCell){leftCell.colspan++;mat[r][c]={skip:true};c++;continue;}
         }
-        if(n>1){
-          const left=cellLeft(r,c);
-          if(left)left.colspan++;
-          mat[r][c]={skip:true};
-          c++;continue;
-        }
+        mat[r][c]={content:'',rowspan:1,colspan:1,th:false};
+        c++;continue;
       }
-      mat[r][c]={content,rowspan:1,colspan:1,th:(headRow&&r===0)||(headCol&&c===0)};
+      let content=seg.trim();
+      if(content==='-')content='';
+      else content=content.replace(/(\S) {3}(?=\S)/g,'$1<br>');
+      mat[r][c]={content,rowspan:1,colspan:1,th:left>=2&&right>=2};
       c++;
     }
     r++;
@@ -703,6 +726,16 @@ function parseTable(str){
     rows+=`<tr>${cells}</tr>`;
   }
   return `<table>${rows}</table>`;
+}
+function parseArticle(str){
+  let cls='',body=str;
+  const inner=body.replace(/^ {2}/gm,'');
+  if(inner.match(/^警告(?:\r?\n[\s\S]*)?$/))cls='warning';
+  if(inner.match(/^外号(?:\r?\n[\s\S]*)?$/))cls='nick';
+  if(inner.match(/^时间轴(?:\r?\n[\s\S]*)?$/))cls='timeline';
+  if(inner.match(/^---$/m))cls='content';
+  let html=isTableBlock(inner)?parseTable(inner):parseContentA(inner,true);
+  return `<article${cls?` class="${cls}"`:''}>${html}</article>`;
 }
 function parseList(str){
   const inline=parseInlineA;
@@ -725,16 +758,6 @@ function parseList(str){
     ).join('')+'</'+tag+'>';
   };
   return render(root.children);
-}
-function parseArticle(str){
-  let cls='',body=str;
-  const inner=body.replace(/^ {1,2}/gm,'');
-  if(inner.match(/^警告(?:\r?\n[\s\S]*)?$/))cls='warning';
-  if(inner.match(/^外号(?:\r?\n[\s\S]*)?$/))cls='nick';
-  if(inner.match(/^时间轴(?:\r?\n[\s\S]*)?$/))cls='timeline';
-  if(inner.match(/^---$/m))cls='content';
-  let html=isTableBlock(inner)?parseTable(inner):parseContentA(inner,true);
-  return `<article${cls?` class="${cls}"`:''}>${html}</article>`;
 }
 function parseContentA(str,insideArticle){
   const inline=parseInlineA;
@@ -788,7 +811,9 @@ function parseDocument(text){
     const params=parts[k+1].split(',');
     const id=(params[0]||'').trim();
     const theme=(params[1]||'').trim();
-    const content=parts[k+2].replace(/^.*$/gm,l=>l.replace(/\\/g,'<br>'));
+    const content=parts[k+2].replace(/^.*$/gm,l=>
+      /^\s*\|.*\|\s*$/.test(l)?l:l.replace(/(\S) {3}(?=\S)/g,'$1<br>')
+    );
     const html=`<h1>${parseInlineA(title)}</h1>`+(id==='EVENT'?parseContentB(content):parseContentA(content,false));
     pages.push({id,title,theme,html});
   }
@@ -861,8 +886,8 @@ function showPage(page,id){
   generateMenu();
   document.querySelectorAll('#menu button').forEach(e=>{e.classList.remove('active')});
   document.querySelector(`#menu button[onclick*="${page}"]`)?.classList.add('active');
-  document.querySelector('#hot').style.display=page==='EVENT'?'block':'none'
-  document.querySelector('#search').style.display=page==='EVENT'?'block':'none';;
+  document.querySelector('#n-hot').style.display=page==='EVENT'?'block':'none'
+  document.querySelector('#n-search').style.display=page==='EVENT'?'block':'none';;
 }
 //===菜单生成===
 const navAttr=(page,index)=>`onclick="showPage('${page}'${index?`,${index}`:''})"`;
@@ -917,8 +942,8 @@ function generateNavigation(){
     const dataIndex=pageData.findIndex(p=>p.id===pageId);
     const prevPage=pageData[dataIndex-1];
     const nextPage=pageData[dataIndex+1];
-    const prevHtml=prevPage?`<button ${navAttr(prevPage.id)}>${prevPage.title}</button>`:'';
-    const nextHtml=nextPage?`<button ${navAttr(nextPage.id)}>${nextPage.title}</button>`:'';
+    const prevHtml=prevPage?`<button ${navAttr(prevPage.id)}><svg viewBox="0 0 24 24"><use href="#i-left"/></svg>${prevPage.title}</button>`:'';
+    const nextHtml=nextPage?`<button ${navAttr(nextPage.id)}>${nextPage.title}<svg viewBox="0 0 24 24"><use href="#i-right"/></svg></button>`:'';
     const pagesDiv=document.createElement('div');
     pagesDiv.className='pages';
     pagesDiv.innerHTML=prevHtml+nextHtml;
@@ -926,8 +951,8 @@ function generateNavigation(){
   });
 }
 //===开关菜单===
-const menuBtn=document.querySelector('#showMenu');
-const settingBtn=document.querySelector('#showSetting');
+const menuBtn=document.querySelector('#n-menu');
+const settingBtn=document.querySelector('#n-setting');
 const menu=document.getElementById('menu');
 const setting=document.getElementById('setting');
 document.addEventListener('click',function(e){
@@ -957,9 +982,9 @@ let settings={theme:'1',opacity:1,blur:0};
 function applySettings(){
   document.documentElement.setAttribute('data-theme',settings.theme);
   document.querySelector(`#t${settings.theme}`).checked=true;
-  document.getElementById('r1').value=settings.opacity;
+  document.getElementById('p-opacity').value=settings.opacity;
   document.documentElement.style.setProperty('--opacity',settings.opacity);
-  document.getElementById('r2').value=settings.blur;
+  document.getElementById('p-blur').value=settings.blur;
   document.documentElement.style.setProperty('--blur',settings.blur+'px');
 }
 function saveSettings(){
@@ -977,9 +1002,9 @@ const bindRange=(id,key)=>{
     saveSettings();
   });
 };
-bindRange('r1','opacity');
-bindRange('r2','blur');
-document.getElementById('updatebgBtn').addEventListener('click',()=>{
+bindRange('p-opacity','opacity');
+bindRange('p-blur','blur');
+document.getElementById('p-update-bg').addEventListener('click',()=>{
   pickFile('image/*',async data=>{
     try{
       await saveData(STORES.bg,KEYS.bg,data);
@@ -987,13 +1012,13 @@ document.getElementById('updatebgBtn').addEventListener('click',()=>{
     }catch(e){alert('背景保存失败。');}
   });
 });
-document.getElementById('updateDataBtn').addEventListener('click',()=>{pickFile('.txt',processText,true);});
-document.getElementById('deletebgBtn').addEventListener('click',async()=>{
+document.getElementById('p-update-data').addEventListener('click',()=>{pickFile('.txt',processText,true);});
+document.getElementById('p-delete-bg').addEventListener('click',async()=>{
   await deleteData(STORES.bg,KEYS.bg);
   await applyBG();
   initApp();
 });
-document.getElementById('deleteDataBtn').addEventListener('click',function(){
+document.getElementById('p-delete-data').addEventListener('click',function(){
   deleteData(STORES.text,KEYS.text).then(()=>{
     document.querySelectorAll('#root>main:not(#HOME)').forEach(m=>m.remove());
     initApp();
@@ -1002,11 +1027,11 @@ document.getElementById('deleteDataBtn').addEventListener('click',function(){
 //===日志页面===
 let hotMode=false;
 let searchText='';
-document.querySelector('#search').addEventListener('input',function(){
+document.querySelector('#n-search').addEventListener('input',function(){
   searchText=this.value;
   filterEventContent();
 });
-document.querySelector('#hot').addEventListener('click',function(){
+document.querySelector('#n-hot').addEventListener('click',function(){
   hotMode=!hotMode;
   this.classList.toggle('active');
   filterEventContent();
