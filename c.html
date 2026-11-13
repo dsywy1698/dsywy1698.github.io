@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-CN" data-theme="1">
 <head>
-  <title>标题</title>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <meta name="robots" content="noindex,nofollow"/>
-  <meta name="referrer" content="no-referrer"/>
-  <link rel="icon" href="image/9.webp"/>
-  <style>
+<title>标题</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="referrer" content="no-referrer"/>
+<link rel="icon" href="image/9.webp"/>
+<style>
 @font-face{font-family:'font';src:url('font.ttf') format('truetype');}
 *{
   box-sizing:border-box; margin:0;padding:0;
@@ -55,8 +55,8 @@ nav{position:fixed;z-index:3;user-select:none;}
 }
 nav::before,nav::after{
   position:fixed;top:0;z-index:-1;display:block;
-  width:100%;content:'';backdrop-filter:blur(1px);
-  background:linear-gradient(to bottom,#0003,#0001,#0000);
+  width:100%;content:'';backdrop-filter:blur(0.7px);
+  background:linear-gradient(to bottom,#0000001b,#00000007,#0000);
   mask-image:linear-gradient(to bottom,#000,#000,#0000);
 }
 nav::before{height:52px;}
@@ -459,7 +459,7 @@ footer{
     }
   }
 }
-  </style>
+</style>
 </head>
 <body>
 <svg style="display:none">
@@ -641,7 +641,7 @@ function parseInlineB(str){
   return str;
 }
 const BLOCK_RE=new RegExp([
-  '(?<article>(?:^ {2}\\S[^\\n]*\\n?)+)',
+  '(?<article>(?:^(?: {2})+\\S[^\\n]*\\n?)+)',
   '(?<list>(?:^ ?(?:[-+]|\\d+\\.) [^\\n]*\\n?)+)',
   '(?<dl>(?:(?:^(?!(?: |: |> |=|#{1,6} |!\\[|\\||---|- |\\+ |\\d+\\. ))[^\\n]+\\n)?(?:^: [^\\n]*\\n?)+)+)',
   '(?<img>^!\\[([^\\]]*)\\]\\(([^)]*)\\)$)',
@@ -728,13 +728,13 @@ function parseTable(str){
   return `<table>${rows}</table>`;
 }
 function parseArticle(str){
-  let cls='',body=str;
-  const inner=body.replace(/^ {2}/gm,'');
+  let cls='';
+  const inner=str.replace(/^ {2}/gm,'');
   if(inner.match(/^警告(?:\r?\n[\s\S]*)?$/))cls='warning';
   if(inner.match(/^外号(?:\r?\n[\s\S]*)?$/))cls='nick';
   if(inner.match(/^时间轴(?:\r?\n[\s\S]*)?$/))cls='timeline';
   if(inner.match(/^---$/m))cls='content';
-  let html=isTableBlock(inner)?parseTable(inner):parseContentA(inner,true);
+  const html=isTableBlock(inner)?parseTable(inner):parseContentA(inner,true);
   return `<article${cls?` class="${cls}"`:''}>${html}</article>`;
 }
 function parseList(str){
