@@ -513,7 +513,6 @@ footer{
   <main id="HOME" data-title="首页">
   <div style="padding:20px;text-align:center"><h1>页面开发中</h1><p>此页面为首页，请上传文案后继续</p></div>
   <hr>
-  <h2>使用指南</h2>
   <p>页面仍在开发中，部分功能可能变动。</p>
   <p>旧版浏览器不兼容部分功能，在手机端浏览效果最佳。</p>
   <p>点击最上方回顶部，点击最下方回底部。</p>
@@ -1012,7 +1011,7 @@ document.getElementById('p-update-bg').addEventListener('click',()=>{
     }catch(e){alert('背景保存失败。');}
   });
 });
-document.getElementById('p-update-data').addEventListener('click',()=>{pickFile('.txt',processText,true);});
+document.getElementById('p-update-data').addEventListener('click',()=>{pickFile('.txt'|'.md',processText,true);});
 document.getElementById('p-delete-bg').addEventListener('click',async()=>{
   await deleteData(STORES.bg,KEYS.bg);
   await applyBG();
