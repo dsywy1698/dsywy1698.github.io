@@ -65,8 +65,8 @@ main{
 let actx=null;
 let state={
   recording:false,playing:false,stop:true,
-  groups:[],groupIndex:0,
-  partTimers:[],partStates:[],partActive:false,
+  groups:[],mainIndex:0,mainDone:false,
+  tracks:[],partActive:false,
   bpm:120,bpmIndex:2,notation:'pitch'
 };
 const BPM=[60,90,120,140,180,240,360,480];
@@ -150,8 +150,8 @@ const playNote=(name,dur)=>{
   const f=getFreq(name);
   if(!f)return;
   const ctx=getCtx(),now=ctx.currentTime;
-  dur=dur||0.35+(1.6-18e-5*(f-27.5));
-  if(dur<0.05)dur=0.05;
+  const decay=0.35+(1.6-18e-5*(f-27.5));
+  dur=dur?(dur<decay?decay:dur+decay):decay;
   const atk=Math.min(0.008,dur*0.2);
   [[1,0.38,0],[1,0.16,1.2],[2,0.22,-0.8],[3,0.1,1.8],[4,0.05,-1.5]].forEach(p=>{
     const osc=ctx.createOscillator(),gain=ctx.createGain();
@@ -341,7 +341,7 @@ const parseSequence=text=>{
   return events;
 };
 const parseScore=text=>{
-  const groups=[];
+  const tracks=[];
   const lines=text.split(/\r?\n/);
   for(let n=0;n<lines.length;n++){
     let line=lines[n],sync=false;
@@ -349,12 +349,21 @@ const parseScore=text=>{
     const clean=removeComments(line);
     if(clean.trim()==='')continue;
     const events=parseSequence(clean);
-    if(!events)return {valid:false,groups:[],error:'第'+(n+1)+'行解析失败'};
+    if(!events)return {valid:false,tracks:[],error:'第'+(n+1)+'行解析失败'};
     if(!events.length)continue;
-    if(sync&&groups.length)groups[groups.length-1].push({events});
-    else groups.push([{events}]);
+    tracks.push({events,sync});
   }
-  return {valid:true,groups};
+  return {valid:true,tracks};
+};
+//主声部为骨架顺序推进，@声部挂在其所属主行上、各自独立成轨
+const buildSeq=tracks=>{
+  const seq=[];
+  tracks.forEach(t=>{
+    if(t.sync&&seq.length)seq[seq.length-1].chords.push(t.events);
+    else if(t.sync)seq.push({main:null,chords:[t.events]});
+    else seq.push({main:t.events,chords:[]});
+  });
+  return seq;
 };
 //播放
 const updateBtn=()=>{
@@ -371,55 +380,58 @@ const updateBtn=()=>{
 };
 const stopParts=()=>{
   state.partActive=false;
-  state.partTimers.forEach(t=>{if(t)clearTimeout(t);});
-  state.partTimers=[];state.partStates=[];
+  state.tracks.forEach(t=>{if(t.timer)clearTimeout(t.timer);});
+  state.tracks=[];
   clearLight();
 };
 const stopPlay=()=>{
   state.playing=false;state.stop=true;
-  state.groupIndex=0;state.groups=[];
+  state.mainIndex=0;state.mainDone=false;state.groups=[];
   stopParts();
   updateBtn();
 };
-const playPart=i=>{
-  if(!state.partActive)return;
-  const s=state.partStates[i];
-  if(!s||s.done)return;
-  if(s.activeKeys)s.activeKeys.forEach(el=>el.classList.remove('active'));
-  s.activeKeys=[];
-  if(s.idx>=s.events.length){
-    s.done=true;
-    if(state.partStates.every(x=>x.done))nextGroup();
+const playTrack=t=>{
+  if(!state.partActive||t.done)return;
+  if(t.activeKeys)t.activeKeys.forEach(el=>el.classList.remove('active'));
+  t.activeKeys=[];
+  if(t.idx>=t.events.length){
+    t.done=true;t.timer=null;
+    if(t.main)nextMain();else finishTail();
     return;
   }
-  const item=s.events[s.idx];
+  const item=t.events[t.idx];
   const sec=getBase()*(item.dur||1);
   if(item.t!=='r'){
-    s.activeKeys=lightKeys(item.names);
+    t.activeKeys=lightKeys(item.names);
     item.names.forEach(n=>playNote(n,sec*0.95));
   }
-  s.idx++;
-  state.partTimers[i]=setTimeout(()=>playPart(i),sec*1000);
+  t.idx++;
+  t.timer=setTimeout(()=>playTrack(t),sec*1000);
 };
-const startGroup=()=>{
-  const group=state.groups[state.groupIndex];
-  if(!group){stopPlay();return;}
-  clearLight();
+const makeTrack=(events,main)=>{
+  const t={events:events||[],idx:0,done:false,activeKeys:[],timer:null,main:!!main};
+  state.tracks.push(t);
+  playTrack(t);
+};
+const startMain=()=>{
+  const item=state.groups[state.mainIndex];
+  if(!item){stopPlay();return;}
   state.partActive=true;
-  state.partTimers=[];state.partStates=[];
-  group.forEach(p=>{
-    state.partStates.push({events:p.events||[],idx:0,done:false,activeKeys:[]});
-    state.partTimers.push(null);
-  });
-  state.partStates.forEach((s,j)=>playPart(j));
+  //@声部与主行同时起奏，但各自跑自己的时间线，不参与主声部的推进判定
+  item.chords.forEach(ev=>makeTrack(ev,false));
+  if(item.main&&item.main.length)makeTrack(item.main,true);
+  else nextMain();
 };
-const nextGroup=()=>{
-  state.partActive=false;
-  state.partTimers.forEach(t=>{if(t)clearTimeout(t);});
-  state.partTimers=[];state.partStates=[];
-  state.groupIndex++;
-  if(state.stop||!state.playing||state.groupIndex>=state.groups.length){stopPlay();return;}
-  startGroup();
+const nextMain=()=>{
+  state.mainIndex++;
+  if(state.stop||!state.playing){stopPlay();return;}
+  if(state.mainIndex>=state.groups.length){state.mainDone=true;finishTail();return;}
+  startMain();
+};
+//主声部走完后，仍在响的@声部自行收尾，不拖住主声部
+const finishTail=()=>{
+  if(!state.playing||!state.mainDone)return;
+  if(state.tracks.every(t=>t.done))stopPlay();
 };
 const togglePlay=()=>{
   let txt=tx.value;
@@ -432,12 +444,13 @@ const togglePlay=()=>{
     return;
   }
   if(txt.trim()==='')return;
-  if(!res.groups.length){alert('内容为空');return;}
+  const seq=buildSeq(res.tracks);
+  if(!seq.length){alert('内容为空');return;}
   getCtx();
   state.playing=true;state.stop=false;
-  state.groups=res.groups;state.groupIndex=0;
+  state.groups=seq;state.mainIndex=0;
   updateBtn();
-  startGroup();
+  startMain();
 };
 //记录
 const toggleRec=()=>{
