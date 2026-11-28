@@ -290,10 +290,6 @@ article.nick{
     line-height:32px;
   }
 }
-article.warning{
-  background:#f003;
-  color:hsl(0 10 calc(50 - 30 * var(--seed)));
-}
 article.content{
   margin:12px 16px;
   background:hsl(from var(--theme) calc(h - 10) 50 l / 0.2);
@@ -729,7 +725,6 @@ function parseTable(str){
 function parseArticle(str){
   let cls='';
   const inner=str.replace(/^ {2}/gm,'');
-  if(inner.match(/^警告(?:\r?\n[\s\S]*)?$/))cls='warning';
   if(inner.match(/^外号(?:\r?\n[\s\S]*)?$/))cls='nick';
   if(inner.match(/^时间轴(?:\r?\n[\s\S]*)?$/))cls='timeline';
   if(inner.match(/^---$/m))cls='content';
